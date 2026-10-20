@@ -1,26 +1,55 @@
-// SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
-//
-// SPDX-License-Identifier: MPL-2.0
-
 import type { PageLoad } from './$types';
-import { postSearch, type SearchResponse } from '$lib/cma/search-api';
+import type { Certification } from '$lib/cma/client';
+import {
+	fetchCerts,
+	fetchClashQuizzes,
+	rowFromClash,
+	searchMeili,
+	searchPageSize,
+	sortRows,
+	userMapFromHits,
+	type BrowseRow
+} from '$lib/quiz/browse';
 
-const emptyResults: SearchResponse = {
-	hits: [],
-	query: '*',
-	limit: 20,
-	offset: 0,
-	processingTimeMs: 0
-};
+export const load = (async ({ fetch, url }) => {
+	const cert = url.searchParams.get('cert') ?? '';
+	const difficulty = url.searchParams.get('difficulty') ?? '';
+	const sort = url.searchParams.get('sort') ?? 'newest';
 
-export const load = (async ({ fetch }) => {
-	try {
-		const results = await postSearch(fetch, { q: '*', sort: ['created_at:desc'] });
-		if (!results) {
-			return { results: emptyResults, exploreSsrFailed: true };
-		}
-		return { results, exploreSsrFailed: false };
-	} catch {
-		return { results: emptyResults, exploreSsrFailed: true };
-	}
+	const [meili, clash, featuredSource, certs] = await Promise.all([
+		searchMeili(fetch, { q: '*', limit: 100, sort: ['created_at:desc'] }),
+		fetchClashQuizzes(fetch, {
+			certification_slug: cert || undefined,
+			difficulty: difficulty || undefined,
+			page: 1,
+			page_size: searchPageSize()
+		}),
+		fetchClashQuizzes(fetch, { page: 1, page_size: 100 }),
+		fetchCerts(fetch)
+	]);
+
+	const users = userMapFromHits(meili.hits);
+	const rows: BrowseRow[] = sortRows(
+		clash.map((item) => rowFromClash(item, certs, users)),
+		sort === 'relevance' ? 'newest' : sort
+	);
+	const featured: BrowseRow[] =
+		cert || difficulty
+			? []
+			: sortRows(
+					featuredSource.map((item) => rowFromClash(item, certs, users)),
+					'plays'
+				).slice(0, 3);
+
+	return {
+		cert,
+		difficulty,
+		sort,
+		certs: certs as Certification[],
+		rows,
+		featured,
+		hasMore: clash.length >= searchPageSize(),
+		page: 1,
+		exploreSsrFailed: rows.length === 0 && featured.length === 0
+	};
 }) satisfies PageLoad;
