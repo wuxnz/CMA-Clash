@@ -134,20 +134,22 @@ async def join_game(sid: str, data: dict):
     try:
         data = JoinGameData(**data)
     except ValidationError as e:
-        await sio.emit("error", room=sid)
+        await sio.emit("join_error", {"code": "invalid_payload"}, room=sid)
         print(e)
         return
     game_data = PlayGame.model_validate_json(redis_res)
     if game_data.started:
-        await sio.emit("game_already_started", room=sid)
+        await sio.emit("join_error", {"code": "game_already_started"}, room=sid)
         return
     # +++ START checking captcha +++
     if game_data.captcha_enabled:
-        captcha_res = check_captcha(data.captcha)
+        captcha_res = await check_captcha(data.captcha)
         if not captcha_res:
+            await sio.emit("join_error", {"code": "captcha_failed"}, room=sid)
             return
     # --- END checking captcha ---
     if await redis.get(f"game_session:{data.game_pin}:players:{data.username}") is not None:
+        await sio.emit("join_error", {"code": "username_taken"}, room=sid)
         await sio.emit("username_already_exists", room=sid)
         return
 

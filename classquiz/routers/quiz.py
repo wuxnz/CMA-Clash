@@ -13,11 +13,12 @@ from random import randint
 import ormar.exceptions
 
 from classquiz.helpers import generate_spreadsheet, handle_import_from_excel
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException, Request, UploadFile, File
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import ValidationError, BaseModel
 
-from classquiz.auth import get_current_user
+from classquiz.auth import get_current_user, get_current_user_optional
+from classquiz.rate_limit import rate_limit_request
 from classquiz.config import redis, settings, storage, meilisearch
 from classquiz.db.models import Quiz, User, PlayGame, GameInLobby, QuizQuestion, QuizQuestionType
 from classquiz.helpers.box_controller import generate_code
@@ -74,25 +75,42 @@ async def get_public_quiz(quiz_id: uuid.UUID):
         return PublicQuizResponse(**quiz.model_dump())
 
 
+ANON_QUIZ_START_LIMIT = 12
+ANON_QUIZ_START_WINDOW_SEC = 3600
+
+
 @router.post("/start/{quiz_id}")
 async def start_quiz(
+    request: Request,
     quiz_id: str,
     game_mode: str,
     captcha_enabled: bool = True,
     custom_field: str | None = None,
     cqcs_enabled: bool = False,
     randomize_answers: bool = False,
-    user: User = Depends(get_current_user),
+    user: User | None = Depends(get_current_user_optional),
 ):
     try:
         quiz_id = uuid.UUID(quiz_id)
     except ValueError:
         raise HTTPException(status_code=400, detail="badly formed quiz id")
-    quiz = await Quiz.objects.get_or_none(id=quiz_id, user_id=user.id)
+    quiz = None
+    if user is not None:
+        quiz = await Quiz.objects.get_or_none(id=quiz_id, user_id=user.id)
     if quiz is None:
         quiz = await Quiz.objects.get_or_none(id=quiz_id, public=True)
-        if quiz is None:
-            return JSONResponse(status_code=404, content={"detail": "quiz not found"})
+    if quiz is None:
+        return JSONResponse(status_code=404, content={"detail": "quiz not found"})
+    if user is None:
+        await rate_limit_request(
+            request,
+            "quiz_start_anon",
+            limit=ANON_QUIZ_START_LIMIT,
+            window_sec=ANON_QUIZ_START_WINDOW_SEC,
+        )
+    host_user_id = user.id if user is not None else (
+        quiz.user_id.id if hasattr(quiz.user_id, "id") else quiz.user_id
+    )
     quiz.plays += 1
     await quiz.update()
     game_pin = randint(100000, 999999)
@@ -121,7 +139,7 @@ async def start_quiz(
         captcha_enabled=captcha_enabled,
         cover_image=quiz.cover_image,
         game_mode=game_mode,
-        user_id=user.id,
+        user_id=host_user_id,
         background_color=quiz.background_color,
         custom_field=custom_field,
         background_image=quiz.background_image,
@@ -131,13 +149,13 @@ async def start_quiz(
         code = generate_code(6)
         await redis.set(f"game:cqc:code:{code}", game_pin, ex=3600)
     await redis.set(f"game:{str(game.game_pin)}", game.model_dump_json(), ex=18000)
-    await redis.set(f"game_pin:{user.id}:{quiz_id}", game_pin, ex=18000)
-
-    await redis.set(
-        f"game_in_lobby:{user.id.hex}",
-        GameInLobby(game_id=game.game_id, game_pin=str(game_pin), quiz_title=quiz.title).model_dump_json(),
-        ex=900,
-    )
+    if user is not None:
+        await redis.set(f"game_pin:{user.id}:{quiz_id}", game_pin, ex=18000)
+        await redis.set(
+            f"game_in_lobby:{user.id.hex}",
+            GameInLobby(game_id=game.game_id, game_pin=str(game_pin), quiz_title=quiz.title).model_dump_json(),
+            ex=900,
+        )
     return {**quiz.model_dump(exclude={"id"}), **game.model_dump(exclude={"questions"}), "cqc_code": code}
 
 

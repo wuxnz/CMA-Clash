@@ -82,9 +82,13 @@ export type BattleLobby = {
 	status: string;
 	game_pin: string | null;
 	game_id: string | null;
+	host_secret?: string | null;
+	guest_player_id?: string | null;
 };
 
-async function clashFetch<T>(path: string, init?: RequestInit): Promise<T | null> {
+export type ClashFetchResult<T> = { ok: true; data: T } | { ok: false; status: number; detail?: string };
+
+async function clashFetchResult<T>(path: string, init?: RequestInit): Promise<ClashFetchResult<T>> {
 	try {
 		const res = await fetch(`/api/v1/clash${path}`, {
 			credentials: 'include',
@@ -94,11 +98,25 @@ async function clashFetch<T>(path: string, init?: RequestInit): Promise<T | null
 				...(init?.headers ?? {})
 			}
 		});
-		if (!res.ok) return null;
-		return (await res.json()) as T;
+		if (!res.ok) {
+			let detail: string | undefined;
+			try {
+				const body = await res.json();
+				detail = typeof body?.detail === 'string' ? body.detail : undefined;
+			} catch {
+				/* ignore */
+			}
+			return { ok: false, status: res.status, detail };
+		}
+		return { ok: true, data: (await res.json()) as T };
 	} catch {
-		return null;
+		return { ok: false, status: 0 };
 	}
+}
+
+async function clashFetch<T>(path: string, init?: RequestInit): Promise<T | null> {
+	const res = await clashFetchResult<T>(path, init);
+	return res.ok ? res.data : null;
 }
 
 export async function fetchGamification(): Promise<GamificationProfile | null> {
@@ -172,21 +190,44 @@ export function formatQuestionTopicTag(
 	return `Live · ${qTotal}`;
 }
 
-export async function createBattle(quizId: string, maxPlayers = 4): Promise<BattleLobby | null> {
-	return clashFetch<BattleLobby>('/battles', {
+export async function createBattle(
+	quizId: string,
+	maxPlayers = 4,
+	displayName?: string
+): Promise<ClashFetchResult<BattleLobby>> {
+	return clashFetchResult<BattleLobby>('/battles', {
 		method: 'POST',
-		body: JSON.stringify({ quiz_id: quizId, max_players: maxPlayers })
+		body: JSON.stringify({
+			quiz_id: quizId,
+			max_players: maxPlayers,
+			display_name: displayName
+		})
 	});
 }
 
-export async function joinBattle(battleCode: string): Promise<BattleLobby | null> {
-	return clashFetch<BattleLobby>(`/battles/${battleCode}/join`, { method: 'POST' });
+export async function joinBattle(
+	battleCode: string,
+	opts?: { displayName?: string; guestPlayerId?: string }
+): Promise<ClashFetchResult<BattleLobby>> {
+	return clashFetchResult<BattleLobby>(`/battles/${battleCode}/join`, {
+		method: 'POST',
+		body: JSON.stringify({
+			display_name: opts?.displayName,
+			guest_player_id: opts?.guestPlayerId
+		})
+	});
 }
 
 export async function getBattle(battleCode: string): Promise<BattleLobby | null> {
 	return clashFetch<BattleLobby>(`/battles/${battleCode}`);
 }
 
-export async function startBattle(battleCode: string): Promise<BattleLobby | null> {
-	return clashFetch<BattleLobby>(`/battles/${battleCode}/start`, { method: 'POST' });
+export async function startBattle(
+	battleCode: string,
+	hostSecret?: string
+): Promise<ClashFetchResult<BattleLobby>> {
+	return clashFetchResult<BattleLobby>(`/battles/${battleCode}/start`, {
+		method: 'POST',
+		body: JSON.stringify({ host_secret: hostSecret ?? null })
+	});
 }

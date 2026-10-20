@@ -64,6 +64,10 @@ class OAuth2PasswordBearerWithCookie(OAuth2):
 
 
 oauth2_scheme = OAuth2PasswordBearerWithCookie(tokenUrl="/api/v1/users/token/cookie")
+oauth2_scheme_optional = OAuth2PasswordBearerWithCookie(
+    tokenUrl="/api/v1/users/token/cookie",
+    auto_error=False,
+)
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
@@ -154,7 +158,9 @@ async def get_admin_user(token: str = Depends(oauth2_scheme)) -> User:
         raise credentials_exception
 
 
-async def get_current_user_optional(token: str = Depends(oauth2_scheme)) -> User | None:
+async def get_current_user_optional(token: str | None = Depends(oauth2_scheme_optional)) -> User | None:
+    if not token:
+        return None
     try:
         payload = jwt.decode(token, settings.secret_key, algorithms=[ALGORITHM])
         email: str = payload.get("sub")

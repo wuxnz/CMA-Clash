@@ -160,3 +160,5 @@ class BattleLobbyState(BaseModel):
     game_pin: str | None = None
     game_id: str | None = None
     certification_slug: str | None = None
+    host_secret: str | None = None
+    host_is_guest: bool = False
