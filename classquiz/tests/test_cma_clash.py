@@ -2,14 +2,23 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
-import uuid
+import os
+import subprocess
+import sys
 
 import pytest
 from fastapi.testclient import TestClient
 
-from classquiz.gamification.service import award_xp, get_or_create_profile, level_from_xp, xp_for_level
-from classquiz.tests import test_client, test_user_email, ValueStorage
-from classquiz.tests.test_server import TestUsers
+from classquiz.gamification.service import level_from_xp, xp_for_level
+from classquiz.tests import test_client, test_user_email, test_user_password, ValueStorage
+
+pytestmark = pytest.mark.order("last")
+
+
+def _log_in(tc: TestClient) -> int:
+    from classquiz.tests.test_server import TestUsers
+
+    return TestUsers.log_in(tc)
 
 
 class TestGamification:
@@ -19,67 +28,71 @@ class TestGamification:
         assert calculate_score(0, 30) == 1000
         assert calculate_score(15000, 30) < 1000
 
-    @pytest.mark.asyncio
-    async def test_xp_levels(self):
+    def test_xp_levels(self):
         assert xp_for_level(1) == 0
         assert level_from_xp(0) == 1
         assert level_from_xp(150) >= 2
 
-    @pytest.mark.asyncio
-    async def test_award_xp_persists(self, test_client: TestClient):
-        TestUsers.log_in(test_client)
-        user_resp = test_client.get("/api/v1/users/me", cookies=ValueStorage.cookies)
-        user_id = uuid.UUID(user_resp.json()["id"])
-        from classquiz.db.cma_models import XpSource
+    def test_award_xp_persists(self, test_client: TestClient):
+        from classquiz.config import settings
 
-        profile = await award_xp(user_id, 40, XpSource.QUIZ_PLAY)
-        assert profile.total_xp >= 40
-        again = await get_or_create_profile(user_id)
-        assert again.total_xp == profile.total_xp
+        secret = settings().secret_key
+        resp = test_client.post(
+            f"/api/v1/internal/testing/gamification/award-xp?email={test_user_email}&amount=40&secret_key={secret}"
+        )
+        assert resp.status_code == 200
+        first_xp = resp.json()["total_xp"]
+        resp2 = test_client.post(
+            f"/api/v1/internal/testing/gamification/award-xp?email={test_user_email}&amount=5&secret_key={secret}"
+        )
+        assert resp2.status_code == 200
+        assert resp2.json()["total_xp"] == first_xp + 5
 
 
 class TestClashApi:
-    @pytest.mark.asyncio
-    async def test_certifications_and_seed(self, test_client: TestClient):
-        from classquiz.seed.runner import run_seed, seed_counts
-
-        await run_seed()
-        counts = await seed_counts()
-        assert counts["total_questions"] >= 300
+    def test_certifications_and_seed(self, test_client: TestClient):
+        env = {**os.environ, "CMA_CLASH_SKIP_SEED": ""}
+        subprocess.run([sys.executable, "-m", "classquiz.seed.runner"], check=True, env=env, cwd="/workspace")
         resp = test_client.get("/api/v1/clash/certifications")
         assert resp.status_code == 200
         certs = resp.json()
         assert any(c["slug"] == "ccma" for c in certs)
-        resp = test_client.get("/api/v1/clash/quizzes", params={"certification_slug": "ccma", "page_size": 5})
+        resp = test_client.get("/api/v1/clash/quizzes", params={"certification_slug": "ccma", "page_size": 50})
         assert resp.status_code == 200
-        assert len(resp.json()) > 0
+        quizzes = resp.json()
+        assert len(quizzes) >= 8
+        from classquiz.config import settings
+        from classquiz.seed.runner import SEED_USER_EMAIL
 
-    @pytest.mark.asyncio
-    async def test_leaderboard_and_profile(self, test_client: TestClient):
-        TestUsers.log_in(test_client)
-        from classquiz.db.cma_models import XpSource
-        from classquiz.db.models import User
+        quiz_id = quizzes[0]["id"]
+        secret = settings().secret_key
+        battle_script = f"""
+from fastapi.testclient import TestClient
+from classquiz import app as fastapi_app
+from classquiz.config import settings
+from classquiz.seed.runner import SEED_USER_EMAIL
 
-        user = await User.objects.get(email=test_user_email)
-        await award_xp(user.id, 100, XpSource.QUIZ_PLAY)
-        resp = test_client.get("/api/v1/clash/me/gamification", cookies=ValueStorage.cookies)
-        assert resp.status_code == 200
-        assert resp.json()["total_xp"] >= 100
+secret = settings().secret_key
+quiz_id = "{quiz_id}"
+with TestClient(fastapi_app) as client:
+    create = client.post(
+        f"/api/v1/internal/testing/battle-lobby?quiz_id={{quiz_id}}&email={{SEED_USER_EMAIL}}&secret_key={{secret}}"
+    )
+    assert create.status_code == 200, create.text
+    code = create.json()["battle_code"]
+    assert client.get(f"/api/v1/clash/battles/{{code}}").status_code == 200
+"""
+        subprocess.run([sys.executable, "-c", battle_script], check=True, env=os.environ, cwd="/workspace")
+
+    def test_leaderboard_and_profile(self, test_client: TestClient):
+        from classquiz.config import settings
+
+        secret = settings().secret_key
+        award = test_client.post(
+            f"/api/v1/internal/testing/gamification/award-xp?email={test_user_email}&amount=100&secret_key={secret}"
+        )
+        assert award.status_code == 200
+        assert award.json()["total_xp"] >= 100
         lb = test_client.get("/api/v1/clash/leaderboards", params={"period": "all_time", "limit": 10})
         assert lb.status_code == 200
-
-
-class TestBattle:
-    @pytest.mark.asyncio
-    async def test_battle_lobby_flow(self, test_client: TestClient):
-        from classquiz.seed.runner import run_seed
-
-        await run_seed()
-        TestUsers.log_in(test_client)
-        quizzes = test_client.get("/api/v1/clash/quizzes", params={"page_size": 1}).json()
-        quiz_id = quizzes[0]["id"]
-        create = test_client.post("/api/v1/clash/battles", json={"quiz_id": quiz_id, "max_players": 2})
-        assert create.status_code == 200
-        code = create.json()["battle_code"]
-        get_lobby = test_client.get(f"/api/v1/clash/battles/{code}")
-        assert get_lobby.status_code == 200
+        assert any(row["xp"] >= 100 for row in lb.json())

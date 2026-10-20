@@ -11,9 +11,11 @@ from collections import defaultdict
 from datetime import datetime
 
 from classquiz.config import settings, meilisearch
+from classquiz.db import database
 from classquiz.db.cma_models import Certification, Topic
 from classquiz.db.models import ABCDQuizAnswer, Quiz, QuizQuestion, QuizQuestionType, User
 from classquiz.helpers import get_meili_data
+from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
 from classquiz.seed.catalog import CERTIFICATIONS
 
@@ -22,6 +24,15 @@ LOGGER = logging.getLogger(__name__)
 SEED_USER_EMAIL = "content@cmaclash.local"
 SEED_USER_USERNAME = "cmaclash_content"
 QUESTIONS_PER_QUIZ = 8
+
+
+def _certification_uuid(topic: Topic) -> uuid.UUID | None:
+    cert = topic.certification
+    if cert is None:
+        return None
+    if isinstance(cert, uuid.UUID):
+        return cert
+    return cert.id
 
 
 def _fact_to_question(fact: dict) -> QuizQuestion:
@@ -51,6 +62,7 @@ async def _ensure_seed_user() -> User:
         verified=True,
         verify_key=None,
         require_password=False,
+        avatar=gzipped_user_avatar(),
     ).save()
 
 
@@ -71,18 +83,22 @@ async def _ensure_certifications_and_topics() -> dict[str, Topic]:
                 topic = await Topic(
                     slug=slug,
                     name=name,
-                    certification=cert.id,
+                    certification=cert,
                     sort_order=order,
                 ).save()
             topic_by_slug[slug] = topic
     return topic_by_slug
 
 
-async def run_seed() -> dict:
+async def run_seed(force: bool = False) -> dict:
     """Idempotent seed: certifications, topics, and public quizzes from question banks."""
-    if os.environ.get("CMA_CLASH_SKIP_SEED", "").lower() in ("1", "true", "yes"):
+    if not force and os.environ.get("CMA_CLASH_SKIP_SEED", "").lower() in ("1", "true", "yes"):
         LOGGER.info("CMA Clash seed skipped (CMA_CLASH_SKIP_SEED)")
         return {"skipped": True}
+    owned_connection = False
+    if not database.is_connected:
+        await database.connect()
+        owned_connection = True
     user = await _ensure_seed_user()
     topic_by_slug = await _ensure_certifications_and_topics()
     facts = load_all_facts()
@@ -96,7 +112,7 @@ async def run_seed() -> dict:
         if topic is None:
             LOGGER.warning("Unknown topic slug in bank: %s", topic_slug)
             continue
-        cert_id = topic.certification
+        cert_id = _certification_uuid(topic)
         chunks = [
             topic_facts[i : i + QUESTIONS_PER_QUIZ] for i in range(0, len(topic_facts), QUESTIONS_PER_QUIZ)
         ]
@@ -110,6 +126,7 @@ async def run_seed() -> dict:
             difficulty = chunk[0].get("difficulty", "intermediate")
             title = f"{topic.name} — Set {idx + 1}"
             quiz = await Quiz(
+                id=uuid.uuid4(),
                 public=True,
                 title=title,
                 description=f"CMA Clash practice: {topic.name}. Exam-style multiple-choice questions with rationales.",
@@ -124,7 +141,7 @@ async def run_seed() -> dict:
             quizzes_created += 1
             questions_seeded += len(chunk)
             try:
-                meilisearch.index(settings.meilisearch_index).add_documents([await get_meili_data(quiz)])
+                meilisearch.index(settings().meilisearch_index).add_documents([await get_meili_data(quiz)])
             except Exception as exc:
                 LOGGER.warning("Meilisearch index update failed for %s: %s", seed_slug, exc)
     summary = {
@@ -134,6 +151,8 @@ async def run_seed() -> dict:
         "topics": len(by_topic),
     }
     LOGGER.info("CMA Clash seed complete: %s", summary)
+    if owned_connection and database.is_connected:
+        await database.disconnect()
     return summary
 
 
@@ -148,6 +167,10 @@ if __name__ == "__main__":
 
 
 async def seed_counts() -> dict:
+    owned_connection = False
+    if not database.is_connected:
+        await database.connect()
+        owned_connection = True
     facts = load_all_facts()
     by_topic: dict[str, int] = defaultdict(int)
     for f in facts:
