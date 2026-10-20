@@ -122,9 +122,12 @@ async def battle_maybe_advance(sio, game_pin: str, game_data: PlayGame) -> None:
     _cancel_battle_timer(game_pin)
     next_q = game_data.current_question + 1
     if next_q >= len(game_data.questions):
-        await sio.emit("battle_finished", room=game_pin)
+        from classquiz.socket_server import generate_final_results
         from classquiz.socket_server.battle_hooks import finalize_battle
 
+        results = await generate_final_results(game_data, game_pin)
+        await sio.emit("final_results", results, room=game_pin)
+        await sio.emit("battle_finished", room=game_pin)
         await finalize_battle(game_pin, game_data)
         return
     refreshed = await PlayGame.get_from_redis(game_pin)
