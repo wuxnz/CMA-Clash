@@ -34,6 +34,7 @@ from classquiz.routers import (
     quiztivity,
     pixabay,
     moderation,
+    clash,
 )
 from classquiz.socket_server import sio
 from classquiz.helpers import meilisearch_init
@@ -63,6 +64,10 @@ async def startup() -> None:
     if not database_.is_connected:
         await database_.connect()
     await meilisearch_init()
+    if settings.auto_seed_content:
+        from classquiz.seed.runner import run_seed
+
+        await run_seed()
 
 
 @app.on_event("shutdown")
@@ -131,4 +136,5 @@ app.include_router(
 )
 app.include_router(avatar.router, tags=["avatar"], prefix="/api/v1/avatar", include_in_schema=True)
 app.include_router(admin.router, tags=["admin"], prefix="/api/v1/admin", include_in_schema=True)
+app.include_router(clash.router, tags=["cma-clash"], prefix="/api/v1/clash", include_in_schema=True)
 app.mount("/", ASGIApp(sio))

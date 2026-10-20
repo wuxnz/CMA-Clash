@@ -33,7 +33,9 @@ services:
       # -- DON'T CHANGE TILL HERE ---
 
       # --- GENERAL CONFIG ---
-      ROOT_ADDRESS: "https://classquiz.de" # CHANGE IT (without a "/" at the end)
+      ROOT_ADDRESS: "https://cmaclash.example" # CHANGE IT (without a "/" at the end)
+      AUTO_SEED_CONTENT: "true"
+      MEILISEARCH_INDEX: "cmaclash"
 
       # --- MAIL CONFIG ---
       MAIL_PORT: "587"
