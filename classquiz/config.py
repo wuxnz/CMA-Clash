@@ -37,6 +37,7 @@ class Settings(BaseSettings):
         env_nested_delimiter="__",
         env_file_encoding="utf-8",
     )
+    # Public site origin (emails, OAuth, QR). Production example: https://cmaclash.com
     root_address: str = "http://127.0.0.1:8000"
     redis: RedisDsn = "redis://localhost:6379/0?decode_responses=True"
     skip_email_verification: bool = False
@@ -69,7 +70,8 @@ class Settings(BaseSettings):
     pixabay_api_key: str | None = None
     mods: list[str] = []
     registration_disabled: bool = False
-    # Comma-separated browser origins allowed for credentialed API access (Vercel + external API).
+    # Comma-separated browser origins for credentialed API access.
+    # Production example: https://cmaclash.com,https://cmaclash.vercel.app
     cors_origins: str = ""
     # Set when the SPA and API are on different sites without a reverse proxy (cookies need SameSite=None).
     cookie_cross_site: bool = False
