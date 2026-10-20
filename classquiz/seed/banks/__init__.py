@@ -11,7 +11,7 @@ from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
 from .cpr_bls import FACTS as CPR_BLS_FACTS
 from .ekg import FACTS as EKG_FACTS
 from .phlebotomy import FACTS as PHLEBOTOMY_FACTS
-from .supplement_generated import FACTS as SUPPLEMENT_FACTS
+from .supplement import FACTS as SUPPLEMENT_FACTS
 
 _ALL_MODULES = (
     CCMA_FACTS,

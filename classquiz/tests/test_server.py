@@ -121,6 +121,7 @@ class TestUsers:
         resp = test_client.put(
             "/api/v1/users/password/update",
             json={"new_password": "new_password", "old_password": test_user_password},
+            cookies=ValueStorage.cookies,
         )
         assert resp.status_code == 200
         resp_code = self.log_in(test_client, password="new_password")
@@ -128,11 +129,13 @@ class TestUsers:
         resp = test_client.put(
             "/api/v1/users/password/update",
             json={"new_password": "asdsdadsasdaasd", "old_password": "asdasdsadadsasdsadasdasd"},
+            cookies=ValueStorage.cookies,
         )
         assert resp.status_code == 400
         resp = test_client.put(
             "/api/v1/users/password/update",
             json={"new_password": test_user_password, "old_password": "new_password"},
+            cookies=ValueStorage.cookies,
         )
         assert resp.status_code == 200
         resp_code = self.log_in(test_client)
