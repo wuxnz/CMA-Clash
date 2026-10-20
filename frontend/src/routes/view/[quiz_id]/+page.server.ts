@@ -4,21 +4,24 @@
 
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { serverApiUrl } from '$lib/server-api';
+import { kitOrBackendFetch } from '$lib/server-api';
 
-export const load: PageServerLoad = async ({ params, parent }) => {
+export const load: PageServerLoad = async ({ params, parent, fetch }) => {
 	const { quiz_id } = params;
-	const res = await fetch(serverApiUrl(`/api/v1/quiz/get/public/${quiz_id}`));
+	const res = await kitOrBackendFetch(fetch, `/api/v1/quiz/get/public/${quiz_id}`);
 	const { email } = await parent();
+	if (!res) {
+		error(503, 'Could not reach the quiz service. Please try again in a moment.');
+	}
 	if (res.status === 404 || res.status === 400) {
 		error(404);
-	} else if (res.status === 200) {
-		const quiz = await res.json();
-		return {
-			quiz,
-			logged_in: Boolean(email)
-		};
-	} else {
-		error(500);
 	}
+	if (!res.ok) {
+		error(503, 'Quiz data is temporarily unavailable. Please try again.');
+	}
+	const quiz = await res.json();
+	return {
+		quiz,
+		logged_in: Boolean(email)
+	};
 };

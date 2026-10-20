@@ -68,12 +68,25 @@ export function serverApiUrl(path: string): string {
 	return `${origin}${path}`;
 }
 
-function backendApiUrl(path: string): string {
+export function backendApiUrl(path: string): string {
 	const origin = getBackendOrigin();
 	if (!path.startsWith('/')) {
 		return `${origin}/${path}`;
 	}
 	return `${origin}${path}`;
+}
+
+const SSR_FETCH_OPTS = { attempts: 4, baseDelayMs: 1500, timeoutMs: 25_000 };
+
+/**
+ * SSR-only fetch to the API origin (Render), with retry/timeout.
+ * Use for server hooks and loaders — not the Vercel deployment URL (may be deployment-protected).
+ */
+export async function ssrBackendFetch(
+	path: string,
+	init?: RequestInit
+): Promise<Response | null> {
+	return fetchWithRetry(backendApiUrl(path), init ?? {}, SSR_FETCH_OPTS);
 }
 
 /** SSR: call Render directly (validated origin, timeout, retry). Browser: same-origin `/api` via SvelteKit `fetch`. */
@@ -89,9 +102,5 @@ export async function kitOrBackendFetch(
 			return null;
 		}
 	}
-	return fetchWithRetry(backendApiUrl(path), init ?? {}, {
-		attempts: 4,
-		baseDelayMs: 1500,
-		timeoutMs: 25_000
-	});
+	return ssrBackendFetch(path, init);
 }

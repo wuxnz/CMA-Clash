@@ -5,7 +5,7 @@
 import type { Handle } from '@sveltejs/kit';
 import * as jose from 'jose';
 import { fetchWithRetry } from '$lib/api/http';
-import { getBackendOrigin, serverApiUrl } from '$lib/server-api';
+import { getBackendOrigin, ssrBackendFetch } from '$lib/server-api';
 
 const PRIVATE_ROBOTS = 'noindex, nofollow';
 
@@ -130,14 +130,14 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 	// if token expires, do a request to get a new one and set the response-cookies on the response
 	if (Date.now() >= jwt.exp * 1000) {
-		const res = await fetch(serverApiUrl('/api/v1/users/check'), {
+		const res = await ssrBackendFetch('/api/v1/users/check', {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
 				Cookie: event.request.headers.get('cookie') || ''
 			}
 		});
-		if (res.ok) {
+		if (res?.ok) {
 			event.locals.email = await res.text();
 			const resp = await resolve(event);
 			try {
