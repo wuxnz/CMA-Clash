@@ -8,6 +8,44 @@ import { serverApiUrl } from '$lib/server-api';
 
 const PRIVATE_ROBOTS = 'noindex, nofollow';
 
+const DEFAULT_BACKEND_ORIGIN = 'https://cmaclash-api.onrender.com';
+
+function getBackendOrigin(): string {
+	const fromEnv = process.env.BACKEND_URL?.replace(/\/$/, '');
+	if (fromEnv) {
+		return fromEnv;
+	}
+	return DEFAULT_BACKEND_ORIGIN;
+}
+
+function shouldProxyApi(pathname: string): boolean {
+	return (
+		pathname.startsWith('/api/') ||
+		pathname === '/api' ||
+		pathname === '/openapi.json' ||
+		pathname === '/rapidoc' ||
+		pathname.startsWith('/rapidoc/')
+	);
+}
+
+async function proxyToBackend(request: Request): Promise<Response> {
+	const url = new URL(request.url);
+	const target = `${getBackendOrigin()}${url.pathname}${url.search}`;
+	const headers = new Headers(request.headers);
+	headers.delete('host');
+
+	const init: RequestInit = {
+		method: request.method,
+		headers,
+		redirect: 'manual'
+	};
+	if (request.method !== 'GET' && request.method !== 'HEAD') {
+		init.body = await request.arrayBuffer();
+	}
+
+	return fetch(target, init);
+}
+
 function withRobotsTag(response: Response): Response {
 	response.headers.set('X-Robots-Tag', PRIVATE_ROBOTS);
 	return response;
@@ -15,6 +53,10 @@ function withRobotsTag(response: Response): Response {
 
 /** @type {import('@sveltejs/kit').Handle} */
 export const handle: Handle = async ({ event, resolve }) => {
+	if (shouldProxyApi(event.url.pathname)) {
+		return withRobotsTag(await proxyToBackend(event.request));
+	}
+
 	const access_token = event.cookies.get('access_token');
 	if (!access_token) {
 		event.locals.email = null;
