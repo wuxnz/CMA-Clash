@@ -49,13 +49,13 @@ example_quiz = {
         {
             "type": "ABCD",
             "question": "Is CMA Clash cool?",
-            "time": 10,
+            "time": "10",
             "answers": [{"right": True, "answer": "Yes"}, {"right": False, "answer": "No"}],
         },
         {
             "type": "ABCD",
             "question": "Do you like open source?",
-            "time": 5,
+            "time": "5",
             "image": None,
             "answers": [
                 {"right": True, "answer": "Yes"},

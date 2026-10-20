@@ -35,7 +35,7 @@ class XpSource(str, Enum):
 
 
 class Certification(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     slug: str = ormar.String(max_length=64, unique=True)
     name: str = ormar.String(max_length=200)
     description: str = ormar.Text(nullable=True)
@@ -49,10 +49,11 @@ class Certification(ormar.Model):
 
 
 class Topic(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     slug: str = ormar.String(max_length=96, unique=True)
     name: str = ormar.String(max_length=200)
-    description: str = ormar.Text(nullable=True)
+    description: str | None = ormar.Text(nullable=True)
+    study_content: list | None = ormar.JSON(nullable=True, default=None)
     certification: Certification | None = ormar.ForeignKey(
         Certification, nullable=True, ondelete=ReferentialAction.CASCADE
     )
@@ -66,7 +67,7 @@ class Topic(ormar.Model):
 
 
 class UserGamificationProfile(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     user_id: uuid.UUID = ormar.UUID(unique=True)
     total_xp: int = ormar.Integer(default=0, minimum=0)
     level: int = ormar.Integer(default=1, minimum=1)
@@ -86,7 +87,7 @@ class UserGamificationProfile(ormar.Model):
 
 
 class UserTopicStat(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     user_id: uuid.UUID = ormar.UUID()
     topic_id: uuid.UUID = ormar.UUID()
     questions_answered: int = ormar.Integer(default=0, minimum=0)
@@ -101,7 +102,7 @@ class UserTopicStat(ormar.Model):
 
 
 class XpEvent(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     user_id: uuid.UUID = ormar.UUID()
     amount: int = ormar.Integer()
     source: str = ormar.String(max_length=32)
@@ -120,7 +121,7 @@ class XpEvent(ormar.Model):
 class LeaderboardScore(ormar.Model):
     """Aggregated XP for leaderboard windows (updated when XP is awarded)."""
 
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     user_id: uuid.UUID = ormar.UUID()
     period: str = ormar.String(max_length=16)
     period_key: str = ormar.String(max_length=32)
@@ -135,7 +136,7 @@ class LeaderboardScore(ormar.Model):
 
 
 class BattleResult(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     quiz_id: uuid.UUID = ormar.UUID()
     game_id: uuid.UUID = ormar.UUID()
     winner_user_id: uuid.UUID | None = ormar.UUID(nullable=True, default=None)

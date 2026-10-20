@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
+from classquiz.seed.study_guides import STUDY_BY_TOPIC
+
 CERTIFICATIONS = [
     {
         "slug": "ccma",
@@ -16,6 +18,9 @@ CERTIFICATIONS = [
             ("ccma-admin", "Administrative Assistance", 5),
             ("ccma-communication", "Communication & Customer Service", 6),
             ("ccma-law-ethics", "Medical Law & Ethics", 7),
+            ("ccma-vaccines", "Vaccine Administration & Storage", 8),
+            ("ccma-hipaa", "HIPAA & Patient Privacy", 9),
+            ("ccma-transmission", "Transmission-Based Precautions", 10),
         ],
     },
     {
@@ -29,6 +34,7 @@ CERTIFICATIONS = [
             ("ekg-intervals", "Intervals & Axis", 3),
             ("ekg-artifacts", "Artifacts & Troubleshooting", 4),
             ("ekg-cardiac-ap", "Cardiac Anatomy & Physiology", 5),
+            ("ekg-acls-basics", "ACLS-Related CPR Metrics", 6),
         ],
     },
     {
@@ -43,6 +49,7 @@ CERTIFICATIONS = [
             ("phleb-handling", "Specimen Handling & Processing", 4),
             ("phleb-complications", "Complications", 5),
             ("phleb-safety", "Safety & Infection Control", 6),
+            ("phleb-who", "WHO Phlebotomy Safety", 7),
         ],
     },
     {
@@ -57,6 +64,7 @@ CERTIFICATIONS = [
             ("cpr-aed", "AED Use", 4),
             ("cpr-choking", "Choking Emergencies", 5),
             ("cpr-chain", "Chain of Survival", 6),
+            ("cpr-red-cross", "First Aid & CPR Resources", 7),
         ],
     },
     {
@@ -72,6 +80,16 @@ CERTIFICATIONS = [
             ("skill-pharm-dosage", "Pharmacology & Dosage Calculation", 5),
             ("skill-specimen-lab", "Specimen Collection & Lab Procedures", 6),
             ("skill-intake", "Patient Intake & Documentation", 7),
+            ("skill-osha-bbp", "OSHA Bloodborne Pathogens", 8),
+            ("skill-med-safety", "Medication Safety", 9),
+            ("skill-poct", "Point-of-Care Testing", 10),
+            ("skill-wound-care", "Wound Care & Dressings", 11),
+            ("skill-life-stages", "Pediatric & Geriatric Considerations", 12),
+            ("skill-emergency-aid", "Emergency & First Aid Basics", 13),
         ],
     },
 ]
+
+
+def study_content_for_topic(slug: str) -> list[dict] | None:
+    return STUDY_BY_TOPIC.get(slug)

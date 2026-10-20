@@ -3,7 +3,11 @@
 # SPDX-License-Identifier: MPL-2.0
 
 
+import asyncio
+
 import pytest
+
+pytestmark = pytest.mark.order("last")
 
 from classquiz.kahoot_importer.import_quiz import _download_image
 
@@ -14,7 +18,6 @@ test_url = (
 )
 
 
-@pytest.mark.asyncio
-async def test_download_image():
-    image = await _download_image(test_url)
+def test_download_image():
+    image = asyncio.run(_download_image(test_url))
     assert image == ddg_robots_txt
