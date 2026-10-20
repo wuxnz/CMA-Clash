@@ -62,7 +62,7 @@ async def set_totp_up(data: RequirePasswordForAction, user: User = Depends(get_c
         raise HTTPException(status_code=401, detail="Invalid")
     user.totp_secret = pyotp.random_base32()
     url = pyotp.totp.TOTP(user.totp_secret).provisioning_uri(
-        name=urllib.parse.quote(user.username), issuer_name="ClassQuiz"
+        name=urllib.parse.quote(user.username), issuer_name="CMA Clash"
     )
     await user.update()
     return SetTotpUpResponse(url=url, secret=user.totp_secret)

@@ -48,14 +48,14 @@ example_quiz = {
     "questions": [
         {
             "type": "ABCD",
-            "question": "Is ClassQuiz cool?",
-            "time": 10,
+            "question": "Is CMA Clash cool?",
+            "time": "10",
             "answers": [{"right": True, "answer": "Yes"}, {"right": False, "answer": "No"}],
         },
         {
             "type": "ABCD",
             "question": "Do you like open source?",
-            "time": 5,
+            "time": "5",
             "image": None,
             "answers": [
                 {"right": True, "answer": "Yes"},
@@ -75,7 +75,7 @@ example_quiztivity = {
             "title": "Some test question",
             "type": "ABCD",
             "data": {
-                "question": "Is ClassQuiz cool?",
+                "question": "Is CMA Clash cool?",
                 "answers": [{"correct": True, "answer": "Yes"}, {"correct": False, "answer": "No"}],
             },
         }

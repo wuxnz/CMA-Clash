@@ -17,6 +17,7 @@ services:
       REDIS_URL: redis://redis:6379/0?decode_responses=True
       API_URL: http://api:80
   api:
+    # Upstream ClassQuiz images (module name classquiz); build locally for full rebrand.
     image: ghcr.io/mawoka-myblock/classquiz-backend:master
     restart: &restart always
     depends_on: &depends
@@ -33,7 +34,9 @@ services:
       # -- DON'T CHANGE TILL HERE ---
 
       # --- GENERAL CONFIG ---
-      ROOT_ADDRESS: "https://classquiz.de" # CHANGE IT (without a "/" at the end)
+      ROOT_ADDRESS: "https://cmaclash.example" # CHANGE IT (without a "/" at the end)
+      AUTO_SEED_CONTENT: "true"
+      MEILISEARCH_INDEX: "cmaclash"
 
       # --- MAIL CONFIG ---
       MAIL_PORT: "587"
@@ -104,6 +107,7 @@ services:
     volumes:
       - meilisearch-data:/data.ms
   worker:
+    # Upstream ClassQuiz images (module name classquiz); build locally for full rebrand.
     image: ghcr.io/mawoka-myblock/classquiz-backend:master
     environment: *env_vars
     depends_on: *depends

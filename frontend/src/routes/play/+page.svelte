@@ -16,7 +16,31 @@ SPDX-License-Identifier: MPL-2.0
 	import KahootResults from '$lib/play/results_kahoot.svelte';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
+	import { formatQuestionTopicTag, resolveQuizContentLabels } from '$lib/cma/client';
 	const { t } = getLocalization();
+
+	let cert_label = $state<string | null>(null);
+	let topic_label = $state<string | null>(null);
+
+	$effect(() => {
+		const title = gameData?.title;
+		if (!title) return;
+		resolveQuizContentLabels(title).then((labels) => {
+			cert_label = labels.certLabel;
+			topic_label = labels.topicLabel;
+		});
+	});
+
+	let topic_tag = $derived(
+		question_index !== '' && gameData
+			? formatQuestionTopicTag(
+					cert_label,
+					topic_label,
+					Number(question_index),
+					gameData.question_count
+				)
+			: ''
+	);
 
 	interface Props {
 		// Exports
@@ -24,7 +48,7 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	let { data }: Props = $props();
-	let { game_pin } = $state(data);
+	let game_pin = $state(data.game_pin ?? '');
 
 	// Types
 	interface GameMeta {
@@ -162,11 +186,11 @@ SPDX-License-Identifier: MPL-2.0
 
 <svelte:window onbeforeunload={confirmUnload} />
 <svelte:head>
-	<title>ClassQuiz - Play</title>
+	<title>CMA-Clash - Play</title>
 </svelte:head>
 <div
-	class="min-h-screen min-w-full"
-	style="background: {bg_color ? bg_color : 'transparent'}"
+	class="min-h-screen min-w-full bg-paper"
+	style={bg_color ? `background: ${bg_color}` : undefined}
 	class:text-black={bg_color}
 >
 	<div>
@@ -183,7 +207,13 @@ SPDX-License-Identifier: MPL-2.0
 		{:else if gameMeta.started && gameData !== undefined && question_index !== '' && answer_results === undefined}
 			{#key unique}
 				<div class="text-black dark:text-black">
-					<Question bind:game_mode bind:question {question_index} {solution} />
+					<Question
+						bind:game_mode
+						bind:question
+						{question_index}
+						{solution}
+						{topic_tag}
+					/>
 				</div>
 			{/key}
 		{:else if gameMeta.started && answer_results !== undefined}
@@ -192,11 +222,13 @@ SPDX-License-Identifier: MPL-2.0
 					<h1 class="text-3xl">{$t('admin_page.no_answers')}</h1>
 				</div>
 			{:else}
-				<div>
-					<h2 class="text-center text-3xl mb-8">{$t('words.result', { count: 2 })}</h2>
-				</div>
 				{#key unique}
-					<KahootResults {username} question_results={answer_results} bind:scores />
+					<KahootResults
+						{username}
+						question_results={answer_results}
+						bind:scores
+						{question}
+					/>
 				{/key}
 			{/if}
 		{/if}

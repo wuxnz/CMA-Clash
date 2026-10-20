@@ -15,7 +15,21 @@ SPDX-License-Identifier: MPL-2.0
 	import type { IGameState } from '$lib/play/admin/game_state.ts';
 
 	const { t } = getLocalization();
-	const default_colors = ['#D6EDC9', '#B07156', '#7F7057', '#4E6E58'];
+	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
+	import { formatQuestionTopicTag, resolveQuizContentLabels } from '$lib/cma/client';
+
+	const default_colors = [...LEDGER_ANSWER_COLORS];
+	let cert_label = $state<string | null>(null);
+	let topic_label = $state<string | null>(null);
+
+	$effect(() => {
+		const title = game_state.quiz_data?.title;
+		if (!title) return;
+		resolveQuizContentLabels(title).then((labels) => {
+			cert_label = labels.certLabel;
+			topic_label = labels.topicLabel;
+		});
+	});
 
 	let final_results_clicked = $state(false);
 	let timer_interval: NodeJS.Timeout;
@@ -119,6 +133,13 @@ SPDX-License-Identifier: MPL-2.0
 				timer_res={game_state.timer_res}
 				answer_count={game_state.answer_count}
 				{default_colors}
+				game_pin={game_state.quiz_data?.game_pin}
+				topic_tag={formatQuestionTopicTag(
+					cert_label,
+					topic_label,
+					game_state.selected_question,
+					game_state.quiz_data?.questions?.length
+				)}
 			/>
 		{/if}
 	{/if}

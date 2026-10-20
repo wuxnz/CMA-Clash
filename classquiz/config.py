@@ -53,7 +53,9 @@ class Settings(BaseSettings):
     cache_expiry: int = 86400
     sentry_dsn: str | None = None
     meilisearch_url: str = "http://127.0.0.1:7700"
-    meilisearch_index: str = "classquiz"
+    meilisearch_index: str = "cmaclash"
+    app_name: str = "CMA Clash"
+    auto_seed_content: bool = False
     google_client_id: str | None = None
     google_client_secret: str | None = None
     github_client_id: str | None = None

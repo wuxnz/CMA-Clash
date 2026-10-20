@@ -76,7 +76,7 @@ async def export_result(result_id: UUID, user: User = Depends(get_current_user))
         iter_file(),
         media_type="application/vnd.ms-excel",
         headers={
-            "Content-Disposition": f"attachment;filename=ClassQuiz-{urllib.parse.quote(quiz.title)}-{datetime.strftime('%m-%d-%Y')}.xlsx"
+            "Content-Disposition": f"attachment;filename=CMA-Clash-{urllib.parse.quote(quiz.title)}-{datetime.strftime('%m-%d-%Y')}.xlsx"
             # noqa: E501
         },
     )

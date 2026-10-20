@@ -4,9 +4,9 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 -->
 
-# .cqa - ClassQuizArchive
+# .cqa - CMA Clash archive
 
-A file-format for ClassQuiz-quizzes which stores images and the quiz in one compact file
+A file format for CMA Clash quizzes (legacy ClassQuiz `.cqa` compatible) which stores images and the quiz in one compact file
 
 ## How the file format works
 

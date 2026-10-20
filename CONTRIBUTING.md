@@ -3,10 +3,10 @@ SPDX-FileCopyrightText: 2026 Marlon W (Mawoka)
 
 SPDX-License-Identifier: MPL-2.0
 -->
-# Contribute to ClassQuiz
+# Contribute to CMA Clash
 
 For the development-setup, please check out the
-docs: [https://classquiz.de/docs/develop](https://classquiz.de/docs/develop)
+docs: [/docs/develop](/docs/develop) (when running the frontend locally)
 
 ## Coding guidelines
 - _Try_ to use type hints (python) and TypeScript everwhere possible (for python `foo() -> dict` is better than nothing)
@@ -36,8 +36,7 @@ Just do so.
 
 ## Found a bug
 
-If it is a security-related bug, please contact me at [mawoka.eu/contact](https://mawoka.eu/contact). If not, just open
-an issue here on GitHub.
+If it is a security-related bug, please open a [private security advisory](https://github.com/wuxnz/CMA-Clash/security/advisories/new) on GitHub. Otherwise, open a public issue.
 
 
 ## Want to translate?

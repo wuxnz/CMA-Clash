@@ -3,9 +3,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 
+import asyncio
 import io
 
 import pytest
+
+pytestmark = pytest.mark.order("last")
 
 from classquiz.config import settings
 from classquiz.storage import Storage
@@ -46,13 +49,16 @@ async def storage_tester(storage: Storage):
     assert res is None
 
 
-@pytest.mark.asyncio
-async def test_local():
+def test_local():
     storage: Storage = Storage(backend="local", storage_path=settings.storage_path)
-    await storage_tester(storage)
+    asyncio.run(storage_tester(storage))
 
 
 @pytest.mark.asyncio
+@pytest.mark.skipif(
+    __import__("os").environ.get("RUN_MINIO_TESTS", "").lower() not in ("1", "true", "yes"),
+    reason="Set RUN_MINIO_TESTS=1 to run against play.min.io",
+)
 async def test_minio():
     storage: Storage = Storage(
         backend="s3",

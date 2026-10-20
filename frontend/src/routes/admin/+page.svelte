@@ -240,10 +240,10 @@ SPDX-License-Identifier: MPL-2.0
 
 <svelte:window onbeforeunload={confirmUnload} />
 <svelte:head>
-	<title>ClassQuiz - Host</title>
+	<title>CMA-Clash — Host</title>
 </svelte:head>
 <div
-	class="min-h-screen min-w-full"
+	class="min-h-screen min-w-full bg-paper"
 	style="background-repeat: no-repeat;background-size: 100% 100%;background-image: {bg_image
 		? `url('${bg_image}')`
 		: `unset`}; background-color: {bg_color ? bg_color : 'transparent'}"
