@@ -67,11 +67,19 @@ const browser = await chromium.launch();
 await mkdir(OUT, { recursive: true });
 
 {
-	const homeCtx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
-	await proxyApi(homeCtx);
-	const homePage = await homeCtx.newPage();
+	const homeDesktop = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+	await proxyApi(homeDesktop);
+	const homePage = await homeDesktop.newPage();
 	await shot(homePage, '/', 'home-1280', 'Clash.');
-	await homeCtx.close();
+	await homeDesktop.close();
+}
+
+{
+	const homeMobile = await browser.newContext({ viewport: { width: 375, height: 844 } });
+	await proxyApi(homeMobile);
+	const homePage = await homeMobile.newPage();
+	await shot(homePage, '/', 'home-375', 'Clash.');
+	await homeMobile.close();
 }
 
 for (const vp of VIEWPORTS) {
