@@ -34,7 +34,7 @@ Use the repo-root [`render.yaml`](../render.yaml) (**New → Blueprint** in Rend
 | `cmaclash-api` | Docker web service | Root `Dockerfile`, `render_start.sh` (migrations + seed + `uvicorn --proxy-headers`) |
 | `cmaclash-db` | PostgreSQL | **Free DB expires after 90 days** (Render policy) |
 | `cmaclash-redis` | Key Value (Redis) | Sessions / cache |
-| `cmaclash-meilisearch` | Docker image web service | **Ephemeral** on free tier; index rebuilt from Postgres via `meilisearch_init` when API starts |
+| `cmaclash-meilisearch` | Docker image web service | `MEILI_MASTER_KEY` auto-generated; API uses `MEILISEARCH_URL` (`RENDER_EXTERNAL_URL`) + `MEILISEARCH_API_KEY`. **Ephemeral** on free tier; index rebuilt from Postgres when API starts |
 
 ### Free-tier limits that affect you
 
@@ -52,7 +52,11 @@ Render prompts for these (`sync: false`):
 | `ROOT_ADDRESS` | Your **Vercel** site URL, e.g. `https://cma-clash.vercel.app` (no trailing slash). Used for emails, OAuth callbacks, QR links. |
 | `CORS_ORIGINS` | Same URL as `ROOT_ADDRESS`, or comma-separated list if you use preview domains too, e.g. `https://cma-clash.vercel.app` |
 
-Render auto-generates **`SECRET_KEY`**. Other important defaults are set in the blueprint:
+Render auto-generates **`SECRET_KEY`** and **`MEILI_MASTER_KEY`** (on the Meilisearch service; copied to the API as `MEILISEARCH_API_KEY`). Redis uses **`ipAllowList: []`** so only private-network access is allowed.
+
+`DB_URL` uses Render’s `postgresql://…` connection string (compatible with the app’s `databases` + SQLAlchemy setup).
+
+Other important defaults are set in the blueprint:
 
 - `SKIP_EMAIL_VERIFICATION=true`
 - `COOKIE_CROSS_SITE=true` (required for Vercel ↔ Render cookies)

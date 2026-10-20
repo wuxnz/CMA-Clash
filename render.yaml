@@ -5,16 +5,17 @@
 databases:
   - name: cmaclash-db
     plan: free
+    region: oregon
     databaseName: classquiz
 
 services:
-  # Meilisearch (free web service; index is rebuilt from Postgres on API boot when out of sync).
-  # Ephemeral disk: search may be empty after cold start until the API finishes meilisearch_init.
-  # For a persistent index, switch to a paid private service + disk (see docs/DEPLOY_VERCEL.md).
+  # Meilisearch (free web service; index rebuilt from Postgres on API boot when out of sync).
+  # MEILI_MASTER_KEY is required when MEILI_ENV=production (min 16 bytes).
   - type: web
     name: cmaclash-meilisearch
     runtime: image
     plan: free
+    region: oregon
     healthCheckPath: /health
     image:
       url: docker.io/getmeili/meilisearch:v1.7
@@ -25,19 +26,22 @@ services:
         value: production
       - key: MEILI_HTTP_ADDR
         value: 0.0.0.0:10000
+      - key: MEILI_MASTER_KEY
+        generateValue: true
 
   - type: keyvalue
     name: cmaclash-redis
     plan: free
+    region: oregon
     maxmemoryPolicy: allkeys-lru
-    ipAllowList:
-      - source: 0.0.0.0/0
-        description: all (required field; traffic uses Render private network between services)
+    # Empty list = private-network only (no public Redis). API reaches it via connectionString.
+    ipAllowList: []
 
   - type: web
     name: cmaclash-api
     runtime: docker
     plan: free
+    region: oregon
     dockerfilePath: ./Dockerfile
     healthCheckPath: /api/v1/health
     dockerCommand: ./render_start.sh
@@ -53,11 +57,16 @@ services:
           type: keyvalue
           name: cmaclash-redis
           property: connectionString
-      - key: MEILI_HOSTPORT
+      - key: MEILISEARCH_URL
         fromService:
           type: web
           name: cmaclash-meilisearch
-          property: hostport
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: MEILISEARCH_API_KEY
+        fromService:
+          type: web
+          name: cmaclash-meilisearch
+          envVarKey: MEILI_MASTER_KEY
       - key: MEILISEARCH_INDEX
         value: cmaclash
       - key: AUTO_SEED_CONTENT

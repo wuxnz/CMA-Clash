@@ -53,6 +53,7 @@ class Settings(BaseSettings):
     cache_expiry: int = 86400
     sentry_dsn: str | None = None
     meilisearch_url: str = "http://127.0.0.1:7700"
+    meilisearch_api_key: str | None = None
     meilisearch_index: str = "cmaclash"
     app_name: str = "CMA Clash"
     auto_seed_content: bool = False
@@ -112,7 +113,8 @@ storage: Storage = Storage(
     base_url=settings().s3_base_url,
 )
 
-meilisearch = MeiliSearch.Client(settings().meilisearch_url)
+_meili_settings = settings()
+meilisearch = MeiliSearch.Client(_meili_settings.meilisearch_url, _meili_settings.meilisearch_api_key)
 
 ALLOWED_TAGS_FOR_QUIZ = ["b", "strong", "i", "em", "small", "mark", "del", "sub", "sup"]
 
