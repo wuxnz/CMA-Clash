@@ -60,7 +60,9 @@ SPDX-License-Identifier: MPL-2.0
 				}
 			});
 			if (res.status === 200) {
-				responseData.data = '200';
+				const payload = await res.json();
+				window.location.href = `/account/check-email?email=${encodeURIComponent(payload.email ?? values.email)}`;
+				return;
 			} else if (res.status === 409) {
 				responseData.data = '409';
 			} else if (res.status === 400) {

@@ -62,10 +62,22 @@ Render auto-generates **`SECRET_KEY`** and **`MEILI_MASTER_KEY`** (on the Meilis
 
 Other important defaults are set in the blueprint:
 
-- `SKIP_EMAIL_VERIFICATION=true`
+- `SKIP_EMAIL_VERIFICATION=true` (set to `false` once email delivery is configured)
 - `COOKIE_CROSS_SITE=true` (required for Vercel ↔ Render cookies)
 - `AUTO_SEED_CONTENT=true`
 - `STORAGE_BACKEND=local`
+
+### Email verification (optional until you disable `SKIP_EMAIL_VERIFICATION`)
+
+Verification links point at `${ROOT_ADDRESS}/account/verify?token=…` (48h JWT). Configure **one** transport:
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Send via [Resend](https://resend.com) HTTP API (recommended on Render) |
+| `MAIL_FROM` | From header, e.g. `CMA Clash <noreply@yourdomain.com>` (required for Resend verified domain) |
+| `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ADDRESS` | Classic SMTP (also used as fallback `From` if `MAIL_FROM` is unset) |
+
+If no transport is configured, the API **logs** the verification URL instead of crashing (fine for dev). Set `SKIP_EMAIL_VERIFICATION=false` only after `ROOT_ADDRESS` and mail env vars are correct.
 
 ### After Render deploys
 

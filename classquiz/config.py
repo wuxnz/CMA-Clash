@@ -43,11 +43,13 @@ class Settings(BaseSettings):
     db_url: PostgresDsn | str = "postgresql://postgres:mysecretpassword@localhost:5432/classquiz"
     hcaptcha_key: str | None = None
     recaptcha_key: str | None = None
-    mail_address: str
-    mail_password: str
-    mail_username: str
-    mail_server: str
-    mail_port: int
+    mail_address: str | None = None
+    mail_password: str | None = None
+    mail_username: str | None = None
+    mail_server: str | None = None
+    mail_port: int = 587
+    mail_from: str | None = None
+    resend_api_key: str | None = None
     secret_key: str
     access_token_expire_minutes: int = 30
     cache_expiry: int = 86400

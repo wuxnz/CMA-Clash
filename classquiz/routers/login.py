@@ -110,9 +110,18 @@ async def start_login(data: StartLoginInput):
     step_2: set[StartLoginResponseTypes] = set()
     webauthn_data = None
     webauthn_challenge = None
-    if user is None or not user.verified:
+    if user is None:
         step_1.add(StartLoginResponseTypes.PASSWORD)
         return StartLoginResponse(step_1=step_1, step_2=step_2, session_id=os.urandom(16).hex(), webauthn_data=None)
+    if not user.verified:
+        raise HTTPException(
+            status_code=403,
+            detail={
+                "code": "email_not_verified",
+                "message": "Please verify your email before signing in.",
+                "email": user.email,
+            },
+        )
     if user.password is not None:
         step_1.add(StartLoginResponseTypes.PASSWORD)
     if len(user.fidocredentialss) > 0:
@@ -171,6 +180,15 @@ async def step_1_endpoint(session_id: str, data: StepInput, request: Request, re
         print("unknown step")
         raise HTTPException(401)
     user = await User.objects.select_related("fidocredentialss").get_or_none(id=uuid.UUID(login_session.user_id))
+    if user is not None and not user.verified:
+        raise HTTPException(
+            status_code=403,
+            detail={
+                "code": "email_not_verified",
+                "message": "Please verify your email before signing in.",
+                "email": user.email,
+            },
+        )
     if data.auth_type == StartLoginResponseTypes.PASSWORD:
         if verify_password(data.data, user.password):
             if len(login_session.step_2) == 0 or (step_id == 2 and login_session.step1_success is True):

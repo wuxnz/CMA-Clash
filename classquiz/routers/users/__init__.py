@@ -31,6 +31,7 @@ import bleach
 from pydantic import BaseModel
 from classquiz.db.models import User, UserSession, UpdatePassword, Quiz, ApiKey
 from classquiz.emails import send_register_email, send_forgotten_password_email
+from classquiz.emails.verification import VerifyTokenError, decode_email_verify_token
 from classquiz.routers.users import webauthn, twofa
 
 settings = settings()
@@ -111,11 +112,71 @@ async def check_token(user: User = Depends(get_current_user)):
     return {"email": user.email}
 
 
+class VerifyEmailBody(BaseModel):
+    token: str
+
+
+class ResendVerificationBody(BaseModel):
+    email: str
+
+
+RESEND_VERIFY_LIMIT = 3
+RESEND_VERIFY_WINDOW_SEC = 3600
+
+
+async def _rate_limit_resend(email: str) -> None:
+    key = f"resend_verify:{email.strip().lower()}"
+    count = await redis.incr(key)
+    if count == 1:
+        await redis.expire(key, RESEND_VERIFY_WINDOW_SEC)
+    if count > RESEND_VERIFY_LIMIT:
+        raise HTTPException(
+            status_code=429,
+            detail={"code": "resend_rate_limited", "message": "Too many verification emails. Try again later."},
+        )
+
+
+@router.post("/verify-email")
+async def verify_email_api(body: VerifyEmailBody):
+    user_id, token_error = decode_email_verify_token(body.token)
+    if token_error == VerifyTokenError.EXPIRED:
+        raise HTTPException(status_code=400, detail={"code": "expired_token", "message": "Verification link expired."})
+    if token_error == VerifyTokenError.INVALID or user_id is None:
+        raise HTTPException(status_code=400, detail={"code": "invalid_token", "message": "Invalid verification link."})
+    user = await User.objects.get_or_none(id=user_id)
+    if user is None:
+        raise HTTPException(status_code=400, detail={"code": "invalid_token", "message": "Invalid verification link."})
+    if user.verified:
+        return {"status": "already_verified"}
+    user.verified = True
+    user.verify_key = None
+    await user.update()
+    return {"status": "verified"}
+
+
+@router.post("/resend-verification")
+async def resend_verification(body: ResendVerificationBody, background_task: BackgroundTasks):
+    if settings.skip_email_verification:
+        return {"status": "skipped"}
+    try:
+        validate_email(body.email)
+    except EmailNotValidError:
+        raise HTTPException(status_code=400, detail={"code": "invalid_email", "message": "Invalid email address."})
+    await _rate_limit_resend(body.email)
+    user = await User.objects.get_or_none(email=body.email.strip())
+    if user is None or user.verified:
+        return {"status": "sent"}
+    background_task.add_task(send_register_email, user)
+    return {"status": "sent"}
+
+
 @router.get("/verify/{verify_key}")
 async def verify_user(verify_key: str):
     user = await User.objects.filter(verify_key=verify_key).get_or_none()
     if user is None:
-        raise HTTPException(status_code=404, detail="User not found")
+        return RedirectResponse(url="/account/verify?error=invalid")
+    if user.verified:
+        return RedirectResponse(url="/account/verify?status=already_verified")
     user.verified = True
     user.verify_key = None
     await user.update()
