@@ -328,9 +328,15 @@ class TestQuiz:
         resp = test_client.get("/api/v1/search/?q=*")
         assert resp.status_code == 200
         assert len(resp.json()["hits"]) > 0
+        resp = test_client.get("/api/v1/search?q=*")
+        assert resp.status_code == 200
+        assert len(resp.json()["hits"]) > 0
 
     def test_search_post(self, test_client: TestClient):  # noqa : F811
         resp = test_client.post("/api/v1/search/", json={"q": "*"})
+        assert resp.status_code == 200
+        assert len(resp.json()["hits"]) > 0
+        resp = test_client.post("/api/v1/search", json={"q": "*"})
         assert resp.status_code == 200
         assert len(resp.json()["hits"]) > 0
 

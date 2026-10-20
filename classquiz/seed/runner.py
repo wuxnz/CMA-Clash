@@ -15,7 +15,7 @@ from classquiz.db import database
 from classquiz.db.cma_models import Certification, Topic
 from classquiz.db.models import ABCDQuizAnswer, Quiz, QuizQuestion, QuizQuestionType, User
 from classquiz.auth import get_password_hash
-from classquiz.helpers import get_meili_data
+from classquiz.helpers import get_meili_data, meilisearch_init
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
 from classquiz.seed.catalog import CERTIFICATIONS, study_content_for_topic
@@ -183,6 +183,10 @@ async def run_seed(force: bool = False) -> dict:
         "topics": len(by_topic),
     }
     LOGGER.info("CMA Clash seed complete: %s", summary)
+    try:
+        await meilisearch_init()
+    except Exception as exc:
+        LOGGER.warning("Meilisearch re-sync after seed failed: %s", exc)
     if owned_connection and database.is_connected:
         await database.disconnect()
     return summary

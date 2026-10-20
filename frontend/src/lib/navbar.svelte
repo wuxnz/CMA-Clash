@@ -46,6 +46,7 @@ SPDX-License-Identifier: MPL-2.0
 			<a class="btn-nav border border-gold/50 rounded-md text-gold" href="/play"
 				>{$t('words.play')}</a
 			>
+			<a class="btn-nav" href="/host">Host</a>
 			<a class="btn-nav" href="/leaderboard">Leaderboard</a>
 			<a class="btn-nav" href="/battle">Battle</a>
 			<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
@@ -107,6 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 				>CMA Clash</a
 			>
 			<a class="btn-nav flex" href="/play">{$t('words.play')}</a>
+			<a class="btn-nav flex" href="/host">Host</a>
 
 			<div class="flex items-center">
 				{#if menuIsClosed}
@@ -162,6 +164,7 @@ SPDX-License-Identifier: MPL-2.0
 		<!-- Navbar content -->
 		{#if !menuIsClosed}
 			<div class="flex flex-col" transition:slide|global={{ duration: 400 }}>
+				<a class="btn-nav" href="/host">Host</a>
 				<a class="btn-nav" href="/leaderboard">Leaderboard</a>
 				<a class="btn-nav" href="/battle">Battle</a>
 				<a class="btn-nav" href="/explore">{$t('words.explore')}</a>

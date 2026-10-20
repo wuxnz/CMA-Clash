@@ -8,36 +8,43 @@ SPDX-License-Identifier: MPL-2.0
 	const { t } = getLocalization();
 	import SearchCard from '$lib/search-card.svelte';
 	import { onMount } from 'svelte';
+	import { postSearchClient, type SearchResponse } from '$lib/cma/search-api';
+
 	let search_term = $state('');
-	let resp_data = $state(null);
+	let resp_data = $state<SearchResponse | null>(null);
+	let searchLoading = $state(false);
+	let searchError = $state('');
 
 	const submit = async () => {
-		const res = await fetch('/api/v1/search/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				q: search_term,
-				attributesToHighlight: ['*']
-			})
-		});
-		if (res.status === 200) {
-			let resp_data_temp: string = await res.text();
-			resp_data_temp = resp_data_temp.replaceAll('<em>', '<mark>');
-			resp_data_temp = resp_data_temp.replaceAll('</em>', '</mark>');
-			resp_data = JSON.parse(resp_data_temp);
-			const url = new URLSearchParams(window.location.search);
-			url.set('q', search_term);
-			history.pushState(null, null, '?' + url.toString());
-		} else {
-			console.error('Error!', res.status);
+		if (search_term.length <= 2) {
+			return;
 		}
+		searchLoading = true;
+		searchError = '';
+		const data = await postSearchClient({
+			q: search_term,
+			attributesToHighlight: ['*']
+		});
+		searchLoading = false;
+		if (!data) {
+			searchError = 'Search failed. Try again.';
+			return;
+		}
+		let raw = JSON.stringify(data);
+		raw = raw.replaceAll('<em>', '<mark>');
+		raw = raw.replaceAll('</em>', '</mark>');
+		resp_data = JSON.parse(raw) as SearchResponse;
+		const url = new URLSearchParams(window.location.search);
+		url.set('q', search_term);
+		history.pushState(null, '', '?' + url.toString());
 	};
+
 	onMount(() => {
 		const url = new URLSearchParams(window.location.search);
 		search_term = url.get('q') ?? '';
-		submit();
+		if (search_term.length > 2) {
+			submit();
+		}
 	});
 </script>
 
@@ -67,7 +74,7 @@ SPDX-License-Identifier: MPL-2.0
 					class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-sm shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-hidden focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
 					id="button-addon2"
 					aria-label="Search"
-					disabled={search_term.length <= 2}
+					disabled={search_term.length <= 2 || searchLoading}
 					type="submit"
 				>
 					<svg
@@ -82,7 +89,7 @@ SPDX-License-Identifier: MPL-2.0
 					>
 						<path
 							fill="currentColor"
-							d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+							d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
 						/>
 					</svg>
 				</button>
@@ -91,11 +98,22 @@ SPDX-License-Identifier: MPL-2.0
 	</div>
 </div>
 
+{#if searchLoading}
+	<p class="text-center text-ink-muted text-sm">Searching…</p>
+{:else if searchError}
+	<div class="text-center">
+		<p class="text-danger text-sm">{searchError}</p>
+		<button type="button" class="action-button text-sm px-4 py-2 mt-2" onclick={() => submit()}>
+			Retry
+		</button>
+	</div>
+{/if}
+
 {#if resp_data}
 	{#if resp_data.hits.length !== 0}
 		<div class="grid lg:grid-cols-3 grid-cols-1">
 			{#each resp_data.hits as quiz}
-				<SearchCard quiz={quiz._formatted} />
+				<SearchCard quiz={quiz._formatted ?? quiz} />
 			{/each}
 		</div>
 	{:else}

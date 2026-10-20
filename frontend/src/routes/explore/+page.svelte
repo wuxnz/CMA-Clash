@@ -8,7 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import SearchCard from '$lib/search-card.svelte';
 	import type { PageData } from './$types';
-	import { fetchWithRetry } from '$lib/api/http';
+	import { postSearchClient } from '$lib/cma/search-api';
 	import { onMount } from 'svelte';
 
 	navbarVisible.visible = true;
@@ -27,14 +27,10 @@ SPDX-License-Identifier: MPL-2.0
 		if (results?.hits?.length) return;
 		exploreLoading = true;
 		exploreError = '';
-		const response = await fetchWithRetry('/api/v1/search/', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ q: '*', sort: ['created_at:desc'] })
-		});
+		const data = await postSearchClient({ q: '*', sort: ['created_at:desc'] });
 		exploreLoading = false;
-		if (response?.ok) {
-			results = await response.json();
+		if (data) {
+			results = data;
 		} else if (!results?.hits?.length) {
 			exploreError = 'Could not load quizzes from the API.';
 		}
@@ -48,7 +44,23 @@ SPDX-License-Identifier: MPL-2.0
 {#if exploreLoading}
 	<p class="text-ink-muted text-sm px-4">Loading quizzes…</p>
 {:else if exploreError}
-	<p class="text-danger text-sm px-4">{exploreError}</p>
+	<div class="px-4 flex flex-wrap items-center gap-3">
+		<p class="text-danger text-sm">{exploreError}</p>
+		<button
+			type="button"
+			class="action-button text-sm px-4 py-2"
+			onclick={async () => {
+				exploreLoading = true;
+				exploreError = '';
+				const data = await postSearchClient({ q: '*', sort: ['created_at:desc'] });
+				exploreLoading = false;
+				if (data) results = data;
+				else exploreError = 'Could not load quizzes from the API.';
+			}}
+		>
+			Retry
+		</button>
+	</div>
 {/if}
 <div class="grid lg:grid-cols-3 grid-cols-1">
 	{#each results?.hits ?? [] as quiz}
