@@ -15,6 +15,9 @@ SPDX-License-Identifier: MPL-2.0
 	let email = $state('');
 	let emailEmpty = $derived(email === '');
 	let isSubmitting = $state(false);
+	let unverifiedEmail = $state('');
+	let unverifiedMessage = $state('');
+	let resendBusy = $state(false);
 
 	const start_login = async (e: Event): Promise<void> => {
 		e.preventDefault();
@@ -23,6 +26,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		isSubmitting = true;
 
+		unverifiedMessage = '';
 		const res = await fetch('/api/v1/login/start', {
 			method: 'post',
 			headers: {
@@ -30,8 +34,36 @@ SPDX-License-Identifier: MPL-2.0
 			},
 			body: JSON.stringify({ email: email })
 		});
+		if (res.status === 403) {
+			const body = await res.json().catch(() => ({}));
+			if (body?.detail?.code === 'email_not_verified') {
+				unverifiedEmail = body.detail.email ?? email;
+				unverifiedMessage = 'Verify your email before signing in.';
+				isSubmitting = false;
+				return;
+			}
+		}
+		if (!res.ok) {
+			isSubmitting = false;
+			return;
+		}
 		session_data = await res.json();
 		step = 1;
+		isSubmitting = false;
+	};
+
+	const resendVerification = async () => {
+		if (!unverifiedEmail || resendBusy) return;
+		resendBusy = true;
+		const res = await fetch('/api/v1/users/resend-verification', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ email: unverifiedEmail })
+		});
+		resendBusy = false;
+		unverifiedMessage = res.ok
+			? 'Verification email sent — check your inbox.'
+			: 'Could not resend verification email.';
 	};
 </script>
 
@@ -46,6 +78,22 @@ SPDX-License-Identifier: MPL-2.0
 	<p class="mt-1 text-center text-ink-muted">
 		{$t('login_page.login_or_create_account')}
 	</p>
+
+	{#if unverifiedMessage}
+		<div class="mt-4 p-3 rounded-lg bg-surface border border-gold/30 text-sm text-ink-muted">
+			<p>{unverifiedMessage}</p>
+			{#if unverifiedEmail}
+				<button
+					type="button"
+					class="text-gold mt-2 hover:underline"
+					disabled={resendBusy}
+					onclick={resendVerification}
+				>
+					{resendBusy ? 'Sending…' : 'Resend verification email'}
+				</button>
+			{/if}
+		</div>
+	{/if}
 
 	<form onsubmit={start_login}>
 		<div class="w-full mt-4">
