@@ -59,6 +59,7 @@ SPDX-License-Identifier: MPL-2.0
 				>{$t('words.play')}</a
 			>
 			<a class="btn-nav" href="/leaderboard">Leaderboard</a>
+			<a class="btn-nav" href="/battle">Battle</a>
 			<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
 			<a class="btn-nav" href="/search">{$t('words.search')}</a>
 			{#if $signedIn}
@@ -286,6 +287,7 @@ SPDX-License-Identifier: MPL-2.0
 		{#if !menuIsClosed}
 			<div class="flex flex-col" transition:slide|global={{ duration: 400 }}>
 				<a class="btn-nav" href="/leaderboard">Leaderboard</a>
+				<a class="btn-nav" href="/battle">Battle</a>
 				<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
 				<a class="btn-nav" href="/search">{$t('words.search')}</a>
 				{#if $signedIn}

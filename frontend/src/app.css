@@ -50,6 +50,14 @@ SPDX-License-Identifier: MPL-2.0
 		font-feature-settings: 'kern' 1;
 	}
 
+	h1,
+	h2,
+	h3,
+	h4,
+	.font-display {
+		font-family: var(--font-display);
+	}
+
 	html.dark {
 		--color-paper: #0c1118;
 		--color-paper-muted: #151d2a;

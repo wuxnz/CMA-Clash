@@ -9,6 +9,8 @@ SPDX-License-Identifier: MPL-2.0
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
 	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
+	import ExplanationDrawer from '$lib/ui/ExplanationDrawer.svelte';
+	import type { Question } from '$lib/quiz_types';
 
 	function sortObjectbyValue(obj) {
 		const ret = {};
@@ -28,9 +30,10 @@ SPDX-License-Identifier: MPL-2.0
 			score: number;
 		}>;
 		username: any;
+		question?: Question;
 	}
 
-	let { scores = $bindable(), question_results, username }: Props = $props();
+	let { scores = $bindable(), question_results, username, question }: Props = $props();
 	let score_by_username = $state({});
 
 	if (JSON.stringify(scores) === '{}') {
@@ -116,5 +119,7 @@ SPDX-License-Identifier: MPL-2.0
 		{/if}
 
 		<LedgerTable rows={ledgerRows} caption="Top 5 this game" />
+
+		<ExplanationDrawer explanation={question?.explanation} />
 	</div>
 </div>

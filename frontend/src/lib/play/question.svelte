@@ -30,13 +30,15 @@ SPDX-License-Identifier: MPL-2.0
 		game_mode: any;
 		question_index: string | number;
 		solution: any;
+		topic_tag?: string;
 	}
 
 	let {
 		question = $bindable(),
 		game_mode = $bindable(),
 		question_index,
-		solution
+		solution,
+		topic_tag = ''
 	}: Props = $props();
 
 	if (question.type === undefined) {
@@ -150,7 +152,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	let totalTime = $derived(parseInt(question.time) || 30);
 	let remainingTime = $derived(parseInt(timer_res) || 0);
-	let topicLabel = $derived(`Live · Q${Number(question_index) + 1}`);
+	let topicLabel = $derived(topic_tag || `Live · Q${Number(question_index) + 1}`);
 </script>
 
 <div class="min-h-screen w-screen bg-paper flex flex-col">
