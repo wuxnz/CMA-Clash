@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { socket } from '$lib/socket';
 	import { onDestroy, onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import { joinErrorMessage } from '$lib/play/join-errors';
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
@@ -37,6 +38,14 @@ SPDX-License-Identifier: MPL-2.0
 		render: (_a, _b) => {}
 	};
 	let hcaptchaWidgetID;
+	let joinError = $state('');
+	let joining = $state(false);
+	let socketConnected = $state(false);
+
+	const onJoinError = (payload?: { code?: string }) => {
+		joining = false;
+		joinError = joinErrorMessage(payload?.code);
+	};
 
 	onMount(() => {
 		if (browser) {
@@ -50,6 +59,27 @@ SPDX-License-Identifier: MPL-2.0
 				});
 			}
 		}
+		socket.on('connect', () => {
+			socketConnected = true;
+		});
+		socket.on('disconnect', () => {
+			socketConnected = false;
+		});
+		socket.on('join_error', onJoinError);
+		socket.on('game_not_found', () => {
+			joining = false;
+			joinError = 'Game not found. Check the PIN with your host.';
+		});
+		socket.on('username_already_exists', () => {
+			onJoinError({ code: 'username_taken' });
+		});
+		socket.on('joined_game', () => {
+			joining = false;
+			joinError = '';
+		});
+		if (socket.connected) {
+			socketConnected = true;
+		}
 	});
 
 	onDestroy(() => {
@@ -58,6 +88,12 @@ SPDX-License-Identifier: MPL-2.0
 				execute: async () => ({ response: '' }),
 				render: () => {}
 			};
+			socket.off('connect');
+			socket.off('disconnect');
+			socket.off('join_error', onJoinError);
+			socket.off('game_not_found');
+			socket.off('username_already_exists');
+			socket.off('joined_game');
 		}
 	});
 
@@ -95,52 +131,61 @@ SPDX-License-Identifier: MPL-2.0
 		if (game_pin.length > 5) set_game_pin();
 	});
 
+	const emitJoin = (captcha_resp?: string) => {
+		socket.emit('join_game', {
+			username,
+			game_pin,
+			captcha: captcha_resp,
+			custom_field: custom_field ? custom_field_value : undefined
+		});
+	};
+
 	const setUsername = async (e: Event) => {
 		e.preventDefault();
-		if (username.length <= 3) return;
+		joinError = '';
+		if (username.length <= 3) {
+			joinError = 'Nickname must be at least 4 characters.';
+			return;
+		}
 		if (Cookies.get('kicked')) return;
+		if (!socket.connected) {
+			joinError = joinErrorMessage('not_connected');
+			socket.connect();
+			return;
+		}
+		joining = true;
 		let captcha_resp: string;
 		if (captcha_enabled) {
 			if (hcaptchaSitekey) {
 				try {
 					const { response } = await hcaptcha.execute(hcaptchaWidgetID, { async: true });
 					captcha_resp = response;
-					socket.emit('join_game', {
-						username,
-						game_pin,
-						captcha: captcha_resp,
-						custom_field: custom_field ? custom_field_value : undefined
-					});
+					emitJoin(captcha_resp);
 				} catch (err) {
+					joining = false;
 					if (sentry_dsn !== null) Sentry.captureException(err);
-					alert('Captcha failed!');
-					window.location.reload();
+					joinError = joinErrorMessage('captcha_failed');
 				}
 			} else if (recaptcha_key) {
 				grecaptcha.ready(() => {
-					grecaptcha.execute(recaptcha_key, { action: 'submit' }).then(function (token) {
-						socket.emit('join_game', {
-							username,
-							game_pin,
-							captcha: token,
-							custom_field: custom_field ? custom_field_value : undefined
-						});
-					});
+					grecaptcha.execute(recaptcha_key, { action: 'submit' }).then(
+						function (token) {
+							emitJoin(token);
+						},
+						function () {
+							joining = false;
+							joinError = joinErrorMessage('captcha_failed');
+						}
+					);
 				});
+			} else {
+				joining = false;
+				joinError = joinErrorMessage('captcha_failed');
 			}
 		} else {
-			socket.emit('join_game', {
-				username,
-				game_pin,
-				captcha: undefined,
-				custom_field: custom_field ? custom_field_value : undefined
-			});
+			emitJoin();
 		}
 	};
-	socket.on('game_not_found', () => {
-		game_pin = '';
-		if (browser) alert('Game not found');
-	});
 	$effect(() => {
 		const cleaned = game_pin.replace(/\D/g, '');
 		if (game_pin.replace(/\D/g, '') === game_pin) return;
@@ -187,10 +232,17 @@ SPDX-License-Identifier: MPL-2.0
 			{#if custom_field}
 				<input class="ledger-input text-center" bind:value={custom_field_value} placeholder={custom_field} />
 			{/if}
+			{#if joinError}
+				<p class="text-danger text-sm text-center" role="alert">{joinError}</p>
+			{/if}
+			{#if !socketConnected}
+				<p class="text-ink-muted text-xs text-center">Connecting to game server…</p>
+			{/if}
 			<button
 				type="submit"
 				class="btn btn-primary w-full"
-				disabled={username.length <= 3}>{$t('words.submit')}</button
+				disabled={username.length <= 3 || joining}
+				>{joining ? 'Joining…' : $t('words.submit')}</button
 			>
 		</form>
 	{/if}

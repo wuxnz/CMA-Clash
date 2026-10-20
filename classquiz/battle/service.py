@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import json
+import secrets
 import uuid
 from random import randint
 
@@ -51,6 +52,41 @@ async def create_battle_lobby(
     return lobby
 
 
+async def create_battle_lobby_guest(
+    display_name: str,
+    quiz_id: uuid.UUID,
+    max_players: int = 4,
+    certification_slug: str | None = None,
+) -> BattleLobbyState:
+    name = display_name.strip()
+    if len(name) < 2:
+        raise ValueError("invalid_display_name")
+    guest_id = str(uuid.uuid4())
+    host_secret = secrets.token_urlsafe(24)
+    code = _generate_battle_code()
+    while await redis.get(_lobby_key(code)) is not None:
+        code = _generate_battle_code()
+    lobby = BattleLobbyState(
+        battle_code=code,
+        quiz_id=str(quiz_id),
+        host_user_id=guest_id,
+        max_players=max(2, min(max_players, 8)),
+        player_slots=[
+            {
+                "user_id": guest_id,
+                "username": name,
+                "ready": True,
+                "guest": True,
+            }
+        ],
+        certification_slug=certification_slug,
+        host_secret=host_secret,
+        host_is_guest=True,
+    )
+    await redis.set(_lobby_key(code), lobby.model_dump_json(), ex=LOBBY_TTL)
+    return lobby
+
+
 async def get_battle_lobby(code: str) -> BattleLobbyState | None:
     raw = await redis.get(_lobby_key(code))
     if raw is None:
@@ -76,20 +112,55 @@ async def join_battle_lobby(code: str, user: User) -> BattleLobbyState:
     return lobby
 
 
-async def start_battle_game(code: str, requesting_user_id: uuid.UUID) -> BattleLobbyState:
+async def join_battle_lobby_guest(
+    code: str,
+    display_name: str,
+    guest_player_id: str | None = None,
+) -> tuple[BattleLobbyState, str]:
+    name = display_name.strip()
+    if len(name) < 2:
+        raise ValueError("invalid_display_name")
+    lobby = await get_battle_lobby(code)
+    if lobby is None:
+        raise ValueError("lobby_not_found")
+    if lobby.status != "waiting":
+        raise ValueError("lobby_started")
+    player_id = guest_player_id or str(uuid.uuid4())
+    for slot in lobby.player_slots:
+        if slot["user_id"] == player_id:
+            slot["username"] = name
+            await redis.set(_lobby_key(code), lobby.model_dump_json(), ex=LOBBY_TTL)
+            return lobby, player_id
+    if len(lobby.player_slots) >= lobby.max_players:
+        raise ValueError("lobby_full")
+    lobby.player_slots.append(
+        {"user_id": player_id, "username": name, "ready": True, "guest": True}
+    )
+    await redis.set(_lobby_key(code), lobby.model_dump_json(), ex=LOBBY_TTL)
+    return lobby, player_id
+
+
+async def start_battle_game(
+    code: str,
+    requesting_user_id: uuid.UUID | None = None,
+    host_secret: str | None = None,
+) -> BattleLobbyState:
     lobby = await get_battle_lobby(code)
     if lobby is None:
         raise ValueError("lobby_not_found")
     if lobby.status != "waiting":
         return lobby
-    if str(requesting_user_id) != lobby.host_user_id:
+    if lobby.host_secret:
+        if not host_secret or host_secret != lobby.host_secret:
+            raise ValueError("not_host")
+    elif requesting_user_id is None or str(requesting_user_id) != lobby.host_user_id:
         raise ValueError("not_host")
     if len(lobby.player_slots) < 2:
         raise ValueError("need_two_players")
     quiz = await Quiz.objects.get_or_none(id=uuid.UUID(lobby.quiz_id))
     if quiz is None:
         raise ValueError("quiz_not_found")
-    host_id = uuid.UUID(lobby.host_user_id)
+    quiz_owner_id = quiz.user_id.id if hasattr(quiz.user_id, "id") else quiz.user_id
     game_pin = randint(100000, 999999)
     while await redis.get(f"game:{game_pin}") is not None:
         game_pin = randint(100000, 999999)
@@ -104,16 +175,17 @@ async def start_battle_game(code: str, requesting_user_id: uuid.UUID) -> BattleL
         captcha_enabled=False,
         cover_image=quiz.cover_image,
         game_mode="battle",
-        user_id=host_id,
+        user_id=quiz_owner_id,
         background_color=quiz.background_color,
         background_image=quiz.background_image,
     )
     await redis.set(f"game:{game.game_pin}", game.model_dump_json(), ex=18000)
-    await redis.set(
-        f"game_in_lobby:{host_id.hex}",
-        GameInLobby(game_id=game.game_id, game_pin=str(game_pin), quiz_title=quiz.title).model_dump_json(),
-        ex=900,
-    )
+    if not lobby.host_is_guest:
+        await redis.set(
+            f"game_in_lobby:{uuid.UUID(lobby.host_user_id).hex}",
+            GameInLobby(game_id=game.game_id, game_pin=str(game_pin), quiz_title=quiz.title).model_dump_json(),
+            ex=900,
+        )
     await redis.set(
         f"{BATTLE_REDIS_PREFIX}:meta:{game_pin}",
         json.dumps({"battle_code": code, "player_user_ids": {s["username"]: s["user_id"] for s in lobby.player_slots}}),

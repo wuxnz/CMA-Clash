@@ -4,16 +4,7 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 */
 
-@import '@fontsource/barlow-condensed/800.css';
-@import '@fontsource/barlow-condensed/700.css';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
-@import '@fontsource/inter/700.css';
-@import '@fontsource/jetbrains-mono/400.css';
-@import '@fontsource/jetbrains-mono/500.css';
-@import '@fontsource/jetbrains-mono/700.css';
-
+/* Font faces are imported from src/routes/+layout.svelte so Vite rewrites their url()s. */
 @import 'tippy.js/animations/perspective-subtle.css';
 @import 'tippy.js/dist/tippy.css';
 @import 'tailwindcss';
@@ -281,9 +272,38 @@ SPDX-License-Identifier: MPL-2.0
 	}
 }
 
+@utility btn-sm {
+	@apply h-11 px-3 text-sm;
+}
+
 @utility btn-ghost {
 	@apply bg-transparent text-ink-muted;
 	box-shadow: none;
+}
+
+@utility chip {
+	@apply inline-flex items-center justify-center min-h-11 px-3 rounded-lg text-sm font-medium whitespace-nowrap shrink-0 text-ink-muted focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+	transition-property: background-color, color, box-shadow, transform;
+	transition-duration: 150ms;
+}
+
+.chip-active {
+	background-color: var(--color-elevated);
+	color: var(--color-ink);
+	box-shadow: none;
+}
+
+.chip-row {
+	display: flex;
+	gap: 0.5rem;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+
+.chip-row::-webkit-scrollbar {
+	display: none;
 }
 
 @media (hover: hover) {

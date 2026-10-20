@@ -5,6 +5,16 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	// Imported via JS (not @import in app.css) so Vite rebases the font url()s.
+	import '@fontsource/barlow-condensed/800.css';
+	import '@fontsource/barlow-condensed/700.css';
+	import '@fontsource/inter/400.css';
+	import '@fontsource/inter/500.css';
+	import '@fontsource/inter/600.css';
+	import '@fontsource/inter/700.css';
+	import '@fontsource/jetbrains-mono/400.css';
+	import '@fontsource/jetbrains-mono/500.css';
+	import '@fontsource/jetbrains-mono/700.css';
 	import '../app.css';
 	import Navbar from '$lib/navbar.svelte';
 	import { pathname } from '$lib/stores';

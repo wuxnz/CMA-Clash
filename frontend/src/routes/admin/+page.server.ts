@@ -2,13 +2,7 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import { redirect } from '@sveltejs/kit';
-
-export async function load({ parent, url }) {
-	const { email } = await parent();
-	if (!email) {
-		redirect(302, '/account/login');
-	}
+export async function load({ url }) {
 	const token = url.searchParams.get('token');
 	const pin = url.searchParams.get('pin');
 	let auto_connect = url.searchParams.get('connect') !== null;

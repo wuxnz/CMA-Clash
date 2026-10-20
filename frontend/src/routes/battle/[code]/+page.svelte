@@ -9,6 +9,11 @@ SPDX-License-Identifier: MPL-2.0
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { getBattle, joinBattle, startBattle, type BattleLobby } from '$lib/cma/client';
+	import {
+		getBattleGuestPlayerId,
+		getBattleHostSecret,
+		setBattleGuestPlayerId
+	} from '$lib/cma/battle-guest';
 	import Card from '$lib/ui/Card.svelte';
 	import PlayerChip from '$lib/ui/PlayerChip.svelte';
 	import CountdownRing from '$lib/ui/CountdownRing.svelte';
@@ -22,6 +27,8 @@ SPDX-License-Identifier: MPL-2.0
 	let showVs = $state(true);
 	let showCountdown = $state(false);
 	let error = $state('');
+	let joinName = $state('');
+	let joined = $state(false);
 	const reduced = prefersReducedMotion();
 
 	const code = $derived(page.params.code);
@@ -30,15 +37,66 @@ SPDX-License-Identifier: MPL-2.0
 		lobby = await getBattle(code);
 	}
 
+	async function tryJoinLobby() {
+		const guestId = getBattleGuestPlayerId();
+		const result = await joinBattle(code, {
+			displayName: joinName.trim() || undefined,
+			guestPlayerId: guestId ?? undefined
+		});
+		if (result.ok) {
+			joined = true;
+			if (result.data.guest_player_id) {
+				setBattleGuestPlayerId(result.data.guest_player_id);
+			}
+			lobby = result.data;
+			return;
+		}
+		if (result.status === 400 && result.detail?.includes('display_name')) {
+			return;
+		}
+		if (result.status !== 401) {
+			error = result.detail ?? 'Could not join this battle lobby.';
+		}
+	}
+
 	onMount(async () => {
-		await joinBattle(code).catch(() => {});
 		await refresh();
+		await tryJoinLobby();
 		const id = setInterval(refresh, 2000);
 		return () => clearInterval(id);
 	});
 
+	async function handleJoinSubmit(e: Event) {
+		e.preventDefault();
+		error = '';
+		const name = joinName.trim();
+		if (name.length < 2) {
+			error = 'Nickname must be at least 2 characters.';
+			return;
+		}
+		const result = await joinBattle(code, { displayName: name });
+		if (!result.ok) {
+			error = result.detail ?? 'Could not join. Check the code and try again.';
+			return;
+		}
+		joined = true;
+		if (result.data.guest_player_id) {
+			setBattleGuestPlayerId(result.data.guest_player_id);
+		}
+		lobby = result.data;
+	}
+
 	async function handleStart() {
-		const updated = await startBattle(code);
+		error = '';
+		const hostSecret = getBattleHostSecret(code);
+		const result = await startBattle(code, hostSecret ?? undefined);
+		if (!result.ok) {
+			error =
+				result.detail ??
+				'Could not start. You must be the host and have at least two players.';
+			return;
+		}
+		const updated = result.data;
 		if (!updated?.game_pin) {
 			error = 'Could not start. Are you the host?';
 			return;
@@ -55,6 +113,8 @@ SPDX-License-Identifier: MPL-2.0
 	let playerNames = $derived(
 		lobby?.player_slots?.map((s) => s.username ?? 'Player').filter(Boolean) ?? []
 	);
+
+	let needsGuestJoin = $derived(!joined && playerNames.length < 2);
 </script>
 
 <svelte:head>
@@ -92,8 +152,23 @@ SPDX-License-Identifier: MPL-2.0
 			{/each}
 		</div>
 		<p class="text-center text-sm text-ink-muted mb-4">Status: {lobby?.status ?? '…'}</p>
+
+		{#if needsGuestJoin && lobby?.status === 'waiting'}
+			<form class="mb-4 flex flex-col gap-2" onsubmit={handleJoinSubmit}>
+				<p class="text-sm text-ink-muted text-center">Enter a nickname to join this battle</p>
+				<input
+					class="ledger-input text-center"
+					bind:value={joinName}
+					placeholder="Your nickname"
+					maxlength="32"
+					autocomplete="nickname"
+				/>
+				<button type="submit" class="ledger-btn-primary">Join battle</button>
+			</form>
+		{/if}
+
 		{#if error}
-			<p class="text-danger text-sm text-center mb-2">{error}</p>
+			<p class="text-danger text-sm text-center mb-2" role="alert">{error}</p>
 		{/if}
 		{#if lobby?.status === 'waiting'}
 			<button type="button" class="ledger-btn-primary" onclick={handleStart}>Start battle</button>
