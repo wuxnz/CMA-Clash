@@ -19,7 +19,7 @@ CMA Clash is a **split stack**: the SvelteKit UI can run on [Vercel](https://ver
 
 ### Private launch headers
 
-Checked-in `frontend/vercel.json` adds `X-Robots-Tag: noindex, nofollow`. The build script **merges** those headers with API rewrites when `BACKEND_URL` is set.
+Checked-in `frontend/vercel.json` (used when Vercel **Root Directory** is `frontend`) adds `X-Robots-Tag: noindex, nofollow` and API rewrites to your Render host. The build script refreshes rewrites in **`frontend/vercel.json`** and in the repo-root **`vercel.json`** (if that file exists) from `BACKEND_URL`, defaulting to `https://cmaclash-api.onrender.com`. Do not commit placeholder hosts such as `api.example.com` — they cause Vercel `DNS_HOSTNAME_EMPTY`.
 
 ### Socket.IO
 
