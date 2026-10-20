@@ -103,3 +103,5 @@ services:
       - key: CORS_ORIGINS
         value: https://cmaclash.com,https://cmaclash.vercel.app
         sync: false
+      - key: ADMIN_EMAILS
+        sync: false
