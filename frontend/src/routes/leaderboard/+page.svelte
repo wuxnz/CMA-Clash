@@ -24,13 +24,6 @@ SPDX-License-Identifier: MPL-2.0
 
 	navbarVisible.visible = true;
 
-	/** DEMO_FALLBACK: sample rows when leaderboard API returns empty (no scored players yet). */
-	const DEMO_WEEKLY: LedgerRow[] = [
-		{ rank: 1, name: 'A. Okafor', score: '9,420' },
-		{ rank: 2, name: 'M. Chen', score: '9,105' },
-		{ rank: 3, name: 'You', score: '8,870', isYou: true }
-	];
-
 	let tab: 'weekly' | 'alltime' = $state('weekly');
 	let streakDays = $state(0);
 	let usingDemo = $derived(!data.apiAvailable);
@@ -38,9 +31,6 @@ SPDX-License-Identifier: MPL-2.0
 	let entries = $derived(tab === 'weekly' ? data.weekly : data.allTime);
 
 	let rows = $derived.by((): LedgerRow[] => {
-		if (entries.length === 0) {
-			return DEMO_WEEKLY;
-		}
 		return entries.map((e) => ({
 			rank: e.rank,
 			name: e.username,
@@ -71,9 +61,7 @@ SPDX-License-Identifier: MPL-2.0
 		<p class="text-sm text-ink-muted mt-1 mb-8">Weekly XP and all-time standings.</p>
 
 		{#if usingDemo}
-			<p class="text-sm text-gold bg-gold/10 border border-gold/30 rounded-lg px-3 py-2 mb-4" data-demo-label="true">
-				No leaderboard scores in the database yet. Demo standings are shown below.
-			</p>
+			<p class="text-sm text-ink-muted mb-4">Leaderboard scores aren't available right now.</p>
 		{/if}
 
 		<RetentionBar {streakDays} dailyGoalPercent={0} />
@@ -103,11 +91,14 @@ SPDX-License-Identifier: MPL-2.0
 			</button>
 		</div>
 
-		<Card class="mb-8">
-			<Podium entries={podium} />
-		</Card>
-
-		<LedgerTable rows={rows} caption="League standings" flip={true} />
+		{#if rows.length === 0}
+			<p class="text-sm text-ink-muted">No scores yet.</p>
+		{:else}
+			<Card class="mb-8">
+				<Podium entries={podium} />
+			</Card>
+			<LedgerTable rows={rows} caption="League standings" flip={true} />
+		{/if}
 	</main>
 	<Footer />
 </div>

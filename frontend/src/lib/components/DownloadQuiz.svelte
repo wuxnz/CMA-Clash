@@ -4,10 +4,9 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 -->
 <script lang="ts">
-	import BrownButton from '$lib/components/buttons/brown.svelte';
-	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import Button from '$lib/ui/Button.svelte';
 	import { getLocalization } from '$lib/i18n';
+	import { focusTrap } from '$lib/ui/focusTrap';
 
 	const { t } = getLocalization();
 	interface Props {
@@ -16,39 +15,49 @@ SPDX-License-Identifier: MPL-2.0
 
 	let { quiz_id = $bindable(null) }: Props = $props();
 
-	const handle_on_click = () => {
+	function close() {
 		quiz_id = null;
-	};
-	onMount(() => {
-		window.addEventListener('keydown', (e: KeyboardEvent) => {
-			if (e.key === 'Escape') {
-				quiz_id = null;
-			}
-		});
+	}
+
+	$effect(() => {
+		if (!quiz_id) return;
+		const onKey = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') close();
+		};
+		document.addEventListener('keydown', onKey);
+		return () => document.removeEventListener('keydown', onKey);
 	});
 </script>
 
 {#if quiz_id}
 	<div
-		class="w-screen h-screen fixed top-0 left-0 bg-black/50 z-20 flex justify-center"
-		onclick={handle_on_click}
-		transition:fade={{ duration: 100 }}
+		class="dialog-backdrop"
+		onclick={(e) => {
+			if (e.target === e.currentTarget) close();
+		}}
+		role="presentation"
 	>
-		<div class="m-auto w-1/3 h-auto bg-elevated p-4 rounded-sm">
-			<h1 class="text-3xl text-center mb-4">{$t('downloader.select_download_type')}</h1>
-			<div class="flex flex-row gap-4">
-				<div class="w-full flex justify-center">
-					<BrownButton href="/api/v1/eximport/{quiz_id}"
-						>{$t('downloader.own_format')}
-					</BrownButton>
-				</div>
-				<div class="w-full flex justify-center">
-					<BrownButton href="/api/v1/eximport/excel/{quiz_id}"
-						>{$t('downloader.excel_format')}
-					</BrownButton>
-				</div>
+		<div
+			use:focusTrap
+			class="dialog-panel dialog-panel-in p-5"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="download-title"
+			tabindex="-1"
+		>
+			<h2 id="download-title" class="text-lg font-semibold text-ink tracking-tight">
+				{$t('downloader.select_download_type')}
+			</h2>
+			<p class="text-sm text-ink-muted mt-2">{$t('downloader.help')}</p>
+			<div class="mt-6 flex flex-col gap-2">
+				<Button href="/api/v1/eximport/{quiz_id}" class="w-full">
+					{$t('downloader.own_format')}
+				</Button>
+				<Button href="/api/v1/eximport/excel/{quiz_id}" variant="secondary" class="w-full">
+					{$t('downloader.excel_format')}
+				</Button>
+				<Button variant="ghost" class="w-full" onclick={close}>Cancel</Button>
 			</div>
-			<p class="mt-2 text-sm text-center">{$t('downloader.help')}</p>
 		</div>
 	</div>
 {/if}

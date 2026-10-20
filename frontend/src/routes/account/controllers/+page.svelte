@@ -6,9 +6,12 @@ SPDX-License-Identifier: MPL-2.0
 
 <script lang="ts">
 	import type { PageData } from './$types';
-	import BrownButton from '$lib/components/buttons/brown.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import Footer from '$lib/footer.svelte';
+	import { navbarVisible } from '$lib/stores.svelte';
 	import { getLocalization } from '$lib/i18n';
 	const { t } = getLocalization();
+	navbarVisible.visible = true;
 	interface Props {
 		data: PageData;
 	}
@@ -18,71 +21,59 @@ SPDX-License-Identifier: MPL-2.0
 	const controllers: [] = data.controllers;
 </script>
 
-<div class="w-full h-full">
-	{#if controllers.length === 0}
-		<div class="w-full h-full flex">
-			<div class="m-auto">
-				<BrownButton href="/account/controllers/add"
-					>{$t('controllers.add_new_controller')}</BrownButton
-				>
-			</div>
+<svelte:head>
+	<title>CMA Clash: Controllers</title>
+</svelte:head>
+
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
+		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+			<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Quiz controllers</h1>
+			<Button href="/account/controllers/add" class="w-full sm:w-auto">
+				{$t('controllers.add_new_controller')}
+			</Button>
 		</div>
-	{:else}
-		<div class="p-2">
-			<div class="flex">
-				<div class="mx-auto">
-					<BrownButton href="/account/controllers/add"
-						>{$t('controllers.add_new_controller')}</BrownButton
-					>
-				</div>
-			</div>
-			<table class="w-full">
-				<thead>
-					<tr class="border-b-2 dark:border-gray-500 text-left border-ink/20">
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
-							>{$t('words.name')}</th
-						>
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
-							>{$t('controllers.player_name')}
-						</th>
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
-							>{$t('controllers.first_seen')}
-						</th>
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
-							>{$t('controllers.last_seen')}
-						</th>
-						<th class="mx-auto p-1">{$t('words.version')}</th>
-					</tr>
-				</thead>
-				<tbody>
-					{#each data.controllers as controller}
-						<tr class="text-left">
-							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
-								><a
-									href="/account/controllers/{controller.id}"
-									class="underline text-lg">{controller.name}</a
-								></td
-							>
-							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
-								>{controller.player_name}</td
-							>
-							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
-								>{controller.first_seen
-									? new Date(controller.first_seen).toLocaleString()
-									: $t('words.never')}</td
-							>
-							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
-								>{controller.last_seen
-									? new Date(controller.last_seen).toLocaleString()
-									: $t('words.never')}</td
-							>
-							<td class="mx-auto p-1"
-								>{controller.os_version ?? $t('words.unknown')}</td
-							>
+
+		{#if controllers.length === 0}
+			<p class="text-sm text-ink-muted mt-8">No controllers yet.</p>
+		{:else}
+			<div class="mt-6 overflow-x-auto min-w-0">
+				<table class="w-full text-sm text-left min-w-[36rem]">
+					<thead>
+						<tr class="text-xs text-ink-muted border-b border-white/[0.07]">
+							<th class="py-2 pr-3 font-medium">{$t('words.name')}</th>
+							<th class="py-2 pr-3 font-medium">{$t('controllers.player_name')}</th>
+							<th class="py-2 pr-3 font-medium">{$t('controllers.first_seen')}</th>
+							<th class="py-2 pr-3 font-medium">{$t('controllers.last_seen')}</th>
+							<th class="py-2 font-medium">{$t('words.version')}</th>
 						</tr>
-					{/each}
-				</tbody>
-			</table>
-		</div>
-	{/if}
+					</thead>
+					<tbody>
+						{#each data.controllers as controller}
+							<tr class="border-b border-white/[0.07]">
+								<td class="py-3 pr-3">
+									<a href="/account/controllers/{controller.id}" class="text-ink link-hover visited:text-ink">
+										{controller.name}
+									</a>
+								</td>
+								<td class="py-3 pr-3 text-ink-muted">{controller.player_name}</td>
+								<td class="py-3 pr-3 text-ink-muted tabular-nums whitespace-nowrap">
+									{controller.first_seen
+										? new Date(controller.first_seen).toLocaleString()
+										: $t('words.never')}
+								</td>
+								<td class="py-3 pr-3 text-ink-muted tabular-nums whitespace-nowrap">
+									{controller.last_seen
+										? new Date(controller.last_seen).toLocaleString()
+										: $t('words.never')}
+								</td>
+								<td class="py-3 text-ink-muted">{controller.os_version ?? $t('words.unknown')}</td>
+							</tr>
+						{/each}
+					</tbody>
+				</table>
+			</div>
+		{/if}
+	</div>
+	<Footer />
 </div>

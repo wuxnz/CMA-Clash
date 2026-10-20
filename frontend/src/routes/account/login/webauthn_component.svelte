@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Spinner from '$lib/Spinner.svelte';
 	import { startAuthentication } from '@simplewebauthn/browser';
 	import { getLocalization } from '$lib/i18n';
+	import Button from '$lib/ui/Button.svelte';
 	// import { alertModal } from '$lib/stores';
 
 	const { t } = getLocalization();
@@ -78,32 +79,26 @@ SPDX-License-Identifier: MPL-2.0
 	};
 </script>
 
-<div class="px-6 py-4">
-	<h2 class="text-3xl font-bold text-center font-display font-bold text-ink">CMA Clash</h2>
-	<p class="mt-1 text-center text-ink-muted">
-		Start the Security-Key verification
-	</p>
+<div class="px-6 py-6">
+	<h2 class="text-xl font-semibold text-ink tracking-tight text-center">Security key</h2>
+	<p class="mt-1 text-sm text-center text-ink-muted">Use your passkey or hardware key</p>
 
-	<div class="w-full mt-4">
-		<div class="flex items-center justify-between mt-4">
-			<button
-				onclick={() => {
-					selected_method = 'BACKUP';
-				}}
-				class="text-sm text-ink-muted hover:text-ink-muted"
-				>{$t('login_page.use_backup_code')}</button
-			>
-			<button
-				class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
-				disabled={isLoading}
-				onclick={start_thing}
-			>
-				{#if isLoading}
-					<Spinner class="h-4 w-4" my_20={false} inverse />
-				{:else}
-					{$t('words.start')}
-				{/if}
-			</button>
-		</div>
+	<div class="flex items-center justify-between gap-3 mt-6">
+		<button
+			type="button"
+			onclick={() => {
+				selected_method = 'BACKUP';
+			}}
+			class="text-sm text-ink-muted link-hover min-h-11"
+		>
+			{$t('login_page.use_backup_code')}
+		</button>
+		<Button class="w-auto" disabled={isLoading} onclick={start_thing}>
+			{#if isLoading}
+				<Spinner class="h-4 w-4" my_20={false} />
+			{:else}
+				{$t('words.start')}
+			{/if}
+		</Button>
 	</div>
 </div>

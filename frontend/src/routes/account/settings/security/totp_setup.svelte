@@ -8,6 +8,8 @@ SPDX-License-Identifier: MPL-2.0
 	import QRCode from 'qrcode';
 	import Spinner from '$lib/Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
+	import Button from '$lib/ui/Button.svelte';
+	import { focusTrap } from '$lib/ui/focusTrap';
 
 	const { t } = getLocalization();
 
@@ -20,53 +22,49 @@ SPDX-License-Identifier: MPL-2.0
 	const get_image_url = async () => {
 		return await QRCode.toDataURL(totp_data.url);
 	};
+
+	function close() {
+		totp_data = undefined;
+	}
 </script>
 
-<div class="w-screen h-screen fixed top-0 left-0 p-48 z-30 bg-black/50">
-	<div class="w-full h-full">
-		<button
-			class="bg-paper-muted dark:bg-gray-900 px-2 py-1 rounded-t-lg hover:bg-gray-300 transition"
-			onclick={() => {
-				totp_data = undefined;
-			}}
-			>{$t('words.close')}
-		</button>
-		<div class="bg-elevated rounded-b-lg rounded-tr-lg w-full h-full">
-			<div class="grid grid-cols-3 w-full h-full">
-				<div class="flex flex-col justify-center w-full h-5/6">
-					<span class="m-auto"></span>
-					<div class="h-5/6 flex">
-						<p class="my-auto ml-auto">
-							{$t('security_settings.totp_setup.scan_to_set_up')}
-						</p>
-					</div>
-					<div class="flex">
-						<p class="my-auto ml-auto">
-							{$t('security_settings.totp_setup.enter_as_secret_if_no_see_code')}
-						</p>
-					</div>
-				</div>
-				<div class="flex flex-col justify-start w-full h-5/6">
-					<h2 class="text-2xl m-auto">{$t('security_settings.totp_setup.totp_setup')}</h2>
-					{#await get_image_url()}
-						<Spinner my_20={false} />
-					{:then data}
-						<div class="m-auto h-5/6 object-contain w-full">
-							<img
-								src={data}
-								alt="QR-Code for Totp-setup"
-								class="w-full h-full object-contain"
-							/>
-						</div>
-					{/await}
-					<p class="m-auto select-all font-mono">{totp_data.secret}</p>
-				</div>
-				<div class="flex justify-center h-5/6 w-full">
-					<p class="m-auto text-3xl p-4">
-						{$t('security_settings.totp_setup.do_not_forget_backup_code')}
-					</p>
-				</div>
-			</div>
+<div
+	class="dialog-backdrop"
+	onclick={(e) => {
+		if (e.target === e.currentTarget) close();
+	}}
+	role="presentation"
+>
+	<div
+		use:focusTrap
+		class="dialog-panel dialog-panel-in p-5"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="totp-setup-title"
+		tabindex="-1"
+	>
+		<div class="dialog-body">
+			<h2 id="totp-setup-title" class="text-lg font-semibold text-ink tracking-tight">
+				{$t('security_settings.totp_setup.totp_setup')}
+			</h2>
+			<p class="text-sm text-ink-muted mt-2">
+				{$t('security_settings.totp_setup.scan_to_set_up')}
+			</p>
+			{#await get_image_url()}
+				<Spinner my_20={false} />
+			{:then data}
+				<img src={data} alt="QR code for authenticator setup" class="mx-auto mt-4 w-40 h-40 bg-white p-2 rounded-lg" />
+			{/await}
+			<p class="mt-4 text-xs text-ink-muted">
+				{$t('security_settings.totp_setup.enter_as_secret_if_no_see_code')}
+			</p>
+			<p class="mt-2 select-all font-mono text-sm text-ink break-all">{totp_data.secret}</p>
+			<p class="mt-4 text-sm text-ink-muted">
+				{$t('security_settings.totp_setup.do_not_forget_backup_code')}
+			</p>
+		</div>
+		<div class="mt-6">
+			<Button class="w-full" onclick={close}>{$t('words.close')}</Button>
 		</div>
 	</div>
 </div>

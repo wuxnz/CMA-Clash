@@ -6,6 +6,8 @@ SPDX-License-Identifier: MPL-2.0
 
 <script lang="ts">
 	import { getLocalization } from '$lib/i18n';
+	import Button from '$lib/ui/Button.svelte';
+	import { focusTrap } from '$lib/ui/focusTrap';
 
 	const { t } = getLocalization();
 	let { backup_code = $bindable() } = $props();
@@ -25,37 +27,46 @@ SPDX-License-Identifier: MPL-2.0
 		document.body.removeChild(el);
 		already_downloaded = true;
 	};
+
+	function close() {
+		backup_code = undefined;
+	}
 </script>
 
-<div class="w-screen h-screen fixed top-0 left-0 p-48 z-30 bg-black/50">
-	<div class="w-full h-full">
-		<button
-			class="bg-paper-muted dark:bg-gray-900 px-2 py-1 rounded-t-lg hover:bg-gray-300 transition"
-			onclick={() => {
-				backup_code = undefined;
-			}}
-			>{$t('words.close')}
-		</button>
-		<div
-			class="bg-elevated rounded-b-lg rounded-tr-lg w-full h-full flex flex-col"
+<div
+	class="dialog-backdrop"
+	onclick={(e) => {
+		if (e.target === e.currentTarget) close();
+	}}
+	role="presentation"
+>
+	<div
+		use:focusTrap
+		class="dialog-panel dialog-panel-in p-5"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="backup-code-title"
+		tabindex="-1"
+	>
+		<h2 id="backup-code-title" class="text-lg font-semibold text-ink tracking-tight">
+			{$t('security_settings.backup_codes.your_backup_code')}
+		</h2>
+		<p
+			class="select-all font-mono text-sm text-ink break-all mt-4"
+			onclick={() => download_code(false)}
 		>
-			<h2 class="text-3xl m-auto">{$t('security_settings.backup_codes.your_backup_code')}</h2>
-			<p
-				class="select-all font-mono text-xl m-auto"
-				onclick={() => {
-					download_code(false);
-				}}
-			>
-				{backup_code}
-			</p>
-			<p class="m-auto">{$t('security_settings.backup_codes.save_somewhere_save')}</p>
-			<button
-				onclick={() => {
-					download_code(true);
-				}}
-				class="m-auto p-2 bg-[#B07156] rounded-lg"
-				>{$t('security_settings.backup_codes.download_code')}
-			</button>
+			{backup_code}
+		</p>
+		<p class="text-sm text-ink-muted mt-3">
+			{$t('security_settings.backup_codes.save_somewhere_save')}
+		</p>
+		<div class="mt-6 flex flex-col-reverse sm:flex-row gap-2">
+			<Button variant="secondary" class="w-full sm:w-auto" onclick={close}>
+				{$t('words.close')}
+			</Button>
+			<Button class="w-full sm:flex-1" onclick={() => download_code(true)}>
+				{$t('security_settings.backup_codes.download_code')}
+			</Button>
 		</div>
 	</div>
 </div>

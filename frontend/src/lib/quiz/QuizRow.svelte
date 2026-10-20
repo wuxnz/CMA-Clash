@@ -64,7 +64,7 @@
 		if (count) parts.push(`${count} q`);
 		if (difficulty) parts.push(difficulty);
 		if (mode === 'browse' && quiz.user) parts.push(quiz.user);
-		if (mode === 'browse' && quiz.plays != null) parts.push(`${quiz.plays} plays`);
+		if (mode === 'browse' && (quiz.plays ?? 0) > 0) parts.push(`${quiz.plays} plays`);
 		if (mode === 'owner' && lastPlayed) parts.push(lastPlayed);
 		return parts;
 	});
@@ -72,7 +72,7 @@
 		if (mode !== 'browse') return '';
 		const parts: string[] = [];
 		if (quiz.user) parts.push(quiz.user);
-		if (quiz.plays != null) parts.push(`${quiz.plays} plays`);
+		if ((quiz.plays ?? 0) > 0) parts.push(`${quiz.plays} plays`);
 		return parts.join(' · ');
 	});
 </script>
@@ -89,7 +89,7 @@
 		{/if}
 		<div class="min-w-0">
 			{#if mode === 'browse'}
-				<a href={viewHref} class="text-sm font-medium text-ink truncate block link-hover">{title}</a>
+				<a href={viewHref} class="text-sm font-medium text-ink truncate block link-hover visited:text-ink">{title}</a>
 				{#if byline}
 					<p class="hidden md:block text-xs text-ink-muted truncate mt-0.5">{byline}</p>
 				{/if}

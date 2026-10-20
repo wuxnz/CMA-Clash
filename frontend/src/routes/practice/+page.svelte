@@ -130,9 +130,9 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 	{:catch e}
 		{#if e === 404 || e === 400}
-			<h1 class="text-center text-5xl font-display pt-20">Quiz not found</h1>
+			<h1 class="text-center text-xl font-semibold text-ink tracking-tight pt-20">Quiz not found</h1>
 		{:else}
-			<h1 class="text-center text-5xl font-display pt-20">Could not load practice</h1>
+			<h1 class="text-center text-xl font-semibold text-ink tracking-tight pt-20">Could not load practice</h1>
 		{/if}
 	{/await}
 {/if}

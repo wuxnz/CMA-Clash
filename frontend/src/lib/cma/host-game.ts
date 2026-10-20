@@ -8,19 +8,33 @@ export type StartGameResponse = {
 	cqc_code: string;
 };
 
-/** Start a live kahoot-style game from a public quiz (guest or signed-in). */
-export async function startHostGame(quizId: string): Promise<StartGameResponse | 'error'> {
+export type StartGameOptions = {
+	captcha_enabled?: boolean;
+	game_mode?: string;
+	custom_field?: string;
+	cqcs_enabled?: boolean;
+	randomize_answers?: boolean;
+};
+
+/** Start a live game from a public quiz (guest or signed-in). */
+export async function startHostGame(
+	quizId: string,
+	options: StartGameOptions = {}
+): Promise<StartGameResponse | 'auth' | 'error'> {
 	const params = new URLSearchParams({
-		captcha_enabled: 'False',
-		game_mode: 'kahoot',
-		custom_field: '',
-		cqcs_enabled: 'False',
-		randomize_answers: 'False'
+		captcha_enabled: options.captcha_enabled ? 'True' : 'False',
+		game_mode: options.game_mode ?? 'kahoot',
+		custom_field: options.custom_field ?? '',
+		cqcs_enabled: options.cqcs_enabled ? 'True' : 'False',
+		randomize_answers: options.randomize_answers ? 'True' : 'False'
 	});
 	const res = await fetch(`/api/v1/quiz/start/${quizId}?${params}`, {
 		method: 'POST',
 		credentials: 'include'
 	});
+	if (res.status === 401 || res.status === 403) {
+		return 'auth';
+	}
 	if (!res.ok) {
 		return 'error';
 	}

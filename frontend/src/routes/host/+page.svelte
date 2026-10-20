@@ -8,10 +8,15 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Footer from '$lib/footer.svelte';
 	import { loadPublicQuizCatalogClient } from '$lib/cma/quiz-catalog';
-	import { adminLobbyUrl, startHostGame } from '$lib/cma/host-game';
 	import type { QuizBrowseItem } from '$lib/cma/client';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import StartGamePopup from '$lib/dashboard/start_game.svelte';
+	import QuizBrowseList from '$lib/quiz/QuizBrowseList.svelte';
+	import { certLabelFor, prettyDifficulty } from '$lib/quiz/labels';
+	import { fetchCerts } from '$lib/quiz/browse';
+	import type { Certification } from '$lib/cma/client';
+	import Button from '$lib/ui/Button.svelte';
 
 	navbarVisible.visible = true;
 
@@ -22,11 +27,13 @@ SPDX-License-Identifier: MPL-2.0
 	let { data }: Props = $props();
 
 	let quizzes = $state<QuizBrowseItem[]>(data.quizzes ?? []);
-	let loading = $state(false);
+	let certs = $state<Certification[]>([]);
 	let catalogLoading = $state(data.ssrQuizLoadFailed && quizzes.length === 0);
 	let error = $state('');
+	let start_game = $state<string | null>(null);
 
 	onMount(async () => {
+		certs = await fetchCerts(fetch);
 		if (quizzes.length > 0) return;
 		catalogLoading = true;
 		error = '';
@@ -38,61 +45,41 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	});
 
-	async function hostQuiz(quizId: string) {
-		loading = true;
-		error = '';
-		const result = await startHostGame(quizId);
-		loading = false;
-		if (result === 'error') {
-			error =
-				'Could not start the game. The quiz may be private or the server is busy. Try again.';
-			return;
-		}
-		window.location.assign(adminLobbyUrl(result));
-	}
+	const rows = $derived(
+		quizzes.map((quiz) => ({
+			...quiz,
+			difficulty: prettyDifficulty(quiz.difficulty),
+			certLabel: certLabelFor(quiz, certs)
+		}))
+	);
 </script>
 
 <svelte:head>
-	<title>CMA Clash: Host a Clash</title>
+	<title>CMA Clash — Host</title>
 </svelte:head>
 
-<div class="min-h-screen flex flex-col">
-	<div class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
-		<h1 class="text-2xl font-semibold text-ink tracking-tight">Host a Clash</h1>
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
+		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Host</h1>
 		<p class="text-sm text-ink-muted mt-1 mb-8">
-			Pick a public quiz set, get a PIN, and share
-			<a href="/play" class="link-hover text-ink">/play</a>
-			so players can join.
+			Pick a set, then share the PIN at
+			<a href="/play" class="text-ink link-hover">/play</a>.
 		</p>
 
 		{#if catalogLoading}
-			<p class="text-ink-muted text-sm">Loading quizzes…</p>
-		{:else if error}
-			<p class="text-danger text-sm mb-4">{error}</p>
+			<p class="text-sm text-ink-muted">Loading quizzes</p>
+		{:else if error && rows.length === 0}
+			<p class="text-sm text-danger mb-4">{error}</p>
+			<Button variant="secondary" class="w-auto" onclick={() => location.reload()}>Retry</Button>
+		{:else if rows.length === 0}
+			<p class="text-sm text-ink-muted">No public quizzes yet.</p>
+		{:else}
+			<QuizBrowseList items={rows} onHost={(id) => (start_game = id)} />
 		{/if}
-
-		<ul class="divide-y divide-white/[0.07]">
-			{#each quizzes as quiz (quiz.id)}
-				<li class="py-3 flex justify-between items-center gap-4 min-w-0">
-					<div class="min-w-0">
-						<p class="font-medium text-ink truncate">{quiz.title}</p>
-						<p class="text-xs text-ink-muted">{quiz.question_count} questions</p>
-					</div>
-					<button
-						type="button"
-						class="ledger-btn-primary w-auto min-h-11 px-4 shrink-0"
-						disabled={loading}
-						onclick={() => hostQuiz(quiz.id)}
-					>
-						Host
-					</button>
-				</li>
-			{:else}
-				{#if !catalogLoading}
-					<p class="text-ink-muted text-sm">No public quizzes yet.</p>
-				{/if}
-			{/each}
-		</ul>
 	</div>
 	<Footer />
 </div>
+
+{#if start_game !== null}
+	<StartGamePopup bind:quiz_id={start_game} />
+{/if}

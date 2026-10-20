@@ -10,231 +10,136 @@ SPDX-License-Identifier: MPL-2.0
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import Spinner from '$lib/Spinner.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import Footer from '$lib/footer.svelte';
 
 	navbarVisible.visible = true;
 
 	const { t } = getLocalization();
 	let url_input = $state('');
-	let file_input: File[] = $state();
+	let file_input: FileList | undefined = $state();
 	let kahoot_regex = /^https:\/\/create\.kahoot\.it\/details\/.*\/?([a-zA-Z-\d]{36})\/?$/;
-
 	let url_valid = $derived(kahoot_regex.test(url_input));
 	let is_loading = $state(false);
+	let error = $state('');
 
 	const submit = async (e: Event) => {
 		e.preventDefault();
-		if (!url_valid) {
-			return;
-		}
+		if (!url_valid) return;
 		is_loading = true;
+		error = '';
 		const regex_res = kahoot_regex.exec(url_input);
-		const res = await fetch(`/api/v1/quiz/import/${regex_res[1]}`, {
+		const res = await fetch(`/api/v1/quiz/import/${regex_res?.[1]}`, {
 			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			}
+			headers: { 'Content-Type': 'application/json' }
 		});
-
 		if (res.status === 200) {
 			window.location.href = '/dashboard';
-		} else if (res.status === 400) {
-			/*			alertModal.set({
-				open: true,
-				title: 'Import failed',
-				body: "This quiz isn't (yet) supported!"
-			});*/
-			alert("This quiz isn't (yet) supported!");
-		} else if (res.status === 403) {
-			/*			alertModal.set({
-				open: true,
-				title: 'Import failed',
-				body: 'Unknown error while importing the quiz!'
-			});*/
-			alert('Quiz is probably private!');
-		} else {
-			alert(`Kahoot replied with ${res.status}`);
+			return;
 		}
+		if (res.status === 400) error = "This quiz isn't supported yet.";
+		else if (res.status === 403) error = 'Quiz is probably private.';
+		else error = `Kahoot replied with ${res.status}`;
 		is_loading = false;
 	};
 
 	const file_submit = async (e: Event) => {
 		e.preventDefault();
+		if (!file_input?.[0]) return;
 		is_loading = true;
+		error = '';
 		const formdata = new FormData();
 		formdata.append('file', file_input[0]);
-		let res;
+		let res: Response;
 		if (file_input[0].name.includes('.xlsx')) {
-			res = await fetch('/api/v1/quiz/excel-import', {
-				method: 'POST',
-				body: formdata
-			});
+			res = await fetch('/api/v1/quiz/excel-import', { method: 'POST', body: formdata });
 		} else if (file_input[0].name.includes('.cqa')) {
-			res = await fetch('/api/v1/eximport/', {
-				method: 'POST',
-				body: formdata
-			});
+			res = await fetch('/api/v1/eximport/', { method: 'POST', body: formdata });
 		} else {
-			alert('Wrong file type');
+			error = 'Use a .cqa or .xlsx file.';
 			is_loading = false;
 			return;
 		}
-
 		if (res.status === 200) {
 			window.location.href = '/dashboard';
-		} else {
-			/*			alertModal.set({
-				open: true,
-				title: 'Import failed',
-				body: 'Something went wrong!'
-			});*/
-			alert('Something went wrong!');
+			return;
 		}
+		error = 'Import failed.';
 		is_loading = false;
 	};
 
 	onMount(() => {
-		let url_from_path = page.url.searchParams.get('url');
-		if (url_from_path === '') {
-			url_from_path = null;
-		}
-		url_input = url_from_path ?? '';
+		url_input = page.url.searchParams.get('url') ?? '';
 	});
 </script>
 
 <svelte:head>
-	<title>CMA Clash: Import</title>
+	<title>CMA Clash — Import</title>
 </svelte:head>
 
-<div class="flex items-center justify-center h-full px-4">
-	<div>
-		<span class="p-4"></span>
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-3xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
+		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Import</h1>
+		{#if error}
+			<p class="text-sm text-danger mt-3">{error}</p>
+		{/if}
 
-		<div
-			class="lg:w-[64rem] lg:max-w-[64rem] w-screen max-w-screen mx-auto overflow-hidden bg-surface rounded-lg shadow-md"
-		>
-			<div class="px-6 py-4">
-				<h2 class="text-3xl font-bold text-center text-ink">
-					{$t('words.import')}
-				</h2>
+		<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-10">
+			<form onsubmit={submit} class="min-w-0">
+				<h2 class="text-sm font-semibold text-ink">Kahoot URL</h2>
+				<p class="text-sm text-ink-muted mt-1">{$t('import_page.url_should_look_like_this')}</p>
+				<label class="sr-only" for="url">Kahoot URL</label>
+				<input
+					id="url"
+					bind:value={url_input}
+					name="url"
+					type="url"
+					class="ledger-input mt-3 min-h-11"
+					placeholder="https://create.kahoot.it/details/…"
+				/>
+				<p class="text-sm text-ink-muted mt-2">{$t('import_page.side_import_kahoot')}</p>
+				<Button class="w-full sm:w-auto mt-4" type="submit" disabled={!url_valid || is_loading}>
+					{#if is_loading}
+						<Spinner class="h-4 w-4" my_20={false} />
+					{/if}
+					{$t('words.submit')}
+				</Button>
+			</form>
 
-				<!--				<h3 class="mt-1 text-xl font-medium text-center text-ink-muted">
-									Welcome Back
-								</h3>-->
-
-				<!--				<p class="mt-1 text-center text-ink-muted">
-									Login or create account
-								</p>-->
-				<div class="grid grid-cols-2">
-					<form onsubmit={submit}>
-						<div class="w-full mt-4 h-full flex flex-col">
-							<h2 class="text-center text-2xl">{$t('import_page.a_kahoot_quiz')}</h2>
-							<div class="bg-surface p-4 rounded-lg">
-								<div class="relative bg-inherit w-full">
-									<input
-										id="url"
-										bind:value={url_input}
-										name="email"
-										type="url"
-										class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-										placeholder="https://create.kahoot.it/details/something"
-										class:ring-red-700={!url_valid}
-										class:ring-green-600={url_valid}
-									/>
-									<label
-										for="url"
-										class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-									>
-										{$t('words.url')}
-									</label>
-									<p class="text-sm">
-										{$t('import_page.url_should_look_like_this')}
-									</p>
-								</div>
-								<p class="mt-2">
-									{$t('import_page.side_import_kahoot')}
-								</p>
-							</div>
-
-							<div class="flex items-center justify-center mt-auto">
-								<span></span>
-
-								<button
-									class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
-									disabled={!url_valid || is_loading}
-									type="submit"
-								>
-									{#if is_loading}
-										<Spinner class="h-4 w-4" my_20={false} inverse />
-									{:else}
-										{$t('words.submit')}
-									{/if}
-								</button>
-							</div>
-						</div>
-					</form>
-					<form onsubmit={file_submit}>
-						<div class="w-full mt-4 border-l-2 border-gray-600 h-full flex flex-col">
-							<h2 class="text-center text-2xl">{$t('import_page.classquiz_quiz')}</h2>
-							<div class="bg-surface p-4 rounded-lg">
-								<div class="relative bg-inherit w-full">
-									<input
-										id="file"
-										bind:files={file_input}
-										name="file"
-										type="file"
-										accept=".cqa,.xlsx"
-										class="w-full peer bg-transparent h-10 rounded-lg py-1.5 text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-										class:ring-red-700={!file_input}
-										class:ring-green-600={file_input}
-									/>
-									<p class="text-sm">{$t('import_page.upload_file_ending')}</p>
-								</div>
-								<p class="mt-2">
-									{$t('import_page.this_side_classquiz')}
-									<br />
-									{$t('import_page.this_side_classquiz_excel')}
-								</p>
-								<a
-									class="text-sm underline font-bold text-primary"
-									download
-									href="https:///CMA-Clash-ImportTemplate.xlsx"
-									>{$t('import_page.download_template_here')}</a
-								>
-							</div>
-
-							<div class="flex items-center justify-center mt-auto">
-								<span></span>
-
-								<button
-									class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
-									disabled={!file_input || is_loading}
-									type="submit"
-								>
-									{#if is_loading}
-										<Spinner class="h-4 w-4" my_20={false} inverse />
-									{:else}
-										{$t('words.submit')}
-									{/if}
-								</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div
-				class="flex items-center justify-center py-4 text-center bg-paper-muted mt-4"
-			>
-				<span class="text-sm text-ink-muted"
-					>{$t('import_page.need_help')}</span
-				>
-
+			<form onsubmit={file_submit} class="min-w-0 md:border-l md:border-white/[0.07] md:pl-10">
+				<h2 class="text-sm font-semibold text-ink">File</h2>
+				<p class="text-sm text-ink-muted mt-1">{$t('import_page.upload_file_ending')}</p>
+				<label class="sr-only" for="file">Quiz file</label>
+				<input
+					id="file"
+					bind:files={file_input}
+					name="file"
+					type="file"
+					accept=".cqa,.xlsx"
+					class="ledger-input mt-3 min-h-11 file:mr-3 file:border-0 file:bg-transparent file:text-ink"
+				/>
+				<p class="text-sm text-ink-muted mt-2">
+					{$t('import_page.this_side_classquiz')}
+					{$t('import_page.this_side_classquiz_excel')}
+				</p>
 				<a
-					href="/docs/import-from-kahoot"
-					class="mx-2 text-sm font-bold text-primary hover:underline transition-all"
-					>{$t('import_page.visit_docs')}</a
+					class="text-sm text-ink link-hover inline-flex min-h-11 items-center"
+					download
+					href="https:///CMA-Clash-ImportTemplate.xlsx">{$t('import_page.download_template_here')}</a
 				>
-			</div>
+				<Button class="w-full sm:w-auto mt-4" type="submit" disabled={!file_input || is_loading}>
+					{#if is_loading}
+						<Spinner class="h-4 w-4" my_20={false} />
+					{/if}
+					{$t('words.submit')}
+				</Button>
+			</form>
 		</div>
+
+		<p class="text-sm text-ink-muted mt-10">
+			{$t('import_page.need_help')}
+			<a href="/docs/import-from-kahoot" class="text-ink link-hover">{$t('import_page.visit_docs')}</a>
+		</p>
 	</div>
+	<Footer />
 </div>
-<!--{/if}-->

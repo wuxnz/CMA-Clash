@@ -7,6 +7,7 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import Spinner from '$lib/Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
+	import Button from '$lib/ui/Button.svelte';
 
 	interface Props {
 		session_data: any;
@@ -23,7 +24,7 @@ SPDX-License-Identifier: MPL-2.0
 	}: Props = $props();
 
 	const { t } = getLocalization();
-	let isSubmitting: boolean;
+	let isSubmitting = $state(false);
 	let totp = $state('');
 
 	let totp_valid = $derived(totp.length === 6);
@@ -33,6 +34,7 @@ SPDX-License-Identifier: MPL-2.0
 		if (!totp_valid) {
 			return;
 		}
+		isSubmitting = true;
 		const res = await fetch(
 			`/api/v1/login/step/${step}?session_id=${session_data.session_id}`,
 			{
@@ -49,76 +51,59 @@ SPDX-License-Identifier: MPL-2.0
 		} else if (res.status === 202) {
 			step += 1;
 			selected_method = null;
+			isSubmitting = false;
 		} else if (res.status === 401) {
+			isSubmitting = false;
 			let data;
 			try {
 				data = await res.json();
 			} catch {
-				/*				alertModal.set({
-					open: true,
-					body: "This shouldn't happen. Please try again.",
-					title: 'Unknown error'
-				});*/
 				alert('Unknown error');
 				window.location.reload();
 			}
 			if (data.detail === 'totp wrong') {
-				/*				alertModal.set({
-					open: true,
-					body: 'Wrong Totp-Code. please try again.',
-					title: 'Totp Error'
-				});*/
 				alert('TOTP code was incorrect');
 				totp = '';
 			}
+		} else {
+			isSubmitting = false;
 		}
 	};
 </script>
 
-<div class="px-6 py-4">
-	<h2 class="text-3xl font-bold text-center font-display font-bold text-ink">CMA Clash</h2>
+<div class="px-6 py-6">
+	<h2 class="text-xl font-semibold text-ink tracking-tight text-center">Authenticator code</h2>
+	<p class="mt-1 text-sm text-center text-ink-muted">Enter the 6-digit code from your app</p>
 
-	<form onsubmit={continue_in_login}>
-		<div class="w-full mt-4">
-			<div class="bg-surface p-4 rounded-lg">
-				<div class="relative bg-inherit w-full">
-					<input
-						id="totp"
-						bind:value={totp}
-						name="totp"
-						type="text"
-						class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-						placeholder={$t('words.totp')}
-						autocomplete="one-time-code"
-					/>
-					<label
-						for="totp"
-						class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-					>
-						{$t('words.totp')}
-					</label>
-				</div>
-			</div>
-			<div class="flex items-center justify-between mt-4">
-				<button
-					onclick={() => {
-						selected_method = 'BACKUP';
-					}}
-					class="text-sm text-ink-muted hover:text-ink-muted"
-					>{$t('login_page.use_backup_code')}</button
-				>
-				<button
-					class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
-					disabled={!totp_valid}
-					type="submit"
-				>
-					{#if isSubmitting}
-						<Spinner class="h-4 w-4" my_20={false} inverse />
-					{:else}
-						{$t('words.continue')}
-					{/if}
-				</button>
-			</div>
+	<form onsubmit={continue_in_login} class="mt-6">
+		<label class="text-sm font-medium text-ink" for="totp">{$t('words.totp')}</label>
+		<input
+			id="totp"
+			bind:value={totp}
+			name="totp"
+			type="text"
+			inputmode="numeric"
+			class="ledger-input mt-1 min-h-11"
+			placeholder={$t('words.totp')}
+			autocomplete="one-time-code"
+		/>
+		<div class="flex items-center justify-between gap-3 mt-4">
+			<button
+				type="button"
+				onclick={() => {
+					selected_method = 'BACKUP';
+				}}
+				class="text-sm text-ink-muted link-hover min-h-11"
+			>
+				{$t('login_page.use_backup_code')}
+			</button>
+			<Button class="w-auto" disabled={!totp_valid || isSubmitting} type="submit">
+				{#if isSubmitting}
+					<Spinner class="h-4 w-4" my_20={false} />
+				{:else}
+					{$t('words.continue')}
+				{/if}
+			</Button>
 		</div>
 	</form>
 </div>

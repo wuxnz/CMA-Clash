@@ -11,6 +11,8 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import type { Question } from '$lib/quiz_types';
 	import { page } from '$app/state';
+	import Button from '$lib/ui/Button.svelte';
+	import { focusTrap } from '$lib/ui/focusTrap';
 
 	navbarVisible.visible = false;
 
@@ -61,65 +63,25 @@ SPDX-License-Identifier: MPL-2.0
 	<Editor bind:data bind:quiz_id />
 {/if}
 
-<div
-	class="fixed z-10 inset-0 overflow-y-auto"
-	aria-labelledby="modal-title"
-	role="dialog"
-	aria-modal="true"
-	class:hidden={!responseData.open}
->
-	<div
-		class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-	>
-		<div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
-
-		<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"
-			>&#8203;</span
-		>
+{#if responseData.open}
+	<div class="dialog-backdrop" role="presentation">
 		<div
-			class="inline-block align-bottom bg-surface rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+			use:focusTrap
+			class="dialog-panel dialog-panel-in p-5"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="create-success-title"
+			tabindex="-1"
 		>
-			<div class="bg-surface px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-				<div class="sm:flex sm:items-start">
-					<div
-						class="mx-auto shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
-					>
-						<!-- Heroicon name: outline/exclamation -->
-						<svg
-							class="w-6 h-6 text-green-600"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-							/>
-						</svg>
-					</div>
-					<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-						<h3 class="text-lg leading-6 font-medium text-ink" id="modal-title">
-							{$t('create_page.success.title')}
-						</h3>
-						<div class="mt-2">
-							<p class="text-sm text-ink-muted">{$t('create_page.success.body')}</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-				<button
-					type="button"
-					onclick={() => {
-						window.location.href = '/dashboard';
-					}}
-					class="mt-3 w-full inline-flex justify-center rounded-md border border-ink/20 shadow-xm px-4 py-2 bg-elevated text-base text-ink font-medium text-ink hover:bg-paper-muted focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-					>{$t('words.close')}
-				</button>
+			<h2 id="create-success-title" class="text-lg font-semibold text-ink tracking-tight">
+				{$t('create_page.success.title')}
+			</h2>
+			<p class="text-sm text-ink-muted mt-2">{$t('create_page.success.body')}</p>
+			<div class="mt-6">
+				<Button class="w-full" onclick={() => (window.location.href = '/dashboard')}>
+					{$t('words.close')}
+				</Button>
 			</div>
 		</div>
 	</div>
-</div>
+{/if}

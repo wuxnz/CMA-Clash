@@ -7,6 +7,7 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import Spinner from '$lib/Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
+	import Button from '$lib/ui/Button.svelte';
 
 	let {
 		session_data,
@@ -16,7 +17,7 @@ SPDX-License-Identifier: MPL-2.0
 	} = $props();
 
 	const { t } = getLocalization();
-	let isSubmitting;
+	let isSubmitting = $state(false);
 	let password = $state();
 
 	const continue_in_login = async (e: Event) => {
@@ -24,6 +25,7 @@ SPDX-License-Identifier: MPL-2.0
 		if (!password) {
 			return;
 		}
+		isSubmitting = true;
 		const res = await fetch(`/api/v1/login/step/1?session_id=${session_data.session_id}`, {
 			method: 'POST',
 			credentials: 'include',
@@ -38,7 +40,9 @@ SPDX-License-Identifier: MPL-2.0
 		} else if (res.status === 202) {
 			step += 1;
 			selected_method = null;
+			isSubmitting = false;
 		} else if (res.status === 401) {
+			isSubmitting = false;
 			let data;
 			try {
 				data = await res.json();
@@ -47,61 +51,46 @@ SPDX-License-Identifier: MPL-2.0
 				window.location.reload();
 			}
 			if (data.detail === 'wrong credentials') {
-				/*				alertModal.set({
-					open: true,
-					body: 'Please try again. Your email and or password were incorrect.',
-					title: 'Wrong Credentials'
-				});*/
 				alert('Wrong credentials');
 			}
+		} else {
+			isSubmitting = false;
 		}
 	};
 </script>
 
-<div class="px-6 py-4">
-	<h2 class="text-3xl font-bold text-center font-display font-bold text-ink">CMA Clash</h2>
+<div class="px-6 py-6">
+	<h2 class="text-xl font-semibold text-ink tracking-tight text-center">Sign in</h2>
+	<p class="mt-1 text-sm text-center text-ink-muted">Enter your password</p>
 
-	<form onsubmit={continue_in_login}>
-		<div class="w-full mt-4">
-			<div class="bg-surface p-4 rounded-lg">
-				<div class="relative bg-inherit w-full">
-					<input
-						id="password"
-						bind:value={password}
-						name="password"
-						type="password"
-						class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-						placeholder={$t('words.password')}
-						autocomplete="current-password"
-					/>
-					<label
-						for="password"
-						class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-					>
-						{$t('words.password')}
-					</label>
-				</div>
-			</div>
-			<div class="flex items-center justify-between mt-4">
-				<button
-					onclick={() => {
-						selected_method = 'BACKUP';
-					}}
-					class="text-sm text-ink-muted hover:text-ink-muted"
-					>{$t('login_page.use_backup_code')}</button
-				>
-				<button
-					class="ledger-btn-primary w-auto px-6"
-					disabled={!password}
-					type="submit"
-				>
-					{#if isSubmitting}
-						<Spinner class="h-4 w-4" my_20={false} inverse />
-					{:else}
-						{$t('words.continue')}
-					{/if}
-				</button>
-			</div>
+	<form onsubmit={continue_in_login} class="mt-6">
+		<label class="text-sm font-medium text-ink" for="password">{$t('words.password')}</label>
+		<input
+			id="password"
+			bind:value={password}
+			name="password"
+			type="password"
+			class="ledger-input mt-1 min-h-11"
+			placeholder={$t('words.password')}
+			autocomplete="current-password"
+		/>
+		<div class="flex items-center justify-between gap-3 mt-4">
+			<button
+				type="button"
+				onclick={() => {
+					selected_method = 'BACKUP';
+				}}
+				class="text-sm text-ink-muted link-hover min-h-11"
+			>
+				{$t('login_page.use_backup_code')}
+			</button>
+			<Button class="w-auto" disabled={!password || isSubmitting} type="submit">
+				{#if isSubmitting}
+					<Spinner class="h-4 w-4" my_20={false} />
+				{:else}
+					{$t('words.continue')}
+				{/if}
+			</Button>
 		</div>
 	</form>
 </div>

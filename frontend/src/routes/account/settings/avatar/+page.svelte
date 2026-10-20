@@ -5,7 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
-	import BrownButton from '$lib/components/buttons/brown.svelte';
+	import Button from '$lib/ui/Button.svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { bounceOut } from 'svelte/easing';
 	import Spinner from '$lib/Spinner.svelte';
@@ -80,28 +80,31 @@ SPDX-License-Identifier: MPL-2.0
 	};
 </script>
 
-<div class="h-full">
-	<div class="grid grid-cols-6 overflow-hidden h-full">
-		<div class="border-r-4 border-black h-full">
-			<img src={image_url} />
+<div class="h-full min-h-[70vh]">
+	<div class="grid grid-cols-1 md:grid-cols-6 overflow-hidden h-full">
+		<div class="md:border-r border-white/10 h-full p-4 flex justify-center">
+			<img src={image_url} alt="" class="w-40 h-40 md:w-full md:h-auto object-contain" />
 		</div>
-		<div class="col-start-2 col-end-7 overflow-scroll">
-			<div class="flex pl-2">
+		<div class="col-start-1 md:col-start-2 col-end-7 overflow-auto">
+			<div class="flex items-center gap-2 px-2 py-3">
 				<div class="mr-auto">
-					<BrownButton
+					<Button
+						variant="secondary"
+						size="sm"
+						class="w-auto"
 						onclick={() => {
 							index = index - 1;
 						}}
-						disabled={index < 1}>{$t('words.back')}</BrownButton
+						disabled={index < 1}>{$t('words.back')}</Button
 					>
 				</div>
-				<div class="mx-auto">
-					<h2 class="text-2xl">
+				<div class="mx-auto min-w-0">
+					<h2 class="text-sm font-semibold text-ink truncate">
 						{translation_map[data_keys[index]]} ({index + 1}/{data_keys.length})
 					</h2>
 				</div>
 				<div class="ml-auto">
-					<BrownButton disabled={index < 11}>{$t('words.finish')}</BrownButton>
+					<Button disabled={index < 11} size="sm" class="w-auto">{$t('words.finish')}</Button>
 				</div>
 			</div>
 			<div class="grid grid-cols-4">
@@ -143,13 +146,14 @@ SPDX-License-Identifier: MPL-2.0
 			in:fly|global={{ delay: 500, duration: 4000, y: -500, easing: bounceOut }}
 		/>
 		<div class="m-auto grid grid-cols-2 gap-4" in:fade|global={{ delay: 3500 }}>
-			<BrownButton
+			<Button
+				variant="secondary"
 				onclick={() => {
 					index = 0;
 					finished = false;
-				}}>{$t('avatar_settings.start_over')}</BrownButton
+				}}>{$t('avatar_settings.start_over')}</Button
 			>
-			<BrownButton onclick={save_avatar} flex={true} disabled={save_finished === true}>
+			<Button onclick={save_avatar} disabled={save_finished === true}>
 				{#if save_finished === undefined}{$t('words.save')}
 				{:else if save_finished === true}
 					<svg
@@ -166,12 +170,13 @@ SPDX-License-Identifier: MPL-2.0
 				{:else if save_finished === false}
 					<Spinner my_20={false} />
 				{/if}
-			</BrownButton>
-			<BrownButton href="/account/settings">{$t('avatar_settings.go_back')}</BrownButton>
-			<BrownButton
+			</Button>
+			<Button href="/account/settings" variant="secondary">{$t('avatar_settings.go_back')}</Button>
+			<Button
+				variant="ghost"
 				onclick={() => {
 					finished = false;
-				}}>{$t('words.close')}</BrownButton
+				}}>{$t('words.close')}</Button
 			>
 		</div>
 	</div>
