@@ -12,9 +12,8 @@ SPDX-License-Identifier: MPL-2.0
 
 	const testimotionals = [
 		{
-			quote: `#CMA Clash: An open source quiz platform (like Kahoot!) made by @Mawoka
- and written mostly in #svelte and #python.
-I like it and would use it for my house parties next time!`,
+			quote: `#CMAClash: Gamified exam prep with live quizzes — written in #svelte and #python.
+Great for study groups and certification practice!`,
 			name: 'Deekshith Allamaneni',
 			source: 'https://twitter.com/adeekshith/status/1514973178438766596'
 		}

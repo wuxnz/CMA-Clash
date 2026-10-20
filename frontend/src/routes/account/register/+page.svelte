@@ -329,7 +329,7 @@ SPDX-License-Identifier: MPL-2.0
 							{:else if responseData.data === '400'}
 								Wrong email!
 							{:else}
-								You stupid Mawoka!
+								Something went wrong
 							{/if}
 						</h3>
 						<div class="mt-2">
@@ -345,7 +345,7 @@ SPDX-License-Identifier: MPL-2.0
 								{:else if responseData.data === 'error'}
 									There was the good old unexpected error!
 								{:else}
-									You stupid Mawoka!
+									Please try again or contact support if the problem persists.
 								{/if}
 							</p>
 						</div>
