@@ -144,6 +144,19 @@ async def join_game(sid: str, data: dict):
         print(e)
         return
     game_data = PlayGame.model_validate_json(redis_res)
+    game_pin = data.game_pin
+    if game_data.game_mode == "battle":
+        from classquiz.socket_server.battle_sync import (
+            is_battle_finished,
+            is_username_in_battle_roster,
+        )
+
+        if await is_battle_finished(game_pin):
+            await sio.emit("join_error", {"code": "game_finished"}, room=sid)
+            return
+        if not await is_username_in_battle_roster(game_pin, data.username):
+            await sio.emit("join_error", {"code": "not_in_battle"}, room=sid)
+            return
     if game_data.started:
         if game_data.game_mode != "battle":
             await sio.emit("join_error", {"code": "game_already_started"}, room=sid)
@@ -194,6 +207,10 @@ async def join_game(sid: str, data: dict):
     await sio.emit("time_sync", encrypted_datetime, room=sid)
     # --- Time-Sync ---
     await sio.enter_room(sid, data.game_pin)
+    if game_data.game_mode == "battle":
+        from classquiz.socket_server.battle_sync import battle_player_joined_socket
+
+        await battle_player_joined_socket(sio, data.game_pin, data.username)
     if game_data.started:
         await sync_player_to_live_game(sio, sid, data.game_pin, game_data)
 
@@ -289,7 +306,7 @@ async def submit_answer(sid: str, data: dict):
         return
 
     answer_right, answer = check_answer(game_data, data)
-    latency = int(float(session["ping"]))
+    latency = int(float(session.get("ping", 0)))
     time_q_started = datetime.fromisoformat(await redis.get(f"game:{session['game_pin']}:current_time"))
     diff = (time_q_started - now).total_seconds() * 1000  # - timedelta(milliseconds=latency)
     score = 0
@@ -308,14 +325,20 @@ async def submit_answer(sid: str, data: dict):
         time_taken=abs(diff) - latency,
         score=score,
     )
-    answer_count = await set_answer(game_pin=session["game_pin"], q_index=question_index, data=answer_data)
-    player_count = await redis.scard(f"game_session:{session['game_pin']}:players")
-    await sio.emit("player_answer", {})
-    if answer_count == player_count:
-        game_data = await PlayGame.get_from_redis(session["game_pin"])
+    game_pin = session["game_pin"]
+    answer_count = await set_answer(game_pin=game_pin, q_index=question_index, data=answer_data)
+    if game_data.game_mode == "battle":
+        from classquiz.socket_server.battle_sync import battle_roster_size
+
+        player_count = await battle_roster_size(game_pin)
+    else:
+        player_count = await redis.scard(f"game_session:{game_pin}:players")
+    await sio.emit("player_answer", {}, room=f"admin:{game_pin}")
+    if player_count > 0 and answer_count >= player_count:
+        game_data = await PlayGame.get_from_redis(game_pin)
         game_data.question_show = False
-        await game_data.save(session["game_pin"])
-        await sio.emit("everyone_answered", {})
+        await game_data.save(game_pin)
+        await sio.emit("everyone_answered", {}, room=game_pin)
         if game_data.game_mode == "battle":
             await battle_maybe_advance(sio, session["game_pin"], game_data)
 
@@ -451,4 +474,4 @@ async def connect(sid: str, _environ, _auth):
     print("Connection opened with handler")
     sio_session = {"session_id": session_id}
     await sio.save_session(sid, sio_session)
-    await sio.emit("session_id", ConnectSessionIdEvent(session_id=session_id).dict())
+    await sio.emit("session_id", ConnectSessionIdEvent(session_id=session_id).dict(), room=sid)

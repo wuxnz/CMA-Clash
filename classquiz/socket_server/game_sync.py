@@ -113,9 +113,26 @@ async def sync_player_to_live_game(sio, sid: str, game_pin: str, game_data: Play
         await sio.emit("set_question_number", payload, room=sid)
 
 
-async def begin_battle_from_rest(sio, game_pin: str) -> None:
-    """Called when a battle lobby starts via REST — no admin socket required."""
+async def try_kickoff_battle(sio, game_pin: str) -> None:
+    """Start the live battle (question 0) once — after roster sync or max wait."""
+    from classquiz.battle.service import BATTLE_REDIS_PREFIX
+
+    kickoff_key = f"{BATTLE_REDIS_PREFIX}:kickoff:{game_pin}"
+    raw = await redis.get(kickoff_key)
+    if raw:
+        data = json.loads(raw)
+        if data.get("kicked_off"):
+            return
+        data["kicked_off"] = True
+        await redis.set(kickoff_key, json.dumps(data), ex=18000)
     await start_live_game(sio, game_pin, show_first_question=True)
+
+
+async def begin_battle_from_rest(sio, game_pin: str) -> None:
+    """Called when a battle lobby starts via REST — wait for players before question 0."""
+    from classquiz.socket_server.battle_sync import schedule_battle_kickoff
+
+    await schedule_battle_kickoff(sio, game_pin)
 
 
 async def battle_maybe_advance(sio, game_pin: str, game_data: PlayGame) -> None:
