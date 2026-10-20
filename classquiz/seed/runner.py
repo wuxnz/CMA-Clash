@@ -17,7 +17,7 @@ from classquiz.db.models import ABCDQuizAnswer, Quiz, QuizQuestion, QuizQuestion
 from classquiz.helpers import get_meili_data
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
-from classquiz.seed.catalog import CERTIFICATIONS
+from classquiz.seed.catalog import CERTIFICATIONS, study_content_for_topic
 
 LOGGER = logging.getLogger(__name__)
 
@@ -78,6 +78,7 @@ async def _ensure_certifications_and_topics() -> dict[str, Topic]:
                 sort_order=cert_def["sort_order"],
             ).save()
         for slug, name, order in cert_def["topics"]:
+            study = study_content_for_topic(slug)
             topic = await Topic.objects.get_or_none(slug=slug)
             if topic is None:
                 topic = await Topic(
@@ -85,7 +86,18 @@ async def _ensure_certifications_and_topics() -> dict[str, Topic]:
                     name=name,
                     certification=cert,
                     sort_order=order,
+                    study_content=study,
                 ).save()
+            else:
+                updates: dict = {}
+                if topic.name != name:
+                    updates["name"] = name
+                if topic.sort_order != order:
+                    updates["sort_order"] = order
+                if study is not None and topic.study_content != study:
+                    updates["study_content"] = study
+                if updates:
+                    await topic.update(**updates)
             topic_by_slug[slug] = topic
     return topic_by_slug
 

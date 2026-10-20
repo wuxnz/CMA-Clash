@@ -52,7 +52,8 @@ class Topic(ormar.Model):
     id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     slug: str = ormar.String(max_length=96, unique=True)
     name: str = ormar.String(max_length=200)
-    description: str = ormar.Text(nullable=True)
+    description: str | None = ormar.Text(nullable=True)
+    study_content: list | None = ormar.JSON(nullable=True, default=None)
     certification: Certification | None = ormar.ForeignKey(
         Certification, nullable=True, ondelete=ReferentialAction.CASCADE
     )

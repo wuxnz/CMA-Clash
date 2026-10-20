@@ -116,6 +116,7 @@ class TestUsers:
     #     assert resp.status_code == 401
 
     def test_password_update(self, test_client: TestClient):  # noqa : F811
+        self.ensure_logged_in(test_client)
         self.apply_cookies(test_client, ValueStorage.cookies)
         resp = test_client.put(
             "/api/v1/users/password/update",
@@ -140,6 +141,7 @@ class TestUsers:
         assert response.status_code == 200
 
     def test_get_session(self, test_client: TestClient):  # noqa : F811
+        self.ensure_logged_in(test_client)
         resp = test_client.get("/api/v1/users/session", cookies=ValueStorage.cookies)
         assert resp.status_code == 200
         assert resp.json()["ip_address"] == "testclient"

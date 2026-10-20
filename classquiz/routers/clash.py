@@ -33,11 +33,18 @@ class CertificationOut(BaseModel):
     sort_order: int
 
 
+class StudyBlockOut(BaseModel):
+    title: str
+    summary: str
+    url: str
+
+
 class TopicOut(BaseModel):
     id: uuid.UUID
     slug: str
     name: str
     description: str | None
+    study_content: list[StudyBlockOut] | None = None
     certification_id: uuid.UUID | None
     sort_order: int
 
