@@ -4,6 +4,7 @@
 
 import sentry_sdk
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from sentry_sdk.integrations.redis import RedisIntegration
 from socketio import ASGIApp
 from starlette.middleware.sessions import SessionMiddleware
@@ -44,6 +45,16 @@ if settings.sentry_dsn:
     sentry_sdk.init(dsn=settings.sentry_dsn, integrations=[RedisIntegration()])
 app = FastAPI(title="CMA Clash API", redoc_url="", docs_url="/api/docs")
 app.state.database = database
+
+_cors_origins = settings.parsed_cors_origins()
+if _cors_origins:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=_cors_origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 
 @app.middleware("http")

@@ -43,8 +43,10 @@ from .models import (
 from classquiz.socket_server.export_helpers import save_quiz_to_storage
 from classquiz.socket_server.session import get_session, save_session
 
-sio = socketio.AsyncServer(async_mode="asgi", cors_allowed_origins=[])
-settings = settings()
+_settings = settings()
+_socket_cors = _settings.parsed_cors_origins() or "*"
+sio = socketio.AsyncServer(async_mode="asgi", cors_allowed_origins=_socket_cors)
+settings = _settings
 
 
 def get_fernet_key() -> bytes:

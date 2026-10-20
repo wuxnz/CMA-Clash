@@ -13,6 +13,7 @@ from classquiz.auth import ACCESS_TOKEN_EXPIRE_MINUTES, create_access_token
 from classquiz.db.models import UserSession
 from classquiz.oauth import google, github, custom
 from classquiz.config import settings
+from classquiz.helpers.cookies import auth_cookie_kwargs
 
 settings = settings()
 
@@ -71,9 +72,8 @@ async def rememberme_middleware(request: Request, call_next) -> Response:
         response.set_cookie(
             key="access_token",
             value=f"Bearer {access_token}",
-            httponly=True,
-            samesite="lax",
             max_age=60 * 60 * 24 * 365,
+            **auth_cookie_kwargs(),
         )
     else:
         response: Response = await call_next(request)
