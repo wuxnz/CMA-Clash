@@ -58,4 +58,6 @@ class TestAnonymousHost:
             json={"host_secret": lobby["host_secret"]},
         )
         assert start.status_code == 200, start.text
-        assert start.json().get("game_pin")
+        body = start.json()
+        assert body.get("game_pin")
+        assert body.get("status") == "started"

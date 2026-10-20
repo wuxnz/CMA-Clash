@@ -7,7 +7,7 @@ export function joinErrorMessage(code: string | undefined): string {
 		case 'captcha_failed':
 			return 'Captcha verification failed. Refresh and try again.';
 		case 'game_already_started':
-			return 'This game already started — you can no longer join the lobby.';
+			return 'This live quiz already started — late join is not allowed. Ask the host for a new game PIN.';
 		case 'username_taken':
 			return 'That nickname is already taken. Pick another.';
 		case 'invalid_payload':
