@@ -66,7 +66,7 @@
     "overview_page": {
         "created_at": "Created at",
         "question_count": "Question count",
-        "no_quizzes": "Click the \"Create\"-button, or import a quiz to get going."
+        "no_quizzes": "Create a set or import one, then host a Clash from this board."
     },
     "edit_page": {
         "success_update_title": "Quiz updated.",

@@ -108,6 +108,53 @@ SPDX-License-Identifier: MPL-2.0
 	@apply transition-[transform] duration-150 ease-out enabled:active:scale-[0.96] motion-reduce:enabled:active:scale-100;
 }
 
+@keyframes arena-enter {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+		filter: blur(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0);
+	}
+}
+
+@utility arena-enter {
+	animation: arena-enter 300ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.arena-enter {
+		animation: none;
+	}
+}
+
+@utility dash-tile {
+	transition-property: transform, box-shadow;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+@media (hover: hover) {
+	.dash-tile:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-glow), var(--shadow-card);
+	}
+}
+
+.dash-tile:active {
+	transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dash-tile:hover,
+	.dash-tile:active {
+		transform: none;
+	}
+}
+
 @utility content-image {
 	outline: 1px solid oklch(1 0 0 / 0.1);
 	outline-offset: -1px;
@@ -209,11 +256,15 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 .link-hover {
-	transition: color 0.2s;
+	transition-property: color;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
 }
 
-.link-hover:hover {
-	color: var(--color-primary);
+@media (hover: hover) {
+	.link-hover:hover {
+		color: var(--color-primary);
+	}
 }
 
 .marck-script {
