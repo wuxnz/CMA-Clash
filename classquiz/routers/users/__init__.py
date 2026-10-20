@@ -307,18 +307,11 @@ class DeleteUserInput(BaseModel):
 async def delete_user_account(input_data: DeleteUserInput, user: User = Depends(get_current_user)):
     if not verify_password(input_data.password, user.password):
         raise HTTPException(status_code=400, detail="Incorrect password")
+    from classquiz.services.user_deletion import delete_user_completely
+
     user = await User.objects.filter(id=user.id).get_or_none()
-    await UserSession.objects.filter(user=user).delete()
-    quizzes = await Quiz.objects.filter(user_id=user).all()
-    quizzes_to_delete = []
-    for quiz in quizzes:
-        if quiz.public:
-            quizzes_to_delete.append(str(quiz.id))
-    if len(quizzes_to_delete) > 0:
-        meilisearch.index(settings.meilisearch_index).delete_documents(quizzes_to_delete)
-    await Quiz.objects.filter(user_id=user).delete()
-    await User.objects.filter(id=user.id).delete()
-    await user.delete()
+    if user is not None:
+        await delete_user_completely(user)
 
 
 @router.get("/avatar", response_class=PlainTextResponse)

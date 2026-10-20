@@ -72,6 +72,8 @@ class Settings(BaseSettings):
     registration_disabled: bool = False
     # Comma-separated browser origins for credentialed API access.
     # Production example: https://cmaclash.com,https://cmaclash.vercel.app
+    # Comma-separated site admin emails (case-insensitive). Empty = first registered user only.
+    admin_emails: str = ""
     cors_origins: str = ""
     # Set when the SPA and API are on different sites without a reverse proxy (cookies need SameSite=None).
     cookie_cross_site: bool = False
@@ -82,6 +84,11 @@ class Settings(BaseSettings):
         if not self.cors_origins.strip():
             return []
         return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+
+    def parsed_admin_emails(self) -> set[str]:
+        if not self.admin_emails.strip():
+            return set()
+        return {email.strip().lower() for email in self.admin_emails.split(",") if email.strip()}
 
     # storage_backend
     storage_backend: str  # either "local" or "s3"
