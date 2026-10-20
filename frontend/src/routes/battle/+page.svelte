@@ -7,7 +7,8 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Footer from '$lib/footer.svelte';
-	import { createBattle, fetchQuizzes, type QuizBrowseItem } from '$lib/cma/client';
+	import { createBattle, type QuizBrowseItem } from '$lib/cma/client';
+	import { loadPublicQuizCatalogClient } from '$lib/cma/quiz-catalog';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
@@ -23,14 +24,19 @@ SPDX-License-Identifier: MPL-2.0
 	let quizzes = $state<QuizBrowseItem[]>(data.quizzes ?? []);
 	let joinCode = $state('');
 	let loading = $state(false);
-	let error = $state(data.loadError ?? '');
+	let error = $state('');
+	let catalogLoading = $state(data.ssrQuizLoadFailed && quizzes.length === 0);
 
 	onMount(async () => {
 		if (quizzes.length > 0) return;
-		let list = await fetchQuizzes({ certification_slug: 'ccma', page_size: 50 });
-		if (list.length === 0) list = await fetchQuizzes({ page_size: 50 });
+		catalogLoading = true;
+		error = '';
+		const list = await loadPublicQuizCatalogClient();
+		catalogLoading = false;
 		quizzes = list;
-		if (list.length === 0 && !error) error = 'No public quizzes yet.';
+		if (list.length === 0) {
+			error = 'Could not load quizzes from the API.';
+		}
 	});
 
 	async function startBattle(quizId: string) {
@@ -69,7 +75,9 @@ SPDX-License-Identifier: MPL-2.0
 			</form>
 		</div>
 
-		{#if error}
+		{#if catalogLoading}
+			<p class="text-ink-muted text-sm mb-4">Loading quizzes…</p>
+		{:else if error}
 			<p class="text-danger text-sm mb-4">{error}</p>
 		{/if}
 

@@ -4,19 +4,10 @@
 
 import type { Handle } from '@sveltejs/kit';
 import * as jose from 'jose';
-import { serverApiUrl } from '$lib/server-api';
+import { fetchWithRetry } from '$lib/api/http';
+import { getBackendOrigin, serverApiUrl } from '$lib/server-api';
 
 const PRIVATE_ROBOTS = 'noindex, nofollow';
-
-const DEFAULT_BACKEND_ORIGIN = 'https://cmaclash-api.onrender.com';
-
-function getBackendOrigin(): string {
-	const fromEnv = process.env.BACKEND_URL?.replace(/\/$/, '');
-	if (fromEnv) {
-		return fromEnv;
-	}
-	return DEFAULT_BACKEND_ORIGIN;
-}
 
 function shouldProxyApi(pathname: string): boolean {
 	return (
@@ -43,7 +34,18 @@ async function proxyToBackend(request: Request): Promise<Response> {
 		init.body = await request.arrayBuffer();
 	}
 
-	return fetch(target, init);
+	const res = await fetchWithRetry(target, init, {
+		attempts: 3,
+		baseDelayMs: 1500,
+		timeoutMs: 25_000
+	});
+	if (!res) {
+		return new Response(JSON.stringify({ detail: 'Upstream API unavailable' }), {
+			status: 502,
+			headers: { 'Content-Type': 'application/json' }
+		});
+	}
+	return res;
 }
 
 function withRobotsTag(response: Response): Response {
