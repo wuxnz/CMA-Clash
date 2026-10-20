@@ -9,7 +9,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
 	import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION } from '$lib/site';
-	import MagneticButton from '$lib/ui/MagneticButton.svelte';
+	import Button from '$lib/ui/Button.svelte';
 	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
 	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
 	import { prefersReducedMotion } from '$lib/ui/motion';
@@ -87,12 +87,14 @@ SPDX-License-Identifier: MPL-2.0
 					<span class="text-sm text-ink-muted">Next daily clash</span>
 					<span class="font-display text-3xl text-gold tabular-nums leading-none">{mm}:{ss}</span>
 				</div>
-				<div class="flex flex-wrap gap-3 mt-8">
-					<MagneticButton href="/play" class="ledger-btn-primary w-auto px-10 text-lg"
-						>{$t('words.play')}</MagneticButton
+				<div class="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:items-center">
+					<Button href="/play" class="col-span-2 sm:col-auto w-full sm:w-auto"
+						>{$t('words.play')}</Button
 					>
-					<a href="/battle" class="action-button w-auto px-8">Battle</a>
-					<a href="/account/register" class="action-button w-auto px-8">{$t('words.register')}</a>
+					<Button href="/battle" variant="secondary" class="w-full sm:w-auto">Battle</Button>
+					<Button href="/account/register" variant="secondary" class="w-full sm:w-auto"
+						>{$t('words.register')}</Button
+					>
 				</div>
 			</div>
 			<div class="rounded-2xl bg-surface p-5 sm:p-6">

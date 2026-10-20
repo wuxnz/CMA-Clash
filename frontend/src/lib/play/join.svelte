@@ -183,8 +183,10 @@ SPDX-License-Identifier: MPL-2.0
 			{#if custom_field}
 				<input class="ledger-input text-center" bind:value={custom_field_value} placeholder={custom_field} />
 			{/if}
-			<button type="submit" class="ledger-btn-primary" disabled={username.length <= 3}
-				>{$t('words.submit')}</button
+			<button
+				type="submit"
+				class="btn btn-primary w-full"
+				disabled={username.length <= 3}>{$t('words.submit')}</button
 			>
 		</form>
 	{/if}

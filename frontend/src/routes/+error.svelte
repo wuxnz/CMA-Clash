@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import { page } from '$app/state';
 	import { Home, RotateCcw } from '@lucide/svelte';
+	import Button from '$lib/ui/Button.svelte';
 
 	navbarVisible.visible = true;
 
@@ -27,17 +28,13 @@ SPDX-License-Identifier: MPL-2.0
 	<p class="font-display text-8xl text-ink tabular-nums leading-none">{status}</p>
 	<p class="mt-6 max-w-md text-ink-muted text-base leading-relaxed">{message}</p>
 	<div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-		<a href="/" class="ledger-btn-primary w-auto px-8 inline-flex items-center gap-2">
+		<Button href="/" class="w-auto">
 			<Home class="w-4 h-4" aria-hidden="true" />
 			Home
-		</a>
-		<button
-			type="button"
-			class="action-button px-8 py-2.5 inline-flex items-center gap-2"
-			onclick={() => location.reload()}
-		>
+		</Button>
+		<Button variant="secondary" class="w-auto" onclick={() => location.reload()}>
 			<RotateCcw class="w-4 h-4" aria-hidden="true" />
 			Retry
-		</button>
+		</Button>
 	</div>
 </div>

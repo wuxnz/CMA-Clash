@@ -17,6 +17,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import QuizCard from '$lib/dashboard/QuizCard.svelte';
+	import Button from '$lib/ui/Button.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
 
 	interface Props {
@@ -185,13 +186,7 @@ SPDX-License-Identifier: MPL-2.0
 					</p>
 				{/if}
 			</div>
-			<button
-				type="button"
-				class="ledger-btn-primary w-full sm:w-auto min-h-11 px-5"
-				onclick={hostFirst}
-			>
-				Host a Clash
-			</button>
+			<Button class="w-full sm:w-auto" onclick={hostFirst}>Host a Clash</Button>
 		</header>
 
 		<nav

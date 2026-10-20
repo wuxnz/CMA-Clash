@@ -65,7 +65,7 @@ SPDX-License-Identifier: MPL-2.0
 				}}
 			>
 				<input class="ledger-input flex-1 uppercase" bind:value={joinCode} placeholder="Code" />
-				<button type="submit" class="ledger-btn-primary w-auto min-h-11 px-6">Join</button>
+				<button type="submit" class="btn btn-primary w-auto">Join</button>
 			</form>
 		</div>
 
