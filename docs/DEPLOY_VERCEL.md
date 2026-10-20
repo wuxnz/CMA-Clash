@@ -10,7 +10,7 @@ CMA Clash is a **split stack**: the SvelteKit UI can run on [Vercel](https://ver
 | Variable | Example | Purpose |
 |----------|---------|---------|
 | `BACKEND_URL` | `https://cmaclash-api.onrender.com` | Build-time `vercel.json` rewrites to your Render API |
-| `API_URL` | `https://cmaclash.vercel.app` | SSR auth refresh (`hooks.server.ts`) |
+| `API_URL` | `https://cmaclash.com` | SSR auth refresh (`hooks.server.ts`); use your custom domain, not the backend URL |
 | `PUBLIC_SOCKET_URL` | `https://cmaclash-api.onrender.com` | Direct Socket.IO (recommended) |
 
 3. Build: `node scripts/write-vercel-config.mjs && pnpm run build:app` (default in `package.json` when using this repo’s frontend).
@@ -53,8 +53,8 @@ Render prompts for these (`sync: false`):
 
 | Variable | What to enter |
 |----------|----------------|
-| `ROOT_ADDRESS` | Your **Vercel** site URL, e.g. `https://cmaclash.vercel.app` (no trailing slash). Used for emails, OAuth callbacks, QR links. |
-| `CORS_ORIGINS` | Same URL as `ROOT_ADDRESS`, or comma-separated list if you use preview domains too |
+| `ROOT_ADDRESS` | Public site URL, e.g. `https://cmaclash.com` (no trailing slash). Used for emails, OAuth callbacks, QR links. |
+| `CORS_ORIGINS` | Comma-separated browser origins, e.g. `https://cmaclash.com,https://cmaclash.vercel.app` (keep the Vercel hostname if you still serve previews there) |
 
 Render auto-generates **`SECRET_KEY`** and **`MEILI_MASTER_KEY`** (on the Meilisearch service; copied to the API as `MEILISEARCH_API_KEY`). Redis uses **`ipAllowList: []`** so only private-network access is allowed.
 
@@ -82,7 +82,7 @@ If no transport is configured, the API **logs** the verification URL instead of 
 ### After Render deploys
 
 1. Copy the API URL: `https://cmaclash-api.onrender.com` (or your custom domain).
-2. On **Vercel**, set `BACKEND_URL` and `PUBLIC_SOCKET_URL` to that URL; set `API_URL` to your Vercel URL.
+2. On **Vercel**, set `BACKEND_URL` and `PUBLIC_SOCKET_URL` to that URL; set `API_URL` to `https://cmaclash.com` (or your custom domain).
 3. Redeploy Vercel so rewrites regenerate.
 
 ### Health check
@@ -98,8 +98,8 @@ Host UI and API on different domains and configure:
 **Backend `.env`:**
 
 ```env
-ROOT_ADDRESS=https://cmaclash.vercel.app
-CORS_ORIGINS=https://cmaclash.vercel.app
+ROOT_ADDRESS=https://cmaclash.com
+CORS_ORIGINS=https://cmaclash.com,https://cmaclash.vercel.app
 COOKIE_CROSS_SITE=true
 ```
 
@@ -124,7 +124,7 @@ Vite dev also proxies `/api` to `:8000` if you use `:3000` directly.
 | Symptom | Fix |
 |---------|-----|
 | Login 404 on Vercel | Set `BACKEND_URL` to Render API; redeploy frontend |
-| Logged out after login | Set Vercel `API_URL` to your Vercel origin; set Render `CORS_ORIGINS` + `ROOT_ADDRESS` |
+| Logged out after login | Set Vercel `API_URL` to `https://cmaclash.com`; set Render `ROOT_ADDRESS` + `CORS_ORIGINS` (include `https://cmaclash.vercel.app` if needed) |
 | Live game disconnects | Render free spin-down; use `PUBLIC_SOCKET_URL` + paid API or keep-alive |
 | Uploads disappear | Expected on free + `local` storage; switch to S3 or a persistent disk |
 | No Register link | `VITE_REGISTRATION_DISABLED=true` hides register unless explicitly enabled |

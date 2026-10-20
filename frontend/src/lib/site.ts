@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 /** Canonical production origin for link previews and SEO. */
-export const SITE_URL = 'https://cmaclash.vercel.app';
+export const SITE_URL = 'https://cmaclash.com';
 
 export const SITE_NAME = 'CMA Clash';
 

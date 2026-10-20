@@ -67,6 +67,8 @@ Revision `a1b2c3d4e5f6` adds CMA Clash tables and quiz metadata columns.
 
 | Variable | Purpose |
 |----------|---------|
+| `ROOT_ADDRESS` | Public site URL for links in email/OAuth/QR (e.g. `https://cmaclash.com`) |
+| `CORS_ORIGINS` | Allowed browser origins, comma-separated (e.g. `https://cmaclash.com,https://cmaclash.vercel.app`) |
 | `AUTO_SEED_CONTENT` | Run seed on container prestart (default `true` in prestart.sh) |
 | `CMA_CLASH_SKIP_SEED` | Skip seed when set |
 | `MEILISEARCH_INDEX` | Default `cmaclash` |
