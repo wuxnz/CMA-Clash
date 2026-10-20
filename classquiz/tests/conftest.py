@@ -10,5 +10,5 @@ import pytest
 @pytest.fixture(autouse=True)
 def _mock_outbound_email():
     """Tests run without a real SMTP server; mail is exercised via API status codes only."""
-    with patch("classquiz.emails._sendMail"):
+    with patch("classquiz.emails.transport.send_email"):
         yield

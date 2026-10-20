@@ -10,8 +10,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Footer from '$lib/footer.svelte';
 	import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION } from '$lib/site';
 	import Button from '$lib/ui/Button.svelte';
-	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
-	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
+	import HomePreviewQuestion from '$lib/landing/HomePreviewQuestion.svelte';
 	import { prefersReducedMotion } from '$lib/ui/motion';
 	import { fade } from 'svelte/transition';
 
@@ -43,12 +42,6 @@ SPDX-License-Identifier: MPL-2.0
 	let mm = $derived(String(Math.floor(nextClash / 60)).padStart(2, '0'));
 	let ss = $derived(String(nextClash % 60).padStart(2, '0'));
 
-	const previewAnswers = [
-		{ t: 'Left ventricle', i: 0 },
-		{ t: 'Right atrium', i: 1 },
-		{ t: 'Left atrium', i: 2 },
-		{ t: 'Right ventricle', i: 3 }
-	];
 </script>
 
 <svelte:head>
@@ -97,30 +90,7 @@ SPDX-License-Identifier: MPL-2.0
 					>
 				</div>
 			</div>
-			<div class="rounded-2xl bg-surface p-5 sm:p-6">
-				<div class="flex items-center justify-between mb-4">
-					<span class="font-display text-2xl text-gold">VS</span>
-					<span class="text-sm text-ink-muted tabular-nums">7 / 12</span>
-				</div>
-				<p class="text-sm text-ink-muted mb-2">CCMA · Anatomy</p>
-				<p class="font-semibold text-ink mb-4">
-					Which chamber of the heart receives oxygenated blood from the pulmonary veins?
-				</p>
-				<div class="grid grid-cols-2 gap-2">
-					{#each previewAnswers as a}
-						<div
-							class="rounded-xl p-4 text-white min-h-[4.5rem] flex flex-col items-center justify-center gap-1"
-							style="background:{LEDGER_ANSWER_COLORS[a.i]}"
-						>
-							<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[a.i]} class="w-6 h-6" />
-							<span class="font-display text-sm normal-case">{a.t}</span>
-						</div>
-					{/each}
-				</div>
-				<p class="mt-4 text-center text-sm text-ink-muted">
-					<span class="font-display text-gold normal-case">3</span> streak · +240 XP
-				</p>
-			</div>
+			<HomePreviewQuestion />
 		</div>
 	</section>
 

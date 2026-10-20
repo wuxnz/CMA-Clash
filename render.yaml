@@ -81,16 +81,22 @@ services:
         value: local
       - key: STORAGE_PATH
         value: /var/data/uploads
+      - key: MAIL_FROM
+        value: CMA Clash <noreply@cmaclash.app>
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
       - key: MAIL_ADDRESS
-        value: noreply@example.com
+        sync: false
       - key: MAIL_USERNAME
-        value: noreply@example.com
+        sync: false
       - key: MAIL_PASSWORD
-        value: unused
+        sync: false
       - key: MAIL_SERVER
-        value: localhost
+        sync: false
       - key: MAIL_PORT
         value: "587"
+        sync: false
       - key: ROOT_ADDRESS
         sync: false
       - key: CORS_ORIGINS

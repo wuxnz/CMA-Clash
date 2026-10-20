@@ -152,7 +152,7 @@ SPDX-License-Identifier: MPL-2.0
 		const first =
 			visibleItems.find((i) => i.type === 'quiz') ?? all_items.find((i) => i.type === 'quiz');
 		if (first && !forceEmpty) start_game = first.id;
-		else window.location.assign('/explore');
+		else window.location.assign('/host');
 	}
 
 	const links = [

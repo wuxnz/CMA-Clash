@@ -49,6 +49,7 @@ export const load = (async ({ fetch, url }) => {
 		rows,
 		featured,
 		hasMore: clash.length >= searchPageSize(),
-		page: 1
+		page: 1,
+		exploreSsrFailed: rows.length === 0 && featured.length === 0
 	};
 }) satisfies PageLoad;

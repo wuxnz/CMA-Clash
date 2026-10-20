@@ -19,7 +19,7 @@ CMA Clash is a **split stack**: the SvelteKit UI can run on [Vercel](https://ver
 
 ### Private launch headers
 
-Checked-in `frontend/vercel.json` adds `X-Robots-Tag: noindex, nofollow`. The build script **merges** those headers with API rewrites when `BACKEND_URL` is set.
+Checked-in `frontend/vercel.json` (used when Vercel **Root Directory** is `frontend`) adds `X-Robots-Tag: noindex, nofollow` and API rewrites to your Render host. The build script refreshes rewrites in **`frontend/vercel.json`** and in the repo-root **`vercel.json`** (if that file exists) from `BACKEND_URL`, defaulting to `https://cmaclash-api.onrender.com`. Do not commit placeholder hosts such as `api.example.com` — they cause Vercel `DNS_HOSTNAME_EMPTY`.
 
 ### Socket.IO
 
@@ -62,10 +62,22 @@ Render auto-generates **`SECRET_KEY`** and **`MEILI_MASTER_KEY`** (on the Meilis
 
 Other important defaults are set in the blueprint:
 
-- `SKIP_EMAIL_VERIFICATION=true`
+- `SKIP_EMAIL_VERIFICATION=true` (set to `false` once email delivery is configured)
 - `COOKIE_CROSS_SITE=true` (required for Vercel ↔ Render cookies)
 - `AUTO_SEED_CONTENT=true`
 - `STORAGE_BACKEND=local`
+
+### Email verification (optional until you disable `SKIP_EMAIL_VERIFICATION`)
+
+Verification links point at `${ROOT_ADDRESS}/account/verify?token=…` (48h JWT). Configure **one** transport:
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Send via [Resend](https://resend.com) HTTP API (recommended on Render) |
+| `MAIL_FROM` | From header, e.g. `CMA Clash <noreply@yourdomain.com>` (required for Resend verified domain) |
+| `MAIL_SERVER`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_ADDRESS` | Classic SMTP (also used as fallback `From` if `MAIL_FROM` is unset) |
+
+If no transport is configured, the API **logs** the verification URL instead of crashing (fine for dev). Set `SKIP_EMAIL_VERIFICATION=false` only after `ROOT_ADDRESS` and mail env vars are correct.
 
 ### After Render deploys
 

@@ -10,6 +10,7 @@ import type {
 	Topic,
 	TopicStat
 } from '$lib/cma/client';
+import { kitOrBackendFetch } from '$lib/server-api';
 
 function asList(value: unknown): any[] {
 	if (Array.isArray(value)) return value;
@@ -24,8 +25,8 @@ function asList(value: unknown): any[] {
 
 async function safeJson(fetchFn: typeof fetch, url: string): Promise<unknown> {
 	try {
-		const res = await fetchFn(url, { credentials: 'include' });
-		if (!res.ok) return null;
+		const res = await kitOrBackendFetch(fetchFn, url, { credentials: 'include' });
+		if (!res?.ok) return null;
 		return await res.json();
 	} catch {
 		return null;

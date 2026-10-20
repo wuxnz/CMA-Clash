@@ -24,7 +24,13 @@ function proxyApi(context) {
 async function shot(page, path, file, mustInclude, { fullPage = false } = {}) {
 	await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle' });
 	await page.waitForTimeout(1100);
-	await page.getByText(mustInclude, { exact: false }).first().waitFor({ timeout: 12000 });
+	if (mustInclude === 'Host') {
+		await page.locator('[data-browse-list]').getByRole('button', { name: 'Host' }).first().waitFor({
+			timeout: 12000
+		});
+	} else {
+		await page.getByText(mustInclude, { exact: false }).first().waitFor({ timeout: 12000 });
+	}
 	const body = await page.locator('body').innerText();
 	if (/Internal Error|UNKNOWN ERROR/i.test(body)) {
 		throw new Error(`${file}: page error`);

@@ -36,6 +36,7 @@
 	let page = $state(data.page);
 	let loading = $state(false);
 	let loadingMore = $state(false);
+	let searchError = $state('');
 	let start_game = $state<string | null>(null);
 	let inputEl: HTMLInputElement | undefined = $state();
 	let debounce: ReturnType<typeof setTimeout> | undefined;
@@ -68,6 +69,7 @@
 		} else {
 			loadingMore = true;
 		}
+		searchError = '';
 		try {
 			const q = search_term.trim();
 			const nextPage = reset ? 1 : page + 1;
@@ -101,6 +103,9 @@
 				rows = reset ? next : [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
 				page = nextPage;
 				hasMore = clashPage.length >= searchPageSize();
+			}
+			if (reset && rows.length === 0 && !useMeili) {
+				searchError = 'Could not load quizzes from the API.';
 			}
 			syncUrl();
 		} finally {
@@ -166,7 +171,9 @@
 				autocomplete="off"
 				data-search-input
 			/>
-			<Button type="submit" class="w-full sm:w-auto shrink-0" disabled={tooShort}>Search</Button>
+			<Button type="submit" class="w-full sm:w-auto shrink-0" disabled={tooShort || loading}>
+				Search
+			</Button>
 		</form>
 		{#if tooShort}
 			<p class="text-sm text-ink-muted mt-2">Enter at least 3 characters.</p>
@@ -190,17 +197,24 @@
 				<div data-empty-search>
 					<p class="text-sm text-ink">No results</p>
 					<p class="text-sm text-ink-muted mt-1">
-						Try another term, or
-						<a href="/import" class="text-ink link-hover">import</a> a set.
-						{#if search_term.trim().length >= 3}
-							Search on
-							<a
-								class="text-ink link-hover"
-								href="https://create.kahoot.it/search?query={encodeURIComponent(search_term)}&tags=test&filter=filter%3D1"
-								target="_blank"
-								rel="noreferrer">Kahoot!</a
-							>
-							and import it.
+						{#if searchError}
+							{searchError}
+							<button type="button" class="text-ink link-hover min-h-11" onclick={() => runSearch(true)}>
+								Retry
+							</button>
+						{:else}
+							Try another term, or
+							<a href="/import" class="text-ink link-hover">import</a> a set.
+							{#if search_term.trim().length >= 3}
+								Search on
+								<a
+									class="text-ink link-hover"
+									href="https://create.kahoot.it/search?query={encodeURIComponent(search_term)}&tags=test&filter=filter%3D1"
+									target="_blank"
+									rel="noreferrer">Kahoot!</a
+								>
+								and import it.
+							{/if}
 						{/if}
 					</p>
 				</div>

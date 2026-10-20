@@ -34,6 +34,7 @@
 	let page = $state(data.page);
 	let loading = $state(false);
 	let loadingMore = $state(false);
+	let exploreError = $state('');
 	let start_game = $state<string | null>(null);
 	let filterKey = $state(`${data.cert}|${data.difficulty}|${data.sort}`);
 
@@ -54,6 +55,7 @@
 	async function loadPage(nextPage: number, reset: boolean) {
 		if (reset) loading = true;
 		else loadingMore = true;
+		exploreError = '';
 		try {
 			const [meili, clash, featuredSource, certs] = await Promise.all([
 				searchMeili(fetch, { q: '*', limit: 100, sort: ['created_at:desc'] }),
@@ -84,6 +86,9 @@
 			}
 			page = nextPage;
 			hasMore = clash.length >= searchPageSize();
+			if (reset && rows.length === 0) {
+				exploreError = 'Could not load quizzes from the API.';
+			}
 			syncUrl();
 		} finally {
 			loading = false;
@@ -99,7 +104,7 @@
 	});
 
 	onMount(() => {
-		if (rows.length === 0) loadPage(1, true);
+		if (rows.length === 0 || data.exploreSsrFailed) loadPage(1, true);
 	});
 </script>
 
@@ -129,16 +134,23 @@
 				<div data-empty-explore>
 					<p class="text-sm text-ink">No quizzes for this filter.</p>
 					<p class="text-sm text-ink-muted mt-2">
-						<button
-							type="button"
-							class="text-ink link-hover min-h-11"
-							onclick={() => {
-								cert = '';
-								difficulty = '';
-							}}
-						>
-							Clear filters
-						</button>
+						{#if exploreError}
+							{exploreError}
+							<button type="button" class="text-ink link-hover min-h-11" onclick={() => loadPage(1, true)}>
+								Retry
+							</button>
+						{:else}
+							<button
+								type="button"
+								class="text-ink link-hover min-h-11"
+								onclick={() => {
+									cert = '';
+									difficulty = '';
+								}}
+							>
+								Clear filters
+							</button>
+						{/if}
 					</p>
 				</div>
 			{:else}

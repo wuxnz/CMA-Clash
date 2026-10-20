@@ -1,12 +1,9 @@
 import { browser } from '$app/environment';
 import type { Certification, QuizBrowseItem } from '$lib/cma/client';
-import { serverApiUrl } from '$lib/server-api';
+import { postSearch, postSearchClient } from '$lib/cma/search-api';
+import { kitOrBackendFetch } from '$lib/server-api';
 import { certLabelFor, certSlugFor, prettyDifficulty, stripHighlight } from './labels';
 import type { QuizRowItem } from './QuizRow.svelte';
-
-function apiUrl(path: string): string {
-	return browser ? path : serverApiUrl(path);
-}
 
 export type MeiliHit = {
 	id: string;
@@ -41,32 +38,23 @@ export function searchPageSize(): number {
 	return PAGE_SIZE;
 }
 
-async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
-	return globalThis.fetch(apiUrl(path), init);
-}
-
 export async function searchMeili(
-	_fetchFn: typeof fetch,
+	fetchFn: typeof fetch,
 	opts: { q: string; offset?: number; limit?: number; sort?: string[] }
 ): Promise<SearchResponse> {
 	const q = opts.q.trim().length ? opts.q : '*';
+	const body = {
+		q,
+		offset: opts.offset ?? 0,
+		limit: opts.limit ?? PAGE_SIZE,
+		attributesToHighlight: ['*'],
+		sort: opts.sort
+	};
 	try {
-		const res = await apiFetch('/api/v1/search/', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				q,
-				offset: opts.offset ?? 0,
-				limit: opts.limit ?? PAGE_SIZE,
-				attributesToHighlight: ['*'],
-				sort: opts.sort
-			})
-		});
-		if (!res.ok) {
+		const data = browser ? await postSearchClient(body) : await postSearch(fetchFn, body);
+		if (!data) {
 			return { hits: [], query: q, limit: opts.limit ?? PAGE_SIZE, offset: opts.offset ?? 0 };
 		}
-		const raw = (await res.text()).replaceAll('<em>', '<mark>').replaceAll('</em>', '</mark>');
-		const data = JSON.parse(raw) as SearchResponse;
 		return {
 			hits: Array.isArray(data.hits) ? data.hits : [],
 			query: data.query ?? q,
@@ -94,24 +82,24 @@ export async function fetchClashQuizzes(
 	if (params.page) search.set('page', String(params.page));
 	search.set('page_size', String(params.page_size ?? PAGE_SIZE));
 	try {
-			const res = await apiFetch(`/api/v1/clash/quizzes?${search}`);
-		if (!res.ok) return [];
-		const data = await res.json();
-		return Array.isArray(data) ? data : [];
-	} catch {
-		return [];
-	}
+			const res = await kitOrBackendFetch(fetchFn, `/api/v1/clash/quizzes?${search}`);
+			if (!res?.ok) return [];
+			const data = await res.json();
+			return Array.isArray(data) ? data : [];
+		} catch {
+			return [];
+		}
 }
 
 export async function fetchCerts(fetchFn: typeof fetch): Promise<Certification[]> {
 	try {
-			const res = await apiFetch('/api/v1/clash/certifications');
-		if (!res.ok) return [];
-		const data = await res.json();
-		return Array.isArray(data) ? data : [];
-	} catch {
-		return [];
-	}
+			const res = await kitOrBackendFetch(fetchFn, '/api/v1/clash/certifications');
+			if (!res?.ok) return [];
+			const data = await res.json();
+			return Array.isArray(data) ? data : [];
+		} catch {
+			return [];
+		}
 }
 
 export function clashMap(items: QuizBrowseItem[]): Map<string, QuizBrowseItem> {

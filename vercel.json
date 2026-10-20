@@ -12,5 +12,31 @@
 				}
 			]
 		}
+	],
+	"rewrites": [
+		{
+			"source": "/api/:path*",
+			"destination": "https://cmaclash-api.onrender.com/api/:path*"
+		},
+		{
+			"source": "/socket.io",
+			"destination": "https://cmaclash-api.onrender.com/socket.io"
+		},
+		{
+			"source": "/socket.io/:path*",
+			"destination": "https://cmaclash-api.onrender.com/socket.io/:path*"
+		},
+		{
+			"source": "/openapi.json",
+			"destination": "https://cmaclash-api.onrender.com/openapi.json"
+		},
+		{
+			"source": "/rapidoc",
+			"destination": "https://cmaclash-api.onrender.com/rapidoc"
+		},
+		{
+			"source": "/rapidoc/:path*",
+			"destination": "https://cmaclash-api.onrender.com/rapidoc/:path*"
+		}
 	]
 }
