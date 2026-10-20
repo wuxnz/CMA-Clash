@@ -8,8 +8,8 @@ export type StartGameResponse = {
 	cqc_code: string;
 };
 
-/** Start a live kahoot-style game from a quiz (requires sign-in). */
-export async function startHostGame(quizId: string): Promise<StartGameResponse | 'auth' | 'error'> {
+/** Start a live kahoot-style game from a public quiz (guest or signed-in). */
+export async function startHostGame(quizId: string): Promise<StartGameResponse | 'error'> {
 	const params = new URLSearchParams({
 		captcha_enabled: 'False',
 		game_mode: 'kahoot',
@@ -21,9 +21,6 @@ export async function startHostGame(quizId: string): Promise<StartGameResponse |
 		method: 'POST',
 		credentials: 'include'
 	});
-	if (res.status === 401 || res.status === 403) {
-		return 'auth';
-	}
 	if (!res.ok) {
 		return 'error';
 	}

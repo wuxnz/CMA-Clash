@@ -43,12 +43,8 @@ SPDX-License-Identifier: MPL-2.0
 		error = '';
 		const result = await startHostGame(quizId);
 		loading = false;
-		if (result === 'auth') {
-			window.location.assign(`/account/login?returnTo=${encodeURIComponent('/host')}`);
-			return;
-		}
 		if (result === 'error') {
-			error = 'Could not start the game. Sign in and try again.';
+			error = 'Could not start the game. The quiz may be private or the server is busy — try again.';
 			return;
 		}
 		window.location.assign(adminLobbyUrl(result));

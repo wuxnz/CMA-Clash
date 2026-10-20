@@ -111,15 +111,81 @@ SPDX-License-Identifier: MPL-2.0
 	const socket_game_controls: SocketGameControls = new SocketGameControls(socket);
 	let game_state: GameState = $state(new GameState(game_token));
 
-	const connect = async () => {
+	// Connection status for the host lobby. The page must never be blank while
+	// we wait for the socket (Render's free tier can take ~60s to wake up).
+	type ConnectionStatus = 'idle' | 'connecting' | 'error';
+	let connectionStatus: ConnectionStatus = $state(auto_connect ? 'connecting' : 'idle');
+	let connectionError = $state('');
+	let registerTimeout: ReturnType<typeof setTimeout> | undefined;
+	const REGISTER_TIMEOUT_MS = 20000;
+
+	const clearRegisterTimeout = () => {
+		if (registerTimeout) {
+			clearTimeout(registerTimeout);
+			registerTimeout = undefined;
+		}
+	};
+
+	const failConnection = (message: string) => {
+		if (success) return;
+		clearRegisterTimeout();
+		connectionStatus = 'error';
+		connectionError = message;
+	};
+
+	const emitRegister = () => {
 		socket.emit('register_as_admin', {
 			game_pin: game_pin,
 			game_id: game_token
 		});
-		const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
-		const json = await res.json();
-		game_mode = json.game_mode;
 	};
+
+	const connect = async () => {
+		if (!game_pin || !game_token) {
+			failConnection(
+				'This host link is missing its game PIN or token. Go back to Host a Clash and start the game again.'
+			);
+			return;
+		}
+		errorMessage = '';
+		connectionError = '';
+		connectionStatus = 'connecting';
+		clearRegisterTimeout();
+		registerTimeout = setTimeout(() => {
+			failConnection(
+				'The game server did not respond in time. It may be waking up (this can take up to a minute). Please retry.'
+			);
+		}, REGISTER_TIMEOUT_MS);
+		if (socket.connected) {
+			emitRegister();
+		} else {
+			socket.once('connect', emitRegister);
+			socket.connect();
+		}
+		try {
+			const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
+			const json = await res.json();
+			game_mode = json.game_mode;
+		} catch (e) {
+			console.warn('Could not load game mode', e);
+		}
+	};
+
+	const retryConnection = () => {
+		socket.off('connect', emitRegister);
+		if (!socket.connected) {
+			socket.disconnect();
+		}
+		connect();
+	};
+
+	socket.on('connect_error', (err) => {
+		console.error('Socket connect_error', err);
+		failConnection(
+			'Could not connect to the game server. It may be waking up (this can take up to a minute). Please retry.'
+		);
+	});
+
 	onMount(() => {
 		if (auto_connect) {
 			connect();
@@ -134,9 +200,22 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	socket.on('registered_as_admin', (data) => {
-		game_state.quiz_data = JSON.parse(data['game']);
-		console.log(game_state.quiz_data);
+		clearRegisterTimeout();
+		if (!data?.['game']) {
+			failConnection(
+				'This game could not be found on the server. It may have expired; start a new game from Host a Clash.'
+			);
+			return;
+		}
+		try {
+			game_state.quiz_data = JSON.parse(data['game']);
+		} catch (e) {
+			console.error('Failed to parse game data', e);
+			failConnection('The game data from the server could not be read. Please retry.');
+			return;
+		}
 		success = true;
+		connectionStatus = 'idle';
 	});
 	socket.on('player_joined', (int_data) => {
 		game_state.players = [...game_state.players, int_data];
@@ -145,6 +224,8 @@ SPDX-License-Identifier: MPL-2.0
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		errorMessage = $t('admin_page.already_registered_as_admin');
+		clearRegisterTimeout();
+		connectionStatus = 'error';
 	});
 
 	socket.on('start_game', (_) => {
@@ -285,9 +366,47 @@ SPDX-License-Identifier: MPL-2.0
 		<FinalResults bind:data={game_state.player_scores} {show_final_results} />
 	{/if}
 	{#if !success}
-		{#if errorMessage !== ''}
-			<p class="text-red-700">{errorMessage}</p>
-		{/if}
+		<div class="flex min-h-screen w-full items-center justify-center p-6">
+			<div
+				class="w-full max-w-md rounded-lg border border-white/10 bg-surface p-6 text-center shadow-lg"
+				role="status"
+				aria-live="polite"
+			>
+				{#if connectionStatus === 'error' || errorMessage !== ''}
+					<h1 class="text-xl font-semibold text-ink">Couldn't open the host lobby</h1>
+					<p class="mt-3 text-sm text-red-400">{errorMessage || connectionError}</p>
+					<div class="mt-6 flex flex-wrap justify-center gap-3">
+						<button
+							type="button"
+							class="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500"
+							onclick={retryConnection}>Retry</button
+						>
+						<a
+							href="/host"
+							class="rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-ink hover:bg-white/5"
+							>Back to Host a Clash</a
+						>
+					</div>
+				{:else if connectionStatus === 'connecting'}
+					<div
+						class="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-white/20 border-t-blue-500"
+						aria-hidden="true"
+					></div>
+					<h1 class="mt-4 text-xl font-semibold text-ink">Connecting to game…</h1>
+					<p class="mt-2 text-sm text-ink-muted">
+						If the server was asleep, this can take up to a minute.
+					</p>
+				{:else}
+					<h1 class="text-xl font-semibold text-ink">Ready to host</h1>
+					<p class="mt-2 text-sm text-ink-muted">Connect to start the lobby for game {game_pin}.</p>
+					<button
+						type="button"
+						class="mt-6 rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500"
+						onclick={connect}>Connect</button
+					>
+				{/if}
+			</div>
+		</div>
 	{:else if !game_state.game_started}
 		<GameNotStarted
 			{game_pin}

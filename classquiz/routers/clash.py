@@ -7,17 +7,20 @@ from __future__ import annotations
 import uuid
 from typing import Literal
 
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from pydantic import BaseModel, Field
 
-from classquiz.auth import get_current_user
+from classquiz.auth import get_current_user, get_current_user_optional
 from classquiz.battle.service import (
     create_battle_lobby,
+    create_battle_lobby_guest,
     enqueue_matchmaking,
     get_battle_lobby,
     join_battle_lobby,
+    join_battle_lobby_guest,
     start_battle_game,
 )
+from classquiz.rate_limit import rate_limit_request
 from classquiz.db.cma_models import Certification, LeaderboardScore, Topic, UserGamificationProfile, UserTopicStat
 from classquiz.db.models import Quiz, User
 from classquiz.gamification.service import accuracy_percent, get_or_create_profile, level_from_xp, xp_for_level
@@ -85,6 +88,16 @@ class CreateBattleBody(BaseModel):
     quiz_id: uuid.UUID
     max_players: int = Field(default=4, ge=2, le=8)
     certification_slug: str | None = None
+    display_name: str | None = Field(default=None, max_length=32)
+
+
+class JoinBattleBody(BaseModel):
+    display_name: str | None = Field(default=None, max_length=32)
+    guest_player_id: str | None = None
+
+
+class StartBattleBody(BaseModel):
+    host_secret: str | None = None
 
 
 class BattleLobbyOut(BaseModel):
@@ -96,6 +109,8 @@ class BattleLobbyOut(BaseModel):
     status: str
     game_pin: str | None = None
     game_id: str | None = None
+    host_secret: str | None = None
+    guest_player_id: str | None = None
 
 
 @router.get("/certifications", response_model=list[CertificationOut])
@@ -229,24 +244,63 @@ async def get_leaderboard(
     return entries
 
 
+def _lobby_out(lobby, guest_player_id: str | None = None, include_host_secret: bool = False) -> BattleLobbyOut:
+    data = lobby.model_dump()
+    if not include_host_secret:
+        data["host_secret"] = None
+    return BattleLobbyOut(**data, guest_player_id=guest_player_id)
+
+
 @router.post("/battles", response_model=BattleLobbyOut)
-async def api_create_battle(body: CreateBattleBody, user: User = Depends(get_current_user)):
+async def api_create_battle(
+    request: Request,
+    body: CreateBattleBody,
+    user: User | None = Depends(get_current_user_optional),
+):
     quiz = await Quiz.objects.get_or_none(id=body.quiz_id, public=True)
     if quiz is None:
+        if user is None:
+            raise HTTPException(status_code=404, detail="quiz not found")
         quiz = await Quiz.objects.get_or_none(id=body.quiz_id, user_id=user.id)
     if quiz is None:
         raise HTTPException(status_code=404, detail="quiz not found")
+    if user is None:
+        await rate_limit_request(request, "battle_create_anon", limit=20, window_sec=3600)
+        if not body.display_name or len(body.display_name.strip()) < 2:
+            raise HTTPException(status_code=400, detail="display_name required for guest battles")
+        try:
+            lobby = await create_battle_lobby_guest(
+                body.display_name, quiz.id, body.max_players, body.certification_slug
+            )
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        guest_id = lobby.player_slots[0]["user_id"]
+        return _lobby_out(lobby, guest_player_id=guest_id, include_host_secret=True)
     lobby = await create_battle_lobby(user, quiz.id, body.max_players, body.certification_slug)
-    return BattleLobbyOut(**lobby.model_dump())
+    return _lobby_out(lobby)
 
 
 @router.post("/battles/{battle_code}/join", response_model=BattleLobbyOut)
-async def api_join_battle(battle_code: str, user: User = Depends(get_current_user)):
+async def api_join_battle(
+    battle_code: str,
+    body: JoinBattleBody | None = None,
+    user: User | None = Depends(get_current_user_optional),
+):
+    if user is not None:
+        try:
+            lobby = await join_battle_lobby(battle_code, user)
+        except ValueError as e:
+            raise HTTPException(status_code=400, detail=str(e))
+        return _lobby_out(lobby)
+    if body is None or not body.display_name or len(body.display_name.strip()) < 2:
+        raise HTTPException(status_code=400, detail="display_name required for guest join")
     try:
-        lobby = await join_battle_lobby(battle_code, user)
+        lobby, guest_id = await join_battle_lobby_guest(
+            battle_code, body.display_name, body.guest_player_id
+        )
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    return BattleLobbyOut(**lobby.model_dump())
+    return _lobby_out(lobby, guest_player_id=guest_id)
 
 
 @router.get("/battles/{battle_code}", response_model=BattleLobbyOut)
@@ -254,16 +308,22 @@ async def api_get_battle(battle_code: str):
     lobby = await get_battle_lobby(battle_code)
     if lobby is None:
         raise HTTPException(status_code=404, detail="battle not found")
-    return BattleLobbyOut(**lobby.model_dump())
+    return _lobby_out(lobby)
 
 
 @router.post("/battles/{battle_code}/start", response_model=BattleLobbyOut)
-async def api_start_battle(battle_code: str, user: User = Depends(get_current_user)):
+async def api_start_battle(
+    battle_code: str,
+    body: StartBattleBody | None = None,
+    user: User | None = Depends(get_current_user_optional),
+):
+    host_secret = body.host_secret if body else None
+    user_id = user.id if user is not None else None
     try:
-        lobby = await start_battle_game(battle_code, user.id)
+        lobby = await start_battle_game(battle_code, user_id, host_secret=host_secret)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    return BattleLobbyOut(**lobby.model_dump())
+    return _lobby_out(lobby)
 
 
 @router.post("/matchmaking/queue")
