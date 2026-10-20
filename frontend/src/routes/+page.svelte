@@ -10,8 +10,8 @@ SPDX-License-Identifier: MPL-2.0
 	import Footer from '$lib/footer.svelte';
 	import WebPOpenGraph from '$lib/assets/landing/opengraph-home.webp';
 	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
-	import Newsletter from '$lib/landing/newsletter.svelte';
 	import { fly, fade } from 'svelte/transition';
+	import RetentionBar from '$lib/ui/RetentionBar.svelte';
 
 	import FindScreenshot from '$lib/assets/landing_new/find.webp';
 	import ImportScreenshot from '$lib/assets/landing_new/import.webp';
@@ -19,17 +19,9 @@ SPDX-License-Identifier: MPL-2.0
 	import SelectScreenshot from '$lib/assets/landing_new/select.webp';
 	import ResultScreenshot from '$lib/assets/landing_new/result.webp';
 	import WinnersScreenshot from '$lib/assets/landing_new/winners.webp';
-	import { onMount } from 'svelte';
-
 	const { t } = getLocalization();
 
 	navbarVisible.visible = true;
-
-	let newsletterModalOpen: boolean = $state();
-	onMount(() => {
-		const ls = localStorage.getItem('newsletter');
-		newsletterModalOpen = ls === null;
-	});
 
 	// eslint-disable-next-line no-unused-vars
 	enum SelectedCreateThing {
@@ -104,38 +96,51 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>ClassQuiz - {$t('index_page.meta.title')}</title>
-	<meta name="description" content={$t('index_page.meta.description')} />
-	<title>ClassQuiz - Home</title>
+	<title>CMA-Clash — {$t('index_page.meta.title')}</title>
 	<meta
 		name="description"
-		content="ClassQuiz is a quiz-application like KAHOOT!, but open-source. You can create quizzes and play them remotely with other people."
+		content="Gamified CMA exam prep with real-time quizzes, multiplayer battles, and competitive leaderboards."
 	/>
 
 	<meta property="og:url" content="https://classquiz.de/" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="ClassQuiz - {$t('index_page.meta.title')}" />
+	<meta property="og:title" content="CMA-Clash — {$t('index_page.meta.title')}" />
 	<meta
 		property="og:description"
-		content="ClassQuiz is a quiz-application like KAHOOT!, but open-source. You can create quizzes and play them remotely with other people."
+		content="Gamified CMA exam prep with real-time quizzes, multiplayer battles, and competitive leaderboards."
 	/>
 	<meta property="og:image" content={JpgOpenGraph} />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:domain" content="classquiz.de" />
 	<meta property="twitter:url" content="https://classquiz.de/" />
-	<meta name="twitter:title" content="ClassQuiz - {$t('index_page.meta.title')}" />
+	<meta name="twitter:title" content="CMA-Clash — {$t('index_page.meta.title')}" />
 	<meta
 		name="twitter:description"
-		content="ClassQuiz is a quiz-application like KAHOOT!, but open-source. You can create quizzes and play them remotely with other people."
+		content="Gamified CMA exam prep with real-time quizzes, multiplayer battles, and competitive leaderboards."
 	/>
 	<meta name="twitter:image" content={WebPOpenGraph} />
 </svelte:head>
 <div class="min-h-screen flex flex-col">
-	<section class="pb-40">
-		<div class="pt-12 text-center">
-			<h1 class="sm:text-8xl text-6xl mt-6 marck-script">ClassQuiz</h1>
-			<p class="text-xl mt-4">{$t('index_page.slogan')}</p>
+	<section class="pb-24 px-4">
+		<div class="pt-16 text-center max-w-3xl mx-auto">
+			<h1 class="font-display sm:text-6xl text-5xl font-bold text-ink tracking-tight">
+				CMA-Clash
+			</h1>
+			<p class="text-lg sm:text-xl mt-4 text-ink-muted">
+				Gamified CMA exam prep — live quizzes, battles, and leaderboards
+			</p>
+			<div class="flex flex-wrap justify-center gap-3 mt-8">
+				<a href="/play" class="ledger-btn-primary w-auto px-8">{$t('words.play')}</a>
+				<a
+					href="/account/register"
+					class="inline-flex items-center justify-center px-8 py-2.5 font-semibold rounded-lg border border-ink/20 bg-surface hover:bg-paper-muted transition"
+					>{$t('words.register')}</a
+				>
+			</div>
+			<div class="mt-10 flex justify-center">
+				<RetentionBar streakDays={0} dailyGoalPercent={0} leagueName="Emerald League preview" />
+			</div>
 		</div>
 	</section>
 	<section>
@@ -147,7 +152,7 @@ SPDX-License-Identifier: MPL-2.0
 			</h3>
 		</div>
 		<div
-			class="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 bg-white/40 shadow-lg mb-12 lg:mx-12 mx-4 rounded-lg"
+			class="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 bg-surface border border-ink/10 shadow-lg mb-12 lg:mx-12 mx-4 rounded-2xl"
 		>
 			<div>
 				<div class="p-2 rounded-lg">
@@ -262,7 +267,7 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 
 		<div
-			class="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 bg-white/40 shadow-lg mb-12 lg:mx-12 mx-4 rounded-lg"
+			class="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 bg-surface border border-ink/10 shadow-lg mb-12 lg:mx-12 mx-4 rounded-2xl"
 		>
 			<div>
 				<div class="p-2 rounded-lg">
@@ -412,7 +417,7 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 
 		<div
-			class="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 bg-white/40 shadow-lg mb-12 lg:mx-12 mx-4 rounded-lg"
+			class="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 bg-surface border border-ink/10 shadow-lg mb-12 lg:mx-12 mx-4 rounded-2xl"
 		>
 			<div>
 				<div class="p-12 rounded-lg flex justify-center items-center h-full">
@@ -445,14 +450,6 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 	</section>
 </div>
-{#if newsletterModalOpen}
-	<div
-		class="fixed bottom-8 right-5 bg-white rounded-lg h-fit w-11/12 ml-5 lg:w-2/12 z-50 p-2 dark:bg-gray-700"
-		transition:fly|global
-	>
-		<Newsletter bind:open={newsletterModalOpen} />
-	</div>
-{/if}
 <Footer />
 
 <style>

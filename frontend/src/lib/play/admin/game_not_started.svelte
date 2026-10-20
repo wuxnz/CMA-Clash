@@ -10,6 +10,9 @@ SPDX-License-Identifier: MPL-2.0
 	import { getLocalization } from '$lib/i18n';
 	import GrayButton from '$lib/components/buttons/gray.svelte';
 	import { fade } from 'svelte/transition';
+	import PinDisplay from '$lib/ui/PinDisplay.svelte';
+	import PlayerChip from '$lib/ui/PlayerChip.svelte';
+	import Card from '$lib/ui/Card.svelte';
 	import { SocketGameControls } from '$lib/play/admin/socket_game_controls.ts';
 	import type { GameState } from '$lib/play/admin/game_state';
 
@@ -36,9 +39,16 @@ SPDX-License-Identifier: MPL-2.0
 	}
 </script>
 
-<div class="w-full h-full">
+<div class="w-full min-h-screen bg-paper px-4 py-8">
 	<!-- <AudioPlayer bind:play={play_music} /> -->
-	<div class="grid grid-cols-3 pt-12">
+	<div class="max-w-5xl mx-auto text-center mb-8">
+		<h1 class="font-display text-3xl font-bold text-ink">Host lobby</h1>
+		<p class="text-ink-muted mt-2">Share the PIN or QR so players can join</p>
+		<div class="mt-6">
+			<PinDisplay pin={game_pin} />
+		</div>
+	</div>
+	<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
 		<!--mt-12 -->
 		<div class="flex justify-center">
 			<p class="m-auto text-2xl">
@@ -55,7 +65,7 @@ SPDX-License-Identifier: MPL-2.0
 			onclick={() => (fullscreen_open = true)}
 			alt="QR code to join the game"
 			src="/api/v1/utils/qr/{game_pin}"
-			class="block mx-auto w-1/2 dark:bg-white shadow-2xl rounded-sm hover:cursor-pointer"
+			class="block mx-auto w-full max-w-xs bg-surface p-4 shadow-lg rounded-2xl border border-ink/10 hover:cursor-pointer"
 		/>
 		{#if cqc_code}
 			<div class="m-auto">
@@ -93,9 +103,6 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 		{/if}
 	</div>
-	<p class="text-3xl text-center">
-		{$t('words.pin')}: <span class="select-all">{game_pin}</span>
-	</p>
 	<div class="flex justify-center w-full mt-4">
 		<div>
 			<GrayButton
@@ -107,21 +114,27 @@ SPDX-License-Identifier: MPL-2.0
 			</GrayButton>
 		</div>
 	</div>
-	<div class="flex flex-row w-full mt-4 px-10 flex-wrap">
-		{#if game_state.players.length > 0}
-			{#each game_state.players as player}
-				<div class="p-2 m-2 border-2 border-[#B07156] rounded-sm hover:cursor-pointer">
-					<span
-						class="hover:line-through text-lg"
+	<Card class="max-w-5xl mx-auto mt-8" padding="md">
+		<h2 class="font-display font-semibold text-ink mb-4">Players in lobby</h2>
+		<div class="flex flex-row w-full flex-wrap gap-2">
+			{#if game_state.players.length > 0}
+				{#each game_state.players as player}
+					<button
+						type="button"
+						class="hover:opacity-70 transition"
+						title="Click to kick"
 						onclick={() => {
 							socket_game_controls.kick_player(player.username, game_state.players);
-						}}>{player.username}</span
+						}}
 					>
-					<!--					<button>{$t('words.kick')}</button>-->
-				</div>
-			{/each}
-		{/if}
-	</div>
+						<PlayerChip name={player.username} />
+					</button>
+				{/each}
+			{:else}
+				<p class="text-ink-muted text-sm">Waiting for the first player…</p>
+			{/if}
+		</div>
+	</Card>
 </div>
 
 {#if fullscreen_open}

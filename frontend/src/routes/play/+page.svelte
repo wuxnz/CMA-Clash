@@ -162,11 +162,11 @@ SPDX-License-Identifier: MPL-2.0
 
 <svelte:window onbeforeunload={confirmUnload} />
 <svelte:head>
-	<title>ClassQuiz - Play</title>
+	<title>CMA-Clash - Play</title>
 </svelte:head>
 <div
-	class="min-h-screen min-w-full"
-	style="background: {bg_color ? bg_color : 'transparent'}"
+	class="min-h-screen min-w-full bg-paper"
+	style={bg_color ? `background: ${bg_color}` : undefined}
 	class:text-black={bg_color}
 >
 	<div>

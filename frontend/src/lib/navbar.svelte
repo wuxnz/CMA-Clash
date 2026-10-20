@@ -5,11 +5,9 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
-	import '@fontsource/marck-script/index.css';
 	import { getLocalization } from '$lib/i18n';
 	import { signedIn, pathname } from '$lib/stores';
 	import { createTippy } from 'svelte-tippy';
-	import BrownButton from '$lib/components/buttons/brown.svelte';
 	import { browser } from '$app/environment';
 	import { beforeNavigate } from '$app/navigation';
 	import { draw, slide } from 'svelte/transition';
@@ -46,16 +44,21 @@ SPDX-License-Identifier: MPL-2.0
 	};
 </script>
 
-<nav class="w-screen px-4 lg:px-10 py-2 fixed backdrop-blur-2xl bg-white/70 shadow-md z-30 top-0">
+<nav
+	class="w-screen px-4 lg:px-10 py-2 fixed backdrop-blur-xl bg-surface/90 border-b border-ink/10 z-30 top-0"
+>
 	<!-- Desktop navbar -->
 	<div class="hidden lg:flex lg:items-center lg:flex-row lg:justify-between">
 		<div class="lg:flex lg:items-center lg:flex-row gap-1">
 			<a
 				href="/"
-				class="font-black tracking-tight text-xl lg:text-2xl text-black marck-script link-hover px-3 lg:px-5"
-				>ClassQuiz</a
+				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5"
+				>CMA-Clash</a
 			>
-			<a class="btn-nav border-2 rounded-sm" href="/play">{$t('words.play')}</a>
+			<a class="btn-nav border border-primary/30 rounded-md text-primary" href="/play"
+				>{$t('words.play')}</a
+			>
+			<a class="btn-nav" href="/leaderboard">Leaderboard</a>
 			<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
 			<a class="btn-nav" href="/search">{$t('words.search')}</a>
 			{#if $signedIn}
@@ -103,9 +106,6 @@ SPDX-License-Identifier: MPL-2.0
 			{/if}
 
 			<div class="fit-content flex items-center justify-center gap-2">
-				<BrownButton href="https://mawoka.eu/donate" target="_blank"
-					>{$t('navbar.donate')} <span class="">❤️</span></BrownButton
-				>
 				<div class="lg:flex items-center justify-center">
 					{#if darkMode}
 						<button
@@ -117,7 +117,7 @@ SPDX-License-Identifier: MPL-2.0
 						>
 							<!-- Heroicons: sun -->
 							<svg
-								class="w-6 h-6 text-black"
+								class="w-6 h-6 text-ink"
 								fill="none"
 								aria-label="Sun-Icon"
 								stroke="currentColor"
@@ -170,8 +170,8 @@ SPDX-License-Identifier: MPL-2.0
 		<div class="flex items-center justify-between">
 			<a
 				href="/"
-				class="font-black tracking-tight text-xl lg:text-2xl text-black marck-script link-hover px-3 lg:px-5"
-				>ClassQuiz</a
+				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5"
+				>CMA-Clash</a
 			>
 			<a class="btn-nav flex" href="/play">{$t('words.play')}</a>
 
@@ -285,6 +285,7 @@ SPDX-License-Identifier: MPL-2.0
 		<!-- Navbar content -->
 		{#if !menuIsClosed}
 			<div class="flex flex-col" transition:slide|global={{ duration: 400 }}>
+				<a class="btn-nav" href="/leaderboard">Leaderboard</a>
 				<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
 				<a class="btn-nav" href="/search">{$t('words.search')}</a>
 				{#if $signedIn}
@@ -332,11 +333,6 @@ SPDX-License-Identifier: MPL-2.0
 					>
 				{/if}
 
-				<div class="fit-content flex items-center justify-center my-2">
-					<BrownButton href="https://mawoka.eu/donate" target="_blank"
-						>{$t('navbar.donate')} <span class="">❤️</span></BrownButton
-					>
-				</div>
 			</div>
 		{/if}
 	</div>
