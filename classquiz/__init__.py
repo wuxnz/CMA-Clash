@@ -49,10 +49,27 @@ if settings.sentry_dsn:
 app = FastAPI(title="CMA Clash API", redoc_url="", docs_url="/api/docs")
 app.state.database = database
 
+
+class _CORSMiddlewareSkippingSocketIO(CORSMiddleware):
+    """CORS for the HTTP API only.
+
+    python-socketio (mounted at "/" below) already validates the Origin and sets
+    Access-Control-Allow-* on /socket.io/ itself. Letting this middleware add them
+    too produced duplicate Access-Control-Allow-Origin headers, which browsers
+    reject, so Engine.IO polling failed from the Vercel frontend.
+    """
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "http" and scope.get("path", "").startswith("/socket.io"):
+            await self.app(scope, receive, send)
+            return
+        await super().__call__(scope, receive, send)
+
+
 _cors_origins = settings.parsed_cors_origins()
 if _cors_origins:
     app.add_middleware(
-        CORSMiddleware,
+        _CORSMiddlewareSkippingSocketIO,
         allow_origins=_cors_origins,
         allow_credentials=True,
         allow_methods=["*"],
