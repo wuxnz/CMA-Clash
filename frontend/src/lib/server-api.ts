@@ -2,7 +2,37 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-const DEFAULT_BACKEND_ORIGIN = 'https://cmaclash-api.onrender.com';
+import { browser } from '$app/environment';
+import { fetchWithRetry } from '$lib/api/http';
+
+export const DEFAULT_BACKEND_ORIGIN = 'https://cmaclash-api.onrender.com';
+
+/** Same rules as `frontend/scripts/write-vercel-config.mjs`. */
+export function normalizeHttpOrigin(raw: string | undefined | null): string | null {
+	if (!raw || typeof raw !== 'string') {
+		return null;
+	}
+	const trimmed = raw.trim().replace(/\/$/, '');
+	if (!trimmed) {
+		return null;
+	}
+	try {
+		const url = new URL(trimmed);
+		if (!url.hostname) {
+			return null;
+		}
+		if (url.protocol !== 'https:' && url.protocol !== 'http:') {
+			return null;
+		}
+		return trimmed;
+	} catch {
+		return null;
+	}
+}
+
+export function getBackendOrigin(): string {
+	return normalizeHttpOrigin(process.env.BACKEND_URL) ?? DEFAULT_BACKEND_ORIGIN;
+}
 
 /**
  * Origin used for server-side fetches to the CMA Clash API.
@@ -12,13 +42,14 @@ const DEFAULT_BACKEND_ORIGIN = 'https://cmaclash-api.onrender.com';
  * - Split without rewrites: set API_URL or BACKEND_URL to the backend origin
  */
 export function getServerApiOrigin(): string {
-	if (process.env.API_URL) {
-		return process.env.API_URL.replace(/\/$/, '');
+	const apiUrl = normalizeHttpOrigin(process.env.API_URL);
+	if (apiUrl) {
+		return apiUrl;
 	}
 	if (process.env.VERCEL_URL) {
 		return `https://${process.env.VERCEL_URL}`;
 	}
-	const backend = process.env.BACKEND_URL?.replace(/\/$/, '');
+	const backend = normalizeHttpOrigin(process.env.BACKEND_URL);
 	if (backend) {
 		return backend;
 	}
@@ -34,4 +65,32 @@ export function serverApiUrl(path: string): string {
 		return `${origin}/${path}`;
 	}
 	return `${origin}${path}`;
+}
+
+function backendApiUrl(path: string): string {
+	const origin = getBackendOrigin();
+	if (!path.startsWith('/')) {
+		return `${origin}/${path}`;
+	}
+	return `${origin}${path}`;
+}
+
+/** SSR: call Render directly (validated origin, timeout, retry). Browser: same-origin `/api` via SvelteKit `fetch`. */
+export async function kitOrBackendFetch(
+	kitFetch: typeof fetch,
+	path: string,
+	init?: RequestInit
+): Promise<Response | null> {
+	if (browser) {
+		try {
+			return await kitFetch(path, init);
+		} catch {
+			return null;
+		}
+	}
+	return fetchWithRetry(backendApiUrl(path), init ?? {}, {
+		attempts: 4,
+		baseDelayMs: 1500,
+		timeoutMs: 25_000
+	});
 }
