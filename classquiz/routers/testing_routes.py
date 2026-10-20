@@ -7,7 +7,7 @@ import uuid
 
 from fastapi import APIRouter, HTTPException
 from classquiz.battle.service import create_battle_lobby
-from classquiz.db.models import User
+from classquiz.db.models import Quiz, User
 from classquiz.config import settings
 from classquiz.db.cma_models import XpSource
 from classquiz.gamification.service import award_xp
@@ -33,6 +33,18 @@ async def testing_award_xp(email: str, amount: int, secret_key: str):
         raise HTTPException(status_code=404, detail="User not found")
     profile = await award_xp(user.id, amount, XpSource.QUIZ_PLAY)
     return {"total_xp": profile.total_xp, "level": profile.level}
+
+
+@router.post("/quiz-public")
+async def testing_set_quiz_public(quiz_id: str, public: bool, secret_key: str):
+    if secret_key != settings.secret_key:
+        raise HTTPException(status_code=403, detail="Forbidden")
+    quiz = await Quiz.objects.get_or_none(id=uuid.UUID(quiz_id))
+    if quiz is None:
+        raise HTTPException(status_code=404, detail="quiz not found")
+    quiz.public = public
+    await quiz.update()
+    return {"id": str(quiz.id), "public": quiz.public}
 
 
 @router.post("/battle-lobby")

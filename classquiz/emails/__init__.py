@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 #
 # SPDX-License-Identifier: MPL-2.0
+import logging
 import os
 
 from jinja2 import Environment, PackageLoader, select_autoescape
@@ -11,6 +12,7 @@ from classquiz.emails.transport import send_email
 from classquiz.emails.verification import VERIFY_TOKEN_HOURS, create_email_verify_token, verification_link
 
 settings = settings()
+LOGGER = logging.getLogger(__name__)
 
 jinja = Environment(
     loader=PackageLoader("classquiz.emails", "templates"),
@@ -28,12 +30,16 @@ async def send_register_email(user: User):
     text_template = jinja.get_template("verify_email.txt.jinja2")
     html_body = await html_template.render_async(verify_url=verify_url, expiry_hours=VERIFY_TOKEN_HOURS)
     text_body = await text_template.render_async(verify_url=verify_url, expiry_hours=VERIFY_TOKEN_HOURS)
-    send_email(
-        to=user.email,
-        subject="Verify your CMA Clash email",
-        html_body=html_body,
-        text_body=text_body,
-    )
+    try:
+        send_email(
+            to=user.email,
+            subject="Verify your CMA Clash email",
+            html_body=html_body,
+            text_body=text_body,
+        )
+    except Exception:
+        LOGGER.exception("Failed to send verification email to %s", user.email)
+        raise
 
 
 async def send_forgotten_password_email(email: str):
@@ -44,9 +50,13 @@ async def send_forgotten_password_email(email: str):
     token = os.urandom(32).hex()
     html = await template.render_async(base_url=settings.root_address, token=token)
     await redis.set(f"reset_passwd:{token}", str(user.id), ex=3600)
-    send_email(
-        to=email,
-        subject="Reset your CMA Clash password",
-        html_body=html,
-        text_body=f"Reset your password: {settings.root_address}/account/password-reset?token={token}",
-    )
+    try:
+        send_email(
+            to=email,
+            subject="Reset your CMA Clash password",
+            html_body=html,
+            text_body=f"Reset your password: {settings.root_address}/account/password-reset?token={token}",
+        )
+    except Exception:
+        LOGGER.exception("Failed to send password reset email to %s", email)
+        raise

@@ -198,7 +198,7 @@ async def start_battle_game(
     from classquiz.socket_server import sio
     from classquiz.socket_server.game_sync import begin_battle_from_rest
 
-    await begin_battle_from_rest(sio, str(game_pin))
+    await begin_battle_from_rest(sio, str(game_pin))  # schedules roster-synced kickoff
     return lobby
 
 

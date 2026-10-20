@@ -13,7 +13,7 @@ export const load: PageServerLoad = async ({ params, parent, fetch }) => {
 	if (!res) {
 		error(503, 'Could not reach the quiz service. Please try again in a moment.');
 	}
-	if (res.status === 404 || res.status === 400) {
+	if (res.status === 404 || res.status === 400 || res.status === 422) {
 		error(404);
 	}
 	if (!res.ok) {

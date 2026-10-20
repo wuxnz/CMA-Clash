@@ -2,18 +2,29 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
-import asyncio
 import json
 
 import pytest
 from fastapi.testclient import TestClient
 
+from classquiz.tests import test_client  # noqa: F401
+
+
+def _sync_redis():
+    import redis as redis_lib
+
+    from classquiz.config import settings
+
+    url = str(settings().redis)
+    if "?" in url:
+        url = url.split("?", 1)[0]
+    return redis_lib.from_url(url, decode_responses=True)
+
 
 @pytest.mark.order("last")
 class TestBattleSync:
-    def test_guest_battle_start_marks_game_live(self, test_client: TestClient):
-        from classquiz.config import redis
-
+    def test_guest_battle_start_defers_question_until_kickoff(self, test_client: TestClient):
+        test_client.cookies.clear()
         quizzes = test_client.get("/api/v1/clash/quizzes", params={"page_size": 1}).json()
         assert quizzes
         quiz_id = quizzes[0]["id"]
@@ -36,12 +47,10 @@ class TestBattleSync:
         assert start.status_code == 200, start.text
         game_pin = start.json()["game_pin"]
 
-        async def _load_game():
-            return await redis.get(f"game:{game_pin}")
-
-        raw = asyncio.run(_load_game())
+        r = _sync_redis()
+        raw = r.get(f"game:{game_pin}")
         assert raw is not None
         game = json.loads(raw)
-        assert game["started"] is True
-        assert game["current_question"] == 0
-        assert game["question_show"] is True
+        assert game["started"] is False
+        assert game["current_question"] == -1
+        assert r.get(f"cma_battle:kickoff:{game_pin}") is not None
