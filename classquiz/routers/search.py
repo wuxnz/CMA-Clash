@@ -9,10 +9,13 @@ from fastapi import APIRouter
 from classquiz.config import settings, meilisearch
 from uuid import UUID
 from typing import Optional, List, Any
+import logging
+
 from meilisearch.errors import MeilisearchApiError
 from classquiz.helpers import meilisearch_init
 
 settings = settings()
+LOGGER = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -50,14 +53,31 @@ class SearchData(pydantic.BaseModel):
     sort: Optional[list[str]] = None
 
 
+def _empty_search_result(query: str, params: dict) -> dict[str, Any]:
+    return {
+        "hits": [],
+        "query": query,
+        "limit": params.get("limit", 20),
+        "offset": params.get("offset", 0),
+        "processingTimeMs": 0,
+    }
+
+
 async def _perform_search(query: str, params: dict) -> dict[str, Any]:
     try:
         index = meilisearch.get_index(settings.meilisearch_index)
         return index.search(query, params)
     except MeilisearchApiError:
-        await meilisearch_init()
-        index = meilisearch.get_index(settings.meilisearch_index)
-        return index.search(query, params)
+        try:
+            await meilisearch_init()
+            index = meilisearch.get_index(settings.meilisearch_index)
+            return index.search(query, params)
+        except Exception as exc:
+            LOGGER.warning("Search unavailable (Meilisearch): %s", exc)
+            return _empty_search_result(query, params)
+    except Exception as exc:
+        LOGGER.warning("Search unavailable (Meilisearch): %s", exc)
+        return _empty_search_result(query, params)
 
 
 @router.post("/", response_model=SearchResponse)

@@ -11,9 +11,14 @@ See [docs/CMA_CLASH.md](docs/CMA_CLASH.md) for API endpoints, data model, socket
 3. `pipenv run alembic upgrade head`
 4. `pipenv run python -m classquiz.seed.runner`
 5. Run API and frontend per in-app develop docs at `/docs/develop`.
+6. Use **http://localhost:8080** (Caddy) so `/api` reaches the backend — not `:3000` alone.
+
+**Vercel (frontend only):** see [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md). Set `BACKEND_URL` and `API_URL` on Vercel; host Postgres/Redis/Meilisearch/API elsewhere.
+
+**Production split (Vercel + Render):** [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md) and [`render.yaml`](render.yaml).
 
 Production Docker: `docker compose up` runs migrations and seed when `AUTO_SEED_CONTENT=true`.
 
 ## Content
 
-372 multiple-choice questions (12 per topic × 31 topics), grouped into public quizzes of 8 questions. Medically reviewed against common standards (NHA CCMA test plan, AHA BLS, CLSI order of draw, CDC infection control).
+860 multiple-choice questions (20 per topic × 43 topics), grouped into public quizzes. Medically reviewed against common standards (NHA CCMA test plan, AHA BLS, CLSI order of draw, CDC infection control).

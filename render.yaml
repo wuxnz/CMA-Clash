@@ -1,0 +1,97 @@
+# CMA Clash — Render Blueprint (backend for Vercel frontend)
+# Apply from the Render Dashboard: New > Blueprint > connect this repo.
+# After sync, set ROOT_ADDRESS and CORS_ORIGINS to your Vercel URL (sync: false prompts).
+
+databases:
+  - name: cmaclash-db
+    plan: free
+    region: oregon
+    databaseName: classquiz
+
+services:
+  # Meilisearch (free web service; index rebuilt from Postgres on API boot when out of sync).
+  # MEILI_MASTER_KEY is required when MEILI_ENV=production (min 16 bytes).
+  - type: web
+    name: cmaclash-meilisearch
+    runtime: image
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    image:
+      url: docker.io/getmeili/meilisearch:v1.7
+    envVars:
+      - key: MEILI_NO_ANALYTICS
+        value: "true"
+      - key: MEILI_ENV
+        value: production
+      - key: MEILI_HTTP_ADDR
+        value: 0.0.0.0:10000
+      - key: MEILI_MASTER_KEY
+        generateValue: true
+
+  - type: keyvalue
+    name: cmaclash-redis
+    plan: free
+    region: oregon
+    maxmemoryPolicy: allkeys-lru
+    # Empty list = private-network only (no public Redis). API reaches it via connectionString.
+    ipAllowList: []
+
+  - type: web
+    name: cmaclash-api
+    runtime: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/v1/health
+    dockerCommand: ./render_start.sh
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DB_URL
+        fromDatabase:
+          name: cmaclash-db
+          property: connectionString
+      - key: REDIS
+        fromService:
+          type: keyvalue
+          name: cmaclash-redis
+          property: connectionString
+      - key: MEILISEARCH_URL
+        fromService:
+          type: web
+          name: cmaclash-meilisearch
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: MEILISEARCH_API_KEY
+        fromService:
+          type: web
+          name: cmaclash-meilisearch
+          envVarKey: MEILI_MASTER_KEY
+      - key: MEILISEARCH_INDEX
+        value: cmaclash
+      - key: AUTO_SEED_CONTENT
+        value: "true"
+      - key: SKIP_EMAIL_VERIFICATION
+        value: "true"
+      - key: COOKIE_CROSS_SITE
+        value: "true"
+      - key: MAX_WORKERS
+        value: "1"
+      - key: STORAGE_BACKEND
+        value: local
+      - key: STORAGE_PATH
+        value: /var/data/uploads
+      - key: MAIL_ADDRESS
+        value: noreply@example.com
+      - key: MAIL_USERNAME
+        value: noreply@example.com
+      - key: MAIL_PASSWORD
+        value: unused
+      - key: MAIL_SERVER
+        value: localhost
+      - key: MAIL_PORT
+        value: "587"
+      - key: ROOT_ADDRESS
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false

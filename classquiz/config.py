@@ -53,6 +53,7 @@ class Settings(BaseSettings):
     cache_expiry: int = 86400
     sentry_dsn: str | None = None
     meilisearch_url: str = "http://127.0.0.1:7700"
+    meilisearch_api_key: str | None = None
     meilisearch_index: str = "cmaclash"
     app_name: str = "CMA Clash"
     auto_seed_content: bool = False
@@ -66,6 +67,17 @@ class Settings(BaseSettings):
     pixabay_api_key: str | None = None
     mods: list[str] = []
     registration_disabled: bool = False
+    # Comma-separated browser origins allowed for credentialed API access (Vercel + external API).
+    cors_origins: str = ""
+    # Set when the SPA and API are on different sites without a reverse proxy (cookies need SameSite=None).
+    cookie_cross_site: bool = False
+    # Force Secure cookies (HTTPS). Enabled automatically when cookie_cross_site is true.
+    cookie_secure: bool = False
+
+    def parsed_cors_origins(self) -> list[str]:
+        if not self.cors_origins.strip():
+            return []
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
     # storage_backend
     storage_backend: str  # either "local" or "s3"
@@ -104,7 +116,8 @@ storage: Storage = Storage(
     base_url=settings().s3_base_url,
 )
 
-meilisearch = MeiliSearch.Client(settings().meilisearch_url)
+_meili_settings = settings()
+meilisearch = MeiliSearch.Client(_meili_settings.meilisearch_url, _meili_settings.meilisearch_api_key)
 
 ALLOWED_TAGS_FOR_QUIZ = ["b", "strong", "i", "em", "small", "mark", "del", "sub", "sup"]
 

@@ -129,7 +129,7 @@ async def change_password(
     user: User = Depends(get_current_user),
 ):
     # Always persist via a DB-loaded ormar instance (cached users from Redis are not attached).
-    db_user = await User.objects.get(id=user.id)
+    db_user = await User.objects.get(email=user.email)
     if not verify_password(password_data.old_password, db_user.password):
         raise HTTPException(status_code=400, detail="Incorrect password")
     db_user.password = get_password_hash(password_data.new_password)

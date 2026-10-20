@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "NODE_ENV=production vite build",
+		"build": "node scripts/write-vercel-config.mjs && pnpm run build:app",
+		"build:app": "NODE_ENV=production vite build",
 		"package": "vite package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
