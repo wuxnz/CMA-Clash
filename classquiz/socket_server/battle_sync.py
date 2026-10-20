@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import asyncio
 import json
-from datetime import datetime, timedelta
 
 from classquiz.battle.service import BATTLE_REDIS_PREFIX
 from classquiz.config import redis
