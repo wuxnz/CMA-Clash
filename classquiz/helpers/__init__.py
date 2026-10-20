@@ -206,6 +206,15 @@ async def meilisearch_init():
         raise
 
 
+def _meili_document_count() -> int:
+    stats = meilisearch.index(settings.meilisearch_index).get_stats()
+    if hasattr(stats, "number_of_documents"):
+        return int(stats.number_of_documents)
+    if isinstance(stats, dict):
+        return int(stats.get("numberOfDocuments", stats.get("number_of_documents", 0)))
+    return 0
+
+
 async def _meilisearch_init_impl():
     classquiz_index_found = False
     try:
@@ -215,29 +224,35 @@ async def _meilisearch_init_impl():
                 classquiz_index_found = True
     except TypeError:
         classquiz_index_found = False
-    # +++ Check if the index does not exist and creates it
     if not classquiz_index_found:
         LOGGER.debug("Creating MeiliSearch Index")
         meilisearch.create_index(settings.meilisearch_index)
         await asyncio.sleep(1)
-    # --- END
-    # +++ Check if count of docs in meilisearch is equal the count in the database +++
+
     quiz_count = await Quiz.objects.filter(public=True).count()
-    number_of_docs = 0
-    for i in meilisearch.index(settings.meilisearch_index).get_stats():
-        number_of_docs = i[1]
-        break
+    number_of_docs = _meili_document_count()
     if number_of_docs != quiz_count:
-        LOGGER.warn("MeiliSearch and Database got out of sync, syncthing them")
-        meilisearch.delete_index(settings.meilisearch_index)
+        LOGGER.warning("MeiliSearch and Database out of sync (%s vs %s); re-indexing", number_of_docs, quiz_count)
+        try:
+            meilisearch.delete_index(settings.meilisearch_index)
+        except Exception:
+            pass
         meilisearch.create_index(settings.meilisearch_index)
+        await asyncio.sleep(1)
         quizzes = await Quiz.objects.filter(public=True).all()
         meili_data = []
         for quiz in quizzes:
             meili_data.append(await get_meili_data(quiz))
-        meilisearch.index(settings.meilisearch_index).add_documents(meili_data)
-    # --- END ---
-    meilisearch.index(settings.meilisearch_index).update_settings({"sortableAttributes": ["created_at"]})
+        if meili_data:
+            meilisearch.index(settings.meilisearch_index).add_documents(meili_data)
+
+    meilisearch.index(settings.meilisearch_index).update_settings(
+        {
+            "searchableAttributes": ["title", "description", "user"],
+            "filterableAttributes": ["imported_from_kahoot"],
+            "sortableAttributes": ["created_at"],
+        }
+    )
     LOGGER.info("Finished MeiliSearch synchronisation")
 
 

@@ -3,26 +3,23 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import type { PageLoad } from './$types';
-import { kitOrBackendFetch } from '$lib/server-api';
+import { postSearch, type SearchResponse } from '$lib/cma/search-api';
 
-const emptyResults = { hits: [] as unknown[] };
+const emptyResults: SearchResponse = {
+	hits: [],
+	query: '*',
+	limit: 20,
+	offset: 0,
+	processingTimeMs: 0
+};
 
 export const load = (async ({ fetch }) => {
 	try {
-		const response = await kitOrBackendFetch(fetch, '/api/v1/search/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				q: '*',
-				sort: ['created_at:desc']
-			})
-		});
-		if (!response?.ok) {
+		const results = await postSearch(fetch, { q: '*', sort: ['created_at:desc'] });
+		if (!results) {
 			return { results: emptyResults, exploreSsrFailed: true };
 		}
-		return { results: await response.json(), exploreSsrFailed: false };
+		return { results, exploreSsrFailed: false };
 	} catch {
 		return { results: emptyResults, exploreSsrFailed: true };
 	}

@@ -161,7 +161,11 @@ SPDX-License-Identifier: MPL-2.0
 	<p class="font-display text-gold text-sm tracking-[0.35em] mb-4">Arena</p>
 	{#if game_pin === '' || game_pin.length < 6}
 		<h1 class="font-display text-6xl sm:text-8xl text-ink mb-3">Join</h1>
-		<p class="text-ink-muted mb-8 text-center">Enter the 6-digit PIN from the host screen</p>
+		<p class="text-ink-muted mb-4 text-center">Enter the 6-digit PIN from the host screen</p>
+		<p class="text-ink-muted mb-8 text-center text-sm">
+			Hosting?
+			<a href="/host" class="link-hover text-ink">Start a Clash</a>
+		</p>
 		<input
 			class="ledger-input text-center font-display text-4xl tracking-[0.4em] max-w-sm"
 			bind:value={game_pin}
