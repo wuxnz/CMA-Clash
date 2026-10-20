@@ -98,6 +98,45 @@ SPDX-License-Identifier: MPL-2.0
 	*:focus-visible {
 		@apply outline-2 outline-offset-2 outline-primary;
 	}
+
+	html.theme-switching,
+	html.theme-switching * {
+		transition: none !important;
+	}
+
+	button,
+	[role='button'] {
+		-webkit-tap-highlight-color: transparent;
+	}
+}
+
+@utility press-scale {
+	@apply transition-[transform] duration-150 ease-out enabled:active:scale-[0.96] motion-reduce:enabled:active:scale-100;
+}
+
+@utility content-image {
+	outline: 1px solid oklch(0 0 0 / 0.1);
+	outline-offset: -1px;
+}
+
+html.dark .content-image {
+	outline-color: oklch(1 0 0 / 0.1);
+}
+
+@utility overlay-scroll {
+	overscroll-behavior: contain;
+}
+
+@utility card-interactive {
+	transition-property: box-shadow;
+	transition-duration: 300ms;
+	transition-timing-function: ease-out;
+}
+
+@media (hover: hover) {
+	.card-interactive:hover {
+		box-shadow: var(--shadow-glow), var(--shadow-card);
+	}
 }
 
 @utility font-display {
@@ -114,8 +153,16 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility glass-panel {
-	@apply bg-surface/70 dark:bg-elevated/60 backdrop-blur-xl border border-ink/10 dark:border-white/10;
-	box-shadow: var(--shadow-card);
+	@apply bg-surface/85 dark:bg-elevated/60 backdrop-blur-xl border border-transparent;
+	box-shadow:
+		var(--shadow-card),
+		0 0 0 1px color-mix(in oklch, var(--color-ink) 8%, transparent);
+}
+
+html:not(.dark) .glass-panel {
+	box-shadow:
+		0 1px 0 rgba(255, 255, 255, 0.9) inset,
+		var(--shadow-card);
 }
 
 @utility gradient-text {
@@ -127,19 +174,46 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility action-button {
-	@apply px-4 py-2 leading-5 text-ink transition-colors duration-200 transform glass-panel rounded-lg text-center hover:border-primary/30 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+	@apply px-4 py-2 leading-5 text-ink glass-panel rounded-lg text-center focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 press-scale;
+	transition-property: color, background-color, border-color, box-shadow;
+	transition-duration: 150ms;
+}
+
+@media (hover: hover) {
+	.action-button:hover {
+		border-color: color-mix(in oklch, var(--color-primary) 30%, transparent);
+	}
 }
 
 @utility btn-nav {
-	@apply text-sm font-medium px-3 text-ink-muted hover:text-primary py-1.5 transition-all duration-200 rounded-md focus-visible:ring-2 focus-visible:ring-primary;
+	@apply text-sm font-medium px-3 text-ink-muted py-1.5 rounded-md focus-visible:ring-2 focus-visible:ring-primary press-scale;
+	transition-property: color;
+	transition-duration: 150ms;
+}
+
+@media (hover: hover) {
+	.btn-nav:hover {
+		color: var(--color-primary);
+	}
 }
 
 @utility ledger-input {
-	@apply w-full rounded-lg border border-ink/15 dark:border-white/10 bg-surface dark:bg-elevated px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/25 outline-none transition;
+	@apply w-full rounded-lg border border-ink/15 dark:border-white/10 bg-surface dark:bg-elevated px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/25 outline-none;
+	transition-property: border-color, box-shadow;
+	transition-duration: 150ms;
 }
 
 @utility ledger-btn-primary {
-	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-semibold text-white bg-primary rounded-lg hover:bg-primary-hover transition-all duration-200 hover:shadow-[var(--shadow-glow)] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:scale-[0.98] motion-reduce:active:scale-100;
+	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-semibold text-white bg-primary rounded-lg disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
+	transition-property: background-color, box-shadow;
+	transition-duration: 150ms;
+}
+
+@media (hover: hover) {
+	.ledger-btn-primary:hover {
+		background-color: var(--color-primary-hover);
+		box-shadow: var(--shadow-glow);
+	}
 }
 
 @utility motion-reduce {

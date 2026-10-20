@@ -10,6 +10,7 @@
 	import LedgerTable from '$lib/ui/LedgerTable.svelte';
 	import Podium from '$lib/ui/Podium.svelte';
 	import PinDisplay from '$lib/ui/PinDisplay.svelte';
+	import CountdownRing from '$lib/ui/CountdownRing.svelte';
 	import PlayerChip from '$lib/ui/PlayerChip.svelte';
 	import ExplanationDrawer from '$lib/ui/ExplanationDrawer.svelte';
 
@@ -26,6 +27,9 @@
 			<PlayerChip name="You" />
 			<PlayerChip name="M. Chen" />
 		</div>
+		<div class="mt-6 flex justify-center opacity-90 pointer-events-none">
+			<CountdownRing seconds={5} label="Starting soon" />
+		</div>
 	</section>
 
 	<section id="live-question">
@@ -36,7 +40,7 @@
 			<p class="font-display mt-3 mb-4">
 				Which chamber of the heart receives oxygenated blood from the pulmonary veins?
 			</p>
-			<TimerBar remainingSeconds={11} totalSeconds={30} />
+			<TimerBar remainingSeconds={11} totalSeconds={30} showRing={true} />
 			<div class="grid grid-cols-2 gap-3 mt-6">
 				{#each LEDGER_ANSWER_COLORS as color, i}
 					<div
@@ -54,6 +58,7 @@
 	<section id="results">
 		<h2 class="font-display text-xl mb-4">Per-question results</h2>
 		<LedgerTable
+			flip={true}
 			rows={[
 				{ rank: 1, name: 'A. Okafor', score: '9,420' },
 				{ rank: 3, name: 'You', score: '8,870', isYou: true, delta: 1 }
@@ -69,7 +74,6 @@
 	<section id="podium">
 		<h2 class="font-display text-xl mb-4">Podium</h2>
 		<Podium
-			celebrate
 			entries={[
 				{ name: 'A. Okafor', score: '9,420' },
 				{ name: 'M. Chen', score: '9,105' },

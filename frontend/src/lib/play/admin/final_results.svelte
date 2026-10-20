@@ -5,11 +5,10 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { getLocalization } from '$lib/i18n';
 	import { fly } from 'svelte/transition';
-	import confetti from 'canvas-confetti';
 	import Podium from '$lib/ui/Podium.svelte';
+	import AnimatedCounter from '$lib/ui/AnimatedCounter.svelte';
 	import type { PodiumEntry } from '$lib/ui/Podium.svelte';
 	import { prefersReducedMotion } from '$lib/ui/motion';
 	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
@@ -39,22 +38,16 @@ SPDX-License-Identifier: MPL-2.0
 		}));
 	});
 
-	let canvas: HTMLCanvasElement = $state();
 	let reduced = prefersReducedMotion();
 
-	onMount(() => {
-		if (reduced || !show_final_results) return;
-		setTimeout(() => {
-			if (!canvas) return;
-			confetti.create(canvas, { resize: true, useWorker: true });
-			confetti({ particleCount: 120, spread: 100, colors: ['#E8B931', '#0E7C74', '#0E1A2B'] });
-		}, 600);
-	});
+	function scoreNumber(raw: string | number): number {
+		if (typeof raw === 'number') return raw;
+		const n = parseFloat(String(raw).replace(/,/g, ''));
+		return Number.isFinite(n) ? n : 0;
+	}
 </script>
 
 {#if show_final_results}
-	<canvas bind:this={canvas} class="fixed inset-0 pointer-events-none z-50" aria-hidden="true"
-	></canvas>
 	<div class="min-h-screen bg-paper flex flex-col">
 		<LivePlayHeader />
 		<div class="flex-1 px-4 py-8 max-w-2xl mx-auto w-full">
@@ -69,7 +62,7 @@ SPDX-License-Identifier: MPL-2.0
 			{#if player_names.length === 0}
 				<p class="text-center text-lg text-ink-muted">{$t('admin_page.no_answers')}</p>
 			{:else}
-				<Podium entries={podiumEntries} />
+				<Podium entries={podiumEntries} staged celebrate />
 
 				{#if player_names.length > 3}
 					<ol class="mt-8 space-y-2 border-t border-ink/10 pt-6">
@@ -93,7 +86,8 @@ SPDX-License-Identifier: MPL-2.0
 					class="mt-10 rounded-xl border-2 border-gold/40 bg-gold/10 p-4 text-center shadow-sm"
 				>
 					<p class="font-mono text-lg tabular-nums">
-						{$t('play_page.your_score', { score: data[username] })}
+						Your score:
+						<AnimatedCounter class="font-semibold" value={scoreNumber(data[username])} duration={1} />
 					</p>
 					{#each player_names as player, i}
 						{#if player === username}

@@ -57,7 +57,7 @@ SPDX-License-Identifier: MPL-2.0
 			<h1 class="font-display text-xl sm:text-2xl text-ink mt-3 mb-4 leading-snug text-center">
 				{@html normalizeQuizText(q.question)}
 			</h1>
-			<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} />
+			<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={true} />
 			<p class="text-center text-sm text-ink-muted mt-3 font-mono tabular-nums">
 				{$t('admin_page.answers_submitted', { answer_count })}
 			</p>

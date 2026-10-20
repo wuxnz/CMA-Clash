@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="rounded-2xl glass-panel {pad[padding]} transition-shadow duration-300 hover:shadow-[var(--shadow-glow)] {className}"
+	class="rounded-2xl glass-panel card-interactive {pad[padding]} {className}"
 >
 	{@render children?.()}
 </div>

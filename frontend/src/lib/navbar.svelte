@@ -12,6 +12,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { beforeNavigate } from '$app/navigation';
 	import { draw, slide } from 'svelte/transition';
 	import { registration_disabled } from './config';
+	import { swapThemeClass } from '$lib/ui/themeSwitch';
 
 	const tippy = createTippy({
 		arrow: true,
@@ -36,8 +37,9 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	const switchDarkMode = () => {
-		!darkMode ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
-		window.location.reload();
+		const nextDark = !darkMode;
+		swapThemeClass(nextDark);
+		darkMode = nextDark;
 	};
 </script>
 

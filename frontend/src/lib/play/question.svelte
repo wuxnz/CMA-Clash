@@ -195,7 +195,7 @@ SPDX-License-Identifier: MPL-2.0
 						>
 							{@html normalizeQuizText(question.question)}
 						</h1>
-						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} />
+						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={true} />
 					</div>
 				{:else}
 					<div
@@ -213,7 +213,7 @@ SPDX-License-Identifier: MPL-2.0
 					{#each question.answers as answer, i}
 						<button
 							type="button"
-							class="rounded-xl flex flex-col items-center justify-center gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] border-2 border-white/20 shadow-md hover:brightness-105 active:scale-[0.98] transition motion-reduce:active:scale-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
+							class="rounded-xl flex flex-col items-center justify-center gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] border-2 border-white/20 shadow-md hover:brightness-105 press-scale focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
 							style="background-color: {answer.color ??
 								default_colors[i]}; color: {get_foreground_color(
 								answer.color ?? default_colors[i]
