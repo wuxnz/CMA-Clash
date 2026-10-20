@@ -14,7 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA-Clash/docs - Self-Host</title>
+	<title>CMA Clash/docs - Self-Host</title>
 	<meta
 		name="description"
 		content="How to self-host CMA Clash, the open-source quiz-application"
@@ -63,7 +63,7 @@ SPDX-License-Identifier: MPL-2.0
 	<p>First, clone the repo:</p>
 
 	<pre><code class="language-bash"
-			>git clone https://github.com/wuxnz/CMA-Clash && cd CMA Clash</code
+			>git clone https://github.com/wuxnz/CMA-Clash && cd CMA-Clash</code
 		></pre>
 	<p>
 		Now, you'll configure your frontend. You'll have to change the following in <code
@@ -127,7 +127,7 @@ SPDX-License-Identifier: MPL-2.0
 		> and create a new project and select it. Then, go to the "OAuth consent screen" and set it up.
 		Next, go to the "Credentials"-tab and click on "Create Credentials" and create a new "OAuth Client
 		ID". This ID should be from the application-type "Web application". Afterwards, add a new "Authorised
-		JavaScript origin", which is just the base-domain (with https) of your CMA-Clash-installation.
+		JavaScript origin", which is just the base-domain (with https) of your CMA Clash installation.
 		Then, add a new "Authorised redirect URI". This URI will have the following scheme:
 	</p>
 	<pre><code>https://[BASE_URL]/api/v1/users/oauth/google/auth</code></pre>
