@@ -1,116 +1,229 @@
-<!--
-SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
-
-SPDX-License-Identifier: MPL-2.0
--->
 <script lang="ts">
-	import { getLocalization } from '$lib/i18n';
-	const { t } = getLocalization();
-	import SearchCard from '$lib/search-card.svelte';
+	import Footer from '$lib/footer.svelte';
+	import { navbarVisible } from '$lib/stores.svelte';
+	import StartGamePopup from '$lib/dashboard/start_game.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import BrowseFilters from '$lib/quiz/BrowseFilters.svelte';
+	import QuizBrowseList from '$lib/quiz/QuizBrowseList.svelte';
+	import {
+		fetchCerts,
+		fetchClashCatalog,
+		fetchClashQuizzes,
+		rowsFromClash,
+		rowsFromMeili,
+		searchMeili,
+		searchPageSize,
+		userMapFromHits,
+		type BrowseRow
+	} from '$lib/quiz/browse';
 	import { onMount } from 'svelte';
-	let search_term = $state('');
-	let resp_data = $state(null);
+	import type { PageData } from './$types';
 
-	const submit = async () => {
-		const res = await fetch('/api/v1/search/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({
-				q: search_term,
-				attributesToHighlight: ['*']
-			})
-		});
-		if (res.status === 200) {
-			let resp_data_temp: string = await res.text();
-			resp_data_temp = resp_data_temp.replaceAll('<em>', '<mark>');
-			resp_data_temp = resp_data_temp.replaceAll('</em>', '</mark>');
-			resp_data = JSON.parse(resp_data_temp);
-			const url = new URLSearchParams(window.location.search);
-			url.set('q', search_term);
-			history.pushState(null, null, '?' + url.toString());
-		} else {
-			console.error('Error!', res.status);
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+	navbarVisible.visible = true;
+
+	let search_term = $state(data.q);
+	let cert = $state(data.cert);
+	let difficulty = $state(data.difficulty);
+	let sort = $state(data.sort);
+	let rows = $state<BrowseRow[]>(data.rows);
+	let hasMore = $state(data.hasMore);
+	let offset = $state(data.offset);
+	let page = $state(data.page);
+	let loading = $state(false);
+	let loadingMore = $state(false);
+	let start_game = $state<string | null>(null);
+	let inputEl: HTMLInputElement | undefined = $state();
+	let debounce: ReturnType<typeof setTimeout> | undefined;
+	let filterKey = $state(`${data.cert}|${data.difficulty}|${data.sort}`);
+
+	const tooShort = $derived(search_term.trim().length > 0 && search_term.trim().length < 3);
+	const useMeili = $derived(search_term.trim().length >= 3);
+
+	function syncUrl() {
+		const params = new URLSearchParams();
+		if (search_term.trim()) params.set('q', search_term.trim());
+		if (cert) params.set('cert', cert);
+		if (difficulty) params.set('difficulty', difficulty);
+		if (sort && sort !== 'relevance') params.set('sort', sort);
+		const qs = params.toString();
+		history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+	}
+
+	async function runSearch(reset: boolean) {
+		if (tooShort) {
+			rows = [];
+			hasMore = false;
+			syncUrl();
+			return;
 		}
-	};
-	onMount(() => {
-		const url = new URLSearchParams(window.location.search);
-		search_term = url.get('q') ?? '';
-		submit();
+		if (reset) {
+			loading = true;
+			offset = 0;
+			page = 1;
+		} else {
+			loadingMore = true;
+		}
+		try {
+			const q = search_term.trim();
+			const nextPage = reset ? 1 : page + 1;
+			const nextOffset = reset ? 0 : offset;
+			const [meili, clashPage, catalog, certs] = await Promise.all([
+				searchMeili(fetch, {
+					q: useMeili ? q : '*',
+					offset: useMeili ? nextOffset : 0,
+					limit: useMeili ? searchPageSize() : 100,
+					sort: sort === 'newest' ? ['created_at:desc'] : undefined
+				}),
+				useMeili
+					? Promise.resolve([])
+					: fetchClashQuizzes(fetch, {
+							certification_slug: cert || undefined,
+							difficulty: difficulty || undefined,
+							page: nextPage,
+							page_size: searchPageSize()
+						}),
+				useMeili ? fetchClashCatalog(fetch) : Promise.resolve([]),
+				fetchCerts(fetch)
+			]);
+			if (useMeili) {
+				const next = rowsFromMeili(meili.hits, catalog, certs, cert, difficulty, sort);
+				rows = reset ? next : [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
+				offset = nextOffset + meili.hits.length;
+				hasMore = meili.hits.length >= searchPageSize();
+			} else {
+				const users = userMapFromHits(meili.hits);
+				const next = rowsFromClash(clashPage, certs, users, sort);
+				rows = reset ? next : [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
+				page = nextPage;
+				hasMore = clashPage.length >= searchPageSize();
+			}
+			syncUrl();
+		} finally {
+			loading = false;
+			loadingMore = false;
+		}
+	}
+
+	function onInput() {
+		clearTimeout(debounce);
+		if (search_term.trim().length === 1 || search_term.trim().length === 2) {
+			return;
+		}
+		debounce = setTimeout(() => runSearch(true), 280);
+	}
+
+	$effect(() => {
+		const next = `${cert}|${difficulty}|${sort}`;
+		if (next === filterKey) return;
+		filterKey = next;
+		runSearch(true);
 	});
+
+	onMount(() => {
+		if (rows.length === 0 && !tooShort) runSearch(true);
+	});
+
+	function onSlash(event: KeyboardEvent) {
+		if (event.key !== '/' || event.metaKey || event.ctrlKey || event.altKey) return;
+		const tag = (event.target as HTMLElement | null)?.tagName;
+		if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+		event.preventDefault();
+		inputEl?.focus();
+	}
 </script>
+
+<svelte:window onkeydown={onSlash} />
 
 <svelte:head>
 	<title>CMA Clash — Search</title>
 </svelte:head>
 
-<div>
-	<div class="flex justify-center">
-		<div class="mb-3 xl:w-96">
-			<form
-				class="input-group relative flex items-stretch flex-row w-full mb-4"
-				onsubmit={(e: Event) => {
-					e.preventDefault();
-					submit();
-				}}
-			>
-				<input
-					type="search"
-					class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-ink bg-elevated bg-clip-padding border border-solid border-ink/20 rounded-sm transition ease-in-out m-0 focus:text-ink focus:bg-elevated focus:border-primary focus:outline-hidden"
-					placeholder={$t('search_page.at_least_3_characters')}
-					aria-label="Search"
-					aria-describedby="button-addon2"
-					bind:value={search_term}
-				/>
-				<button
-					class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-sm shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-hidden focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center disabled:opacity-50 disabled:cursor-not-allowed"
-					id="button-addon2"
-					aria-label="Search"
-					disabled={search_term.length <= 2}
-					type="submit"
-				>
-					<svg
-						aria-hidden="true"
-						focusable="false"
-						data-prefix="fas"
-						data-icon="search"
-						class="w-4"
-						role="img"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 512 512"
-					>
-						<path
-							fill="currentColor"
-							d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-						/>
-					</svg>
-				</button>
-			</form>
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0">
+		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Search</h1>
+
+		<form
+			class="mt-5 flex flex-col sm:flex-row gap-2 min-w-0"
+			onsubmit={(e) => {
+				e.preventDefault();
+				if (!tooShort) runSearch(true);
+			}}
+		>
+			<label class="sr-only" for="quiz-search-q">Search quizzes</label>
+			<input
+				id="quiz-search-q"
+				bind:this={inputEl}
+				bind:value={search_term}
+				oninput={onInput}
+				type="search"
+				class="ledger-input min-h-12 text-base"
+				placeholder="Search quizzes"
+				autocomplete="off"
+				data-search-input
+			/>
+			<Button type="submit" class="w-full sm:w-auto shrink-0" disabled={tooShort}>Search</Button>
+		</form>
+		{#if tooShort}
+			<p class="text-sm text-ink-muted mt-2">Enter at least 3 characters.</p>
+		{/if}
+
+		<div class="mt-6 min-w-0">
+			<BrowseFilters bind:cert bind:difficulty bind:sort />
+		</div>
+
+		<div class="mt-8 min-w-0">
+			{#if loading}
+				<ul class="animate-pulse" aria-busy="true" aria-label="Loading results">
+					{#each [1, 2, 3, 4, 5] as n (n)}
+						<li class="border-b border-white/[0.07] py-3">
+							<div class="h-3 w-2/5 max-w-xs rounded bg-elevated"></div>
+							<div class="h-2 w-24 rounded bg-elevated mt-2 md:hidden"></div>
+						</li>
+					{/each}
+				</ul>
+			{:else if rows.length === 0}
+				<div data-empty-search>
+					<p class="text-sm text-ink">No results</p>
+					<p class="text-sm text-ink-muted mt-1">
+						Try another term, or
+						<a href="/import" class="text-ink link-hover">import</a> a set.
+						{#if search_term.trim().length >= 3}
+							Search on
+							<a
+								class="text-ink link-hover"
+								href="https://create.kahoot.it/search?query={encodeURIComponent(search_term)}&tags=test&filter=filter%3D1"
+								target="_blank"
+								rel="noreferrer">Kahoot!</a
+							>
+							and import it.
+						{/if}
+					</p>
+				</div>
+			{:else}
+				<QuizBrowseList items={rows} onHost={(id) => (start_game = id)} />
+				{#if hasMore}
+					<div class="mt-6">
+						<Button
+							variant="secondary"
+							class="w-full sm:w-auto"
+							disabled={loadingMore}
+							onclick={() => runSearch(false)}
+						>
+							{loadingMore ? 'Loading' : 'Load more'}
+						</Button>
+					</div>
+				{/if}
+			{/if}
 		</div>
 	</div>
+	<Footer />
 </div>
 
-{#if resp_data}
-	{#if resp_data.hits.length !== 0}
-		<div class="grid lg:grid-cols-3 grid-cols-1">
-			{#each resp_data.hits as quiz}
-				<SearchCard quiz={quiz._formatted} />
-			{/each}
-		</div>
-	{:else}
-		<div class="flex justify-center">
-			<h1 class="text-4xl">{$t('search_page.nothing_here')}</h1>
-		</div>
-		<div class="flex justify-center">
-			<p>
-				Not finding what you are looking for? Search on <a
-					class="underline"
-					href="https://create.kahoot.it/search?query={search_term}&tags=test&filter=filter%3D1"
-					target="_blank">Kahoot!</a
-				>
-				and <a href="/import" class="underline">import</a> it!
-			</p>
-		</div>
-	{/if}
+{#if start_game !== null}
+	<StartGamePopup bind:quiz_id={start_game} />
 {/if}

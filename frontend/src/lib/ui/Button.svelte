@@ -2,6 +2,7 @@
 	interface Props {
 		href?: string;
 		variant?: 'primary' | 'secondary' | 'ghost';
+		size?: 'md' | 'sm';
 		type?: 'button' | 'submit';
 		disabled?: boolean;
 		class?: string;
@@ -12,6 +13,7 @@
 	let {
 		href,
 		variant = 'primary',
+		size = 'md',
 		type = 'button',
 		disabled = false,
 		class: className = '',
@@ -22,7 +24,7 @@
 	const variantClass = $derived(
 		variant === 'secondary' ? 'btn-secondary' : variant === 'ghost' ? 'btn-ghost' : 'btn-primary'
 	);
-	const classes = $derived(`btn ${variantClass} ${className}`);
+	const classes = $derived(`btn ${variantClass} ${size === 'sm' ? 'btn-sm' : ''} ${className}`);
 </script>
 
 {#if href}

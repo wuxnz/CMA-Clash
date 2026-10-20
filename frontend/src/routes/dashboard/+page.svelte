@@ -16,7 +16,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Analytics from './Analytics.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
-	import QuizCard from '$lib/dashboard/QuizCard.svelte';
+	import QuizRow from '$lib/quiz/QuizRow.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
 
@@ -236,7 +236,8 @@ SPDX-License-Identifier: MPL-2.0
 					</div>
 					<ul>
 						{#each visibleItems as quiz (quiz.id)}
-							<QuizCard
+							<QuizRow
+								mode="owner"
 								{quiz}
 								lastPlayed={lastPlayedFor(quiz)}
 								onHost={(id) => (start_game = id)}

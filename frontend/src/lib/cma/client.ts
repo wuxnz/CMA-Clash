@@ -129,10 +129,14 @@ export async function fetchTopics(certificationSlug?: string): Promise<Topic[]> 
 
 export async function fetchQuizzes(params: {
 	certification_slug?: string;
+	difficulty?: string;
+	page?: number;
 	page_size?: number;
 }): Promise<QuizBrowseItem[]> {
 	const search = new URLSearchParams();
 	if (params.certification_slug) search.set('certification_slug', params.certification_slug);
+	if (params.difficulty) search.set('difficulty', params.difficulty);
+	if (params.page) search.set('page', String(params.page));
 	search.set('page_size', String(params.page_size ?? 100));
 	return (await clashFetch<QuizBrowseItem[]>(`/quizzes?${search}`)) ?? [];
 }
