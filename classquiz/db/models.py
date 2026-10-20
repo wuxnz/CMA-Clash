@@ -150,6 +150,8 @@ class QuizQuestion(BaseModel):
     answers: list[ABCDQuizAnswer] | RangeQuizAnswer | list[TextQuizAnswer] | list[VotingQuizAnswer] | str
     image: str | None = None
     hide_results: bool | None = False
+    explanation: str | None = None
+    references: list[str] | None = None
 
     @field_validator("answers")
     def answers_not_none_if_abcd_type(cls, v, info: ValidationInfo):
@@ -199,6 +201,10 @@ class Quiz(ormar.Model):
     plays: int = ormar.Integer(nullable=False, default=0, server_default="0")
     views: int = ormar.Integer(nullable=False, default=0, server_default="0")
     mod_rating: int | None = ormar.SmallInteger(nullable=True)
+    certification_id: uuid.UUID | None = ormar.UUID(nullable=True, default=None)
+    topic_id: uuid.UUID | None = ormar.UUID(nullable=True, default=None)
+    difficulty: str | None = ormar.String(max_length=32, nullable=True, default=None)
+    seed_slug: str | None = ormar.String(max_length=128, nullable=True, unique=True, default=None)
 
     ormar_config = ormar.OrmarConfig(
         tablename="quiz",
@@ -563,3 +569,15 @@ class Rating(ormar.Model):
         metadata=metadata,
         database=database,
     )
+
+
+# CMA Clash models (certifications, gamification, battles)
+from classquiz.db.cma_models import (  # noqa: E402, F401
+    BattleResult,
+    Certification,
+    LeaderboardScore,
+    Topic,
+    UserGamificationProfile,
+    UserTopicStat,
+    XpEvent,
+)

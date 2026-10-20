@@ -324,6 +324,37 @@ async def submit_answer(sid: str, data: dict):
         game_data.question_show = False
         await game_data.save(session["game_pin"])
         await sio.emit("everyone_answered", {})
+        if game_data.game_mode == "battle":
+            await _battle_maybe_advance(session["game_pin"], game_data)
+
+
+async def _battle_maybe_advance(game_pin: str, game_data: PlayGame) -> None:
+    next_q = game_data.current_question + 1
+    if next_q >= len(game_data.questions):
+        await sio.emit("battle_finished", room=game_pin)
+        from classquiz.socket_server.battle_hooks import finalize_battle
+
+        await finalize_battle(game_pin, game_data)
+        return
+    game_data.current_question = next_q
+    game_data.question_show = True
+    await game_data.save(game_pin)
+    await redis.set(f"game:{game_pin}:current_time", datetime.now().isoformat(), ex=7200)
+    temp_return = game_data.model_dump(include={"questions"})["questions"][next_q]
+    if game_data.questions[next_q].type == QuizQuestionType.VOTING:
+        for i in range(len(temp_return["answers"])):
+            temp_return["answers"][i] = VotingQuizAnswer(**temp_return["answers"][i])
+    temp_return["type"] = game_data.questions[next_q].type
+    if temp_return["type"] == QuizQuestionType.ORDER:
+        random.shuffle(temp_return["answers"])
+    await sio.emit(
+        "set_question_number",
+        {
+            "question_index": next_q,
+            "question": ReturnQuestion(**temp_return).model_dump(),
+        },
+        room=game_pin,
+    )
 
 
 @sio.event
