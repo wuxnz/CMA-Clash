@@ -195,6 +195,10 @@ async def start_battle_game(
     lobby.game_pin = str(game_pin)
     lobby.game_id = str(game_id)
     await redis.set(_lobby_key(code), lobby.model_dump_json(), ex=LOBBY_TTL)
+    from classquiz.socket_server import sio
+    from classquiz.socket_server.game_sync import begin_battle_from_rest
+
+    await begin_battle_from_rest(sio, str(game_pin))
     return lobby
 
 
