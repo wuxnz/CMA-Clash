@@ -4,6 +4,7 @@
 
 import type { Handle } from '@sveltejs/kit';
 import * as jose from 'jose';
+import { serverApiUrl } from '$lib/server-api';
 
 /** @type {import('@sveltejs/kit').Handle} */
 export const handle: Handle = async ({ event, resolve }) => {
@@ -19,7 +20,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 	// if token expires, do a request to get a new one and set the response-cookies on the response
 	if (Date.now() >= jwt.exp * 1000) {
-		const res = await fetch(`${process.env.API_URL}/api/v1/users/check`, {
+		const res = await fetch(serverApiUrl('/api/v1/users/check'), {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',

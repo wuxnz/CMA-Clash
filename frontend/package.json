@@ -3,7 +3,8 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "NODE_ENV=production vite build",
+		"build": "node scripts/write-vercel-config.mjs && pnpm run build:app",
+		"build:app": "NODE_ENV=production vite build",
 		"package": "vite package",
 		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -26,6 +27,7 @@
 		"@simplewebauthn/browser": "^13.2.2",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/adapter-node": "^5.4.0",
+		"@sveltejs/adapter-vercel": "^5.10.3",
 		"@sveltejs/kit": "^2.47.3",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/postcss": "^4.1.16",

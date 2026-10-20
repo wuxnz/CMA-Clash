@@ -2,7 +2,8 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import adapter from '@sveltejs/adapter-node';
+import adapterNode from '@sveltejs/adapter-node';
+import adapterVercel from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 
@@ -19,10 +20,12 @@ const config = {
 	extensions: ['.svelte', '.svx'],
 
 	kit: {
-		adapter: adapter({
-			out: 'build',
-			precompress: true
-		})
+		adapter: process.env.VERCEL
+			? adapterVercel()
+			: adapterNode({
+					out: 'build',
+					precompress: true
+				})
 		// +++ SOON OBSOLETE +++
 		/*
 		vite: {

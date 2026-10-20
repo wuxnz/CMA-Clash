@@ -10,6 +10,7 @@ import uuid
 from classquiz.config import settings, redis
 from datetime import timedelta, datetime
 from classquiz.auth import create_access_token
+from classquiz.helpers.cookies import auth_cookie_kwargs
 
 settings = settings()
 
@@ -40,19 +41,18 @@ async def log_user_in(user: User | None, request: Request, response: Response):
     access_token_expires = timedelta(minutes=settings.access_token_expire_minutes)
     access_token = create_access_token(data={"sub": user.email}, expires_delta=access_token_expires)
     await redis.set(access_token, user.email, ex=settings.access_token_expire_minutes * 60)
+    cookie_flags = auth_cookie_kwargs()
     response.set_cookie(
         key="access_token",
         value=f"Bearer {access_token}",
-        httponly=True,
-        samesite="lax",
         max_age=60 * 60 * 24 * 365,
+        **cookie_flags,
     )
     response.set_cookie(
         key="rememberme_token",
         value=session_key,
-        httponly=True,
-        samesite="lax",
         max_age=60 * 60 * 24 * 365,
+        **cookie_flags,
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
@@ -68,9 +68,8 @@ async def rememberme_check(rememberme_token: str, response: Response):
     response.set_cookie(
         key="access_token",
         value=f"Bearer {access_token}",
-        httponly=True,
-        samesite="lax",
         max_age=60 * 60 * 24 * 365,
+        **auth_cookie_kwargs(),
     )
     response.set_cookie(key="expiry", value="", max_age=settings.access_token_expire_minutes * 60)
     response.status_code = 200

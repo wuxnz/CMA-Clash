@@ -25,6 +25,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		const res = await fetch(`/api/v1/login/step/1?session_id=${session_data.session_id}`, {
 			method: 'POST',
+			credentials: 'include',
 			headers: {
 				'Content-Type': 'application/json'
 			},

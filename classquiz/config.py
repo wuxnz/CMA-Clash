@@ -66,6 +66,17 @@ class Settings(BaseSettings):
     pixabay_api_key: str | None = None
     mods: list[str] = []
     registration_disabled: bool = False
+    # Comma-separated browser origins allowed for credentialed API access (Vercel + external API).
+    cors_origins: str = ""
+    # Set when the SPA and API are on different sites without a reverse proxy (cookies need SameSite=None).
+    cookie_cross_site: bool = False
+    # Force Secure cookies (HTTPS). Enabled automatically when cookie_cross_site is true.
+    cookie_secure: bool = False
+
+    def parsed_cors_origins(self) -> list[str]:
+        if not self.cors_origins.strip():
+            return []
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
     # storage_backend
     storage_backend: str  # either "local" or "s3"
