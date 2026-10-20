@@ -48,10 +48,9 @@ SPDX-License-Identifier: MPL-2.0
 {#if !quizId}
 	<div class="min-h-[80vh] px-4 py-10 max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-8 items-center">
 		<div>
-			<p class="font-display text-gold text-sm tracking-[0.35em]">Time attack</p>
-			<h1 class="font-display text-6xl sm:text-7xl text-ink mt-2">Practice</h1>
-			<p class="text-ink-muted mt-4 max-w-md leading-relaxed">
-				Solo drill against the clock. Same Kahoot tiles, no lobby — beat the ring and keep your streak.
+			<h1 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Practice</h1>
+			<p class="text-ink-muted mt-3 max-w-md leading-relaxed">
+				Answer a quiz against a timer. No lobby — pick a set and start.
 			</p>
 			<a href="/explore" class="ledger-btn-primary w-auto px-8 mt-8 inline-flex">Pick a quiz</a>
 		</div>

@@ -42,4 +42,4 @@
 	});
 </script>
 
-<span class="font-mono tabular-nums {className}">{display.toLocaleString()}{suffix}</span>
+<span class="tabular-nums {className}">{display.toLocaleString()}{suffix}</span>

@@ -133,8 +133,7 @@
 		<section id="practice" class="h-dvh overflow-hidden">
 			<div class="h-full flex flex-col">
 				<div class="px-4 pt-6 text-center">
-					<p class="font-display text-gold text-sm tracking-[0.3em]">Time attack</p>
-					<h1 class="font-display text-5xl text-ink">Practice</h1>
+					<h1 class="text-2xl font-semibold text-ink">Practice</h1>
 				</div>
 				<div class="flex-1 min-h-0">
 					<AnswerTiles
@@ -152,8 +151,7 @@
 		<section id="dashboard" class="min-h-dvh px-4 py-8 max-w-4xl mx-auto">
 			<div class="flex flex-wrap items-center justify-between gap-3 mb-6">
 				<div>
-					<p class="font-display text-gold text-sm tracking-[0.3em]">Division</p>
-					<h1 class="font-display text-5xl text-ink">Volt III</h1>
+					<h1 class="text-2xl font-semibold text-ink">Dashboard</h1>
 				</div>
 				<a href="/battle" class="ledger-btn-primary w-auto px-6">Battle queue</a>
 			</div>

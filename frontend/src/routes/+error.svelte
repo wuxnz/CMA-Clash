@@ -24,7 +24,6 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div class="min-h-[70vh] flex flex-col items-center justify-center px-4 py-16 text-center">
-	<p class="font-display text-gold text-sm tracking-[0.3em] mb-3">Error</p>
 	<p class="font-display text-8xl text-ink tabular-nums leading-none">{status}</p>
 	<p class="mt-6 max-w-md text-ink-muted text-base leading-relaxed">{message}</p>
 	<div class="mt-10 flex flex-wrap items-center justify-center gap-3">

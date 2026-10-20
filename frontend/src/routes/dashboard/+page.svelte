@@ -17,20 +17,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
 	import QuizCard from '$lib/dashboard/QuizCard.svelte';
-	import AnimatedCounter from '$lib/ui/AnimatedCounter.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
-	import {
-		Flame,
-		Swords,
-		Plus,
-		LogIn,
-		Timer,
-		Upload,
-		Folder,
-		Settings,
-		Trophy,
-		Radio
-	} from '@lucide/svelte';
 
 	interface Props {
 		data: PageData;
@@ -67,6 +54,23 @@ SPDX-License-Identifier: MPL-2.0
 		];
 	}
 
+	function formatDay(value: unknown): string | null {
+		if (value == null || value === '') return null;
+		const d = value instanceof Date ? value : new Date(value as string | number);
+		if (Number.isNaN(d.getTime())) return null;
+		return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+	}
+
+	function lastPlayedFor(item: DashItem): string | null {
+		const results = data.results ?? [];
+		const hit = results.find((r) => {
+			const q = r.quiz;
+			const id = typeof q === 'object' && q ? q.id : q;
+			return String(id) === String(item.id);
+		});
+		return formatDay(hit?.timestamp) ?? formatDay(item.updated_at) ?? formatDay(item.created_at);
+	}
+
 	let search_term = $state('');
 	let start_game = $state<string | null>(null);
 	let download_id: string | null = $state(null);
@@ -83,8 +87,7 @@ SPDX-License-Identifier: MPL-2.0
 	const level = $derived(g?.level ?? 1);
 	const xp = $derived(g?.total_xp ?? 0);
 	const streak = $derived(g?.current_streak_days ?? 0);
-	const xpNeed = $derived(g ? g.total_xp + g.xp_to_next_level : 100);
-	const xpPct = $derived(Math.min(100, Math.round((xp / Math.max(1, xpNeed)) * 100)));
+	const hasStats = $derived(streak > 0 || xp > 0);
 
 	const masteryLanes = $derived.by(() => {
 		const stats = data.topicStats ?? [];
@@ -110,6 +113,7 @@ SPDX-License-Identifier: MPL-2.0
 			return { ...lane, answered, accuracy, started: answered > 0 };
 		});
 	});
+	const startedMastery = $derived(masteryLanes.filter((l) => l.started));
 
 	const recent = $derived((data.results ?? []).slice(0, 5));
 	const board = $derived((data.leaderboard ?? []).slice(0, 5));
@@ -150,17 +154,15 @@ SPDX-License-Identifier: MPL-2.0
 		else window.location.assign('/explore');
 	}
 
-	const actions = [
-		{
-			href: '/create',
-			icon: Plus,
-			label: 'Create quiz',
-			hint: 'Write a new set',
-			tone: 'text-violet'
-		},
-		{ href: '/play', icon: LogIn, label: 'Join', hint: 'Enter a live PIN', tone: 'text-cyan' },
-		{ href: '/practice', icon: Timer, label: 'Practice', hint: 'Solo time attack', tone: 'text-gold' },
-		{ href: '/battle', icon: Swords, label: 'Battle', hint: '1v1 elimination', tone: 'text-signal' }
+	const links = [
+		{ href: '/create', label: 'Create' },
+		{ href: '/play', label: 'Join with PIN' },
+		{ href: '/practice', label: 'Practice' },
+		{ href: '/battle', label: 'Battle' },
+		{ href: '/import', label: 'Import' },
+		{ href: '/results', label: 'Results' },
+		{ href: '/edit/files', label: 'Files' },
+		{ href: '/account/settings', label: 'Settings' }
 	] as const;
 </script>
 
@@ -171,199 +173,133 @@ SPDX-License-Identifier: MPL-2.0
 <CommandpaletteNotice />
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
-	<div class="w-full max-w-6xl mx-auto px-4 py-6 min-w-0">
-		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-3 md:gap-4">
-			<section
-				class="arena-enter md:col-span-2 xl:col-span-12 rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5 sm:p-6"
-			>
-				<div class="flex flex-col lg:flex-row lg:items-center gap-5">
-					<div class="min-w-0 flex-1">
-						<p class="font-display text-gold text-sm tracking-[0.3em]">Arena</p>
-						<h1 class="font-display text-4xl sm:text-5xl text-ink leading-none mt-1 min-w-0 break-words">
-							Welcome back, {displayName}
-						</h1>
-						<div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
-							<span
-								class="inline-flex items-center gap-2 min-h-11 rounded-xl bg-elevated px-3 text-ink"
-							>
-								<Flame class="w-4 h-4 text-gold shrink-0" aria-hidden="true" />
-								<AnimatedCounter
-									value={streak}
-									duration={0.8}
-									suffix="-day streak"
-									class="font-semibold"
-								/>
-							</span>
-							<span class="inline-flex items-center gap-2 min-h-11 rounded-xl bg-elevated px-3">
-								<span class="font-display text-violet">Lv {level}</span>
-								<span class="text-ink-muted tabular-nums">{xp.toLocaleString()} XP</span>
-							</span>
-						</div>
-						<div class="mt-3 max-w-md">
-							<div class="h-2 rounded-full bg-elevated overflow-hidden" aria-hidden="true">
-								<div
-									class="h-full bg-gold rounded-full"
-									style="width:{xpPct}%; transition: width 300ms ease-out"
-								></div>
-							</div>
-							<p class="text-xs text-ink-muted mt-1">{xpPct}% to next level</p>
-						</div>
-					</div>
-					<button
-						type="button"
-						class="ledger-btn-primary w-full sm:w-auto min-h-11 px-8 inline-flex items-center justify-center gap-2"
-						onclick={hostFirst}
-					>
-						<Radio class="w-4 h-4" aria-hidden="true" />
-						Host a Clash
-					</button>
-				</div>
-			</section>
-
-			<div class="md:col-span-2 xl:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-3">
-				{#each actions as action, i}
-					{@const Icon = action.icon}
-					<a
-						href={action.href}
-						class="dash-tile arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-4 min-h-[5.5rem] flex flex-col gap-2"
-						style="animation-delay: {(i + 1) * 100}ms"
-					>
-						<Icon class="w-5 h-5 {action.tone}" aria-hidden="true" />
-						<span class="font-display text-lg text-ink">{action.label}</span>
-						<span class="text-xs text-ink-muted">{action.hint}</span>
-					</a>
-				{/each}
+	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0">
+		<header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+			<div class="min-w-0">
+				<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Hi, {displayName}</h1>
+				{#if hasStats}
+					<p class="text-sm text-ink-muted mt-1">
+						{#if streak > 0}{streak}-day streak{/if}
+						{#if streak > 0 && xp > 0}<span> · </span>{/if}
+						{#if xp > 0}Level {level} · {xp.toLocaleString()} XP{/if}
+					</p>
+				{/if}
 			</div>
-
-			<nav
-				class="arena-enter md:col-span-2 xl:col-span-12 flex flex-wrap gap-x-4 gap-y-2 text-sm text-ink-muted"
-				style="animation-delay: 200ms"
-				aria-label="More dashboard links"
+			<button
+				type="button"
+				class="ledger-btn-primary w-full sm:w-auto min-h-11 px-5"
+				onclick={hostFirst}
 			>
-				<a href="/import" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
-					<Upload class="w-4 h-4" aria-hidden="true" /> Import
-				</a>
-				<a href="/results" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
-					<Trophy class="w-4 h-4" aria-hidden="true" /> Results
-				</a>
-				<a href="/edit/files" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
-					<Folder class="w-4 h-4" aria-hidden="true" /> Files
-				</a>
-				<a href="/account/settings" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
-					<Settings class="w-4 h-4" aria-hidden="true" /> Settings
-				</a>
-			</nav>
+				Host a Clash
+			</button>
+		</header>
 
-			<section class="arena-enter md:col-span-2 xl:col-span-8 min-w-0" style="animation-delay: 250ms">
-				<div class="flex flex-wrap items-end justify-between gap-3 mb-4">
-					<div>
-						<p class="font-display text-cyan text-sm tracking-[0.2em]">Library</p>
-						<h2 class="font-display text-3xl text-ink">My quizzes</h2>
-					</div>
+		<nav
+			class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-muted"
+			aria-label="Dashboard"
+		>
+			{#each links as link}
+				<a href={link.href} class="min-h-11 inline-flex items-center link-hover">{link.label}</a>
+			{/each}
+		</nav>
+
+		<div class="mt-12 grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-14">
+			<section class="xl:col-span-9 min-w-0">
+				<div class="flex flex-wrap items-center justify-between gap-3 mb-2">
+					<h2 class="text-sm font-semibold text-ink">Quizzes</h2>
 					{#if !forceEmpty && all_items.length > 0}
 						<label class="sr-only" for="quiz-search">Search quizzes</label>
 						<input
 							id="quiz-search"
 							bind:value={search_term}
 							oninput={search}
-							class="ledger-input max-w-xs min-h-11 hidden sm:block"
-							placeholder="Search your quizzes"
+							class="ledger-input max-w-[14rem] min-h-11 hidden sm:block text-sm"
+							placeholder="Search"
 						/>
 					{/if}
 				</div>
 
 				{#if visibleItems.length === 0}
-					<div
-						class="rounded-2xl bg-surface shadow-[var(--shadow-card)] px-6 py-12 text-center"
-						data-empty-quizzes
-					>
-						<p class="font-display text-3xl text-ink">No quizzes yet</p>
-						<p class="text-ink-muted mt-2 max-w-sm mx-auto">
-							Create a set or import one, then host a Clash from this board.
+					<div class="pt-5" data-empty-quizzes>
+						<p class="text-sm text-ink">No quizzes yet.</p>
+						<p class="text-sm text-ink-muted mt-1">
+							<a href="/create" class="text-ink link-hover">Create</a>
+							or
+							<a href="/import" class="text-ink link-hover">import</a>
+							one, then host it from this list.
 						</p>
-						<div class="mt-6 flex flex-wrap justify-center gap-3">
-							<a href="/create" class="ledger-btn-primary w-auto min-h-11 px-6">Create quiz</a>
-							<a href="/import" class="action-button min-h-11 px-6 inline-flex items-center"
-								>Import</a
-							>
-						</div>
 					</div>
 				{:else}
-					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-						{#each visibleItems as quiz, i (quiz.id)}
+					<div
+						class="hidden md:grid md:grid-cols-[minmax(0,1.4fr)_6.5rem_3.5rem_7rem_auto] gap-x-3 text-xs text-ink-muted pb-2 border-b border-white/[0.07]"
+					>
+						<span>Title</span>
+						<span>Cert</span>
+						<span>Qs</span>
+						<span>Difficulty</span>
+						<span class="text-right"> </span>
+					</div>
+					<ul>
+						{#each visibleItems as quiz (quiz.id)}
 							<QuizCard
 								{quiz}
-								enterDelay={Math.min(i, 7) * 80}
+								lastPlayed={lastPlayedFor(quiz)}
 								onHost={(id) => (start_game = id)}
 								onAnalytics={(q) => (analytics_quiz_selected = q)}
 								onDelete={deleteQuiz}
 								onDownload={(id) => (download_id = id)}
 							/>
 						{/each}
-					</div>
+					</ul>
 				{/if}
 			</section>
 
-			<aside
-				class="md:col-span-2 xl:col-span-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-4 min-w-0"
-			>
-				<section
-					class="arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5"
-					style="animation-delay: 300ms"
-				>
-					<p class="font-display text-violet text-sm tracking-[0.2em]">Progress</p>
-					<h2 class="font-display text-2xl text-ink mb-4">Mastery</h2>
-					<ul class="space-y-4">
-						{#each masteryLanes as lane}
-							<li>
-								<div class="flex items-center justify-between gap-2 mb-1.5">
-									<span class="font-display text-sm text-ink truncate">{lane.name}</span>
-									<span
-										class="font-display text-sm tabular-nums {lane.started
-											? 'text-gold'
-											: 'text-ink-muted'}"
-									>
-										{lane.started ? `${lane.accuracy}%` : '—'}
-									</span>
-								</div>
-								<div class="h-2 rounded-full bg-elevated overflow-hidden">
-									<div
-										class="h-full rounded-full {lane.started ? 'bg-violet' : 'bg-elevated'}"
-										style="width:{lane.started ? lane.accuracy : 0}%; transition: width 300ms ease-out"
-									></div>
-								</div>
-								<p class="text-[11px] text-ink-muted mt-1">
-									{lane.started ? `${lane.answered} answered` : 'Play a clash to start this cert'}
-								</p>
-							</li>
-						{/each}
-					</ul>
+			<aside class="xl:col-span-3 min-w-0 xl:border-l xl:border-white/[0.07] xl:pl-8">
+				<section>
+					<h2 class="text-sm font-semibold text-ink">Mastery</h2>
+					{#if startedMastery.length === 0}
+						<p class="text-sm text-ink-muted mt-2">
+							No cert stats yet.
+							<a href="/practice" class="text-ink link-hover">Practice</a>
+						</p>
+					{:else}
+						<ul class="mt-4 space-y-3">
+							{#each startedMastery as lane}
+								<li>
+									<div class="flex items-baseline justify-between gap-3 text-sm">
+										<span class="text-ink truncate">{lane.name}</span>
+										<span class="tabular-nums text-ink-muted">{lane.accuracy}%</span>
+									</div>
+									<div class="mt-1.5 h-1 rounded-full bg-elevated overflow-hidden">
+										<div
+											class="h-full rounded-full bg-violet"
+											style="width:{lane.accuracy}%; transition: width 300ms ease-out"
+										></div>
+									</div>
+								</li>
+							{/each}
+						</ul>
+					{/if}
 				</section>
 
-				<section
-					class="arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5"
-					style="animation-delay: 400ms"
-				>
-					<p class="font-display text-signal text-sm tracking-[0.2em]">Tape</p>
-					<h2 class="font-display text-2xl text-ink mb-4">Recent games</h2>
+				<section class="mt-10">
+					<h2 class="text-sm font-semibold text-ink">Recent games</h2>
 					{#if recent.length === 0}
-						<p class="text-sm text-ink-muted">
-							No hosted games yet. Host a Clash and results will land here.
+						<p class="text-sm text-ink-muted mt-2">
+							None yet.
+							<a href="/results" class="text-ink link-hover">Results</a>
 						</p>
-						<a href="/results" class="mt-4 action-button min-h-11 px-4 inline-flex items-center"
-							>Open results</a
-						>
 					{:else}
-						<ul class="space-y-2">
+						<ul class="mt-3 divide-y divide-white/[0.07]">
 							{#each recent as game}
 								<li>
 									<a
 										href="/results/{game.id}"
-										class="flex items-center justify-between gap-3 rounded-xl bg-elevated px-3 py-3 min-h-11 min-w-0"
+										class="flex items-center justify-between gap-3 py-2.5 min-h-11 min-w-0"
 									>
-										<span class="truncate text-sm text-ink">{game.title ?? 'Untitled clash'}</span>
+										<span class="truncate text-sm text-ink">{game.title ?? 'Untitled'}</span>
 										<span class="text-xs text-ink-muted shrink-0 tabular-nums">
-											{game.timestamp ? new Date(game.timestamp).toLocaleDateString() : ''}
+											{formatDay(game.timestamp) ?? ''}
 										</span>
 									</a>
 								</li>
@@ -372,28 +308,22 @@ SPDX-License-Identifier: MPL-2.0
 					{/if}
 				</section>
 
-				<section
-					class="arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5 md:col-span-2 xl:col-span-1"
-					style="animation-delay: 500ms"
-				>
-					<p class="font-display text-gold text-sm tracking-[0.2em]">Season</p>
-					<h2 class="font-display text-2xl text-ink mb-4">Weekly board</h2>
+				<section class="mt-10">
+					<h2 class="text-sm font-semibold text-ink">Weekly</h2>
 					{#if board.length === 0}
-						<p class="text-sm text-ink-muted">
-							The weekly board is quiet. Climb it by playing clashes.
+						<p class="text-sm text-ink-muted mt-2">
+							No scores this week.
+							<a href="/leaderboard" class="text-ink link-hover">Leaderboard</a>
 						</p>
-						<a href="/leaderboard" class="mt-4 action-button min-h-11 px-4 inline-flex items-center"
-							>Leaderboard</a
-						>
 					{:else}
-						<ol class="space-y-2">
+						<ol class="mt-3 space-y-1">
 							{#each board as row, i}
-								<li class="flex items-center justify-between gap-3 min-h-11">
-									<span class="text-sm text-ink truncate">
-										<span class="font-display text-ink-muted mr-2">{i + 1}</span>
+								<li class="flex items-center justify-between gap-3 min-h-11 text-sm">
+									<span class="text-ink truncate">
+										<span class="text-ink-muted tabular-nums mr-2">{i + 1}</span>
 										{row.username}
 									</span>
-									<span class="font-display text-gold tabular-nums">{row.xp.toLocaleString()}</span>
+									<span class="tabular-nums text-ink-muted">{row.xp.toLocaleString()}</span>
 								</li>
 							{/each}
 						</ol>

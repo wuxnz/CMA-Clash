@@ -46,12 +46,14 @@ async function shot(page, path, file, mustInclude, { fullPage = false } = {}) {
 	await page.goto(`${BASE}${path}`, { waitUntil: 'networkidle' });
 	await page.waitForTimeout(1100);
 	await page.getByText(mustInclude, { exact: false }).first().waitFor({ timeout: 8000 });
-	await page.getByText('Mastery', { exact: false }).first().waitFor({ timeout: 8000 });
+	if (path.includes('/dashboard')) {
+		await page.getByText('Mastery', { exact: false }).first().waitFor({ timeout: 8000 });
+	}
 	const body = await page.locator('body').innerText();
 	if (/Internal Error|UNKNOWN ERROR|Click the "Create"-button|\/api\/v1\//i.test(body)) {
 		throw new Error(`${file}: bad dashboard copy or error`);
 	}
-	if (page.url().includes('/account/login')) {
+	if (path.includes('/dashboard') && page.url().includes('/account/login')) {
 		throw new Error(`${file}: redirected to login`);
 	}
 	if (fullPage) {
@@ -64,12 +66,20 @@ async function shot(page, path, file, mustInclude, { fullPage = false } = {}) {
 const browser = await chromium.launch();
 await mkdir(OUT, { recursive: true });
 
+{
+	const homeCtx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+	await proxyApi(homeCtx);
+	const homePage = await homeCtx.newPage();
+	await shot(homePage, '/', 'home-1280', 'Clash.');
+	await homeCtx.close();
+}
+
 for (const vp of VIEWPORTS) {
 	const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height } });
 	await proxyApi(context);
 	const page = await context.newPage();
 	await login(page);
-	await shot(page, '/dashboard', `dashboard-${vp.name}`, 'My quizzes', {
+	await shot(page, '/dashboard', `dashboard-${vp.name}`, 'Quizzes', {
 		fullPage: false
 	});
 	await shot(page, '/dashboard?empty=1', `dashboard-empty-${vp.name}`, 'No quizzes yet', {
@@ -82,7 +92,7 @@ const desktop = await browser.newContext({ viewport: { width: 1280, height: 800 
 await proxyApi(desktop);
 const page = await desktop.newPage();
 await login(page);
-await shot(page, '/dashboard', 'dashboard', 'My quizzes');
+await shot(page, '/dashboard', 'dashboard', 'Quizzes');
 await desktop.close();
 
 await browser.close();

@@ -49,7 +49,7 @@
 						style="width: {Math.min(100, dailyGoalPercent)}%"
 					></div>
 				</div>
-				<span class="font-mono text-xs tabular-nums">{dailyGoalPercent}%</span>
+				<span class="text-xs tabular-nums">{dailyGoalPercent}%</span>
 			</div>
 		{/if}
 		{#if leagueName}

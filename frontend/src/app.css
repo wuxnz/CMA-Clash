@@ -70,7 +70,13 @@ SPDX-License-Identifier: MPL-2.0
 	h1,
 	h2,
 	h3,
-	h4,
+	h4 {
+		font-family: var(--font-sans);
+		font-weight: 600;
+		letter-spacing: -0.015em;
+		text-transform: none;
+	}
+
 	.font-display {
 		font-family: var(--font-display);
 		font-weight: 800;
@@ -237,14 +243,14 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility ledger-btn-primary {
-	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-display uppercase tracking-wide text-paper bg-gold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
-	transition-property: background-color, box-shadow;
+	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-sans font-semibold text-paper bg-gold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
+	transition-property: background-color, filter;
 	transition-duration: 150ms;
 }
 
 @media (hover: hover) {
 	.ledger-btn-primary:hover {
-		box-shadow: 0 0 32px rgba(200, 255, 46, 0.35);
+		filter: brightness(1.06);
 	}
 }
 

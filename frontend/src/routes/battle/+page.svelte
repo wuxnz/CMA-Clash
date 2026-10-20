@@ -7,7 +7,6 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Footer from '$lib/footer.svelte';
-	import Card from '$lib/ui/Card.svelte';
 	import { createBattle, fetchQuizzes, type QuizBrowseItem } from '$lib/cma/client';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -31,7 +30,7 @@ SPDX-License-Identifier: MPL-2.0
 		let list = await fetchQuizzes({ certification_slug: 'ccma', page_size: 50 });
 		if (list.length === 0) list = await fetchQuizzes({ page_size: 50 });
 		quizzes = list;
-		if (list.length === 0 && !error) error = 'No public quizzes — run content seed or create a quiz.';
+		if (list.length === 0 && !error) error = 'No public quizzes yet.';
 	});
 
 	async function startBattle(quizId: string) {
@@ -53,12 +52,11 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="min-h-screen flex flex-col">
 	<div class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
-		<p class="font-display text-gold text-sm tracking-[0.3em]">Survival</p>
-		<h1 class="font-display text-5xl text-ink">Battle</h1>
-		<p class="text-ink-muted mt-2 mb-8">1v1 to 8-player elimination. Queue up or join with a code.</p>
+		<h1 class="text-2xl font-semibold text-ink tracking-tight">Battle</h1>
+		<p class="text-sm text-ink-muted mt-1 mb-8">Start a 1v1 or join with a code.</p>
 
-		<Card class="mb-8">
-			<h2 class="font-display font-semibold mb-3">Join with code</h2>
+		<div class="mb-10">
+			<h2 class="text-sm font-semibold mb-3">Join with code</h2>
 			<form
 				class="flex gap-2"
 				onsubmit={(e) => {
@@ -66,26 +64,26 @@ SPDX-License-Identifier: MPL-2.0
 					if (joinCode.trim()) goto(`/battle/${joinCode.trim().toUpperCase()}`);
 				}}
 			>
-				<input class="ledger-input flex-1 font-mono uppercase" bind:value={joinCode} placeholder="BATTLE CODE" />
-				<button type="submit" class="ledger-btn-primary w-auto px-6">Join</button>
+				<input class="ledger-input flex-1 uppercase" bind:value={joinCode} placeholder="Code" />
+				<button type="submit" class="ledger-btn-primary w-auto min-h-11 px-6">Join</button>
 			</form>
-		</Card>
+		</div>
 
 		{#if error}
 			<p class="text-danger text-sm mb-4">{error}</p>
 		{/if}
 
-		<h2 class="font-display font-semibold text-ink mb-4">Start a battle</h2>
-		<ul class="space-y-3">
+		<h2 class="text-sm font-semibold text-ink mb-4">Start a battle</h2>
+		<ul class="divide-y divide-white/[0.07]">
 			{#each quizzes as quiz (quiz.id)}
-				<li class="rounded-xl border border-ink/10 bg-surface p-4 flex justify-between items-center gap-4">
-					<div>
-						<p class="font-medium text-ink">{quiz.title}</p>
-						<p class="text-xs text-ink-muted font-mono">{quiz.question_count} questions</p>
+				<li class="py-3 flex justify-between items-center gap-4 min-w-0">
+					<div class="min-w-0">
+						<p class="font-medium text-ink truncate">{quiz.title}</p>
+						<p class="text-xs text-ink-muted">{quiz.question_count} questions</p>
 					</div>
 					<button
 						type="button"
-						class="ledger-btn-primary w-auto px-4 shrink-0"
+						class="action-button min-h-11 px-4 shrink-0"
 						disabled={loading}
 						onclick={() => startBattle(quiz.id)}
 					>
@@ -93,7 +91,7 @@ SPDX-License-Identifier: MPL-2.0
 					</button>
 				</li>
 			{:else}
-				<p class="text-ink-muted text-sm">No public quizzes — run content seed or create a quiz.</p>
+				<p class="text-ink-muted text-sm">No public quizzes yet.</p>
 			{/each}
 		</ul>
 	</div>

@@ -46,7 +46,7 @@ await shot(page, 'home', '/', { mustInclude: 'Clash' });
 await shot(page, 'join', '/play', { mustInclude: 'Join' });
 await shot(page, 'leaderboard', '/leaderboard', { mustInclude: 'Leaderboard' });
 await shot(page, 'battle-vs', '/demo/battle-vs', { mustInclude: 'VS' });
-await shot(page, 'practice', '/practice', { mustInclude: 'Time attack' });
+await shot(page, 'practice', '/practice', { mustInclude: 'Practice' });
 await shot(page, 'host-intro', '/demo/screens?phase=host-intro', {
 	mustInclude: 'pulmonary veins'
 });
