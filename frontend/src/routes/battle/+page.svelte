@@ -8,19 +8,30 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Footer from '$lib/footer.svelte';
 	import Card from '$lib/ui/Card.svelte';
-	import { fetchQuizzes, createBattle, type QuizBrowseItem } from '$lib/cma/client';
+	import { createBattle, fetchQuizzes, type QuizBrowseItem } from '$lib/cma/client';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
 
 	navbarVisible.visible = true;
 
-	let quizzes = $state<QuizBrowseItem[]>([]);
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+
+	let quizzes = $state<QuizBrowseItem[]>(data.quizzes ?? []);
 	let joinCode = $state('');
 	let loading = $state(false);
-	let error = $state('');
+	let error = $state(data.loadError ?? '');
 
 	onMount(async () => {
-		quizzes = await fetchQuizzes({ page_size: 20 });
+		if (quizzes.length > 0) return;
+		let list = await fetchQuizzes({ certification_slug: 'ccma', page_size: 50 });
+		if (list.length === 0) list = await fetchQuizzes({ page_size: 50 });
+		quizzes = list;
+		if (list.length === 0 && !error) error = 'No public quizzes — run content seed or create a quiz.';
 	});
 
 	async function startBattle(quizId: string) {

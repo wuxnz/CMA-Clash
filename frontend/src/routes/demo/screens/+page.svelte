@@ -14,6 +14,8 @@
 	import ExplanationDrawer from '$lib/ui/ExplanationDrawer.svelte';
 
 	navbarVisible.visible = false;
+
+	const answers = ['Left ventricle', 'Right atrium', 'Left atrium', 'Right ventricle'];
 </script>
 
 <div class="bg-paper min-h-screen p-8 space-y-16 max-w-4xl mx-auto">
@@ -30,9 +32,9 @@
 		<h2 class="font-display text-xl mb-4">Live question</h2>
 		<LivePlayHeader pin="482913" rank={3} totalPlayers={28} rankDelta={1} />
 		<Card class="mt-4">
-			<TopicTag label="CCMA · Anatomy · Q4/10" />
+			<TopicTag label="CCMA · Anatomy & Physiology · Q4/10" />
 			<p class="font-display mt-3 mb-4">
-				Budgeted fixed overhead was \$120,000; actual was \$126,000. Spending variance?
+				Which chamber of the heart receives oxygenated blood from the pulmonary veins?
 			</p>
 			<TimerBar remainingSeconds={11} totalSeconds={30} />
 			<div class="grid grid-cols-2 gap-3 mt-6">
@@ -42,7 +44,7 @@
 						style="background:{color}"
 					>
 						<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[i]} class="w-8 h-8" />
-						<span class="font-mono">\$6,000 U</span>
+						<span class="font-mono text-sm text-center">{answers[i]}</span>
 					</div>
 				{/each}
 			</div>
@@ -59,7 +61,7 @@
 		/>
 		<div class="mt-4">
 			<ExplanationDrawer
-				explanation="Spending variance = actual − budgeted fixed overhead for the period."
+				explanation="The left atrium receives oxygenated blood from the pulmonary veins before it passes to the left ventricle."
 			/>
 		</div>
 	</section>
@@ -67,6 +69,7 @@
 	<section id="podium">
 		<h2 class="font-display text-xl mb-4">Podium</h2>
 		<Podium
+			celebrate
 			entries={[
 				{ name: 'A. Okafor', score: '9,420' },
 				{ name: 'M. Chen', score: '9,105' },

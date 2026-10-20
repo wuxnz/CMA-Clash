@@ -14,6 +14,7 @@ from classquiz.config import settings, meilisearch
 from classquiz.db import database
 from classquiz.db.cma_models import Certification, Topic
 from classquiz.db.models import ABCDQuizAnswer, Quiz, QuizQuestion, QuizQuestionType, User
+from classquiz.auth import get_password_hash
 from classquiz.helpers import get_meili_data
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
@@ -23,6 +24,9 @@ LOGGER = logging.getLogger(__name__)
 
 SEED_USER_EMAIL = "content@cmaclash.local"
 SEED_USER_USERNAME = "cmaclash_content"
+DEMO_USER_EMAIL = "demo@cmaclash.local"
+DEMO_USER_USERNAME = "demo"
+DEMO_USER_PASSWORD = "CMA-Clash-Demo1!"
 QUESTIONS_PER_QUIZ = 8
 
 
@@ -49,6 +53,21 @@ def _fact_to_question(fact: dict) -> QuizQuestion:
         explanation=fact.get("explanation"),
         references=fact.get("references"),
     )
+
+
+async def _ensure_demo_user() -> User:
+    user = await User.objects.get_or_none(email=DEMO_USER_EMAIL)
+    if user is not None:
+        return user
+    return await User(
+        email=DEMO_USER_EMAIL,
+        username=DEMO_USER_USERNAME,
+        password=get_password_hash(DEMO_USER_PASSWORD),
+        verified=True,
+        verify_key=None,
+        require_password=True,
+        avatar=gzipped_user_avatar(),
+    ).save()
 
 
 async def _ensure_seed_user() -> User:
@@ -112,6 +131,7 @@ async def run_seed(force: bool = False) -> dict:
         await database.connect()
         owned_connection = True
     user = await _ensure_seed_user()
+    await _ensure_demo_user()
     topic_by_slug = await _ensure_certifications_and_topics()
     facts = load_all_facts()
     by_topic: dict[str, list[dict]] = defaultdict(list)

@@ -22,6 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	import TopicTag from '$lib/ui/TopicTag.svelte';
 	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
 	import type { AnswerShape } from '$lib/ui/tokens';
+	import { normalizeQuizText } from '$lib/cma/text';
 
 	const { t } = getLocalization();
 
@@ -168,7 +169,7 @@ SPDX-License-Identifier: MPL-2.0
 			<h1
 				class="lg:text-2xl text-lg text-center text-black dark:text-white mt-2 break-normal mb-2"
 			>
-				{@html question.question}
+				{@html normalizeQuizText(question.question)}
 			</h1>
 			{#if question.image !== null && game_mode !== 'kahoot'}
 				<div class="max-h-full">
@@ -192,7 +193,7 @@ SPDX-License-Identifier: MPL-2.0
 						<h1
 							class="font-display text-lg sm:text-xl text-ink mt-3 mb-4 leading-snug text-center"
 						>
-							{@html question.question}
+							{@html normalizeQuizText(question.question)}
 						</h1>
 						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} />
 					</div>
@@ -200,7 +201,7 @@ SPDX-License-Identifier: MPL-2.0
 					<div
 						class="absolute top-0 bottom-0 left-0 right-0 m-auto rounded-full h-fit w-fit border-2 border-ink/20 shadow-lg z-40 pointer-events-none"
 					>
-						<CircularTimer text={timer_res} progress={circular_progress} color="#0E7C74" />
+						<CircularTimer text={timer_res} progress={circular_progress} color="#0ea5e9" />
 					</div>
 				{/if}
 
@@ -226,10 +227,10 @@ SPDX-License-Identifier: MPL-2.0
 									class="w-8 h-8 sm:w-10 sm:h-10"
 								/>
 								<span class="font-mono text-sm sm:text-base font-medium text-center"
-									>{answer.answer}</span
+									>{normalizeQuizText(answer.answer)}</span
 								>
 							{:else}
-								<p class="m-auto text-center">{answer.answer}</p>
+								<p class="m-auto text-center">{normalizeQuizText(answer.answer)}</p>
 							{/if}
 						</button>
 					{/each}

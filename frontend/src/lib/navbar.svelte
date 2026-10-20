@@ -32,10 +32,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	let darkMode = $state(false);
 	if (browser) {
-		darkMode =
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches);
+		darkMode = localStorage.theme !== 'light';
 	}
 
 	const switchDarkMode = () => {
@@ -45,7 +42,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <nav
-	class="w-screen px-4 lg:px-10 py-2 fixed backdrop-blur-xl bg-surface/90 border-b border-ink/10 z-30 top-0"
+	class="w-screen px-4 lg:px-10 py-2.5 fixed glass-panel border-b border-ink/10 dark:border-white/5 z-30 top-0"
 >
 	<!-- Desktop navbar -->
 	<div class="hidden lg:flex lg:items-center lg:flex-row lg:justify-between">

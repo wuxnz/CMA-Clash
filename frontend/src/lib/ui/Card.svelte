@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="rounded-2xl border border-ink/10 bg-surface shadow-sm {pad[padding]} {className}"
+	class="rounded-2xl glass-panel {pad[padding]} transition-shadow duration-300 hover:shadow-[var(--shadow-glow)] {className}"
 >
 	{@render children?.()}
 </div>

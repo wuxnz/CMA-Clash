@@ -23,31 +23,45 @@ SPDX-License-Identifier: MPL-2.0
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Light theme (polished) */
 @theme {
-	--color-paper: #f6f5f1;
-	--color-paper-muted: #ebe9e3;
+	--color-paper: #f4f7fb;
+	--color-paper-muted: #e8eef6;
 	--color-surface: #ffffff;
-	--color-ink: #0e1a2b;
-	--color-ink-muted: #4a5568;
-	--color-primary: #0e7c74;
-	--color-primary-hover: #0a655e;
+	--color-elevated: #ffffff;
+	--color-ink: #0b1220;
+	--color-ink-muted: #5b6b82;
+	--color-primary: #2563eb;
+	--color-primary-hover: #1d4ed8;
+	--color-primary-muted: #93c5fd;
 	--color-gold: #e8b931;
-	--color-success: #1e9e6a;
-	--color-danger: #d9485f;
-	--color-answer-red: #d9485f;
-	--color-answer-blue: #3867d6;
-	--color-answer-yellow: #e0a200;
-	--color-answer-green: #1e9e6a;
+	--color-success: #16a34a;
+	--color-danger: #ef4444;
+	--color-answer-red: #f87171;
+	--color-answer-blue: #60a5fa;
+	--color-answer-yellow: #fbbf24;
+	--color-answer-green: #34d399;
+	--color-glow: rgba(37, 99, 235, 0.35);
 
 	--font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+	--shadow-card: 0 1px 2px rgba(11, 18, 32, 0.06), 0 8px 24px rgba(11, 18, 32, 0.06);
+	--shadow-glow: 0 0 40px var(--color-glow);
 }
 
 @layer base {
 	html {
 		@apply bg-paper text-ink font-sans antialiased;
 		font-feature-settings: 'kern' 1;
+		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 
 	h1,
@@ -56,17 +70,24 @@ SPDX-License-Identifier: MPL-2.0
 	h4,
 	.font-display {
 		font-family: var(--font-display);
+		letter-spacing: -0.02em;
 	}
 
+	/* Dark flagship */
 	html.dark {
-		--color-paper: #0c1118;
-		--color-paper-muted: #151d2a;
-		--color-surface: #121a26;
-		--color-ink: #e8ecf1;
+		--color-paper: #05070d;
+		--color-paper-muted: #0a0f1c;
+		--color-surface: #0f1729;
+		--color-elevated: #111827;
+		--color-ink: #f1f5f9;
 		--color-ink-muted: #94a3b8;
-		--color-primary: #14a89d;
-		--color-primary-hover: #1bc4b8;
+		--color-primary: #0ea5e9;
+		--color-primary-hover: #38bdf8;
+		--color-primary-muted: #0c4a6e;
 		--color-gold: #e8b931;
+		--color-glow: rgba(14, 165, 233, 0.25);
+		--shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04), 0 12px 40px rgba(0, 0, 0, 0.45);
+		--shadow-glow: 0 0 48px var(--color-glow);
 	}
 
 	button:not(:disabled),
@@ -92,12 +113,21 @@ SPDX-License-Identifier: MPL-2.0
 	@apply bg-paper;
 }
 
+@utility glass-panel {
+	@apply bg-surface/70 dark:bg-elevated/60 backdrop-blur-xl border border-ink/10 dark:border-white/10;
+	box-shadow: var(--shadow-card);
+}
+
+@utility gradient-text {
+	@apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-hover to-primary;
+}
+
 @utility admin-button {
-	@apply px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-ink rounded-lg text-center hover:bg-ink/90 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+	@apply px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-primary rounded-lg text-center hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility action-button {
-	@apply px-4 py-2 leading-5 text-ink transition-colors duration-200 transform bg-surface border border-ink/15 rounded-lg text-center hover:bg-paper-muted focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+	@apply px-4 py-2 leading-5 text-ink transition-colors duration-200 transform glass-panel rounded-lg text-center hover:border-primary/30 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility btn-nav {
@@ -105,11 +135,11 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility ledger-input {
-	@apply w-full rounded-lg border border-ink/20 bg-surface px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition;
+	@apply w-full rounded-lg border border-ink/15 dark:border-white/10 bg-surface dark:bg-elevated px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/25 outline-none transition;
 }
 
 @utility ledger-btn-primary {
-	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-semibold text-white bg-primary rounded-lg hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-semibold text-white bg-primary rounded-lg hover:bg-primary-hover transition-all duration-200 hover:shadow-[var(--shadow-glow)] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper active:scale-[0.98] motion-reduce:active:scale-100;
 }
 
 @utility motion-reduce {
@@ -127,7 +157,6 @@ SPDX-License-Identifier: MPL-2.0
 	color: var(--color-primary);
 }
 
-/* Legacy alias — avoid breaking references during migration */
 .marck-script {
 	font-family: var(--font-display);
 	font-weight: 700;

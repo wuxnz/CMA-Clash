@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 	import { prefersReducedMotion } from './motion';
 	import { fade, fly } from 'svelte/transition';
 
@@ -10,11 +12,20 @@
 
 	interface Props {
 		entries: PodiumEntry[];
+		celebrate?: boolean;
 	}
 
-	let { entries }: Props = $props();
+	let { entries, celebrate = false }: Props = $props();
 
 	let reduced = prefersReducedMotion();
+
+	onMount(async () => {
+		if (!browser || !celebrate || reduced) return;
+		const confetti = (await import('canvas-confetti')).default;
+		confetti({ particleCount: 80, spread: 70, origin: { y: 0.65 }, colors: ['#0ea5e9', '#e8b931', '#f1f5f9'] });
+		setTimeout(() => confetti({ particleCount: 40, angle: 60, spread: 55, origin: { x: 0 } }), 200);
+		setTimeout(() => confetti({ particleCount: 40, angle: 120, spread: 55, origin: { x: 1 } }), 200);
+	});
 
 	let first = $derived(entries[0]);
 	let second = $derived(entries[1]);

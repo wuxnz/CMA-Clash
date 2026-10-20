@@ -1,5 +1,5 @@
-/** Ledger design tokens — answer tiles (Kahoot-style order: triangle, diamond, circle, square). */
-export const LEDGER_ANSWER_COLORS = ['#D9485F', '#3867D6', '#E0A200', '#1E9E6A'] as const;
+/** Answer tiles — distinct, colorblind-safe (triangle, diamond, circle, square). */
+export const LEDGER_ANSWER_COLORS = ['#F87171', '#60A5FA', '#FBBF24', '#34D399'] as const;
 
 export const LEDGER_ANSWER_SHAPES = ['triangle', 'diamond', 'circle', 'square'] as const;
 

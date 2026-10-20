@@ -38,6 +38,21 @@ export type Certification = {
 	sort_order: number;
 };
 
+/** Short cert code for topic tags (seed banks: NHA CCMA, EKG, phlebotomy, etc.). */
+export function certificationShortLabel(slug: string | undefined | null, name?: string | null): string {
+	if (!slug) {
+		if (name?.toUpperCase().includes('CCMA')) return 'CCMA';
+		return name ?? 'CCMA';
+	}
+	const s = slug.toLowerCase();
+	if (s === 'ccma') return 'CCMA';
+	if (s === 'ekg') return 'EKG';
+	if (s === 'phlebotomy') return 'Phlebotomy';
+	if (s === 'cpr-bls') return 'BLS';
+	if (s === 'clinical-skills') return 'Skills';
+	return name?.split('—')[0]?.trim() ?? slug.toUpperCase();
+}
+
 export type Topic = {
 	id: string;
 	slug: string;
@@ -132,12 +147,14 @@ export async function resolveQuizContentLabels(quizTitle: string): Promise<{
 		fetchCertifications(),
 		fetchTopics()
 	]);
-	const quiz = quizzes.find((q) => q.title === quizTitle);
+	const quiz =
+		quizzes.find((q) => q.title === quizTitle) ??
+		quizzes.find((q) => quizTitle.startsWith(q.title) || q.title.startsWith(quizTitle));
 	if (!quiz) return { certLabel: null, topicLabel: null };
 	const cert = certs.find((c) => c.id === quiz.certification_id);
 	const topic = topics.find((t) => t.id === quiz.topic_id);
 	return {
-		certLabel: cert?.name ?? null,
+		certLabel: cert ? certificationShortLabel(cert.slug, cert.name) : null,
 		topicLabel: topic?.name ?? null
 	};
 }

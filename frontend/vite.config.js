@@ -21,7 +21,11 @@ const config = {
 		}
 	],
 	server: {
-		port: 3000
+		port: 3000,
+		proxy: {
+			'/api': { target: 'http://127.0.0.1:8000', changeOrigin: true },
+			'/socket.io': { target: 'http://127.0.0.1:8000', ws: true, changeOrigin: true }
+		}
 	},
 	preview: {
 		port: 3000
