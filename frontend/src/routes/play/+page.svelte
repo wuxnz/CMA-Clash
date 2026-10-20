@@ -206,7 +206,7 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		{:else if gameMeta.started && gameData !== undefined && question_index !== '' && answer_results === undefined}
 			{#key unique}
-				<div class="text-black dark:text-black">
+				<div class="text-ink" class:text-black={bg_color}>
 					<Question
 						bind:game_mode
 						bind:question

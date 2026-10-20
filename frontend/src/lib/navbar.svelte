@@ -81,7 +81,7 @@ SPDX-License-Identifier: MPL-2.0
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						class="lucide lucide-external-link"
+						class="lucide lucide-external-link shrink-0"
 						><path
 							d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
 						/><polyline points="15 3 21 3 21 9" /><line
@@ -110,6 +110,7 @@ SPDX-License-Identifier: MPL-2.0
 				<div class="lg:flex items-center justify-center">
 					{#if darkMode}
 						<button
+							class="text-ink"
 							onclick={() => {
 								switchDarkMode();
 							}}
@@ -118,7 +119,7 @@ SPDX-License-Identifier: MPL-2.0
 						>
 							<!-- Heroicons: sun -->
 							<svg
-								class="w-6 h-6 text-ink"
+								class="w-6 h-6"
 								fill="none"
 								aria-label="Sun-Icon"
 								stroke="currentColor"
@@ -136,6 +137,7 @@ SPDX-License-Identifier: MPL-2.0
 						</button>
 					{:else}
 						<button
+							class="text-ink"
 							onclick={() => {
 								switchDarkMode();
 							}}
@@ -181,7 +183,7 @@ SPDX-License-Identifier: MPL-2.0
 				{#if darkMode}
 					<!-- Sun icon -->
 					<button
-						class="px-3"
+						class="px-3 text-ink"
 						onclick={() => {
 							switchDarkMode();
 						}}
@@ -190,7 +192,7 @@ SPDX-License-Identifier: MPL-2.0
 					>
 						<!-- Heroicons: sun -->
 						<svg
-							class="w-6 h-6 text-black"
+							class="w-6 h-6"
 							fill="none"
 							aria-label="Sun-Icon"
 							stroke="currentColor"
@@ -209,7 +211,7 @@ SPDX-License-Identifier: MPL-2.0
 				{:else}
 					<!-- Moon icon -->
 					<button
-						class="px-3"
+						class="px-3 text-ink"
 						onclick={() => {
 							switchDarkMode();
 						}}
@@ -237,7 +239,7 @@ SPDX-License-Identifier: MPL-2.0
 
 				{#if menuIsClosed}
 					<button
-						class="px-3"
+						class="px-3 text-ink"
 						id="open-menu"
 						onclick={toggleMenu}
 						aria-label="Open navbar"
@@ -248,17 +250,18 @@ SPDX-License-Identifier: MPL-2.0
 							height="24"
 							viewBox="0 0 24 24"
 							fill="none"
-							stroke="#000000"
+							stroke="currentColor"
 							stroke-width="2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							class="w-6 h-6"
 						>
 							<path d="M3 6h18M3 12h18M3 18h18" />
 						</svg>
 					</button>
 				{:else}
 					<button
-						class="px-3"
+						class="px-3 text-ink"
 						id="close-menu"
 						onclick={toggleMenu}
 						aria-label="Close navbar"
@@ -269,10 +272,11 @@ SPDX-License-Identifier: MPL-2.0
 							height="24"
 							viewBox="0 0 24 24"
 							fill="none"
-							stroke="#000000"
+							stroke="currentColor"
 							stroke-width="2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
+							class="w-6 h-6"
 							><path in:draw|global={{ duration: 300 }} d="M18 6 6 18" /><path
 								in:draw|global={{ duration: 300 }}
 								d="m6 6 12 12"
@@ -309,7 +313,7 @@ SPDX-License-Identifier: MPL-2.0
 							stroke-width="2"
 							stroke-linecap="round"
 							stroke-linejoin="round"
-							class="lucide lucide-external-link"
+							class="lucide lucide-external-link shrink-0"
 							><path
 								d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
 							/><polyline points="15 3 21 3 21 9" /><line

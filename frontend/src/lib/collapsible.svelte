@@ -26,7 +26,7 @@ SPDX-License-Identifier: MPL-2.0
 			<svg
 				viewBox="0 0 20 20"
 				fill="none"
-				class="my-auto fill-black dark:fill-white"
+				class="my-auto text-ink shrink-0"
 				stroke="currentColor"
 			>
 				<path class="vert" d="M10 1V19" stroke-width="2" stroke="currentColor" />

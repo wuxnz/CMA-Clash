@@ -22,7 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	let cssVarStyles = $derived(`--background:${background}`);
 </script>
 
-<div id="progress-circle" style={cssVarStyles} class="transition-all text-4xl text-black">
+<div id="progress-circle" style={cssVarStyles} class="transition-all text-4xl text-ink">
 	{text}
 </div>
 
