@@ -19,8 +19,42 @@ SPDX-License-Identifier: MPL-2.0
 	import { formatQuestionTopicTag, resolveQuizContentLabels } from '$lib/cma/client';
 	const { t } = getLocalization();
 
+	interface Props {
+		data: any;
+	}
+
+	let { data }: Props = $props();
+	let game_pin = $state(data.game_pin ?? '');
+
+	interface GameMeta {
+		started: boolean;
+	}
+
+	interface PlayerAnswer {
+		username: string;
+		answer: string;
+		right: string;
+	}
+
+	// State (declare before $derived that references these — SSR TDZ)
+	let question_index = $state('');
+	let unique = $state({});
+	let answer_results: Array<Answer> = $state();
+	let gameData = $state();
+	let solution: QuestionType = $state();
+	let username = $state('');
+	let scores = $state({});
+	let game_mode = $state();
+	let final_results: Array<null> | Array<Array<PlayerAnswer>> = $state([null]);
+	let gameMeta: GameMeta = $state({
+		started: false
+	});
+	let question: Question = $state();
+
 	let cert_label = $state<string | null>(null);
 	let topic_label = $state<string | null>(null);
+
+	navbarVisible.visible = false;
 
 	$effect(() => {
 		const title = gameData?.title;
@@ -41,43 +75,6 @@ SPDX-License-Identifier: MPL-2.0
 				)
 			: ''
 	);
-
-	interface Props {
-		// Exports
-		data: any;
-	}
-
-	let { data }: Props = $props();
-	let game_pin = $state(data.game_pin ?? '');
-
-	// Types
-	interface GameMeta {
-		started: boolean;
-	}
-
-	let game_mode = $state();
-	let final_results: Array<null> | Array<Array<PlayerAnswer>> = $state([null]);
-
-	interface PlayerAnswer {
-		username: string;
-		answer: string;
-		right: string;
-	}
-
-	// Variables init
-	let question_index = $state('');
-	let unique = $state({});
-	navbarVisible.visible = false;
-	let answer_results: Array<Answer> = $state();
-	let gameData = $state();
-	let solution: QuestionType = $state();
-	let username = $state('');
-	let scores = $state({});
-	let gameMeta: GameMeta = $state({
-		started: false
-	});
-
-	let question: Question = $state();
 
 	let preventReload = true;
 

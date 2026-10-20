@@ -335,8 +335,8 @@
         "donate": ""
     },
     "error_page": {
-        "404_text": "The page you were looking for is gone or never even existed. Who knows?",
-        "unknown_error_text": "That shouldn't happen. It's probably my fault, not yours, but maybe you have a magical power to break stuff..."
+        "404_text": "That page is missing or the link may be outdated.",
+        "unknown_error_text": "Something went wrong on our side. You can try again or head back home."
     },
     "uploader": {
         "add_image": "Add Media",

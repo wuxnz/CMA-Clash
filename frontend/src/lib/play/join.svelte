@@ -68,12 +68,14 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	const prefetch_username = async () => {
-		const res = await fetch('/api/v1/users/me');
-		if (res.status !== 200) {
-			return;
+		try {
+			const res = await fetch('/api/v1/users/me');
+			if (res.status !== 200) return;
+			const json = await res.json();
+			username = json.username;
+		} catch {
+			/* offline API — guest join still works */
 		}
-		const json = await res.json();
-		username = json.username;
 	};
 
 	const set_game_pin = async () => {
@@ -84,16 +86,17 @@ SPDX-License-Identifier: MPL-2.0
 			process_var = { env: { API_URL: undefined } };
 		}
 
-		const res = await fetch(
-			`${process_var.env.API_URL ?? ''}/api/v1/quiz/play/check_captcha/${game_pin}`
-		);
-		const json = await res.json();
-		game_mode = json.game_mode;
-		if (res.status === 200) {
-			captcha_enabled = json.enabled;
-			custom_field = json.custom_field;
-		}
-		if (res.status === 404) {
+		try {
+			const res = await fetch(
+				`${process_var.env.API_URL ?? ''}/api/v1/quiz/play/check_captcha/${game_pin}`
+			);
+			const json = await res.json().catch(() => ({}));
+			game_mode = json.game_mode;
+			if (res.status === 200) {
+				captcha_enabled = json.enabled;
+				custom_field = json.custom_field;
+			}
+			if (res.status === 404) {
 			/*			alertModal.set({
                 open: true,
                 title: 'Game not found',
@@ -105,14 +108,13 @@ SPDX-License-Identifier: MPL-2.0
 			game_pin = '';
 			return;
 		}
-		if (res.status !== 200) {
-			/*			alertModal.set({
-                open: true,
-                body: `Unknown error with response-code ${res.status}`,
-                title: 'Unknown Error'
-            });*/
-			alert('Unknown error');
-			return;
+			if (res.status !== 200) {
+				alert('Unknown error');
+				return;
+			}
+		} catch {
+			// Backend unreachable: keep join form usable; captcha validation happens on submit if needed.
+			captcha_enabled = false;
 		}
 	};
 
