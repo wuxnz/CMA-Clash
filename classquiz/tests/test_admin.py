@@ -102,3 +102,78 @@ class TestAdminEmails:
         assert resp.status_code == 200
         assert await UserGamificationProfile.objects.get_or_none(user_id=user.id) is None
         assert await XpEvent.objects.filter(user_id=user.id).count() == 0
+
+
+class TestAdminApi:
+    def test_admin_me_forbidden_for_non_admin(self, test_client: TestClient):
+        from classquiz.tests.test_server import TestUsers
+
+        TestUsers.ensure_logged_in(test_client)
+        resp = test_client.get("/api/v1/admin/me")
+        assert resp.status_code == 403
+
+    def test_admin_me_ok_for_listed_admin(self, test_client: TestClient, monkeypatch):
+        from classquiz.config import settings
+
+        admin_email = f"api-admin-{uuid.uuid4().hex[:8]}@example.com"
+        test_client.post(
+            "/api/v1/users/register",
+            json={
+                "email": admin_email,
+                "username": f"api-admin-{uuid.uuid4().hex[:8]}",
+                "password": "admin-pass-123",
+            },
+        )
+        secret = settings().secret_key
+        test_client.get(f"/api/v1/internal/testing/user/{admin_email}?secret_key={secret}")
+        monkeypatch.setattr(auth_module.settings, "admin_emails", admin_email)
+        _log_in_admin(test_client, admin_email, "admin-pass-123")
+
+        resp = test_client.get("/api/v1/admin/me")
+        assert resp.status_code == 200
+        assert resp.json()["email"] == admin_email
+
+    def test_admin_users_list_and_search(self, test_client: TestClient, monkeypatch):
+        from classquiz.config import settings
+        from classquiz.tests import test_user_email
+
+        admin_email = f"list-admin-{uuid.uuid4().hex[:8]}@example.com"
+        test_client.post(
+            "/api/v1/users/register",
+            json={
+                "email": admin_email,
+                "username": f"list-admin-{uuid.uuid4().hex[:8]}",
+                "password": "admin-pass-123",
+            },
+        )
+        secret = settings().secret_key
+        test_client.get(f"/api/v1/internal/testing/user/{admin_email}?secret_key={secret}")
+        monkeypatch.setattr(auth_module.settings, "admin_emails", admin_email)
+        _log_in_admin(test_client, admin_email, "admin-pass-123")
+
+        denied = test_client.get("/api/v1/admin/users")
+        assert denied.status_code == 200
+        payload = denied.json()
+        assert "items" in payload
+        assert payload["page_size"] <= 50
+
+        search = test_client.get("/api/v1/admin/users", params={"q": test_user_email.split("@")[0]})
+        assert search.status_code == 200
+        emails = [row["email"] for row in search.json()["items"]]
+        assert test_user_email in emails
+
+    def test_users_me_includes_is_site_admin(self, test_client: TestClient, monkeypatch):
+        from classquiz.config import settings
+        from classquiz.tests import test_user_email, test_user_password
+        from classquiz.tests.test_server import TestUsers
+
+        TestUsers.log_in(test_client, test_user_email, test_user_password)
+        resp = test_client.get("/api/v1/users/me")
+        assert resp.status_code == 200
+        body = resp.json()
+        assert "is_site_admin" in body
+        assert body["is_site_admin"] is False
+
+        monkeypatch.setattr(auth_module.settings, "admin_emails", test_user_email)
+        resp2 = test_client.get("/api/v1/users/me")
+        assert resp2.json()["is_site_admin"] is True
