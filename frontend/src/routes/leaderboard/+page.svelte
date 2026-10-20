@@ -66,7 +66,7 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-	<main class="flex-1 max-w-3xl mx-auto w-full px-4 py-10">
+	<div class="flex-1 max-w-3xl mx-auto w-full px-4 py-10">
 		<h1 class="font-display text-3xl sm:text-4xl font-bold text-ink">Leaderboard</h1>
 		<p class="text-ink-muted mt-2 mb-6">
 			Weekly and all-time XP from <code class="font-mono text-xs">/api/v1/clash/leaderboards</code>.
@@ -110,6 +110,6 @@ SPDX-License-Identifier: MPL-2.0
 		</Card>
 
 		<LedgerTable rows={rows} caption="League standings" />
-	</main>
+	</div>
 	<Footer />
 </div>

@@ -8,7 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
-	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
+	import { SITE_NAME, SITE_URL, OG_IMAGE_URL, canonicalUrl } from '$lib/site';
 	import RetentionBar from '$lib/ui/RetentionBar.svelte';
 	import Card from '$lib/ui/Card.svelte';
 
@@ -39,26 +39,43 @@ SPDX-License-Identifier: MPL-2.0
 		{ title: $t('index_page.cma_pillar_arena'), body: $t('index_page.cma_pillar_arena_body') },
 		{ title: $t('index_page.cma_pillar_climb'), body: $t('index_page.cma_pillar_climb_body') }
 	];
+
+	const homeTitle = $derived(`${SITE_NAME} — ${$t('index_page.meta.title')}`);
+	const homeDescription =
+		'Gamified CMA exam prep with real-time quizzes, multiplayer battles, and competitive leaderboards.';
+	const structuredData = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: SITE_NAME,
+			url: SITE_URL,
+			description: homeDescription,
+			publisher: {
+				'@type': 'Organization',
+				name: SITE_NAME
+			}
+		})
+	);
 </script>
 
 <svelte:head>
-	<title>CMA-Clash — {$t('index_page.meta.title')}</title>
-	<meta
-		name="description"
-		content="Gamified CMA exam prep with real-time quizzes, multiplayer battles, and competitive leaderboards."
-	/>
-	<meta property="og:title" content="CMA-Clash — {$t('index_page.meta.title')}" />
-	<meta
-		property="og:description"
-		content="Gamified CMA exam prep with real-time quizzes, multiplayer battles, and competitive leaderboards."
-	/>
-	<meta property="og:image" content={JpgOpenGraph} />
+	<title>{homeTitle}</title>
+	<meta name="description" content={homeDescription} />
+	<link rel="canonical" href={canonicalUrl('/')} />
+	<meta property="og:title" content={homeTitle} />
+	<meta property="og:description" content={homeDescription} />
+	<meta property="og:url" content={canonicalUrl('/')} />
+	<meta property="og:image" content={OG_IMAGE_URL} />
+	<meta name="twitter:title" content={homeTitle} />
+	<meta name="twitter:description" content={homeDescription} />
+	<meta name="twitter:image" content={OG_IMAGE_URL} />
+	{@html `<script type="application/ld+json">${structuredData}</script>`}
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-	<section class="pb-16 px-4">
+	<section class="pb-16 px-4" aria-labelledby="home-hero-heading">
 		<div class="pt-16 text-center max-w-3xl mx-auto">
-			<h1 class="font-display sm:text-6xl text-5xl font-bold text-ink tracking-tight">
+			<h1 id="home-hero-heading" class="font-display sm:text-6xl text-5xl font-bold text-ink tracking-tight">
 				CMA-Clash
 			</h1>
 			<p class="text-lg sm:text-xl mt-4 text-ink-muted">

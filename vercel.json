@@ -1,0 +1,16 @@
+{
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"installCommand": "cd frontend && corepack enable && corepack prepare pnpm@11.6 --activate && pnpm install",
+	"buildCommand": "cd frontend && pnpm run build",
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "X-Robots-Tag",
+					"value": "noindex, nofollow"
+				}
+			]
+		}
+	]
+}
