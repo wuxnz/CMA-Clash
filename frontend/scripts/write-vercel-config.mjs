@@ -9,8 +9,8 @@ import { dirname, join } from 'node:path';
 const DEFAULT_BACKEND = 'https://cmaclash-api.onrender.com';
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
-/** Repo-root vercel.json (Vercel builds from repository root, not frontend/). */
-const vercelPath = join(scriptDir, '..', '..', 'vercel.json');
+const frontendVercelPath = join(scriptDir, '..', 'vercel.json');
+const rootVercelPath = join(scriptDir, '..', '..', 'vercel.json');
 
 const defaultPrivateHeaders = [
 	{
@@ -46,9 +46,9 @@ function normalizeBackendUrl(raw) {
 	}
 }
 
-function loadExistingConfig() {
+function loadExistingConfig(vercelPath) {
 	if (!existsSync(vercelPath)) {
-		return { headers: defaultPrivateHeaders };
+		return null;
 	}
 	try {
 		return JSON.parse(readFileSync(vercelPath, 'utf8'));
@@ -68,24 +68,47 @@ function buildRewrites(backend) {
 	];
 }
 
+function mergeConfig(existing, backend) {
+	const base = existing ?? { headers: defaultPrivateHeaders };
+	return {
+		$schema: base.$schema ?? 'https://openapi.vercel.sh/vercel.json',
+		...(base.framework !== undefined ? { framework: base.framework } : {}),
+		...(base.installCommand ? { installCommand: base.installCommand } : {}),
+		...(base.buildCommand ? { buildCommand: base.buildCommand } : {}),
+		headers: base.headers?.length ? base.headers : defaultPrivateHeaders,
+		rewrites: buildRewrites(backend)
+	};
+}
+
+function writeVercelConfig(vercelPath, backend) {
+	const existing = loadExistingConfig(vercelPath);
+	if (existing === null) {
+		return false;
+	}
+	const config = mergeConfig(existing, backend);
+	writeFileSync(vercelPath, `${JSON.stringify(config, null, '\t')}\n`);
+	return true;
+}
+
 const backend =
 	normalizeBackendUrl(process.env.BACKEND_URL) ?? normalizeBackendUrl(DEFAULT_BACKEND);
 
 if (!backend) {
 	console.log(
-		'BACKEND_URL missing or invalid — not updating root vercel.json rewrites (would risk DNS_HOSTNAME_EMPTY).'
+		'BACKEND_URL missing or invalid — not updating vercel.json rewrites (would risk DNS_HOSTNAME_EMPTY).'
 	);
 	process.exit(0);
 }
 
-const existing = loadExistingConfig();
-const config = {
-	$schema: existing.$schema ?? 'https://openapi.vercel.sh/vercel.json',
-	...(existing.installCommand ? { installCommand: existing.installCommand } : {}),
-	...(existing.buildCommand ? { buildCommand: existing.buildCommand } : {}),
-	headers: existing.headers?.length ? existing.headers : defaultPrivateHeaders,
-	rewrites: buildRewrites(backend)
-};
+const wroteFrontend = writeVercelConfig(frontendVercelPath, backend);
+const wroteRoot = writeVercelConfig(rootVercelPath, backend);
 
-writeFileSync(vercelPath, `${JSON.stringify(config, null, '\t')}\n`);
-console.log(`Wrote root vercel.json with backend ${backend}`);
+if (wroteFrontend) {
+	console.log(`Wrote frontend/vercel.json with backend ${backend}`);
+}
+if (wroteRoot) {
+	console.log(`Wrote root vercel.json with backend ${backend}`);
+}
+if (!wroteFrontend && !wroteRoot) {
+	console.log('No vercel.json found to update.');
+}
