@@ -12,9 +12,9 @@
 </script>
 
 <p
-	class="font-mono tabular-nums tracking-widest text-ink select-all {size === 'lg'
-		? 'text-4xl sm:text-5xl'
-		: 'text-2xl'}"
+	class="font-display tabular-nums tracking-widest text-ink select-all {size === 'lg'
+		? 'text-6xl sm:text-7xl'
+		: 'text-3xl'}"
 	aria-label="Game PIN {formatted}"
 >
 	{formatted}

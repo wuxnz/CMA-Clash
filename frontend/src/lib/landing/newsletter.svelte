@@ -40,7 +40,7 @@ SPDX-License-Identifier: MPL-2.0
 		<h3 class="text-lg font-semibold">CMA Clash Newsletter</h3>
 		<input type="hidden" name="nonce" />
 		<p>
-			<label class="block text-sm font-medium text-gray-800 dark:text-gray-200" for="newsletter-email"
+			<label class="block text-sm font-medium text-gray-800 text-ink-muted" for="newsletter-email"
 				>E-mail</label
 			>
 			<input
@@ -53,7 +53,7 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		</p>
 		<p>
-			<label class="block text-sm font-medium text-gray-800 dark:text-gray-200" for="newsletter-name"
+			<label class="block text-sm font-medium text-gray-800 text-ink-muted" for="newsletter-name"
 				>Name (optional)</label
 			>
 			<input
@@ -76,7 +76,7 @@ SPDX-License-Identifier: MPL-2.0
 			<label for="fec55">CMA Clash News</label>
 		</p>
 		<div class="bg-gradient-to-r from-[#009444] via-[#39b54a] to-[#8dc63f] w-fit rounded-lg">
-			<button type="submit" class="m-0.5 bg-white/7 rounded-lg py-0.5 px-1 text-black"
+			<button type="submit" class="m-0.5 bg-ink/10 rounded-lg py-0.5 px-1 text-ink"
 				>Subscribe!
 			</button>
 		</div>

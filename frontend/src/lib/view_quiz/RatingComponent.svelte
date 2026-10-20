@@ -58,7 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 			>
 				<!-- heroicons/thumb-up -->
 				<svg
-					class="inline-block h-6 w-6 align-middle text-black"
+					class="inline-block h-6 w-6 align-middle text-ink"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
@@ -82,7 +82,7 @@ SPDX-License-Identifier: MPL-2.0
 			>
 				<!-- heroicons/thumb-down -->
 				<svg
-					class="inline-block h-6 w-6 align-middle text-black"
+					class="inline-block h-6 w-6 align-middle text-ink"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"

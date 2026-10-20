@@ -38,17 +38,17 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 			<table class="w-full">
 				<thead>
-					<tr class="border-b-2 dark:border-gray-500 text-left border-gray-300">
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+					<tr class="border-b-2 dark:border-gray-500 text-left border-ink/20">
+						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 							>{$t('words.name')}</th
 						>
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 							>{$t('controllers.player_name')}
 						</th>
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 							>{$t('controllers.first_seen')}
 						</th>
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 							>{$t('controllers.last_seen')}
 						</th>
 						<th class="mx-auto p-1">{$t('words.version')}</th>
@@ -57,21 +57,21 @@ SPDX-License-Identifier: MPL-2.0
 				<tbody>
 					{#each data.controllers as controller}
 						<tr class="text-left">
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								><a
 									href="/account/controllers/{controller.id}"
 									class="underline text-lg">{controller.name}</a
 								></td
 							>
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{controller.player_name}</td
 							>
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{controller.first_seen
 									? new Date(controller.first_seen).toLocaleString()
 									: $t('words.never')}</td
 							>
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{controller.last_seen
 									? new Date(controller.last_seen).toLocaleString()
 									: $t('words.never')}</td

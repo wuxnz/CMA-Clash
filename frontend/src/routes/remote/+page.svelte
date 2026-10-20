@@ -265,7 +265,7 @@ SPDX-License-Identifier: MPL-2.0
 								game_data.questions[selected_question].type ===
 									QuizQuestionType.ABCD}
 						>
-							<span class="text-center text-2xl px-2 py-4 w-full text-black"
+							<span class="text-center text-2xl px-2 py-4 w-full text-ink"
 								>{answer.answer}</span
 							>
 							<span class="pl-4 w-10"></span>

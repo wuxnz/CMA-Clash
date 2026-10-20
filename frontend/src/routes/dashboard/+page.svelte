@@ -6,86 +6,129 @@ SPDX-License-Identifier: MPL-2.0
 
 <script lang="ts">
 	import DownloadQuiz from '$lib/components/DownloadQuiz.svelte';
-	import type { QuizData } from '$lib/quiz_types';
-	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
 	import { signedIn } from '$lib/stores';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import CommandpaletteNotice from '$lib/components/popover/commandpalettenotice.svelte';
-	// import Spinner from "$lib/Spinner.svelte";
 	import Fuse from 'fuse.js';
-	import BrownButton from '$lib/components/buttons/brown.svelte';
 	import type { PageData } from './$types';
-	import { fly } from 'svelte/transition';
 	import StartGamePopup from '$lib/dashboard/start_game.svelte';
 	import Analytics from './Analytics.svelte';
-	import MediaComponent from '$lib/editor/MediaComponent.svelte';
-	import { createTippy } from 'svelte-tippy';
 	import { onMount } from 'svelte';
-	import RetentionBar from '$lib/ui/RetentionBar.svelte';
-	import MasteryHeatmap from '$lib/ui/MasteryHeatmap.svelte';
+	import { page } from '$app/state';
+	import QuizCard from '$lib/dashboard/QuizCard.svelte';
+	import AnimatedCounter from '$lib/ui/AnimatedCounter.svelte';
+	import { certificationShortLabel } from '$lib/cma/client';
+	import {
+		Flame,
+		Swords,
+		Plus,
+		LogIn,
+		Timer,
+		Upload,
+		Folder,
+		Settings,
+		Trophy,
+		Radio
+	} from '@lucide/svelte';
 
 	interface Props {
-		// import GrayButton from "$lib/components/buttons/gray.svelte";
 		data: PageData;
 	}
 
 	let { data }: Props = $props();
-	let search_term = $state('');
-	let start_game = $state(null);
-	let download_id: string | null = $state(null);
 	signedIn.set(true);
 	navbarVisible.visible = true;
-	const { t } = getLocalization();
 
-	let items_to_show = $state([]);
-	let all_items: Array<any> = $state();
-	let fuse;
-	const tippy = createTippy({
-		arrow: true,
-		animation: 'perspective-subtle',
-		placement: 'bottom'
+	const CERT_LANES = [
+		{ slug: 'ccma', name: 'NHA CCMA', prefix: 'ccma-' },
+		{ slug: 'ekg', name: 'EKG Technician', prefix: 'ekg-' },
+		{ slug: 'phlebotomy', name: 'Phlebotomy', prefix: 'phleb-' },
+		{ slug: 'cpr-bls', name: 'CPR / BLS', prefix: 'cpr-' },
+		{ slug: 'clinical-skills', name: 'Clinical skills', prefix: 'skill-' }
+	] as const;
+
+	type DashItem = Record<string, any> & { type: 'quiz' | 'quiztivity'; certLabel?: string };
+
+	function certLabelFor(item: Record<string, any>): string | undefined {
+		const certs = data.certifications ?? [];
+		const match = certs.find((c) => c.id === item.certification_id);
+		if (match) return certificationShortLabel(match.slug, match.name);
+		const fromTitle = certificationShortLabel(null, item.title);
+		return fromTitle === 'CCMA' && !/ccma/i.test(String(item.title ?? '')) ? undefined : fromTitle;
+	}
+
+	function buildItems(): DashItem[] {
+		const quizzes = Array.isArray(data.quizzes) ? data.quizzes : [];
+		const quiztivities = Array.isArray(data.quiztivities) ? data.quiztivities : [];
+		return [
+			...quizzes.map((q) => ({ ...q, type: 'quiz' as const, certLabel: certLabelFor(q) })),
+			...quiztivities.map((q) => ({ ...q, type: 'quiztivity' as const, certLabel: certLabelFor(q) }))
+		];
+	}
+
+	let search_term = $state('');
+	let start_game = $state<string | null>(null);
+	let download_id: string | null = $state(null);
+	let all_items: DashItem[] = $state(buildItems());
+	let items_to_show: DashItem[] = $state(buildItems());
+	let fuse: Fuse<DashItem> | undefined;
+	let analytics_quiz_selected = $state<any>(undefined);
+
+	const forceEmpty = $derived(page.url.searchParams.get('empty') === '1');
+	const visibleItems = $derived(forceEmpty ? [] : items_to_show);
+
+	const displayName = $derived(data.username || 'there');
+	const g = $derived(data.gamification);
+	const level = $derived(g?.level ?? 1);
+	const xp = $derived(g?.total_xp ?? 0);
+	const streak = $derived(g?.current_streak_days ?? 0);
+	const xpNeed = $derived(g ? g.total_xp + g.xp_to_next_level : 100);
+	const xpPct = $derived(Math.min(100, Math.round((xp / Math.max(1, xpNeed)) * 100)));
+
+	const masteryLanes = $derived.by(() => {
+		const stats = data.topicStats ?? [];
+		const topics = data.topics ?? [];
+		const certs = data.certifications ?? [];
+		return CERT_LANES.map((lane) => {
+			const cert = certs.find((c) => c.slug === lane.slug);
+			const slugs = new Set(
+				topics.filter((t) => t.certification_id === cert?.id).map((t) => t.slug)
+			);
+			const rows = stats.filter((s) => {
+				const slug = s.topic_slug ?? '';
+				return slugs.has(slug) || slug.startsWith(lane.prefix);
+			});
+			const answered = rows.reduce((n, r) => n + (r.questions_answered ?? 0), 0);
+			const correct = rows.reduce((n, r) => n + (r.questions_correct ?? 0), 0);
+			const accuracy =
+				answered > 0
+					? Math.round((correct / answered) * 100)
+					: rows.length
+						? Math.round(rows.reduce((n, r) => n + (r.accuracy_percent ?? 0), 0) / rows.length)
+						: 0;
+			return { ...lane, answered, accuracy, started: answered > 0 };
+		});
 	});
 
-	let id_to_position_map = {};
-
-	const getData = async (): Promise<{ items: Array<QuizData>; fuse: Fuse<any> }> => {
-		const items: any[] = [];
-
-		for (const q of data.quizzes) items.push({ ...q, type: 'quiz' });
-		for (const q of data.quiztivities) items.push({ ...q, type: 'quiztivity' });
-
-		const f = new Fuse(items, {
-			keys: ['title', 'description', 'questions.title'],
-			findAllMatches: true
-		});
-
-		// return *all* derived data instead of mutating directly
-		return { items, fuse: f };
-	};
+	const recent = $derived((data.results ?? []).slice(0, 5));
+	const board = $derived((data.leaderboard ?? []).slice(0, 5));
 
 	const search = () => {
-		if (search_term === '') {
+		if (!fuse || search_term === '') {
 			items_to_show = all_items;
 			return;
 		}
-
-		const res = fuse.search(search_term);
-		items_to_show = res.map((r) => r.item);
+		items_to_show = fuse.search(search_term).map((r) => r.item);
 	};
-	onMount(async () => {
-		const { items, fuse: f } = await getData();
-		all_items = items;
-		items_to_show = items;
-		fuse = f;
 
-		// fill id_to_position_map
-		id_to_position_map = {};
-		for (let i = 0; i < items.length; i++) {
-			id_to_position_map[items[i].id] = i;
-		}
-		search_term;
-		search();
+	onMount(() => {
+		all_items = buildItems();
+		items_to_show = all_items;
+		fuse = new Fuse(all_items, {
+			keys: ['title', 'description', 'questions.title'],
+			findAllMatches: true
+		});
 	});
 
 	const deleteQuiz = async (to_delete: string, type: 'quiz' | 'quiztivity') => {
@@ -93,19 +136,32 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		if (type === 'quiz') {
-			await fetch(`/api/v1/quiz/delete/${to_delete}`, {
-				method: 'DELETE'
-			});
+			await fetch(`/api/v1/quiz/delete/${to_delete}`, { method: 'DELETE' });
 		} else {
-			await fetch(`/api/v1/quiztivity/${to_delete}`, {
-				method: 'DELETE'
-			});
+			await fetch(`/api/v1/quiztivity/${to_delete}`, { method: 'DELETE' });
 		}
 		window.location.reload();
 	};
-	let create_button_clicked = $state(false);
 
-	let analytics_quiz_selected: undefined | QuizData = $state(undefined);
+	function hostFirst() {
+		const first =
+			visibleItems.find((i) => i.type === 'quiz') ?? all_items.find((i) => i.type === 'quiz');
+		if (first && !forceEmpty) start_game = first.id;
+		else window.location.assign('/explore');
+	}
+
+	const actions = [
+		{
+			href: '/create',
+			icon: Plus,
+			label: 'Create quiz',
+			hint: 'Write a new set',
+			tone: 'text-violet'
+		},
+		{ href: '/play', icon: LogIn, label: 'Join', hint: 'Enter a live PIN', tone: 'text-cyan' },
+		{ href: '/practice', icon: Timer, label: 'Practice', hint: 'Solo time attack', tone: 'text-gold' },
+		{ href: '/battle', icon: Swords, label: 'Battle', hint: '1v1 elimination', tone: 'text-signal' }
+	] as const;
 </script>
 
 <svelte:head>
@@ -113,318 +169,242 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 <Analytics bind:quiz={analytics_quiz_selected} />
 <CommandpaletteNotice />
-<div class="min-h-screen flex flex-col">
-	{#if !all_items}
-		<svg class="h-8 w-8 animate-spin mx-auto my-20" viewBox="3 3 18 18">
-			<path
-				class="fill-black"
-				d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
-			/>
-			<path
-				class="fill-blue-100"
-				d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
-			/>
-		</svg>
-	{:else}
-		<div class="flex flex-col w-full mx-auto px-4 pt-4">
-			<h1 class="font-display text-2xl font-bold text-ink mb-4">{$t('words.dashboard')}</h1>
-			<RetentionBar
-				streakDays={data.gamification?.current_streak_days ?? 0}
-				dailyGoalPercent={data.gamification
-					? Math.min(
-							100,
-							Math.round(
-								(data.gamification.total_xp /
-									(data.gamification.total_xp + data.gamification.xp_to_next_level)) *
-									100
-							)
-						)
-					: 0}
-				dailyGoalIsDemo={!data.gamification}
-				leagueName={data.gamification ? `Level ${data.gamification.level}` : undefined}
-			/>
-			<div class="my-6">
-				<MasteryHeatmap
-					stats={data.topicStats?.length ? data.topicStats : []}
-					demo={!data.topicStats?.length}
-				/>
-			</div>
-			<!--		<button
-                    class='px-4 py-2 font-medium tracking-wide text-gray-500 whitespace-nowrap dark:text-gray-400 capitalize transition-colors dark:bg-gray-700 duration-200 transform bg-[#B07156] rounded-md hover:bg-green-600 focus:outline-hidden focus:ring focus:ring-blue-300 focus:ring-opacity-80'>
-                    Primary
-                </button>-->
-			<div class="w-full grid lg:grid-cols-4 gap-2 grid-cols-2 px-4">
-				<!-- {#if create_button_clicked}
-					<div
-						class="flex gap-2"
-						transition:fly|global={{ y: 10 }}
-						use:tippy={{ content: 'Unsure? Choose "Quiz".' }}
+
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-6xl mx-auto px-4 py-6 min-w-0">
+		<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-3 md:gap-4">
+			<section
+				class="arena-enter md:col-span-2 xl:col-span-12 rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5 sm:p-6"
+			>
+				<div class="flex flex-col lg:flex-row lg:items-center gap-5">
+					<div class="min-w-0 flex-1">
+						<p class="font-display text-gold text-sm tracking-[0.3em]">Arena</p>
+						<h1 class="font-display text-4xl sm:text-5xl text-ink leading-none mt-1 min-w-0 break-words">
+							Welcome back, {displayName}
+						</h1>
+						<div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
+							<span
+								class="inline-flex items-center gap-2 min-h-11 rounded-xl bg-elevated px-3 text-ink"
+							>
+								<Flame class="w-4 h-4 text-gold shrink-0" aria-hidden="true" />
+								<AnimatedCounter
+									value={streak}
+									duration={0.8}
+									suffix="-day streak"
+									class="font-semibold"
+								/>
+							</span>
+							<span class="inline-flex items-center gap-2 min-h-11 rounded-xl bg-elevated px-3">
+								<span class="font-display text-violet">Lv {level}</span>
+								<span class="text-ink-muted tabular-nums">{xp.toLocaleString()} XP</span>
+							</span>
+						</div>
+						<div class="mt-3 max-w-md">
+							<div class="h-2 rounded-full bg-elevated overflow-hidden" aria-hidden="true">
+								<div
+									class="h-full bg-gold rounded-full"
+									style="width:{xpPct}%; transition: width 300ms ease-out"
+								></div>
+							</div>
+							<p class="text-xs text-ink-muted mt-1">{xpPct}% to next level</p>
+						</div>
+					</div>
+					<button
+						type="button"
+						class="ledger-btn-primary w-full sm:w-auto min-h-11 px-8 inline-flex items-center justify-center gap-2"
+						onclick={hostFirst}
 					>
-						<BrownButton href="/create">{$t('words.quiz')}</BrownButton>
-						<BrownButton href="/quiztivity/create">{$t('words.quiztivity')}</BrownButton
-						>
+						<Radio class="w-4 h-4" aria-hidden="true" />
+						Host a Clash
+					</button>
+				</div>
+			</section>
+
+			<div class="md:col-span-2 xl:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-3">
+				{#each actions as action, i}
+					{@const Icon = action.icon}
+					<a
+						href={action.href}
+						class="dash-tile arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-4 min-h-[5.5rem] flex flex-col gap-2"
+						style="animation-delay: {(i + 1) * 100}ms"
+					>
+						<Icon class="w-5 h-5 {action.tone}" aria-hidden="true" />
+						<span class="font-display text-lg text-ink">{action.label}</span>
+						<span class="text-xs text-ink-muted">{action.hint}</span>
+					</a>
+				{/each}
+			</div>
+
+			<nav
+				class="arena-enter md:col-span-2 xl:col-span-12 flex flex-wrap gap-x-4 gap-y-2 text-sm text-ink-muted"
+				style="animation-delay: 200ms"
+				aria-label="More dashboard links"
+			>
+				<a href="/import" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
+					<Upload class="w-4 h-4" aria-hidden="true" /> Import
+				</a>
+				<a href="/results" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
+					<Trophy class="w-4 h-4" aria-hidden="true" /> Results
+				</a>
+				<a href="/edit/files" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
+					<Folder class="w-4 h-4" aria-hidden="true" /> Files
+				</a>
+				<a href="/account/settings" class="min-h-11 inline-flex items-center gap-1.5 link-hover">
+					<Settings class="w-4 h-4" aria-hidden="true" /> Settings
+				</a>
+			</nav>
+
+			<section class="arena-enter md:col-span-2 xl:col-span-8 min-w-0" style="animation-delay: 250ms">
+				<div class="flex flex-wrap items-end justify-between gap-3 mb-4">
+					<div>
+						<p class="font-display text-cyan text-sm tracking-[0.2em]">Library</p>
+						<h2 class="font-display text-3xl text-ink">My quizzes</h2>
+					</div>
+					{#if !forceEmpty && all_items.length > 0}
+						<label class="sr-only" for="quiz-search">Search quizzes</label>
+						<input
+							id="quiz-search"
+							bind:value={search_term}
+							oninput={search}
+							class="ledger-input max-w-xs min-h-11 hidden sm:block"
+							placeholder="Search your quizzes"
+						/>
+					{/if}
+				</div>
+
+				{#if visibleItems.length === 0}
+					<div
+						class="rounded-2xl bg-surface shadow-[var(--shadow-card)] px-6 py-12 text-center"
+						data-empty-quizzes
+					>
+						<p class="font-display text-3xl text-ink">No quizzes yet</p>
+						<p class="text-ink-muted mt-2 max-w-sm mx-auto">
+							Create a set or import one, then host a Clash from this board.
+						</p>
+						<div class="mt-6 flex flex-wrap justify-center gap-3">
+							<a href="/create" class="ledger-btn-primary w-auto min-h-11 px-6">Create quiz</a>
+							<a href="/import" class="action-button min-h-11 px-6 inline-flex items-center"
+								>Import</a
+							>
+						</div>
 					</div>
 				{:else}
-					<BrownButton
-						onclick={() => {
-							create_button_clicked = true;
-						}}>{$t('words.create')}</BrownButton
-					>
-				{/if} -->
-				<BrownButton href="/create">{$t('dashboard.create_quiz')}</BrownButton>
-				<BrownButton href="/import">{$t('words.import')}</BrownButton>
-				<BrownButton href="/results">{$t('words.results')}</BrownButton>
-				<div class="flex gap-2">
-					<BrownButton href="/edit/files">{$t('words.files_library')}</BrownButton>
-					<BrownButton href="/account/settings">
-						{$t('words.settings')}
-					</BrownButton>
-				</div>
-			</div>
-			{#if all_items.length !== 0}
-				<div class="flex justify-center pt-4 w-full">
-					<div>
-						<div>
-							<input
-								bind:value={search_term}
-								class="p-2 rounded-lg outline-hidden text-center w-96 dark:bg-gray-700"
-								placeholder={$t('dashboard.search_for_own_quizzes')}
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						{#each visibleItems as quiz, i (quiz.id)}
+							<QuizCard
+								{quiz}
+								enterDelay={Math.min(i, 7) * 80}
+								onHost={(id) => (start_game = id)}
+								onAnalytics={(q) => (analytics_quiz_selected = q)}
+								onDelete={deleteQuiz}
+								onDownload={(id) => (download_id = id)}
 							/>
-							<button
-								onclick={() => {
-									search_term = '';
-									items_to_show = all_items;
-								}}
-							>
-								<svg
-									class="h-8 inline-block"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M6 18L18 6M6 6l12 12"
-									/>
-								</svg>
-							</button>
-						</div>
+						{/each}
 					</div>
-				</div>
-				<div class="flex flex-col gap-4 mt-4 px-2">
-					{#each items_to_show as quiz}
-						<div
-							class="grid grid-cols-2 lg:grid-cols-3 w-full rounded-sm border-[#B07156] border-2 p-2 h-[20vh] overflow-hidden max-h-[20vh]"
-						>
-							<div class="hidden lg:flex w-auto h-full items-center relative">
-								{#if quiz.cover_image}
-									<!--									<img
-										src="/api/v1/storage/download/{quiz.cover_image}"
-										alt="user provided"
-										loading="lazy"
-										class="shrink-0 max-w-full max-h-full absolute rounded-sm"
-									/>-->
-									<MediaComponent
-										src={quiz.cover_image}
-										css_classes="shrink-0 max-w-full max-h-full absolute rounded-sm"
-									/>
-								{/if}
-							</div>
-							<div class="my-auto mx-auto max-h-full overflow-hidden">
-								<p class="text-xl text-center">{@html quiz.title}</p>
-								<p class="text-sm text-center text-clip overflow-hidden">
-									{@html quiz.description ?? ''}
-								</p>
-							</div>
-							<div
-								class="grid grid-rows-2 ms-auto gap-2 w-fit self-end my-auto"
-								class:grid-cols-3={quiz.type === 'quiz'}
-								class:grid-cols-2={quiz.type !== 'quiztivity'}
-							>
-								<BrownButton
-									flex={true}
-									disabled={!quiz.public}
-									href="/view/{quiz.id}"
-								>
-									<!-- heroicons/legacy-outline/Eye -->
-									<svg
-										class="w-5 h-5"
-										aria-hidden="true"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										viewBox="0 0 24 24"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-										<path
-											d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
-								</BrownButton>
-								<BrownButton
-									flex={true}
-									onclick={() => (analytics_quiz_selected = quiz)}
-								>
-									<!-- heroicons/legacy-outline/ChartBar -->
-									<svg
-										class="w-5 h-5"
-										aria-hidden="true"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										viewBox="0 0 24 24"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
-								</BrownButton>
-								<BrownButton
-									href={quiz.type === 'quiz'
-										? `/edit?quiz_id=${quiz.id}`
-										: `/quiztivity/edit?id=${quiz.id}`}
-									flex={true}
-								>
-									<!-- heroicons/legacy-outline/Pencil -->
-									<svg
-										class="w-5 h-5"
-										aria-hidden="true"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										viewBox="0 0 24 24"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										/>
-									</svg>
-								</BrownButton>
-								{#if quiz.type === 'quiz'}
-									<BrownButton
-										onclick={() => {
-											start_game = quiz.id;
-										}}
-										flex={true}
-									>
-										<!-- heroicons/legacy-outline/Play -->
-										<svg
-											class="w-5 h-5"
-											aria-hidden="true"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-											/>
-											<path
-												d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-											/>
-										</svg>
-									</BrownButton>
-								{:else}
-									<BrownButton href="/quiztivity/play?id={quiz.id}" flex={true}>
-										<!-- heroicons/legacy-outline/Play -->
-										<svg
-											class="w-5 h-5"
-											aria-hidden="true"
-											fill="none"
-											stroke="currentColor"
-											stroke-width="2"
-											viewBox="0 0 24 24"
-											xmlns="http://www.w3.org/2000/svg"
-										>
-											<path
-												d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-											/>
-											<path
-												d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-											/>
-										</svg>
-									</BrownButton>
-								{/if}
+				{/if}
+			</section>
 
-								<BrownButton
-									onclick={() => {
-										deleteQuiz(quiz.id, quiz.type);
-									}}
-									flex={true}
-								>
-									<!-- heroicons/trash -->
-									<svg
-										class="w-5 h-5"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-										xmlns="http://www.w3.org/2000/svg"
+			<aside
+				class="md:col-span-2 xl:col-span-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-4 min-w-0"
+			>
+				<section
+					class="arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5"
+					style="animation-delay: 300ms"
+				>
+					<p class="font-display text-violet text-sm tracking-[0.2em]">Progress</p>
+					<h2 class="font-display text-2xl text-ink mb-4">Mastery</h2>
+					<ul class="space-y-4">
+						{#each masteryLanes as lane}
+							<li>
+								<div class="flex items-center justify-between gap-2 mb-1.5">
+									<span class="font-display text-sm text-ink truncate">{lane.name}</span>
+									<span
+										class="font-display text-sm tabular-nums {lane.started
+											? 'text-gold'
+											: 'text-ink-muted'}"
 									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-										/>
-									</svg>
-								</BrownButton>
-								<BrownButton
-									onclick={() => (download_id = quiz.id)}
-									flex={true}
-									disabled={quiz.type !== 'quiz'}
-									><!-- heroicons/download -->
-									<svg
-										class="w-5 h-5"
-										fill="none"
-										stroke="currentColor"
-										viewBox="0 0 24 24"
-										xmlns="http://www.w3.org/2000/svg"
+										{lane.started ? `${lane.accuracy}%` : '—'}
+									</span>
+								</div>
+								<div class="h-2 rounded-full bg-elevated overflow-hidden">
+									<div
+										class="h-full rounded-full {lane.started ? 'bg-violet' : 'bg-elevated'}"
+										style="width:{lane.started ? lane.accuracy : 0}%; transition: width 300ms ease-out"
+									></div>
+								</div>
+								<p class="text-[11px] text-ink-muted mt-1">
+									{lane.started ? `${lane.answered} answered` : 'Play a clash to start this cert'}
+								</p>
+							</li>
+						{/each}
+					</ul>
+				</section>
+
+				<section
+					class="arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5"
+					style="animation-delay: 400ms"
+				>
+					<p class="font-display text-signal text-sm tracking-[0.2em]">Tape</p>
+					<h2 class="font-display text-2xl text-ink mb-4">Recent games</h2>
+					{#if recent.length === 0}
+						<p class="text-sm text-ink-muted">
+							No hosted games yet. Host a Clash and results will land here.
+						</p>
+						<a href="/results" class="mt-4 action-button min-h-11 px-4 inline-flex items-center"
+							>Open results</a
+						>
+					{:else}
+						<ul class="space-y-2">
+							{#each recent as game}
+								<li>
+									<a
+										href="/results/{game.id}"
+										class="flex items-center justify-between gap-3 rounded-xl bg-elevated px-3 py-3 min-h-11 min-w-0"
 									>
-										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
-											d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-										/>
-									</svg>
-								</BrownButton>
-							</div>
-						</div>
-					{/each}
-				</div>
-			{:else}
-				<p>
-					{$t('overview_page.no_quizzes')}
-				</p>
-			{/if}
+										<span class="truncate text-sm text-ink">{game.title ?? 'Untitled clash'}</span>
+										<span class="text-xs text-ink-muted shrink-0 tabular-nums">
+											{game.timestamp ? new Date(game.timestamp).toLocaleDateString() : ''}
+										</span>
+									</a>
+								</li>
+							{/each}
+						</ul>
+					{/if}
+				</section>
+
+				<section
+					class="arena-enter rounded-2xl bg-surface shadow-[var(--shadow-card)] p-5 md:col-span-2 xl:col-span-1"
+					style="animation-delay: 500ms"
+				>
+					<p class="font-display text-gold text-sm tracking-[0.2em]">Season</p>
+					<h2 class="font-display text-2xl text-ink mb-4">Weekly board</h2>
+					{#if board.length === 0}
+						<p class="text-sm text-ink-muted">
+							The weekly board is quiet. Climb it by playing clashes.
+						</p>
+						<a href="/leaderboard" class="mt-4 action-button min-h-11 px-4 inline-flex items-center"
+							>Leaderboard</a
+						>
+					{:else}
+						<ol class="space-y-2">
+							{#each board as row, i}
+								<li class="flex items-center justify-between gap-3 min-h-11">
+									<span class="text-sm text-ink truncate">
+										<span class="font-display text-ink-muted mr-2">{i + 1}</span>
+										{row.username}
+									</span>
+									<span class="font-display text-gold tabular-nums">{row.xp.toLocaleString()}</span>
+								</li>
+							{/each}
+						</ol>
+					{/if}
+				</section>
+			</aside>
 		</div>
-	{/if}
+	</div>
+	<Footer />
 </div>
-<Footer />
+
 {#if start_game !== null}
 	<StartGamePopup bind:quiz_id={start_game} />
 {/if}

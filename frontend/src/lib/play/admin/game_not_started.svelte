@@ -42,8 +42,9 @@ SPDX-License-Identifier: MPL-2.0
 <div class="w-full min-h-screen bg-paper px-4 py-8">
 	<!-- <AudioPlayer bind:play={play_music} /> -->
 	<div class="max-w-5xl mx-auto text-center mb-8">
-		<h1 class="font-display text-3xl font-bold text-ink">Host lobby</h1>
-		<p class="text-ink-muted mt-2">Share the PIN or QR so players can join</p>
+		<p class="font-display text-gold text-sm tracking-[0.35em] mb-2">Arena stage</p>
+		<h1 class="font-display text-6xl text-ink">Host lobby</h1>
+		<p class="text-ink-muted mt-2">Share the PIN or QR so players can drop in</p>
 		<div class="mt-6">
 			<PinDisplay pin={game_pin} />
 		</div>
@@ -121,7 +122,7 @@ SPDX-License-Identifier: MPL-2.0
 				{#each game_state.players as player}
 					<button
 						type="button"
-						class="hover:opacity-70 transition"
+						class="hover:opacity-70"
 						title="Click to kick"
 						onclick={() => {
 							socket_game_controls.kick_player(player.username, game_state.players);

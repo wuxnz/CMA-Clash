@@ -37,21 +37,21 @@ SPDX-License-Identifier: MPL-2.0
 		transition:fade={{ duration: 100 }}
 	>
 		<div
-			class="m-auto bg-white dark:bg-gray-600 rounded-sm shadow-2xl flex p-4 flex-col lg:w-2/3 w-11/12 h-5/6"
+			class="m-auto bg-surface rounded-sm shadow-2xl flex p-4 flex-col lg:w-2/3 w-11/12 h-5/6"
 		>
 			<h1 class="text-center text-5xl">{$t('words.analytics')}</h1>
 			<section class="flex flex-col gap-2 mt-8">
 				<h2 class="mx-auto text-2xl">{$t('words.rating')}</h2>
 				<table class="w-fit mx-auto">
 					<tbody>
-						<tr class="border-b-2 dark:border-gray-500 text-left border-gray-300">
-							<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<tr class="border-b-2 dark:border-gray-500 text-left border-ink/20">
+							<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('words.like', { count: 2 })}</th
 							>
 							<th class="p-1 mx-auto">{$t('words.dislike', { count: 2 })}</th>
 						</tr>
 						<tr class="text-left">
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{quiz.likes}</td
 							>
 							<td class="mx-auto p-1">{quiz.dislikes}</td>
@@ -63,8 +63,8 @@ SPDX-License-Identifier: MPL-2.0
 				<h2 class="mx-auto text-2xl">{$t('dashboard.views_n_plays')}</h2>
 				<table class="w-fit mx-auto">
 					<thead>
-						<tr class="border-b-2 dark:border-gray-500 text-left border-gray-300">
-							<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<tr class="border-b-2 dark:border-gray-500 text-left border-ink/20">
+							<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('words.view', { count: 2 })}</th
 							>
 							<th class="p-1 mx-auto">{$t('words.play', { count: 2 })}</th>
@@ -72,7 +72,7 @@ SPDX-License-Identifier: MPL-2.0
 					</thead>
 					<tbody>
 						<tr class="text-left">
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{quiz.views}</td
 							>
 							<td class="mx-auto p-1">{quiz.plays}</td>
@@ -87,7 +87,7 @@ SPDX-License-Identifier: MPL-2.0
 				</p>
 			</section>
 			<section class="mt-auto">
-				<p class="mt-6 mx-auto max-w-[70%] text-sm dark:text-gray-200 text-center">
+				<p class="mt-6 mx-auto max-w-[70%] text-sm text-ink-muted text-center">
 					Since there's still some space left down here, I guess that I take this
 					opportunity to thank You for using CMA Clash! Have a great day and continue
 					using CMA Clash ;)

@@ -22,6 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	import TopicTag from '$lib/ui/TopicTag.svelte';
 	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
 	import type { AnswerShape } from '$lib/ui/tokens';
+	import { normalizeQuizText } from '$lib/cma/text';
 
 	const { t } = getLocalization();
 
@@ -166,9 +167,9 @@ SPDX-License-Identifier: MPL-2.0
 			style="height: {question.image ? '33.333333' : '16.666667'}%"
 		>
 			<h1
-				class="lg:text-2xl text-lg text-center text-black dark:text-white mt-2 break-normal mb-2"
+				class="lg:text-2xl text-lg text-center text-ink text-ink mt-2 break-normal mb-2"
 			>
-				{@html question.question}
+				{@html normalizeQuizText(question.question)}
 			</h1>
 			{#if question.image !== null && game_mode !== 'kahoot'}
 				<div class="max-h-full">
@@ -192,15 +193,15 @@ SPDX-License-Identifier: MPL-2.0
 						<h1
 							class="font-display text-lg sm:text-xl text-ink mt-3 mb-4 leading-snug text-center"
 						>
-							{@html question.question}
+							{@html normalizeQuizText(question.question)}
 						</h1>
-						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} />
+						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={true} />
 					</div>
 				{:else}
 					<div
 						class="absolute top-0 bottom-0 left-0 right-0 m-auto rounded-full h-fit w-fit border-2 border-ink/20 shadow-lg z-40 pointer-events-none"
 					>
-						<CircularTimer text={timer_res} progress={circular_progress} color="#0E7C74" />
+						<CircularTimer text={timer_res} progress={circular_progress} color="#0ea5e9" />
 					</div>
 				{/if}
 
@@ -212,7 +213,7 @@ SPDX-License-Identifier: MPL-2.0
 					{#each question.answers as answer, i}
 						<button
 							type="button"
-							class="rounded-xl flex flex-col items-center justify-center gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] border-2 border-white/20 shadow-md hover:brightness-105 active:scale-[0.98] transition motion-reduce:active:scale-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
+							class="rounded-xl flex flex-col items-center justify-center gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] border-2 border-white/20 shadow-md hover:brightness-105 press-scale focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
 							style="background-color: {answer.color ??
 								default_colors[i]}; color: {get_foreground_color(
 								answer.color ?? default_colors[i]
@@ -226,10 +227,10 @@ SPDX-License-Identifier: MPL-2.0
 									class="w-8 h-8 sm:w-10 sm:h-10"
 								/>
 								<span class="font-mono text-sm sm:text-base font-medium text-center"
-									>{answer.answer}</span
+									>{normalizeQuizText(answer.answer)}</span
 								>
 							{:else}
-								<p class="m-auto text-center">{answer.answer}</p>
+								<p class="m-auto text-center">{normalizeQuizText(answer.answer)}</p>
 							{/if}
 						</button>
 					{/each}
@@ -269,14 +270,14 @@ SPDX-License-Identifier: MPL-2.0
 					style="width: {(100 / parseInt(question.time)) * parseInt(timer_res)}vw"
 				></span>
 				<div class="flex justify-center mt-10">
-					<p class="text-black dark:text-white">Enter your answer</p>
+					<p class="text-ink text-ink">Enter your answer</p>
 				</div>
 				<div class="flex justify-center m-2">
 					<input
 						type="text"
 						bind:value={text_input}
 						disabled={selected_answer !== undefined}
-						class="bg-gray-50 focus:ring text-gray-900 rounded-lg focus:ring-blue-500 block w-full p-2 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 outline-hidden transition text-center disabled:opacity-50 disabled:cursor-not-allowed"
+						class="bg-gray-50 focus:ring text-ink rounded-lg focus:ring-blue-500 block w-full p-2 bg-elevated text-ink dark:focus:ring-blue-500 outline-hidden transition text-center disabled:opacity-50 disabled:cursor-not-allowed"
 					/>
 				</div>
 

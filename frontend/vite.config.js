@@ -23,13 +23,10 @@ const config = {
 	server: {
 		port: 3000,
 		proxy: {
-			'/api': 'http://127.0.0.1:8000',
-			'/socket.io': {
-				target: 'http://127.0.0.1:8000',
-				ws: true
-			},
-			'/openapi.json': 'http://127.0.0.1:8000',
-			'/rapidoc': 'http://127.0.0.1:8000'
+			'/api': { target: 'http://127.0.0.1:8000', changeOrigin: true },
+			'/socket.io': { target: 'http://127.0.0.1:8000', ws: true, changeOrigin: true },
+			'/openapi.json': { target: 'http://127.0.0.1:8000', changeOrigin: true },
+			'/rapidoc': { target: 'http://127.0.0.1:8000', changeOrigin: true }
 		}
 	},
 	preview: {

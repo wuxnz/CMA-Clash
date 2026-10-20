@@ -132,7 +132,7 @@ SPDX-License-Identifier: MPL-2.0
 	transition:fade={{ duration: 100 }}
 >
 	<div
-		class="m-auto bg-white dark:bg-gray-600 rounded-sm shadow-2xl flex p-4 flex-col w-2/3 h-5/6 gap-2 overflow-scroll"
+		class="m-auto bg-surface rounded-sm shadow-2xl flex p-4 flex-col w-2/3 h-5/6 gap-2 overflow-scroll"
 	>
 		<div class="flex justify-center flex-col">
 			<BrownButton
@@ -149,7 +149,7 @@ SPDX-License-Identifier: MPL-2.0
 					<div class="grid grid-cols-2">
 						<input
 							type="datetime-local"
-							class="dark:text-black transition-all mx-auto"
+							class="text-ink transition-all mx-auto"
 							disabled={never_expires_checked}
 							bind:value={selected_date}
 						/>

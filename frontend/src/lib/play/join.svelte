@@ -11,11 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
-	import BrownButton from '$lib/components/buttons/brown.svelte';
 	import { hcaptcha_site_key, recaptcha_key, sentry_dsn } from '$lib/config';
-	import Card from '$lib/ui/Card.svelte';
-	import PinDisplay from '$lib/ui/PinDisplay.svelte';
-	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
 
 	const { t } = getLocalization();
 
@@ -37,9 +33,8 @@ SPDX-License-Identifier: MPL-2.0
 	let hcaptchaSitekey = hcaptcha_site_key;
 
 	let hcaptcha = {
-		execute: async (_a, _b) => ({ response: '' }), // eslint-disable-line @typescript-eslint/no-unused-vars
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
-		render: (_a, _b) => {} // eslint-disable-line @typescript-eslint/no-unused-vars
+		execute: async (_a, _b) => ({ response: '' }),
+		render: (_a, _b) => {}
 	};
 	let hcaptchaWidgetID;
 
@@ -61,111 +56,72 @@ SPDX-License-Identifier: MPL-2.0
 		if (browser) {
 			hcaptcha = {
 				execute: async () => ({ response: '' }),
-				// eslint-disable-next-line @typescript-eslint/no-empty-function
 				render: () => {}
 			};
 		}
 	});
 
 	const prefetch_username = async () => {
-		const res = await fetch('/api/v1/users/me');
-		if (res.status !== 200) {
-			return;
+		try {
+			const res = await fetch('/api/v1/users/me');
+			if (res.status !== 200) return;
+			const json = await res.json();
+			username = json.username;
+		} catch {
+			/* guest join */
 		}
-		const json = await res.json();
-		username = json.username;
 	};
 
 	const set_game_pin = async () => {
-		let process_var;
 		try {
-			process_var = process;
-		} catch {
-			process_var = { env: { API_URL: undefined } };
-		}
-
-		const res = await fetch(
-			`${process_var.env.API_URL ?? ''}/api/v1/quiz/play/check_captcha/${game_pin}`
-		);
-		const json = await res.json();
-		game_mode = json.game_mode;
-		if (res.status === 200) {
-			captcha_enabled = json.enabled;
-			custom_field = json.custom_field;
-		}
-		if (res.status === 404) {
-			/*			alertModal.set({
-                open: true,
-                title: 'Game not found',
-                body: 'The game pin you entered seems invalid.'
-            });*/
-			if (browser) {
-				alert('Game not found');
+			const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
+			const json = await res.json().catch(() => ({}));
+			game_mode = json.game_mode;
+			if (res.status === 200) {
+				captcha_enabled = json.enabled;
+				custom_field = json.custom_field;
 			}
-			game_pin = '';
-			return;
-		}
-		if (res.status !== 200) {
-			/*			alertModal.set({
-                open: true,
-                body: `Unknown error with response-code ${res.status}`,
-                title: 'Unknown Error'
-            });*/
-			alert('Unknown error');
-			return;
+			if (res.status === 404) {
+				if (browser) alert('Game not found');
+				game_pin = '';
+				return;
+			}
+		} catch {
+			captcha_enabled = false;
 		}
 	};
 
 	$effect(() => {
-		if (game_pin.length > 5) {
-			set_game_pin();
-		}
+		if (game_pin.length > 5) set_game_pin();
 	});
 
 	const setUsername = async (e: Event) => {
 		e.preventDefault();
-		if (username.length <= 3) {
-			return;
-		}
+		if (username.length <= 3) return;
+		if (Cookies.get('kicked')) return;
 		let captcha_resp: string;
-		if (Cookies.get('kicked')) {
-			console.log("%cYou're Banned!", 'font-size:6rem');
-			return;
-		}
-
 		if (captcha_enabled) {
 			if (hcaptchaSitekey) {
 				try {
-					const { response } = await hcaptcha.execute(hcaptchaWidgetID, {
-						async: true
-					});
+					const { response } = await hcaptcha.execute(hcaptchaWidgetID, { async: true });
 					captcha_resp = response;
 					socket.emit('join_game', {
-						username: username,
-						game_pin: game_pin,
+						username,
+						game_pin,
 						captcha: captcha_resp,
 						custom_field: custom_field ? custom_field_value : undefined
 					});
-				} catch (e) {
-					if (sentry_dsn !== null) {
-						Sentry.captureException(e);
-					}
-					/*					alertModal.set({
-                        open: true,
-                        body: "The captcha failed, which is normal, but most of the time it's fixed by reloading!",
-                        title: 'Captcha failed'
-                    });*/
+				} catch (err) {
+					if (sentry_dsn !== null) Sentry.captureException(err);
 					alert('Captcha failed!');
 					window.location.reload();
 				}
 			} else if (recaptcha_key) {
-				// eslint-disable-next-line no-undef
 				grecaptcha.ready(() => {
-					// eslint-disable-next-line no-undef
 					grecaptcha.execute(recaptcha_key, { action: 'submit' }).then(function (token) {
 						socket.emit('join_game', {
-							username: username,
-							game_pin: game_pin,
+							username,
+							game_pin,
 							captcha: token,
 							custom_field: custom_field ? custom_field_value : undefined
 						});
@@ -174,8 +130,8 @@ SPDX-License-Identifier: MPL-2.0
 			}
 		} else {
 			socket.emit('join_game', {
-				username: username,
-				game_pin: game_pin,
+				username,
+				game_pin,
 				captcha: undefined,
 				custom_field: custom_field ? custom_field_value : undefined
 			});
@@ -183,15 +139,11 @@ SPDX-License-Identifier: MPL-2.0
 	};
 	socket.on('game_not_found', () => {
 		game_pin = '';
-		if (browser) {
-			alert('Game not found');
-		}
+		if (browser) alert('Game not found');
 	});
 	$effect(() => {
 		const cleaned = game_pin.replace(/\D/g, '');
-		if (game_pin.replace(/\D/g, '') === game_pin) {
-			return;
-		}
+		if (game_pin.replace(/\D/g, '') === game_pin) return;
 		game_pin = cleaned;
 	});
 </script>
@@ -205,61 +157,37 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 </svelte:head>
 
-<div class="min-h-screen bg-paper flex flex-col">
-	<LivePlayHeader pin={game_pin.length >= 6 ? game_pin : undefined} />
-	<div class="flex-1 flex items-center justify-center p-4">
-		{#if game_pin === '' || game_pin.length < 6}
-			<Card class="w-full max-w-md">
-				<h1 class="font-display text-2xl font-bold text-center text-ink mb-2">
-					{$t('words.game_pin')}
-				</h1>
-				<p class="text-sm text-ink-muted text-center mb-6">
-					Enter the 6-digit PIN from your host&apos;s screen
-				</p>
-				<form class="flex flex-col gap-4" onsubmit={(e) => e.preventDefault()}>
-					<input
-						class="ledger-input text-center font-mono text-2xl tracking-widest"
-						bind:value={game_pin}
-						maxlength="6"
-						inputmode="numeric"
-						autocomplete="one-time-code"
-						aria-label={$t('words.game_pin')}
-					/>
-					<BrownButton disabled={game_pin.length < 6}>{$t('words.submit')}</BrownButton>
-				</form>
-			</Card>
-		{:else}
-			<Card class="w-full max-w-md">
-				<div class="text-center mb-4">
-					<p class="text-xs text-ink-muted uppercase tracking-wide">Joining game</p>
-					<PinDisplay pin={game_pin} size="md" />
-				</div>
-				<form onsubmit={setUsername} class="flex flex-col gap-4">
-					<label class="text-sm font-medium text-ink" for="join-username"
-						>{$t('words.username')}</label
-					>
-					<input
-						id="join-username"
-						class="ledger-input text-center"
-						bind:value={username}
-						maxlength="17"
-						autocomplete="nickname"
-					/>
-					{#if custom_field}
-						<label class="text-sm font-medium text-ink" for="join-custom">{custom_field}</label>
-						<input
-							id="join-custom"
-							class="ledger-input text-center"
-							bind:value={custom_field_value}
-						/>
-					{/if}
-					<BrownButton disabled={username.length <= 3} onclick={setUsername}
-						>{$t('words.submit')}</BrownButton
-					>
-				</form>
-			</Card>
-		{/if}
-	</div>
+<div class="min-h-screen bg-paper flex flex-col items-center justify-center p-4">
+	<p class="font-display text-gold text-sm tracking-[0.35em] mb-4">Arena</p>
+	{#if game_pin === '' || game_pin.length < 6}
+		<h1 class="font-display text-6xl sm:text-8xl text-ink mb-3">Join</h1>
+		<p class="text-ink-muted mb-8 text-center">Enter the 6-digit PIN from the host screen</p>
+		<input
+			class="ledger-input text-center font-display text-4xl tracking-[0.4em] max-w-sm"
+			bind:value={game_pin}
+			maxlength="6"
+			inputmode="numeric"
+			autocomplete="one-time-code"
+			aria-label={$t('words.game_pin')}
+		/>
+	{:else}
+		<p class="font-display text-5xl text-gold tabular-nums tracking-widest mb-6">{game_pin}</p>
+		<form onsubmit={setUsername} class="flex flex-col gap-4 w-full max-w-sm">
+			<input
+				class="ledger-input text-center font-display text-2xl"
+				bind:value={username}
+				maxlength="17"
+				placeholder={$t('words.username')}
+				autocomplete="nickname"
+			/>
+			{#if custom_field}
+				<input class="ledger-input text-center" bind:value={custom_field_value} placeholder={custom_field} />
+			{/if}
+			<button type="submit" class="ledger-btn-primary" disabled={username.length <= 3}
+				>{$t('words.submit')}</button
+			>
+		</form>
+	{/if}
 </div>
 <div
 	id="hcaptcha"

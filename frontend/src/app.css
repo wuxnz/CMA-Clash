@@ -4,10 +4,8 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 */
 
-@import '@fontsource/space-grotesk/400.css';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/600.css';
-@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/barlow-condensed/800.css';
+@import '@fontsource/barlow-condensed/700.css';
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
@@ -23,31 +21,50 @@ SPDX-License-Identifier: MPL-2.0
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Arena dark (only theme) */
 @theme {
-	--color-paper: #f6f5f1;
-	--color-paper-muted: #ebe9e3;
-	--color-surface: #ffffff;
-	--color-ink: #0e1a2b;
-	--color-ink-muted: #4a5568;
-	--color-primary: #0e7c74;
-	--color-primary-hover: #0a655e;
-	--color-gold: #e8b931;
-	--color-success: #1e9e6a;
-	--color-danger: #d9485f;
-	--color-answer-red: #d9485f;
-	--color-answer-blue: #3867d6;
-	--color-answer-yellow: #e0a200;
-	--color-answer-green: #1e9e6a;
+	--color-paper: #0b0f1a;
+	--color-paper-muted: #101625;
+	--color-surface: #151b2b;
+	--color-elevated: #1b2338;
+	--color-ink: #f4f7fb;
+	--color-ink-muted: #9aa4b8;
+	--color-primary: #7b5cff;
+	--color-primary-hover: #9378ff;
+	--color-primary-muted: #3d2e80;
+	--color-gold: #c8ff2e;
+	--color-success: #c8ff2e;
+	--color-danger: #ff3b5c;
+	--color-volt: #c8ff2e;
+	--color-violet: #7b5cff;
+	--color-signal: #ff3b5c;
+	--color-cyan: #22d3ee;
+	--color-answer-red: #ff3b5c;
+	--color-answer-blue: #7b5cff;
+	--color-answer-yellow: #f59e0b;
+	--color-answer-green: #22d3ee;
+	--color-glow: rgba(123, 92, 255, 0.35);
 
-	--font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+	--shadow-card: 0 1px 0 rgba(255, 255, 255, 0.05), 0 16px 40px rgba(0, 0, 0, 0.45);
+	--shadow-glow: 0 0 48px var(--color-glow);
 }
 
 @layer base {
 	html {
 		@apply bg-paper text-ink font-sans antialiased;
+		color-scheme: dark;
 		font-feature-settings: 'kern' 1;
+		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 
 	h1,
@@ -56,17 +73,9 @@ SPDX-License-Identifier: MPL-2.0
 	h4,
 	.font-display {
 		font-family: var(--font-display);
-	}
-
-	html.dark {
-		--color-paper: #0c1118;
-		--color-paper-muted: #151d2a;
-		--color-surface: #121a26;
-		--color-ink: #e8ecf1;
-		--color-ink-muted: #94a3b8;
-		--color-primary: #14a89d;
-		--color-primary-hover: #1bc4b8;
-		--color-gold: #e8b931;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
 	}
 
 	button:not(:disabled),
@@ -76,6 +85,11 @@ SPDX-License-Identifier: MPL-2.0
 
 	*:focus-visible {
 		@apply outline-2 outline-offset-2 outline-primary;
+	}
+
+	button,
+	[role='button'] {
+		-webkit-tap-highlight-color: transparent;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -90,8 +104,82 @@ SPDX-License-Identifier: MPL-2.0
 	}
 }
 
+@utility press-scale {
+	@apply transition-[transform] duration-150 ease-out enabled:active:scale-[0.96] motion-reduce:enabled:active:scale-100;
+}
+
+@keyframes arena-enter {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+		filter: blur(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		filter: blur(0);
+	}
+}
+
+@utility arena-enter {
+	animation: arena-enter 300ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.arena-enter {
+		animation: none;
+	}
+}
+
+@utility dash-tile {
+	transition-property: transform, box-shadow;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
+}
+
+@media (hover: hover) {
+	.dash-tile:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-glow), var(--shadow-card);
+	}
+}
+
+.dash-tile:active {
+	transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dash-tile:hover,
+	.dash-tile:active {
+		transform: none;
+	}
+}
+
+@utility content-image {
+	outline: 1px solid oklch(1 0 0 / 0.1);
+	outline-offset: -1px;
+}
+
+@utility overlay-scroll {
+	overscroll-behavior: contain;
+}
+
+@utility card-interactive {
+	transition-property: box-shadow;
+	transition-duration: 300ms;
+	transition-timing-function: ease-out;
+}
+
+@media (hover: hover) {
+	.card-interactive:hover {
+		box-shadow: var(--shadow-glow), var(--shadow-card);
+	}
+}
+
 @utility font-display {
 	font-family: var(--font-display);
+	font-weight: 800;
+	letter-spacing: -0.03em;
 }
 
 @utility font-mono {
@@ -103,24 +191,61 @@ SPDX-License-Identifier: MPL-2.0
 	@apply bg-paper;
 }
 
+@utility glass-panel {
+	@apply bg-elevated/60 backdrop-blur-xl border border-transparent;
+	box-shadow:
+		var(--shadow-card),
+		0 0 0 1px color-mix(in oklch, var(--color-ink) 8%, transparent);
+}
+
+@utility gradient-text {
+	@apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary-hover to-primary;
+}
+
 @utility admin-button {
-	@apply px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-ink rounded-lg text-center hover:bg-ink/90 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+	@apply px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-primary rounded-lg text-center hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility action-button {
-	@apply px-4 py-2 leading-5 text-ink transition-colors duration-200 transform bg-surface border border-ink/15 rounded-lg text-center hover:bg-paper-muted focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+	@apply px-4 py-2 leading-5 text-ink glass-panel rounded-lg text-center focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 press-scale;
+	transition-property: color, background-color, border-color, box-shadow;
+	transition-duration: 150ms;
+}
+
+@media (hover: hover) {
+	.action-button:hover {
+		border-color: color-mix(in oklch, var(--color-primary) 30%, transparent);
+	}
 }
 
 @utility btn-nav {
-	@apply text-sm font-medium px-3 text-ink-muted hover:text-primary py-1.5 transition-all duration-200 rounded-md focus-visible:ring-2 focus-visible:ring-primary;
+	@apply text-sm font-medium px-3 text-ink-muted py-1.5 rounded-md focus-visible:ring-2 focus-visible:ring-primary press-scale;
+	transition-property: color;
+	transition-duration: 150ms;
+}
+
+@media (hover: hover) {
+	.btn-nav:hover {
+		color: var(--color-primary);
+	}
 }
 
 @utility ledger-input {
-	@apply w-full rounded-lg border border-ink/20 bg-surface px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition;
+	@apply w-full rounded-lg border border-white/10 bg-elevated px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/25 outline-none;
+	transition-property: border-color, box-shadow;
+	transition-duration: 150ms;
 }
 
 @utility ledger-btn-primary {
-	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-semibold text-white bg-primary rounded-lg hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-display uppercase tracking-wide text-paper bg-gold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
+	transition-property: background-color, box-shadow;
+	transition-duration: 150ms;
+}
+
+@media (hover: hover) {
+	.ledger-btn-primary:hover {
+		box-shadow: 0 0 32px rgba(200, 255, 46, 0.35);
+	}
 }
 
 @utility motion-reduce {
@@ -131,14 +256,17 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 .link-hover {
-	transition: color 0.2s;
+	transition-property: color;
+	transition-duration: 150ms;
+	transition-timing-function: ease-out;
 }
 
-.link-hover:hover {
-	color: var(--color-primary);
+@media (hover: hover) {
+	.link-hover:hover {
+		color: var(--color-primary);
+	}
 }
 
-/* Legacy alias — avoid breaking references during migration */
 .marck-script {
 	font-family: var(--font-display);
 	font-weight: 700;

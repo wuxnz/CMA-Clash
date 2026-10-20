@@ -17,6 +17,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
 	import type { AnswerShape } from '$lib/ui/tokens';
 	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
+	import { normalizeQuizText } from '$lib/cma/text';
 
 	interface Props {
 		quiz_data: QuizData;
@@ -54,9 +55,9 @@ SPDX-License-Identifier: MPL-2.0
 				<TopicTag label={topic_tag} />
 			{/if}
 			<h1 class="font-display text-xl sm:text-2xl text-ink mt-3 mb-4 leading-snug text-center">
-				{@html q.question}
+				{@html normalizeQuizText(q.question)}
 			</h1>
-			<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} />
+			<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={true} />
 			<p class="text-center text-sm text-ink-muted mt-3 font-mono tabular-nums">
 				{$t('admin_page.answers_submitted', { answer_count })}
 			</p>
@@ -98,7 +99,7 @@ SPDX-License-Identifier: MPL-2.0
 							class="text-center font-mono text-sm sm:text-base"
 							style="color: {get_foreground_color(answer.color ?? default_colors[i])}"
 						>
-							{answer.answer}
+							{normalizeQuizText(answer.answer)}
 						</p>
 					</div>
 				{/each}

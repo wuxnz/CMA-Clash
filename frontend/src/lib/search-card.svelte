@@ -14,11 +14,11 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="flex justify-center">
 	<a href="/view/{quiz.id}" class="h-max w-fit">
-		<div class="max-w-md py-4 px-8 bg-white shadow-lg rounded-lg my-20 dark:bg-slate-800">
+		<div class="max-w-md py-4 px-8 bg-surface shadow-lg rounded-lg my-20 bg-surface">
 			<div>
 				<div class="flex w-full items-center">
 					<h2
-						class="text-gray-800 dark:text-gray-200 text-3xl font-semibold truncate pr-2"
+						class="text-gray-800 text-ink-muted text-3xl font-semibold truncate pr-2"
 					>
 						{@html quiz.title}
 					</h2>

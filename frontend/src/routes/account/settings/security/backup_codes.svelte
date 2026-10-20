@@ -30,14 +30,14 @@ SPDX-License-Identifier: MPL-2.0
 <div class="w-screen h-screen fixed top-0 left-0 p-48 z-30 bg-black/50">
 	<div class="w-full h-full">
 		<button
-			class="bg-gray-200 dark:bg-gray-900 px-2 py-1 rounded-t-lg hover:bg-gray-300 transition"
+			class="bg-paper-muted dark:bg-gray-900 px-2 py-1 rounded-t-lg hover:bg-gray-300 transition"
 			onclick={() => {
 				backup_code = undefined;
 			}}
 			>{$t('words.close')}
 		</button>
 		<div
-			class="bg-white dark:bg-gray-700 rounded-b-lg rounded-tr-lg w-full h-full flex flex-col"
+			class="bg-elevated rounded-b-lg rounded-tr-lg w-full h-full flex flex-col"
 		>
 			<h2 class="text-3xl m-auto">{$t('security_settings.backup_codes.your_backup_code')}</h2>
 			<p

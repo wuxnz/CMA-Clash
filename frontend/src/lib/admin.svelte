@@ -17,6 +17,12 @@ SPDX-License-Identifier: MPL-2.0
 	const { t } = getLocalization();
 	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
 	import { formatQuestionTopicTag, resolveQuizContentLabels } from '$lib/cma/client';
+	import QuestionIntro from '$lib/play/arena/QuestionIntro.svelte';
+	import AnswerTiles from '$lib/play/arena/AnswerTiles.svelte';
+	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
+	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
+	import { normalizeQuizText } from '$lib/cma/text';
+	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 
 	const default_colors = [...LEDGER_ANSWER_COLORS];
 	let cert_label = $state<string | null>(null);
@@ -33,6 +39,10 @@ SPDX-License-Identifier: MPL-2.0
 
 	let final_results_clicked = $state(false);
 	let timer_interval: NodeJS.Timeout;
+	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
+	let introTimer: ReturnType<typeof setTimeout> | undefined;
+	let revealTimer: ReturnType<typeof setTimeout> | undefined;
+	let prevRanks: Record<string, number> = {};
 
 	interface Props {
 		game_token: string;
@@ -52,6 +62,21 @@ SPDX-License-Identifier: MPL-2.0
 		game_state.timer_res = game_state.quiz_data.questions[data.question_index].time;
 		game_state.selected_question = game_state.selected_question + 1;
 		game_state.answer_count = 0;
+		const current = game_state.player_scores ?? {};
+		prevRanks = Object.fromEntries(
+			Object.keys(current)
+				.sort(
+					(a, b) =>
+						(parseFloat(String(current[b])) || 0) - (parseFloat(String(current[a])) || 0)
+				)
+				.map((name, idx) => [name, idx + 1])
+		);
+		clearTimeout(introTimer);
+		clearTimeout(revealTimer);
+		livePhase = 'intro';
+		introTimer = setTimeout(() => {
+			livePhase = 'answer';
+		}, 3500);
 
 		clearInterval(timer_interval);
 		timer(game_state.timer_res);
@@ -75,6 +100,20 @@ SPDX-License-Identifier: MPL-2.0
 	socket.on('question_results', (data) => {
 		game_state.question_results = data;
 		game_state.timer_res = '0';
+		if (Array.isArray(data)) {
+			const next = { ...(game_state.player_scores ?? {}) };
+			for (const row of data) {
+				const name = row?.username;
+				if (!name) continue;
+				next[name] = (Number(next[name]) || 0) + (Number(row.score) || 0);
+			}
+			game_state.player_scores = next;
+		}
+		livePhase = 'reveal';
+		clearTimeout(revealTimer);
+		revealTimer = setTimeout(() => {
+			livePhase = 'rankings';
+		}, 4500);
 	});
 
 	socket.on('player_answer', (_) => {
@@ -96,28 +135,52 @@ SPDX-License-Identifier: MPL-2.0
 	};
 
 	const socket_game_controls: SocketGameControls = new SocketGameControls(socket);
+
+	let activeQ = $derived(
+		game_state.selected_question >= 0
+			? game_state.quiz_data?.questions?.[game_state.selected_question]
+			: null
+	);
+
+	let hostDistribution = $derived.by(() => {
+		const rows = game_state.question_results;
+		if (!rows || !Array.isArray(rows) || !activeQ) return [];
+		const counts: Record<string, number> = {};
+		for (const r of rows) {
+			const key = r.answer ?? '(blank)';
+			counts[key] = (counts[key] ?? 0) + 1;
+		}
+		const answers = Array.isArray(activeQ.answers) ? activeQ.answers : [];
+		return answers.map((a: { answer?: string; right?: boolean }) => ({
+			answer: a.answer ?? '',
+			count: counts[a.answer ?? ''] ?? 0,
+			right: Boolean(a.right)
+		}));
+	});
+
+	let rankingRows = $derived.by((): LedgerRow[] => {
+		const scores = game_state.player_scores ?? {};
+		return Object.keys(scores)
+			.sort((a, b) => (parseFloat(String(scores[b])) || 0) - (parseFloat(String(scores[a])) || 0))
+			.map((name, idx) => {
+				const rank = idx + 1;
+				const prev = prevRanks[name];
+				return {
+					rank,
+					name,
+					score: scores[name],
+					delta: prev != null ? prev - rank : 0
+				};
+			});
+	});
 </script>
 
 {#if game_state.control_visible}
 	<Controls {bg_color} {socket_game_controls} {game_token} bind:game_state />
 {/if}
-{#if game_state.timer_res !== '0' && game_state.selected_question >= 0}
-	<span
-		class="fixed top-0 bg-red-500 h-8 transition-all"
-		class:mt-10={game_state.control_visible}
-		style="width: {(100 /
-			parseInt(game_state.quiz_data.questions[game_state.selected_question].time)) *
-			parseInt(game_state.timer_res)}vw"
-	></span>
-{/if}
 
-<div
-	class="w-full h-full"
-	class:pt-28={game_state.control_visible}
-	class:pt-12={!game_state.control_visible}
->
+<div class="w-full min-h-dvh bg-paper">
 	{#if game_state.timer_res !== undefined && !final_results_clicked && !game_state.question_results}
-		<!-- Question is shown -->
 		{#if game_state.quiz_data.questions[game_state.selected_question].type === QuizQuestionType.SLIDE}
 			{#await import('$lib/play/admin/slide.svelte')}
 				<Spinner my_20={false} />
@@ -126,6 +189,24 @@ SPDX-License-Identifier: MPL-2.0
 					question={game_state.quiz_data.questions[game_state.selected_question]}
 				/>
 			{/await}
+		{:else if livePhase === 'intro' && activeQ}
+			<QuestionIntro
+				question={activeQ.question}
+				topic={formatQuestionTopicTag(
+					cert_label,
+					topic_label,
+					game_state.selected_question,
+					game_state.quiz_data?.questions?.length
+				)}
+			/>
+		{:else if activeQ}
+			<AnswerTiles
+				question={activeQ.question}
+				answers={Array.isArray(activeQ.answers) ? activeQ.answers : []}
+				remainingSeconds={parseInt(game_state.timer_res) || 0}
+				totalSeconds={parseInt(activeQ.time) || 30}
+				answeredCount={game_state.answer_count}
+			/>
 		{:else}
 			<Question
 				quiz_data={game_state.quiz_data}
@@ -143,7 +224,6 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		{/if}
 	{/if}
-	<br />
 	{#if game_state.timer_res === '0' && JSON.stringify(game_state.final_results) === JSON.stringify( [null] ) && game_state.quiz_data.questions[game_state.selected_question].type !== QuizQuestionType.SLIDE && game_state.question_results !== null && game_state.quiz_data.questions[game_state.selected_question]?.hide_results !== true}
 		{#if game_state.question_results === undefined}
 			{#if !final_results_clicked}
@@ -160,6 +240,13 @@ SPDX-License-Identifier: MPL-2.0
 					question={game_state.quiz_data.questions[game_state.selected_question]}
 				/>
 			{/await}
+		{:else if livePhase === 'reveal' && activeQ}
+			<RevealPhase
+				question={activeQ.question}
+				distribution={hostDistribution}
+			/>
+		{:else if livePhase === 'rankings'}
+			<RankingsBoard rows={rankingRows} />
 		{:else}
 			{#await import('$lib/play/admin/results.svelte')}
 				<Spinner />
@@ -172,11 +259,11 @@ SPDX-License-Identifier: MPL-2.0
 			{/await}
 		{/if}
 	{/if}
-	<br />
 	{#if game_state.selected_question === -1}
-		<div class="flex flex-col justify-center w-screen h-full">
-			<h1 class="text-7xl text-center">{@html game_state.quiz_data.title}</h1>
-			<p class="text-3xl pt-8 text-center">{@html game_state.quiz_data.description}</p>
+		<div class="flex flex-col justify-center w-screen min-h-dvh px-6">
+			<p class="font-display text-gold text-sm tracking-[0.3em] text-center mb-4">Get ready</p>
+			<h1 class="font-display text-6xl sm:text-7xl text-center">{@html normalizeQuizText(game_state.quiz_data.title)}</h1>
+			<p class="text-xl pt-6 text-center text-ink-muted">{@html game_state.quiz_data.description}</p>
 			{#if game_state.quiz_data.cover_image}
 				<div class="flex justify-center align-middle items-center">
 					<div class="h-[30vh] m-auto w-auto mt-12">

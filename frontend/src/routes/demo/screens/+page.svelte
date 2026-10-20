@@ -1,77 +1,212 @@
-<!-- UI preview for documentation screenshots (static composition). -->
+<!-- Arena live-flow screenshots (one phase at a time via ?phase=). -->
 <script lang="ts">
+	import { page } from '$app/state';
 	import { navbarVisible } from '$lib/stores.svelte';
-	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
-	import Card from '$lib/ui/Card.svelte';
-	import TimerBar from '$lib/ui/TimerBar.svelte';
-	import TopicTag from '$lib/ui/TopicTag.svelte';
-	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
-	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
-	import LedgerTable from '$lib/ui/LedgerTable.svelte';
+	import QuestionIntro from '$lib/play/arena/QuestionIntro.svelte';
+	import AnswerTiles from '$lib/play/arena/AnswerTiles.svelte';
+	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
+	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import Podium from '$lib/ui/Podium.svelte';
-	import PinDisplay from '$lib/ui/PinDisplay.svelte';
-	import PlayerChip from '$lib/ui/PlayerChip.svelte';
-	import ExplanationDrawer from '$lib/ui/ExplanationDrawer.svelte';
+	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
+	import MasteryHeatmap from '$lib/ui/MasteryHeatmap.svelte';
+	import RetentionBar from '$lib/ui/RetentionBar.svelte';
 
 	navbarVisible.visible = false;
+
+	const q = 'Which chamber of the heart receives oxygenated blood from the pulmonary veins?';
+	const answers = [
+		{ answer: 'Left ventricle', color: LEDGER_ANSWER_COLORS[0] },
+		{ answer: 'Right atrium', color: LEDGER_ANSWER_COLORS[1] },
+		{ answer: 'Left atrium', color: LEDGER_ANSWER_COLORS[2], right: true },
+		{ answer: 'Right ventricle', color: LEDGER_ANSWER_COLORS[3] }
+	];
+	const dist = [
+		{ answer: 'Left ventricle', count: 8 },
+		{ answer: 'Right atrium', count: 4 },
+		{ answer: 'Left atrium', count: 14, right: true },
+		{ answer: 'Right ventricle', count: 2 }
+	];
+	const ranks = [
+		{ rank: 1, name: 'A. Okafor', score: 9420 },
+		{ rank: 2, name: 'M. Chen', score: 9105, delta: 1 },
+		{ rank: 3, name: 'You', score: 8870, isYou: true, delta: -1 }
+	];
+
+	const phase = $derived(page.url.searchParams.get('phase') ?? 'all');
+	const show = (id: string) => phase === 'all' || phase === id;
 </script>
 
-<div class="bg-paper min-h-screen p-8 space-y-16 max-w-4xl mx-auto">
-	<section id="host-lobby">
-		<h2 class="font-display text-xl mb-4">Host lobby</h2>
-		<PinDisplay pin="482913" />
-		<div class="flex gap-2 mt-4">
-			<PlayerChip name="You" />
-			<PlayerChip name="M. Chen" />
-		</div>
-	</section>
-
-	<section id="live-question">
-		<h2 class="font-display text-xl mb-4">Live question</h2>
-		<LivePlayHeader pin="482913" rank={3} totalPlayers={28} rankDelta={1} />
-		<Card class="mt-4">
-			<TopicTag label="CCMA · Anatomy · Q4/10" />
-			<p class="font-display mt-3 mb-4">
-				Budgeted fixed overhead was \$120,000; actual was \$126,000. Spending variance?
-			</p>
-			<TimerBar remainingSeconds={11} totalSeconds={30} />
-			<div class="grid grid-cols-2 gap-3 mt-6">
-				{#each LEDGER_ANSWER_COLORS as color, i}
-					<div
-						class="rounded-xl p-6 flex flex-col items-center gap-2 text-white"
-						style="background:{color}"
-					>
-						<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[i]} class="w-8 h-8" />
-						<span class="font-mono">\$6,000 U</span>
-					</div>
-				{/each}
-			</div>
-		</Card>
-	</section>
-
-	<section id="results">
-		<h2 class="font-display text-xl mb-4">Per-question results</h2>
-		<LedgerTable
-			rows={[
-				{ rank: 1, name: 'A. Okafor', score: '9,420' },
-				{ rank: 3, name: 'You', score: '8,870', isYou: true, delta: 1 }
-			]}
-		/>
-		<div class="mt-4">
-			<ExplanationDrawer
-				explanation="Spending variance = actual − budgeted fixed overhead for the period."
+<div class="bg-paper">
+	{#if show('host-intro')}
+		<section id="host-intro" class="h-dvh overflow-hidden">
+			<QuestionIntro question={q} topic="CCMA · Anatomy · Q4/10" seconds={4} />
+		</section>
+	{/if}
+	{#if show('host-answer')}
+		<section id="host-answer" class="h-dvh overflow-hidden">
+			<AnswerTiles
+				question={q}
+				{answers}
+				remainingSeconds={11}
+				totalSeconds={30}
+				answeredCount={18}
 			/>
-		</div>
-	</section>
-
-	<section id="podium">
-		<h2 class="font-display text-xl mb-4">Podium</h2>
-		<Podium
-			entries={[
-				{ name: 'A. Okafor', score: '9,420' },
-				{ name: 'M. Chen', score: '9,105' },
-				{ name: 'You', score: '8,870' }
-			]}
-		/>
-	</section>
+		</section>
+	{/if}
+	{#if show('host-reveal')}
+		<section id="host-reveal" class="h-dvh overflow-hidden">
+			<RevealPhase question={q} distribution={dist} />
+		</section>
+	{/if}
+	{#if show('host-rankings')}
+		<section id="host-rankings" class="h-dvh overflow-hidden">
+			<RankingsBoard rows={ranks} />
+		</section>
+	{/if}
+	{#if show('host-podium')}
+		<section
+			id="host-podium"
+			class="h-dvh overflow-hidden flex flex-col items-center justify-center relative"
+		>
+			<div
+				class="pointer-events-none absolute inset-0"
+				style="background: radial-gradient(ellipse at 50% 55%, rgba(200,255,46,0.16), transparent 55%);"
+				aria-hidden="true"
+			></div>
+			<p class="font-display text-gold text-sm tracking-[0.3em] relative">Final</p>
+			<Podium
+				staged
+				celebrate
+				entries={[
+					{ name: 'A. Okafor', score: '9,420' },
+					{ name: 'M. Chen', score: '9,105' },
+					{ name: 'You', score: '8,870' }
+				]}
+			/>
+		</section>
+	{/if}
+	{#if show('player-join')}
+		<section id="player-join" class="h-dvh overflow-hidden flex flex-col items-center justify-center">
+			<p class="font-display text-gold text-sm tracking-[0.35em] mb-4">Arena</p>
+			<h1 class="font-display text-7xl text-ink">Join</h1>
+			<p class="font-display text-5xl text-gold tabular-nums tracking-widest mt-6">482913</p>
+			<input class="ledger-input text-center max-w-xs mt-6 font-display text-2xl" value="You" readonly />
+			<button type="button" class="ledger-btn-primary w-auto px-10 mt-4">Enter</button>
+		</section>
+	{/if}
+	{#if show('player-answer')}
+		<section id="player-answer" class="h-dvh overflow-hidden">
+			<AnswerTiles
+				question={q}
+				{answers}
+				remainingSeconds={11}
+				totalSeconds={30}
+				interactive={true}
+			/>
+		</section>
+	{/if}
+	{#if show('player-correct')}
+		<section id="player-correct" class="h-dvh overflow-hidden">
+			<RevealPhase
+				question={q}
+				distribution={dist}
+				isPlayer={true}
+				correct={true}
+				points={240}
+				streak={3}
+			/>
+		</section>
+	{/if}
+	{#if show('player-incorrect')}
+		<section id="player-incorrect" class="h-dvh overflow-hidden">
+			<RevealPhase
+				question={q}
+				distribution={dist}
+				isPlayer={true}
+				correct={false}
+				points={0}
+				streak={0}
+			/>
+		</section>
+	{/if}
+	{#if show('practice')}
+		<section id="practice" class="h-dvh overflow-hidden">
+			<div class="h-full flex flex-col">
+				<div class="px-4 pt-6 text-center">
+					<p class="font-display text-gold text-sm tracking-[0.3em]">Time attack</p>
+					<h1 class="font-display text-5xl text-ink">Practice</h1>
+				</div>
+				<div class="flex-1 min-h-0">
+					<AnswerTiles
+						question={q}
+						{answers}
+						remainingSeconds={18}
+						totalSeconds={30}
+						interactive={true}
+					/>
+				</div>
+			</div>
+		</section>
+	{/if}
+	{#if show('dashboard')}
+		<section id="dashboard" class="min-h-dvh px-4 py-8 max-w-4xl mx-auto">
+			<div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+				<div>
+					<p class="font-display text-gold text-sm tracking-[0.3em]">Division</p>
+					<h1 class="font-display text-5xl text-ink">Volt III</h1>
+				</div>
+				<a href="/battle" class="ledger-btn-primary w-auto px-6">Battle queue</a>
+			</div>
+			<RetentionBar streakDays={7} dailyGoalPercent={62} leagueName="Volt III" />
+			<div class="my-6">
+				<MasteryHeatmap
+					stats={[
+						{
+							topic_name: 'Anatomy',
+							topic_slug: 'anatomy',
+							accuracy_percent: 88,
+							questions_answered: 40,
+							questions_correct: 35,
+							xp_earned: 900
+						},
+						{
+							topic_name: 'Clinical',
+							topic_slug: 'clinical',
+							accuracy_percent: 71,
+							questions_answered: 28,
+							questions_correct: 20,
+							xp_earned: 620
+						},
+						{
+							topic_name: 'Legal',
+							topic_slug: 'legal',
+							accuracy_percent: 54,
+							questions_answered: 12,
+							questions_correct: 6,
+							xp_earned: 210
+						},
+						{
+							topic_name: 'Admin',
+							topic_slug: 'admin',
+							accuracy_percent: 40,
+							questions_answered: 10,
+							questions_correct: 4,
+							xp_earned: 80
+						}
+					]}
+				/>
+			</div>
+			<p class="font-display text-xl text-ink mb-3">Recent matches</p>
+			<ul class="space-y-2">
+				<li class="rounded-xl bg-surface px-4 py-3 flex justify-between">
+					<span>CCMA Anatomy Clash</span>
+					<span class="font-display text-gold">+240 XP</span>
+				</li>
+				<li class="rounded-xl bg-surface px-4 py-3 flex justify-between">
+					<span>1v1 vs M. Chen</span>
+					<span class="font-display text-signal">▼ 2</span>
+				</li>
+			</ul>
+		</section>
+	{/if}
 </div>

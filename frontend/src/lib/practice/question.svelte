@@ -123,7 +123,7 @@ SPDX-License-Identifier: MPL-2.0
 						class:bg-red-500={!question.answers[i].right}
 						class:text-xl={i === selected_answer}
 						class:underline={i === selected_answer}
-						class="p-2 rounded-lg flex justify-center w-full transition my-5 text-black"
+						class="p-2 rounded-lg flex justify-center w-full transition my-5 text-ink"
 						>{answer.answer}</button
 					>
 				{/each}
@@ -134,7 +134,7 @@ SPDX-License-Identifier: MPL-2.0
 					<button
 						disabled={selected_answer !== undefined || timer_res === '0'}
 						type="button"
-						class="p-2 rounded-lg flex justify-center w-full transition bg-amber-300 my-5 disabled:grayscale text-black"
+						class="p-2 rounded-lg flex justify-center w-full transition bg-amber-300 my-5 disabled:grayscale text-ink"
 						onclick={() => {
 							selected_answer = i;
 							timer_res = '0';
@@ -143,7 +143,7 @@ SPDX-License-Identifier: MPL-2.0
 				{/each}
 				{#if timer_res === '0'}
 					<button
-						class="bg-orange-500 p-2 rounded-lg flex justify-center w-full transition my-5 text-black"
+						class="bg-orange-500 p-2 rounded-lg flex justify-center w-full transition my-5 text-ink"
 						type="button"
 						onclick={() => {
 							show_results = true;
@@ -201,7 +201,7 @@ SPDX-License-Identifier: MPL-2.0
 			<button
 				type="button"
 				disabled={selected_answer !== undefined || timer_res === '0'}
-				class="p-2 rounded-lg flex justify-center w-full transition bg-amber-300 my-5 disabled:grayscale text-black"
+				class="p-2 rounded-lg flex justify-center w-full transition bg-amber-300 my-5 disabled:grayscale text-ink"
 				onclick={() => {
 					selected_answer = i;
 					timer_res = '0';
@@ -223,7 +223,7 @@ SPDX-License-Identifier: MPL-2.0
 		{#if timer_res === '0'}
 			{#each question.answers as answer, i}
 				<div
-					class="p-2 rounded-lg flex justify-center w-full transition bg-gray-200 my-5 text-black"
+					class="p-2 rounded-lg flex justify-center w-full transition bg-paper-muted my-5 text-ink"
 				>
 					{answer.answer}
 				</div>
@@ -233,7 +233,7 @@ SPDX-License-Identifier: MPL-2.0
 				<input
 					type="text"
 					bind:value={text_input}
-					class="bg-gray-50 focus:ring text-gray-900 rounded-lg focus:ring-blue-500 block w-full p-2 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 outline-hidden transition text-center"
+					class="bg-gray-50 focus:ring text-ink rounded-lg focus:ring-blue-500 block w-full p-2 bg-elevated text-ink dark:focus:ring-blue-500 outline-hidden transition text-center"
 				/>
 			</div>
 			<div class="flex justify-center">
@@ -330,7 +330,7 @@ SPDX-License-Identifier: MPL-2.0
 						disabled
 						class:bg-green-500={question.answers[i].right}
 						class:bg-red-500={!question.answers[i].right}
-						class="p-2 rounded-lg flex justify-center w-full transition my-5 text-black"
+						class="p-2 rounded-lg flex justify-center w-full transition my-5 text-ink"
 						>{answer.answer}</button
 					>
 				{/each}
@@ -341,7 +341,7 @@ SPDX-License-Identifier: MPL-2.0
 					<button
 						type="button"
 						disabled={selected_answer !== undefined || timer_res === '0'}
-						class="p-2 rounded-lg flex justify-center w-full transition bg-amber-300 my-5 disabled:grayscale text-black opacity-50"
+						class="p-2 rounded-lg flex justify-center w-full transition bg-amber-300 my-5 disabled:grayscale text-ink opacity-50"
 						class:opacity-100={check_choice_selected[i]}
 						onclick={() => {
 							check_choice_selected[i] = !check_choice_selected[i];
@@ -357,7 +357,7 @@ SPDX-License-Identifier: MPL-2.0
 				{#if timer_res === '0'}
 					<button
 						type="button"
-						class="bg-orange-500 p-2 rounded-lg flex justify-center w-full transition my-5 text-black"
+						class="bg-orange-500 p-2 rounded-lg flex justify-center w-full transition my-5 text-ink"
 						onclick={() => {
 							show_results = true;
 						}}>{$t('admin_page.get_results')}</button

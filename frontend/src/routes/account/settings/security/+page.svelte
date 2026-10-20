@@ -195,7 +195,7 @@ SPDX-License-Identifier: MPL-2.0
 										class="pointer-events-none inline-block h-4 w-4 translate-x-3 rounded-full bg-white transition will-change-transform"
 									></span>
 								</button>
-								<span class="text-sm font-medium text-gray-700 dark:text-white"
+								<span class="text-sm font-medium text-ink"
 									>{$t('security_settings.2fa_activated')}</span
 								>
 							</div>
@@ -210,14 +210,14 @@ SPDX-License-Identifier: MPL-2.0
 									}}
 									role="switch"
 									aria-checked="false"
-									class="relative inline-flex h-5 w-8 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-transparent bg-gray-200 transition focus:outline-hidden focus:ring focus:ring-blue-200"
+									class="relative inline-flex h-5 w-8 shrink-0 cursor-pointer appearance-none rounded-full border-2 border-transparent bg-paper-muted transition focus:outline-hidden focus:ring focus:ring-blue-200"
 								>
 									<span
 										aria-hidden="true"
 										class="pointer-events-none inline-block h-4 w-4 translate-x-0 rounded-full bg-white transition will-change-transform"
 									></span>
 								</button>
-								<span class="text-sm font-medium text-gray-700 dark:text-white"
+								<span class="text-sm font-medium text-ink"
 									>{$t('security_settings.2fa_deactivated')}</span
 								>
 							</div>

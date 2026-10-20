@@ -11,18 +11,18 @@ SPDX-License-Identifier: MPL-2.0
 	const { t } = getLocalization();
 </script>
 
-<footer class="mt-auto border-t border-ink/10 bg-ink text-paper w-full">
+<footer class="mt-auto border-t border-white/5 bg-paper text-ink w-full">
 	<div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
 		<div class="text-center md:text-left">
 			<p class="font-display font-semibold text-lg">CMA Clash</p>
-			<p class="text-sm text-paper/70 mt-1">Gamified CMA exam prep — live quizzes &amp; leaderboards</p>
+			<p class="text-sm text-ink-muted mt-1">Gamified CMA exam prep — live quizzes &amp; leaderboards</p>
 		</div>
 		<div class="flex flex-wrap items-center justify-center gap-4 text-sm">
-			<a href="/docs" class="text-paper/80 hover:text-gold transition">{$t('words.docs')}</a>
-			<a href="/docs/attribution" class="text-paper/80 hover:text-gold transition"
+			<a href="/docs" class="text-ink-muted hover:text-gold">{$t('words.docs')}</a>
+			<a href="/docs/attribution" class="text-ink-muted hover:text-gold"
 				>{$t('words.other', { count: 2 })}</a
 			>
-			<a href="/docs/privacy-policy" class="text-paper/80 hover:text-gold transition"
+			<a href="/docs/privacy-policy" class="text-ink-muted hover:text-gold"
 				>Privacy</a
 			>
 		</div>

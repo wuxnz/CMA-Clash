@@ -110,7 +110,7 @@ SPDX-License-Identifier: MPL-2.0
 			{$t('words.result', { count: 2 })}
 		</h2>
 
-		<LedgerTable rows={ledgerRows} caption="Question leaderboard" />
+		<LedgerTable rows={ledgerRows} caption="Question leaderboard" flip={true} />
 
 		{#if show_new_score_clicked}
 			<p class="text-center text-sm text-ink-muted" in:fly={{ y: 8 }}>

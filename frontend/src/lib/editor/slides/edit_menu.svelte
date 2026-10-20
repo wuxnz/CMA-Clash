@@ -108,7 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 		</button>
 		{#if opened_dropdown === 'color'}
 			<div
-				class="bg-white m-auto rounded-lg shadow-lg p-4 dark:bg-gray-600 h-fit gap-2 w-fit auto-cols-min flex absolute z-40"
+				class="bg-surface m-auto rounded-lg shadow-lg p-4 bg-surface h-fit gap-2 w-fit auto-cols-min flex absolute z-40"
 				transition:fade|global={{ duration: 100 }}
 			>
 				<input type="color" onchange={change_color} />
@@ -144,7 +144,7 @@ SPDX-License-Identifier: MPL-2.0
 		</button>
 		{#if opened_dropdown === 'font_size'}
 			<div
-				class="bg-white m-auto rounded-lg shadow-lg p-4 dark:bg-gray-600 h-fit gap-2 w-fit auto-cols-min flex absolute z-40"
+				class="bg-surface m-auto rounded-lg shadow-lg p-4 bg-surface h-fit gap-2 w-fit auto-cols-min flex absolute z-40"
 				transition:fade|global={{ duration: 100 }}
 			>
 				<input

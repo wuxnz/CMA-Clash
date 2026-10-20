@@ -24,15 +24,16 @@ SPDX-License-Identifier: MPL-2.0
 
 	if (browser) {
 		pathname.set(window.location.pathname);
-		if (
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches)
-		) {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
+		document.documentElement.classList.add('dark');
+		import('lenis').then(({ default: Lenis }) => {
+			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+			const lenis = new Lenis({ smoothWheel: true });
+			const raf = (time: number) => {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			};
+			requestAnimationFrame(raf);
+		});
 	}
 	let start_language = 'en';
 	const rtl_languages = ['he', 'prs', 'ps'];

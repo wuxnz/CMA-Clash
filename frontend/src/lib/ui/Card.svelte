@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="rounded-2xl border border-ink/10 bg-surface shadow-sm {pad[padding]} {className}"
+	class="rounded-2xl glass-panel card-interactive {pad[padding]} {className}"
 >
 	{@render children?.()}
 </div>

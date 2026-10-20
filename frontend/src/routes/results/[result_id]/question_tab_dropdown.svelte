@@ -53,14 +53,14 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div class="flex justify-center">
-	<div class="bg-white p-2 -z-10 w-10/12 rounded-sm dark:bg-gray-700">
+	<div class="bg-white p-2 -z-10 w-10/12 rounded-sm bg-elevated">
 		{#if question.type !== QuizQuestionType.ORDER && question.type !== QuizQuestionType.RANGE}
 			<div class="flex flex-col mb-4">
 				{#each question.answers as answer}
 					<div class="grid grid-cols-4">
 						<p>{answer.answer}</p>
 						<div
-							class="col-span-3 flex w-full border-l border-gray-300 px-1 dark:border-gray-500"
+							class="col-span-3 flex w-full border-l border-ink/20 px-1 dark:border-gray-500"
 						>
 							<div class="my-auto w-full mr-1">
 								<span
@@ -84,21 +84,21 @@ SPDX-License-Identifier: MPL-2.0
 		<div>
 			<table class="w-full text-left">
 				<thead>
-					<tr class="border-b-2 dark:border-gray-500 text-left border-gray-300">
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+					<tr class="border-b-2 dark:border-gray-500 text-left border-ink/20">
+						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 							>{$t('result_page.player_name')}
 						</th>
 						{#if question.type !== QuizQuestionType.VOTING}
-							<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+							<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('words.score')}</th
 							>
 						{/if}
-						<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 							>{$t('result_page.time_taken')}
 						</th>
 						<th class="p-1 mx-auto">{$t('words.answer')} </th>
 						{#if question.type !== QuizQuestionType.VOTING}
-							<th class="border-l dark:border-gray-500 p-1 mx-auto border-gray-300"
+							<th class="border-l dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('words.correct')}?
 							</th>
 						{/if}
@@ -107,20 +107,20 @@ SPDX-License-Identifier: MPL-2.0
 				<tbody>
 					{#each answers as answer}
 						<tr>
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{answer.username}</td
 							>
 							{#if question.type !== QuizQuestionType.VOTING}
-								<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+								<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 									>{answer.score}</td
 								>
 							{/if}
-							<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+							<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 								>{(answer.time_taken / 1000).toFixed(3)}s
 							</td>
 							<td class="p-1">{answer.answer}</td>
 							{#if question.type !== QuizQuestionType.VOTING}
-								<td class="p-1 border-l dark:border-gray-500 border-gray-300">
+								<td class="p-1 border-l dark:border-gray-500 border-ink/20">
 									{#if answer.right}✅{:else}❌{/if}
 								</td>
 							{/if}

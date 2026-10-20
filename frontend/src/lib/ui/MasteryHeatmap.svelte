@@ -22,8 +22,7 @@
 	<h2 class="font-display font-semibold text-ink mb-3">Section mastery</h2>
 	{#if demo && stats.length === 0}
 		<p class="text-xs text-ink-muted mb-2" data-demo-label="true">
-			No topic stats yet — answer questions to populate via
-			<code class="font-mono text-xs">/api/v1/clash/me/stats/by-topic</code>.
+			No topic stats yet — play a clash to fill this heatmap.
 		</p>
 	{/if}
 	<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">

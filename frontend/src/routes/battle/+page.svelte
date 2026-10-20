@@ -8,19 +8,30 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Footer from '$lib/footer.svelte';
 	import Card from '$lib/ui/Card.svelte';
-	import { fetchQuizzes, createBattle, type QuizBrowseItem } from '$lib/cma/client';
+	import { createBattle, fetchQuizzes, type QuizBrowseItem } from '$lib/cma/client';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import type { PageData } from './$types';
 
 	navbarVisible.visible = true;
 
-	let quizzes = $state<QuizBrowseItem[]>([]);
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+
+	let quizzes = $state<QuizBrowseItem[]>(data.quizzes ?? []);
 	let joinCode = $state('');
 	let loading = $state(false);
-	let error = $state('');
+	let error = $state(data.loadError ?? '');
 
 	onMount(async () => {
-		quizzes = await fetchQuizzes({ page_size: 20 });
+		if (quizzes.length > 0) return;
+		let list = await fetchQuizzes({ certification_slug: 'ccma', page_size: 50 });
+		if (list.length === 0) list = await fetchQuizzes({ page_size: 50 });
+		quizzes = list;
+		if (list.length === 0 && !error) error = 'No public quizzes — run content seed or create a quiz.';
 	});
 
 	async function startBattle(quizId: string) {
@@ -42,10 +53,9 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="min-h-screen flex flex-col">
 	<div class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
-		<h1 class="font-display text-3xl font-bold text-ink">Battle mode</h1>
-		<p class="text-ink-muted mt-2 mb-8">
-			1v1–8 player battles via <code class="font-mono text-xs">/api/v1/clash/battles</code>.
-		</p>
+		<p class="font-display text-gold text-sm tracking-[0.3em]">Survival</p>
+		<h1 class="font-display text-5xl text-ink">Battle</h1>
+		<p class="text-ink-muted mt-2 mb-8">1v1 to 8-player elimination. Queue up or join with a code.</p>
 
 		<Card class="mb-8">
 			<h2 class="font-display font-semibold mb-3">Join with code</h2>

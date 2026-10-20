@@ -147,7 +147,7 @@ SPDX-License-Identifier: MPL-2.0
 		transition:fade={{ duration: 100 }}
 	>
 		{#if selected_type === null}
-			<div class="m-auto w-1/3 h-auto bg-white dark:bg-gray-700 p-4 rounded-sm">
+			<div class="m-auto w-1/3 h-auto bg-elevated p-4 rounded-sm">
 				<h1 class="text-3xl text-center mb-4">{$t('uploader.select_upload_type')}</h1>
 				<div class="flex flex-row gap-4">
 					<div class="w-full">
@@ -195,7 +195,7 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 		{:else if selected_type === AvailableUploadTypes.Video}
 			<div
-				class="m-auto w-1/3 h-auto bg-white dark:bg-gray-700 p-4 rounded-sm"
+				class="m-auto w-1/3 h-auto bg-elevated p-4 rounded-sm"
 				transition:fade={{ duration: 100 }}
 			>
 				<h1 class="text-3xl text-center mb-4">{$t('uploader.upload_a_video')}</h1>
@@ -222,7 +222,7 @@ SPDX-License-Identifier: MPL-2.0
 {/if}
 <div class="flex justify-center w-full pt-10" transition:fade>
 	<button
-		class="rounded-lg p-4 flex justify-center bg-transparent border-gray-500 border-2 w-1/2 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+		class="rounded-lg p-4 flex justify-center bg-transparent border-gray-500 border-2 w-1/2 hover:bg-gray-300 dark:hover:bg-primary-hover transition"
 		type="button"
 		onclick={() => {
 			modalOpen = true;

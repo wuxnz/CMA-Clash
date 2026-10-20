@@ -40,7 +40,7 @@ SPDX-License-Identifier: MPL-2.0
 			{#if cover_image}
 				<div class="mt-8 flex justify-center">
 					<img
-						class="max-h-[28vh] rounded-lg border border-ink/10 object-contain"
+						class="max-h-[28vh] rounded-lg content-image object-contain"
 						src="/api/v1/storage/download/{cover_image}"
 						alt=""
 					/>

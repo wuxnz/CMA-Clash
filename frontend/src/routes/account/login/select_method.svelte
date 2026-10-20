@@ -20,11 +20,11 @@ SPDX-License-Identifier: MPL-2.0
 	<h2 class="text-3xl font-bold text-center font-display font-bold text-ink">CMA Clash</h2>
 
 	<div class="w-full mt-4">
-		<div class="dark:bg-gray-800 bg-white p-4 rounded-lg">
+		<div class="bg-surface p-4 rounded-lg">
 			<ul class="flex flex-col gap-4">
 				{#if available_methods.includes('PASSKEY')}
 					<div
-						class="flex flex-row bg-gray-100 dark:bg-gray-700 rounded-lg p-2 hover:cursor-pointer hover:bg-gray-200 transition"
+						class="flex flex-row bg-paper-muted rounded-lg p-2 hover:cursor-pointer hover:bg-paper-muted transition"
 						onclick={() => {
 							selected_method = 'PASSKEY';
 						}}
@@ -55,7 +55,7 @@ SPDX-License-Identifier: MPL-2.0
 				{/if}
 				{#if available_methods.includes('PASSWORD')}
 					<div
-						class="flex flex-row bg-gray-100 dark:bg-gray-700 rounded-lg p-2 hover:cursor-pointer hover:bg-gray-200 transition"
+						class="flex flex-row bg-paper-muted rounded-lg p-2 hover:cursor-pointer hover:bg-paper-muted transition"
 						onclick={() => {
 							selected_method = 'PASSWORD';
 						}}
@@ -65,7 +65,7 @@ SPDX-License-Identifier: MPL-2.0
 					>
 						<!-- iconoir/password-cursor -->
 						<svg
-							class="w-12 h-12 dark:text-white"
+							class="w-12 h-12 text-ink"
 							stroke-width="2"
 							viewBox="0 0 24 24"
 							fill="none"
@@ -101,7 +101,7 @@ SPDX-License-Identifier: MPL-2.0
 				{/if}
 				{#if available_methods.includes('TOTP')}
 					<div
-						class="flex flex-row bg-gray-100 rounded-lg p-2 hover:cursor-pointer hover:bg-gray-200 transition"
+						class="flex flex-row bg-gray-100 rounded-lg p-2 hover:cursor-pointer hover:bg-paper-muted transition"
 						onclick={() => {
 							selected_method = 'TOTP';
 						}}

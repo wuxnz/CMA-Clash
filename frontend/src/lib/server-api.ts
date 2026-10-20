@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 /**
- * Origin used for server-side fetches to the ClassQuiz API.
+ * Origin used for server-side fetches to the CMA Clash API.
  *
  * - Local + Caddy: set API_URL=http://localhost:8080
  * - Vercel (rewrites): set API_URL to your public site URL (or rely on VERCEL_URL)

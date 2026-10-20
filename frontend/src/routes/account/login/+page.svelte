@@ -83,13 +83,13 @@ SPDX-License-Identifier: MPL-2.0
 <svelte:head>
 	<title>CMA Clash - Login</title>
 </svelte:head>
-<div class="flex items-center justify-center h-screen">
+<div class="flex items-center justify-center min-h-[80vh] px-4">
 	{#if verified}
 		<VerifiedBadge />
 	{/if}
 
 	<div
-		class="lg:w-1/3 max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-2xl dark:bg-gray-800"
+		class="lg:w-1/3 max-w-sm mx-auto overflow-hidden bg-surface rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
 	>
 		{#if step === 0}
 			<!--			<p>StartWindow</p>-->

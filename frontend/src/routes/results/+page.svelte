@@ -25,14 +25,14 @@ SPDX-License-Identifier: MPL-2.0
 			{:else}
 				<table class="w-full">
 					<thead>
-						<tr class="border-b-2 dark:border-gray-500 text-left border-gray-300">
-							<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+						<tr class="border-b-2 dark:border-gray-500 text-left border-ink/20">
+							<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('results_page.quiz_title')}
 							</th>
-							<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+							<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('results_page.date_played')}
 							</th>
-							<th class="border-r dark:border-gray-500 p-1 mx-auto border-gray-300"
+							<th class="border-r dark:border-gray-500 p-1 mx-auto border-ink/20"
 								>{$t('results_page.player_count')}
 							</th>
 							<th class="mx-auto p-1">{$t('words.note')}</th>
@@ -41,15 +41,15 @@ SPDX-License-Identifier: MPL-2.0
 					<tbody>
 						{#each data.results as result}
 							<tr class="text-left">
-								<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+								<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 									><a href="/results/{result.id}" class="underline text-lg"
 										>{@html result.title}</a
 									></td
 								>
-								<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+								<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 									>{new Date(result.timestamp).toLocaleString()}</td
 								>
-								<td class="border-r dark:border-gray-500 p-1 border-gray-300"
+								<td class="border-r dark:border-gray-500 p-1 border-ink/20"
 									>{Object.keys(result.player_scores).length}</td
 								>
 								<td class:p-1={result.note}>

@@ -128,7 +128,7 @@ SPDX-License-Identifier: MPL-2.0
 		class="fixed top-0 left-0 h-screen w-screen z-40 flex bg-black/50"
 		onclick={close_popup_handler}
 	>
-		<div class="w-auto h-auto m-auto rounded-sm bg-white dark:bg-gray-700 p-4">
+		<div class="w-auto h-auto m-auto rounded-sm bg-elevated p-4">
 			<h1 class="text-2xl text-center">{$t('file_dashboard.edit_the_image')}</h1>
 			<form class="flex flex-col" onsubmit={save_image_metadata}>
 				<div class="flex flex-row">
@@ -139,14 +139,14 @@ SPDX-License-Identifier: MPL-2.0
 					</div>
 					<div class="flex flex-col gap-3">
 						<input
-							class="rounded-sm outline-hidden dark:bg-gray-500 p-0.5 border-4 border-transparent"
+							class="rounded-sm outline-hidden bg-elevated p-0.5 border-4 border-transparent"
 							id="name"
 							type="text"
 							bind:value={edit_popup.filename}
 						/>
 						<input
 							class:border-red-700={!edit_popup.alt_text}
-							class="transition rounded-sm outline-hidden dark:bg-gray-500 p-0.5 border-4 border-transparent"
+							class="transition rounded-sm outline-hidden bg-elevated p-0.5 border-4 border-transparent"
 							id="alt_text"
 							type="text"
 							bind:value={edit_popup.alt_text}

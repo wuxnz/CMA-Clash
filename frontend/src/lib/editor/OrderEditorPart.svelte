@@ -182,7 +182,7 @@ SPDX-License-Identifier: MPL-2.0
 	<div class="px-8 flex w-full">
 		{#if data.questions[selected_question].answers.length < 4}
 			<button
-				class="p-4 rounded-lg bg-transparent border-gray-500 border-2 hover:bg-gray-300 transition dark:hover:bg-gray-600 m-2 w-full"
+				class="p-4 rounded-lg bg-transparent border-gray-500 border-2 hover:bg-gray-300 transition dark:hover:bg-primary-hover m-2 w-full"
 				type="button"
 				in:fade={{ duration: 150 }}
 				onclick={() => {
