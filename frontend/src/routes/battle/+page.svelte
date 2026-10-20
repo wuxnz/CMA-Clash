@@ -48,11 +48,11 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA-Clash — Battle</title>
+	<title>CMA Clash — Battle</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-	<main class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
+	<div class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
 		<h1 class="font-display text-3xl font-bold text-ink">Battle mode</h1>
 		<p class="text-ink-muted mt-2 mb-8">
 			1v1–8 player battles via <code class="font-mono text-xs">/api/v1/clash/battles</code>.
@@ -97,6 +97,6 @@ SPDX-License-Identifier: MPL-2.0
 				<p class="text-ink-muted text-sm">No public quizzes — run content seed or create a quiz.</p>
 			{/each}
 		</ul>
-	</main>
+	</div>
 	<Footer />
 </div>

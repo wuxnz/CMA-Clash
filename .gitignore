@@ -3,9 +3,16 @@
 # SPDX-License-Identifier: MPL-2.0
 
 __pycache__/
+.venv/
+venv/
 .idea/
 node_modules/
+frontend/build/
 .svelte-kit/
+playwright-report/
+test-results/
+blob-report/
+.playwright/
 .env*
 *.db
 *.rdb

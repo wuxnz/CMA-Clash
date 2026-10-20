@@ -5,7 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <svelte:head>
-	<title>CMA-Clash/docs - PoW</title>
+	<title>CMA Clash/docs - PoW</title>
 	<meta
 		name="description"
 		content="Use-case of PoW for CMA Clash, the open-source quiz-application"

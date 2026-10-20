@@ -8,7 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
-	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
+	import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION } from '$lib/site';
 	import RetentionBar from '$lib/ui/RetentionBar.svelte';
 	import BentoSpotlightCard from '$lib/ui/BentoSpotlightCard.svelte';
 	import MagneticButton from '$lib/ui/MagneticButton.svelte';
@@ -76,24 +76,39 @@ SPDX-License-Identifier: MPL-2.0
 			span: 'md:col-span-2'
 		}
 	];
+
+	const homeTitle = $derived(`${SITE_NAME} — ${$t('index_page.meta.title')}`);
+	const homeDescription = DEFAULT_DESCRIPTION;
+	const structuredData = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: SITE_NAME,
+			url: SITE_URL,
+			description: homeDescription,
+			publisher: {
+				'@type': 'Organization',
+				name: SITE_NAME
+			}
+		})
+	);
 </script>
 
 <svelte:head>
-	<title>CMA-Clash — {$t('index_page.meta.title')}</title>
-	<meta
-		name="description"
-		content="Gamified medical assistant exam prep (NHA CCMA) with live quizzes, battles, and leaderboards."
-	/>
-	<meta property="og:title" content="CMA-Clash — {$t('index_page.meta.title')}" />
-	<meta
-		property="og:description"
-		content="Gamified medical assistant exam prep with live quizzes, multiplayer battles, and leaderboards."
-	/>
-	<meta property="og:image" content={JpgOpenGraph} />
+	<title>{homeTitle}</title>
+	<meta name="description" content={homeDescription} />
+	<meta property="og:title" content={homeTitle} />
+	<meta property="og:description" content={homeDescription} />
+	<meta name="twitter:title" content={homeTitle} />
+	<meta name="twitter:description" content={homeDescription} />
+	{@html `<script type="application/ld+json">${structuredData}</script>`}
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-	<section class="relative overflow-hidden pb-20 px-4 min-h-[85vh] flex flex-col justify-center">
+	<section
+		class="relative overflow-hidden pb-20 px-4 min-h-[85vh] flex flex-col justify-center"
+		aria-labelledby="home-hero-heading"
+	>
 		<AuroraShader class="z-0" />
 		<GrainOverlay />
 		<div
@@ -109,10 +124,11 @@ SPDX-License-Identifier: MPL-2.0
 				</p>
 			{/if}
 			<h1
+				id="home-hero-heading"
 				class="font-display sm:text-7xl text-5xl font-bold tracking-[-0.04em] gradient-text"
 				in:fly={reduced ? { duration: 0 } : { y: 24, duration: 600 }}
 			>
-				CMA-Clash
+				{SITE_NAME}
 			</h1>
 			<p
 				class="text-lg sm:text-xl mt-6 text-ink-muted max-w-2xl mx-auto leading-relaxed"

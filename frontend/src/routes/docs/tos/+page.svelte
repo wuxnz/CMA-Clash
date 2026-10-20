@@ -15,7 +15,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>-->
 
 <svelte:head>
-	<title>CMA-Clash/docs - Terms of Service</title>
+	<title>CMA Clash/docs - Terms of Service</title>
 	<meta
 		name="description"
 		content="The terms of service of CMA Clash, the open-source quiz-application"
@@ -64,7 +64,7 @@ SPDX-License-Identifier: MPL-2.0
 		You can request the deletion of your data at any time by writing an email to
 		privacy@example.com. Please include the email you registered with on CMA Clash, and, if
 		possible, a prove that you are the owner of the account, by, eg., writing the email with the
-		email-address which is associated with your CMA-Clash-account.
+		email-address which is associated with your CMA Clash account.
 	</p>
 
 	<h2>Final Words</h2>

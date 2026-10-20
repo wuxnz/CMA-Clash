@@ -186,7 +186,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <svelte:window onbeforeunload={confirmUnload} />
 <svelte:head>
-	<title>CMA-Clash - Play</title>
+	<title>CMA Clash - Play</title>
 </svelte:head>
 <div
 	class="min-h-screen min-w-full bg-paper"
