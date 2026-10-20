@@ -7,6 +7,14 @@ import adapterVercel from '@sveltejs/adapter-vercel';
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 
+const adapter =
+	process.env.VERCEL === '1'
+		? adapterVercel()
+		: adapterNode({
+				out: 'build',
+				precompress: true
+			});
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
@@ -20,12 +28,7 @@ const config = {
 	extensions: ['.svelte', '.svx'],
 
 	kit: {
-		adapter: process.env.VERCEL
-			? adapterVercel()
-			: adapterNode({
-					out: 'build',
-					precompress: true
-				})
+		adapter
 		// +++ SOON OBSOLETE +++
 		/*
 		vite: {

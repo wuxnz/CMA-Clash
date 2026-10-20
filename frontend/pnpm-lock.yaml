@@ -7,6 +7,16 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@fontsource/inter':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/jetbrains-mono':
+        specifier: ^5.3.0
+        version: 5.3.0
+      '@fontsource/space-grotesk':
+        specifier: ^5.3.0
+        version: 5.3.0
     devDependencies:
       '@felte/reporter-tippy':
         specifier: ^1.1.10
@@ -687,8 +697,17 @@ packages:
     resolution: {integrity: sha512-ouyoW+4JB7WxjeZ2y6KpRvB+dLp7Cp4ro8z0HIVpZVCM7AwFlHa0c4R8Y/a4M3wMqATpYKhC7lSFHQ0T11MEDw==}
     engines: {node: '>=18.x'}
 
+  '@fontsource/inter@5.3.0':
+    resolution: {integrity: sha512-RofMylZmjlJEfELXeNHFWBRcSs75rGU/6bV2S2jfnvv/3rPXPGe0LgUJTklcHZ9lM4OZmAVFhcJPnACfb91A3g==}
+
+  '@fontsource/jetbrains-mono@5.3.0':
+    resolution: {integrity: sha512-fqDfB5I9f1p1TV486aUgB9t8zP84P0O1FtQR5Ol9vjwPy+S+EIGlVYm1cvj2W5shcZMTg2nZFdVMoH5wFu8a1A==}
+
   '@fontsource/marck-script@5.2.8':
     resolution: {integrity: sha512-ZNHTZy/wkZYH4y/kUeAK4jvsWeZ5pWrbwv97qgit24Fv+GupQVaLig8uOwVSN1GgtYWPTMnLROEHRoqCzgvHXA==}
+
+  '@fontsource/space-grotesk@5.3.0':
+    resolution: {integrity: sha512-ksnGizDPXIDuvqcTYTSrmZ+evx9sDlS8rp7+42BQ7wU+spt3twEoXfbJz672C+5CLg6VeUQwRy5RXshWb67LcQ==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3545,6 +3564,8 @@ snapshots:
       '@ckeditor/ckeditor5-ui': 47.1.0
       '@ckeditor/ckeditor5-utils': 47.1.0
       ckeditor5: 47.1.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@ckeditor/ckeditor5-block-quote@47.1.0':
     dependencies:
@@ -3741,6 +3762,8 @@ snapshots:
       '@ckeditor/ckeditor5-ui': 47.1.0
       '@ckeditor/ckeditor5-undo': 47.1.0
       ckeditor5: 47.1.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@ckeditor/ckeditor5-find-and-replace@47.1.0':
     dependencies:
@@ -3773,6 +3796,8 @@ snapshots:
       '@ckeditor/ckeditor5-ui': 47.1.0
       '@ckeditor/ckeditor5-utils': 47.1.0
       ckeditor5: 47.1.0
+    transitivePeerDependencies:
+      - supports-color
 
   '@ckeditor/ckeditor5-heading@47.1.0':
     dependencies:
@@ -3889,8 +3914,6 @@ snapshots:
       '@ckeditor/ckeditor5-widget': 47.1.0
       ckeditor5: 47.1.0
       es-toolkit: 1.39.5
-    transitivePeerDependencies:
-      - supports-color
 
   '@ckeditor/ckeditor5-list@47.1.0':
     dependencies:
@@ -4049,8 +4072,6 @@ snapshots:
       '@ckeditor/ckeditor5-utils': 47.1.0
       ckeditor5: 47.1.0
       es-toolkit: 1.39.5
-    transitivePeerDependencies:
-      - supports-color
 
   '@ckeditor/ckeditor5-table@47.1.0':
     dependencies:
@@ -4289,7 +4310,13 @@ snapshots:
 
   '@ffmpeg/util@0.12.2': {}
 
+  '@fontsource/inter@5.3.0': {}
+
+  '@fontsource/jetbrains-mono@5.3.0': {}
+
   '@fontsource/marck-script@5.2.8': {}
+
+  '@fontsource/space-grotesk@5.3.0': {}
 
   '@humanfs/core@0.19.1': {}
 

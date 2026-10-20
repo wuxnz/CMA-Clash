@@ -189,6 +189,6 @@ async def export_quiz_as_excel(quiz_id: uuid.UUID, _: User = Depends(get_current
         iter_file(),
         media_type="application/vnd.ms-excel",
         headers={
-            "Content-Disposition": f"attachment;filename=ClassQuiz-{urllib.parse.quote(quiz.title)}.xlsx"  # noqa: E501
+            "Content-Disposition": f"attachment;filename=CMA-Clash-{urllib.parse.quote(quiz.title)}.xlsx"  # noqa: E501
         },
     )

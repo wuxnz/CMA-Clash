@@ -3,6 +3,17 @@
 	"installCommand": "pnpm install",
 	"buildCommand": "node scripts/write-vercel-config.mjs && pnpm run build:app",
 	"framework": null,
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "X-Robots-Tag",
+					"value": "noindex, nofollow"
+				}
+			]
+		}
+	],
 	"rewrites": [
 		{
 			"source": "/api/:path*",

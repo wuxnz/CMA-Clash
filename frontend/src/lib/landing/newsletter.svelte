@@ -17,9 +17,9 @@ SPDX-License-Identifier: MPL-2.0
 	};
 </script>
 
-<form method="post" action="https://newsletter.mawoka.eu/subscription/form" class="bg-transparent">
+<form method="post" action="#" class="bg-transparent">
 	<div class="absolute top-1 right-1">
-		<button type="button" onclick={closeThing}>
+		<button type="button" aria-label="Close newsletter signup" onclick={closeThing}>
 			<svg
 				class="w-6 h-6"
 				fill="none"
@@ -37,23 +37,31 @@ SPDX-License-Identifier: MPL-2.0
 		</button>
 	</div>
 	<div>
-		<h3 class="text-lg font-semibold">ClassQuiz-Newsletter</h3>
+		<h3 class="text-lg font-semibold">CMA Clash Newsletter</h3>
 		<input type="hidden" name="nonce" />
 		<p>
+			<label class="block text-sm font-medium text-gray-800 dark:text-gray-200" for="newsletter-email"
+				>E-mail</label
+			>
 			<input
+				id="newsletter-email"
 				type="email"
 				name="email"
 				required
-				placeholder="E-mail"
-				class="m-0.5 border-b-2 border-gray-300 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
+				autocomplete="email"
+				class="m-0.5 w-full border-b-2 border-gray-600 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
 			/>
 		</p>
 		<p>
+			<label class="block text-sm font-medium text-gray-800 dark:text-gray-200" for="newsletter-name"
+				>Name (optional)</label
+			>
 			<input
+				id="newsletter-name"
 				type="text"
 				name="name"
-				placeholder="Name (optional)"
-				class="m-0.5 border-b-2 border-gray-300 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
+				autocomplete="name"
+				class="m-0.5 w-full border-b-2 border-gray-600 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
 			/>
 		</p>
 
@@ -65,7 +73,7 @@ SPDX-License-Identifier: MPL-2.0
 				checked
 				value="fec5595e-9af1-497a-b7eb-1edd7ad2e21c"
 			/>
-			<label for="fec55">ClassQuiz-News</label>
+			<label for="fec55">CMA Clash News</label>
 		</p>
 		<div class="bg-gradient-to-r from-[#009444] via-[#39b54a] to-[#8dc63f] w-fit rounded-lg">
 			<button type="submit" class="m-0.5 bg-white/7 rounded-lg py-0.5 px-1 text-black"

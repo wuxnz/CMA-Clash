@@ -6,17 +6,24 @@ import type { Handle } from '@sveltejs/kit';
 import * as jose from 'jose';
 import { serverApiUrl } from '$lib/server-api';
 
+const PRIVATE_ROBOTS = 'noindex, nofollow';
+
+function withRobotsTag(response: Response): Response {
+	response.headers.set('X-Robots-Tag', PRIVATE_ROBOTS);
+	return response;
+}
+
 /** @type {import('@sveltejs/kit').Handle} */
 export const handle: Handle = async ({ event, resolve }) => {
 	const access_token = event.cookies.get('access_token');
 	if (!access_token) {
 		event.locals.email = null;
-		return resolve(event);
+		return withRobotsTag(await resolve(event));
 	}
 	const jwt = jose.decodeJwt(access_token.replace('Bearer ', ''));
 	if (!jwt) {
 		event.locals.email = null;
-		return resolve(event);
+		return withRobotsTag(await resolve(event));
 	}
 	// if token expires, do a request to get a new one and set the response-cookies on the response
 	if (Date.now() >= jwt.exp * 1000) {
@@ -35,9 +42,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 			} catch {
 				/* empty */
 			}
-			return resp;
+			return withRobotsTag(resp);
 		}
 	}
 	event.locals.email = jwt.sub;
-	return resolve(event);
+	return withRobotsTag(await resolve(event));
 };

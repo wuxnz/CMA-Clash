@@ -43,7 +43,7 @@ from classquiz.helpers import meilisearch_init
 settings = settings()
 if settings.sentry_dsn:
     sentry_sdk.init(dsn=settings.sentry_dsn, integrations=[RedisIntegration()])
-app = FastAPI(redoc_url="", docs_url="/api/docs")
+app = FastAPI(title="CMA Clash API", redoc_url="", docs_url="/api/docs")
 app.state.database = database
 
 _cors_origins = settings.parsed_cors_origins()

@@ -22,6 +22,8 @@ SPDX-License-Identifier: MPL-2.0
 	import MediaComponent from '$lib/editor/MediaComponent.svelte';
 	import { createTippy } from 'svelte-tippy';
 	import { onMount } from 'svelte';
+	import RetentionBar from '$lib/ui/RetentionBar.svelte';
+	import MasteryHeatmap from '$lib/ui/MasteryHeatmap.svelte';
 
 	interface Props {
 		// import GrayButton from "$lib/components/buttons/gray.svelte";
@@ -107,7 +109,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>ClassQuiz - Dashboard</title>
+	<title>CMA Clash - Dashboard</title>
 </svelte:head>
 <Analytics bind:quiz={analytics_quiz_selected} />
 <CommandpaletteNotice />
@@ -124,7 +126,29 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		</svg>
 	{:else}
-		<div class="flex flex-col w-full mx-auto">
+		<div class="flex flex-col w-full mx-auto px-4 pt-4">
+			<h1 class="font-display text-2xl font-bold text-ink mb-4">{$t('words.dashboard')}</h1>
+			<RetentionBar
+				streakDays={data.gamification?.current_streak_days ?? 0}
+				dailyGoalPercent={data.gamification
+					? Math.min(
+							100,
+							Math.round(
+								(data.gamification.total_xp /
+									(data.gamification.total_xp + data.gamification.xp_to_next_level)) *
+									100
+							)
+						)
+					: 0}
+				dailyGoalIsDemo={!data.gamification}
+				leagueName={data.gamification ? `Level ${data.gamification.level}` : undefined}
+			/>
+			<div class="my-6">
+				<MasteryHeatmap
+					stats={data.topicStats?.length ? data.topicStats : []}
+					demo={!data.topicStats?.length}
+				/>
+			</div>
 			<!--		<button
                     class='px-4 py-2 font-medium tracking-wide text-gray-500 whitespace-nowrap dark:text-gray-400 capitalize transition-colors dark:bg-gray-700 duration-200 transform bg-[#B07156] rounded-md hover:bg-green-600 focus:outline-hidden focus:ring focus:ring-blue-300 focus:ring-opacity-80'>
                     Primary

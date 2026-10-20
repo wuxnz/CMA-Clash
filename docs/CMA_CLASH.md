@@ -1,6 +1,6 @@
 # CMA Clash
 
-CMA Clash is a gamified certification exam prep platform built on the ClassQuiz stack (FastAPI, Svelte, Redis/Socket.IO, Meilisearch, PostgreSQL).
+CMA Clash is a gamified certification exam prep platform built on the CMA Clash stack (FastAPI, Svelte, Redis/Socket.IO, Meilisearch, PostgreSQL).
 
 ## Architecture
 
@@ -8,7 +8,7 @@ CMA Clash is a gamified certification exam prep platform built on the ClassQuiz 
 
 - **Certifications** (`certifications`): CCMA, EKG, Phlebotomy, CPR/BLS, Clinical Skills.
 - **Topics** (`topics`): exam domains and skill areas linked to a certification.
-- **Quizzes** (`quiz`): existing ClassQuiz JSON questions, extended with `certification_id`, `topic_id`, `difficulty`, and optional `seed_slug` for idempotent imports.
+- **Quizzes** (`quiz`): existing CMA Clash JSON questions, extended with `certification_id`, `topic_id`, `difficulty`, and optional `seed_slug` for idempotent imports.
 - **Questions** (embedded JSON): optional `explanation` and `references` on each `QuizQuestion`.
 
 Browse public content via `GET /api/v1/clash/quizzes` with filters `certification_slug`, `topic_slug`, `difficulty`.
