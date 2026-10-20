@@ -19,7 +19,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <form method="post" action="https://newsletter.mawoka.eu/subscription/form" class="bg-transparent">
 	<div class="absolute top-1 right-1">
-		<button type="button" onclick={closeThing}>
+		<button type="button" aria-label="Close newsletter signup" onclick={closeThing}>
 			<svg
 				class="w-6 h-6"
 				fill="none"
@@ -40,20 +40,28 @@ SPDX-License-Identifier: MPL-2.0
 		<h3 class="text-lg font-semibold">ClassQuiz-Newsletter</h3>
 		<input type="hidden" name="nonce" />
 		<p>
+			<label class="block text-sm font-medium text-gray-800 dark:text-gray-200" for="newsletter-email"
+				>E-mail</label
+			>
 			<input
+				id="newsletter-email"
 				type="email"
 				name="email"
 				required
-				placeholder="E-mail"
-				class="m-0.5 border-b-2 border-gray-300 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
+				autocomplete="email"
+				class="m-0.5 w-full border-b-2 border-gray-600 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
 			/>
 		</p>
 		<p>
+			<label class="block text-sm font-medium text-gray-800 dark:text-gray-200" for="newsletter-name"
+				>Name (optional)</label
+			>
 			<input
+				id="newsletter-name"
 				type="text"
 				name="name"
-				placeholder="Name (optional)"
-				class="m-0.5 border-b-2 border-gray-300 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
+				autocomplete="name"
+				class="m-0.5 w-full border-b-2 border-gray-600 rounded-lg p-0.5 outline-hidden focus:outline-gray-400 bg-transparent"
 			/>
 		</p>
 

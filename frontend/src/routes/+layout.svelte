@@ -14,6 +14,14 @@ SPDX-License-Identifier: MPL-2.0
 	import { browser } from '$app/environment';
 	import CommandPalette from '$lib/components/commandpalette.svelte';
 	import { plausible_data_url } from '$lib/config';
+	import { page } from '$app/state';
+	import {
+		SITE_NAME,
+		SITE_URL,
+		DEFAULT_DESCRIPTION,
+		OG_IMAGE_URL,
+		canonicalUrl
+	} from '$lib/site';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -40,9 +48,24 @@ SPDX-License-Identifier: MPL-2.0
 		document.documentElement.dir = rtl_languages.includes(start_language) ? 'rtl' : 'ltr';
 	}
 	initLocalizationContext(start_language);
+
+	const pageCanonical = $derived(canonicalUrl(page.url.pathname));
 </script>
 
 <svelte:head>
+	<meta name="robots" content="noindex, nofollow" />
+	<link rel="canonical" href={pageCanonical} />
+	<meta property="og:site_name" content={SITE_NAME} />
+	<meta property="og:url" content={pageCanonical} />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content={OG_IMAGE_URL} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content={OG_IMAGE_URL} />
+	<meta name="description" content={DEFAULT_DESCRIPTION} />
+	<meta property="og:description" content={DEFAULT_DESCRIPTION} />
+	<meta name="twitter:description" content={DEFAULT_DESCRIPTION} />
 	{#if plausible_data_url}
 		<script
 			defer
@@ -59,13 +82,16 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 </svelte:head>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
 {#if navbarVisible.visible}
 	<Navbar />
 	<div class="pt-16">
 		<div class="z-40"></div>
 	</div>
 {/if}
-{@render children?.()}
+<main id="main-content">
+	{@render children?.()}
+</main>
 <CommandPalette />
 
 <style lang="scss">
@@ -108,5 +134,30 @@ SPDX-License-Identifier: MPL-2.0
 		100% {
 			background-position: 0% 50%;
 		}
+	}
+
+	.skip-link {
+		position: absolute;
+		left: -9999px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		z-index: 100;
+		padding: 0.75rem 1rem;
+		background: #0f2702;
+		color: #fff;
+		font-weight: 600;
+		text-decoration: none;
+		border-radius: 0.25rem;
+	}
+
+	.skip-link:focus {
+		position: fixed;
+		left: 1rem;
+		top: 1rem;
+		width: auto;
+		height: auto;
+		overflow: visible;
 	}
 </style>

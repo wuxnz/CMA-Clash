@@ -8,9 +8,13 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
-	import WebPOpenGraph from '$lib/assets/landing/opengraph-home.webp';
-	import JpgOpenGraph from '$lib/assets/landing/opengraph-home.jpg';
 	import Newsletter from '$lib/landing/newsletter.svelte';
+	import {
+		SITE_NAME,
+		SITE_URL,
+		OG_IMAGE_URL,
+		canonicalUrl
+	} from '$lib/site';
 	import { fly, fade } from 'svelte/transition';
 
 	import FindScreenshot from '$lib/assets/landing_new/find.webp';
@@ -101,40 +105,48 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	];
 	let selected_classquiz_reason = $state(0);
+
+	const homeTitle = $derived(`${SITE_NAME} - ${$t('index_page.meta.title')}`);
+	const homeDescription = $derived($t('index_page.meta.description'));
+	const structuredData = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'WebSite',
+			name: SITE_NAME,
+			url: SITE_URL,
+			description: homeDescription,
+			publisher: {
+				'@type': 'Organization',
+				name: SITE_NAME
+			}
+		})
+	);
+
+	const handleCardKeydown = (event: KeyboardEvent, action: () => void) => {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			action();
+		}
+	};
 </script>
 
 <svelte:head>
-	<title>ClassQuiz - {$t('index_page.meta.title')}</title>
-	<meta name="description" content={$t('index_page.meta.description')} />
-	<title>ClassQuiz - Home</title>
-	<meta
-		name="description"
-		content="ClassQuiz is a quiz-application like KAHOOT!, but open-source. You can create quizzes and play them remotely with other people."
-	/>
-
-	<meta property="og:url" content="https://classquiz.de/" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="ClassQuiz - {$t('index_page.meta.title')}" />
-	<meta
-		property="og:description"
-		content="ClassQuiz is a quiz-application like KAHOOT!, but open-source. You can create quizzes and play them remotely with other people."
-	/>
-	<meta property="og:image" content={JpgOpenGraph} />
-
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:domain" content="classquiz.de" />
-	<meta property="twitter:url" content="https://classquiz.de/" />
-	<meta name="twitter:title" content="ClassQuiz - {$t('index_page.meta.title')}" />
-	<meta
-		name="twitter:description"
-		content="ClassQuiz is a quiz-application like KAHOOT!, but open-source. You can create quizzes and play them remotely with other people."
-	/>
-	<meta name="twitter:image" content={WebPOpenGraph} />
+	<title>{homeTitle}</title>
+	<meta name="description" content={homeDescription} />
+	<link rel="canonical" href={canonicalUrl('/')} />
+	<meta property="og:title" content={homeTitle} />
+	<meta property="og:description" content={homeDescription} />
+	<meta property="og:url" content={canonicalUrl('/')} />
+	<meta property="og:image" content={OG_IMAGE_URL} />
+	<meta name="twitter:title" content={homeTitle} />
+	<meta name="twitter:description" content={homeDescription} />
+	<meta name="twitter:image" content={OG_IMAGE_URL} />
+	{@html `<script type="application/ld+json">${structuredData}</script>`}
 </svelte:head>
 <div class="min-h-screen flex flex-col">
-	<section class="pb-40">
+	<section class="pb-40" aria-labelledby="home-hero-heading">
 		<div class="pt-12 text-center">
-			<h1 class="sm:text-8xl text-6xl mt-6 marck-script">ClassQuiz</h1>
+			<h1 id="home-hero-heading" class="sm:text-8xl text-6xl mt-6 marck-script">ClassQuiz</h1>
 			<p class="text-xl mt-4">{$t('index_page.slogan')}</p>
 		</div>
 	</section>
@@ -156,7 +168,7 @@ SPDX-License-Identifier: MPL-2.0
 							class="rounded-lg relative"
 							src={EditScreenshot}
 							in:fade|global
-							alt="Screenshot of the import-page showing an URL to Kahoot! entered"
+							alt="Screenshot of the quiz editor for creating a quiz from scratch"
 						/>
 					{:else if selected_create_thing === SelectedCreateThing.Find}
 						<img
@@ -185,9 +197,10 @@ SPDX-License-Identifier: MPL-2.0
 					onclick={() => {
 						selected_create_thing = SelectedCreateThing.Create;
 					}}
-					onkeyup={() => {
-						selected_create_thing = SelectedCreateThing.Create;
-					}}
+					onkeydown={(event) =>
+						handleCardKeydown(event, () => {
+							selected_create_thing = SelectedCreateThing.Create;
+						})}
 					class:shadow-2xl={selected_create_thing === SelectedCreateThing.Create}
 					class:opacity-70={selected_create_thing !== SelectedCreateThing.Create}
 					role="button"
@@ -212,7 +225,7 @@ SPDX-License-Identifier: MPL-2.0
 							/>
 						</svg>
 					</div>
-					<h5 class="text-xl w-fit dark:text-black">{$t('words.create')}</h5>
+					<h4 class="text-xl w-fit dark:text-black">{$t('words.create')}</h4>
 					<p class="dark:text-black">{$t('index_page.create_a_quiz_from_scratch')}</p>
 				</div>
 				<div
@@ -220,9 +233,10 @@ SPDX-License-Identifier: MPL-2.0
 					onclick={() => {
 						selected_create_thing = SelectedCreateThing.Find;
 					}}
-					onkeyup={() => {
-						selected_create_thing = SelectedCreateThing.Find;
-					}}
+					onkeydown={(event) =>
+						handleCardKeydown(event, () => {
+							selected_create_thing = SelectedCreateThing.Find;
+						})}
 					role="button"
 					tabindex="0"
 					class:shadow-2xl={selected_create_thing === SelectedCreateThing.Find}
@@ -247,7 +261,7 @@ SPDX-License-Identifier: MPL-2.0
 							/>
 						</svg>
 					</div>
-					<h5 class="text-xl dark:text-black">{$t('words.find')}</h5>
+					<h4 class="text-xl dark:text-black">{$t('words.find')}</h4>
 					<p class="dark:text-black">{$t('index_page.find_or_explore')}</p>
 				</div>
 			</div>
@@ -256,9 +270,9 @@ SPDX-License-Identifier: MPL-2.0
 
 	<section class="mt-24">
 		<div class="flex justify-center w-full">
-			<h2 class="text-center text-3xl rounded-t-lg bg-white/40 py-2 px-6">
+			<h3 class="text-center text-3xl rounded-t-lg bg-white/40 py-2 px-6">
 				{$t('index_page.play_quiz')}
-			</h2>
+			</h3>
 		</div>
 
 		<div
@@ -285,7 +299,7 @@ SPDX-License-Identifier: MPL-2.0
 							class="rounded-lg relative"
 							src={WinnersScreenshot}
 							in:fade|global
-							alt="Screenshot of the import-page showing an URL to Kahoot! entered"
+							alt="Screenshot of the winners screen listing top players"
 						/>
 					{:else}
 						<p>Shouldn't happen!</p>
@@ -300,9 +314,10 @@ SPDX-License-Identifier: MPL-2.0
 					onclick={() => {
 						selected_play_thing = SelectedPlayThing.Select;
 					}}
-					onkeyup={() => {
-						selected_play_thing = SelectedPlayThing.Select;
-					}}
+					onkeydown={(event) =>
+						handleCardKeydown(event, () => {
+							selected_play_thing = SelectedPlayThing.Select;
+						})}
 					role="button"
 					tabindex="0"
 					class:shadow-2xl={selected_play_thing === SelectedPlayThing.Select}
@@ -327,7 +342,7 @@ SPDX-License-Identifier: MPL-2.0
 							/>
 						</svg>
 					</div>
-					<h5 class="text-xl w-fit dark:text-black">{$t('index_page.select_answer')}</h5>
+					<h4 class="text-xl w-fit dark:text-black">{$t('index_page.select_answer')}</h4>
 					<p class="dark:text-black">{$t('index_page.choose_answer_wisely')}</p>
 				</div>
 				<div
@@ -337,9 +352,10 @@ SPDX-License-Identifier: MPL-2.0
 					onclick={() => {
 						selected_play_thing = SelectedPlayThing.Results;
 					}}
-					onkeyup={() => {
-						selected_play_thing = SelectedPlayThing.Results;
-					}}
+					onkeydown={(event) =>
+						handleCardKeydown(event, () => {
+							selected_play_thing = SelectedPlayThing.Results;
+						})}
 					class:shadow-2xl={selected_play_thing === SelectedPlayThing.Results}
 					class:opacity-70={selected_play_thing !== SelectedPlayThing.Results}
 				>
@@ -362,7 +378,7 @@ SPDX-License-Identifier: MPL-2.0
 							/>
 						</svg>
 					</div>
-					<h5 class="text-xl dark:text-black">{$t('index_page.view_results')}</h5>
+					<h4 class="text-xl dark:text-black">{$t('index_page.view_results')}</h4>
 					<p class="dark:text-black">{$t('index_page.check_if_chosen_wisely')}</p>
 				</div>
 				<div
@@ -372,9 +388,10 @@ SPDX-License-Identifier: MPL-2.0
 					onclick={() => {
 						selected_play_thing = SelectedPlayThing.Winners;
 					}}
-					onkeyup={() => {
-						selected_play_thing = SelectedPlayThing.Winners;
-					}}
+					onkeydown={(event) =>
+						handleCardKeydown(event, () => {
+							selected_play_thing = SelectedPlayThing.Winners;
+						})}
 					class:shadow-2xl={selected_play_thing === SelectedPlayThing.Winners}
 					class:opacity-70={selected_play_thing !== SelectedPlayThing.Winners}
 				>
@@ -397,7 +414,7 @@ SPDX-License-Identifier: MPL-2.0
 							/>
 						</svg>
 					</div>
-					<h5 class="text-xl dark:text-black">{$t('index_page.list_winners')}</h5>
+					<h4 class="text-xl dark:text-black">{$t('index_page.list_winners')}</h4>
 					<p class="dark:text-black">{$t('index_page.get_ranking_and_winners')}</p>
 				</div>
 			</div>
@@ -406,9 +423,9 @@ SPDX-License-Identifier: MPL-2.0
 
 	<section class="mt-24">
 		<div class="flex justify-center w-full">
-			<h2 class="text-center text-3xl rounded-t-lg bg-white/40 py-2 px-6">
+			<h3 class="text-center text-3xl rounded-t-lg bg-white/40 py-2 px-6">
 				{$t('index_page.why_classquiz')}
-			</h2>
+			</h3>
 		</div>
 
 		<div
@@ -432,13 +449,14 @@ SPDX-License-Identifier: MPL-2.0
 						onclick={() => {
 							selected_classquiz_reason = index;
 						}}
-						onkeyup={() => {
-							selected_classquiz_reason = index;
-						}}
+						onkeydown={(event) =>
+							handleCardKeydown(event, () => {
+								selected_classquiz_reason = index;
+							})}
 						class:shadow-2xl={selected_classquiz_reason === index}
 						class:opacity-70={selected_classquiz_reason !== index}
 					>
-						<h5 class="text-xl dark:text-black">{reason.headline}</h5>
+						<h4 class="text-xl dark:text-black">{reason.headline}</h4>
 					</div>
 				{/each}
 			</div>
