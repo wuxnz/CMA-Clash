@@ -13,6 +13,10 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import Spinner from '$lib/Spinner.svelte';
 	import { focusTrap } from '$lib/ui/focusTrap';
+	import {
+		registerConflictFromResponse,
+		registerConflictMessage
+	} from '$lib/registerApiErrors';
 
 	const { t } = getLocalization();
 	import reporter from '@felte/reporter-tippy';
@@ -45,12 +49,13 @@ SPDX-License-Identifier: MPL-2.0
 		tos_accept: yup.boolean().oneOf([true], 'You must accept the terms of service to register!')
 	});
 
-	const { form, errors, isValid, isSubmitting } = createForm<
-		yup.InferType<typeof registerSchema>
-	>({
+	let serverFieldError = $state<{ field: 'email' | 'username'; message: string } | null>(null);
+
+	const { form, errors, isValid, isSubmitting } = createForm<yup.InferType<typeof registerSchema>>({
 		validate: validateSchema(registerSchema),
 		extend: [reporter()],
 		onSubmit: async (values) => {
+			serverFieldError = null;
 			const res = await fetch('/api/v1/users/create', {
 				method: 'post',
 				body: JSON.stringify({
@@ -66,9 +71,14 @@ SPDX-License-Identifier: MPL-2.0
 				const payload = await res.json();
 				window.location.href = `/account/check-email?email=${encodeURIComponent(payload.email ?? values.email)}`;
 				return;
-			} else if (res.status === 409) {
-				responseData.data = '409';
-			} else if (res.status === 400) {
+			}
+			const body = await res.json().catch(() => ({}));
+			const conflict = registerConflictFromResponse(res.status, body.detail);
+			if (conflict) {
+				serverFieldError = { field: conflict, message: registerConflictMessage(conflict) };
+				return;
+			}
+			if (res.status === 400) {
 				responseData.data = '400';
 			} else {
 				responseData.data = 'error';
@@ -91,9 +101,7 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	const heading = $derived(
-		responseData.data === '409'
-			? 'Account already exists'
-			: responseData.data === 'error'
+		responseData.data === 'error'
 				? 'Unexpected error'
 				: responseData.data === '200'
 					? 'Check your email'
@@ -124,7 +132,9 @@ SPDX-License-Identifier: MPL-2.0
 						placeholder={$t('words.email')}
 						autocomplete="email"
 					/>
-					{#if $errors.email?.length}
+					{#if serverFieldError?.field === 'email'}
+						<p class="text-xs text-danger mt-1" role="alert">{serverFieldError.message}</p>
+					{:else if $errors.email?.length}
 						<p class="text-xs text-danger mt-1">{$errors.email[0]}</p>
 					{/if}
 				</div>
@@ -138,7 +148,9 @@ SPDX-License-Identifier: MPL-2.0
 						placeholder={$t('words.username')}
 						autocomplete="username"
 					/>
-					{#if $errors.username?.length}
+					{#if serverFieldError?.field === 'username'}
+						<p class="text-xs text-danger mt-1" role="alert">{serverFieldError.message}</p>
+					{:else if $errors.username?.length}
 						<p class="text-xs text-danger mt-1">{$errors.username[0]}</p>
 					{/if}
 				</div>
@@ -233,8 +245,6 @@ SPDX-License-Identifier: MPL-2.0
 			<p class="text-sm text-ink-muted mt-2 leading-relaxed">
 				{#if responseData.data === '200'}
 					You signed up successfully. Check your mailbox to confirm your email address.
-				{:else if responseData.data === '409'}
-					An account with that email already exists.
 				{:else if responseData.data === '400'}
 					This email address isn't accepted.
 				{:else}

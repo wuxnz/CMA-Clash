@@ -218,14 +218,9 @@ This should be okay, right?
 		input = '';
 	};
 
-	onMount(async () => {
-		tinykeys(window, {
-			'$mod+k': toggle_open,
-			Escape: close_cp,
-			Tab: autocomplete_on_tab,
-			ArrowDown: on_arrow_down,
-			ArrowUp: on_arrow_up,
-			Enter: on_enter
+	onMount(() => {
+		const globalUnsub = tinykeys(window, {
+			'$mod+k': toggle_open
 		});
 		title_ms = new MiniSearch<any>({
 			fields: ['title'],
@@ -237,6 +232,20 @@ This should be okay, right?
 			storeFields: ['id']
 		});
 		command_ms.addAll(actions);
+		return globalUnsub;
+	});
+
+	$effect(() => {
+		if (!open) {
+			return;
+		}
+		return tinykeys(window, {
+			Escape: close_cp,
+			Tab: autocomplete_on_tab,
+			ArrowDown: on_arrow_down,
+			ArrowUp: on_arrow_up,
+			Enter: on_enter
+		});
 	});
 </script>
 
