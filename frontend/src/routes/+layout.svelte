@@ -47,7 +47,7 @@ SPDX-License-Identifier: MPL-2.0
 		<script
 			defer
 			data-domain={plausible_data_url}
-			src="https://plausible.nexus.mawoka.eu/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"
+			src="https://plausible.io/js/script.file-downloads.outbound-links.pageview-props.tagged-events.js"
 		></script>
 		<script>
 			window.plausible =

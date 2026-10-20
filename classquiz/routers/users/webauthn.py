@@ -39,7 +39,7 @@ async def request_add_key_data(data: RequirePasswordForAction, user: User = Depe
         raise HTTPException(status_code=401, detail="Invalid")
     options = generate_registration_options(
         rp_id=urllib.parse.urlparse(settings.root_address).hostname,
-        rp_name="ClassQuiz",
+        rp_name="CMA Clash",
         user_id=user.id.hex,
         user_name=user.email,
         exclude_credentials=[

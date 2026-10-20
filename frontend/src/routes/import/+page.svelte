@@ -208,7 +208,7 @@ SPDX-License-Identifier: MPL-2.0
 								<a
 									class="text-sm underline font-bold text-blue-500 dark:text-blue-400"
 									download
-									href="https://blog.web.garage.realux.mawoka.eu/classquiz/ClassQuizImportTemplate.xlsx"
+									href="https:///CMA-Clash-ImportTemplate.xlsx"
 									>{$t('import_page.download_template_here')}</a
 								>
 							</div>

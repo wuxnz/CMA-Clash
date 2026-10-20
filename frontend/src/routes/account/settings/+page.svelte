@@ -173,7 +173,7 @@ SPDX-License-Identifier: MPL-2.0
 						<BrownButton href="/account/settings/security"
 							>{$t('settings_page.security_settings')}
 						</BrownButton>
-						<BrownButton href="/account/controllers">ClassQuizController</BrownButton>
+						<BrownButton href="/account/controllers">Quiz Controller</BrownButton>
 						<BrownButton href="/user/{user.id}">Public profile page</BrownButton>
 					</div>
 				</div>

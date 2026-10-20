@@ -8,7 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	<title>CMA-Clash/docs - Roadmap</title>
 	<meta
 		name="description"
-		content="The roadmap for ClassQuiz, the open-source quiz-application"
+		content="The roadmap for CMA Clash, the open-source quiz-application"
 	/>
 </svelte:head>
 <article

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="CMA Clash">
+  <rect width="128" height="128" rx="24" fill="#F6F5F1"/>
+  <rect x="8" y="8" width="112" height="112" rx="20" fill="#0E7C74"/>
+  <text x="64" y="78" text-anchor="middle" font-family="system-ui,sans-serif" font-size="36" font-weight="700" fill="#F6F5F1">CMA</text>
+  <rect x="24" y="92" width="80" height="6" rx="3" fill="#E8B931"/>
+</svg>
