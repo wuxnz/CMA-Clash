@@ -10,13 +10,10 @@ SPDX-License-Identifier: MPL-2.0
 	import Footer from '$lib/footer.svelte';
 	import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION } from '$lib/site';
 	import MagneticButton from '$lib/ui/MagneticButton.svelte';
-	import BentoSpotlightCard from '$lib/ui/BentoSpotlightCard.svelte';
 	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
 	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
 	import { prefersReducedMotion } from '$lib/ui/motion';
-	import { scrollReveal } from '$lib/motion/scrollReveal';
 	import { fade } from 'svelte/transition';
-	import { Swords, Radio, Trophy, Zap } from '@lucide/svelte';
 
 	const { t } = getLocalization();
 	const reduced = prefersReducedMotion();
@@ -66,21 +63,16 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="min-h-screen flex flex-col">
 	<section
-		class="relative overflow-hidden px-4 min-h-[88vh] flex flex-col justify-center"
+		class="relative px-4 min-h-[88vh] flex flex-col justify-center"
 		aria-labelledby="home-hero-heading"
 	>
-		<div
-			class="pointer-events-none absolute inset-0"
-			style="background: radial-gradient(80% 60% at 70% 40%, rgba(123,92,255,0.28), transparent 60%), radial-gradient(50% 40% at 20% 80%, rgba(34,211,238,0.12), transparent 50%);"
-			aria-hidden="true"
-		></div>
-		<div class="relative z-10 max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-10 items-center py-16">
+		<div class="relative z-10 max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center py-16">
 			<div>
 				<p
-					class="text-cyan text-xs font-semibold uppercase tracking-[0.35em] mb-4"
+					class="text-sm text-ink-muted mb-4"
 					in:fade={reduced ? { duration: 0 } : { duration: 300 }}
 				>
-					NHA CCMA · Clinical skills
+					NHA CCMA exam prep
 				</p>
 				<h1
 					id="home-hero-heading"
@@ -91,13 +83,9 @@ SPDX-License-Identifier: MPL-2.0
 				<p class="mt-5 text-lg text-ink-muted max-w-md leading-relaxed">
 					{$t('index_page.cma_hero_subtitle')}
 				</p>
-				<div class="mt-8 flex flex-wrap items-center gap-4">
-					<div class="rounded-xl border border-white/10 bg-surface px-4 py-3">
-						<p class="text-[10px] uppercase tracking-[0.2em] text-ink-muted">Next Daily Clash</p>
-						<p class="font-display text-3xl text-gold tabular-nums leading-none mt-1">
-							{mm}:{ss}
-						</p>
-					</div>
+				<div class="mt-8 flex items-baseline gap-3">
+					<span class="text-sm text-ink-muted">Next daily clash</span>
+					<span class="font-display text-3xl text-gold tabular-nums leading-none">{mm}:{ss}</span>
 				</div>
 				<div class="flex flex-wrap gap-3 mt-8">
 					<MagneticButton href="/play" class="ledger-btn-primary w-auto px-10 text-lg"
@@ -107,13 +95,13 @@ SPDX-License-Identifier: MPL-2.0
 					<a href="/account/register" class="action-button w-auto px-8">{$t('words.register')}</a>
 				</div>
 			</div>
-			<div class="rounded-3xl bg-surface border border-transparent shadow-[var(--shadow-card)] p-5 sm:p-6">
+			<div class="rounded-2xl bg-surface p-5 sm:p-6">
 				<div class="flex items-center justify-between mb-4">
 					<span class="font-display text-2xl text-gold">VS</span>
-					<span class="font-display text-sm text-ink-muted">Q7/12</span>
+					<span class="text-sm text-ink-muted tabular-nums">7 / 12</span>
 				</div>
-				<p class="font-sans text-sm text-ink-muted mb-2">CCMA · Anatomy</p>
-				<p class="font-sans font-semibold text-ink mb-4">
+				<p class="text-sm text-ink-muted mb-2">CCMA · Anatomy</p>
+				<p class="font-semibold text-ink mb-4">
 					Which chamber of the heart receives oxygenated blood from the pulmonary veins?
 				</p>
 				<div class="grid grid-cols-2 gap-2">
@@ -127,41 +115,40 @@ SPDX-License-Identifier: MPL-2.0
 						</div>
 					{/each}
 				</div>
-				<p class="mt-4 text-center font-display text-gold text-sm">3-streak · +240 XP · Rank ▲2</p>
+				<p class="mt-4 text-center text-sm text-ink-muted">
+					<span class="font-display text-gold normal-case">3</span> streak · +240 XP
+				</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="px-4 max-w-6xl mx-auto w-full pb-24" use:scrollReveal>
-		<h2 class="font-display text-4xl sm:text-5xl text-center text-ink mb-10">
-			{$t('index_page.how_cma_clash_works')}
-		</h2>
-		<div
-			class="grid md:grid-cols-3 gap-4"
-			use:scrollReveal={{ childSelector: '[data-bento]', stagger: 0.1, y: 12 }}
-		>
-			<BentoSpotlightCard href="/play" class="md:col-span-2 min-h-[10rem]" data-bento>
-				<div class="flex items-center gap-3 mb-3">
-					<Radio class="w-6 h-6 text-cyan" />
-					<h3 class="font-display text-2xl text-ink">Live arena</h3>
-				</div>
-				<p class="text-ink-muted text-sm leading-relaxed">PIN lobbies, Kahoot-style tiles, VS intros.</p>
-			</BentoSpotlightCard>
-			<BentoSpotlightCard href="/dashboard" data-bento>
-				<Zap class="w-6 h-6 text-gold mb-3" />
-				<h3 class="font-display text-2xl text-ink">Study</h3>
-				<p class="text-ink-muted text-sm">CCMA banks and daily goals.</p>
-			</BentoSpotlightCard>
-			<BentoSpotlightCard href="/leaderboard" class="md:col-span-2" data-bento>
-				<Trophy class="w-6 h-6 text-gold mb-3" />
-				<h3 class="font-display text-2xl text-ink">Climb</h3>
-				<p class="text-ink-muted text-sm">Volt XP, streaks, and weekly boards.</p>
-			</BentoSpotlightCard>
-			<BentoSpotlightCard href="/battle" data-bento>
-				<Swords class="w-6 h-6 text-signal mb-3" />
-				<h3 class="font-display text-2xl text-ink">1v1</h3>
-				<p class="text-ink-muted text-sm">Head-to-head battles.</p>
-			</BentoSpotlightCard>
+	<section class="px-4 max-w-6xl mx-auto w-full pb-24">
+		<h2 class="text-sm font-semibold text-ink mb-8">How it works</h2>
+		<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-8">
+			<a href="/play" class="min-w-0 group">
+				<h3 class="text-base font-semibold text-ink">Live quiz</h3>
+				<p class="text-sm text-ink-muted mt-1 leading-relaxed transition-[color] duration-150 [@media(hover:hover)]:group-hover:text-ink">
+					Host a session or join with a PIN.
+				</p>
+			</a>
+			<a href="/practice" class="min-w-0 group">
+				<h3 class="text-base font-semibold text-ink">Practice</h3>
+				<p class="text-sm text-ink-muted mt-1 leading-relaxed transition-[color] duration-150 [@media(hover:hover)]:group-hover:text-ink">
+					Drill questions against a timer.
+				</p>
+			</a>
+			<a href="/battle" class="min-w-0 group">
+				<h3 class="text-base font-semibold text-ink">Battle</h3>
+				<p class="text-sm text-ink-muted mt-1 leading-relaxed transition-[color] duration-150 [@media(hover:hover)]:group-hover:text-ink">
+					Compete one-on-one.
+				</p>
+			</a>
+			<a href="/leaderboard" class="min-w-0 group">
+				<h3 class="text-base font-semibold text-ink">Leaderboard</h3>
+				<p class="text-sm text-ink-muted mt-1 leading-relaxed transition-[color] duration-150 [@media(hover:hover)]:group-hover:text-ink">
+					Weekly XP standings.
+				</p>
+			</a>
 		</div>
 	</section>
 </div>

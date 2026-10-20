@@ -15,7 +15,6 @@ SPDX-License-Identifier: MPL-2.0
 	import type { PageData } from './$types';
 	import { fetchGamification } from '$lib/cma/client';
 	import { onMount } from 'svelte';
-	import { scrollReveal } from '$lib/motion/scrollReveal';
 
 	interface Props {
 		data: PageData;
@@ -68,13 +67,8 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="min-h-screen flex flex-col">
 	<main class="flex-1 max-w-3xl mx-auto w-full px-4 py-10">
-		<h1
-			class="font-display text-5xl sm:text-6xl text-ink"
-			use:scrollReveal={{ y: 20 }}
-		>
-			Leaderboard
-		</h1>
-		<p class="text-ink-muted mt-2 mb-6">Divisions · Season 1 — weekly climb and all-time XP.</p>
+		<h1 class="text-2xl font-semibold text-ink tracking-tight">Leaderboard</h1>
+		<p class="text-sm text-ink-muted mt-1 mb-8">Weekly XP and all-time standings.</p>
 
 		{#if usingDemo}
 			<p class="text-sm text-gold bg-gold/10 border border-gold/30 rounded-lg px-3 py-2 mb-4" data-demo-label="true">
@@ -82,14 +76,14 @@ SPDX-License-Identifier: MPL-2.0
 			</p>
 		{/if}
 
-		<RetentionBar {streakDays} dailyGoalPercent={0} leagueName="Weekly league" leagueIsDemo={usingDemo} />
+		<RetentionBar {streakDays} dailyGoalPercent={0} />
 
 		<div class="flex gap-2 mt-8 mb-6" role="tablist">
 			<button
 				type="button"
 				role="tab"
 				aria-selected={tab === 'weekly'}
-				class="px-4 py-2 rounded-lg text-sm font-medium {tab === 'weekly'
+				class="min-h-11 px-4 py-2 rounded-lg text-sm font-medium {tab === 'weekly'
 					? 'bg-primary text-white'
 					: 'bg-surface border border-ink/15 text-ink-muted'}"
 				onclick={() => (tab = 'weekly')}
@@ -100,7 +94,7 @@ SPDX-License-Identifier: MPL-2.0
 				type="button"
 				role="tab"
 				aria-selected={tab === 'alltime'}
-				class="px-4 py-2 rounded-lg text-sm font-medium {tab === 'alltime'
+				class="min-h-11 px-4 py-2 rounded-lg text-sm font-medium {tab === 'alltime'
 					? 'bg-primary text-white'
 					: 'bg-surface border border-ink/15 text-ink-muted'}"
 				onclick={() => (tab = 'alltime')}
@@ -113,9 +107,7 @@ SPDX-License-Identifier: MPL-2.0
 			<Podium entries={podium} />
 		</Card>
 
-		<div use:scrollReveal={{ y: 24 }}>
-			<LedgerTable rows={rows} caption="League standings" flip={true} />
-		</div>
+		<LedgerTable rows={rows} caption="League standings" flip={true} />
 	</main>
 	<Footer />
 </div>
