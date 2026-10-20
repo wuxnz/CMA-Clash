@@ -20,6 +20,8 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
 	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
+	import { certDotClass, certLabelFor, prettyDifficulty } from '$lib/quiz/labels';
+	import { Play, Eye } from '@lucide/svelte';
 
 	navbarVisible.visible = true;
 
@@ -65,6 +67,12 @@ SPDX-License-Identifier: MPL-2.0
 		kahoot_id?: string;
 		mod_rating?: number;
 		cover_image?: string | null;
+		plays?: number;
+		views?: number;
+		likes?: number;
+		dislikes?: number;
+		difficulty?: string | null;
+		certification_id?: string | null;
 	}
 
 	const author = $derived(
@@ -72,6 +80,11 @@ SPDX-License-Identifier: MPL-2.0
 			? quiz.user_id
 			: { id: String(quiz.user_id), username: '' }
 	);
+	const certLabel = $derived(certLabelFor({ title: quiz.title, certification_id: quiz.certification_id }));
+	const difficulty = $derived(prettyDifficulty(quiz.difficulty));
+	const questionCount = $derived(Array.isArray(quiz.questions) ? quiz.questions.length : 0);
+	const plays = $derived(quiz.plays ?? 0);
+	const views = $derived(quiz.views ?? 0);
 </script>
 
 <svelte:head>
@@ -104,12 +117,47 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 		{/if}
 
-		<div class="mt-6 flex flex-wrap gap-2">
+		<div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-muted min-w-0">
+			<p class="inline-flex flex-wrap items-center gap-x-1.5 min-w-0">
+				{#if certLabel}
+					<span class="inline-flex items-center gap-1.5">
+						<span class="inline-block w-1.5 h-1.5 rounded-full {certDotClass(certLabel)}"></span>
+						{certLabel}
+					</span>
+				{/if}
+				{#if certLabel && difficulty}<span aria-hidden="true">·</span>{/if}
+				{#if difficulty}<span>{difficulty}</span>{/if}
+				{#if (certLabel || difficulty) && questionCount}<span aria-hidden="true">·</span>{/if}
+				{#if questionCount}<span>{questionCount} questions</span>{/if}
+				{#if plays > 0}
+					<span aria-hidden="true">·</span>
+					<span class="inline-flex items-center gap-1">
+						<Play class="w-3.5 h-3.5" aria-hidden="true" />
+						{plays} {plays === 1 ? 'play' : 'plays'}
+					</span>
+				{/if}
+				{#if views > 0}
+					<span aria-hidden="true">·</span>
+					<span class="inline-flex items-center gap-1">
+						<Eye class="w-3.5 h-3.5" aria-hidden="true" />
+						{views} {views === 1 ? 'view' : 'views'}
+					</span>
+				{/if}
+			</p>
 			<RatingComponent bind:quiz />
-			{#if mod_view}
-				<ModComponent autoReturn={auto_return} quiz_id={quiz.id} />
-			{/if}
+			<a
+				href="mailto:abuse@example.com?subject=Report quiz {quiz.id}"
+				class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
+			>
+				{$t('words.report')}
+			</a>
 		</div>
+
+		{#if mod_view}
+			<div class="mt-3">
+				<ModComponent autoReturn={auto_return} quiz_id={quiz.id} />
+			</div>
+		{/if}
 
 		<div class="mt-6 flex flex-col sm:flex-row flex-wrap gap-2">
 			{#if quiz.imported_from_kahoot && quiz.kahoot_id}
@@ -131,11 +179,6 @@ SPDX-License-Identifier: MPL-2.0
 				</Button>
 			{/if}
 		</div>
-		<p class="mt-3">
-			<a href="mailto:abuse@example.com?subject=Report quiz {quiz.id}" class="text-sm text-ink-muted link-hover">
-				{$t('words.report')}
-			</a>
-		</p>
 
 		<div class="mt-10">
 			<h2 class="text-sm font-semibold text-ink mb-2">Questions</h2>

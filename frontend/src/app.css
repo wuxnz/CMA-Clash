@@ -234,10 +234,18 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility btn {
-	@apply inline-flex items-center justify-center gap-2 box-border h-12 min-h-11 px-5 rounded-lg font-sans text-sm font-semibold leading-none disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+	@apply inline-flex items-center justify-center gap-2 box-border h-12 min-h-11 px-5 rounded-lg font-sans text-sm font-semibold leading-none disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
 	transition-property: transform, background-color, color, box-shadow, filter;
 	transition-duration: 150ms;
 	transition-timing-function: ease-out;
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+	cursor: not-allowed;
+	transform: none;
+	filter: none;
+	box-shadow: none;
 }
 
 .btn:active:not(:disabled) {
@@ -259,6 +267,21 @@ SPDX-License-Identifier: MPL-2.0
 	.btn-primary:hover:not(:disabled) {
 		filter: brightness(1.05);
 	}
+}
+
+.btn-primary:disabled,
+.btn-primary[aria-disabled='true'] {
+	background: var(--color-elevated);
+	color: var(--color-ink-muted);
+	filter: none;
+}
+
+.btn-secondary:disabled,
+.btn-secondary[aria-disabled='true'],
+.btn-ghost:disabled,
+.btn-ghost[aria-disabled='true'] {
+	color: var(--color-ink-muted);
+	opacity: 0.55;
 }
 
 @utility btn-secondary {

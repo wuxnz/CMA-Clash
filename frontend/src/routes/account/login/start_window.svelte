@@ -114,7 +114,7 @@ SPDX-License-Identifier: MPL-2.0
 					type="submit"
 				>
 					{#if isSubmitting}
-						<Spinner class="h-4 w-4" my_20={false} inverse />
+						<Spinner class="h-4 w-4" my_20={false} />
 					{:else}
 						{$t('words.continue')}
 					{/if}

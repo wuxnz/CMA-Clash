@@ -105,7 +105,7 @@ SPDX-License-Identifier: MPL-2.0
 	};
 
 	const delete_api_key = async (key: string) => {
-		if (confirm('Do you really want to delete this API-Key?')) {
+		if (confirm('Delete this API key?')) {
 			await fetch(`/api/v1/users/api_keys?api_key=${key}`, { method: 'DELETE' });
 			api_keys = get_api_keys();
 		}
@@ -159,24 +159,24 @@ SPDX-License-Identifier: MPL-2.0
 						src="/api/v1/users/avatar"
 						alt=""
 					/>
-					<Button href="/account/settings/avatar" variant="secondary" size="sm" class="w-auto mt-3">
-						{$t('settings_page.change_avatar')}
+					<Button href="/account/settings/avatar" variant="ghost" size="sm" class="w-auto mt-3">
+						Change avatar
 					</Button>
 				</div>
 				<div class="min-w-0">
 					<p class="text-lg font-semibold text-ink truncate">{user.username}</p>
 					<p class="text-sm text-ink-muted mt-1 break-all">{user.email}</p>
-					<div class="mt-4 flex flex-wrap gap-2">
-						<Button href="/account/settings/security" variant="secondary" size="sm" class="w-auto">
-							{$t('settings_page.security_settings')}
-						</Button>
-						<Button href="/account/controllers" variant="secondary" size="sm" class="w-auto">
+					<nav class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" aria-label="Account">
+						<a href="/account/settings/security" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+							Security
+						</a>
+						<a href="/account/controllers" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
 							Quiz controllers
-						</Button>
-						<Button href="/user/{user.id}" variant="secondary" size="sm" class="w-auto">
+						</a>
+						<a href="/user/{user.id}" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
 							Public profile
-						</Button>
-					</div>
+						</a>
+					</nav>
 				</div>
 			</div>
 
@@ -213,7 +213,7 @@ SPDX-License-Identifier: MPL-2.0
 					/>
 				</div>
 				<Button type="submit" disabled={!passwordChangeDataValid} class="w-full sm:w-auto">
-					{$t('settings_page.change_password_submit')}
+					Change password
 				</Button>
 			</form>
 

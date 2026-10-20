@@ -9,6 +9,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
+	import Button from '$lib/ui/Button.svelte';
 
 	navbarVisible.visible = true;
 	const { t } = getLocalization();
@@ -29,7 +30,8 @@ SPDX-License-Identifier: MPL-2.0
 		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Results</h1>
 
 		{#if data.results.length === 0}
-			<p class="text-sm text-ink-muted mt-6">{$t('results_page.no_results_so_far')}</p>
+			<p class="text-sm text-ink-muted mt-6">Host a game to see scores here.</p>
+			<Button href="/host" class="w-auto mt-4">Host a Clash</Button>
 		{:else}
 			<div class="mt-6 overflow-x-auto min-w-0">
 				<table class="w-full text-sm text-left min-w-[36rem]">
