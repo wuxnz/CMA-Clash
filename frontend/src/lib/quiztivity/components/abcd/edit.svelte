@@ -35,7 +35,7 @@ SPDX-License-Identifier: MPL-2.0
 	</div>
 	<div class="grid grid-cols-2 m-4 gap-4">
 		{#each data.answers as answer}
-			<div class="rounded-sm p-6 bg-gray-700 flex">
+			<div class="rounded-sm p-6 bg-elevated flex">
 				<input
 					bind:value={answer.answer}
 					class="w-full my-auto bg-transparent outline-hidden text-center text-white"
@@ -82,7 +82,7 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 		{/each}
 		{#if data.answers.length < 4}
-			<div class="rounded-sm p-6 bg-gray-700">
+			<div class="rounded-sm p-6 bg-elevated">
 				<BrownButton
 					onclick={() => {
 						data.answers = [...data.answers, { ...{ answer: '', correct: false } }];

@@ -43,45 +43,45 @@ SPDX-License-Identifier: MPL-2.0
 <div class="flex items-center justify-center h-full px-4">
 	<div>
 		<div
-			class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+			class="w-full max-w-sm mx-auto overflow-hidden bg-surface rounded-lg shadow-md"
 		>
 			<div class="px-6 py-4">
-				<h2 class="text-3xl font-bold text-center text-gray-700 dark:text-white">
+				<h2 class="text-3xl font-bold text-center text-ink">
 					CMA Clash
 				</h2>
 
-				<h3 class="mt-1 text-xl font-medium text-center text-gray-600 dark:text-gray-200">
+				<h3 class="mt-1 text-xl font-medium text-center text-ink-muted">
 					Add a controller
 				</h3>
 
 				<form onsubmit={submit}>
 					<div class="w-full mt-4">
-						<div class="dark:bg-gray-800 bg-white p-4 rounded-lg">
+						<div class="bg-surface p-4 rounded-lg">
 							<div class="relative bg-inherit w-full">
 								<input
 									id="player_name"
 									name="player_name"
 									type="text"
-									class="w-full peer bg-transparent h-10 rounded-lg text-gray-700 dark:text-white placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
+									class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
 									class:ring-red-700={input_data.player_name.length === 0}
 									class:ring-green-600={input_data.player_name.length !== 0}
 									bind:value={input_data.player_name}
 								/>
 								<label
 									for="player_name"
-									class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-white bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+									class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
 								>
 									Player name
 								</label>
 							</div>
 						</div>
-						<div class="dark:bg-gray-800 bg-white p-4 rounded-lg">
+						<div class="bg-surface p-4 rounded-lg">
 							<div class="relative bg-inherit w-full">
 								<input
 									id="name"
 									name="name"
 									type="text"
-									class="w-full peer bg-transparent h-10 rounded-lg text-gray-700 dark:text-white placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
+									class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
 									placeholder="Name"
 									class:ring-red-700={input_data.name.length === 0}
 									class:ring-green-600={input_data.name.length !== 0}
@@ -89,7 +89,7 @@ SPDX-License-Identifier: MPL-2.0
 								/>
 								<label
 									for="name"
-									class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-white bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+									class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
 								>
 									Name
 								</label>
@@ -98,7 +98,7 @@ SPDX-License-Identifier: MPL-2.0
 
 						<div class="flex items-center justify-center mt-4">
 							<button
-								class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-sm hover:bg-gray-600 focus:outline-hidden"
+								class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden"
 								disabled={!isValid || isSubmitting}
 								class:cursor-not-allowed={!isValid || isSubmitting}
 								class:opacity-50={!isValid || isSubmitting}
@@ -125,15 +125,15 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 
 			<div
-				class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700"
+				class="flex items-center justify-center py-4 text-center bg-paper-muted"
 			>
-				<span class="text-sm text-gray-600 dark:text-gray-200"
+				<span class="text-sm text-ink-muted"
 					>Don't know what this is?
 				</span>
 
 				<a
 					href="/controller"
-					class="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline"
+					class="mx-2 text-sm font-bold text-primary hover:underline"
 					>Read more here.</a
 				>
 			</div>

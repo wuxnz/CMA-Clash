@@ -167,7 +167,7 @@ SPDX-License-Identifier: MPL-2.0
 			style="height: {question.image ? '33.333333' : '16.666667'}%"
 		>
 			<h1
-				class="lg:text-2xl text-lg text-center text-black dark:text-white mt-2 break-normal mb-2"
+				class="lg:text-2xl text-lg text-center text-ink text-ink mt-2 break-normal mb-2"
 			>
 				{@html normalizeQuizText(question.question)}
 			</h1>
@@ -270,14 +270,14 @@ SPDX-License-Identifier: MPL-2.0
 					style="width: {(100 / parseInt(question.time)) * parseInt(timer_res)}vw"
 				></span>
 				<div class="flex justify-center mt-10">
-					<p class="text-black dark:text-white">Enter your answer</p>
+					<p class="text-ink text-ink">Enter your answer</p>
 				</div>
 				<div class="flex justify-center m-2">
 					<input
 						type="text"
 						bind:value={text_input}
 						disabled={selected_answer !== undefined}
-						class="bg-gray-50 focus:ring text-gray-900 rounded-lg focus:ring-blue-500 block w-full p-2 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 outline-hidden transition text-center disabled:opacity-50 disabled:cursor-not-allowed"
+						class="bg-gray-50 focus:ring text-ink rounded-lg focus:ring-blue-500 block w-full p-2 bg-elevated text-ink dark:focus:ring-blue-500 outline-hidden transition text-center disabled:opacity-50 disabled:cursor-not-allowed"
 					/>
 				</div>
 

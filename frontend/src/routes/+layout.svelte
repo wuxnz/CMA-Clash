@@ -24,13 +24,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	if (browser) {
 		pathname.set(window.location.pathname);
-		// Dark flagship: default to dark unless user chose light
-		const useDark = localStorage.theme !== 'light';
-		if (useDark) {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
+		document.documentElement.classList.add('dark');
 		import('lenis').then(({ default: Lenis }) => {
 			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 			const lenis = new Lenis({ smoothWheel: true });

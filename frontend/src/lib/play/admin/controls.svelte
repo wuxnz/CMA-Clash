@@ -30,7 +30,7 @@ SPDX-License-Identifier: MPL-2.0
 <div
 	class="fixed top-0 w-full h-10 z-20 grid grid-cols-2"
 	style="background: {bg_color ? bg_color : 'transparent'}"
-	class:text-black={bg_color}
+	class:text-ink={bg_color}
 >
 	<p class="mr-auto ml-0 col-start-1 col-end-1">
 		{game_state.selected_question === -1 ? '0' : game_state.selected_question + 1}

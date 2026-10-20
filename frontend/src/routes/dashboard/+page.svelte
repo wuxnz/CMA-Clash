@@ -141,7 +141,7 @@ SPDX-License-Identifier: MPL-2.0
 				/>
 			</div>
 			<!--		<button
-                    class='px-4 py-2 font-medium tracking-wide text-gray-500 whitespace-nowrap dark:text-gray-400 capitalize transition-colors dark:bg-gray-700 duration-200 transform bg-[#B07156] rounded-md hover:bg-green-600 focus:outline-hidden focus:ring focus:ring-blue-300 focus:ring-opacity-80'>
+                    class='px-4 py-2 font-medium tracking-wide text-ink-muted whitespace-nowrap text-ink-muted capitalize transition-colors bg-elevated duration-200 transform bg-[#B07156] rounded-md hover:bg-green-600 focus:outline-hidden focus:ring focus:ring-blue-300 focus:ring-opacity-80'>
                     Primary
                 </button>-->
 			<div class="w-full grid lg:grid-cols-4 gap-2 grid-cols-2 px-4">
@@ -178,7 +178,7 @@ SPDX-License-Identifier: MPL-2.0
 						<div>
 							<input
 								bind:value={search_term}
-								class="p-2 rounded-lg outline-hidden text-center w-96 dark:bg-gray-700"
+								class="p-2 rounded-lg outline-hidden text-center w-96 bg-elevated"
 								placeholder={$t('dashboard.search_for_own_quizzes')}
 							/>
 							<button

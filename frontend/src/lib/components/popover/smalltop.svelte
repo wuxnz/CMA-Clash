@@ -26,7 +26,7 @@ SPDX-License-Identifier: MPL-2.0
 		transition:fly|global={{ y: -100 }}
 	>
 		<div
-			class="flex items-center p-4 w-full max-w-xs text-gray-500 bg-white rounded-lg shadow-smdark:text-gray-400 dark:bg-gray-800"
+			class="flex items-center p-4 w-full max-w-xs text-ink-muted bg-white rounded-lg shadow-smtext-ink-muted bg-surface"
 			role="alert"
 		>
 			<div class="ml-3 text-sm font-normal">
@@ -44,7 +44,7 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 			<button
 				type="button"
-				class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+				class="ml-auto -mx-1.5 -my-1.5 bg-white text-ink-muted hover:text-ink rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-ink-muted dark:hover:text-white bg-surface dark:hover:bg-elevated"
 				data-dismiss-target="#toast-default"
 				aria-label="Close"
 				onclick={() => {

@@ -103,14 +103,14 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 			<div class="col-span-5 flex flex-col">
 				<div
-					class="h-10 w-full bg-white mb-10 flex align-middle justify-center rounded-br-lg"
+					class="h-10 w-full bg-surface mb-10 flex align-middle justify-center rounded-br-lg"
 				>
 					{#if schemaInvalid}
 						<p class="text-center w-full text-red-600 h-full mt-0.5 font-semibold">
 							{yupErrorMessage}
 						</p>
 					{:else}
-						<p class="text-center w-full text-black h-full align-bottom mt-0.5">
+						<p class="text-center w-full text-ink h-full align-bottom mt-0.5">
 							{@html data.title}
 						</p>
 					{/if}

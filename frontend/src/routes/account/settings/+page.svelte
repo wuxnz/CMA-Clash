@@ -183,21 +183,21 @@ SPDX-License-Identifier: MPL-2.0
 					<label
 						>{$t('settings_page.old_password')}:<input
 							type="password"
-							class="m-2 text-black rounded-sm p-1 dark:bg-gray-700 dark:text-white"
+							class="m-2 text-ink rounded-sm p-1 bg-elevated text-ink"
 							bind:value={changePasswordData.oldPassword}
 						/></label
 					>
 					<label
 						>{$t('settings_page.new_password')}:<input
 							type="password"
-							class="m-2 text-black rounded-sm p-1 dark:bg-gray-700 dark:text-white"
+							class="m-2 text-ink rounded-sm p-1 bg-elevated text-ink"
 							bind:value={changePasswordData.newPassword}
 						/></label
 					>
 					<label
 						>{$t('settings_page.repeat_password')}:<input
 							type="password"
-							class="m-2 text-black rounded-sm p-1 dark:bg-gray-700 dark:text-white"
+							class="m-2 text-ink rounded-sm p-1 bg-elevated text-ink"
 							bind:value={changePasswordData.newPasswordConfirm}
 						/></label
 					>
@@ -239,35 +239,35 @@ SPDX-License-Identifier: MPL-2.0
 	<Spinner />
 {:then sessions}
 	<table class="min-w-full">
-		<thead class="bg-gray-50 dark:bg-gray-700">
+		<thead class="bg-paper-muted">
 			<tr>
 				<th
 					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
 				>
 					{$t('overview_page.created_at')}
 				</th>
 				<th
 					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
 				>
 					{$t('settings_page.last_seen')}
 				</th>
 				<th
 					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
 				>
 					{$t('words.browser')}
 				</th>
 				<th
 					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
 				>
 					{$t('settings_page.delete_this_session')}
 				</th>
 				<th
 					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
 				>
 					{$t('settings_page.this_session?')}
 				</th>
@@ -275,24 +275,24 @@ SPDX-License-Identifier: MPL-2.0
 		</thead>
 		<tbody>
 			{#each sessions as session}
-				<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+				<tr class="bg-white border-b bg-surface border-ink/15">
 					<td
-						class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"
+						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
 					>
 						{formatDate(session.created_at)}
 					</td>
 					<td
-						class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"
+						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
 					>
 						{formatDate(session.last_seen)}
 					</td>
 					<td
-						class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"
+						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
 					>
 						{getFormattedUserAgent(session.user_agent)}
 					</td>
 					<td
-						class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"
+						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
 					>
 						<button
 							onclick={() => {
@@ -301,7 +301,7 @@ SPDX-License-Identifier: MPL-2.0
 						>
 					</td>
 					<td
-						class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"
+						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
 					>
 						{#if session.id === this_session?.id}
 							✅

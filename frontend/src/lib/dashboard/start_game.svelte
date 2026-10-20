@@ -94,7 +94,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div
-	class="fixed top-0 left-0 flex justify-center w-screen h-screen bg-black/60 z-50 text-black"
+	class="fixed top-0 left-0 flex justify-center w-screen h-screen bg-black/60 z-50 text-ink"
 	transition:fade|global={{ duration: 100 }}
 	onclick={on_parent_click}
 >
@@ -116,20 +116,20 @@ SPDX-License-Identifier: MPL-2.0
 					class="sr-only peer"
 				/>
 				<span
-					class="w-14 h-7 bg-gray-200 rounded-full
+					class="w-14 h-7 bg-paper-muted rounded-full
 					peer-focus:outline-hidden peer-focus:ring-4 peer-focus:ring-blue-300
-					dark:peer-focus:ring-blue-800 dark:bg-gray-700
+					dark:peer-focus:ring-blue-800 bg-elevated
 					peer-checked:bg-blue-600
 					relative
 					after:content-['']
 					after:absolute after:top-0.5 after:start-[4px]
-					after:bg-white after:border-gray-300 after:border
+					after:bg-white after:border-ink/20 after:border
 					after:rounded-full after:h-6 after:w-6
 					after:transition-all
 					peer-checked:after:translate-x-full
 					rtl:peer-checked:after:-translate-x-full"
 				></span>
-				<span class="ms-3 text-sm font-medium text-gray-900"
+				<span class="ms-3 text-sm font-medium text-ink"
 					>Captcha {captcha_selected ? 'enabled' : 'disabled'}</span
 				>
 			</label>
@@ -145,7 +145,7 @@ SPDX-License-Identifier: MPL-2.0
 
 		<div class="grid grid-cols-2 gap-8 my-auto">
 			<div
-				class="rounded-lg bg-white shadow-lg cursor-pointer transition-all p-2"
+				class="rounded-lg bg-surface shadow-lg cursor-pointer transition-all p-2"
 				class:opacity-50={selected_game_mode !== 'kahoot'}
 				onclick={() => {
 					selected_game_mode = 'kahoot';
@@ -157,7 +157,7 @@ SPDX-License-Identifier: MPL-2.0
 				</p>
 			</div>
 			<div
-				class="rounded-lg bg-white shadow-lg cursor-pointer transition-all p-2"
+				class="rounded-lg bg-surface shadow-lg cursor-pointer transition-all p-2"
 				class:opacity-50={selected_game_mode !== 'normal'}
 				onclick={() => {
 					selected_game_mode = 'normal';
@@ -186,20 +186,20 @@ SPDX-License-Identifier: MPL-2.0
 					class="sr-only peer"
 				/>
 				<span
-					class="w-14 h-7 bg-gray-200 rounded-full
+					class="w-14 h-7 bg-paper-muted rounded-full
 					peer-focus:outline-hidden peer-focus:ring-4 peer-focus:ring-blue-300
-					dark:peer-focus:ring-blue-800 dark:bg-gray-700
+					dark:peer-focus:ring-blue-800 bg-elevated
 					peer-checked:bg-blue-600
 					relative
 					after:content-['']
 					after:absolute after:top-0.5 after:start-[4px]
-					after:bg-white after:border-gray-300 after:border
+					after:bg-white after:border-ink/20 after:border
 					after:rounded-full after:h-6 after:w-6
 					after:transition-all
 					peer-checked:after:translate-x-full
 					rtl:peer-checked:after:-translate-x-full"
 				></span>
-				<span class="ms-3 text-sm font-medium text-gray-900"
+				<span class="ms-3 text-sm font-medium text-ink"
 					><a
 						href="/controller"
 						target="_blank"
@@ -225,20 +225,20 @@ SPDX-License-Identifier: MPL-2.0
 					class="sr-only peer"
 				/>
 				<span
-					class="w-14 h-7 bg-gray-200 rounded-full
+					class="w-14 h-7 bg-paper-muted rounded-full
 					peer-focus:outline-hidden peer-focus:ring-4 peer-focus:ring-blue-300
-					dark:peer-focus:ring-blue-800 dark:bg-gray-700
+					dark:peer-focus:ring-blue-800 bg-elevated
 					peer-checked:bg-blue-600
 					relative
 					after:content-['']
 					after:absolute after:top-0.5 after:start-[4px]
-					after:bg-white after:border-gray-300 after:border
+					after:bg-white after:border-ink/20 after:border
 					after:rounded-full after:h-6 after:w-6
 					after:transition-all
 					peer-checked:after:translate-x-full
 					rtl:peer-checked:after:-translate-x-full"
 				></span>
-				<span class="ms-3 text-sm font-medium text-gray-900"> Randomize answers</span>
+				<span class="ms-3 text-sm font-medium text-ink"> Randomize answers</span>
 			</label>
 		</div>
 

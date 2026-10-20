@@ -191,7 +191,7 @@ SPDX-License-Identifier: MPL-2.0
 <div
 	class="min-h-screen min-w-full bg-paper"
 	style={bg_color ? `background: ${bg_color}` : undefined}
-	class:text-black={bg_color}
+	class:text-ink={bg_color}
 >
 	<div>
 		{#if !gameMeta.started && gameData === undefined}
@@ -206,7 +206,7 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		{:else if gameMeta.started && gameData !== undefined && question_index !== '' && answer_results === undefined}
 			{#key unique}
-				<div class="text-ink" class:text-black={bg_color}>
+				<div class="text-ink" class:text-ink={bg_color}>
 					<Question
 						bind:game_mode
 						bind:question

@@ -145,7 +145,7 @@ SPDX-License-Identifier: MPL-2.0
 	};
 </script>
 
-<div class="w-screen h-screen m-auto flex flex-col dark:bg-gray-700 p-2 bg-white">
+<div class="w-screen h-screen m-auto flex flex-col bg-elevated p-2">
 	<input type="file" bind:this={file_input} class="m-auto" accept="video/mp4" />
 	<div class="mt-auto flex justify-center">
 		{#if status === Status.Compressing || status === Status.CompressDone}

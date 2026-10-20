@@ -5,11 +5,19 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, nofollow" />
+		<meta name="color-scheme" content="dark" />
+		<meta name="theme-color" content="#05070d" />
+		<style>
+			html {
+				background-color: #05070d;
+				color-scheme: dark;
+			}
+		</style>
 		<script>
 			window.plausible =
 				window.plausible ||
@@ -39,8 +47,7 @@ SPDX-License-Identifier: MPL-2.0
 		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
 		<meta name="apple-mobile-web-app-title" content="CMA Clash" />
 		<meta name="application-name" content="CMA Clash" />
-		<meta name="msapplication-TileColor" content="#0E7C74" />
-		<meta name="theme-color" content="#F6F5F1" />
+		<meta name="msapplication-TileColor" content="#05070d" />
 		%sveltekit.head%
 	</head>
 	<body>

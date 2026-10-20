@@ -33,15 +33,7 @@ const mobileRoutes = [
 	['demo-podium', '/demo/screens#podium']
 ];
 
-async function setTheme(page, theme) {
-	await page.evaluate((t) => {
-		localStorage.setItem('theme', t);
-		document.documentElement.classList.toggle('dark', t === 'dark');
-	}, theme);
-}
-
-async function shot(page, file, theme, opts = {}) {
-	await setTheme(page, theme);
+async function shot(page, file, opts = {}) {
 	if (!opts.skipReload) {
 		await page.reload({ waitUntil: 'networkidle' });
 	}
@@ -78,44 +70,43 @@ async function main() {
 	const browser = await chromium.launch();
 	const missing = [];
 
-	for (const theme of ['dark', 'light']) {
-		await mkdir(`${OUT}/${theme}`, { recursive: true });
-		const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
-		await tryLogin(page);
-		for (const [name, path] of desktopRoutes) {
-			try {
-				const opts =
-					name === 'battle-countdown'
-						? {
-								beforeCapture: async (p) => {
-									await p.click('button:has-text("Preview countdown")').catch(() => {});
-									await p.waitForTimeout(700);
-								}
+	const themeDir = `${OUT}/dark`;
+	await mkdir(themeDir, { recursive: true });
+	const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+	await tryLogin(page);
+	for (const [name, path] of desktopRoutes) {
+		try {
+			const opts =
+				name === 'battle-countdown'
+					? {
+							beforeCapture: async (p) => {
+								await p.click('button:has-text("Preview countdown")').catch(() => {});
+								await p.waitForTimeout(700);
 							}
-						: {};
-				await page.goto(`${BASE}${path.split('#')[0]}`, { waitUntil: 'networkidle', timeout: 60000 });
-				await shot(page, `${OUT}/${theme}/${name}.png`, theme, opts);
-				console.log('wrote', theme, name);
-			} catch (e) {
-				missing.push(`${theme}/${name}: ${e.message}`);
-				console.warn('skip', theme, name, e.message);
-			}
+						}
+					: {};
+			await page.goto(`${BASE}${path.split('#')[0]}`, { waitUntil: 'networkidle', timeout: 60000 });
+			await shot(page, `${themeDir}/${name}.png`, opts);
+			console.log('wrote dark', name);
+		} catch (e) {
+			missing.push(`dark/${name}: ${e.message}`);
+			console.warn('skip', name, e.message);
 		}
-		await page.close();
 	}
+	await page.close();
 
 	await mkdir(`${OUT}/mobile/dark`, { recursive: true });
 	const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
-	await tryLogin(mobile);
 	for (const [name, path] of mobileRoutes) {
 		try {
 			await mobile.goto(`${BASE}${path.split('#')[0]}`, { waitUntil: 'networkidle' });
-			await shot(mobile, `${OUT}/mobile/dark/${name}.png`, 'dark');
+			await shot(mobile, `${OUT}/mobile/dark/${name}.png`, { skipReload: true });
 			console.log('wrote mobile dark', name);
 		} catch (e) {
 			missing.push(`mobile/dark/${name}: ${e.message}`);
 		}
 	}
+	await mobile.close();
 
 	const videoDir = `${OUT}/video`;
 	await mkdir(videoDir, { recursive: true });
@@ -124,7 +115,6 @@ async function main() {
 		recordVideo: { dir: videoDir, size: { width: 1280, height: 800 } }
 	});
 	const rec = await recCtx.newPage();
-	await setTheme(rec, 'dark');
 	await rec.goto(`${BASE}/`, { waitUntil: 'networkidle' });
 	await rec.evaluate(() => window.scrollTo(0, 0));
 	await rec.waitForTimeout(400);
@@ -151,7 +141,6 @@ async function main() {
 		recordVideo: { dir: videoDir, size: { width: 1280, height: 800 } }
 	});
 	const pod = await podCtx.newPage();
-	await setTheme(pod, 'dark');
 	await pod.goto(`${BASE}/demo/screens`, { waitUntil: 'networkidle' });
 	await pod.evaluate(() => document.getElementById('podium')?.scrollIntoView());
 	await pod.waitForTimeout(5000);

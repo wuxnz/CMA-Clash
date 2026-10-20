@@ -8,11 +8,9 @@ SPDX-License-Identifier: MPL-2.0
 	import { getLocalization } from '$lib/i18n';
 	import { signedIn, pathname } from '$lib/stores';
 	import { createTippy } from 'svelte-tippy';
-	import { browser } from '$app/environment';
 	import { beforeNavigate } from '$app/navigation';
 	import { draw, slide } from 'svelte/transition';
 	import { registration_disabled } from './config';
-	import { swapThemeClass } from '$lib/ui/themeSwitch';
 
 	const tippy = createTippy({
 		arrow: true,
@@ -31,20 +29,10 @@ SPDX-License-Identifier: MPL-2.0
 		menuIsClosed = true; // Closes menu to let the user see the page beneath
 	});
 
-	let darkMode = $state(false);
-	if (browser) {
-		darkMode = localStorage.theme !== 'light';
-	}
-
-	const switchDarkMode = () => {
-		const nextDark = !darkMode;
-		swapThemeClass(nextDark);
-		darkMode = nextDark;
-	};
 </script>
 
 <nav
-	class="w-screen px-4 lg:px-10 py-2.5 fixed glass-panel border-b border-ink/10 dark:border-white/5 z-30 top-0"
+	class="w-screen px-4 lg:px-10 py-2.5 fixed glass-panel border-b border-ink/10 border-white/5 z-30 top-0"
 	aria-label="Main navigation"
 >
 	<!-- Desktop navbar -->
@@ -106,64 +94,6 @@ SPDX-License-Identifier: MPL-2.0
 				>
 			{/if}
 
-			<div class="fit-content flex items-center justify-center gap-2">
-				<div class="lg:flex items-center justify-center">
-					{#if darkMode}
-						<button
-							class="text-ink"
-							onclick={() => {
-								switchDarkMode();
-							}}
-							use:tippy={{ content: 'Switch light mode on' }}
-							aria-label="Activate light mode"
-						>
-							<!-- Heroicons: sun -->
-							<svg
-								class="w-6 h-6"
-								fill="none"
-								aria-label="Sun-Icon"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									stroke="currentColor"
-									d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-								/>
-							</svg>
-						</button>
-					{:else}
-						<button
-							class="text-ink"
-							onclick={() => {
-								switchDarkMode();
-							}}
-							aria-label="Activate darkmode"
-							use:tippy={{ content: 'Switch dark mode on' }}
-						>
-							<!-- Heroicons: moon -->
-							<svg
-								aria-label="Moon-Icon"
-								class="w-6 h-6"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-								/>
-							</svg>
-						</button>
-					{/if}
-				</div>
-			</div>
 		</div>
 	</div>
 
@@ -178,65 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 			>
 			<a class="btn-nav flex" href="/play">{$t('words.play')}</a>
 
-			<!-- Dark/Light mode toggle + Open/Close menu -->
 			<div class="flex items-center">
-				{#if darkMode}
-					<!-- Sun icon -->
-					<button
-						class="px-3 text-ink"
-						onclick={() => {
-							switchDarkMode();
-						}}
-						use:tippy={{ content: 'Switch light mode on' }}
-						aria-label="Activate light mode"
-					>
-						<!-- Heroicons: sun -->
-						<svg
-							class="w-6 h-6"
-							fill="none"
-							aria-label="Sun-Icon"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								stroke="currentColor"
-								d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-							/>
-						</svg>
-					</button>
-				{:else}
-					<!-- Moon icon -->
-					<button
-						class="px-3 text-ink"
-						onclick={() => {
-							switchDarkMode();
-						}}
-						aria-label="Activate darkmode"
-						use:tippy={{ content: 'Switch dark mode on' }}
-					>
-						<!-- Heroicons: moon -->
-						<svg
-							aria-label="Moon-Icon"
-							class="w-6 h-6"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-							/>
-						</svg>
-					</button>
-				{/if}
-
 				{#if menuIsClosed}
 					<button
 						class="px-3 text-ink"

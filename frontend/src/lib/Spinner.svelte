@@ -7,7 +7,7 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	interface Props {
 		my_20?: boolean;
-		/** Use on dark-filled buttons (e.g. bg-gray-700) */
+		/** Use on dark-filled buttons (e.g. bg-elevated) */
 		inverse?: boolean;
 		class?: string;
 	}

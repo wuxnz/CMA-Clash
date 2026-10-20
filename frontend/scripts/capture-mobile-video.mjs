@@ -4,13 +4,6 @@ import { mkdir } from 'node:fs/promises';
 const BASE = process.env.SCREENSHOT_BASE ?? 'http://127.0.0.1:3000';
 const OUT = process.env.SCREENSHOT_OUT ?? '../cma-clash-research/screenshots/after';
 
-async function setTheme(page, theme) {
-	await page.evaluate((t) => {
-		localStorage.setItem('theme', t);
-		document.documentElement.classList.toggle('dark', t === 'dark');
-	}, theme);
-}
-
 const mobileRoutes = [
 	['join', '/play'],
 	['demo-live-question', '/demo/screens#live-question'],
@@ -25,8 +18,6 @@ await mkdir(videoDir, { recursive: true });
 const mobile = await browser.newPage({ viewport: { width: 390, height: 844 } });
 for (const [name, path] of mobileRoutes) {
 	await mobile.goto(`${BASE}${path.split('#')[0]}`, { waitUntil: 'networkidle' });
-	await setTheme(mobile, 'dark');
-	await mobile.reload({ waitUntil: 'networkidle' });
 	if (path.includes('#')) {
 		const id = path.split('#')[1];
 		await mobile.evaluate((i) => document.getElementById(i)?.scrollIntoView(), id);

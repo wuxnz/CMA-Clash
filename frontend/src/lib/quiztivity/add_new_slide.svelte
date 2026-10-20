@@ -49,13 +49,13 @@ SPDX-License-Identifier: MPL-2.0
 	transition:fade|global={{ duration: 100 }}
 >
 	<div class="m-auto w-5/6 h-5/6">
-		<div class="rounded-sm bg-white p-6 dark:bg-gray-600">
+		<div class="rounded-sm bg-white p-6 bg-surface">
 			<h1 class="text-center text-3xl mb-6">{$t('quiztivity.editor.select_page_type')}</h1>
 			<div class="grid grid-cols-4 gap-4 overflow-y-scroll">
 				{#each PageTypes as pt}
 					<div class="rounded-sm p-6 border-[#B07156] border">
 						<button
-							class="text-xl text-black dark:text-white"
+							class="text-xl text-ink text-ink"
 							onclick={() => {
 								type = pt.type;
 							}}>{pt.name}</button

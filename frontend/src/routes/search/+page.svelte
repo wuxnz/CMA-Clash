@@ -57,7 +57,7 @@ SPDX-License-Identifier: MPL-2.0
 			>
 				<input
 					type="search"
-					class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-sm transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-hidden"
+					class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-ink bg-elevated bg-clip-padding border border-solid border-ink/20 rounded-sm transition ease-in-out m-0 focus:text-ink focus:bg-elevated focus:border-primary focus:outline-hidden"
 					placeholder={$t('search_page.at_least_3_characters')}
 					aria-label="Search"
 					aria-describedby="button-addon2"

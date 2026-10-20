@@ -20,7 +20,7 @@ SPDX-License-Identifier: MPL-2.0
 		<button
 			aria-expanded={expanded}
 			onclick={() => (expanded = !expanded)}
-			class="bg-white dark:bg-gray-700 flex justify-between w-full border-none m-0 p-2 rounded-t-lg hover:bg-gray-200 dark:hover:bg-gray-500 transition"
+			class="bg-elevated flex justify-between w-full border-none m-0 p-2 rounded-t-lg hover:bg-paper-muted hover:bg-paper-muted transition"
 			class:rounded-b-lg={!expanded}
 			><span>{@html headerText}</span>
 			<svg

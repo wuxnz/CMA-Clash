@@ -51,7 +51,7 @@ SPDX-License-Identifier: MPL-2.0
 			<div
 				out:fade={{ duration: 150 }}
 				class="p-4 rounded-lg flex justify-center w-full transition relative"
-				class:dark:bg-gray-500={answer.answer}
+				class:bg-elevated={answer.answer}
 				class:bg-gray-300={answer.answer}
 				class:bg-yellow-500={!reach(TextQuestionSchema, 'answer').isValidSync(
 					answer.answer
@@ -131,7 +131,7 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 	{#if data.questions[selected_question].answers.length < 4}
 		<button
-			class="p-4 rounded-lg bg-transparent border-gray-500 border-2 hover:bg-gray-300 transition dark:hover:bg-gray-600"
+			class="p-4 rounded-lg bg-transparent border-gray-500 border-2 hover:bg-gray-300 transition dark:hover:bg-primary-hover"
 			type="button"
 			in:fade={{ duration: 150 }}
 			onclick={() => {

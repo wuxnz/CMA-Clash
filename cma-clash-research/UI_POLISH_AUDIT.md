@@ -4,7 +4,7 @@ Detection pass run after polish pass on ledger UI surfaces. Legacy editor/accoun
 
 | Severity | Location | Before | After | Why |
 |----------|----------|--------|-------|-----|
-| HIGH | `navbar.svelte` (theme toggle) | Full page reload on theme swap | `swapThemeClass()` + `html.theme-switching` flush | Theme-switch transition suppression |
+| HIGH | `navbar.svelte` (theme toggle) | Light/dark toggle | Removed — dark-only site | Single theme |
 | HIGH | `app.css` (`ledger-btn-primary`, `btn-nav`, `action-button`) | `transition-all`, `active:scale-[0.97–0.98]` | `press-scale` (0.96 / 150ms ease-out, `enabled:active`), named transition properties | Press scale + no `transition-all` on primary controls |
 | HIGH | `MagneticButton.svelte` | Magnetic + press on all pointers | Magnetic only `(hover: hover) and (pointer: fine)`; hero-only usage on landing | Touch / high-frequency exclusion |
 | HIGH | `scrollReveal.ts` | 28px / 650ms, no reduce fallback | 12px + 4px blur / 300ms ease-out, 100ms stagger; opacity-only under `reduce` | Staggered entrances + reduced-motion gate |

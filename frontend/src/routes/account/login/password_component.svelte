@@ -62,20 +62,20 @@ SPDX-License-Identifier: MPL-2.0
 
 	<form onsubmit={continue_in_login}>
 		<div class="w-full mt-4">
-			<div class="dark:bg-gray-800 bg-white p-4 rounded-lg">
+			<div class="bg-surface p-4 rounded-lg">
 				<div class="relative bg-inherit w-full">
 					<input
 						id="password"
 						bind:value={password}
 						name="password"
 						type="password"
-						class="w-full peer bg-transparent h-10 rounded-lg text-gray-700 dark:text-white placeholder-transparent ring-2 px-2 ring-gray-500 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
+						class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
 						placeholder={$t('words.password')}
 						autocomplete="current-password"
 					/>
 					<label
 						for="password"
-						class="absolute cursor-text left-0 -top-3 text-sm text-gray-700 dark:text-white bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
+						class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
 					>
 						{$t('words.password')}
 					</label>
@@ -86,11 +86,11 @@ SPDX-License-Identifier: MPL-2.0
 					onclick={() => {
 						selected_method = 'BACKUP';
 					}}
-					class="text-sm text-gray-600 dark:text-gray-200 hover:text-gray-500"
+					class="text-sm text-ink-muted hover:text-ink-muted"
 					>{$t('login_page.use_backup_code')}</button
 				>
 				<button
-					class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-sm hover:bg-gray-600 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
+					class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
 					disabled={!password}
 					type="submit"
 				>

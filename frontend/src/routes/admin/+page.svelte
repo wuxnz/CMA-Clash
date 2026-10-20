@@ -194,14 +194,6 @@ SPDX-License-Identifier: MPL-2.0
 		socket.emit('save_quiz');
 	};
 
-	let darkMode = false;
-	if (browser) {
-		darkMode =
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches);
-	}
-
 	let bg_color = $derived(
 		game_state.quiz_data ? game_state.quiz_data.background_color : undefined
 	);
@@ -247,7 +239,7 @@ SPDX-License-Identifier: MPL-2.0
 	style="background-repeat: no-repeat;background-size: 100% 100%;background-image: {bg_image
 		? `url('${bg_image}')`
 		: `unset`}; background-color: {bg_color ? bg_color : 'transparent'}"
-	class:text-black={bg_color}
+	class:text-ink={bg_color}
 >
 	{#if JSON.stringify(game_state.final_results) !== JSON.stringify([null])}
 		{#if game_state.control_visible}

@@ -45,7 +45,7 @@ Great for study groups and certification practice!`,
 								<div class="h-3 text-3xl text-right text-indigo-600">”</div>
 								<div class="text-center">
 									<h5 class="font-bold text-indigo-600">{testi.name}</h5>
-									<a class="text-sm text-gray-500" href={testi.source}>Source</a>
+									<a class="text-sm text-ink-muted" href={testi.source}>Source</a>
 								</div>
 							</div>
 						</div>

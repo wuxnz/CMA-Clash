@@ -108,7 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 									<a
 										href="/api/v1/eximport/{quiz.id}"
 										aria-label="Download the quiz"
-										class="flex justify-center px-4 py-2 leading-5 text-black dark:text-white transition-colors duration-200 transform bg-gray-50 dark:bg-gray-700 rounded-sm text-center hover:bg-gray-300 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 dark:hover:bg-gray-600"
+										class="flex justify-center px-4 py-2 leading-5 text-ink text-ink transition-colors duration-200 transform bg-paper-muted rounded-sm text-center hover:bg-gray-300 focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 dark:hover:bg-primary-hover"
 										><!-- heroicons/download -->
 										<svg
 											class="w-5 h-5"

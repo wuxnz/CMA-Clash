@@ -241,7 +241,7 @@ SPDX-License-Identifier: MPL-2.0
 	{#each quiz.questions as question, index_question}
 		<div class="px-4 py-1">
 			<CollapsSection headerText={question.question} expanded={auto_expand}>
-				<div class="grid grid-cols-1 gap-2 rounded-b-lg bg-white dark:bg-gray-700 -mt-1">
+				<div class="grid grid-cols-1 gap-2 rounded-b-lg bg-elevated -mt-1">
 					<h3 class="text-3xl m-1 text-center">
 						{index_question + 1}: {@html question.question}
 					</h3>
@@ -303,7 +303,7 @@ SPDX-License-Identifier: MPL-2.0
 					{:else if question.type === QuizQuestionType.ORDER}
 						<ul class="flex flex-col gap-4 m-4 p-6">
 							{#each question.answers as answer}
-								<li class="p-1 rounded-lg py-3 dark:bg-gray-500 bg-gray-300">
+								<li class="p-1 rounded-lg py-3 bg-elevated bg-gray-300">
 									<h4 class="text-center">
 										{answer.answer}
 									</h4>
@@ -313,7 +313,7 @@ SPDX-License-Identifier: MPL-2.0
 					{:else if question.type === QuizQuestionType.VOTING || question.type === QuizQuestionType.TEXT}
 						<div class="grid grid-cols-2 gap-4 m-4 p-6">
 							{#each question.answers as _, index_answer}
-								<div class="p-1 rounded-lg py-4 dark:bg-gray-500 bg-gray-300">
+								<div class="p-1 rounded-lg py-4 bg-elevated bg-gray-300">
 									<h4 class="text-center">
 										{quiz.questions[index_question].answers[index_answer]
 											.answer}

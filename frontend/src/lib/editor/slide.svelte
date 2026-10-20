@@ -45,13 +45,6 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	});
 
-	let darkMode = false;
-	if (browser) {
-		darkMode =
-			localStorage.theme === 'dark' ||
-			(!('theme' in localStorage) &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches);
-	}
 	const add_text_field = () => {
 		if (selected_element === ElementTypes.Text) {
 			canvas.shapes.label.insert({
@@ -144,8 +137,8 @@ SPDX-License-Identifier: MPL-2.0
 						},*/
 			selection: {
 				transformer: {
-					borderStroke: darkMode ? '#fff' : '#000000',
-					anchorStroke: darkMode ? '#fff' : '#000000'
+					borderStroke: '#f1f5f9',
+					anchorStroke: '#f1f5f9'
 				}
 			}
 			/*			selection: {

@@ -237,13 +237,13 @@ This should be okay, right?
 		<div class="m-auto w-1/3 h-2/3 rounded-sm bg-black flex flex-col">
 			<div class="grid grid-cols-1 grid-rows-1 border-b border-b-white">
 				<p
-					class="col-start-1 row-start-1 w-full p-4 outline-hidden bg-gray-700 rounded-t text-gray-400"
+					class="col-start-1 row-start-1 w-full p-4 outline-hidden bg-elevated rounded-t text-ink-muted"
 				>
 					{bg_text}
 				</p>
 				<input
 					type="text"
-					class="col-start-1 row-start-1 w-full p-4 outline-hidden bg-gray-700 rounded-sm"
+					class="col-start-1 row-start-1 w-full p-4 outline-hidden bg-elevated rounded-sm"
 					bind:value={input}
 					oninput={() => search(input)}
 					autofocus
@@ -255,7 +255,7 @@ This should be okay, right?
 						transition:fade={{ duration: 60 }}
 						class="p-2 transition rounded-sm"
 						class:bg-[#B07156]={selected === i}
-						class:bg-gray-700={selected !== i}
+						class:bg-elevated={selected !== i}
 						onmouseenter={() => (selected = i)}
 						onmousedown={execute_action}
 						tabindex="-2"
