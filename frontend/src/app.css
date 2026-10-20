@@ -4,10 +4,8 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 */
 
-@import '@fontsource/space-grotesk/400.css';
-@import '@fontsource/space-grotesk/500.css';
-@import '@fontsource/space-grotesk/600.css';
-@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/barlow-condensed/800.css';
+@import '@fontsource/barlow-condensed/700.css';
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
@@ -23,31 +21,35 @@ SPDX-License-Identifier: MPL-2.0
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Medical-blue dark (only theme) */
+/* Arena dark (only theme) */
 @theme {
-	--color-paper: #05070d;
-	--color-paper-muted: #0a0f1c;
-	--color-surface: #0f1729;
-	--color-elevated: #111827;
-	--color-ink: #f1f5f9;
-	--color-ink-muted: #94a3b8;
-	--color-primary: #0ea5e9;
-	--color-primary-hover: #38bdf8;
-	--color-primary-muted: #0c4a6e;
-	--color-gold: #e8b931;
-	--color-success: #16a34a;
-	--color-danger: #ef4444;
-	--color-answer-red: #f87171;
-	--color-answer-blue: #60a5fa;
-	--color-answer-yellow: #fbbf24;
-	--color-answer-green: #34d399;
-	--color-glow: rgba(14, 165, 233, 0.25);
+	--color-paper: #0b0f1a;
+	--color-paper-muted: #101625;
+	--color-surface: #151b2b;
+	--color-elevated: #1b2338;
+	--color-ink: #f4f7fb;
+	--color-ink-muted: #9aa4b8;
+	--color-primary: #7b5cff;
+	--color-primary-hover: #9378ff;
+	--color-primary-muted: #3d2e80;
+	--color-gold: #c8ff2e;
+	--color-success: #c8ff2e;
+	--color-danger: #ff3b5c;
+	--color-volt: #c8ff2e;
+	--color-violet: #7b5cff;
+	--color-signal: #ff3b5c;
+	--color-cyan: #22d3ee;
+	--color-answer-red: #ff3b5c;
+	--color-answer-blue: #7b5cff;
+	--color-answer-yellow: #f59e0b;
+	--color-answer-green: #22d3ee;
+	--color-glow: rgba(123, 92, 255, 0.35);
 
-	--font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-	--shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04), 0 12px 40px rgba(0, 0, 0, 0.45);
+	--shadow-card: 0 1px 0 rgba(255, 255, 255, 0.05), 0 16px 40px rgba(0, 0, 0, 0.45);
 	--shadow-glow: 0 0 48px var(--color-glow);
 }
 
@@ -71,7 +73,9 @@ SPDX-License-Identifier: MPL-2.0
 	h4,
 	.font-display {
 		font-family: var(--font-display);
-		letter-spacing: -0.02em;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		text-transform: uppercase;
 	}
 
 	button:not(:disabled),
@@ -127,6 +131,8 @@ SPDX-License-Identifier: MPL-2.0
 
 @utility font-display {
 	font-family: var(--font-display);
+	font-weight: 800;
+	letter-spacing: -0.03em;
 }
 
 @utility font-mono {
@@ -184,15 +190,14 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility ledger-btn-primary {
-	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-semibold text-white bg-primary rounded-lg disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
+	@apply inline-flex items-center justify-center w-full px-4 py-2.5 font-display uppercase tracking-wide text-paper bg-gold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
 	transition-property: background-color, box-shadow;
 	transition-duration: 150ms;
 }
 
 @media (hover: hover) {
 	.ledger-btn-primary:hover {
-		background-color: var(--color-primary-hover);
-		box-shadow: var(--shadow-glow);
+		box-shadow: 0 0 32px rgba(200, 255, 46, 0.35);
 	}
 }
 

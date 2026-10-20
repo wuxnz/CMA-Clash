@@ -11,7 +11,6 @@ SPDX-License-Identifier: MPL-2.0
 	import AnimatedCounter from '$lib/ui/AnimatedCounter.svelte';
 	import type { PodiumEntry } from '$lib/ui/Podium.svelte';
 	import { prefersReducedMotion } from '$lib/ui/motion';
-	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
 
 	const { t } = getLocalization();
 
@@ -48,16 +47,15 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 {#if show_final_results}
-	<div class="min-h-screen bg-paper flex flex-col">
-		<LivePlayHeader />
+	<div class="min-h-dvh bg-paper flex flex-col">
 		<div class="flex-1 px-4 py-8 max-w-2xl mx-auto w-full">
+			<p class="font-display text-gold text-sm tracking-[0.3em] text-center mb-2">Final</p>
 			<h1
-				class="font-display text-3xl sm:text-4xl font-bold text-center text-ink mb-2"
+				class="font-display text-5xl sm:text-6xl text-center text-ink mb-8"
 				in:fly={reduced ? { duration: 0 } : { y: -20, duration: 400 }}
 			>
-				{$t('play_page.end_sentence')}
+				Podium
 			</h1>
-			<p class="text-center text-ink-muted mb-8">Final standings</p>
 
 			{#if player_names.length === 0}
 				<p class="text-center text-lg text-ink-muted">{$t('admin_page.no_answers')}</p>

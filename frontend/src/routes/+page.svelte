@@ -9,73 +9,18 @@ SPDX-License-Identifier: MPL-2.0
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
 	import { SITE_NAME, SITE_URL, DEFAULT_DESCRIPTION } from '$lib/site';
-	import RetentionBar from '$lib/ui/RetentionBar.svelte';
-	import BentoSpotlightCard from '$lib/ui/BentoSpotlightCard.svelte';
 	import MagneticButton from '$lib/ui/MagneticButton.svelte';
-	import AuroraShader from '$lib/ui/AuroraShader.svelte';
-	import GrainOverlay from '$lib/ui/GrainOverlay.svelte';
-	import { fade, fly } from 'svelte/transition';
+	import BentoSpotlightCard from '$lib/ui/BentoSpotlightCard.svelte';
+	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
+	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
 	import { prefersReducedMotion } from '$lib/ui/motion';
 	import { scrollReveal } from '$lib/motion/scrollReveal';
-	import { scrollParallax } from '$lib/motion/parallax';
-	import { BookOpen, Radio, Trophy, Sparkles, HeartPulse, Swords, Shield } from '@lucide/svelte';
+	import { fade } from 'svelte/transition';
+	import { Swords, Radio, Trophy, Zap } from '@lucide/svelte';
 
 	const { t } = getLocalization();
 	const reduced = prefersReducedMotion();
-
 	navbarVisible.visible = true;
-
-	const steps = [
-		{
-			icon: BookOpen,
-			title: $t('index_page.cma_step_study_title'),
-			body: $t('index_page.cma_step_study_body'),
-			href: '/dashboard',
-			span: 'md:col-span-2 md:row-span-2'
-		},
-		{
-			icon: Radio,
-			title: $t('index_page.cma_step_live_title'),
-			body: $t('index_page.cma_step_live_body'),
-			href: '/play',
-			span: ''
-		},
-		{
-			icon: Trophy,
-			title: $t('index_page.cma_step_climb_title'),
-			body: $t('index_page.cma_step_climb_body'),
-			href: '/leaderboard',
-			span: ''
-		},
-		{
-			icon: Sparkles,
-			title: 'Streaks & mastery',
-			body: 'Daily goals, XP counters, and topic heatmaps on your dashboard.',
-			href: '/dashboard',
-			span: 'md:col-span-2'
-		}
-	];
-
-	const platform = [
-		{
-			icon: HeartPulse,
-			title: 'CCMA question banks',
-			body: 'Seeded NHA CCMA, clinical skills, phlebotomy, EKG, and BLS practice sets.',
-			span: 'md:col-span-2'
-		},
-		{
-			icon: Swords,
-			title: 'Live arena',
-			body: 'PIN lobbies, timed questions, and battle VS intros.',
-			span: ''
-		},
-		{
-			icon: Shield,
-			title: 'Accessible by design',
-			body: 'Shape + color answers, reduced-motion paths, WCAG AA contrast.',
-			span: 'md:col-span-2'
-		}
-	];
 
 	const homeTitle = $derived(`${SITE_NAME} — ${$t('index_page.meta.title')}`);
 	const homeDescription = DEFAULT_DESCRIPTION;
@@ -86,12 +31,27 @@ SPDX-License-Identifier: MPL-2.0
 			name: SITE_NAME,
 			url: SITE_URL,
 			description: homeDescription,
-			publisher: {
-				'@type': 'Organization',
-				name: SITE_NAME
-			}
+			publisher: { '@type': 'Organization', name: SITE_NAME }
 		})
 	);
+
+	let nextClash = $state(134);
+	$effect(() => {
+		if (reduced) return;
+		const id = setInterval(() => {
+			nextClash = nextClash > 0 ? nextClash - 1 : 134;
+		}, 1000);
+		return () => clearInterval(id);
+	});
+	let mm = $derived(String(Math.floor(nextClash / 60)).padStart(2, '0'));
+	let ss = $derived(String(nextClash % 60).padStart(2, '0'));
+
+	const previewAnswers = [
+		{ t: 'Left ventricle', i: 0 },
+		{ t: 'Right atrium', i: 1 },
+		{ t: 'Left atrium', i: 2 },
+		{ t: 'Right ventricle', i: 3 }
+	];
 </script>
 
 <svelte:head>
@@ -106,119 +66,102 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="min-h-screen flex flex-col">
 	<section
-		class="relative overflow-hidden pb-20 px-4 min-h-[85vh] flex flex-col justify-center"
+		class="relative overflow-hidden px-4 min-h-[88vh] flex flex-col justify-center"
 		aria-labelledby="home-hero-heading"
 	>
-		<AuroraShader class="z-0" />
-		<GrainOverlay />
 		<div
-			class="relative z-10 pt-20 text-center max-w-4xl mx-auto"
-			use:scrollParallax={reduced ? undefined : { speed: 0.2 }}
-		>
-			{#if !reduced}
+			class="pointer-events-none absolute inset-0"
+			style="background: radial-gradient(80% 60% at 70% 40%, rgba(123,92,255,0.28), transparent 60%), radial-gradient(50% 40% at 20% 80%, rgba(34,211,238,0.12), transparent 50%);"
+			aria-hidden="true"
+		></div>
+		<div class="relative z-10 max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-10 items-center py-16">
+			<div>
 				<p
-					class="text-xs uppercase tracking-[0.35em] text-primary mb-4"
-					in:fade={{ duration: 500 }}
+					class="text-cyan text-xs font-semibold uppercase tracking-[0.35em] mb-4"
+					in:fade={reduced ? { duration: 0 } : { duration: 300 }}
 				>
 					NHA CCMA · Clinical skills
 				</p>
-			{/if}
-			<h1
-				id="home-hero-heading"
-				class="font-display sm:text-7xl text-5xl font-bold tracking-[-0.04em] gradient-text"
-				in:fly={reduced ? { duration: 0 } : { y: 24, duration: 600 }}
-			>
-				{SITE_NAME}
-			</h1>
-			<p
-				class="text-lg sm:text-xl mt-6 text-ink-muted max-w-2xl mx-auto leading-relaxed"
-				in:fly={reduced ? { duration: 0 } : { y: 20, delay: 100, duration: 600 }}
-			>
-				{$t('index_page.cma_hero_subtitle')}
-			</p>
-			<div
-				class="flex flex-wrap justify-center gap-3 mt-10"
-				in:fly={reduced ? { duration: 0 } : { y: 16, delay: 180, duration: 600 }}
-			>
-				<MagneticButton href="/play" class="ledger-btn-primary w-auto px-10"
-					>{$t('words.play')}</MagneticButton
+				<h1
+					id="home-hero-heading"
+					class="font-display text-6xl sm:text-8xl text-ink leading-[0.85]"
 				>
-				<a href="/battle" class="px-8 py-2.5 font-semibold rounded-lg glass-panel action-button w-auto"
-					>Battle</a
-				>
-				<a
-					href="/account/register"
-					class="px-8 py-2.5 font-semibold rounded-lg glass-panel action-button w-auto"
-					>{$t('words.register')}</a
-				>
+					Clash.
+				</h1>
+				<p class="mt-5 text-lg text-ink-muted max-w-md leading-relaxed">
+					{$t('index_page.cma_hero_subtitle')}
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<div class="rounded-xl border border-white/10 bg-surface px-4 py-3">
+						<p class="text-[10px] uppercase tracking-[0.2em] text-ink-muted">Next Daily Clash</p>
+						<p class="font-display text-3xl text-gold tabular-nums leading-none mt-1">
+							{mm}:{ss}
+						</p>
+					</div>
+				</div>
+				<div class="flex flex-wrap gap-3 mt-8">
+					<MagneticButton href="/play" class="ledger-btn-primary w-auto px-10 text-lg"
+						>{$t('words.play')}</MagneticButton
+					>
+					<a href="/battle" class="action-button w-auto px-8">Battle</a>
+					<a href="/account/register" class="action-button w-auto px-8">{$t('words.register')}</a>
+				</div>
 			</div>
-			<div class="mt-12 flex justify-center">
-				<RetentionBar
-					streakDays={0}
-					dailyGoalPercent={0}
-					leagueName="Weekly league"
-					leagueIsDemo={true}
-				/>
+			<div class="rounded-3xl bg-surface border border-transparent shadow-[var(--shadow-card)] p-5 sm:p-6">
+				<div class="flex items-center justify-between mb-4">
+					<span class="font-display text-2xl text-gold">VS</span>
+					<span class="font-display text-sm text-ink-muted">Q7/12</span>
+				</div>
+				<p class="font-sans text-sm text-ink-muted mb-2">CCMA · Anatomy</p>
+				<p class="font-sans font-semibold text-ink mb-4">
+					Which chamber of the heart receives oxygenated blood from the pulmonary veins?
+				</p>
+				<div class="grid grid-cols-2 gap-2">
+					{#each previewAnswers as a}
+						<div
+							class="rounded-xl p-4 text-white min-h-[4.5rem] flex flex-col items-center justify-center gap-1"
+							style="background:{LEDGER_ANSWER_COLORS[a.i]}"
+						>
+							<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[a.i]} class="w-6 h-6" />
+							<span class="font-display text-sm normal-case">{a.t}</span>
+						</div>
+					{/each}
+				</div>
+				<p class="mt-4 text-center font-display text-gold text-sm">3-streak · +240 XP · Rank ▲2</p>
 			</div>
 		</div>
 	</section>
 
-	<section class="px-4 max-w-6xl mx-auto w-full pb-20" use:scrollReveal>
-		<h2
-			class="font-display text-3xl sm:text-4xl font-bold text-center text-ink mb-4 tracking-[-0.03em]"
-			use:scrollReveal={{ y: 20 }}
-		>
+	<section class="px-4 max-w-6xl mx-auto w-full pb-24" use:scrollReveal>
+		<h2 class="font-display text-4xl sm:text-5xl text-center text-ink mb-10">
 			{$t('index_page.how_cma_clash_works')}
 		</h2>
-		<p
-			class="text-center text-ink-muted text-sm mb-10 max-w-xl mx-auto"
-			use:scrollReveal={{ y: 16, delay: 0.05 }}
-		>
-			Built for certified medical assistant prep — not accounting CMA.
-		</p>
 		<div
-			class="grid md:grid-cols-3 gap-4 auto-rows-fr"
-			use:scrollReveal={{ childSelector: '[data-bento]', stagger: 0.1, y: 32 }}
+			class="grid md:grid-cols-3 gap-4"
+			use:scrollReveal={{ childSelector: '[data-bento]', stagger: 0.1, y: 12 }}
 		>
-			{#each steps as step}
-				<BentoSpotlightCard href={step.href} class="{step.span} min-h-[10rem]" data-bento>
-					<div class="flex items-start gap-3 mb-3">
-						<span
-							class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-primary/15 text-primary shrink-0"
-						>
-							<step.icon class="w-5 h-5" aria-hidden="true" />
-						</span>
-						<h3 class="font-display text-xl font-semibold text-ink tracking-tight">{step.title}</h3>
-					</div>
-					<p class="text-ink-muted text-sm flex-1 leading-relaxed">{step.body}</p>
-					<span class="mt-4 text-primary font-medium text-sm group-hover:underline inline-block"
-						>{$t('words.get_started')} →</span
-					>
-				</BentoSpotlightCard>
-			{/each}
-		</div>
-	</section>
-
-	<section class="px-4 max-w-6xl mx-auto w-full pb-24">
-		<h2
-			class="font-display text-2xl sm:text-3xl font-bold text-center text-ink mb-8 tracking-[-0.03em]"
-			use:scrollReveal={{ y: 20 }}
-		>
-			Platform
-		</h2>
-		<div
-			class="grid md:grid-cols-3 gap-4 auto-rows-fr"
-			use:scrollReveal={{ childSelector: '[data-platform]', stagger: 0.08, y: 28 }}
-		>
-			{#each platform as item}
-				<BentoSpotlightCard class="{item.span}" tilt={true} data-platform>
-					<div class="flex items-center gap-2 mb-2">
-						<item.icon class="w-5 h-5 text-primary" aria-hidden="true" />
-						<h3 class="font-display font-semibold text-ink tracking-tight">{item.title}</h3>
-					</div>
-					<p class="text-sm text-ink-muted leading-relaxed">{item.body}</p>
-				</BentoSpotlightCard>
-			{/each}
+			<BentoSpotlightCard href="/play" class="md:col-span-2 min-h-[10rem]" data-bento>
+				<div class="flex items-center gap-3 mb-3">
+					<Radio class="w-6 h-6 text-cyan" />
+					<h3 class="font-display text-2xl text-ink">Live arena</h3>
+				</div>
+				<p class="text-ink-muted text-sm leading-relaxed">PIN lobbies, Kahoot-style tiles, VS intros.</p>
+			</BentoSpotlightCard>
+			<BentoSpotlightCard href="/dashboard" data-bento>
+				<Zap class="w-6 h-6 text-gold mb-3" />
+				<h3 class="font-display text-2xl text-ink">Study</h3>
+				<p class="text-ink-muted text-sm">CCMA banks and daily goals.</p>
+			</BentoSpotlightCard>
+			<BentoSpotlightCard href="/leaderboard" class="md:col-span-2" data-bento>
+				<Trophy class="w-6 h-6 text-gold mb-3" />
+				<h3 class="font-display text-2xl text-ink">Climb</h3>
+				<p class="text-ink-muted text-sm">Volt XP, streaks, and weekly boards.</p>
+			</BentoSpotlightCard>
+			<BentoSpotlightCard href="/battle" data-bento>
+				<Swords class="w-6 h-6 text-signal mb-3" />
+				<h3 class="font-display text-2xl text-ink">1v1</h3>
+				<p class="text-ink-muted text-sm">Head-to-head battles.</p>
+			</BentoSpotlightCard>
 		</div>
 	</section>
 </div>

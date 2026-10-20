@@ -35,10 +35,11 @@ SPDX-License-Identifier: MPL-2.0
 	};
 </script>
 
-<div class="px-6 py-4">
-	<h2 class="text-3xl font-bold text-center font-display font-bold text-ink">CMA Clash</h2>
+<div class="px-6 py-6">
+	<p class="font-display text-gold text-xs tracking-[0.35em] text-center mb-2">Arena</p>
+	<h2 class="text-4xl text-center font-display text-ink">CMA Clash</h2>
 
-	<h3 class="mt-1 text-xl font-medium text-center text-ink-muted">
+	<h3 class="mt-1 text-lg font-medium text-center text-ink-muted">
 		{$t('login_page.welcome_back')}
 	</h3>
 
@@ -75,7 +76,7 @@ SPDX-License-Identifier: MPL-2.0
 				>
 
 				<button
-					class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50"
+					class="ledger-btn-primary w-auto px-6"
 					disabled={emailEmpty}
 					type="submit"
 				>

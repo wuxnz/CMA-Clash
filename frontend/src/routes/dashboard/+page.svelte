@@ -51,9 +51,11 @@ SPDX-License-Identifier: MPL-2.0
 
 	const getData = async (): Promise<{ items: Array<QuizData>; fuse: Fuse<any> }> => {
 		const items: any[] = [];
+		const quizzes = Array.isArray(data.quizzes) ? data.quizzes : [];
+		const quiztivities = Array.isArray(data.quiztivities) ? data.quiztivities : [];
 
-		for (const q of data.quizzes) items.push({ ...q, type: 'quiz' });
-		for (const q of data.quiztivities) items.push({ ...q, type: 'quiztivity' });
+		for (const q of quizzes) items.push({ ...q, type: 'quiz' });
+		for (const q of quiztivities) items.push({ ...q, type: 'quiztivity' });
 
 		const f = new Fuse(items, {
 			keys: ['title', 'description', 'questions.title'],
@@ -74,18 +76,20 @@ SPDX-License-Identifier: MPL-2.0
 		items_to_show = res.map((r) => r.item);
 	};
 	onMount(async () => {
-		const { items, fuse: f } = await getData();
-		all_items = items;
-		items_to_show = items;
-		fuse = f;
-
-		// fill id_to_position_map
-		id_to_position_map = {};
-		for (let i = 0; i < items.length; i++) {
-			id_to_position_map[items[i].id] = i;
+		try {
+			const { items, fuse: f } = await getData();
+			all_items = items;
+			items_to_show = items;
+			fuse = f;
+			id_to_position_map = {};
+			for (let i = 0; i < items.length; i++) {
+				id_to_position_map[items[i].id] = i;
+			}
+			search();
+		} catch {
+			all_items = [];
+			items_to_show = [];
 		}
-		search_term;
-		search();
 	});
 
 	const deleteQuiz = async (to_delete: string, type: 'quiz' | 'quiztivity') => {
@@ -118,7 +122,15 @@ SPDX-License-Identifier: MPL-2.0
 		<Spinner />
 	{:else}
 		<div class="flex flex-col w-full mx-auto px-4 pt-4">
-			<h1 class="font-display text-2xl font-bold text-ink mb-4">{$t('words.dashboard')}</h1>
+			<div class="flex flex-wrap items-end justify-between gap-3 mb-4">
+				<div>
+					<p class="font-display text-gold text-sm tracking-[0.3em]">Division</p>
+					<h1 class="font-display text-4xl sm:text-5xl text-ink">
+						{$t('words.dashboard')}
+					</h1>
+				</div>
+				<a href="/battle" class="ledger-btn-primary w-auto px-6">Battle queue</a>
+			</div>
 			<RetentionBar
 				streakDays={data.gamification?.current_streak_days ?? 0}
 				dailyGoalPercent={data.gamification
@@ -208,7 +220,7 @@ SPDX-License-Identifier: MPL-2.0
 				<div class="flex flex-col gap-4 mt-4 px-2">
 					{#each items_to_show as quiz}
 						<div
-							class="grid grid-cols-2 lg:grid-cols-3 w-full rounded-sm border-[#B07156] border-2 p-2 h-[20vh] overflow-hidden max-h-[20vh]"
+							class="grid grid-cols-2 lg:grid-cols-3 w-full rounded-2xl bg-surface border border-white/10 p-3 h-[20vh] overflow-hidden max-h-[20vh]"
 						>
 							<div class="hidden lg:flex w-auto h-full items-center relative">
 								{#if quiz.cover_image}

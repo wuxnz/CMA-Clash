@@ -25,9 +25,9 @@ SPDX-License-Identifier: MPL-2.0
 		question_results: Array<{
 			username: string;
 			answer: string;
-			right: boolean;
-			time_taken: number;
-			score: number;
+			right: boolean | string;
+			time_taken?: number;
+			score?: number;
 		}>;
 		username: any;
 		question?: Question;

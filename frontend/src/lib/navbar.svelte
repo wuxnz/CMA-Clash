@@ -32,7 +32,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <nav
-	class="w-screen px-4 lg:px-10 py-2.5 fixed glass-panel border-b border-ink/10 border-white/5 z-30 top-0"
+	class="w-screen px-4 lg:px-10 py-2.5 fixed bg-paper/90 backdrop-blur-xl border-b border-white/5 z-30 top-0"
 	aria-label="Main navigation"
 >
 	<!-- Desktop navbar -->
@@ -43,7 +43,7 @@ SPDX-License-Identifier: MPL-2.0
 				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5"
 				>CMA Clash</a
 			>
-			<a class="btn-nav border border-primary/30 rounded-md text-primary" href="/play"
+			<a class="btn-nav border border-gold/50 rounded-md text-gold" href="/play"
 				>{$t('words.play')}</a
 			>
 			<a class="btn-nav" href="/leaderboard">Leaderboard</a>

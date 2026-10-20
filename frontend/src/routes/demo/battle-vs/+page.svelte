@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="min-h-screen bg-ink text-paper flex flex-col items-center justify-center px-4 relative overflow-hidden"
+	class="min-h-screen bg-paper text-ink flex flex-col items-center justify-center px-4 relative overflow-hidden"
 >
 	<div
 		class="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none"

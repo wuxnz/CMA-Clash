@@ -53,10 +53,9 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="min-h-screen flex flex-col">
 	<div class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
-		<h1 class="font-display text-3xl font-bold text-ink">Battle mode</h1>
-		<p class="text-ink-muted mt-2 mb-8">
-			1v1–8 player battles via <code class="font-mono text-xs">/api/v1/clash/battles</code>.
-		</p>
+		<p class="font-display text-gold text-sm tracking-[0.3em]">Survival</p>
+		<h1 class="font-display text-5xl text-ink">Battle</h1>
+		<p class="text-ink-muted mt-2 mb-8">1v1 to 8-player elimination. Queue up or join with a code.</p>
 
 		<Card class="mb-8">
 			<h2 class="font-display font-semibold mb-3">Join with code</h2>

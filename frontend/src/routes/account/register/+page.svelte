@@ -86,7 +86,8 @@ SPDX-License-Identifier: MPL-2.0
 			class="w-full max-w-sm mx-auto overflow-hidden bg-surface rounded-lg shadow-md"
 		>
 			<div class="px-6 py-4">
-				<h2 class="text-3xl font-bold text-center text-ink">
+				<p class="font-display text-gold text-xs tracking-[0.35em] text-center mb-2">Arena</p>
+				<h2 class="text-4xl font-display text-center text-ink">
 					CMA Clash
 				</h2>
 

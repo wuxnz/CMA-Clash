@@ -39,7 +39,7 @@
 			particleCount: 90,
 			spread: 75,
 			origin: { y: 0.62 },
-			colors: ['#0ea5e9', '#e8b931', '#f1f5f9']
+			colors: ['#C8FF2E', '#7B5CFF', '#FF3B5C', '#22D3EE']
 		});
 		setTimeout(
 			() => confetti({ particleCount: 45, angle: 60, spread: 55, origin: { x: 0 } }),
@@ -94,7 +94,12 @@
 	});
 </script>
 
-<div class="flex flex-col items-center gap-6 py-8 px-4" aria-label="Final standings">
+<div class="relative flex flex-col items-center gap-6 py-8 px-4" aria-label="Final standings">
+	<div
+		class="pointer-events-none absolute inset-0"
+		style="background: radial-gradient(ellipse at 50% 70%, rgba(200,255,46,0.18), transparent 55%);"
+		aria-hidden="true"
+	></div>
 	{#if phase === 'countdown' && !reduced}
 		<p
 			class="font-display text-6xl font-bold text-primary tabular-nums"
