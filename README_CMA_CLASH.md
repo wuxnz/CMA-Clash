@@ -12,6 +12,8 @@ See [docs/CMA_CLASH.md](docs/CMA_CLASH.md) for API endpoints, data model, socket
 4. `pipenv run python -m classquiz.seed.runner`
 5. Run API and frontend per in-app develop docs at `/docs/develop`.
 
+**Production split (Vercel + Render):** [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md) and [`render.yaml`](render.yaml).
+
 Production Docker: `docker compose up` runs migrations and seed when `AUTO_SEED_CONTENT=true`.
 
 ## Content

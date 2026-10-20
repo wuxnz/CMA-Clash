@@ -66,6 +66,14 @@ class Settings(BaseSettings):
     pixabay_api_key: str | None = None
     mods: list[str] = []
     registration_disabled: bool = False
+    cors_origins: str = ""
+    cookie_cross_site: bool = False
+    cookie_secure: bool = False
+
+    def parsed_cors_origins(self) -> list[str]:
+        if not self.cors_origins.strip():
+            return []
+        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
 
     # storage_backend
     storage_backend: str  # either "local" or "s3"
