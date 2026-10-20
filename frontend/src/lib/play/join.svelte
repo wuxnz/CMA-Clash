@@ -68,7 +68,7 @@ SPDX-License-Identifier: MPL-2.0
 		socket.on('join_error', onJoinError);
 		socket.on('game_not_found', () => {
 			joining = false;
-			joinError = 'Game not found — check the PIN with your host.';
+			joinError = 'Game not found. Check the PIN with your host.';
 		});
 		socket.on('username_already_exists', () => {
 			onJoinError({ code: 'username_taken' });

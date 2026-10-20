@@ -1,6 +1,6 @@
 # CMA Clash — Render Blueprint (backend for Vercel frontend)
 # Apply from the Render Dashboard: New > Blueprint > connect this repo.
-# After sync, set ROOT_ADDRESS and CORS_ORIGINS to your Vercel URL (sync: false prompts).
+# After sync, confirm ROOT_ADDRESS/CORS_ORIGINS (defaults: cmaclash.com + Vercel hostname).
 
 databases:
   - name: cmaclash-db
@@ -82,7 +82,7 @@ services:
       - key: STORAGE_PATH
         value: /var/data/uploads
       - key: MAIL_FROM
-        value: CMA Clash <noreply@cmaclash.app>
+        value: CMA Clash <noreply@cmaclash.com>
         sync: false
       - key: RESEND_API_KEY
         sync: false
@@ -98,6 +98,8 @@ services:
         value: "587"
         sync: false
       - key: ROOT_ADDRESS
+        value: https://cmaclash.com
         sync: false
       - key: CORS_ORIGINS
+        value: https://cmaclash.com,https://cmaclash.vercel.app
         sync: false

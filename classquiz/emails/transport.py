@@ -32,7 +32,7 @@ def mail_transport_configured() -> bool:
 
 
 def _from_address() -> str:
-    return settings.mail_from or settings.mail_address or "noreply@cmaclash.app"
+    return settings.mail_from or settings.mail_address or "noreply@cmaclash.com"
 
 
 def send_email(to: str, subject: str, html_body: str, text_body: str) -> None:

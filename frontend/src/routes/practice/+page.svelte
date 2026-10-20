@@ -42,7 +42,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Practice</title>
+	<title>CMA Clash: Practice</title>
 </svelte:head>
 
 {#if !quizId}
@@ -50,7 +50,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div>
 			<h1 class="text-2xl sm:text-3xl font-semibold text-ink tracking-tight">Practice</h1>
 			<p class="text-ink-muted mt-3 max-w-md leading-relaxed">
-				Answer a quiz against a timer. No lobby — pick a set and start.
+				Answer questions on a timer. Pick a set and start (no lobby).
 			</p>
 			<a href="/explore" class="btn btn-primary w-auto mt-8">Pick a quiz</a>
 		</div>

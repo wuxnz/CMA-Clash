@@ -15,7 +15,7 @@ SPDX-License-Identifier: MPL-2.0
 	<div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
 		<div class="text-center md:text-left">
 			<p class="font-display font-semibold text-lg">CMA Clash</p>
-			<p class="text-sm text-ink-muted mt-1">Gamified CMA exam prep — live quizzes &amp; leaderboards</p>
+			<p class="text-sm text-ink-muted mt-1">CCMA exam prep with live quizzes and leaderboards</p>
 		</div>
 		<div class="flex flex-wrap items-center justify-center gap-4 text-sm">
 			<a href="/docs" class="text-ink-muted hover:text-gold">{$t('words.docs')}</a>

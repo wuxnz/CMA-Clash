@@ -63,7 +63,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Edit</title>
+	<title>CMA Clash: Edit</title>
 </svelte:head>
 {#await get_quiz()}
 	<Spinner />

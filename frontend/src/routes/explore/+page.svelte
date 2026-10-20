@@ -109,7 +109,7 @@
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Explore</title>
+	<title>CMA Clash: Explore</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">

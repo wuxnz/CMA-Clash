@@ -88,9 +88,7 @@ SPDX-License-Identifier: MPL-2.0
 			</section>
 			<section class="mt-auto">
 				<p class="mt-6 mx-auto max-w-[70%] text-sm text-ink-muted text-center">
-					Since there's still some space left down here, I guess that I take this
-					opportunity to thank You for using CMA Clash! Have a great day and continue
-					using CMA Clash ;)
+					These counts are for your quizzes in CMA Clash only.
 				</p>
 			</section>
 		</div>

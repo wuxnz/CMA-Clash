@@ -108,7 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		const result = await joinBattle(code, { displayName: name });
 		if (!result.ok) {
-			error = result.detail ?? 'Could not join — check the code and try again.';
+			error = result.detail ?? 'Could not join. Check the code and try again.';
 			return;
 		}
 		joined = true;
@@ -123,12 +123,14 @@ SPDX-License-Identifier: MPL-2.0
 		const hostSecret = getBattleHostSecret(code);
 		const result = await startBattle(code, hostSecret ?? undefined);
 		if (!result.ok) {
-			error = result.detail ?? 'Could not start — you must be the host with at least two players.';
+			error =
+				result.detail ??
+				'Could not start. You must be the host and have at least two players.';
 			return;
 		}
 		const updated = result.data;
 		if (!updated?.game_pin) {
-			error = 'Could not start — are you the host?';
+			error = 'Could not start. Are you the host?';
 			return;
 		}
 		lobby = updated;
@@ -147,7 +149,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Battle {code}</title>
+	<title>CMA Clash: Battle {code}</title>
 </svelte:head>
 
 <div class="min-h-screen bg-ink text-paper flex flex-col items-center justify-center px-4 relative overflow-hidden">

@@ -145,7 +145,7 @@
 <svelte:window onkeydown={onSlash} />
 
 <svelte:head>
-	<title>CMA Clash — Search</title>
+	<title>CMA Clash: Search</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">

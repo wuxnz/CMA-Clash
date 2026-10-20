@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 -->
 <svelte:head>
-	<title>CMA Clash/docs - Index</title>
+	<title>CMA Clash: docs - Index</title>
 	<meta
 		name="description"
 		content="The overview about the docs for CMA Clash, the open-source quiz-application"

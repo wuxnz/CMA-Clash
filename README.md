@@ -6,7 +6,9 @@ SPDX-License-Identifier: MPL-2.0
 
 # CMA Clash
 
-**CMA Clash** is gamified certification exam prep: real-time quizzes, multiplayer battles, XP, streaks, and leaderboards. It is built on the open-source [ClassQuiz](https://github.com/mawoka-myblock/ClassQuiz) stack (FastAPI, SvelteKit, PostgreSQL, Redis, Socket.IO, Meilisearch).
+**Live site:** [https://cmaclash.com](https://cmaclash.com)
+
+**CMA Clash** is CCMA and allied health exam prep: live quizzes with a PIN, battles, timed practice, XP, streaks, and leaderboards. It is built on the open-source [ClassQuiz](https://github.com/mawoka-myblock/ClassQuiz) stack (FastAPI, SvelteKit, PostgreSQL, Redis, Socket.IO, Meilisearch).
 
 ## Features
 

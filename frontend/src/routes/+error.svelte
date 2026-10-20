@@ -21,7 +21,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>Error {status} — CMA Clash</title>
+	<title>CMA Clash: Error {status}</title>
 </svelte:head>
 
 <div class="min-h-[70vh] flex flex-col items-center justify-center px-4 py-16 text-center">

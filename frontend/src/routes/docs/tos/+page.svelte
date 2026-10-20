@@ -15,7 +15,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>-->
 
 <svelte:head>
-	<title>CMA Clash/docs - Terms of Service</title>
+	<title>CMA Clash: docs - Terms of Service</title>
 	<meta
 		name="description"
 		content="The terms of service of CMA Clash, the open-source quiz-application"

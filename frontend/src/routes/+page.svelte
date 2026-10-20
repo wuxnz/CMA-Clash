@@ -18,7 +18,7 @@ SPDX-License-Identifier: MPL-2.0
 	const reduced = prefersReducedMotion();
 	navbarVisible.visible = true;
 
-	const homeTitle = $derived(`${SITE_NAME} — ${$t('index_page.meta.title')}`);
+	const homeTitle = $derived(`${SITE_NAME}: ${$t('index_page.meta.title')}`);
 	const homeDescription = DEFAULT_DESCRIPTION;
 	const structuredData = $derived(
 		JSON.stringify({

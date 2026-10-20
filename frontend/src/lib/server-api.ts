@@ -38,7 +38,8 @@ export function getBackendOrigin(): string {
  * Origin used for server-side fetches to the CMA Clash API.
  *
  * - Local + Caddy: set API_URL=http://localhost:8080
- * - Vercel (rewrites): set API_URL to your public site URL (or rely on VERCEL_URL)
+ * - Production (https://cmaclash.com): set API_URL=https://cmaclash.com (SSR cookies via same-origin rewrites)
+ * - Vercel preview: API_URL can fall back to https://${VERCEL_URL}
  * - Split without rewrites: set API_URL or BACKEND_URL to the backend origin
  */
 export function getServerApiOrigin(): string {

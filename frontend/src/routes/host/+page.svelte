@@ -44,7 +44,8 @@ SPDX-License-Identifier: MPL-2.0
 		const result = await startHostGame(quizId);
 		loading = false;
 		if (result === 'error') {
-			error = 'Could not start the game. The quiz may be private or the server is busy — try again.';
+			error =
+				'Could not start the game. The quiz may be private or the server is busy. Try again.';
 			return;
 		}
 		window.location.assign(adminLobbyUrl(result));
@@ -52,7 +53,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Host a Clash</title>
+	<title>CMA Clash: Host a Clash</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">

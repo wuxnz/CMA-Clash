@@ -5,7 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <svelte:head>
-	<title>CMA Clash/docs - Attribution</title>
+	<title>CMA Clash: docs - Attribution</title>
 	<meta name="description" content="People who helped making with CMA Clash." />
 </svelte:head>
 <article

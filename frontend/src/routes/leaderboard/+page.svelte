@@ -62,7 +62,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Leaderboard</title>
+	<title>CMA Clash: Leaderboard</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
@@ -72,7 +72,7 @@ SPDX-License-Identifier: MPL-2.0
 
 		{#if usingDemo}
 			<p class="text-sm text-gold bg-gold/10 border border-gold/30 rounded-lg px-3 py-2 mb-4" data-demo-label="true">
-				No leaderboard scores in the database yet — showing demo standings below.
+				No leaderboard scores in the database yet. Demo standings are shown below.
 			</p>
 		{/if}
 

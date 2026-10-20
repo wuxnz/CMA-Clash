@@ -22,6 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
+	import { joinErrorMessage } from '$lib/play/join-errors';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -206,9 +207,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	socket.on('join_error', (payload?: { code?: string }) => {
 		if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
-			window.alert(
-				'This game already started — you can no longer join the lobby. Ask the host for a new PIN.'
-			);
+			window.alert(joinErrorMessage(payload.code));
 		}
 	});
 
@@ -327,7 +326,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <svelte:window onbeforeunload={confirmUnload} />
 <svelte:head>
-	<title>CMA Clash - Play</title>
+	<title>CMA Clash: Play</title>
 </svelte:head>
 <div
 	class="min-h-screen min-w-full bg-paper"
