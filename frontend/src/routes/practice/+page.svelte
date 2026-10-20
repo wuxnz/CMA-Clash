@@ -52,7 +52,7 @@ SPDX-License-Identifier: MPL-2.0
 			<p class="text-ink-muted mt-3 max-w-md leading-relaxed">
 				Answer a quiz against a timer. No lobby — pick a set and start.
 			</p>
-			<a href="/explore" class="ledger-btn-primary w-auto px-8 mt-8 inline-flex">Pick a quiz</a>
+			<a href="/explore" class="btn btn-primary w-auto mt-8">Pick a quiz</a>
 		</div>
 		<div class="rounded-3xl bg-surface overflow-hidden h-[28rem]">
 			<div class="h-full [&_>div]:h-full [&_>div]:min-h-0">
