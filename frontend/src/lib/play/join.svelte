@@ -13,6 +13,9 @@ SPDX-License-Identifier: MPL-2.0
 	import Cookies from 'js-cookie';
 	import BrownButton from '$lib/components/buttons/brown.svelte';
 	import { hcaptcha_site_key, recaptcha_key, sentry_dsn } from '$lib/config';
+	import Card from '$lib/ui/Card.svelte';
+	import PinDisplay from '$lib/ui/PinDisplay.svelte';
+	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
 
 	const { t } = getLocalization();
 
@@ -202,49 +205,62 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 </svelte:head>
 
-{#if game_pin === '' || game_pin.length < 6}
-	<div class="flex flex-col justify-center align-center w-screen h-screen">
-		<form class="flex-col flex justify-center align-center mx-auto">
-			<h1 class="text-lg text-center">{$t('words.game_pin')}</h1>
-			<input
-				class="border border-gray-400 self-center text-center text-black ring-0 outline-hidden p-2 rounded-lg focus:shadow-2xl transition-all"
-				bind:value={game_pin}
-				maxlength="6"
-				inputmode="numeric"
-			/>
-			<!--				use:tippy={{content: "Please enter the game pin", sticky: true, placement: 'top'}}-->
-
-			<br />
-			<div class="mt-2">
-				<BrownButton disabled={game_pin.length < 6}>{$t('words.submit')}</BrownButton>
-			</div>
-		</form>
+<div class="min-h-screen bg-paper flex flex-col">
+	<LivePlayHeader pin={game_pin.length >= 6 ? game_pin : undefined} />
+	<div class="flex-1 flex items-center justify-center p-4">
+		{#if game_pin === '' || game_pin.length < 6}
+			<Card class="w-full max-w-md">
+				<h1 class="font-display text-2xl font-bold text-center text-ink mb-2">
+					{$t('words.game_pin')}
+				</h1>
+				<p class="text-sm text-ink-muted text-center mb-6">
+					Enter the 6-digit PIN from your host&apos;s screen
+				</p>
+				<form class="flex flex-col gap-4" onsubmit={(e) => e.preventDefault()}>
+					<input
+						class="ledger-input text-center font-mono text-2xl tracking-widest"
+						bind:value={game_pin}
+						maxlength="6"
+						inputmode="numeric"
+						autocomplete="one-time-code"
+						aria-label={$t('words.game_pin')}
+					/>
+					<BrownButton disabled={game_pin.length < 6}>{$t('words.submit')}</BrownButton>
+				</form>
+			</Card>
+		{:else}
+			<Card class="w-full max-w-md">
+				<div class="text-center mb-4">
+					<p class="text-xs text-ink-muted uppercase tracking-wide">Joining game</p>
+					<PinDisplay pin={game_pin} size="md" />
+				</div>
+				<form onsubmit={setUsername} class="flex flex-col gap-4">
+					<label class="text-sm font-medium text-ink" for="join-username"
+						>{$t('words.username')}</label
+					>
+					<input
+						id="join-username"
+						class="ledger-input text-center"
+						bind:value={username}
+						maxlength="17"
+						autocomplete="nickname"
+					/>
+					{#if custom_field}
+						<label class="text-sm font-medium text-ink" for="join-custom">{custom_field}</label>
+						<input
+							id="join-custom"
+							class="ledger-input text-center"
+							bind:value={custom_field_value}
+						/>
+					{/if}
+					<BrownButton disabled={username.length <= 3} onclick={setUsername}
+						>{$t('words.submit')}</BrownButton
+					>
+				</form>
+			</Card>
+		{/if}
 	</div>
-{:else}
-	<div class="flex flex-col justify-center align-center w-screen h-screen">
-		<form onsubmit={setUsername} class="flex-col flex justify-center align-center mx-auto">
-			<h1 class="text-lg text-center">{$t('words.username')}</h1>
-			<input
-				class="border border-gray-400 self-center text-center text-black ring-0 outline-hidden p-2 rounded-lg focus:shadow-2xl transition-all"
-				bind:value={username}
-				maxlength="17"
-			/>
-			{#if custom_field}
-				<h1 class="text-lg text-center">{custom_field}</h1>
-				<input
-					class="border border-gray-400 self-center text-center text-black ring-0 outline-hidden p-2 rounded-lg focus:shadow-2xl transition-all"
-					bind:value={custom_field_value}
-				/>
-			{/if}
-
-			<div class="mt-2">
-				<BrownButton disabled={username.length <= 3} onclick={setUsername}
-					>{$t('words.submit')}</BrownButton
-				>
-			</div>
-		</form>
-	</div>
-{/if}
+</div>
 <div
 	id="hcaptcha"
 	class="h-captcha"

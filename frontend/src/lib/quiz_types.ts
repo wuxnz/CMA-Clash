@@ -17,6 +17,7 @@ export interface QuizData {
 	questions: Question[];
 	game_id: string;
 	game_pin: string;
+	game_mode?: string;
 	started: boolean;
 	cover_image?: string;
 	background_color?: string;
@@ -62,6 +63,8 @@ export interface Question {
 	image?: string;
 	answers: Answers;
 	hide_results?: boolean;
+	explanation?: string | null;
+	references?: string[] | null;
 }
 
 export type Answers =

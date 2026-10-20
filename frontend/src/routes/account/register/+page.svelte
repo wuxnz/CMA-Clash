@@ -78,7 +78,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>ClassQuiz - Register</title>
+	<title>CMA-Clash - Register</title>
 </svelte:head>
 <div class="flex items-center justify-center min-h-screen px-4">
 	<div>
@@ -87,7 +87,7 @@ SPDX-License-Identifier: MPL-2.0
 		>
 			<div class="px-6 py-4">
 				<h2 class="text-3xl font-bold text-center text-gray-700 dark:text-white">
-					ClassQuiz
+					CMA-Clash
 				</h2>
 
 				<h3 class="mt-1 text-xl font-medium text-center text-gray-600 dark:text-gray-200">
@@ -329,7 +329,7 @@ SPDX-License-Identifier: MPL-2.0
 							{:else if responseData.data === '400'}
 								Wrong email!
 							{:else}
-								You stupid Mawoka!
+								Something went wrong
 							{/if}
 						</h3>
 						<div class="mt-2">
@@ -345,7 +345,7 @@ SPDX-License-Identifier: MPL-2.0
 								{:else if responseData.data === 'error'}
 									There was the good old unexpected error!
 								{:else}
-									You stupid Mawoka!
+									Please try again or contact support if the problem persists.
 								{/if}
 							</p>
 						</div>

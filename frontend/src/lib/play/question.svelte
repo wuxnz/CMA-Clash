@@ -16,6 +16,12 @@ SPDX-License-Identifier: MPL-2.0
 	import BrownButton from '$lib/components/buttons/brown.svelte';
 	import { get_foreground_color } from '../helpers';
 	import MediaComponent from '$lib/editor/MediaComponent.svelte';
+	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
+	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
+	import TimerBar from '$lib/ui/TimerBar.svelte';
+	import TopicTag from '$lib/ui/TopicTag.svelte';
+	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
+	import type { AnswerShape } from '$lib/ui/tokens';
 
 	const { t } = getLocalization();
 
@@ -24,13 +30,15 @@ SPDX-License-Identifier: MPL-2.0
 		game_mode: any;
 		question_index: string | number;
 		solution: any;
+		topic_tag?: string;
 	}
 
 	let {
 		question = $bindable(),
 		game_mode = $bindable(),
 		question_index,
-		solution
+		solution,
+		topic_tag = ''
 	}: Props = $props();
 
 	if (question.type === undefined) {
@@ -140,10 +148,17 @@ SPDX-License-Identifier: MPL-2.0
 			return '100';
 		}
 	};
-	const default_colors = ['#D6EDC9', '#B07156', '#7F7057', '#4E6E58'];
+	const default_colors = [...LEDGER_ANSWER_COLORS];
+
+	let totalTime = $derived(parseInt(question.time) || 30);
+	let remainingTime = $derived(parseInt(timer_res) || 0);
+	let topicLabel = $derived(topic_tag || `Live · Q${Number(question_index) + 1}`);
 </script>
 
-<div class="h-screen w-screen">
+<div class="min-h-screen w-screen bg-paper flex flex-col">
+	{#if game_mode === 'kahoot'}
+		<LivePlayHeader />
+	{/if}
 	{#if game_mode === 'normal'}
 		<div
 			class="flex flex-col justify-start"
@@ -167,17 +182,37 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 	{#if timer_res !== '0'}
 		{#if question.type === QuizQuestionType.ABCD || question.type === QuizQuestionType.VOTING}
-			<div class="w-full relative h-full" style="height: {get_div_height()}%">
-				<div
-					class="absolute top-0 bottom-0 left-0 right-0 m-auto rounded-full h-fit w-fit border-2 border-black shadow-2xl z-40"
-				>
-					<CircularTimer text={timer_res} progress={circular_progress} color="#ef4444" />
-				</div>
+			<div
+				class="flex-1 flex flex-col max-w-3xl mx-auto w-full px-4 py-4 gap-4"
+				style={game_mode !== 'kahoot' ? `height: ${get_div_height()}%` : ''}
+			>
+				{#if game_mode === 'kahoot'}
+					<div class="rounded-2xl border border-ink/10 bg-surface p-4 sm:p-6 shadow-sm">
+						<TopicTag label={topicLabel} />
+						<h1
+							class="font-display text-lg sm:text-xl text-ink mt-3 mb-4 leading-snug text-center"
+						>
+							{@html question.question}
+						</h1>
+						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} />
+					</div>
+				{:else}
+					<div
+						class="absolute top-0 bottom-0 left-0 right-0 m-auto rounded-full h-fit w-fit border-2 border-ink/20 shadow-lg z-40 pointer-events-none"
+					>
+						<CircularTimer text={timer_res} progress={circular_progress} color="#0E7C74" />
+					</div>
+				{/if}
 
-				<div class="grid grid-rows-2 grid-flow-col auto-cols-auto gap-2 w-full p-4 h-full">
+				<div
+					class="grid grid-cols-2 gap-3 flex-1 min-h-[12rem] {game_mode === 'kahoot'
+						? 'sm:gap-4'
+						: 'grid-rows-2 grid-flow-col auto-cols-auto'}"
+				>
 					{#each question.answers as answer, i}
 						<button
-							class="rounded-lg h-full flex align-middle justify-center disabled:opacity-60 p-3 border-2 border-black"
+							type="button"
+							class="rounded-xl flex flex-col items-center justify-center gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] border-2 border-white/20 shadow-md hover:brightness-105 active:scale-[0.98] transition motion-reduce:active:scale-100 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
 							style="background-color: {answer.color ??
 								default_colors[i]}; color: {get_foreground_color(
 								answer.color ?? default_colors[i]
@@ -186,13 +221,15 @@ SPDX-License-Identifier: MPL-2.0
 							onclick={() => selectAnswer(answer.answer)}
 						>
 							{#if game_mode === 'kahoot'}
-								<img
-									class="h-2/3 inline-block m-auto"
-									alt="Icon"
-									src={kahoot_icons[i]}
+								<AnswerShapeIcon
+									shape={LEDGER_ANSWER_SHAPES[i] as AnswerShape}
+									class="w-8 h-8 sm:w-10 sm:h-10"
 								/>
+								<span class="font-mono text-sm sm:text-base font-medium text-center"
+									>{answer.answer}</span
+								>
 							{:else}
-								<p class="m-auto">{answer.answer}</p>
+								<p class="m-auto text-center">{answer.answer}</p>
 							{/if}
 						</button>
 					{/each}
