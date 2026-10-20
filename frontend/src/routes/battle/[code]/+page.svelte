@@ -29,12 +29,29 @@ SPDX-License-Identifier: MPL-2.0
 	let error = $state('');
 	let joinName = $state('');
 	let joined = $state(false);
+	let isHost = $state(false);
 	const reduced = prefersReducedMotion();
 
 	const code = $derived(page.params.code);
 
+	function beginArenaCountdown() {
+		if (showCountdown) return;
+		showVs = false;
+		showCountdown = true;
+	}
+
 	async function refresh() {
-		lobby = await getBattle(code);
+		const next = await getBattle(code);
+		if (!next) {
+			error = 'Battle not found or expired.';
+			return;
+		}
+		if (next.status === 'started' && next.game_pin) {
+			lobby = next;
+			beginArenaCountdown();
+			return;
+		}
+		lobby = next;
 	}
 
 	async function tryJoinLobby() {
@@ -60,6 +77,21 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	onMount(async () => {
+		isHost = Boolean(getBattleHostSecret(code));
+		if (!isHost) {
+			try {
+				const me = await fetch('/api/v1/users/me', { credentials: 'include' });
+				if (me.ok) {
+					const user = await me.json();
+					await refresh();
+					if (lobby && user?.id && lobby.host_user_id === user.id) {
+						isHost = true;
+					}
+				}
+			} catch {
+				/* guest */
+			}
+		}
 		await refresh();
 		await tryJoinLobby();
 		const id = setInterval(refresh, 2000);
@@ -102,8 +134,7 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		lobby = updated;
-		showVs = false;
-		showCountdown = true;
+		beginArenaCountdown();
 	}
 
 	function goToPlay() {
@@ -170,8 +201,10 @@ SPDX-License-Identifier: MPL-2.0
 		{#if error}
 			<p class="text-danger text-sm text-center mb-2" role="alert">{error}</p>
 		{/if}
-		{#if lobby?.status === 'waiting'}
+		{#if lobby?.status === 'waiting' && isHost}
 			<button type="button" class="ledger-btn-primary" onclick={handleStart}>Start battle</button>
+		{:else if lobby?.status === 'waiting' && !isHost}
+			<p class="text-center text-sm text-ink-muted">Waiting for the host to start…</p>
 		{:else if lobby?.game_pin}
 			<a href="/play?pin={lobby.game_pin}" class="ledger-btn-primary text-center">Enter game</a>
 		{/if}

@@ -22,6 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
+	import { joinErrorMessage } from '$lib/play/join-errors';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -130,6 +131,9 @@ SPDX-License-Identifier: MPL-2.0
 	// Socket-events
 	socket.on('joined_game', (data) => {
 		gameData = data;
+		if (data.started) {
+			gameMeta.started = true;
+		}
 		// eslint-disable-next-line no-undef
 		plausible('Joined Game', { props: { game_id: gameData.game_id } });
 		Cookies.set('joined_game', JSON.stringify({ sid: socket.id, username, game_pin }), {
@@ -152,6 +156,22 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	});
 
+	function syncRemainingFromServer(data: { question_started_at?: string; question?: { time?: unknown } }) {
+		const total = parseInt(String(data.question?.time ?? 30)) || 30;
+		if (data.question_started_at) {
+			const elapsed = (Date.now() - new Date(data.question_started_at).getTime()) / 1000;
+			const introLeft = Math.max(0, 3.5 - elapsed);
+			if (introLeft > 0) {
+				remainingLive = total;
+				return { introLeft };
+			}
+			remainingLive = Math.max(0, Math.ceil(total - (elapsed - 3.5)));
+			return { introLeft: 0 };
+		}
+		remainingLive = total;
+		return { introLeft: 3.5 };
+	}
+
 	socket.on('set_question_number', (data) => {
 		solution = undefined;
 		restart();
@@ -169,15 +189,26 @@ SPDX-License-Identifier: MPL-2.0
 		);
 		clearTimeout(introTimer);
 		clearTimeout(revealTimer);
-		livePhase = 'intro';
-		remainingLive = parseInt(String(data.question?.time ?? 30)) || 30;
-		introTimer = setTimeout(() => {
-			livePhase = 'answer';
-		}, 3500);
+		const { introLeft } = syncRemainingFromServer(data);
+		livePhase = introLeft > 0 ? 'intro' : 'answer';
+		if (introLeft > 0) {
+			introTimer = setTimeout(() => {
+				livePhase = 'answer';
+			}, introLeft * 1000);
+		}
+		if (!gameMeta.started) {
+			gameMeta.started = true;
+		}
 	});
 
 	socket.on('start_game', () => {
 		gameMeta.started = true;
+	});
+
+	socket.on('join_error', (payload?: { code?: string }) => {
+		if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
+			window.alert(joinErrorMessage(payload.code));
+		}
 	});
 
 	socket.on('question_results', (data) => {
