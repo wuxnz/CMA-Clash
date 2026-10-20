@@ -2,9 +2,12 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
+import logging
+
 import sentry_sdk
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from sentry_sdk.integrations.redis import RedisIntegration
 from socketio import ASGIApp
 from starlette.middleware.sessions import SessionMiddleware
@@ -56,6 +59,10 @@ if _cors_origins:
         allow_headers=["*"],
     )
 
+@app.get("/api/v1/health")
+async def health_check():
+    return JSONResponse({"status": "ok"})
+
 
 @app.middleware("http")
 async def sentry_exception(request: Request, call_next):
@@ -74,7 +81,11 @@ async def startup() -> None:
     database_ = app.state.database
     if not database_.is_connected:
         await database_.connect()
-    await meilisearch_init()
+    try:
+        await meilisearch_init()
+    except Exception as exc:
+        LOGGER = logging.getLogger("uvicorn.error")
+        LOGGER.warning("Meilisearch unavailable at startup (%s); search will be degraded until it is reachable.", exc)
     if settings.auto_seed_content:
         from classquiz.seed.runner import run_seed
 

@@ -199,6 +199,14 @@ async def handle_import_from_excel(data: BinaryIO, user: User) -> Quiz:
 
 
 async def meilisearch_init():
+    try:
+        await _meilisearch_init_impl()
+    except Exception as exc:
+        LOGGER.warning("Meilisearch sync skipped: %s", exc)
+        raise
+
+
+async def _meilisearch_init_impl():
     classquiz_index_found = False
     try:
         indexes = meilisearch.get_indexes()

@@ -19,11 +19,12 @@ COPY image_cleanup.py /app/image_cleanup.py
 COPY alembic.ini /app/
 COPY migrations/ /app/migrations/
 COPY *start.sh /app/
+COPY render_start.sh /app/
 COPY gunicorn_conf.py /app/
 
 
 EXPOSE 80
 ENV PYTHONPATH=/app
-RUN chmod +x start.sh
+RUN chmod +x start.sh render_start.sh
 ENV APP_MODULE=classquiz:app
 CMD ["./start.sh"]

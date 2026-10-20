@@ -15,6 +15,8 @@ See [docs/CMA_CLASH.md](docs/CMA_CLASH.md) for API endpoints, data model, socket
 
 **Vercel (frontend only):** see [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md). Set `BACKEND_URL` and `API_URL` on Vercel; host Postgres/Redis/Meilisearch/API elsewhere.
 
+**Production split (Vercel + Render):** [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md) and [`render.yaml`](render.yaml).
+
 Production Docker: `docker compose up` runs migrations and seed when `AUTO_SEED_CONTENT=true`.
 
 ## Content
