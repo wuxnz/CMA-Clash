@@ -37,7 +37,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA-Clash — Battle</title>
+	<title>CMA Clash — Battle</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">

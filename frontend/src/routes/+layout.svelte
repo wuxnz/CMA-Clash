@@ -15,13 +15,7 @@ SPDX-License-Identifier: MPL-2.0
 	import CommandPalette from '$lib/components/commandpalette.svelte';
 	import { plausible_data_url } from '$lib/config';
 	import { page } from '$app/state';
-	import {
-		SITE_NAME,
-		SITE_URL,
-		DEFAULT_DESCRIPTION,
-		OG_IMAGE_URL,
-		canonicalUrl
-	} from '$lib/site';
+	import { SITE_NAME, OG_IMAGE_URL, canonicalUrl } from '$lib/site';
 	interface Props {
 		children?: import('svelte').Snippet;
 	}
@@ -53,7 +47,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<meta name="robots" content="noindex, nofollow" />
+	<!-- Site-wide tags; robots noindex/nofollow lives in app.html. Pages set title/description. -->
 	<link rel="canonical" href={pageCanonical} />
 	<meta property="og:site_name" content={SITE_NAME} />
 	<meta property="og:url" content={pageCanonical} />
@@ -61,11 +55,9 @@ SPDX-License-Identifier: MPL-2.0
 	<meta property="og:image" content={OG_IMAGE_URL} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="{SITE_NAME} — gamified CMA exam prep" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content={OG_IMAGE_URL} />
-	<meta name="description" content={DEFAULT_DESCRIPTION} />
-	<meta property="og:description" content={DEFAULT_DESCRIPTION} />
-	<meta name="twitter:description" content={DEFAULT_DESCRIPTION} />
 	{#if plausible_data_url}
 		<script
 			defer

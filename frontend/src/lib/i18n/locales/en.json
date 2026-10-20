@@ -2,11 +2,11 @@
     "index_page": {
         "slogan": "Gamified certification exam prep",
         "meta": {
-            "description": "CMA-Clash is gamified exam prep with live quizzes, battles, streaks, and leaderboards.",
+            "description": "CMA Clash is gamified exam prep with live quizzes, battles, streaks, and leaderboards.",
             "title": "Home"
         },
-        "stats": "Join {{user_count}} learners practicing across {{quiz_count}} quizzes on CMA-Clash.",
-        "how_cma_clash_works": "How CMA-Clash works",
+        "stats": "Join {{user_count}} learners practicing across {{quiz_count}} quizzes on CMA Clash.",
+        "how_cma_clash_works": "How CMA Clash works",
         "why_cma_clash": "Built for working professionals",
         "cma_hero_subtitle": "Live quizzes, battles, and leaderboards for certification exam prep.",
         "cma_step_study_title": "Study by section",
@@ -57,7 +57,7 @@
         "download_quizzes": "Download Quizzes",
         "download_quizzes_content": "Quizzes can be downloaded as one file and imported at any time. This also lets you move your quizzes to other CMA Clash instances.",
         "community_driven": "Community-driven",
-        "community_driven_content": "CMA Clash depends on its community for funding, testing ideas, feature requests, translations and more! You can also be a part of the CMA-Clash-community!",
+        "community_driven_content": "CMA Clash depends on its community for funding, testing ideas, feature requests, translations and more! You can also be a part of the CMA Clash community!",
         "how_does_classquiz_work": "How does CMA Clash even work?",
         "no_player_limit": "No player limit",
         "no_player_limit_content": "CMA Clash doesn't have an artificial player limit. In theory, 1000+ players could play the same quiz, but it's tested with up to 300 players per quiz.",

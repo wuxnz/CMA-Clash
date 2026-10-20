@@ -5,7 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <svelte:head>
-	<title>CMA-Clash/docs - Roadmap</title>
+	<title>CMA Clash/docs - Roadmap</title>
 	<meta
 		name="description"
 		content="The roadmap for CMA Clash, the open-source quiz-application"

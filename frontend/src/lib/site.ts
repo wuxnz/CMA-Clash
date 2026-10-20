@@ -5,13 +5,13 @@
 /** Canonical production origin for link previews and SEO. */
 export const SITE_URL = 'https://cmaclash.vercel.app';
 
-export const SITE_NAME = 'ClassQuiz';
+export const SITE_NAME = 'CMA Clash';
 
 /** Default meta description from index_page copy (en locale). */
 export const DEFAULT_DESCRIPTION =
-	'ClassQuiz is a quiz app to learn interactively for students, which is open source and free to use';
+	'CMA Clash is gamified CMA exam prep with live quizzes, multiplayer battles, streaks, and leaderboards.';
 
-export const DEFAULT_TAGLINE = 'The open-source quiz-platform!';
+export const DEFAULT_TAGLINE = 'Gamified CMA exam prep.';
 
 /** Absolute URL for Open Graph / Twitter preview image (1200×630). */
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;

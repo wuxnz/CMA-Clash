@@ -13,7 +13,7 @@
 	class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 border-b border-ink/10 bg-surface/95 backdrop-blur-sm"
 >
 	<div class="flex items-baseline gap-2 min-w-0">
-		<span class="font-display font-bold text-lg text-ink shrink-0">CMA-Clash</span>
+		<span class="font-display font-bold text-lg text-ink shrink-0">CMA Clash</span>
 		{#if pin}
 			<span class="text-xs text-ink-muted truncate">
 				Live · PIN <span class="font-mono tabular-nums">{pin}</span>

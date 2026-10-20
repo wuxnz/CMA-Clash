@@ -14,7 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 <footer class="mt-auto border-t border-ink/10 bg-ink text-paper w-full">
 	<div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
 		<div class="text-center md:text-left">
-			<p class="font-display font-semibold text-lg">CMA-Clash</p>
+			<p class="font-display font-semibold text-lg">CMA Clash</p>
 			<p class="text-sm text-paper/70 mt-1">Gamified CMA exam prep — live quizzes &amp; leaderboards</p>
 		</div>
 		<div class="flex flex-wrap items-center justify-center gap-4 text-sm">
