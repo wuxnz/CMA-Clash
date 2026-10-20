@@ -10,6 +10,10 @@ This should be okay, right?
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { tinykeys } from '$lib/tinykeys';
+	import {
+		applyPaletteTabAutocomplete,
+		paletteShortcutActive
+	} from '$lib/commandPaletteKeys';
 	import { fade } from 'svelte/transition';
 	import MiniSearch from 'minisearch';
 
@@ -100,14 +104,15 @@ This should be okay, right?
 	let visible_items = $state(actions);
 
 	const toggle_open = (e: KeyboardEvent | undefined) => {
-		e.preventDefault();
+		e?.preventDefault();
 		open = !open;
 	};
 
 	const close_cp = (e: KeyboardEvent | undefined) => {
-		if (e) {
-			e.preventDefault();
+		if (!open) {
+			return;
 		}
+		e?.preventDefault();
 		open = false;
 	};
 
@@ -169,11 +174,15 @@ This should be okay, right?
 	};
 
 	const autocomplete_on_tab = (e: KeyboardEvent) => {
-		e.preventDefault();
-		input = bg_text;
+		applyPaletteTabAutocomplete(open, e, bg_text, (value) => {
+			input = value;
+		});
 	};
 
 	const on_arrow_down = (e: KeyboardEvent) => {
+		if (!paletteShortcutActive(open)) {
+			return;
+		}
 		e.preventDefault();
 		if (visible_items.length < 1) {
 			return;
@@ -184,6 +193,9 @@ This should be okay, right?
 		selected += 1;
 	};
 	const on_arrow_up = (e: KeyboardEvent) => {
+		if (!paletteShortcutActive(open)) {
+			return;
+		}
 		e.preventDefault();
 		if (visible_items.length < 1) {
 			return;
@@ -195,9 +207,13 @@ This should be okay, right?
 	};
 
 	const on_enter = (e: KeyboardEvent) => {
+		if (!paletteShortcutActive(open)) {
+			return;
+		}
 		if (selected === null) {
 			return;
 		}
+		e.preventDefault();
 		execute_action();
 		input = '';
 	};
@@ -258,7 +274,7 @@ This should be okay, right?
 						class:bg-elevated={selected !== i}
 						onmouseenter={() => (selected = i)}
 						onmousedown={execute_action}
-						tabindex="-2"
+						tabindex="-1"
 						role="button"
 					>
 						<div class="flex">
