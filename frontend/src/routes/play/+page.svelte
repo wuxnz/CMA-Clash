@@ -204,11 +204,6 @@ SPDX-License-Identifier: MPL-2.0
 		gameMeta.started = true;
 	});
 
-	socket.on('battle_finished', () => {
-		final_results = [];
-		Cookies.remove('joined_game');
-	});
-
 	socket.on('join_error', (payload?: { code?: string }) => {
 		if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
 			window.alert(
