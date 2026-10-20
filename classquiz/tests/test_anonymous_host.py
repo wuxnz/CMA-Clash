@@ -5,6 +5,8 @@
 import pytest
 from fastapi.testclient import TestClient
 
+from classquiz.tests import test_client  # noqa: F401
+
 
 @pytest.mark.order("last")
 class TestAnonymousHost:
@@ -23,9 +25,14 @@ class TestAnonymousHost:
         assert body.get("game_id")
 
     def test_anonymous_start_private_quiz_forbidden(self, test_client: TestClient):
+        from classquiz.config import settings
         from classquiz.tests.test_server import TestUsers, ValueStorage
 
         TestUsers.ensure_logged_in(test_client)
+        secret = settings().secret_key
+        test_client.post(
+            f"/api/v1/internal/testing/quiz-public?quiz_id={ValueStorage.quiz_id}&public=false&secret_key={secret}"
+        )
         resp = test_client.post(
             f"/api/v1/quiz/start/{ValueStorage.quiz_id}?game_mode=kahoot&captcha_enabled=False"
         )
@@ -35,8 +42,12 @@ class TestAnonymousHost:
             f"/api/v1/quiz/start/{ValueStorage.quiz_id}?game_mode=kahoot&captcha_enabled=False"
         )
         assert denied.status_code == 404
+        test_client.post(
+            f"/api/v1/internal/testing/quiz-public?quiz_id={ValueStorage.quiz_id}&public=true&secret_key={secret}"
+        )
 
     def test_guest_battle_create_and_join(self, test_client: TestClient):
+        test_client.cookies.clear()
         quizzes = test_client.get("/api/v1/clash/quizzes", params={"page_size": 1}).json()
         assert quizzes
         quiz_id = quizzes[0]["id"]

@@ -121,6 +121,26 @@ async def _ensure_certifications_and_topics() -> dict[str, Topic]:
     return topic_by_slug
 
 
+async def migrate_seed_quiz_titles() -> int:
+    """Rename legacy em-dash quiz titles to colon style (idempotent)."""
+    updated = 0
+    quizzes = await Quiz.objects.filter(public=True).all()
+    for quiz in quizzes:
+        if " — Set " not in quiz.title:
+            continue
+        new_title = quiz.title.replace(" — Set ", ": Set ")
+        if new_title == quiz.title:
+            continue
+        quiz.title = new_title
+        await quiz.update()
+        updated += 1
+        try:
+            meilisearch.index(settings().meilisearch_index).add_documents([await get_meili_data(quiz)])
+        except Exception as exc:
+            LOGGER.warning("Meilisearch title migrate failed for %s: %s", quiz.id, exc)
+    return updated
+
+
 async def run_seed(force: bool = False) -> dict:
     """Idempotent seed: certifications, topics, and public quizzes from question banks."""
     if not force and os.environ.get("CMA_CLASH_SKIP_SEED", "").lower() in ("1", "true", "yes"):
@@ -132,6 +152,7 @@ async def run_seed(force: bool = False) -> dict:
         owned_connection = True
     user = await _ensure_seed_user()
     await _ensure_demo_user()
+    titles_migrated = await migrate_seed_quiz_titles()
     topic_by_slug = await _ensure_certifications_and_topics()
     facts = load_all_facts()
     by_topic: dict[str, list[dict]] = defaultdict(list)
@@ -156,7 +177,7 @@ async def run_seed(force: bool = False) -> dict:
                 continue
             questions = [_fact_to_question(f) for f in chunk]
             difficulty = chunk[0].get("difficulty", "intermediate")
-            title = f"{topic.name} — Set {idx + 1}"
+            title = f"{topic.name}: Set {idx + 1}"
             quiz = await Quiz(
                 id=uuid.uuid4(),
                 public=True,
@@ -181,6 +202,7 @@ async def run_seed(force: bool = False) -> dict:
         "questions_in_bank": len(facts),
         "questions_accounted": questions_seeded,
         "topics": len(by_topic),
+        "titles_migrated": titles_migrated,
     }
     LOGGER.info("CMA Clash seed complete: %s", summary)
     try:

@@ -8,6 +8,10 @@ export function joinErrorMessage(code: string | undefined): string {
 			return 'Captcha verification failed. Refresh and try again.';
 		case 'game_already_started':
 			return 'This live quiz already started. Late join is not allowed. Ask the host for a new game PIN.';
+		case 'game_finished':
+			return 'This battle has already finished.';
+		case 'not_in_battle':
+			return 'Only players in this battle lobby can join with this PIN.';
 		case 'username_taken':
 			return 'That nickname is already taken. Pick another.';
 		case 'invalid_payload':

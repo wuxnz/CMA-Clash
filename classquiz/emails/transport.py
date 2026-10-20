@@ -84,12 +84,18 @@ def _send_resend(to: str, subject: str, html_body: str, text_body: str) -> None:
         headers={
             "Authorization": f"Bearer {settings.resend_api_key}",
             "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "cmaclash/1.0",
         },
         method="POST",
     )
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
+            resp_body = resp.read().decode("utf-8", errors="replace")
             if resp.status >= 400:
-                raise RuntimeError(f"Resend API error {resp.status}")
+                LOGGER.error("Resend API error %s: %s", resp.status, resp_body)
+                raise RuntimeError(f"Resend API error {resp.status}: {resp_body}")
     except urllib.error.HTTPError as e:
-        raise RuntimeError(f"Resend API error {e.code}") from e
+        err_body = e.read().decode("utf-8", errors="replace") if e.fp else ""
+        LOGGER.error("Resend API error %s: %s", e.code, err_body)
+        raise RuntimeError(f"Resend API error {e.code}: {err_body}") from e
