@@ -10,6 +10,10 @@ from classquiz.kahoot_importer.get import get
 
 @pytest.mark.order(-2)
 @pytest.mark.asyncio
+@pytest.mark.skipif(
+    __import__("os").environ.get("RUN_KAHOOT_TESTS", "").lower() not in ("1", "true", "yes"),
+    reason="Set RUN_KAHOOT_TESTS=1 to run live Kahoot importer tests",
+)
 async def test_get():
     await get("1f95eb0b-fcf4-4db2-879b-5418ef75116b")
     await get("c63d4d39-767e-4754-8c16-66c3c2d9633c")
