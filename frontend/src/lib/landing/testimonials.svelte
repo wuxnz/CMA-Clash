@@ -12,7 +12,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	const testimotionals = [
 		{
-			quote: `#CMAClash: Gamified exam prep with live quizzes — written in #svelte and #python.
+			quote: `#CMAClash: CCMA exam prep with live quizzes, built with #svelte and #python.
 Great for study groups and certification practice!`,
 			name: 'Deekshith Allamaneni',
 			source: 'https://twitter.com/adeekshith/status/1514973178438766596'

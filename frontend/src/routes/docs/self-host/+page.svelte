@@ -14,7 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash/docs - Self-Host</title>
+	<title>CMA Clash: docs - Self-Host</title>
 	<meta
 		name="description"
 		content="How to self-host CMA Clash, the open-source quiz-application"

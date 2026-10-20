@@ -56,7 +56,7 @@ SPDX-License-Identifier: MPL-2.0
 	<meta property="og:image" content={OG_IMAGE_URL} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="{SITE_NAME} — gamified CMA exam prep" />
+	<meta property="og:image:alt" content="{SITE_NAME}: CCMA and allied health exam prep" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content={OG_IMAGE_URL} />
 	{#if plausible_data_url}

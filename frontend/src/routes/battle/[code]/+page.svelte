@@ -40,7 +40,7 @@ SPDX-License-Identifier: MPL-2.0
 	async function handleStart() {
 		const updated = await startBattle(code);
 		if (!updated?.game_pin) {
-			error = 'Could not start — are you the host?';
+			error = 'Could not start. Are you the host?';
 			return;
 		}
 		lobby = updated;
@@ -58,7 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Battle {code}</title>
+	<title>CMA Clash: Battle {code}</title>
 </svelte:head>
 
 <div class="min-h-screen bg-ink text-paper flex flex-col items-center justify-center px-4 relative overflow-hidden">

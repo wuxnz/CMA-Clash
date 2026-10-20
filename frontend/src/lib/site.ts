@@ -9,9 +9,9 @@ export const SITE_NAME = 'CMA Clash';
 
 /** Default meta description from index_page copy (en locale). */
 export const DEFAULT_DESCRIPTION =
-	'CMA Clash is gamified CMA exam prep with live quizzes, multiplayer battles, streaks, and leaderboards.';
+	'CCMA, EKG, phlebotomy, and CPR exam prep with live quizzes (PIN lobbies), battles, practice sets, and leaderboards.';
 
-export const DEFAULT_TAGLINE = 'Gamified CMA exam prep.';
+export const DEFAULT_TAGLINE = 'CCMA and allied health exam prep.';
 
 /** Absolute URL for Open Graph / Twitter preview image (1200×630). */
 export const OG_IMAGE_URL = `${SITE_URL}/og-image.png`;

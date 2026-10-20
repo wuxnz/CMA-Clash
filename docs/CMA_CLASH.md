@@ -1,6 +1,6 @@
 # CMA Clash
 
-CMA Clash is a gamified certification exam prep platform built on the CMA Clash stack (FastAPI, Svelte, Redis/Socket.IO, Meilisearch, PostgreSQL).
+CMA Clash is CCMA and allied health exam prep built on the ClassQuiz stack (FastAPI, Svelte, Redis/Socket.IO, Meilisearch, PostgreSQL).
 
 ## Architecture
 

@@ -62,7 +62,7 @@ SPDX-License-Identifier: MPL-2.0
 		});
 		resendBusy = false;
 		unverifiedMessage = res.ok
-			? 'Verification email sent — check your inbox.'
+			? 'Verification email sent. Check your inbox.'
 			: 'Could not resend verification email.';
 	};
 </script>

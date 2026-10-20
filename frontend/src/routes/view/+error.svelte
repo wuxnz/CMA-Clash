@@ -12,19 +12,14 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>Error - {status}</title>
+	<title>CMA Clash: Error {status}</title>
 </svelte:head>
 <h1 class="text-6xl text-center">{status}</h1>
 
 {#if status === 404}
-	<p class="text-center">
-		The quiz you were looking for is gone or never even existed. Who knows?
-	</p>
+	<p class="text-center">That quiz is missing or the link may be outdated.</p>
 {:else}
-	<p>
-		That shouldn't happen. It's probably my fault, not yours, but maybe you have a magical power
-		to break stuff...
-	</p>
+	<p class="text-center">Something went wrong on our side. Try again or head back home.</p>
 {/if}
 
 <div class="flex justify-center mt-8">

@@ -56,7 +56,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Host a Clash</title>
+	<title>CMA Clash: Host a Clash</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">

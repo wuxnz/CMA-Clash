@@ -49,7 +49,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Search</title>
+	<title>CMA Clash: Search</title>
 </svelte:head>
 
 <div>

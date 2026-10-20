@@ -80,7 +80,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash - Register</title>
+	<title>CMA Clash: Register</title>
 </svelte:head>
 <div class="flex items-center justify-center min-h-screen px-4">
 	<div>

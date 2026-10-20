@@ -45,7 +45,7 @@ SPDX-License-Identifier: MPL-2.0
 		const lobby = await createBattle(quizId, 4);
 		loading = false;
 		if (!lobby) {
-			error = 'Could not create battle — sign in and try again.';
+			error = 'Could not create battle. Sign in and try again.';
 			return;
 		}
 		goto(`/battle/${lobby.battle_code}`);
@@ -53,7 +53,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Battle</title>
+	<title>CMA Clash: Battle</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">

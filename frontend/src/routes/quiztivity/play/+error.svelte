@@ -15,7 +15,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>{$t('words.error')} - {status}</title>
+	<title>CMA Clash: {$t('words.error')} {status}</title>
 </svelte:head>
 <h1 class="text-6xl text-center">{status}</h1>
 

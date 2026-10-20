@@ -1,6 +1,6 @@
 # CMA Clash
 
-**CMA Clash** transforms this CMA Clash fork into gamified certification exam prep: real-time quizzes, multiplayer battles, XP/leaderboards, and curated CCMA, EKG, phlebotomy, CPR/BLS, and clinical skills content.
+**CMA Clash** is CCMA and allied health exam prep on this ClassQuiz fork: live quizzes, battles, XP/leaderboards, and seeded CCMA, EKG, phlebotomy, CPR/BLS, and clinical skills banks.
 
 See [docs/CMA_CLASH.md](docs/CMA_CLASH.md) for API endpoints, data model, socket events, and seed instructions.
 

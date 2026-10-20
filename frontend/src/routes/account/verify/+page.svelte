@@ -58,7 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Verify email</title>
+	<title>CMA Clash: Verify email</title>
 </svelte:head>
 
 <div class="flex items-center justify-center min-h-[80vh] px-4">

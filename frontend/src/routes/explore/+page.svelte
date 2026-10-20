@@ -38,7 +38,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — Explore</title>
+	<title>CMA Clash: Explore</title>
 </svelte:head>
 
 {#if exploreLoading}

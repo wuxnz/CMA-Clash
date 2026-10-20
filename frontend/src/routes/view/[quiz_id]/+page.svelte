@@ -77,7 +77,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <svelte:head>
-	<title>CMA Clash — View {quiz.title}</title>
+	<title>CMA Clash: View {quiz.title}</title>
 </svelte:head>
 
 <div>
