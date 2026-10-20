@@ -286,13 +286,13 @@
         "old_password": "Old password",
         "new_password": "New password",
         "repeat_password": "Repeat password",
-        "change_password_submit": "Change password!",
+        "change_password_submit": "Change password",
         "last_seen": "Last seen",
         "check_location": "Check location",
         "delete_this_session": "Delete this session",
         "this_session?": "This session?",
         "change_avatar": "Change avatar",
-        "security_settings": "Security-Settings",
+        "security_settings": "Security",
         "add_api_key": "Add API key"
     },
     "explore_page": {
@@ -300,8 +300,8 @@
         "imported_by": "Imported by"
     },
     "search_page": {
-        "at_least_3_characters": "Enter at least 3 characters...",
-        "nothing_here": "There is nothing here..."
+        "at_least_3_characters": "Enter at least 3 characters",
+        "nothing_here": "No quizzes match that search"
     },
     "play_page": {
         "end_sentence": "That's it! This was the quiz.",
@@ -368,10 +368,10 @@
         "go_back": "Go back"
     },
     "results_page": {
-        "no_results_so_far": "No results saved so far...",
-        "quiz_title": "Quiz Title",
-        "date_played": "Date Played",
-        "player_count": "Player count",
+        "no_results_so_far": "Host a game to see scores here.",
+        "quiz_title": "Quiz",
+        "date_played": "Date",
+        "player_count": "Players",
         "general_overview": {
             "sentence": "The quiz \"<b>{{title}}</b>\", which was played on <b>{{date}}</b> had <b>{{player_count}}</b> players with an average score of <b>{{average_score}}</b>."
         }

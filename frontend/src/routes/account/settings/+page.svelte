@@ -10,8 +10,11 @@ SPDX-License-Identifier: MPL-2.0
 	import { UAParser } from 'ua-parser-js';
 	import Spinner from '$lib/Spinner.svelte';
 	import { onMount } from 'svelte';
-	import BrownButton from '$lib/components/buttons/brown.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import Footer from '$lib/footer.svelte';
+	import { navbarVisible } from '$lib/stores.svelte';
 
+	navbarVisible.visible = true;
 	const { t } = getLocalization();
 
 	interface UserAccount {
@@ -34,7 +37,6 @@ SPDX-License-Identifier: MPL-2.0
 		newPasswordConfirm: ''
 	});
 
-	let locationData;
 	let this_session = $state();
 
 	let passwordChangeDataValid = $derived(
@@ -88,7 +90,6 @@ SPDX-License-Identifier: MPL-2.0
 	const get_api_keys = async (): Promise<Array<string>> => {
 		const res = await fetch('/api/v1/users/api_keys');
 		const api_keys_temp = await res.json();
-		console.log(api_keys_temp);
 		return api_keys_temp;
 	};
 
@@ -104,7 +105,7 @@ SPDX-License-Identifier: MPL-2.0
 	};
 
 	const delete_api_key = async (key: string) => {
-		if (confirm('Do you really want to delete this API-Key?')) {
+		if (confirm('Delete this API key?')) {
 			await fetch(`/api/v1/users/api_keys?api_key=${key}`, { method: 'DELETE' });
 			api_keys = get_api_keys();
 		}
@@ -144,173 +145,138 @@ SPDX-License-Identifier: MPL-2.0
 	<title>CMA Clash: Settings</title>
 </svelte:head>
 
-{#await getUser()}
-	<Spinner />
-{:then user}
-	<div class="w-full grid grid-cols-6">
-		<div>
-			<img
-				class="rounded-md md:w-80"
-				src="/api/v1/users/avatar"
-				alt="Profile image of {user.username}"
-			/>
-			<div class="m-2 flex justify-center">
-				<BrownButton href="/account/settings/avatar"
-					>{$t('settings_page.change_avatar')}</BrownButton
-				>
-			</div>
-		</div>
-		<div class="grid grid-rows-2 col-start-2 col-end-7">
-			<div class="grid grid-cols-2">
-				<div>
-					<h1 class="text-4xl font-bold my-2">{user.username}</h1>
-					<p class="text-lg mb-6 md:max-w-lg">
-						{$t('words.email')}: {user.email}
-					</p>
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-3xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
+		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Settings</h1>
+
+		{#await getUser()}
+			<Spinner />
+		{:then user}
+			<div class="mt-8 flex flex-col sm:flex-row gap-6 min-w-0">
+				<div class="shrink-0">
+					<img
+						class="rounded-lg w-24 h-24 object-cover bg-elevated"
+						src="/api/v1/users/avatar"
+						alt=""
+					/>
+					<Button href="/account/settings/avatar" variant="ghost" size="sm" class="w-auto mt-3">
+						Change avatar
+					</Button>
 				</div>
-				<div class="p-4 flex justify-center">
-					<div class="m-auto">
-						<BrownButton href="/account/settings/security"
-							>{$t('settings_page.security_settings')}
-						</BrownButton>
-						<BrownButton href="/account/controllers">Quiz Controller</BrownButton>
-						<BrownButton href="/user/{user.id}">Public profile page</BrownButton>
-					</div>
+				<div class="min-w-0">
+					<p class="text-lg font-semibold text-ink truncate">{user.username}</p>
+					<p class="text-sm text-ink-muted mt-1 break-all">{user.email}</p>
+					<nav class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" aria-label="Account">
+						<a href="/account/settings/security" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+							Security
+						</a>
+						<a href="/account/controllers" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+							Quiz controllers
+						</a>
+						<a href="/user/{user.id}" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+							Public profile
+						</a>
+					</nav>
 				</div>
 			</div>
-			<div>
-				<form class="flex flex-col md:flex-row" onsubmit={changePassword}>
-					<label
-						>{$t('settings_page.old_password')}:<input
-							type="password"
-							class="m-2 text-ink rounded-sm p-1 bg-elevated text-ink"
-							bind:value={changePasswordData.oldPassword}
-						/></label
-					>
-					<label
-						>{$t('settings_page.new_password')}:<input
-							type="password"
-							class="m-2 text-ink rounded-sm p-1 bg-elevated text-ink"
-							bind:value={changePasswordData.newPassword}
-						/></label
-					>
-					<label
-						>{$t('settings_page.repeat_password')}:<input
-							type="password"
-							class="m-2 text-ink rounded-sm p-1 bg-elevated text-ink"
-							bind:value={changePasswordData.newPasswordConfirm}
-						/></label
-					>
-					<div class="my-auto">
-						<BrownButton disabled={!passwordChangeDataValid} type="submit">
-							{$t('settings_page.change_password_submit')}
-						</BrownButton>
-					</div>
-				</form>
+
+			<form class="mt-10 space-y-4 max-w-md" onsubmit={changePassword}>
+				<h2 class="text-sm font-semibold text-ink">Change password</h2>
 				<div>
-					<div class="w-fit">
-						<BrownButton onclick={add_api_key}
-							>{$t('settings_page.add_api_key')}</BrownButton
-						>
-					</div>
-					{#await api_keys}
-						<Spinner />
-					{:then keys}
+					<label class="text-sm font-medium text-ink" for="old-password">{$t('settings_page.old_password')}</label>
+					<input
+						id="old-password"
+						type="password"
+						class="ledger-input mt-1 min-h-11"
+						autocomplete="current-password"
+						bind:value={changePasswordData.oldPassword}
+					/>
+				</div>
+				<div>
+					<label class="text-sm font-medium text-ink" for="new-password">{$t('settings_page.new_password')}</label>
+					<input
+						id="new-password"
+						type="password"
+						class="ledger-input mt-1 min-h-11"
+						autocomplete="new-password"
+						bind:value={changePasswordData.newPassword}
+					/>
+				</div>
+				<div>
+					<label class="text-sm font-medium text-ink" for="repeat-password">{$t('settings_page.repeat_password')}</label>
+					<input
+						id="repeat-password"
+						type="password"
+						class="ledger-input mt-1 min-h-11"
+						autocomplete="new-password"
+						bind:value={changePasswordData.newPasswordConfirm}
+					/>
+				</div>
+				<Button type="submit" disabled={!passwordChangeDataValid} class="w-full sm:w-auto">
+					Change password
+				</Button>
+			</form>
+
+			<div class="mt-10">
+				<h2 class="text-sm font-semibold text-ink">API keys</h2>
+				<Button variant="secondary" class="w-auto mt-3" onclick={add_api_key}>
+					{$t('settings_page.add_api_key')}
+				</Button>
+				{#await api_keys}
+					<Spinner my_20={false} />
+				{:then keys}
+					<ul class="mt-4 divide-y divide-white/[0.07]">
 						{#each keys as key}
-							<div>
-								{key.key}
-								<div class="inline-block">
-									<BrownButton
-										onclick={() => {
-											delete_api_key(key.key);
-										}}
-										>{$t('words.delete')}
-									</BrownButton>
-								</div>
-							</div>
+							<li class="flex items-center justify-between gap-3 py-3 min-w-0">
+								<code class="text-xs text-ink-muted truncate font-mono">{key.key}</code>
+								<Button
+									variant="ghost"
+									size="sm"
+									class="w-auto text-danger"
+									onclick={() => delete_api_key(key.key)}
+								>
+									{$t('words.delete')}
+								</Button>
+							</li>
 						{/each}
-					{/await}
-				</div>
+					</ul>
+				{/await}
 			</div>
+		{/await}
+
+		<div class="mt-10">
+			<h2 class="text-sm font-semibold text-ink mb-3">Sessions</h2>
+			{#await getSessions()}
+				<Spinner my_20={false} />
+			{:then sessions}
+				<ul class="divide-y divide-white/[0.07]">
+					{#each sessions as session}
+						<li class="py-3 flex flex-col sm:flex-row sm:items-center gap-2 min-w-0">
+							<div class="min-w-0 flex-1">
+								<p class="text-sm text-ink truncate">{getFormattedUserAgent(session.user_agent)}</p>
+								<p class="text-xs text-ink-muted mt-0.5">
+									{formatDate(session.created_at)}
+									<span> · last seen {formatDate(session.last_seen)}</span>
+									{#if session.id === this_session?.id}
+										<span> · this session</span>
+									{/if}
+								</p>
+							</div>
+							{#if session.id !== this_session?.id}
+								<Button
+									variant="ghost"
+									size="sm"
+									class="w-auto"
+									onclick={() => deleteSession(session.id)}
+								>
+									{$t('words.delete')}
+								</Button>
+							{/if}
+						</li>
+					{/each}
+				</ul>
+			{/await}
 		</div>
 	</div>
-{/await}
-{#await getSessions()}
-	<Spinner />
-{:then sessions}
-	<table class="min-w-full">
-		<thead class="bg-paper-muted">
-			<tr>
-				<th
-					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
-				>
-					{$t('overview_page.created_at')}
-				</th>
-				<th
-					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
-				>
-					{$t('settings_page.last_seen')}
-				</th>
-				<th
-					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
-				>
-					{$t('words.browser')}
-				</th>
-				<th
-					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
-				>
-					{$t('settings_page.delete_this_session')}
-				</th>
-				<th
-					scope="col"
-					class="py-3 px-6 text-xs font-medium tracking-wider text-left text-ink uppercase text-ink-muted"
-				>
-					{$t('settings_page.this_session?')}
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each sessions as session}
-				<tr class="bg-white border-b bg-surface border-ink/15">
-					<td
-						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
-					>
-						{formatDate(session.created_at)}
-					</td>
-					<td
-						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
-					>
-						{formatDate(session.last_seen)}
-					</td>
-					<td
-						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
-					>
-						{getFormattedUserAgent(session.user_agent)}
-					</td>
-					<td
-						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
-					>
-						<button
-							onclick={() => {
-								deleteSession(session.id);
-							}}>{$t('words.delete')}</button
-						>
-					</td>
-					<td
-						class="py-4 px-6 text-sm text-ink-muted whitespace-nowrap text-ink-muted"
-					>
-						{#if session.id === this_session?.id}
-							✅
-						{:else}
-							❌
-						{/if}
-					</td>
-				</tr>
-			{/each}
-		</tbody>
-	</table>
-{/await}
+	<Footer />
+</div>

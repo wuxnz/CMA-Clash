@@ -152,14 +152,11 @@ SPDX-License-Identifier: MPL-2.0
 	<title>CMA Clash: Battle {code}</title>
 </svelte:head>
 
-<div class="min-h-screen bg-ink text-paper flex flex-col items-center justify-center px-4 relative overflow-hidden">
-	<div class="absolute inset-0 bg-gradient-to-b from-primary/20 to-transparent pointer-events-none" aria-hidden="true"></div>
-
+<div class="min-h-screen bg-paper text-ink flex flex-col items-center justify-center px-4 relative overflow-hidden">
 	{#if showCountdown}
 		<CountdownRing seconds={5} label="Battle starts" onComplete={goToPlay} />
 	{:else if showVs && playerNames.length >= 2}
 		<div class="relative z-10 text-center max-w-lg w-full" in:fly={reduced ? { duration: 0 } : { y: 30 }}>
-			<p class="text-sm uppercase tracking-[0.3em] text-gold mb-8">Arena</p>
 			<div class="flex items-center justify-center gap-4 sm:gap-8">
 				<div class="flex-1">
 					<p class="font-display text-2xl sm:text-4xl font-bold truncate">{playerNames[0]}</p>
@@ -170,7 +167,7 @@ SPDX-License-Identifier: MPL-2.0
 				</div>
 			</div>
 			{#if playerNames.length > 2}
-				<p class="mt-4 text-sm text-paper/70">+{playerNames.length - 2} more in lobby</p>
+				<p class="mt-4 text-sm text-ink-muted">+{playerNames.length - 2} more in lobby</p>
 			{/if}
 		</div>
 	{/if}
@@ -194,7 +191,7 @@ SPDX-License-Identifier: MPL-2.0
 					maxlength="32"
 					autocomplete="nickname"
 				/>
-				<button type="submit" class="ledger-btn-primary">Join battle</button>
+				<button type="submit" class="btn btn-primary w-full">Join battle</button>
 			</form>
 		{/if}
 
@@ -202,7 +199,7 @@ SPDX-License-Identifier: MPL-2.0
 			<p class="text-danger text-sm text-center mb-2" role="alert">{error}</p>
 		{/if}
 		{#if lobby?.status === 'waiting' && isHost}
-			<button type="button" class="ledger-btn-primary" onclick={handleStart}>Start battle</button>
+			<button type="button" class="btn btn-primary w-full" onclick={handleStart}>Start battle</button>
 		{:else if lobby?.status === 'waiting' && !isHost}
 			<p class="text-center text-sm text-ink-muted">Waiting for the host to start…</p>
 		{:else if lobby?.game_pin}

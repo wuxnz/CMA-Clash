@@ -11,6 +11,10 @@ SPDX-License-Identifier: MPL-2.0
 	import GeneralOverview from './general_overview.svelte';
 	import { fade } from 'svelte/transition';
 	import { getLocalization } from '$lib/i18n';
+	import Footer from '$lib/footer.svelte';
+	import { navbarVisible } from '$lib/stores.svelte';
+
+	navbarVisible.visible = true;
 
 	const { t } = getLocalization();
 
@@ -33,48 +37,46 @@ SPDX-License-Identifier: MPL-2.0
 	let selected_tab: SelectedTab = $state(SelectedTab.Overview);
 </script>
 
-<div class="w-full">
-	<div class="flex flex-row w-full justify-around border-b-2 border-gray-500 mb-4">
-		<div
-			class="w-full py-2 flex transition-all hover:opacity-100"
-			class:text-lg={selected_tab === SelectedTab.Overview}
-			class:opacity-60={selected_tab !== SelectedTab.Overview}
+<svelte:head>
+	<title>CMA Clash: Result</title>
+</svelte:head>
+
+<div class="min-h-screen flex flex-col overflow-x-hidden">
+	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
+	<div class="chip-row mb-6" role="tablist">
+		<button
+			type="button"
+			role="tab"
+			aria-selected={selected_tab === SelectedTab.Overview}
+			onclick={() => {
+				selected_tab = SelectedTab.Overview;
+			}}
+			class="chip {selected_tab === SelectedTab.Overview ? 'chip-active' : ''}"
 		>
-			<button
-				onclick={() => {
-					selected_tab = SelectedTab.Overview;
-				}}
-				class="m-auto w-full h-full"
-				>{$t('words.overview')}
-			</button>
-		</div>
-		<div
-			class="w-full py-2 flex border-x-2 border-gray-500 transition-all hover:opacity-100"
-			class:text-lg={selected_tab === SelectedTab.Players}
-			class:opacity-60={selected_tab !== SelectedTab.Players}
+			{$t('words.overview')}
+		</button>
+		<button
+			type="button"
+			role="tab"
+			aria-selected={selected_tab === SelectedTab.Players}
+			onclick={() => {
+				selected_tab = SelectedTab.Players;
+			}}
+			class="chip {selected_tab === SelectedTab.Players ? 'chip-active' : ''}"
 		>
-			<button
-				onclick={() => {
-					selected_tab = SelectedTab.Players;
-				}}
-				class="m-auto w-full h-full"
-			>
-				{$t('words.player', { count: 2 })}
-			</button>
-		</div>
-		<div
-			class="w-full py-2 flex transition-all hover:opacity-100"
-			class:text-lg={selected_tab === SelectedTab.Questions}
-			class:opacity-60={selected_tab !== SelectedTab.Questions}
+			{$t('words.player', { count: 2 })}
+		</button>
+		<button
+			type="button"
+			role="tab"
+			aria-selected={selected_tab === SelectedTab.Questions}
+			onclick={() => {
+				selected_tab = SelectedTab.Questions;
+			}}
+			class="chip {selected_tab === SelectedTab.Questions ? 'chip-active' : ''}"
 		>
-			<button
-				onclick={() => {
-					selected_tab = SelectedTab.Questions;
-				}}
-				class="m-auto w-full h-full"
-				>{$t('words.question', { count: 2 })}
-			</button>
-		</div>
+			{$t('words.question', { count: 2 })}
+		</button>
 	</div>
 	{#if selected_tab === SelectedTab.Overview}
 		<div in:fade|global={{ duration: 150 }}>
@@ -97,4 +99,6 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		</div>
 	{/if}
+	</div>
+	<Footer />
 </div>

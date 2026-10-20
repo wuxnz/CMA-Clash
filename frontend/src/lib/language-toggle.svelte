@@ -151,8 +151,8 @@ SPDX-License-Identifier: MPL-2.0
 		onchange={() => {
 			set_language(selected_language);
 		}}
-		class="p-2 rounded-lg bg-gray-800 focus:ring-2 ring-blue-600 text-white"
-		aria-label="Language-Selector"
+		class="ledger-input w-auto min-h-11 text-sm"
+		aria-label="Language"
 	>
 		{#each languages as lang}
 			<option value={lang.code}>{lang.flag} {lang.name} </option>

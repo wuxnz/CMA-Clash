@@ -58,8 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="flex items-center justify-center min-h-[80vh] px-4">
 	<div class="w-full max-w-md mx-auto bg-surface rounded-2xl border border-white/10 p-8 text-center">
-		<p class="font-display text-gold text-xs tracking-[0.35em] mb-2">Arena</p>
-		<h1 class="text-2xl font-display text-ink">Check your inbox</h1>
+		<h1 class="text-xl font-semibold text-ink tracking-tight">Check your inbox</h1>
 		<p class="text-ink-muted mt-3 text-sm leading-relaxed">
 			We sent a verification link to
 			{#if email}<span class="text-ink font-medium">{email}</span>{:else}your email address{/if}. Open it to
@@ -68,7 +67,7 @@ SPDX-License-Identifier: MPL-2.0
 		<p class="text-ink-muted text-xs mt-4">The link expires in 48 hours.</p>
 		<button
 			type="button"
-			class="ledger-btn-primary w-auto px-8 mt-8"
+			class="btn btn-primary w-auto mt-8"
 			disabled={resendBusy || cooldownLeft > 0 || !email}
 			onclick={resend}
 		>
@@ -83,7 +82,7 @@ SPDX-License-Identifier: MPL-2.0
 		{#if resendMessage}
 			<p class="text-sm text-ink-muted mt-3">{resendMessage}</p>
 		{/if}
-		<a href="/account/login" class="inline-block mt-6 text-sm text-gold hover:underline">Back to login</a>
+		<a href="/account/login" class="inline-flex items-center min-h-11 mt-6 text-sm text-ink link-hover">Back to login</a>
 	</div>
 </div>
 <Footer />

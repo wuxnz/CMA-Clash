@@ -10,6 +10,9 @@ SPDX-License-Identifier: MPL-2.0
 	import { validateSchema } from '@felte/validator-yup';
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import Footer from '$lib/footer.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import Spinner from '$lib/Spinner.svelte';
+	import { focusTrap } from '$lib/ui/focusTrap';
 
 	const { t } = getLocalization();
 	import reporter from '@felte/reporter-tippy';
@@ -42,7 +45,7 @@ SPDX-License-Identifier: MPL-2.0
 		tos_accept: yup.boolean().oneOf([true], 'You must accept the terms of service to register!')
 	});
 
-	const { form, errors, touched, isValid, isSubmitting } = createForm<
+	const { form, errors, isValid, isSubmitting } = createForm<
 		yup.InferType<typeof registerSchema>
 	>({
 		validate: validateSchema(registerSchema),
@@ -77,299 +80,170 @@ SPDX-License-Identifier: MPL-2.0
 		open: false,
 		data: ''
 	});
+
+	function closeResponse() {
+		responseData.open = false;
+		if (responseData.data === '200') {
+			window.location.assign('/');
+		} else {
+			window.location.reload();
+		}
+	}
+
+	const heading = $derived(
+		responseData.data === '409'
+			? 'Account already exists'
+			: responseData.data === 'error'
+				? 'Unexpected error'
+				: responseData.data === '200'
+					? 'Check your email'
+					: responseData.data === '400'
+						? 'Email not accepted'
+						: 'Something went wrong'
+	);
 </script>
 
 <svelte:head>
 	<title>CMA Clash: Register</title>
 </svelte:head>
-<div class="flex items-center justify-center min-h-screen px-4">
-	<div>
-		<div
-			class="w-full max-w-sm mx-auto overflow-hidden bg-surface rounded-lg shadow-md"
-		>
-			<div class="px-6 py-4">
-				<p class="font-display text-gold text-xs tracking-[0.35em] text-center mb-2">Arena</p>
-				<h2 class="text-4xl font-display text-center text-ink">
-					CMA Clash
-				</h2>
+<div class="flex items-center justify-center min-h-[80vh] px-4">
+	<div
+		class="w-full max-w-sm mx-auto overflow-hidden bg-surface rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
+	>
+		<div class="px-6 py-6">
+			<h1 class="text-xl font-semibold text-ink tracking-tight text-center">Create account</h1>
 
-				<h3 class="mt-1 text-xl font-medium text-center text-ink-muted">
-					{$t('register_page.greeting')}
-				</h3>
+			<form use:form class="mt-6 space-y-4">
+				<div>
+					<label class="text-sm font-medium text-ink" for="email">{$t('words.email')}</label>
+					<input
+						id="email"
+						name="email"
+						type="email"
+						class="ledger-input mt-1 min-h-11"
+						placeholder={$t('words.email')}
+						autocomplete="email"
+					/>
+					{#if $errors.email?.length}
+						<p class="text-xs text-danger mt-1">{$errors.email[0]}</p>
+					{/if}
+				</div>
+				<div>
+					<label class="text-sm font-medium text-ink" for="username">{$t('words.username')}</label>
+					<input
+						id="username"
+						name="username"
+						type="text"
+						class="ledger-input mt-1 min-h-11"
+						placeholder={$t('words.username')}
+						autocomplete="username"
+					/>
+					{#if $errors.username?.length}
+						<p class="text-xs text-danger mt-1">{$errors.username[0]}</p>
+					{/if}
+				</div>
+				<div>
+					<label class="text-sm font-medium text-ink" for="password1">{$t('words.password')}</label>
+					<input
+						id="password1"
+						name="password1"
+						type="password"
+						class="ledger-input mt-1 min-h-11"
+						placeholder={$t('words.password')}
+						autocomplete="new-password"
+					/>
+					{#if $errors.password1?.length}
+						<p class="text-xs text-danger mt-1">{$errors.password1[0]}</p>
+					{/if}
+				</div>
+				<div>
+					<label class="text-sm font-medium text-ink" for="password2">{$t('words.repeat_password')}</label>
+					<input
+						id="password2"
+						name="password2"
+						type="password"
+						class="ledger-input mt-1 min-h-11"
+						placeholder={$t('words.password')}
+						autocomplete="new-password"
+					/>
+					{#if $errors.password2?.length}
+						<p class="text-xs text-danger mt-1">{$errors.password2[0]}</p>
+					{/if}
+				</div>
+				<label class="flex items-start gap-3 min-h-11 text-sm text-ink-muted">
+					<input type="checkbox" name="privacy_accept" class="mt-1" />
+					<span>
+						I've read the
+						<a href="/docs/privacy-policy" class="text-ink link-hover">privacy policy</a>.
+					</span>
+				</label>
+				<label class="flex items-start gap-3 min-h-11 text-sm text-ink-muted">
+					<input type="checkbox" name="tos_accept" class="mt-1" />
+					<span>
+						I agree to the
+						<a href="/docs/tos" class="text-ink link-hover">terms of service</a>.
+					</span>
+				</label>
 
-				<p class="mt-1 text-center text-ink-muted">
-					{$t('register_page.create_account')}
-				</p>
+				<div class="flex items-center justify-between gap-3 pt-2">
+					<a
+						href="/account/reset-password"
+						class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
+					>
+						{$t('register_page.forgot_password?')}
+					</a>
+					<Button type="submit" class="w-auto" disabled={!$isValid || $isSubmitting}>
+						{#if $isSubmitting}
+							<Spinner class="h-4 w-4" my_20={false} />
+						{:else}
+							{$t('words.register')}
+						{/if}
+					</Button>
+				</div>
+			</form>
+		</div>
 
-				<form use:form>
-					<div class="w-full mt-4">
-						<div class="bg-surface p-4 rounded-lg">
-							<div class="relative bg-inherit w-full">
-								<input
-									id="email"
-									name="email"
-									type="email"
-									class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-									placeholder={$t('words.email')}
-									class:ring-red-700={$errors.email !== null}
-									class:ring-green-600={$touched.email === true &&
-										$errors.email === null}
-								/>
-								<label
-									for="email"
-									class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-								>
-									{$t('words.email')}
-								</label>
-							</div>
-						</div>
-						<div class="bg-surface p-4 rounded-lg">
-							<div class="relative bg-inherit w-full">
-								<input
-									id="username"
-									name="username"
-									type="text"
-									class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-									placeholder={$t('words.username')}
-									class:ring-red-700={$errors.username !== null}
-									class:ring-green-600={$touched.username === true &&
-										$errors.username === null}
-								/>
-								<label
-									for="username"
-									class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-								>
-									{$t('words.username')}
-								</label>
-							</div>
-						</div>
-						<div class="bg-surface p-4 rounded-lg">
-							<div class="relative bg-inherit w-full">
-								<input
-									id="password1"
-									name="password1"
-									type="password"
-									class:ring-red-700={$errors.password1 !== null}
-									class:ring-green-600={$touched.password1 === true &&
-										$errors.password1 === null}
-									class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-									placeholder={$t('words.password')}
-								/>
-								<label
-									for="password1"
-									class="absolute cursor-text left-0 -top-3 text-sm text-ink-muted bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-								>
-									{$t('words.password')}
-								</label>
-							</div>
-						</div>
-						<div class="bg-surface p-4 rounded-lg">
-							<div class="relative bg-inherit w-full">
-								<input
-									id="password2"
-									name="password2"
-									type="password"
-									class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-									placeholder={$t('words.password')}
-									class:ring-red-700={$errors.password2 !== null}
-									class:ring-green-600={$touched.password2 === true &&
-										$errors.password2 === null}
-								/>
-								<label
-									for="password2"
-									class="absolute cursor-text left-0 -top-3 text-sm text-ink-muted bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-								>
-									{$t('words.password')}
-								</label>
-							</div>
-						</div>
-						<div
-							class="ring-1 ring-ink/30 focus:outline-hidden rounded-lg m-4 py-2"
-							class:ring-red-700={$errors.privacy_accept !== null}
-							class:ring-green-600={$touched.privacy_accept === true &&
-								$errors.privacy_accept === null}
-						>
-							<!--						<div class='flex items-center justify-between mt-4 w-full'>-->
-							<input type="checkbox" name="privacy_accept" class="ml-3" />
-							<label class="text-sm text-ink-muted">
-								I've read the <a href="/docs/privacy-policy" class="underline"
-									>Privacy policy</a
-								>.
-							</label>
-						</div>
-						<div
-							class="ring-1 ring-ink/30 focus:outline-hidden rounded-lg m-4 py-2"
-							class:ring-red-700={$errors.tos_accept !== null}
-							class:ring-green-600={$touched.tos_accept === true &&
-								$errors.tos_accept === null}
-						>
-							<!--						<div class='flex items-center justify-between mt-4 w-full'>-->
-							<input type="checkbox" name="tos_accept" class="ml-3" />
-							<label class="text-sm text-ink-muted">
-								I agree to the <a href="/docs/tos" class="underline"
-									>Terms of Service</a
-								>.
-							</label>
-						</div>
-
-						<div class="flex items-center justify-between mt-4">
-							<a
-								href="/account/reset-password"
-								class="text-sm text-ink-muted hover:text-ink-muted"
-								>{$t('register_page.forgot_password?')}</a
-							>
-
-							<button
-								class="px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-elevated rounded-sm hover:bg-primary-hover focus:outline-hidden"
-								disabled={!$isValid || $isSubmitting}
-								class:cursor-not-allowed={!$isValid || $isSubmitting}
-								class:opacity-50={!$isValid || $isSubmitting}
-								type="submit"
-							>
-								{#if $isSubmitting}
-									<svg class="h-4 w-4 animate-spin" viewBox="3 3 18 18">
-										<path
-											class="fill-blue-800"
-											d="M12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 8.13401 15.866 5 12 5ZM3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
-										/>
-										<path
-											class="fill-blue-100"
-											d="M16.9497 7.05015C14.2161 4.31648 9.78392 4.31648 7.05025 7.05015C6.65973 7.44067 6.02656 7.44067 5.63604 7.05015C5.24551 6.65962 5.24551 6.02646 5.63604 5.63593C9.15076 2.12121 14.8492 2.12121 18.364 5.63593C18.7545 6.02646 18.7545 6.65962 18.364 7.05015C17.9734 7.44067 17.3403 7.44067 16.9497 7.05015Z"
-										/>
-									</svg>
-								{:else}
-									{$t('words.register')}
-								{/if}
-							</button>
-						</div>
-					</div>
-				</form>
-			</div>
-
-			<div
-				class="flex items-center justify-center py-4 text-center bg-paper-muted"
-			>
-				<span class="text-sm text-ink-muted"
-					>{$t('register_page.already_have_account?')}
-				</span>
-
-				<a
-					href="/account/login"
-					class="mx-2 text-sm font-bold text-primary hover:underline"
-					>{$t('words.login')}</a
-				>
-			</div>
+		<div class="flex items-center justify-center py-4 text-center bg-paper-muted">
+			<span class="text-sm text-ink-muted">{$t('register_page.already_have_account?')}</span>
+			<a href="/account/login" class="mx-2 text-sm text-ink link-hover">{$t('words.login')}</a>
 		</div>
 	</div>
 </div>
 <Footer />
-<div
-	class="fixed z-20 inset-0 overflow-y-auto"
-	aria-labelledby="modal-title"
-	role="dialog"
-	aria-modal="true"
-	class:hidden={!responseData.open}
->
-	<div
-		class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-	>
-		<div class="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
 
-		<!-- This element is to trick the browser into centering the modal contents. -->
-		<span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true"
-			>&#8203;</span
-		>
+{#if responseData.open}
+	<div
+		class="dialog-backdrop"
+		onclick={(e) => {
+			if (e.target === e.currentTarget) closeResponse();
+		}}
+		role="presentation"
+	>
 		<div
-			class="relative z-10 inline-block align-bottom bg-surface rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+			use:focusTrap
+			class="dialog-panel dialog-panel-in p-5"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="register-dialog-title"
+			tabindex="-1"
 		>
-			<div class="bg-surface px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-				<div class="sm:flex sm:items-start">
-					<div
-						class="mx-auto shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
-					>
-						<!-- Heroicon name: outline/exclamation -->
-						{#if responseData.data === '409' || responseData.data === 'error' || responseData.data === '400'}
-							<svg
-								class="h-6 w-6 text-red-600"
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-								/>
-							</svg>
-						{:else}
-							<svg
-								class="w-6 h-6 text-green-600"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-								/>
-							</svg>
-						{/if}
-					</div>
-					<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-						<h3 class="text-lg leading-6 font-medium text-ink" id="modal-title">
-							{#if responseData.data === '409'}
-								Account already exists!
-							{:else if responseData.data === 'error'}
-								Unexpected error!
-							{:else if responseData.data === '200'}
-								Sign up successfully!
-							{:else if responseData.data === '400'}
-								Wrong email!
-							{:else}
-								Something went wrong
-							{/if}
-						</h3>
-						<div class="mt-2">
-							<p class="text-sm text-ink-muted">
-								{#if responseData.data === '200'}
-									<!-- TODO: Add translation -->
-									You signed up successfully! Please check your mailbox to confirm
-									your email address!
-								{:else if responseData.data === '409'}
-									An account with that email-address already exists!
-								{:else if responseData.data === '400'}
-									This email-address doesn't exist!
-								{:else if responseData.data === 'error'}
-									There was the good old unexpected error!
-								{:else}
-									Please try again or contact support if the problem persists.
-								{/if}
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-				<button
-					type="button"
-					onclick={() => {
-						responseData.open = false;
-						if (responseData.data === '200') {
-							window.location.assign('/');
-						} else {
-							window.location.reload();
-						}
-					}}
-					class="mt-3 w-full inline-flex justify-center rounded-md border border-ink/20 shadow-xm px-4 py-2 bg-elevated text-base text-ink font-medium text-ink hover:bg-paper-muted focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-					>{$t('words.close')}
-				</button>
+			<h2 id="register-dialog-title" class="text-lg font-semibold text-ink tracking-tight">
+				{heading}
+			</h2>
+			<p class="text-sm text-ink-muted mt-2 leading-relaxed">
+				{#if responseData.data === '200'}
+					You signed up successfully. Check your mailbox to confirm your email address.
+				{:else if responseData.data === '409'}
+					An account with that email already exists.
+				{:else if responseData.data === '400'}
+					This email address isn't accepted.
+				{:else}
+					Please try again or contact support if the problem persists.
+				{/if}
+			</p>
+			<div class="mt-6">
+				<Button class="w-full" onclick={closeResponse}>{$t('words.close')}</Button>
 			</div>
 		</div>
 	</div>
-</div>
+{/if}

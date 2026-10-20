@@ -68,14 +68,8 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div class="px-6 py-6">
-	<p class="font-display text-gold text-xs tracking-[0.35em] text-center mb-2">Arena</p>
-	<h2 class="text-4xl text-center font-display text-ink">CMA Clash</h2>
-
-	<h3 class="mt-1 text-lg font-medium text-center text-ink-muted">
-		{$t('login_page.welcome_back')}
-	</h3>
-
-	<p class="mt-1 text-center text-ink-muted">
+	<h1 class="text-xl font-semibold text-ink tracking-tight text-center">Sign in</h1>
+	<p class="mt-1 text-sm text-center text-ink-muted">
 		{$t('login_page.login_or_create_account')}
 	</p>
 
@@ -96,40 +90,31 @@ SPDX-License-Identifier: MPL-2.0
 	{/if}
 
 	<form onsubmit={start_login}>
-		<div class="w-full mt-4">
-			<div class="bg-surface p-4 rounded-lg">
-				<div class="relative bg-inherit w-full">
-					<input
-						id="email"
-						bind:value={email}
-						name="email"
-						type="text"
-						class="w-full peer bg-transparent h-10 rounded-lg text-ink placeholder-transparent ring-2 px-2 ring-ink/30 focus:ring-sky-600 focus:outline-hidden focus:border-rose-600"
-						placeholder={$t('login_page.email_or_username')}
-						autocomplete="email"
-					/>
-					<label
-						for="email"
-						class="absolute cursor-text left-0 -top-3 text-sm text-ink bg-inherit mx-1 px-1 peer-placeholder-shown:text-base peer-placeholder-shown:text-ink-muted peer-placeholder-shown:top-2 peer-focus:-top-3 peer-focus:text-sky-600 peer-focus:text-sm transition-all"
-					>
-						{$t('login_page.email_or_username')}
-					</label>
-				</div>
-			</div>
-			<div class="flex items-center justify-between mt-4">
+		<div class="w-full mt-6">
+			<label class="sr-only" for="email">{$t('login_page.email_or_username')}</label>
+			<input
+				id="email"
+				bind:value={email}
+				name="email"
+				type="text"
+				class="ledger-input min-h-11"
+				placeholder={$t('login_page.email_or_username')}
+				autocomplete="email"
+			/>
+			<div class="flex items-center justify-between gap-3 mt-4">
 				<a
 					href="/account/reset-password"
-					class="text-sm text-ink-muted hover:text-ink-muted"
+					class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
 					>{$t('register_page.forgot_password?')}</a
 				>
 
 				<button
-					class="ledger-btn-primary w-auto px-6"
+					class="btn btn-primary w-auto"
 					disabled={emailEmpty}
 					type="submit"
 				>
 					{#if isSubmitting}
-						<Spinner class="h-4 w-4" my_20={false} inverse />
+						<Spinner class="h-4 w-4" my_20={false} />
 					{:else}
 						{$t('words.continue')}
 					{/if}
@@ -145,9 +130,5 @@ SPDX-License-Identifier: MPL-2.0
 		>{$t('login_page.already_have_account')}
 	</span>
 
-	<a
-		href="/account/register"
-		class="mx-2 text-sm font-bold text-primary hover:underline"
-		>{$t('words.register')}</a
-	>
+	<a href="/account/register" class="mx-2 text-sm text-ink link-hover">{$t('words.register')}</a>
 </div>

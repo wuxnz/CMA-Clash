@@ -113,7 +113,7 @@ SPDX-License-Identifier: MPL-2.0
 			<div class="flex items-center">
 				{#if menuIsClosed}
 					<button
-						class="px-3 text-ink"
+						class="px-3 text-ink min-h-11 min-w-11 inline-flex items-center justify-center"
 						id="open-menu"
 						onclick={toggleMenu}
 						aria-label="Open navbar"
@@ -135,7 +135,7 @@ SPDX-License-Identifier: MPL-2.0
 					</button>
 				{:else}
 					<button
-						class="px-3 text-ink"
+						class="px-3 text-ink min-h-11 min-w-11 inline-flex items-center justify-center"
 						id="close-menu"
 						onclick={toggleMenu}
 						aria-label="Close navbar"

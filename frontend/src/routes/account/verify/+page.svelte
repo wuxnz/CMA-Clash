@@ -64,22 +64,22 @@ SPDX-License-Identifier: MPL-2.0
 <div class="flex items-center justify-center min-h-[80vh] px-4">
 	<div class="w-full max-w-md mx-auto bg-surface rounded-2xl border border-white/10 p-8 text-center">
 		{#if status === 'loading'}
-			<h1 class="text-xl font-display text-ink">Verifying your email…</h1>
+			<h1 class="text-xl font-semibold text-ink tracking-tight">Verifying your email</h1>
 			<p class="text-ink-muted text-sm mt-2">One moment.</p>
 		{:else if status === 'verified'}
-			<h1 class="text-xl font-display text-ink">Email verified</h1>
-			<p class="text-ink-muted text-sm mt-2">Redirecting you to login…</p>
+			<h1 class="text-xl font-semibold text-ink tracking-tight">Email verified</h1>
+			<p class="text-ink-muted text-sm mt-2">Redirecting you to login.</p>
 		{:else if status === 'already_verified'}
-			<h1 class="text-xl font-display text-ink">Already verified</h1>
-			<a href="/account/login" class="text-gold text-sm mt-4 inline-block hover:underline">Sign in</a>
+			<h1 class="text-xl font-semibold text-ink tracking-tight">Already verified</h1>
+			<a href="/account/login" class="text-ink text-sm mt-4 inline-flex min-h-11 items-center link-hover">Sign in</a>
 		{:else if status === 'expired'}
-			<h1 class="text-xl font-display text-ink">Link expired</h1>
+			<h1 class="text-xl font-semibold text-ink tracking-tight">Link expired</h1>
 			<p class="text-ink-muted text-sm mt-2">Request a new verification email from the login page.</p>
-			<a href="/account/login" class="ledger-btn-primary w-auto px-8 mt-6 inline-flex">Go to login</a>
+			<a href="/account/login" class="btn btn-primary w-auto mt-6 inline-flex">Go to login</a>
 		{:else}
-			<h1 class="text-xl font-display text-ink">Invalid link</h1>
+			<h1 class="text-xl font-semibold text-ink tracking-tight">Invalid link</h1>
 			<p class="text-ink-muted text-sm mt-2">This verification link is not valid.</p>
-			<a href="/account/register" class="text-gold text-sm mt-4 inline-block hover:underline">Register again</a>
+			<a href="/account/register" class="text-ink text-sm mt-4 inline-flex min-h-11 items-center link-hover">Register again</a>
 		{/if}
 	</div>
 </div>
