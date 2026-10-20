@@ -74,9 +74,10 @@ async def create_user(user: RouteUser, background_task: BackgroundTasks) -> User
     except EmailNotValidError as e:
         raise HTTPException(status_code=400, detail=str(e))
     user.verify_key = str(os.urandom(16).hex())
-    res = await User.objects.filter((User.email == user.email) | (User.username == user.username)).all()
-    if len(res) != 0:
-        raise HTTPException(status_code=409, detail="User already exists")
+    if await User.objects.filter(email=user.email).exists():
+        raise HTTPException(status_code=409, detail="email_taken")
+    if await User.objects.filter(username=user.username).exists():
+        raise HTTPException(status_code=409, detail="username_taken")
 
     user.password = get_password_hash(user.password)
     user.username = bleach.clean(user.username, tags=[], strip=True)
