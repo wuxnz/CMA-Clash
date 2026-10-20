@@ -7,7 +7,6 @@ import base64
 import hashlib
 import json
 import os
-import random
 
 import socketio
 from cryptography.fernet import Fernet
@@ -18,7 +17,6 @@ from classquiz.db.models import (
     QuizQuestionType,
     GameSession,
     GamePlayer,
-    VotingQuizAnswer,
     AnswerDataList,
     AnswerData,
 )
@@ -33,7 +31,6 @@ from classquiz.socket_server.helpers import (
 from .models import (
     RejoinGameData,
     JoinGameData,
-    ReturnQuestion,
     SubmitAnswerData,
     RegisterAsAdminData,
     KickPlayerInput,
@@ -41,6 +38,12 @@ from .models import (
 )
 
 from classquiz.socket_server.export_helpers import save_quiz_to_storage
+from classquiz.socket_server.game_sync import (
+    battle_maybe_advance,
+    emit_show_question,
+    start_live_game,
+    sync_player_to_live_game,
+)
 from classquiz.socket_server.session import get_session, save_session
 
 _settings = settings()
@@ -123,6 +126,8 @@ async def rejoin_game(sid: str, data: dict):
         game_data.to_player_data(),
         room=sid,
     )
+    if game_data.started:
+        await sync_player_to_live_game(sio, sid, data.game_pin, game_data)
 
 
 @sio.event
@@ -139,8 +144,9 @@ async def join_game(sid: str, data: dict):
         return
     game_data = PlayGame.model_validate_json(redis_res)
     if game_data.started:
-        await sio.emit("join_error", {"code": "game_already_started"}, room=sid)
-        return
+        if game_data.game_mode != "battle":
+            await sio.emit("join_error", {"code": "game_already_started"}, room=sid)
+            return
     # +++ START checking captcha +++
     if game_data.captcha_enabled:
         captcha_res = await check_captcha(data.captcha)
@@ -187,6 +193,8 @@ async def join_game(sid: str, data: dict):
     await sio.emit("time_sync", encrypted_datetime, room=sid)
     # --- Time-Sync ---
     await sio.enter_room(sid, data.game_pin)
+    if game_data.started:
+        await sync_player_to_live_game(sio, sid, data.game_pin, game_data)
 
 
 @sio.event
@@ -194,11 +202,10 @@ async def start_game(sid: str, _data: dict):
     session = await get_session(sid, sio)
     if not session["admin"]:
         return
-    game_data = await PlayGame.get_from_redis(session["game_pin"])
-    game_data.started = True
-    await game_data.save(session["game_pin"])
-    await redis.delete(f"game_in_lobby:{game_data.user_id.hex}")
-    await sio.emit("start_game", room=session["game_pin"])
+    game_pin = session["game_pin"]
+    game_data = await PlayGame.get_from_redis(game_pin)
+    auto_first = game_data.game_mode in ("battle", "kahoot", None)
+    await start_live_game(sio, game_pin, show_first_question=auto_first and bool(game_data.questions))
 
 
 @sio.event
@@ -247,34 +254,14 @@ async def set_question_number(sid: str, data: str):
         return
     game_pin = session["game_pin"]
     game_data = await PlayGame.get_from_redis(session["game_pin"])
-    game_data.current_question = int(float(data))
-    game_data.question_show = True
-    await game_data.save(session["game_pin"])
-    await redis.set(f"game:{session['game_pin']}:current_time", datetime.now().isoformat(), ex=7200)
-    temp_return = game_data.model_dump(include={"questions"})["questions"][int(float(data))]
-    if game_data.questions[int(float(data))].type == QuizQuestionType.SLIDE:
-        await sio.emit(
-            "set_question_number",
-            {
-                "question_index": int(float(data)),
-            },
-            room=sid,
-        )
+    question_index = int(float(data))
+    if game_data.questions[question_index].type == QuizQuestionType.SLIDE:
+        game_data.current_question = question_index
+        game_data.question_show = True
+        await game_data.save(game_pin)
+        await sio.emit("set_question_number", {"question_index": question_index}, room=sid)
         return
-    if game_data.questions[int(float(data))].type == QuizQuestionType.VOTING:
-        for i in range(len(temp_return["answers"])):
-            temp_return["answers"][i] = VotingQuizAnswer(**temp_return["answers"][i])
-    temp_return["type"] = game_data.questions[int(float(data))].type
-    if temp_return["type"] == QuizQuestionType.ORDER:
-        random.shuffle(temp_return["answers"])
-    await sio.emit(
-        "set_question_number",
-        {
-            "question_index": int(float(data)),
-            "question": ReturnQuestion(**temp_return).model_dump(),
-        },
-        room=game_pin,
-    )
+    await emit_show_question(sio, game_pin, game_data, question_index)
 
 
 @sio.event
@@ -329,36 +316,7 @@ async def submit_answer(sid: str, data: dict):
         await game_data.save(session["game_pin"])
         await sio.emit("everyone_answered", {})
         if game_data.game_mode == "battle":
-            await _battle_maybe_advance(session["game_pin"], game_data)
-
-
-async def _battle_maybe_advance(game_pin: str, game_data: PlayGame) -> None:
-    next_q = game_data.current_question + 1
-    if next_q >= len(game_data.questions):
-        await sio.emit("battle_finished", room=game_pin)
-        from classquiz.socket_server.battle_hooks import finalize_battle
-
-        await finalize_battle(game_pin, game_data)
-        return
-    game_data.current_question = next_q
-    game_data.question_show = True
-    await game_data.save(game_pin)
-    await redis.set(f"game:{game_pin}:current_time", datetime.now().isoformat(), ex=7200)
-    temp_return = game_data.model_dump(include={"questions"})["questions"][next_q]
-    if game_data.questions[next_q].type == QuizQuestionType.VOTING:
-        for i in range(len(temp_return["answers"])):
-            temp_return["answers"][i] = VotingQuizAnswer(**temp_return["answers"][i])
-    temp_return["type"] = game_data.questions[next_q].type
-    if temp_return["type"] == QuizQuestionType.ORDER:
-        random.shuffle(temp_return["answers"])
-    await sio.emit(
-        "set_question_number",
-        {
-            "question_index": next_q,
-            "question": ReturnQuestion(**temp_return).model_dump(),
-        },
-        room=game_pin,
-    )
+            await battle_maybe_advance(sio, session["game_pin"], game_data)
 
 
 @sio.event
