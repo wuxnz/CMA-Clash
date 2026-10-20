@@ -59,7 +59,6 @@ if _cors_origins:
         allow_headers=["*"],
     )
 
-
 @app.get("/api/v1/health")
 async def health_check():
     return JSONResponse({"status": "ok"})

@@ -1,6 +1,6 @@
 # Deploy CMA Clash: Vercel (frontend) + Render (backend)
 
-The UI is a SvelteKit app; the API, Postgres, Redis, Meilisearch, and Socket.IO must run outside Vercel.
+CMA Clash is a **split stack**: the SvelteKit UI can run on [Vercel](https://vercel.com), but **FastAPI, PostgreSQL, Redis, Meilisearch, and Socket.IO** must run outside Vercel. Without rewrites or a public API URL, browser calls to `/api/...` on Vercel alone will 404.
 
 ## Vercel (frontend)
 
@@ -10,16 +10,20 @@ The UI is a SvelteKit app; the API, Postgres, Redis, Meilisearch, and Socket.IO 
 | Variable | Example | Purpose |
 |----------|---------|---------|
 | `BACKEND_URL` | `https://cmaclash-api.onrender.com` | Build-time `vercel.json` rewrites to your Render API |
-| `API_URL` | `https://your-app.vercel.app` | SSR auth refresh (`hooks.server.ts`) |
+| `API_URL` | `https://cmaclash.vercel.app` | SSR auth refresh (`hooks.server.ts`) |
 | `PUBLIC_SOCKET_URL` | `https://cmaclash-api.onrender.com` | Direct Socket.IO (recommended) |
 
 3. Build: `node scripts/write-vercel-config.mjs && pnpm run build:app` (default in `package.json` when using this repo’s frontend).
 
 `BACKEND_URL` must be HTTPS with no trailing slash.
 
-### Private launch headers (PR #3)
+### Private launch headers
 
 Checked-in `frontend/vercel.json` adds `X-Robots-Tag: noindex, nofollow`. The build script **merges** those headers with API rewrites when `BACKEND_URL` is set.
+
+### Socket.IO
+
+Vercel rewrites are unreliable for long-lived WebSockets. For live games, set `PUBLIC_SOCKET_URL` to your API host and enable CORS on the backend.
 
 ---
 
@@ -49,8 +53,8 @@ Render prompts for these (`sync: false`):
 
 | Variable | What to enter |
 |----------|----------------|
-| `ROOT_ADDRESS` | Your **Vercel** site URL, e.g. `https://cma-clash.vercel.app` (no trailing slash). Used for emails, OAuth callbacks, QR links. |
-| `CORS_ORIGINS` | Same URL as `ROOT_ADDRESS`, or comma-separated list if you use preview domains too, e.g. `https://cma-clash.vercel.app` |
+| `ROOT_ADDRESS` | Your **Vercel** site URL, e.g. `https://cmaclash.vercel.app` (no trailing slash). Used for emails, OAuth callbacks, QR links. |
+| `CORS_ORIGINS` | Same URL as `ROOT_ADDRESS`, or comma-separated list if you use preview domains too |
 
 Render auto-generates **`SECRET_KEY`** and **`MEILI_MASTER_KEY`** (on the Meilisearch service; copied to the API as `MEILISEARCH_API_KEY`). Redis uses **`ipAllowList: []`** so only private-network access is allowed.
 
@@ -75,6 +79,26 @@ Render uses `GET /api/v1/health` → `{"status":"ok"}`.
 
 ---
 
+## Alternative: cross-origin API (no Vercel rewrites)
+
+Host UI and API on different domains and configure:
+
+**Backend `.env`:**
+
+```env
+ROOT_ADDRESS=https://cmaclash.vercel.app
+CORS_ORIGINS=https://cmaclash.vercel.app
+COOKIE_CROSS_SITE=true
+```
+
+Cookies use `SameSite=None; Secure`. You must serve the API over HTTPS.
+
+## Other backend hosting
+
+You can also run the API on a VPS (see `docker-compose.yml`), Railway, Fly.io, etc. Minimum services: PostgreSQL, Redis, Meilisearch, and `uvicorn classquiz:app --host 0.0.0.0 --port 8000 --proxy-headers`.
+
+---
+
 ## Local development
 
 1. `docker compose -f docker-compose.dev.yml up -d db redis meilisearch caddy`
@@ -91,3 +115,4 @@ Vite dev also proxies `/api` to `:8000` if you use `:3000` directly.
 | Logged out after login | Set Vercel `API_URL` to your Vercel origin; set Render `CORS_ORIGINS` + `ROOT_ADDRESS` |
 | Live game disconnects | Render free spin-down; use `PUBLIC_SOCKET_URL` + paid API or keep-alive |
 | Uploads disappear | Expected on free + `local` storage; switch to S3 or a persistent disk |
+| No Register link | `VITE_REGISTRATION_DISABLED=true` hides register unless explicitly enabled |

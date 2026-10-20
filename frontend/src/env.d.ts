@@ -10,6 +10,7 @@ interface ImportMetaEnv {
 	readonly VITE_CAPTCHA_ENABLED?: string;
 	readonly VITE_CUSTOM_OAUTH_NAME?: string;
 	readonly VITE_REGISTRATION_DISABLED?: string;
+	readonly PUBLIC_SOCKET_URL?: string;
 	readonly VITE_HCAPTCHA?: string;
 	readonly VITE_RECAPTCHA?: string;
 	readonly VITE_SENTRY?: string;
