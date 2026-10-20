@@ -23,6 +23,7 @@ from classquiz.auth import (
     get_password_hash,
     verify_password,
     get_current_user,
+    user_is_site_admin,
 )
 from classquiz.cache import clear_cache_for_account
 from classquiz.config import redis, settings, meilisearch
@@ -215,23 +216,24 @@ async def signout_everywhere(response: Response, user: User = Depends(get_curren
     return {"message": "Signout everywhere"}
 
 
-@router.get(
-    "/me",
-    response_model_exclude={
-        "password",
-        "verify_key",
-        "usersessions",
-        "avatar",
-        "quizs",
-        "fidocredentialss",
-        "backup_code",
-        "apikeys",
-        "totp_secret",
-    },
-    response_model=User,
-)
+_ME_EXCLUDE = {
+    "password",
+    "verify_key",
+    "usersessions",
+    "avatar",
+    "quizs",
+    "fidocredentialss",
+    "backup_code",
+    "apikeys",
+    "totp_secret",
+}
+
+
+@router.get("/me")
 async def get_me(user: User = Depends(get_current_user)):
-    return user
+    payload = user.model_dump(exclude=_ME_EXCLUDE)
+    payload["is_site_admin"] = await user_is_site_admin(user)
+    return payload
 
 
 class ForgotPassword(BaseModel):
