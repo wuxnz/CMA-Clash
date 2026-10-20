@@ -5,6 +5,7 @@
 import { writable } from 'svelte/store';
 
 export const signedIn = writable(false);
+export const isSiteAdmin = writable(false);
 export const pathname = writable('/');
 
 export const alertModal = writable({ open: false, title: '', body: '' });

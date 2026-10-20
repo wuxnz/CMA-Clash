@@ -6,9 +6,11 @@ SPDX-License-Identifier: MPL-2.0
 
 <script lang="ts">
 	import { getLocalization } from '$lib/i18n';
-	import { signedIn, pathname } from '$lib/stores';
+	import { signedIn, pathname, isSiteAdmin } from '$lib/stores';
 	import { createTippy } from 'svelte-tippy';
 	import { beforeNavigate } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import { refreshSiteAdminFlag } from '$lib/site-admin';
 	import { draw, slide } from 'svelte/transition';
 	import { registration_disabled } from './config';
 
@@ -29,6 +31,9 @@ SPDX-License-Identifier: MPL-2.0
 		menuIsClosed = true; // Closes menu to let the user see the page beneath
 	});
 
+	onMount(() => {
+		void refreshSiteAdminFlag();
+	});
 </script>
 
 <nav
@@ -53,6 +58,9 @@ SPDX-License-Identifier: MPL-2.0
 			<a class="btn-nav" href="/search">{$t('words.search')}</a>
 			{#if $signedIn}
 				<a class="btn-nav" href="/dashboard">{$t('words.dashboard')}</a>
+				{#if $isSiteAdmin}
+					<a class="btn-nav" href="/site-admin/users">Site admin</a>
+				{/if}
 			{:else}
 				<a class="btn-nav" href="/docs">{$t('words.docs')}</a>
 				<a
@@ -171,6 +179,9 @@ SPDX-License-Identifier: MPL-2.0
 				<a class="btn-nav" href="/search">{$t('words.search')}</a>
 				{#if $signedIn}
 					<a class="btn-nav" href="/dashboard">{$t('words.dashboard')}</a>
+					{#if $isSiteAdmin}
+						<a class="btn-nav" href="/site-admin/users">Site admin</a>
+					{/if}
 				{:else}
 					<a class="btn-nav" href="/docs">{$t('words.docs')}</a>
 					<a

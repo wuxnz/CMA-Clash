@@ -163,6 +163,12 @@ async def get_admin_user(token: str = Depends(oauth2_scheme)) -> User:
     raise credentials_exception
 
 
+async def get_site_admin_user(user: User = Depends(get_current_user)) -> User:
+    if not await user_is_site_admin(user):
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Forbidden")
+    return user
+
+
 async def get_current_user_optional(token: str | None = Depends(oauth2_scheme_optional)) -> User | None:
     if not token:
         return None

@@ -15,6 +15,8 @@ SPDX-License-Identifier: MPL-2.0
 	import StartGamePopup from '$lib/dashboard/start_game.svelte';
 	import Analytics from './Analytics.svelte';
 	import { onMount } from 'svelte';
+	import { isSiteAdmin } from '$lib/stores';
+	import { refreshSiteAdminFlag } from '$lib/site-admin';
 	import { page } from '$app/state';
 	import QuizRow from '$lib/quiz/QuizRow.svelte';
 	import Button from '$lib/ui/Button.svelte';
@@ -128,6 +130,7 @@ SPDX-License-Identifier: MPL-2.0
 	};
 
 	onMount(() => {
+		void refreshSiteAdminFlag();
 		all_items = buildItems();
 		items_to_show = all_items;
 		fuse = new Fuse(all_items, {
@@ -196,6 +199,9 @@ SPDX-License-Identifier: MPL-2.0
 			{#each links as link}
 				<a href={link.href} class="min-h-11 inline-flex items-center link-hover">{link.label}</a>
 			{/each}
+			{#if $isSiteAdmin}
+				<a href="/site-admin/users" class="min-h-11 inline-flex items-center link-hover">Site admin</a>
+			{/if}
 		</nav>
 
 		<div class="mt-12 grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-14">
