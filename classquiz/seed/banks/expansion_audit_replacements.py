@@ -400,54 +400,6 @@ _RAW: tuple[
         (S.CLSI_GP41, S.NHA_CPT),
     ),
     # EKG (6)
-    (
-        "ekg-rhythm",
-        "Normal sinus rhythm on ECG shows:",
-        "Upright P before each QRS with regular rate 60 to 100 in adults",
-        ("Absent P waves with irregularly irregular rhythm", "Wide QRS without P always normal", "Rate above 150 at rest as normal"),
-        "NSR has a P for every QRS and regular R-R intervals. Irregularly irregular rhythm suggests atrial fibrillation.",
-        (S.NHA_CET,),
-    ),
-    (
-        "ekg-leads",
-        "Lead II is often monitored because it:",
-        "Usually shows clear P waves for rhythm identification",
-        ("Eliminates all motion artifact", "Measures blood pressure", "Replaces 12-lead diagnosis"),
-        "Lead II aligns the exploring electrode to highlight atrial activity. Artifact can still occur with motion.",
-        (S.NHA_CET,),
-    ),
-    (
-        "ekg-artifacts",
-        "Baseline wander on a tracing is reduced by:",
-        "Ensuring tight electrode contact and patient stillness",
-        ("Loosening all electrodes", "Increasing cable tension on the patient", "Turning off the monitor"),
-        "Poor contact and respiration cause wander. Skin prep and secure leads improve trace quality.",
-        (S.NHA_CET,),
-    ),
-    (
-        "ekg-rhythm",
-        "ST elevation in contiguous leads suggests:",
-        "Acute myocardial injury until proven otherwise",
-        ("Normal variant in every patient", "Hyperkalemia only", "Artifact never mimics ST changes"),
-        "STEMI patterns need urgent cardiology activation per protocol. Clinical correlation and serial ECGs matter.",
-        (S.NHA_CET,),
-    ),
-    (
-        "ekg-rhythm",
-        "Premature ventricular complexes appear as:",
-        "Wide bizarre QRS without preceding P and a compensatory pause",
-        ("Narrow QRS with identical P before each beat", "Regular flutter waves only", "Flat line only"),
-        "PVCs originate in ventricles so the QRS is wide. A full compensatory pause often follows.",
-        (S.NHA_CET,),
-    ),
-    (
-        "ekg-leads",
-        "Right-sided ECG leads (for example V4R) are used to assess:",
-        "Right ventricular infarction",
-        ("Left bundle branch only", "Dental pain", "Pulse oximetry"),
-        "RV infarction may show ST elevation in right precordial leads. Standard left-sided leads can miss RV involvement.",
-        (S.NHA_CET,),
-    ),
     # Phlebotomy (13)
 
 
@@ -496,22 +448,6 @@ _RAW: tuple[
     ),
 
 
-    (
-        "ekg-intervals",
-        "A prolonged PR interval greater than 0.20 second suggests:",
-        "First-degree atrioventricular block",
-        ("Normal sinus rhythm always", "Ventricular tachycardia", "Hyperkalemia peaked T waves only"),
-        "First-degree AV block delays conduction through the AV node. Every P wave is still followed by a QRS.",
-        (S.NHA_CET,),
-    ),
-    (
-        "ekg-cardiac-ap",
-        "The coronary arteries primarily supply:",
-        "Myocardium with oxygenated blood",
-        ("Pulmonary alveoli", "Renal cortex only", "Cerebral ventricles"),
-        "Myocardial ischemia results when coronary flow is inadequate. Collateral circulation may develop over time.",
-        (S.NHA_CET,),
-    ),
 
 
     (
