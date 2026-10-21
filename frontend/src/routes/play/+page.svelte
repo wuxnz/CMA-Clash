@@ -200,6 +200,10 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	});
 
+	socket.on('question_times_up', () => {
+		remainingLive = 0;
+	});
+
 	socket.on('set_question_number', (data) => {
 		solution = undefined;
 		restart();

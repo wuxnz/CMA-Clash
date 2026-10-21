@@ -35,6 +35,9 @@
 
 	{#if isPlayer && correct !== null}
 		<div class="text-center mb-8">
+			{#if !correct && (points ?? 0) === 0}
+				<p class="text-sm font-semibold uppercase tracking-wide text-ink-muted mb-2">Time's up</p>
+			{/if}
 			<p class="font-display text-5xl sm:text-7xl {correct ? 'text-gold' : 'text-danger'}">
 				{correct ? 'Correct' : 'Incorrect'}
 			</p>
