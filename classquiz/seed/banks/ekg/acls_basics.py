@@ -28,7 +28,7 @@ FACTS: list[dict] = [
         "As soon as the device is available while high-quality CPR continues",
         [
             "After ten minutes of compressions without any AED",
-            "Only when the patient regains a strong pulse",
+            "When the patient regains a strong pulse before pads are applied",
             "Before any compressions are started in every arrest",
         ],
         "Early defibrillation improves outcomes in shockable rhythms. Delaying AED use or waiting for a pulse wastes time; compressions still start first when unresponsive and not breathing normally.",
