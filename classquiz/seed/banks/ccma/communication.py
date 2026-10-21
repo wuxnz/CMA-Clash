@@ -355,7 +355,7 @@ FACTS: list[dict] = [
             'Regulation',
             'Referral',
         ],
-        'SBAR ends with a clear recommendation so the receiver knows what action or decision is needed. The full acronym is Situation, Background, Assessment, Recommendation—not scheduling or billing terms.',
+        'SBAR ends with a clear recommendation so the receiver knows what action or decision is needed. The full acronym is Situation, Background, Assessment, Recommendation, not scheduling or billing terms.',
         [S.NHA_CCMA],
         'intermediate',
     ),

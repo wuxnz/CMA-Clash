@@ -138,7 +138,7 @@ FACTS: list[dict] = [
     # ccma-hipaa-010
     fact(
         'ccma-hipaa',
-        'A patient asks for an accounting of disclosures. What will the list typically include?',
+        'A patient asks for an accounting of disclosures. Which disclosures are typically listed?',
         'Certain disclosures made for purposes other than treatment, payment, and health care operations',
         [
             'Every internal note another clinician read for continuity of care',
@@ -152,7 +152,7 @@ FACTS: list[dict] = [
     # ccma-hipaa-011
     fact(
         'ccma-hipaa',
-        'Which Security Rule safeguard requires systems that create, maintain, or transmit ePHI to log who accessed records?',
+        'Which HIPAA Security Rule safeguard requires electronic systems to record who accessed ePHI?',
         'Audit controls that record and review ePHI access activity',
         [
             'Disabling access logs to save server storage space',

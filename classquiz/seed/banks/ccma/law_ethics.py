@@ -383,7 +383,7 @@ FACTS: list[dict] = [
             'No one, because all minors need a parent signature for every test',
             'Front-desk staff acting without provider involvement',
         ],
-        'Many states permit minors to consent to specific sensitive services. Parental presence is not always required, but the scope is statutory—not open-ended and not delegable to unqualified staff.',
+        'Many states permit minors to consent to specific sensitive services. Parental presence is not always required, but the scope is statutory rather than open-ended and is not delegable to unqualified staff.',
         [S.NHA_CCMA],
         'intermediate',
     ),
@@ -586,7 +586,7 @@ FACTS: list[dict] = [
     # ccma-law-ethics-042
     fact(
         'ccma-law-ethics',
-        'After discovering unsecured PHI was emailed to the wrong patient, what should the privacy officer\'s process include?',
+        'After discovering unsecured PHI was emailed to the wrong patient, which step belongs in the privacy officer\'s response process?',
         'Conduct a risk assessment and follow breach notification rules if required',
         [
             'Ignore the event if the recipient promises not to look',

@@ -390,12 +390,12 @@ FACTS: list[dict] = [
     # ccma-admin-028
     fact(
         "ccma-admin",
-        "Which elements should telehealth intake documentation include?",
+        "Which of the following belongs in telehealth intake documentation?",
         "Patient location, consent to virtual care, and modality used",
         [
-            "Names of staff pets",
-            "Unrelated advertising click counts",
-            "Deleted system timestamps",
+            "Chief complaint alone with no consent or location documented",
+            "Insurance eligibility verified with no note of virtual versus in-person visit",
+            "A scanned insurance card without patient identity or visit consent",
         ],
         "Payers and regulators expect location and consent for telehealth claims. Marketing metrics do not satisfy clinical or billing documentation.",
         [S.NHA_CCMA],
@@ -421,9 +421,9 @@ FACTS: list[dict] = [
         "When may protected health information be disclosed to an outside attorney?",
         "The patient signs a valid HIPAA authorization naming the attorney or another permitted disclosure applies",
         [
-            "Front desk staff feel the caller sounds credible",
-            "A relative asks out of curiosity without patient permission",
-            "A lobby poster states that records may be shared freely",
+            "The attorney sends firm letterhead by fax without patient authorization",
+            "A family member requests records for estate planning without patient consent",
+            "Staff release records because the patient treated at the clinic last year",
         ],
         "Attorney requests require authorization or another HIPAA exception. Curiosity or generic signage does not authorize disclosure.",
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],

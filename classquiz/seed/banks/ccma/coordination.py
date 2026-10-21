@@ -40,7 +40,7 @@ FACTS: list[dict] = [
     # ccma-coordination-003
     fact(
         'ccma-coordination',
-        'When enrolling a patient in the online patient portal, which topic should education include?',
+        'When enrolling a patient in the online patient portal, which topic is most important to cover in education?',
         'Secure messaging limits and when to call 911 instead of using the portal',
         [
             'Encourage sharing login credentials with family members by default',
@@ -61,7 +61,7 @@ FACTS: list[dict] = [
             'Replace provider judgment about whether screening is appropriate',
             'Waive informed consent because the list is automated',
         ],
-        'Recall workflows close gaps in preventive care by flagging who needs contact. They support—not override—clinical decision making and consent requirements.',
+        'Recall workflows close gaps in preventive care by flagging who needs contact. They support, not override, clinical decision making and consent requirements.',
         [S.NHA_CCMA],
         'beginner',
     ),
@@ -187,7 +187,7 @@ FACTS: list[dict] = [
             'Eliminate all specialty referrals to reduce paperwork',
             'Avoid telephone follow-up to save staff time',
         ],
-        'Coordination improves adherence, transitions, and access to resources. It complements—not substitutes for—licensed diagnosis and necessary referrals.',
+        'Coordination improves adherence, transitions, and access to resources. It complements rather than substitutes for licensed diagnosis and necessary referrals.',
         [S.NHA_CCMA],
         'intermediate',
     ),
@@ -306,7 +306,7 @@ FACTS: list[dict] = [
     # ccma-coordination-022
     fact(
         'ccma-coordination',
-        'The lab orders fasting chemistry panels. Which details should a reminder call include?',
+        'The lab orders fasting chemistry panels. Which instructions should the reminder call convey?',
         'How long to remain NPO and whether to take usual medications',
         [
             'Eat a large breakfast before the draw to avoid dizziness',
@@ -327,7 +327,7 @@ FACTS: list[dict] = [
             'Replace annual wellness visits with phone outreach alone',
             'Discuss patient names and results on public social networks',
         ],
-        'Outreach targets evidence-based screenings that improve early detection and chronic disease control. It supplements—not replaces—clinical visits and must stay confidential.',
+        'Outreach targets evidence-based screenings that improve early detection and chronic disease control. It supplements clinical visits rather than replacing them and must stay confidential.',
         [S.NHA_CCMA],
         'intermediate',
     ),

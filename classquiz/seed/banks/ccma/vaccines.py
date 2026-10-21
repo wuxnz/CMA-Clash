@@ -82,12 +82,12 @@ FACTS: list[dict] = [
     # ccma-vaccines-006
     fact(
         'ccma-vaccines',
-        'After giving a vaccine, which documentation best supports registry reporting and medicolegal records?',
+        'After giving a vaccine, which documentation best supports registry reporting and medicolegal charting?',
         'Vaccine product, lot number, site, route, and VIS or education when applicable',
         [
-            'Patient nickname without product or lot details',
-            'Billing code without clinical details',
-            'No entry when the clinic is busy',
+            'Date and route documented, without vaccine product or lot number',
+            'CPT code and charge capture without clinical administration details',
+            'Verbal confirmation to the patient without a chart entry',
         ],
         'Complete immunization records enable state registries, continuity of care, and investigation of adverse events. Sparse or absent documentation breaks the chain needed for accurate patient histories.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -180,7 +180,7 @@ FACTS: list[dict] = [
     # ccma-vaccines-013
     fact(
         'ccma-vaccines',
-        'When policy requires labeling a syringe after vaccine is drawn, what information should the label include?',
+        'When policy requires labeling a syringe after vaccine is drawn, which information should appear on the label?',
         'Vaccine name, dose, date, and time of preparation',
         [
             'The preparer\'s initials in an unshared code',
@@ -337,9 +337,9 @@ FACTS: list[dict] = [
         'When reconstituting a lyophilized vaccine, which diluent is acceptable?',
         'Only the diluent supplied by the manufacturer for that vaccine',
         [
-            'Any saline vial found in the treatment room',
-            'Tap water from the sink',
-            'Leftover intravenous fluids from another patient',
+            'Any 0.9% sodium chloride vial opened in the treatment room',
+            'Sterile water for injection from a different vaccine kit',
+            'Bacteriostatic saline drawn from another patient\'s IV bag',
         ],
         'Incorrect diluent volume or type can inactivate antigen or change osmolarity. Manufacturers pair specific diluents with each lyophilized product in the package insert.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],

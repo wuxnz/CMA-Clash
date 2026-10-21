@@ -635,7 +635,7 @@ FACTS: list[dict] = [
             'Increases urine volume by acting on renal tubules directly',
             'Slows heart rate through direct SA node inhibition',
         ],
-        'Alpha cells release glucagon when glucose is low, opposing insulin. Insulin lowers glucose, diuretics—not glucagon—are typical agents for altering urine output, and heart rate is regulated chiefly by autonomic and pacemaker mechanisms.',
+        'Alpha cells release glucagon when glucose is low, opposing insulin. Insulin lowers glucose; diuretics, not glucagon, are typical agents for altering urine output, and heart rate is regulated chiefly by autonomic and pacemaker mechanisms.',
         [S.NHA_CCMA],
         'advanced',
     ),

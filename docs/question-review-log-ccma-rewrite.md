@@ -505,3 +505,78 @@ ccma-admin-035 | pass | Payers do not enforce prior auth near-miss.
 
 ccma-anatomy-044 | fail | Banned "only" epidural CSF distractor.
 ccma-anatomy-044 | pass | Epidural skull-dura space near-miss.
+
+## Stem, dash, and near-miss pass (batch: admin/coordination/hipaa/law/transmission/vaccines/diabetes)
+
+ccma-admin-028 | fail | include? stem; joke telehealth distractors.
+ccma-admin-028 | pass | Which-of-the-following stem; consent/location near-miss distractors.
+ccma-coordination-003 | fail | include? stem.
+ccma-coordination-003 | pass | Rephrased enrollment education stem.
+ccma-coordination-022 | fail | include? stem.
+ccma-coordination-022 | pass | Rephrased fasting reminder-call stem.
+ccma-coordination (recall explanations) | fail | Em dash in explanation text.
+ccma-coordination (recall explanations) | pass | Replaced em dashes with plain wording.
+ccma-hipaa-010 | fail | include? stem.
+ccma-hipaa-010 | pass | Which-disclosures stem.
+ccma-hipaa-011 | fail | records? fragment stem.
+ccma-hipaa-011 | pass | Audit-controls stem without records? tail.
+ccma-law-ethics-042 | fail | include? stem.
+ccma-law-ethics-042 | pass | Privacy-officer response stem.
+ccma-law-ethics (minor consent explanation) | fail | Em dash in explanation.
+ccma-law-ethics (minor consent explanation) | pass | Plain wording.
+ccma-transmission-020 | fail | requires? fragment stem.
+ccma-transmission-020 | pass | MRSA precaution indication stem.
+ccma-transmission-022 | fail | should? fragment stem.
+ccma-transmission-022 | pass | Sharps-container removal stem.
+ccma-transmission-024 | fail | typically includes? stem.
+ccma-transmission-024 | pass | MDRO precaution bundle stem.
+ccma-transmission-027 | fail | should? fragment stem.
+ccma-transmission-027 | pass | Norovirus ill-staff stem.
+ccma-transmission-031 | fail | should? fragment stem.
+ccma-transmission-031 | pass | Contact Precautions transport stem.
+ccma-transmission-037 | fail | should? fragment stem.
+ccma-transmission-037 | pass | Droplet transport stem.
+ccma-transmission-042 | fail | should? fragment stem.
+ccma-transmission-042 | pass | Post-glove hand hygiene stem.
+ccma-transmission-044 | fail | should? fragment stem.
+ccma-transmission-044 | pass | TB transport stem.
+ccma-transmission-046 | fail | include? stem.
+ccma-transmission-046 | pass | C. diff hand hygiene stem.
+ccma-vaccines-006 | fail | records? fragment; joke documentation distractors.
+ccma-vaccines-006 | pass | charting stem; CPT/verbal near-miss distractors.
+ccma-vaccines-013 | fail | include? stem.
+ccma-vaccines-013 | pass | Syringe label stem.
+ccma-vaccines-024 | fail | Tap-water joke diluent distractor.
+ccma-vaccines-024 | pass | Saline/water kit near-miss diluent distractors.
+ccma-diabetes-020 | fail | Colon-ended diagnostic stem.
+ccma-diabetes-020 | pass | Full fasting glucose question.
+ccma-diabetes-023 | fail | Colon-ended OGTT stem.
+ccma-diabetes-023 | pass | Full OGTT question.
+ccma-diabetes-028 | fail | Colon-ended hypoglycemia threshold stem.
+ccma-diabetes-028 | pass | Full threshold question.
+ccma-diabetes-047 | fail | Colon-ended mechanism stem.
+ccma-diabetes-047 | pass | How-do sulfonylureas stem.
+ccma-diabetes-049 | fail | Colon-ended GLP-1 stem.
+ccma-diabetes-049 | pass | How-do GLP-1 stem.
+ccma-diabetes-050 | fail | Colon-ended DPP-4 stem.
+ccma-diabetes-050 | pass | How-do DPP-4 stem.
+ccma-diabetes-057 | fail | Colon-ended documentation stem.
+ccma-diabetes-057 | pass | Which-elements documentation stem.
+ccma-diabetes-058 | fail | Colon-ended scope stem.
+ccma-diabetes-058 | pass | Scope classification question.
+ccma-diabetes-065 | fail | Colon-ended MODY stem.
+ccma-diabetes-065 | pass | Which-description MODY stem.
+ccma-diabetes-068 | fail | Colon-ended CFRD stem.
+ccma-diabetes-068 | pass | How-does CFRD differ stem.
+ccma-communication-050 (explanation) | fail | Em dash in SBAR explanation.
+ccma-communication-050 (explanation) | pass | Comma wording.
+ccma-anatomy (glucagon explanation) | fail | Em dash in explanation.
+ccma-anatomy (glucagon explanation) | pass | Semicolon wording.
+ccma-clinical-care-048 | fail | Tap-water reuse distractor.
+ccma-clinical-care-048 | pass | Alcohol wipe reuse near-miss.
+ccma-admin-030 | fail | Credibility/poster joke attorney distractors.
+ccma-admin-030 | pass | Letterhead, family, and prior-treatment near-misses.
+ccma-admin-039 | fail | Social-feed/password joke scan distractors.
+ccma-admin-039 | pass | Wrong chart, encounter, and filename near-misses.
+ccma-transmission-003 | fail | promote? stem; mask-reuse distractor too obvious.
+ccma-transmission-003 | pass | Full goal stem; hand hygiene and rash near-misses.

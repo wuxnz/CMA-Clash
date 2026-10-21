@@ -40,12 +40,12 @@ FACTS: list[dict] = [
     # ccma-transmission-003
     fact(
         "ccma-transmission",
-        "Respiratory hygiene and cough etiquette posters in waiting areas promote?",
+        "What is the primary infection-control goal of respiratory hygiene posters in waiting areas?",
         "Source control of respiratory secretions",
         [
-            "Replacing hand hygiene after every cough",
-            "Using Droplet Precautions for all rashes",
-            "Reusing surgical masks between patients without cleaning",
+            "Eliminating the need for hand hygiene near waiting room entrances",
+            "Using Droplet Precautions for every patient with a skin rash",
+            "Reusing the same surgical mask for multiple patients in the waiting area",
         ],
         "Covering coughs and sneezes limits how far secretions travel. Hand hygiene remains essential, but posters do not eliminate the need for masks or isolation when a communicable respiratory illness is suspected.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
@@ -278,7 +278,7 @@ FACTS: list[dict] = [
     # ccma-transmission-020
     fact(
         "ccma-transmission",
-        "A hospitalized patient with a draining methicillin-resistant Staphylococcus aureus (MRSA) wound requires?",
+        "Which transmission-based precautions are indicated for a hospitalized patient with a draining MRSA wound?",
         "Contact Precautions in addition to Standard Precautions",
         [
             "Airborne Precautions in a negative-pressure room without gown or gloves",
@@ -306,7 +306,7 @@ FACTS: list[dict] = [
     # ccma-transmission-022
     fact(
         "ccma-transmission",
-        "When removing a sharps container from a room on isolation precautions, staff should?",
+        "When removing a sharps container from a room on isolation precautions, which practice should staff follow?",
         "Use the same PPE and precautions as for direct patient care",
         [
             "Carry the open container through the hallway without gloves",
@@ -334,7 +334,7 @@ FACTS: list[dict] = [
     # ccma-transmission-024
     fact(
         "ccma-transmission",
-        "Care of a patient colonized with a multidrug-resistant organism (MDRO) typically includes?",
+        "Which precaution bundle is typical for a patient colonized with a multidrug-resistant organism (MDRO)?",
         "Contact Precautions plus communication with the care team about stewardship",
         [
             "Droplet Precautions with surgical mask instead of gowns",
@@ -376,7 +376,7 @@ FACTS: list[dict] = [
     # ccma-transmission-027
     fact(
         "ccma-transmission",
-        "During a norovirus outbreak on a nursing unit, ill staff should?",
+        "During a norovirus outbreak on a nursing unit, which action is appropriate for ill staff?",
         "Stay off duty per occupational health policy until cleared to return",
         [
             "Continue direct patient care while wearing a surgical mask at the nurses' station",
@@ -432,7 +432,7 @@ FACTS: list[dict] = [
     # ccma-transmission-031
     fact(
         "ccma-transmission",
-        "Before moving a patient on Contact Precautions to radiology, the medical assistant should?",
+        "Before moving a patient on Contact Precautions to radiology, which step should the medical assistant take?",
         "Notify the receiving area and cover or contain draining wounds and equipment",
         [
             "Remove gown and gloves in the elevator to save PPE",
@@ -516,7 +516,7 @@ FACTS: list[dict] = [
     # ccma-transmission-037
     fact(
         "ccma-transmission",
-        "During intrahospital transport of a patient on Droplet Precautions, the patient should?",
+        "During intrahospital transport of a patient on Droplet Precautions, which measure should be used for the patient?",
         "Wear a surgical mask if tolerated and follow facility transport protocols",
         [
             "Remove the mask in the elevator to improve oxygen saturation",
@@ -586,7 +586,7 @@ FACTS: list[dict] = [
     # ccma-transmission-042
     fact(
         "ccma-transmission",
-        "Immediately after removing gloves following patient care, the medical assistant should?",
+        "Immediately after removing gloves following patient care, what should the medical assistant do next?",
         "Perform hand hygiene because gloves may have undetected breaches",
         [
             "Document the encounter before cleaning hands because gloves guarantee sterility",
@@ -614,7 +614,7 @@ FACTS: list[dict] = [
     # ccma-transmission-044
     fact(
         "ccma-transmission",
-        "When transporting a patient with suspected pulmonary tuberculosis outside the AIIR, the patient should?",
+        "When transporting a patient with suspected pulmonary tuberculosis outside the AIIR, which approach should be used for the patient?",
         "Wear a surgical mask if tolerated and minimize time in uncontrolled areas",
         [
             "Remove the mask so staff can assess lip color during the elevator ride",
@@ -642,7 +642,7 @@ FACTS: list[dict] = [
     # ccma-transmission-046
     fact(
         "ccma-transmission",
-        "After caring for a patient with Clostridioides difficile diarrhea, hand hygiene should include?",
+        "After caring for a patient with Clostridioides difficile diarrhea, which hand hygiene approach is appropriate?",
         "Soap and water when hands are visibly soiled or spore removal is needed per policy",
         [
             "Alcohol-based hand rub alone without contact precautions",

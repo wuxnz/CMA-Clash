@@ -278,7 +278,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-020
     fact(
         "ccma-diabetes",
-        "On appropriate laboratory testing, diabetes mellitus is diagnosed when fasting plasma glucose is at least:",
+        "On appropriate laboratory testing, which fasting plasma glucose level meets criteria for diabetes mellitus?",
         "126 mg/dL (7.0 mmol/L)",
         [
             "100 mg/dL, which defines prediabetes",
@@ -320,7 +320,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-023
     fact(
         "ccma-diabetes",
-        "After a 75-g oral glucose tolerance test (OGTT), diabetes is diagnosed when the 2-hour plasma glucose is:",
+        "After a 75-g oral glucose tolerance test (OGTT), which 2-hour plasma glucose meets diabetes diagnostic criteria?",
         "200 mg/dL (11.1 mmol/L) or higher",
         [
             "140 mg/dL, which may reflect impaired glucose tolerance",
@@ -390,7 +390,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-028
     fact(
         "ccma-diabetes",
-        "Per ADA guidance, treatment for hypoglycemia is generally initiated when blood glucose falls below:",
+        "Per ADA guidance, at which blood glucose level is treatment for hypoglycemia generally initiated?",
         "70 mg/dL (3.9 mmol/L)",
         [
             "200 mg/dL, which is above typical postmeal targets",
@@ -656,7 +656,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-047
     fact(
         "ccma-diabetes",
-        "Sulfonylureas such as glipizide lower blood glucose primarily by:",
+        "How do sulfonylureas such as glipizide lower blood glucose?",
         "Stimulating insulin release from functioning pancreatic beta cells",
         [
             "Blocking renal sodium-glucose cotransport in the proximal tubule",
@@ -684,7 +684,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-049
     fact(
         "ccma-diabetes",
-        "GLP-1 receptor agonists improve glycemic control mainly by:",
+        "How do GLP-1 receptor agonists improve glycemic control?",
         "Enhancing glucose-dependent insulin secretion and delaying gastric emptying",
         [
             "Replacing oral hydration with hypertonic saline infusions as first-line therapy",
@@ -698,7 +698,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-050
     fact(
         "ccma-diabetes",
-        "DPP-4 inhibitors such as sitagliptin act on glucose regulation by:",
+        "How do DPP-4 inhibitors such as sitagliptin affect glucose regulation?",
         "Prolonging active incretin hormones that stimulate insulin in a glucose-dependent manner",
         [
             "Directly oxidizing adipose tissue without hormonal effects",
@@ -796,7 +796,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-057
     fact(
         "ccma-diabetes",
-        "Complete documentation of diabetes-related care in the medical record should include:",
+        "Which elements belong in complete documentation of diabetes-related care in the medical record?",
         "Glucose values, relevant symptoms, interventions provided, and patient response",
         [
             "Subjective food preferences without glucose values, symptoms, interventions, or response",
@@ -810,7 +810,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-058
     fact(
         "ccma-diabetes",
-        "Independent adjustment of a patient's insulin doses by a medical assistant is:",
+        "How is independent adjustment of a patient's insulin doses by a medical assistant classified under typical scope rules?",
         "Outside standard scope unless explicitly delegated by law and supervising clinician protocol",
         [
             "Expected at every visit without a provider order",
@@ -908,7 +908,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-065
     fact(
         "ccma-diabetes",
-        "Maturity-onset diabetes of the young (MODY) is best described as:",
+        "Which description best fits maturity-onset diabetes of the young (MODY)?",
         "A monogenic form of diabetes often inherited in an autosomal dominant pattern",
         [
             "Obesity-induced hyperglycemia with no genetic component",
@@ -950,7 +950,7 @@ FACTS: list[dict] = [
     # ccma-diabetes-068
     fact(
         "ccma-diabetes",
-        "Cystic fibrosis-related diabetes (CFRD) differs from typical type 1 diabetes because:",
+        "How does cystic fibrosis-related diabetes (CFRD) differ from typical type 1 diabetes?",
         "It arises in the setting of cystic fibrosis with distinct screening and treatment considerations",
         [
             "It is identical to gestational diabetes that remits immediately after delivery",
