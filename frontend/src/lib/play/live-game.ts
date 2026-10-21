@@ -94,9 +94,11 @@ export type QuestionResultsPayload = {
 	revealHoldSec: number;
 	scoreboardHoldSec: number;
 	standingsTop: StandingsRow[];
+	explanation: string | null;
+	correctAnswer: string | null;
 };
 
-const DEFAULT_REVEAL_HOLD_SEC = 4;
+const DEFAULT_REVEAL_HOLD_SEC = 8;
 const DEFAULT_SCOREBOARD_HOLD_SEC = 9;
 
 /** Legacy bare arrays and wrapped `{ question_index, results }` payloads. */
@@ -107,7 +109,9 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 			rows: data as Array<Record<string, unknown>>,
 			revealHoldSec: DEFAULT_REVEAL_HOLD_SEC,
 			scoreboardHoldSec: DEFAULT_SCOREBOARD_HOLD_SEC,
-			standingsTop: []
+			standingsTop: [],
+			explanation: null,
+			correctAnswer: null
 		};
 	}
 	if (data && typeof data === 'object') {
@@ -124,6 +128,8 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 			const standingsTop = Array.isArray(obj.standings_top)
 				? (obj.standings_top as StandingsRow[])
 				: [];
+			const explanationRaw = obj.explanation;
+			const correctRaw = obj.correct_answer;
 			return {
 				questionIndex: Number.isFinite(questionIndex) ? questionIndex : null,
 				rows: rawRows as Array<Record<string, unknown>>,
@@ -131,7 +137,13 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 				scoreboardHoldSec: Number.isFinite(scoreboardHoldSec)
 					? scoreboardHoldSec
 					: DEFAULT_SCOREBOARD_HOLD_SEC,
-				standingsTop
+				standingsTop,
+				explanation:
+					explanationRaw == null || explanationRaw === ''
+						? null
+						: String(explanationRaw),
+				correctAnswer:
+					correctRaw == null || correctRaw === '' ? null : String(correctRaw)
 			};
 		}
 	}
@@ -140,7 +152,9 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 		rows: [],
 		revealHoldSec: DEFAULT_REVEAL_HOLD_SEC,
 		scoreboardHoldSec: DEFAULT_SCOREBOARD_HOLD_SEC,
-		standingsTop: []
+		standingsTop: [],
+		explanation: null,
+		correctAnswer: null
 	};
 }
 
@@ -152,6 +166,39 @@ export function ordinalPlace(n: number): string {
 }
 
 /** Drop results for a question the client has already advanced past. */
+export function computeResultsPhaseUntilMs(
+	revealHoldSec: number,
+	scoreboardHoldSec: number,
+	nowMs: number = Date.now()
+): number {
+	const revealMs = Math.max(0, revealHoldSec * 1000);
+	const scoreboardMs = Math.max(0, scoreboardHoldSec * 1000);
+	return nowMs + revealMs + scoreboardMs;
+}
+
+/** Ignore early set_question_number while reveal + scoreboard holds are still running. */
+export function shouldDeferSetQuestionDuringResults(opts: {
+	hasAnswerResults: boolean;
+	resultsPhaseUntilMs: number;
+	nowMs: number;
+	currentQuestionIndex: number | null;
+	nextQuestionIndex: number;
+}): boolean {
+	if (!opts.hasAnswerResults) {
+		return false;
+	}
+	if (opts.nowMs >= opts.resultsPhaseUntilMs) {
+		return false;
+	}
+	if (!Number.isFinite(opts.nextQuestionIndex)) {
+		return false;
+	}
+	if (opts.currentQuestionIndex == null || !Number.isFinite(opts.currentQuestionIndex)) {
+		return false;
+	}
+	return opts.nextQuestionIndex > opts.currentQuestionIndex;
+}
+
 export function isStaleQuestionResults(
 	activeQuestionIndex: number | null | undefined,
 	resultsQuestionIndex: number | null,
