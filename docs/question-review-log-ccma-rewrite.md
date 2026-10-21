@@ -60,3 +60,64 @@ ccma-anatomy-040 | fail | Mediastinum/LUQ/kidney distractors; advanced recall.
 ccma-anatomy-040 | pass | Neck landmark near-misses; tier intermediate.
 ccma-clinical-care-024 | fail | Tap water/scrub brush/absurd alcohol distractors.
 ccma-clinical-care-024 | pass | Multi-dose vial/antiseptic irrigant/open bowl near-misses.
+
+## Communication batch 02 (ccma-communication-026 to 057) — distractor and stem fix
+
+ccma-communication-026 | fail | Airway/recovery mnemonic distractor; length skew.
+ccma-communication-026 | pass | Summary/baseline and Rx-change SBAR near-misses; balanced lengths.
+ccma-communication-028 | fail | Joke distractors (reading speed, shorten visits).
+ccma-communication-028 | pass | Chart checkbox / nod agreement / interpreter-screen near-misses.
+ccma-communication-029 | fail | Meal-order and hold-music joke distractors.
+ccma-communication-029 | pass | Which-of-the-following stem; incomplete triage near-misses.
+ccma-communication-030 | fail | Paper hallway distractors not Privacy Rule peers; correct too long.
+ccma-communication-030 | pass | Privacy Rule near-misses; shortened Security Rule key.
+ccma-communication-031 | fail | PHI distraction joke distractor.
+ccma-communication-031 | pass | Confrontation / solo escort / block-exit near-misses.
+ccma-communication-032 | fail | Desk joke and dismissive diet distractors.
+ccma-communication-032 | pass | Stereotype / standard diet / louder English near-misses.
+ccma-communication-033 | fail | Delete-complaint joke distractor.
+ccma-communication-033 | pass | Deny error / no apology / self-schedule near-misses.
+ccma-communication-036 | fail | Banned "Skipping" in distractor; lunch-room joke.
+ccma-communication-036 | pass | Gloves-only hygiene and sharps-container category near-misses.
+ccma-communication-037 | fail | Tourniquet/squeeze joke first-aid distractors.
+ccma-communication-037 | pass | Antiseptic-only / delay report near-misses.
+ccma-communication-038 | fail | Stranger/child joke translator distractors.
+ccma-communication-038 | pass | Casual bilingual / gestures / companion near-misses.
+ccma-communication-039 | fail | Cancel-screening absurd distractor.
+ccma-communication-039 | pass | Schedule relative / postpone screen / chart without policy near-misses.
+ccma-communication-040 | fail | Gossip and SSN-in-lobby joke distractors.
+ccma-communication-040 | pass | Incomplete acute-call documentation near-misses.
+ccma-communication-042 | fail | Humor and unauthorized recording distractors.
+ccma-communication-042 | pass | Rush schedule / handout dump / silent exit near-misses.
+ccma-communication-043 | fail | Match volume / hang up / other-patient PHI distractors.
+ccma-communication-043 | pass | Blind transfer / policy lecture / unexplained hold near-misses.
+ccma-communication-044 | fail | Personal-story joke distractor; correct too long.
+ccma-communication-044 | pass | Scope-appropriate support; prognosis/promise near-misses.
+ccma-communication-045 | fail | Short visitor/child distractors; length skew.
+ccma-communication-045 | pass | Expanded untrained-interpreter near-misses.
+ccma-communication-046 | fail | Correct tied longest with weak short distractors.
+ccma-communication-046 | pass | Face-interpreter and monologue near-misses lengthened.
+ccma-communication-047 | fail | Blank-page joke distractor.
+ccma-communication-047 | pass | Library article / Latin sig / verbal-only near-misses.
+ccma-communication-048 | fail | Correct answer longest in batch check.
+ccma-communication-048 | pass | Shortened key; package-insert near-miss retained.
+ccma-communication-050 | fail | Single-word SBAR distractors too short vs key.
+ccma-communication-050 | pass | Labeled Background/Assessment/Recommendation phrase distractors.
+ccma-communication-051 | fail | Merged formatting; volume-match joke distractors.
+ccma-communication-051 | pass | Public confrontation / ignore distress / wait-time quote near-misses.
+ccma-communication-052 | fail | Gossip/credit-card joke distractors; merged formatting.
+ccma-communication-052 | pass | Which-of-the-following stem; incomplete phone-note near-misses.
+ccma-communication-053 | fail | Refuse-interpreter / assume-beliefs merged absurd distractors.
+ccma-communication-053 | pass | English-only / same script / ethnicity-only near-misses.
+ccma-communication-054 | fail | Ask-another-patient joke distractor; merged formatting.
+ccma-communication-054 | pass | Guess intent / chart-first / coworker guess near-misses.
+ccma-communication-055 | fail | Short absurd posture distractors; merged formatting.
+ccma-communication-055 | pass | Turn away / covered mouth / doorway shout near-misses.
+ccma-communication-056 | fail | Short dismissive distractors; merged formatting.
+ccma-communication-056 | pass | Script rush / screen stare / minimize worry near-misses.
+ccma-communication-057 | fail | Celebrity/parking joke Background distractors.
+ccma-communication-057 | pass | Arrival logistics / housekeeping allergy / visitor names near-misses.
+ccma-communication-035 | fail | Correct answer longest vs short wait-room distractors.
+ccma-communication-035 | pass | Expanded blame/silence near-misses for length balance.
+ccma-communication-041 | fail | Correct answer longest vs short device distractors.
+ccma-communication-041 | pass | Caregiver-only / interrupt device / remove device near-misses.
