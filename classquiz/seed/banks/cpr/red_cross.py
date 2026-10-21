@@ -456,7 +456,7 @@ FACTS: list[dict] = [
  ),
  fact(
  "cpr-red-cross",
- 'Splinting an injured extremity aims to?', 
+ 'What is the goal of splinting an injured extremity?', 
  'Immobilize above and below the injury', 
  [
  'Immobilize only the joint above injury', 

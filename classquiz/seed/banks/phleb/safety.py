@@ -98,7 +98,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Transporting uncapped needles between rooms is?",
+        "Why is transporting uncapped needles between rooms unsafe?",
         "Unsafe and prohibited by work practice controls",
         [
             "Standard practice to save time",
