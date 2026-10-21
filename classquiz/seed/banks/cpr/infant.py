@@ -425,10 +425,11 @@ FACTS: list[dict] = [
         [
             "At least 60 seconds to avoid false starts",
             "Exactly two minutes between every compression cycle",
-            "Pulse checks are skipped for all infants",
+            "Lay rescuers should never pause compressions to check a pulse",
         ],
-        "Brief checks limit compression interruption. A 60-second pause harms perfusion. Two-minute "
-        "checks between cycles are not standard. Pulse assessment remains part of BLS when trained.",
+        "Brief checks limit compression interruption. A 60-second pause harms perfusion. Thinking "
+        "lay rescuers must never pause to check a pulse is wrong—trained BLS still uses short checks "
+        "between cycles when indicated.",
         _REF,
         "intermediate",
     ),
