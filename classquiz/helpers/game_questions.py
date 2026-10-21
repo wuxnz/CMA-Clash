@@ -9,6 +9,8 @@ from __future__ import annotations
 import random
 from typing import Any, Sequence
 
+from classquiz.db.models import QuizQuestionType
+
 DEFAULT_QUESTIONS_PER_GAME = 10
 MIN_QUESTIONS_PER_GAME = 8
 
@@ -43,3 +45,21 @@ def select_questions_for_game(
         selected = picker.sample(bank, draw)
     picker.shuffle(selected)
     return selected
+
+
+def _abcd_type(question: Any) -> bool:
+    qtype = question.get("type") if isinstance(question, dict) else getattr(question, "type", None)
+    return qtype in (QuizQuestionType.ABCD, "ABCD")
+
+
+def shuffle_abcd_answer_positions(
+    questions: Sequence[Any],
+    rng: random.Random | None = None,
+) -> None:
+    """Shuffle ABCD option order once per game session (live, battle, hosted)."""
+    picker = rng or random.Random()
+    for question in questions:
+        if not _abcd_type(question):
+            continue
+        answers = question["answers"] if isinstance(question, dict) else question.answers
+        picker.shuffle(answers)

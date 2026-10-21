@@ -18,6 +18,8 @@ Format: `id | pass | notes`
 
 **Batches 01–06 sweep:** Removed giveaway parentheticals on distractors; balanced option lengths where the keyed answer was longest; strengthened swapped-arm near-miss distractors (leads-023).
 
+**Length / position sweep (all 253):** `fact()` normalizes EKG choice lengths so the keyed answer is not the only longest option; seed materialization and live/battle games shuffle ABCD positions (practice shuffles client-side). Audit script reports post-seed letter via `scripts/random_tier_samples.py`.
+
 **Every batch:** No parenthetical labels on distractors; parallel option length; correct answer does not restate the stem; stem clues must not make a distractor defensible.
 
 ## EKG batch 01 (ekg-leads-001 to ekg-leads-025)
@@ -205,7 +207,7 @@ ekg-artifacts-031 | fail | Leads-off V5 stat fix vs print flat channel.
 ekg-artifacts-032 | fail | Bed scale spike vs PVC / non-capture / WPW.
 ekg-artifacts-033 | fail | Parkinson support reduces tremor artifact neighbors.
 ekg-artifacts-034 | fail | Defib pad overlap documentation vs false normal ST.
-ekg-artifacts-035 | fail | V4 reposition ST normalize vs LAD STEMI neighbors.
+ekg-artifacts-035 | fail | V4 ST scenario full question stem; near-miss STEMI/early repol/hyperK neighbors.
 ekg-artifacts-036 | fail | Bedside immediate quality review scenario.
 ekg-artifacts-037 | fail | Nicotine patch under V2 vs on-patch placement.
 ekg-artifacts-038 | fail | Undried alcohol vs PR / delta / flutter neighbors.
@@ -259,7 +261,7 @@ ekg-cardiac-ap-039 | pass | Advanced RVH V1 R wave strain scenario.
 ekg-cardiac-ap-040 | pass | Advanced anterior STEMI reciprocal scenario.
 ekg-cardiac-ap-041 | pass | Advanced Wenckebach location scenario.
 ekg-cardiac-ap-042 | pass | Advanced pericarditis diffuse ST scenario.
-ekg-cardiac-ap-043 | pass | Advanced anterior QS syncope scenario.
+ekg-cardiac-ap-043 | fail | Anterior QS scenario uses chest pain not syncope; old infarct near-miss distractor.
 
 ## EKG batch 11 (ekg-acls-basics-001 to ekg-acls-basics-041)
 

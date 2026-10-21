@@ -557,14 +557,14 @@ FACTS: list[dict] = [
     ),
     fact(
         "ekg-cardiac-ap",
-        "After syncope, the EKG shows poor R wave progression from V1 to V4 with QS complexes in V2 and ST elevation in anterior leads. What injury pattern is suspected?",
+        "A patient with ongoing anterior chest pain has poor R wave progression from V1 to V4 with QS complexes in V2 and ST elevation in anterior leads. What injury pattern is suspected?",
         "Acute anterior myocardial infarction with septal involvement",
         [
             "Benign early repolarization limited to inferior leads",
             "Chronic right ventricular hypertrophy with tall R in V1",
-            "Sinus bradycardia at 50 beats per minute without ST change",
+            "Old anterior infarction with persistent Q waves but no acute ST change",
         ],
-        "Loss of anterior R waves with QS and ST elevation indicates LAD territory infarction. RVH or isolated bradycardia does not produce anterior QS with ST elevation.",
+        "Loss of anterior R waves with QS and ST elevation indicates acute LAD territory infarction. RVH or chronic Q waves without acute ST elevation do not fit this presentation.",
         [S.NHA_CCMA],
         "advanced",
     ),

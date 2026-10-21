@@ -58,6 +58,10 @@ _INCOMPLETE_STEM_END = re.compile(
     r")\?\s*$",
     re.I,
 )
+_FRAGMENT_CLAUSE_WAS = re.compile(
+    r"(?:^|[.;])\s*[^?]{8,120}\b(was|is|are|were)\?\s*$",
+    re.I,
+)
 _FRAGMENT_TAIL_QUESTION = re.compile(
     r"(?:"
     r"\bis placed\?|\bshould\?|\bfrom the\?|\bof\?|\bbe\?|\bserves as\?|"
@@ -197,6 +201,8 @@ def test_hand_authored_stems_are_complete_questions():
         if _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
             if _FRAGMENT_TAIL_QUESTION.search(stem):
                 bad.append(stem[:90])
+            if _FRAGMENT_CLAUSE_WAS.search(stem):
+                bad.append(stem[:90])
         if not stem.endswith("?") and not stem.endswith("."):
             bad.append(stem[:90])
     assert not bad, f"Incomplete stems in hand-authored certs: {bad[:12]}"
@@ -261,6 +267,33 @@ def test_hand_authored_no_near_duplicate_stems():
                 if overlap >= 0.82:
                     pairs.append(f"{prefix} {overlap:.2f}: {a['stem'][:45]} | {b['stem'][:45]}")
     assert not pairs, f"Near-duplicate stems (Jaccard>=0.82): {pairs[:10]}"
+
+
+def test_hand_authored_correct_not_uniquely_longest_option():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.choice_quality import correct_is_uniquely_longest
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            continue
+        if correct_is_uniquely_longest(fact["correct"], fact["distractors"]):
+            bad.append(f"{fact['topic']}: {fact['stem'][:70]}")
+    assert not bad, f"Correct answer uniquely longest: {bad[:12]}"
+
+
+def test_cert_correct_positions_spread_after_seed_shuffle():
+    from classquiz.seed.choice_quality import seeded_correct_index
+
+    from classquiz.seed.banks import load_all_facts
+
+    for prefix in _STRICT_QUALITY_CERT_PREFIXES:
+        facts = [f for f in load_all_facts() if f["topic"].startswith(prefix)]
+        assert facts, f"No facts for {prefix}"
+        counts = Counter(seeded_correct_index(f["stem"], f["correct"], f["distractors"]) for f in facts)
+        assert len(counts) >= 3, f"{prefix} correct positions use only {counts}"
+        dominant = max(counts.values()) / len(facts)
+        assert dominant <= 0.45, f"{prefix} position skew {dict(counts)}"
 
 
 def test_cpr_aha_choking_does_not_use_red_cross_adult_five_and_five_answer():
