@@ -370,6 +370,7 @@ def check_item(fact: dict, stem: str | None = None) -> tuple[list[str], list[str
 
     # Second defensible answer heuristics
     correct_tokens = _tokens(correct)
+    correct_all = set(_content_tokens(correct))
     for d in distractors:
         sim = _jaccard(correct_tokens, _tokens(d))
         if sim >= 0.7:
@@ -380,6 +381,15 @@ def check_item(fact: dict, stem: str | None = None) -> tuple[list[str], list[str
         if diff and diff <= NEGATION_WORDS and len(_content_tokens(correct)) >= 2:
             reviews.append(
                 f"distractor differs from the key by one negation only ({sorted(diff)}): {d[:60]!r}"
+            )
+        d_all = set(_content_tokens(d))
+        if correct_all and correct_all < d_all:
+            reviews.append(
+                f"distractor states the key's claim plus extra scope, so it may also be defensible: {d[:60]!r}"
+            )
+        elif d_all and d_all < correct_all:
+            reviews.append(
+                f"distractor is a narrower claim than the key, so the stem must exclude it: {d[:60]!r}"
             )
     absolutes = [c for c in choices if any(p.search(c) for p in ABSOLUTE_OPTION_PATTERNS)]
     if len(absolutes) == 1:

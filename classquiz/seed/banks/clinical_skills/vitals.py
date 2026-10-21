@@ -182,11 +182,11 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "What effect does an undersized blood pressure cuff typically have on the recorded reading?",
-        "It tends to falsely elevate systolic and diastolic values",
+        "It tends to falsely elevate both systolic and diastolic values",
         [
             "It tends to falsely lower both systolic and diastolic values",
-            "It removes Korotkoff sounds so diastolic cannot be heard",
-            "It eliminates the need to support the arm at heart level",
+            "It makes the diastolic Korotkoff sounds harder to identify",
+            "It means the arm no longer needs to be supported at heart level",
         ],
         "A narrow bladder needs extra inflation to occlude a larger arm, pushing numbers upward. Arm position and auscultation technique still matter with any cuff size.",
         [S.CDC_HBP],
@@ -195,14 +195,14 @@ FACTS: list[dict] = [
     # skill-vitals-014
     fact(
         "skill-vitals",
-        "What effect does an oversized blood pressure cuff typically have on the recorded reading?",
-        "It tends to falsely lower systolic and diastolic values",
+        "What happens to a blood pressure reading when the cuff is too large for the patient's arm?",
+        "It tends to falsely lower both systolic and diastolic values",
         [
             "It tends to falsely raise both systolic and diastolic values",
-            "It guarantees Korotkoff sounds audible at very low cuff pressure",
-            "It replaces two-patient identifier checks before measurement",
+            "The diastolic Korotkoff sounds become easier to identify",
+            "The recorded values stay the same as with a correctly sized cuff",
         ],
-        "A bladder that is too long for the arm may not fully compress the brachial artery. Identity verification remains required regardless of cuff fit.",
+        "A bladder that is too long for the arm may not fully compress the brachial artery, so the recorded pressure reads lower. Cuff fit changes the numbers without changing the patient's actual pressure.",
         [S.CDC_HBP],
         "intermediate",
     ),

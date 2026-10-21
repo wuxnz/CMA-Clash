@@ -946,3 +946,62 @@ skill-intake-039 | fail | Confirmed parallel emergency-contact purpose near-miss
 skill-intake-040 | fail | Removed per-policy hedge on correct; parallel legal name change near-misses aligned.
 skill-intake-041 | fail | Confirmed parallel intake-closing element near-misses; stem unchanged.
 skill-intake-042 | fail | Removed per-protocol hedge and only qualifier on distractor; vital-signs-only vs travel HPI dual-defensible tightened.
+## Parallel-options pass batch P05 (skill-osha-bbp-001 to skill-osha-bbp-042)
+
+skill-osha-bbp-001 | fail | Body-fluid scope options paralleled; sweat, tears, and ordinary urine and feces no longer framed as sabotage distractors.
+skill-osha-bbp-002 | fail | Employer vaccine duty reworked; charging, post-exposure-only, and visitor options are parallel near-misses.
+skill-osha-bbp-003 | fail | Exposure control plan options now each omit a different required element instead of naming unrelated paperwork.
+skill-osha-bbp-004 | fail | Training timing options paralleled across hire, annual, and duty-based refreshers.
+skill-osha-bbp-005 | fail | Engineering control distractors are now the real sibling control categories (work practice, PPE, training).
+skill-osha-bbp-006 | fail | Sharps disposal options paralleled; recapping, delayed, and supply-room storage framed as plausible delays.
+skill-osha-bbp-007 | fail | Eye protection options paralleled; gloves-only and mask-only no longer read as sabotage.
+skill-osha-bbp-008 | fail | Payment question reworked so each distractor is a plausible employer condition rather than a joke.
+skill-osha-bbp-009 | fail | Needlestick first steps paralleled; removed squeeze-and-silence distractor.
+skill-osha-bbp-010 | fail | Sharps injury log content reframed as parallel record-element choices; removed personal-journal and bulletin-board distractors.
+skill-osha-bbp-011 | fail | Work practice control options now mirror the real control categories (engineering, policy, PPE).
+skill-osha-bbp-012 | fail | Recapping question reworded so the key is a flat rule rather than a policy hedge.
+skill-osha-bbp-013 | fail | Laundry options paralleled; removed sink-rinse, break-room-sort, and home-iron distractors.
+skill-osha-bbp-014 | fail | Post-exposure evaluation options paralleled; removed antibiotic, copayment, and bulletin-board distractors.
+skill-osha-bbp-015 | fail | Bloodborne pathogen list paralleled across HIV, hepatitis B, hepatitis C, hepatitis A, influenza, and tuberculosis.
+skill-osha-bbp-016 | fail | Universal precautions scope options paralleled; removed respirator-everything and waste-everything distractors.
+skill-osha-bbp-017 | fail | PPE provision options paralleled; removed scratch-for-scrubs, injury-threshold, and waiver distractors.
+skill-osha-bbp-018 | fail | Waste labeling options paralleled; removed sticker, portrait, and grocery-list distractors.
+skill-osha-bbp-019 | fail | Surface antibody testing options paralleled; removed needle-reuse and glove-waiver distractors.
+skill-osha-bbp-020 | fail | Needle bending rationale options paralleled; removed sterilize-in-drawer distractors.
+skill-osha-bbp-021 | fail | Sharps container fill options paralleled; removed press-down and wait-for-env-services distractors.
+skill-osha-bbp-022 | fail | Transport question reframed as parallel handling choices; removed wheelchair and rolling-chair distractors.
+skill-osha-bbp-023 | fail | Occupational exposure reframed around contact routes so each option states a different scope rule.
+skill-osha-bbp-024 | fail | Declination options paralleled; removed fee-to-decline and community-infection distractors.
+skill-osha-bbp-025 | fail | Blood cleanup options paralleled as ordered steps; removed walk-through and weekend-clean distractors.
+skill-osha-bbp-026 | fail | Safer device evaluation options paralleled; removed cheapest-needle and decorative-pen distractors.
+skill-osha-bbp-027 | fail | Work practice violation kept with three parallel correct-practice distractors.
+skill-osha-bbp-028 | fail | Retention question reworded off a bare fragment stem; options paralleled on record-retention windows.
+skill-osha-bbp-029 | fail | Torn PPE options paralleled; removed tape, inside-out gown, and bare-hand distractors.
+skill-osha-bbp-030 | fail | Food and drink rationale options paralleled; removed refrigerator, coffee, and chatter distractors.
+skill-osha-bbp-031 | fail | Parenteral route options paralleled across the four exposure routes.
+skill-osha-bbp-032 | fail | Glove indication options paralleled; removed telephone, filing, and lobby distractors.
+skill-osha-bbp-033 | fail | Safer sharps request options paralleled; removed fifty-injuries and pharmacy-purchase distractors.
+skill-osha-bbp-034 | fail | Declination form content reframed so each option is a different form entry.
+skill-osha-bbp-035 | fail | Sharps passing options paralleled; removed toss, hand-to-hand, and coat-pocket distractors.
+skill-osha-bbp-036 | fail | Housekeeping training options paralleled; removed street-clothes and handout-only distractors.
+skill-osha-bbp-037 | fail | Unknown-source documentation options paralleled; removed replace-evaluation and wait-for-HIV distractors.
+skill-osha-bbp-038 | fail | Label color options paralleled across white, red, yellow, and orange-red backgrounds.
+skill-osha-bbp-039 | fail | Plan access options paralleled; removed home-safe and public-website distractors.
+skill-osha-bbp-040 | fail | Mucosode splash options paralleled; removed swallow, delayed-brush, and soda distractors.
+skill-osha-bbp-041 | fail | Exposure determination task options paralleled; removed billing, landscaping, and yoga-class distractors.
+skill-osha-bbp-042 | fail | Confidentiality options paralleled; removed bulletin-board and tell-everyone distractors.
+
+## Parallel-options pass batch P05b (audit sample fixes and stray guard cleanup)
+
+skill-intake-016 | fail | Tobacco entry reworked so all four entries differ in one real detail (status, quit date, amount) with no contradictory field.
+skill-poct-041 | fail | Waived result key changed to relay privately after provider review and charting; portal option reworded so it is not a second defensible answer.
+skill-injection-008 | fail | Removed banned only qualifier from rotation distractor and rephrased it as a parallel rotation schedule.
+skill-injection-009 | fail | Removed banned only qualifier from needle gauge distractor and rephrased it as a parallel gauge and route choice.
+skill-injection-011 | fail | Replaced em dash in explanation with a comma; tightened the two weaker distractors.
+skill-injection-020 | fail | Removed banned only qualifier from the antihistamine distractor.
+skill-injection-029 | fail | Removed banned only qualifier from the home-monitoring distractor.
+skill-injection-039 | fail | Removed banned only qualifier from the auto-injector storage distractor.
+skill-injection-041 | fail | Removed banned skip qualifier from the glove order distractor.
+skill-vitals-013 | fail | Undersized cuff stem kept but distractor set made parallel and the guaranteed-sounding option removed.
+skill-vitals-014 | fail | Oversized cuff stem reworded to clear the near-duplicate stem guard; guaranteed-sounding option removed.
+

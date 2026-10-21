@@ -114,7 +114,7 @@ FACTS: list[dict] = [
         "Rotate to a new site on each injection using a pattern",
         [
             "Rotate sites once weekly regardless of injection count",
-            "Rotate only after lipodystrophy becomes painful",
+            "Rotate sites when lipohypertrophy becomes painful or visible",
             "Rotate when switching between rapid and long-acting insulin",
         ],
         "Frequent rotation limits lipohypertrophy and keeps absorption predictable. Weekly-only, pain-driven, or insulin-type rotation leaves high-use areas overused between changes.",
@@ -129,7 +129,7 @@ FACTS: list[dict] = [
         [
             "18 gauge for every routine deltoid vaccine",
             "27 to 30 gauge for all intramuscular medications",
-            "25 gauge only for subcutaneous heparin injections",
+            "27 to 30 gauge for subcutaneous injections such as heparin",
         ],
         "Adult deltoid vaccines use medium gauges that balance flow and tissue trauma. Very large bore needles add unnecessary pain; fine gauges are common for subcutaneous doses, not all IM products.",
         [S.NHA_CCMA, S.CDC_VACCINE_ADMIN],
@@ -156,10 +156,10 @@ FACTS: list[dict] = [
         "Open, date, and draw the vial in a dedicated medication area",
         [
             "Whenever the stopper looks intact after alcohol swabbing each time",
-            "When all patients share the same morning clinic session on the schedule",
-            "When the vial stayed in the refrigerator between patient rooms that day",
+            "When all patients share the same morning clinic session",
+            "When the vial stayed in the refrigerator between patient rooms",
         ],
-        "Shared multidose vials need controlled prep, dating, and aseptic technique—not intact rubber alone or shared scheduling. Refrigeration between rooms does not replace beyond-use dating and dedicated prep space.",
+        "Shared multidose vials need controlled prep, dating, and aseptic technique, not intact rubber alone or shared scheduling. Refrigeration between rooms does not replace beyond-use dating and dedicated prep space.",
         [S.CDC_INJECTION_SAFETY],
         "intermediate",
     ),
@@ -282,7 +282,7 @@ FACTS: list[dict] = [
         "Call for help and give IM epinephrine right away",
         [
             "Apply ice to the injection site and recheck symptoms in one hour",
-            "Give oral diphenhydramine and observe in the waiting room only",
+            "Give oral diphenhydramine and observe in the waiting room",
             "Document a local reaction and schedule next year's vaccine visit",
         ],
         "Wheezing with diffuse hives suggests systemic anaphylaxis, not a local injection reaction. Epinephrine and emergency activation come before ice, antihistamine-only care, or routine follow-up scheduling.",
@@ -409,7 +409,7 @@ FACTS: list[dict] = [
         [
             "Administer MMR in the deltoid after standard site preparation",
             "Cancel all future immunizations without a provider consult note",
-            "Give MMR and instruct the patient to monitor rash at home only",
+            "Give MMR and instruct the patient to monitor rash at home",
         ],
         "Component allergies may require deferral, observation, or an alternate product. Giving MMR without review risks repeat anaphylaxis; blanket cancellation skips shared decision-making with the provider.",
         [S.CDC_VACCINE_ADMIN],
@@ -548,7 +548,7 @@ FACTS: list[dict] = [
         "Unit stock, checked for expiry, with staff trained to use them",
         [
             "Locked in the narcotic vault because epinephrine is controlled",
-            "Kept only as patient-owned samples behind the pharmacy counter",
+            "Kept as patient-owned samples behind the pharmacy counter",
             "Listed on the crash cart without replacing expired clinic units",
         ],
         "Anaphylaxis needs immediate intramuscular epinephrine that any trained staff can access. Vault-only or pharmacy-only storage adds delay; crash-cart lists do not replace current clinic stock.",
@@ -575,7 +575,7 @@ FACTS: list[dict] = [
         "What is the correct hand hygiene and glove order for giving an injection?",
         "Hand hygiene, gloves if needed, care, remove gloves, hand hygiene",
         [
-            "Don gloves first and skip hand cleaning afterward in the room",
+            "Don gloves first and clean hands afterward in the room",
             "Reuse gloves between patients after wiping with alcohol at the sink",
             "Remove gloves before drawing medication but not after patient care",
         ],
