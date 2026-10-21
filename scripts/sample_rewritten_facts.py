@@ -47,7 +47,7 @@ def main() -> None:
         t = f["topic"]
         if t == "cpr-adult":
             pool.append(f)
-        elif t in ("cpr-child", "cpr-infant", "cpr-aed"):
+        elif t in ("cpr-child", "cpr-infant", "cpr-aed", "cpr-choking"):
             pool.append(f)
         elif t in ("phleb-order-draw", "phleb-additives", "phleb-site", "phleb-handling"):
             pool.append(f)
