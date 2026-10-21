@@ -370,7 +370,7 @@ FACTS: list[dict] = [
         "Continued in vitro glycolysis if processing waits too long",
         [
             "Permanent freezing of glucose at room temperature",
-            "Accurate glucose regardless of time when gray tops are used",
+            "Stable glucose for twenty-four hours at room temperature in gray tubes",
             "Elevation of INR in the same tube",
         ],
         "Fluoride inhibits enolase but does not instantly stop all metabolism. "
@@ -507,11 +507,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "What can happen when EDTA hematology tubes are placed in direct contact with ice before CBC analysis?",
-        "May cause cell morphology changes unless the manual requires chilling",
+        "May alter cell morphology unless the laboratory manual requires cold transport",
         [
-            "Is always required for every complete blood count",
-            "Prevents all clotting in serum separator tubes",
-            "Replaces gentle mixing after collection",
+            "Is standard practice for all complete blood counts before analysis",
+            "Prevents clot formation in serum separator tubes during transport",
+            "Replaces gentle end-over-end mixing after blood collection",
         ],
         "Cold can affect MCV and other indices on some analyzers. "
         "Unless the test manual specifies cold transport, GP41 default is room temperature delivery within stability limits.",

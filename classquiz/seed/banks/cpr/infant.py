@@ -575,11 +575,11 @@ FACTS: list[dict] = [
  "cpr-infant",
  "A newborn-style infant has a pulse of 50 per minute, limp tone, and poor perfusion after "
  "a brief check. What BLS action is appropriate?",
- "Begin chest compressions coordinated with ventilations per infant BLS protocol",
+ "Start chest compressions with ventilations per infant BLS bradycardia care",
  [
- "Observe only because any palpable pulse excludes CPR",
- "Give blow-by oxygen without compressions until pulse is zero",
- "Wait for parents to arrive before any intervention",
+ "Monitor at the bedside because a pulse is felt on palpation",
+ "Give blow-by oxygen without compressions until the pulse is absent",
+ "Delay intervention until the infant's caregivers arrive at the scene",
  ],
  "Bradycardia with poor perfusion in infants is treated as arrest-equivalent. Observation "
  "alone fails to support systemic perfusion. Family presence should not delay CPR when "

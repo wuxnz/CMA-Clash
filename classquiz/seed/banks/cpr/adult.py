@@ -749,11 +749,11 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "EMS personnel arrive while you are performing chest compressions on an adult in cardiac arrest. How should care be transferred?",
- "Continue compressions until EMS is ready to take over, then hand off using clear closed-loop communication",
+ "Continue compressions until EMS is ready, then hand off with closed-loop communication",
  [
- "Stop all compressions immediately when EMS enters the room regardless of team readiness",
- "End CPR as soon as EMS opens their monitor case even if no one is prepared to compress",
- "Leave the scene without verbal report once EMS crosses the doorway into the patient area",
+ "Stop compressions as soon as EMS enters the room before they are ready to compress",
+ "End CPR when EMS opens the monitor case without a planned compression transfer",
+ "Leave the scene once EMS arrives without giving a patient care report",
  ],
  "AHA team resuscitation emphasizes minimizing gaps when transitioning to advanced providers. "
  "Stopping compressions before the incoming team is set to resume creates an avoidable pause "
