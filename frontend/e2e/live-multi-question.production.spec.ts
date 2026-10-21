@@ -16,6 +16,34 @@ import {
 const ARTIFACT_DIR =
 	process.env.PLAYWRIGHT_ARTIFACT_DIR ?? '/opt/cursor/artifacts/live-ui';
 
+async function readRevealPoints(page: import('@playwright/test').Page): Promise<number> {
+	const byTestId = page.getByTestId('reveal-points-total');
+	if (await byTestId.count()) {
+		return Number((await byTestId.innerText()).replace(/[^\d]/g, ''));
+	}
+	const block = page.getByText('Correct', { exact: true }).locator('xpath=..');
+	const breakdown = block.getByText(/\d+ base/);
+	if (await breakdown.count()) {
+		const text = await breakdown.innerText();
+		const m = text.match(/(\d+)\s+base(?:,\s*(\d+)\s+speed bonus)?/);
+		if (m) {
+			return Number(m[1]) + Number(m[2] ?? 0);
+		}
+	}
+	return Number((await block.locator('p.font-display.text-3xl').innerText()).replace(/[^\d]/g, ''));
+}
+
+async function waitForRevealPoints(page: import('@playwright/test').Page, min = 500): Promise<number> {
+	let last = 0;
+	await expect
+		.poll(async () => {
+			last = await readRevealPoints(page);
+			return last;
+		}, { timeout: 20_000 })
+		.toBeGreaterThan(min);
+	return last;
+}
+
 test.describe('production live multi-question UI', () => {
 	test.describe.configure({ timeout: 300_000, mode: 'serial' });
 
@@ -50,13 +78,27 @@ test.describe('production live multi-question UI', () => {
 
 			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
 			await expect(p1.getByTestId('reveal-speed-rank')).toBeVisible();
+
+			const q1RevealDelta = await waitForRevealPoints(p1);
+
 			await p1.screenshot({
-				path: path.join(ARTIFACT_DIR, `${slug}-player-reveal-q1.png`),
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-reveal-q1.png`),
 				fullPage: true
 			});
 
 			const rankingsStart = Date.now();
 			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
+			const q1BoardTotal = Number(
+				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
+					/[^\d]/g,
+					''
+				)
+			);
+			expect(q1BoardTotal).toBe(q1RevealDelta);
+			await p1.screenshot({
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-scoreboard-q1.png`),
+				fullPage: true
+			});
 			expect(await p1.getByTestId('scoreboard-row').count()).toBeLessThanOrEqual(5);
 			await new Promise((r) => setTimeout(r, 14_000));
 			expect(Date.now() - rankingsStart).toBeGreaterThanOrEqual(8000);
@@ -77,6 +119,18 @@ test.describe('production live multi-question UI', () => {
 			await answerFirstTile(p1);
 			await answerFirstTile(p2);
 			await answerFirstTile(p3);
+
+			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
+			const q2RevealDelta = await waitForRevealPoints(p1);
+			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
+			const q2BoardTotal = Number(
+				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
+					/[^\d]/g,
+					''
+				)
+			);
+			expect(q2BoardTotal).toBe(q1BoardTotal + q2RevealDelta);
+
 			await new Promise((r) => setTimeout(r, 14_000));
 
 			// Q3

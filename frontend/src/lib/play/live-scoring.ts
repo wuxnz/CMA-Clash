@@ -2,9 +2,13 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
+import type { StandingsRow } from '$lib/play/live-game';
+
 export type QuestionResultRow = {
 	username?: string;
 	score?: number;
+	base_score?: number;
+	speed_bonus?: number;
 };
 
 /** Apply per-question scores at most once per question index (duplicate question_results safe). */
@@ -40,7 +44,64 @@ export function scoreDeltaForUser(
 ): number {
 	if (!Array.isArray(rows) || !username) return 0;
 	const mine = rows.find((r) => r.username === username);
-	return Number(mine?.score ?? 0);
+	if (!mine) return 0;
+	const base = Number(mine.base_score ?? 0);
+	const bonus = Number(mine.speed_bonus ?? 0);
+	if (base > 0 || bonus > 0) {
+		return base + bonus;
+	}
+	return Number(mine.score ?? 0);
+}
+
+export type LiveScoresState = {
+	scores: Record<string, number>;
+	lastAppliedQuestionIndex: number | null;
+	standingsTop: StandingsRow[];
+};
+
+/** Merge question_results into client totals; prefer server standings_top over summed rows. */
+export function integrateLiveQuestionResults(
+	state: LiveScoresState,
+	payload: {
+		questionIndex: number | null;
+		rows: QuestionResultRow[];
+		standingsTop: StandingsRow[];
+	}
+): LiveScoresState {
+	const qIndex =
+		payload.questionIndex != null && Number.isFinite(payload.questionIndex)
+			? Number(payload.questionIndex)
+			: null;
+	const incomingTop = payload.standingsTop ?? [];
+	let standingsTop = state.standingsTop;
+	if (incomingTop.length > 0) {
+		standingsTop = incomingTop;
+	}
+
+	let scores = { ...state.scores };
+	let lastAppliedQuestionIndex = state.lastAppliedQuestionIndex;
+
+	if (incomingTop.length > 0) {
+		for (const row of incomingTop) {
+			const name = row.username;
+			if (!name) continue;
+			scores[name] = Number(row.score) || 0;
+		}
+		if (qIndex != null) {
+			lastAppliedQuestionIndex = qIndex;
+		}
+	} else if (qIndex != null && lastAppliedQuestionIndex !== qIndex) {
+		const applied = applyQuestionResultScores(
+			scores,
+			payload.rows,
+			qIndex,
+			lastAppliedQuestionIndex
+		);
+		scores = applied.scores;
+		lastAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
+	}
+
+	return { scores, lastAppliedQuestionIndex, standingsTop };
 }
 
 /** Sum per-question `score` fields from the live `final_results` socket payload. */
