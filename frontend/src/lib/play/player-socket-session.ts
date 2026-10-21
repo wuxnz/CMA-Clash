@@ -42,6 +42,41 @@ export function clearJoinedGameCookieIfPinMismatch(expectedPin: string): boolean
 	return true;
 }
 
+let warmSocketPromise: Promise<void> | null = null;
+
+/** Ensure the shared play socket is connecting; resolve when `connect` fires or already connected. */
+export function waitForPlaySocketConnected(timeoutMs = 25_000): Promise<void> {
+	if (socket.connected) {
+		return Promise.resolve();
+	}
+	socket.connect();
+	return new Promise((resolve, reject) => {
+		const timer = setTimeout(() => {
+			socket.off('connect', onConnect);
+			reject(new Error('play_socket_connect_timeout'));
+		}, timeoutMs);
+		const onConnect = () => {
+			clearTimeout(timer);
+			socket.off('connect', onConnect);
+			resolve();
+		};
+		socket.on('connect', onConnect);
+	});
+}
+
+/** Idempotent warm-up for /play join (battle auto-join and manual PIN submit). */
+export function warmPlaySocketConnection(timeoutMs = 30_000): Promise<void> {
+	if (socket.connected) {
+		return Promise.resolve();
+	}
+	if (!warmSocketPromise) {
+		warmSocketPromise = waitForPlaySocketConnected(timeoutMs).finally(() => {
+			warmSocketPromise = null;
+		});
+	}
+	return warmSocketPromise;
+}
+
 /** Force a new transport so the server drops old game room membership. */
 export function reconnectPlaySocket(): void {
 	if (!socket.connected) {
@@ -65,6 +100,7 @@ export function preparePlaySessionForPin(expectedPin: string): void {
 		clearJoinedGameCookie();
 	}
 	resetPlaySocketBinding();
+	void warmPlaySocketConnection();
 }
 
 export function persistJoinedGameCookie(username: string, game_pin: string): void {
@@ -107,6 +143,9 @@ export function ensurePlaySocketSession(options?: {
 	sessionInstalled = true;
 
 	attachPlaySocketDebug(socket);
+	if (!socket.connected) {
+		socket.connect();
+	}
 
 	const onConnect = () => {
 		const pin = normalizePlayPin(options?.getGamePin?.() ?? '');

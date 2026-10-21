@@ -11,6 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import { normalizeGameMode } from '$lib/play/live-game';
+	import { warmPlaySocketConnection } from '$lib/play/player-socket-session';
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
@@ -53,6 +54,17 @@ SPDX-License-Identifier: MPL-2.0
 
 	const onSocketConnect = () => {
 		socketConnected = true;
+		joinError = '';
+		if (
+			normalizeGameMode(game_mode) === 'battle' &&
+			game_pin.length >= 6 &&
+			username.length > 3 &&
+			!battleAutoJoinStarted &&
+			!joining
+		) {
+			battleAutoJoinStarted = true;
+			void performJoin();
+		}
 	};
 	const onSocketDisconnect = () => {
 		socketConnected = false;
@@ -174,6 +186,18 @@ SPDX-License-Identifier: MPL-2.0
 		if (game_pin.length > 5) set_game_pin();
 	});
 
+	$effect(() => {
+		if (!browser || game_pin.length < 6) return;
+		void warmPlaySocketConnection(30_000)
+			.then(() => {
+				socketConnected = true;
+				joinError = '';
+			})
+			.catch(() => {
+				socketConnected = socket.connected;
+			});
+	});
+
 	const emitJoin = (captcha_resp?: string) => {
 		socket.emit('join_game', {
 			username,
@@ -190,9 +214,14 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		if (Cookies.get('kicked')) return;
-		if (!socket.connected) {
+		try {
+			await warmPlaySocketConnection(30_000);
+			socketConnected = true;
+		} catch {
 			joinError = joinErrorMessage('not_connected');
-			socket.connect();
+			if (normalizeGameMode(game_mode) === 'battle') {
+				battleAutoJoinStarted = false;
+			}
 			return;
 		}
 		joining = true;
@@ -246,7 +275,6 @@ SPDX-License-Identifier: MPL-2.0
 		if (!browser || battleAutoJoinStarted || joining) return;
 		if (normalizeGameMode(game_mode) !== 'battle') return;
 		if (game_pin.length < 6 || username.length <= 3) return;
-		if (!socketConnected) return;
 		battleAutoJoinStarted = true;
 		void performJoin();
 	});

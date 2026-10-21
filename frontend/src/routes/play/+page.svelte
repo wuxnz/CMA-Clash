@@ -62,7 +62,8 @@ SPDX-License-Identifier: MPL-2.0
 		normalizePlayPin,
 		persistJoinedGameCookie,
 		preparePlaySessionForPin,
-		readJoinedGameCookie
+		readJoinedGameCookie,
+		warmPlaySocketConnection
 	} from '$lib/play/player-socket-session';
 	import {
 		markPlaySocketBound,
@@ -120,6 +121,7 @@ SPDX-License-Identifier: MPL-2.0
 			setExpectedPlayPin(urlPin);
 			clearJoinedGameCookieIfPinMismatch(urlPin);
 		}
+		void warmPlaySocketConnection();
 	});
 
 	interface GameMeta {
