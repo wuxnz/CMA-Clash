@@ -179,3 +179,9 @@ phleb-site-001–042 | fail | Full-sentence stems; parallel near-miss distractor
 
 phleb-handling-001–025 | fail | Full-sentence stems; parallel distractors; removed joke label/transport options.
 
+## Phleb batch-07 second pass (additives 026–050, site 001–042, handling 001–025)
+
+phleb-additives-026–050 | fail | Parallel options; ammonia warm lavender key falsely elevated; no volatile-loss wording; heparin K+ near-misses.
+phleb-site-001–042 | fail | Removed every/regardless/maximal tells; one-clause near-miss distractors.
+phleb-handling-001–025 | fail | Parallel transport/centrifuge/label near-misses; removed regardless/every tells.
+

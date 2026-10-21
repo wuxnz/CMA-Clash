@@ -19,7 +19,7 @@ FACTS: list[dict] = [
         [
             "Use the room number alone when the door chart appears to match",
             "Use the first name alone when the patient verbally confirms identity",
-            "Use the wristband photograph alone without speaking to the patient",
+            "Match the requisition to the bed label without speaking to the patient",
         ],
         "CLSI GP41 ties safe collection to positive patient identification before any puncture. "
         "Room number or a single name fails the two-identifier standard most facilities require.",
@@ -31,9 +31,9 @@ FACTS: list[dict] = [
         "Why is the median cubital vein often selected as the primary antecubital venipuncture site?",
         "It is usually superficial, anchored, and positioned away from major nerves",
         [
-            "It runs deep beside the radial artery in essentially every patient",
+            "It runs deep beside the radial artery in typical antecubital anatomy",
             "It is located on the dorsum of the hand rather than the antecubital fossa",
-            "It must be used even when the vein is thrombosed or sclerosed",
+            "It should be used even when palpation shows thrombosis or sclerosis",
         ],
         "GP41 site selection favors accessible antecubital veins with lower complication risk. "
         "The median cubital is commonly large and stable, though individual anatomy still dictates the final site.",
@@ -45,9 +45,9 @@ FACTS: list[dict] = [
         "When assessing a candidate vein by palpation before venipuncture, what should the phlebotomist evaluate?",
         "Vein size, depth, direction, and resilience without relying on skin color alone",
         [
-            "Skin tone alone because superficial veins appear equally in all patients",
-            "Patient shoe size as a reliable proxy for antecubital vessel diameter",
-            "Insurance coverage type to determine which arm may be used for collection",
+            "Skin color alone because superficial veins look similar across patients",
+            "Only the most visible surface vein without checking depth or refill",
+            "Patient height and weight alone as a proxy for antecubital vessel size",
         ],
         "Palpation confirms a bouncy, refillable vein before skin antisepsis. "
         "Visual inspection alone misses depth and sclerosis that GP41-style assessment is meant to catch.",
@@ -73,9 +73,9 @@ FACTS: list[dict] = [
         "How long should a tourniquet generally remain applied during venipuncture?",
         "About one minute, releasing sooner when the draw allows",
         [
-            "Five to ten minutes until every tube is labeled and capped at the chair",
-            "As long as needed even when petechiae or hemoconcentration signs appear",
-            "Until after the needle is fully withdrawn in every collection scenario",
+            "Five to ten minutes while tubes are labeled and capped at the chair",
+            "As long as needed when petechiae or hemoconcentration signs appear",
+            "Until after needle withdrawal in multi-tube draws without earlier release",
         ],
         "Prolonged venous stasis causes hemoconcentration and can falsely shift analytes such as potassium. "
         "GP41 emphasizes minimizing tourniquet time while still allowing successful vein entry.",
@@ -87,7 +87,7 @@ FACTS: list[dict] = [
         "For standard superficial venipuncture with a straight needle, how is the bevel typically oriented on insertion?",
         "Facing upward (bevel up) per facility training and manufacturer guidance",
         [
-            "Facing downward against the vein floor for every adult patient",
+            "Facing downward against the vein floor as the default adult technique",
             "Parallel to the skin surface without anchoring or stabilizing the vein",
             "In any direction because bevel orientation does not affect venipuncture success",
         ],
@@ -102,7 +102,7 @@ FACTS: list[dict] = [
         "15 to 30 degrees with slow, controlled advancement into the vein",
         [
             "90 degrees perpendicular through the full thickness of the forearm",
-            "Parallel to the skin without penetrating the vein lumen",
+            "Five degrees or less skimming the skin without entering the vein lumen",
             "45 to 60 degrees aimed toward underlying bone and nerve structures",
         ],
         "A shallow angle reduces the chance of puncturing the posterior vein wall. "
@@ -117,7 +117,7 @@ FACTS: list[dict] = [
         [
             "To lift the vein away from surrounding tissue and increase tourniquet pressure",
             "To stop blood flow so vacuum tubes fill more slowly and reduce hemolysis",
-            "To intentionally puncture the opposite vein wall and confirm depth of placement",
+            "To keep the hub elevated above the skin throughout tube changes",
         ],
         "Shallow advancement keeps the bevel within the vein lumen during multi-tube collection. "
         "Leaving a steep angle increases movement at the hub and contributes to rolling or perforation.",
@@ -143,9 +143,9 @@ FACTS: list[dict] = [
         "When are butterfly (winged infusion) needle sets especially useful for venipuncture?",
         "When veins are fragile, small, or require precise control of needle placement",
         [
-            "When large-volume blood cultures must always be drawn with the largest bore needle",
+            "When large-volume blood cultures must be drawn with the largest bore needle",
             "When arterial blood gas policy replaces standard venipuncture site selection rules",
-            "When tourniquet application may be omitted entirely for outpatient chemistry draws",
+            "When outpatient chemistry draws allow omitting the proximal tourniquet step",
         ],
         "Smaller-gauge butterflies can reduce trauma in difficult access situations when volume needs allow. "
         "They still require the same identification, site selection, and order-of-draw rules as straight needles.",
@@ -214,8 +214,8 @@ FACTS: list[dict] = [
         "It is often larger but lies close to the medial nerve and brachial artery",
         [
             "It has no adjacent nerves or arteries and requires no anchoring technique",
-            "It is always more superficial than the cephalic vein in every patient",
-            "It must be chosen before the median cubital vein in all adult venipuncture",
+            "It is usually more superficial than the cephalic vein in the same fossa",
+            "It must be chosen before the median cubital vein in routine adult venipuncture",
         ],
         "Basilic access can succeed when safer options fail, but the proximity to nerve and artery demands careful technique. "
         "GP41 training stresses skilled palpation and stabilization when using this medial antecubital vein.",
@@ -227,9 +227,9 @@ FACTS: list[dict] = [
         "When are hand veins an appropriate venipuncture site?",
         "When antecubital sites are unavailable and institutional policy permits distal collection",
         [
-            "When they are always preferred over antecubital veins for patient comfort",
+            "When they are preferred over antecubital veins for routine outpatient comfort",
             "When the patient has lymphedema precautions on that same extremity",
-            "When hand veins are mandatory whenever blood culture bottles are ordered",
+            "When hand veins are required whenever blood culture bottles are ordered",
         ],
         "Distal veins may be more painful and have higher complication rates than antecubital sites. "
         "GP41 allows hand draws as a secondary option when primary sites cannot be used safely.",
@@ -242,7 +242,7 @@ FACTS: list[dict] = [
         "Avoid foot and ankle draws except when no safer site exists and policy permits lower-extremity collection",
         [
             "Use foot veins as the default first choice for routine outpatient chemistry panels",
-            "Require foot venipuncture for every coagulation specimen regardless of arm access",
+            "Require foot venipuncture for coagulation specimens when arm veins are accessible",
             "Prefer foot veins over antecubital veins to minimize visible bruising on the arms",
         ],
         "Foot veins carry higher risk of thrombophlebitis and are difficult to stabilize. "
@@ -255,9 +255,9 @@ FACTS: list[dict] = [
         "When the only visible veins lie within edematous tissue, venipuncture at that site should be?",
         "Deferred in favor of a non-edematous site when another option exists",
         [
-            "Preferred because interstitial fluid distends superficial veins",
-            "Performed with a larger bore needle to reduce draw time",
-            "Completed without a tourniquet to limit capillary pressure",
+            "Preferred because interstitial fluid distends superficial veins for easier entry",
+            "Performed with a larger bore needle to shorten draw time in swollen tissue",
+            "Completed without a tourniquet to limit capillary pressure at the site",
         ],
         "Edema obscures depth and direction on palpation and increases the risk of extravasation and specimen error. "
         "GP41 site selection favors dry, refillable veins that can be stabilized for reliable collection.",
@@ -269,9 +269,9 @@ FACTS: list[dict] = [
         "During site assessment, a hardened or sclerosed vein from prior venipuncture should be?",
         "Avoided when another viable vein is available",
         [
-            "Selected first because scar tissue keeps the vein from rolling",
-            "Cannulated with a larger gauge to penetrate the fibrotic wall",
-            "Used routinely if the patient points to that familiar site",
+            "Selected first because scar tissue keeps the vein from rolling during entry",
+            "Cannulated with a larger gauge to penetrate the fibrotic vein wall",
+            "Used routinely if the patient points to that familiar prior stick site",
         ],
         "Sclerosed veins often fail to refill and yield inadequate or hemolyzed specimens despite repeated attempts. "
         "GP41 assessment includes recognizing non-viable vessels and rotating to healthier access when possible.",
@@ -313,7 +313,7 @@ FACTS: list[dict] = [
         [
             "Only after the patient has left the phlebotomy chair",
             "After needle removal while direct pressure is delayed",
-            "Left in place until every tube label is applied at the desk",
+            "Left in place until tube labels are applied at the desk",
         ],
         "Releasing the tourniquet while the needle is still seated reduces venous back-pressure at the puncture site. "
         "Facility policy may vary slightly on timing relative to the last tube, but prolonged tourniquet during withdrawal is avoided.",
@@ -395,8 +395,8 @@ FACTS: list[dict] = [
         "Heel-stick capillary sampling in infants is appropriate for?",
         "Small-volume tests when device depth and policy limits are met",
         [
-            "Multi-tube adult-volume blood cultures on every newborn",
-            "Unlimited volume collection without heel warming",
+            "Multi-tube adult-volume blood cultures drawn routinely from the heel",
+            "Unlimited volume collection without heel warming or site rotation",
             "Full coagulation panels equivalent to large citrate tubes",
         ],
         "Heel sticks require controlled depth, site rotation, and warming to protect bone and soft tissue. "
@@ -437,9 +437,9 @@ FACTS: list[dict] = [
         "Needle gauge for venipuncture should be chosen to balance?",
         "Vein size, required draw volume, and risk of hemolysis",
         [
-            "Using the largest available bore regardless of vein fragility",
+            "Using the largest available bore even when the vein is fragile",
             "Selecting the smallest gauge even when volume cannot be met",
-            "Rotating randomly among gauges to build technique on each visit",
+            "Rotating among gauges on repeat visits to build technique",
         ],
         "Oversized needles in delicate veins increase trauma and hemolysis; undersized needles may slow flow and clot in the hub. "
         "GP41 training matches gauge to vessel condition and the volume requirements of the ordered tubes.",
@@ -453,7 +453,7 @@ FACTS: list[dict] = [
         [
             "Advance the needle forcefully through the posterior vein wall",
             "Discard the partial draw and leave without documenting the attempt",
-            "Maximize tourniquet pressure until pulsatile flow returns",
+            "Increase tourniquet pressure until pulsatile flow returns",
         ],
         "Minor hub repositioning or correcting a loose tourniquet often restores flow without a new skin puncture. "
         "When flow cannot be re-established safely, GP41 practice favors stopping rather than repeated blind probing.",
@@ -508,7 +508,7 @@ FACTS: list[dict] = [
         "Not acceptable standard practice for scheduled collection",
         [
             "Encouraged for experienced staff to shorten room time",
-            "Required for every stat draw after routine laboratory hours",
+            "Required for stat draws after hours without prior site assessment",
             "Preferred when the patient is anxious about being touched",
         ],
         "Deliberate site assessment confirms a palpable or visible vein before antisepsis and needle entry. "
@@ -535,7 +535,7 @@ FACTS: list[dict] = [
         "The cephalic vein in the antecubital fossa is often selected because it?",
         "Occupies a lateral position with relatively accessible anatomy in many patients",
         [
-            "Lies deeper than the basilic vein in virtually every adult",
+            "Lies deeper than the basilic vein in the typical adult antecubital fossa",
             "Must not be used when the median cubital vein is visible",
             "Courses with the ulnar nerve along the medial upper arm",
         ],
@@ -593,7 +593,7 @@ FACTS: list[dict] = [
         [
             "Deferring patient identification until after a successful stick",
             "Choosing a foot vein before any attempt at the upper extremity",
-            "Applying maximal tourniquet pressure for several minutes",
+            "Applying strong tourniquet pressure for several minutes to distend veins",
         ],
         "Increased adipose depth demands thorough palpation and stabilization, not omission of safety or identification steps. "
         "GP41 supports adjuncts such as positioning and heat while maintaining infection control and positive patient ID.",
@@ -607,7 +607,7 @@ FACTS: list[dict] = [
         [
             "Can wait until the end of the shift for batch labeling",
             "Should use pre-labeled tubes prepared for a different patient",
-            "Is optional for stat orders when the lab is busy",
+            "Is optional for stat orders when the laboratory is busy",
         ],
         "Bedside labeling ties the specimen to the identified patient at the point of care. "
         "GP41 preanalytic safety treats mislabeled tubes as a serious patient-identification error.",

@@ -62,11 +62,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-infant",
         "How should rescue breaths be delivered to an infant during CPR when ventilations are included?",
-        "Seal the mouth and nose and give each breath over about 1 second until visible chest rise",
+        "Seal the mouth and nose and give each breath over about one second until chest rise",
         [
-            "Pinch the nose closed and blow only into the mouth as for an adult victim",
-            "Deliver large breaths until the abdomen is markedly distended on every cycle",
-            "Blow air across the face without forming a mouth-and-nose seal",
+            "Pinch the nose shut and ventilate only through the mouth as for adults",
+            "Give two-second breaths until the abdomen rises with each ventilation",
+            "Cover the mouth alone and leave the nose open during each breath",
         ],
         "Infants need a mouth-and-nose seal with modest tidal volume. Pinching the nose is an "
         "adult technique. Overventilation causes gastric inflation and reduces effective "
@@ -109,15 +109,15 @@ FACTS: list[dict] = [
     fact(
         "cpr-infant",
         "What compression depth target is recommended for most infants during BLS CPR?",
-        "At least one third of the anterior-posterior chest diameter, or about 1.5 inches (4 cm)",
+        "About 1.5 inches (4 cm), or at least one third of the chest front-to-back depth",
         [
-            "Barely visible skin indentation without meaningful sternal depression",
-            "At least 3 inches (7.5 cm) for every infant regardless of chest size",
-            "Any compression rate above 140 per minute without a specified depth target",
+            "About 1 inch (2.5 cm) on the sternum for all infant CPR",
+            "About 2 inches (5 cm) on the sternum for all infant CPR",
+            "About one half of the chest front-to-back depth on each compression",
         ],
-        "One-third AP diameter balances perfusion with injury risk in small patients. Barely "
-        "visible indentation is too shallow for effective blood flow. A fixed deep depth for all "
-        "infants may cause injury per AHA infant BLS guidance.",
+        "AHA infant BLS targets about one third AP diameter, near 1.5 inches (4 cm). Shallow "
+        "one-inch compressions often under-perfuse; a fixed two-inch depth may be excessive for "
+        "small infants.",
         _HQ,
         "beginner",
     ),
@@ -544,11 +544,11 @@ FACTS: list[dict] = [
  "cpr-infant",
  "An infant with severe choking becomes unresponsive in the rescuer's arms. What is the "
  "correct action?",
- "Lay the infant on a firm surface, call for help, and begin CPR with mouth checks before breaths",
+ "Lay the infant on a firm surface, call for help, and start CPR with mouth checks before breaths",
  [
- "Continue back slaps while holding the unresponsive infant upright indefinitely",
- "Give rescue breaths only without compressions",
- "Perform abdominal thrusts on the infant",
+ "Continue back slaps and chest thrusts while the infant stays in your arms",
+ "Give rescue breaths without chest compressions after calling for help",
+ "Perform abdominal thrusts as for an adult choking victim",
  ],
  "Unresponsive choking infants receive CPR; compressions may dislodge the object. Back slaps "
  "alone are insufficient once unresponsive. Abdominal thrusts are not used for infants.",
@@ -765,11 +765,11 @@ FACTS: list[dict] = [
         "cpr-infant",
         "An infant has no trauma history and needs rescue breaths during CPR. How should the "
         "airway most often be opened?",
-        "Head tilt-chin lift to align the airway while supporting the head and neck",
+        "Head tilt-chin lift while supporting the head and neck",
         [
-            "Maximal head extension with the neck hyperextended before every ventilation",
-            "Forward neck flexion with a rolled towel under the shoulders for all infants",
-            "Jaw thrust as the routine maneuver even when spine injury is not suspected",
+            "Head extension with the neck tilted back before each ventilation",
+            "Neck flexion with a rolled towel under the shoulders before each breath",
+            "Jaw thrust as the first-line maneuver when trauma is not suspected",
         ],
         "Head tilt-chin lift is the standard airway maneuver for infants without suspected spine "
         "injury. Excessive extension or routine jaw thrust when trauma is not suspected reflects "
@@ -781,11 +781,11 @@ FACTS: list[dict] = [
         "cpr-infant",
         "Real-time feedback shows infant compressions are fast but shallow during two-rescuer CPR. "
         "What depth target should the team prioritize?",
-        "At least one third of the anterior-posterior chest diameter, about 1.5 inches (4 cm)",
+        "About 1.5 inches (4 cm), or at least one third of the chest front-to-back depth",
         [
-            "Barely visible sternal indentation without measurable depression on each push",
-            "At least 2.5 inches (6 cm) for every infant regardless of chest size",
-            "Depth is optional when compression rate stays above 120 per minute",
+            "About 1 inch (2.5 cm) on the sternum for all infant CPR",
+            "About 2 inches (5 cm) on the sternum for all infant CPR",
+            "About one half of the chest front-to-back depth on each compression",
         ],
         "Adequate depth generates perfusion in infant arrest; shallow fast compressions are a "
         "common quality problem. A fixed deep target may be excessive for small infants. Rate "

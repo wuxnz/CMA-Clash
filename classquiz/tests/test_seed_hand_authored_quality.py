@@ -80,6 +80,20 @@ _CPR_PHLEB_JOKE_DISTRACTOR_PATTERNS = [
     re.compile(r"\bpack nose with tissue deep inside\b", re.I),
     re.compile(r"\boxygen mask only\b", re.I),
 ]
+# Exaggeration / self-refuting wording in CPR and phleb distractors (batch-07 second pass).
+_CPR_PHLEB_EXAGGERATION_DISTRACTOR = re.compile(
+    r"\b("
+    r"indefinitely|entirely|regardless|markedly|barely|maximal|"
+    r"for\s+thirty\s+minutes|upright\s+indefinitely|"
+    r"Stop\s+CPR\s+entirely|across\s+the\s+face\b"
+    r")\b",
+    re.I,
+)
+# "every" as a giveaway when paired with "regardless" or "without" in distractors only.
+_CPR_PHLEB_EVERY_DISTRACTOR = re.compile(
+    r"\bfor\s+every\b|\bevery\s+(infant|child|adult|patient|cycle|specimen)\b",
+    re.I,
+)
 _FRAGMENT_TAIL_QUESTION = re.compile(
     r"(?:"
     r"\bis placed\?|\bshould\?|\bfrom the\?|\bof\?|\bbe\?|\bserves as\?|"
@@ -173,6 +187,22 @@ def test_cpr_distractors_lack_absurd_patterns():
                 if pat.search(choice):
                     hits.append(f"{pat.pattern} in {fact['stem'][:50]}: {choice[:70]}")
     assert not hits, f"CPR absurd distractors: {hits[:12]}"
+
+
+def test_cpr_phleb_distractors_lack_exaggeration_tells():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        topic = fact["topic"]
+        if not (topic.startswith("cpr-") or topic.startswith("phleb-")):
+            continue
+        for choice in fact["distractors"]:
+            if _CPR_PHLEB_EXAGGERATION_DISTRACTOR.search(choice):
+                hits.append(f"exaggeration in {topic}: {choice[:72]}")
+            if _CPR_PHLEB_EVERY_DISTRACTOR.search(choice):
+                hits.append(f"every/regardless tell in {topic}: {choice[:72]}")
+    assert not hits, f"CPR/phleb exaggeration distractors: {hits[:15]}"
 
 
 def test_no_generic_presents_for_care_stem_prefix():

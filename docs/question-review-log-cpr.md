@@ -270,3 +270,9 @@ cpr-infant pulse check | fail | Close timing/site near-misses: femoral 10 s, bra
 ## CPR rewrite batches 07–08 (cpr-aed-001 to cpr-aed-050)
 
 cpr-aed-001–050 | fail | Replaced duplicate legacy bank with 50 unique full-sentence AED items; parallel distractors; 15/20/15 difficulty mix (see commit 660b27ff).
+
+## CPR batch-07 second pass (cpr-aed-001–050 + infant sample items)
+
+cpr-aed-001–050 | fail | Rebalanced one-clause options; removed exaggeration tells; no-shock interval uses 1/2/5 min and 5-compression re-analyze near-misses.
+cpr-infant depth/vent/choking/airway | fail | Depth bands 1/1.5/2 in and half AP; vent seal near-misses; choking CPR vs thrusts; airway tilt near-misses.
+cpr-child airway | fail | Parallel jaw thrust/towel/sweep near-misses without maximal/regardless tells.

@@ -141,11 +141,11 @@ FACTS: list[dict] = [
         "cpr-child",
         "When opening the airway for child CPR and significant trauma is not suspected, which maneuver "
         "should rescuers use?",
-        "Head tilt-chin lift to open the airway without routine blind finger sweeps",
+        "Head tilt-chin lift to open the airway without routine finger sweeps",
         [
-            "Jaw thrust with deliberate maximal neck hyperextension on every child",
-            "Placement of a rolled towel under the neck to flex the spine before ventilations",
-            "Finger sweep of the oropharynx before every rescue breath regardless of visible objects",
+            "Jaw thrust with slight head extension when no trauma is suspected",
+            "Rolled towel under the neck to flex the spine before each ventilation",
+            "Finger sweep of the mouth before each breath when no object is seen",
         ],
         "Head tilt-chin lift opens the airway in most medical pediatric arrests. Routine "
         "hyperextension is not needed and may be harmful if spine injury is possible. Blind finger "
