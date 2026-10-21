@@ -14,8 +14,14 @@ from datetime import datetime
 from classquiz.config import redis
 from classquiz.db.models import PlayGame, QuizQuestionType, VotingQuizAnswer
 from classquiz.socket_server.models import ReturnQuestion
+from classquiz.socket_server.timing import (
+    build_question_timing,
+    load_question_timing,
+    save_question_timing,
+    server_now_ms,
+)
 
-INTRO_GRACE_SEC = 4
+INTRO_GRACE_SEC = 3.5
 
 _battle_timer_tasks: dict[str, asyncio.Task] = {}
 
@@ -26,7 +32,11 @@ def _cancel_battle_timer(game_pin: str) -> None:
         task.cancel()
 
 
-async def _prepare_question_payload(game_data: PlayGame, question_index: int) -> dict:
+async def _prepare_question_payload(
+    game_data: PlayGame,
+    question_index: int,
+    existing_timing: dict | None = None,
+) -> dict:
     temp_return = game_data.model_dump(include={"questions"})["questions"][question_index]
     q_type = game_data.questions[question_index].type
     if q_type == QuizQuestionType.VOTING:
@@ -35,13 +45,19 @@ async def _prepare_question_payload(game_data: PlayGame, question_index: int) ->
     temp_return["type"] = q_type
     if temp_return["type"] == QuizQuestionType.ORDER:
         random.shuffle(temp_return["answers"])
-    started_at = datetime.now().isoformat()
+    timing = existing_timing if existing_timing is not None else build_question_timing(game_data, question_index)
+    answer_phase_start = datetime.fromtimestamp(timing["answer_phase_start_ms"] / 1000)
     payload: dict = {
         "question_index": question_index,
-        "question_started_at": started_at,
+        "question_started_at": datetime.fromtimestamp(timing["question_start_ms"] / 1000).isoformat(),
+        **timing,
+        "server_time_ms": server_now_ms(),
     }
     if q_type != QuizQuestionType.SLIDE:
         payload["question"] = ReturnQuestion(**temp_return).model_dump()
+    if existing_timing is None:
+        await save_question_timing(game_data.game_pin, timing)
+        payload["_answer_phase_iso"] = answer_phase_start.isoformat()
     return payload
 
 
@@ -50,9 +66,8 @@ async def emit_show_question(sio, game_pin: str, game_data: PlayGame, question_i
     game_data.current_question = question_index
     game_data.question_show = True
     await game_data.save(game_pin)
-    started_at = datetime.now().isoformat()
-    await redis.set(f"game:{game_pin}:current_time", started_at, ex=7200)
     payload = await _prepare_question_payload(game_data, question_index)
+    await redis.set(f"game:{game_pin}:current_time", payload.pop("_answer_phase_iso"), ex=7200)
     target = room or game_pin
     await sio.emit("set_question_number", payload, room=target)
     if game_data.game_mode == "battle":
@@ -67,8 +82,13 @@ def _schedule_battle_question_timeout(sio, game_pin: str, question_index: int) -
             game_data = await PlayGame.get_from_redis(game_pin)
             if game_data.current_question != question_index:
                 return
-            q_time = int(float(game_data.questions[question_index].time))
-            await asyncio.sleep(INTRO_GRACE_SEC + max(1, q_time))
+            timing = await load_question_timing(game_pin)
+            if timing and timing.get("question_index") == question_index:
+                wait_ms = max(0, timing["answer_deadline_ms"] - server_now_ms())
+                await asyncio.sleep(wait_ms / 1000)
+            else:
+                q_time = int(float(game_data.questions[question_index].time))
+                await asyncio.sleep(INTRO_GRACE_SEC + max(1, q_time))
             game_data = await PlayGame.get_from_redis(game_pin)
             if game_data.current_question != question_index:
                 return
@@ -107,10 +127,12 @@ async def sync_player_to_live_game(sio, sid: str, game_pin: str, game_data: Play
         return
     await sio.emit("start_game", room=sid)
     if game_data.question_show and game_data.current_question >= 0:
-        payload = await _prepare_question_payload(game_data, game_data.current_question)
-        started = await redis.get(f"game:{game_pin}:current_time")
-        if started:
-            payload["question_started_at"] = started
+        timing = await load_question_timing(game_pin)
+        if timing and timing.get("question_index") != game_data.current_question:
+            timing = None
+        payload = await _prepare_question_payload(
+            game_data, game_data.current_question, existing_timing=timing
+        )
         await sio.emit("set_question_number", payload, room=sid)
 
 

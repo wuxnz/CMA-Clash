@@ -45,6 +45,7 @@ from classquiz.socket_server.game_sync import (
     start_live_game,
     sync_player_to_live_game,
 )
+from classquiz.socket_server.timing import server_now_ms
 from classquiz.socket_server.session import get_session, save_session
 
 _settings = settings()
@@ -60,6 +61,10 @@ def get_fernet_key() -> bytes:
 
 
 fernet = Fernet(get_fernet_key())
+
+
+async def _emit_clock_sync(sid: str) -> None:
+    await sio.emit("clock_sync", {"server_time_ms": server_now_ms()}, room=sid)
 
 
 async def generate_final_results(game_data: PlayGame, game_pin: str) -> dict:
@@ -104,6 +109,7 @@ async def rejoin_game(sid: str, data: dict):
         return
     encrypted_datetime = fernet.encrypt(datetime.now().isoformat().encode("utf-8")).decode("utf-8")
     await sio.emit("time_sync", encrypted_datetime, room=sid)
+    await _emit_clock_sync(sid)
     await redis.set(redis_sid_key, sid)
     await redis.srem(
         f"game_session:{data.game_pin}:players",
@@ -205,6 +211,7 @@ async def join_game(sid: str, data: dict):
     # +++ Time-Sync +++
     encrypted_datetime = fernet.encrypt(datetime.now().isoformat().encode("utf-8")).decode("utf-8")
     await sio.emit("time_sync", encrypted_datetime, room=sid)
+    await _emit_clock_sync(sid)
     # --- Time-Sync ---
     await sio.enter_room(sid, data.game_pin)
     if game_data.game_mode == "battle":
@@ -387,6 +394,7 @@ async def echo_time_sync(sid: str, data: str):
     session = await get_session(sid, sio)
     session["ping"] = delta.microseconds / 1000
     await save_session(sid, sio, session)
+    await _emit_clock_sync(sid)
 
 
 @sio.event
