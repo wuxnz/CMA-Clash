@@ -304,3 +304,29 @@ cpr-choking-022 | fail | Clear speech effective cough monitoring stem; parallel 
 cpr-choking-023 | fail | Universal choking sign stem; expanded hands-at-neck key with silent cough clause.
 cpr-choking-024 | fail | Lone rescuer EMS en route monitoring stem; parallel leave/exercise/cancel-EMS distractors.
 cpr-choking-025 | fail | Manikin skills emphasis stem; parallel live-force/skip-skills/AED-only distractors.
+
+## CPR rewrite batch 10 (cpr-choking-026 to 044)
+
+cpr-choking-026 | fail | Restaurant severe-adult stem; parallel cough-encourage/water/sweep near-misses.
+cpr-choking-027 | fail | Third-trimester chest-thrust modification; parallel uterus thrust/withhold/CPR-awake distractors.
+cpr-choking-028 | fail | CPR mouth-inspection timing stem; parallel ROSC-only/blind-schedule/never-open near-misses.
+cpr-choking-029 | fail | Severe-vs-mild clinical picture stem; parallel strong-cough/conversation/water-clear distractors.
+cpr-choking-030 | fail | Unresponsive infant after slaps stem; removed indefinitely/shake/bradycardia-wait tells.
+cpr-choking-031 | fail | Older-adult post-prolonged EMS why stem; parallel color-only/refusal/wheeze-normal distractors.
+cpr-choking-032 | fail | Child mild full-sentence stem; removed peanuts joke; parallel thrust/leave/snack near-misses.
+cpr-choking-033 | fail | Obese severe chest-thrust alternative stem; parallel force-only/wait-unconscious/sweep distractors.
+cpr-choking-034 | fail | Party mild initial ask/observe stem; parallel chest-pain-CPR/water/defer-questions near-misses.
+cpr-choking-035 | fail | Responsive-care blind-sweep rationale stem; parallel faster-than-thrusts/mandatory-CPR/infant-preferred distractors.
+cpr-choking-036 | fail | Lone rescuer severe adult initial thrusts stem; Red Cross 5+5 and back-blow-only near-misses.
+cpr-choking-037 | fail | Conscious severe silent-cough stem; parallel cough-only/single-back-blow/standing-CPR distractors.
+cpr-choking-038 | fail | Responsive infant severe cycles stem; parallel adult thrust/sweep-first/CPR-first near-misses.
+cpr-choking-039 | fail | Unresponsive during thrusts CPR handoff stem; removed shake; parallel chair thrust/jostle/wait-EMS distractors.
+cpr-choking-040 | fail | Teen mild gum partial obstruction stem; parallel thrust-at-clutch/sweep-first/CPR-awake near-misses.
+cpr-choking-041 | fail | Choking-arrest mouth before breaths stem; parallel blind-each-vent/closed-mouth/ROSC-only distractors.
+cpr-choking-042 | fail | Pregnancy/obesity chest-thrust indication stem; parallel abdomen-only/wait-unconscious/water-flush distractors.
+cpr-choking-043 | fail | Severe sign combination stem; parallel conversation/yawn/sternal-rub near-misses.
+cpr-choking-044 | fail | Post-relief EMS/medical evaluation stem; parallel discharge-without-EMS/exertion/decline-contact distractors.
+
+**Batch 10 dedupe:** Bank capped at **44** unique `cpr-choking` facts (indices 0–43). Legacy telegraphic items 045+ were not present; indices 26–44 duplicate topics from 001–025 were rewritten in place rather than removed.
+
+**Batch 10 plausibility sweep (001–025):** Replaced shake-based distractors on cpr-choking-003, 005, and 017 with parallel back-blow-only, sweep-first, and slap-only near-misses. Verified **0** `indefinitely`, `shake`, `peanuts`, or `every`-tell hits remain in the file.

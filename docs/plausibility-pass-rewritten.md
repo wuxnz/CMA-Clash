@@ -67,6 +67,43 @@ Summaries of fact-check and distractor plausibility work on hand-authored seed b
 
 **Counts:** 29 items reviewed; **28** items received distractor and/or key wording edits; **1** item (022) unchanged. No factual key changes.
 
+## CPR choking (batch 10 + full-file 1-in-5)
+
+**Scope:** `classquiz/seed/banks/cpr/choking.py` — **44** items (`cpr-choking-001` to `044`). Batch 10 rewrote **19** legacy items (`026`–`044`, indices 25–43). Full-file pass on **001**–**025** removed remaining shake-based near-miss distractors on **003**, **005**, and **017**.
+
+**Fact review:** Stems, keyed answers, and AHA adult BLS vs American Red Cross back-blow sequencing checked against existing `_REF` sources. No keyed clinical answers changed on factual grounds; rewrites preserve abdominal thrusts for responsive adults, chest thrusts in late pregnancy/obesity, infant back slaps/chest thrusts, CPR after unresponsiveness, visible-object mouth checks, and post-episode medical evaluation.
+
+**1-in-5 / near-miss distractors:** Distractors emphasize confusable sequences (Red Cross 5+5 vs AHA abdominal thrusts), wrong age maneuvers (adult thrusts on infants, CPR while conscious), fluids and blind sweeps, delayed EMS/CPR, and mild-vs-severe recognition errors. Removed banned tells: `indefinitely`, `shake`/`jostle`, `peanuts`/solid snack trials, and mandatory `every` CPR-cycle wording. Replaced with parallel clause length matching keyed answers.
+
+**Dedupe:** File holds **44** unique facts maximum; no indices ≥44 remained. Second-half items that duplicated first-half topics were rewritten with distinct vignettes (restaurant, party, teenager gum, lone rescuer, slump during thrusts) rather than deleted.
+
+**Option length:** Full-sentence stems and four parallel options on all **026**–**044** items; explanations expanded where legacy text was fragmentary.
+
+**Per-item notes (026–044):**
+- **cpr-choking-026:** Restaurant severe adult; cough-any-means-mild, table water, pre-thrust sweep near-misses.
+- **cpr-choking-027:** Third-trimester chest thrusts; uterus-centered abdomen thrust, withhold-until-delivery, awake CPR distractors.
+- **cpr-choking-028:** CPR mouth inspection timing; ROSC-only check, scheduled blind sweeps, never-open mouth myths.
+- **cpr-choking-029:** Severe clinical picture key; strong-cough mild, normal conversation, throat-clear after water near-misses.
+- **cpr-choking-030:** Limp unresponsive infant; slap-only in arms, unsupported jostle, bradycardia-delay CPR myths removed.
+- **cpr-choking-031:** Older adult delayed complications; color-only, single transport refusal, normal wheeze distractors.
+- **cpr-choking-032:** Child mild sentences; immediate thrust, leave alone, solid snack trial replaced with parallel monitoring errors.
+- **cpr-choking-033:** Obese chest thrusts; force-only abdomen, wait for unconsciousness, standing blind sweep near-misses.
+- **cpr-choking-034:** Ask-while-observe; chest-pain CPR, large water flush, defer questions until mute distractors.
+- **cpr-choking-035:** Blind sweep during responsive care; faster-than-thrusts, mandatory each breath, infant-preferred myths.
+- **cpr-choking-036:** Lone rescuer severe adult; Red Cross alternate cycle, prolonged back blows, one thrust then CPR distractors.
+- **cpr-choking-037:** Silent cough severe adult; cough-only without monitoring, single back blow stop, standing CPR rate near-misses.
+- **cpr-choking-038:** Infant severe responsive; adult thrust, sweep before slaps, CPR-before-slaps distractors parallelized.
+- **cpr-choking-039:** Slump during thrusts; chair Heimlich only, jostle before EMS, wait without CPR near-misses (no shake tell).
+- **cpr-choking-040:** Teen mild gum; thrust on clutch, sweep at first cough, CPR while answering near-misses.
+- **cpr-choking-041:** Mouth before breaths in arrest; blind each ventilation, compressions-only myth, ROSC-only inspection distractors.
+- **cpr-choking-042:** Pregnancy/obesity chest thrusts; habitus-ignore abdomen thrust, wait unconscious, water between attempts near-misses.
+- **cpr-choking-043:** Severe sign bundle; easy conversation, yawning with strong cough, calm sternal rub distractors.
+- **cpr-choking-044:** Post-relief evaluation; silent EMS cancel, strenuous proof, decline all contact near-misses.
+
+**Full-file sweep (001–025):** **003** back-blow-only without EMS; **005** sweep-before-slaps; **017** slap-only without chest thrusts/CPR — replaces prior shake distractors.
+
+**Counts:** **44** items in bank; **22** items touched in batch 10 (19 rewrites + 3 distractor fixes on 001–025). **0** banned-tell grep hits post-edit. No factual key changes.
+
 ## Phleb handling batch 08 (026–039)
 
 **Scope:** `classquiz/seed/banks/phleb/handling.py` items **phleb-handling-026** through **phleb-handling-039** (14 facts), plus a light distractor pass on **001–025**.
