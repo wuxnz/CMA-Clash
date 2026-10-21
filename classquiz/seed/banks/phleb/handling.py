@@ -20,8 +20,8 @@ FACTS: list[dict] = [
         "Patient identifiers, date and time of collection, and collector identification per policy",
         [
             "Tube color alone without patient name or medical record number",
-            "Collector initials only, with no date or time of collection",
-            "A label with only the room number and no medical record number",
+            "Collector initials, with no date or time of collection",
+            "A label with the room number and no medical record number",
         ],
         "Complete labels link the tube to the correct patient and collection event. "
         "GP41 preanalytic requirements align with laboratory accreditation standards for traceability.",
@@ -44,7 +44,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What serum separator tubes for chemistry often require?",
+        "What do serum separator tubes for chemistry often require?",
         "Upright clotting for the laboratory-defined time before centrifugation",
         [
             "Immediate freezing while still completely liquid",
@@ -58,11 +58,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What centrifugation speed and time for serum or plasma separation should follow?",
+        "What centrifugation speed and time should be followed for serum or plasma separation?",
         "The laboratory procedure manual for each test category",
         [
             "Whichever setting is fastest regardless of g-force",
-            "Never centrifuging outpatient specimens",
+            "Leaving outpatient specimens uncentrifuged",
             "Patient preference for spin duration",
         ],
         "Incorrect spin conditions leave residual cells or break gel barriers, altering analytes. "
@@ -72,7 +72,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What transporting specimens to the laboratory should maintain?",
+        "What should transport of specimens to the laboratory maintain?",
         "Temperature and timing limits listed on the test requisition or manual",
         [
             "Direct sunlight exposure to prevent condensation",
@@ -86,11 +86,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What light-sensitive analytes such as bilirubin or some vitamins may require?",
+        "What may light-sensitive analytes such as bilirubin or some vitamins require?",
         "Amber wrap or transport inside a light-blocking container",
         [
             "Exposure to UV light to stabilize pigments",
-            "Clear plastic bags only for visibility",
+            "Clear plastic bags for visibility",
             "Room light exposure for at least one hour",
         ],
         "Photo-degradation can falsely lower concentrations before analysis. "
@@ -103,9 +103,9 @@ FACTS: list[dict] = [
         "What visible hemolysis in a serum sample may falsely elevate?",
         "Potassium and several enzymes on chemistry panels",
         [
-            "Only prothrombin time without affecting electrolytes",
+            "Prothrombin time without affecting electrolytes",
             "Glucose upward in every assay",
-            "Platelet count on an EDTA hematology sample only",
+            "Platelet count on an EDTA hematology sample",
         ],
         "Lysed red cells release intracellular potassium and enzymes into serum or plasma. "
         "Gentle draw technique and timely processing reduce hemolysis per GP41 quality goals.",
@@ -128,11 +128,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What fasting glucose specimens require what documentation?",
+        "What documentation do fasting glucose specimens require?",
         "Fasting status and collection time relative to the order",
         [
             "A casual snack documented as fasting if the patient insists",
-            "Only the phlebotomist lunch break time",
+            "The phlebotomist lunch break time",
             "Verbal results without any tube label",
         ],
         "Interpretation depends on whether the patient was truly fasting for the ordered interval. "
@@ -142,7 +142,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What capillary puncture devices and lancets must be handled?",
+        "How must capillary puncture devices and lancets be handled?",
         "Single-patient use and discarded into an approved sharps container",
         [
             "Wiped with alcohol and reused on the next patient",
@@ -156,11 +156,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What delayed delivery of citrate coagulation tubes can cause what problems?",
+        "What problems can delayed delivery of citrate coagulation tubes cause?",
         "Alter factor activity and prolong or shorten clotting assays",
         [
             "Improve accuracy by allowing extra clot formation in citrate",
-            "Affect only complete blood counts in EDTA",
+            "Affect complete blood counts in EDTA",
             "Have no preanalytic effect if tubes are labeled",
         ],
         "Coagulation specimens are time-sensitive even before centrifugation. "
@@ -170,7 +170,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What ammonia specimens often require?",
+        "What do ammonia specimens often require?",
         "Prompt chilling and analysis within strict stability limits",
         [
             "Overnight storage at room temperature on the nursing unit",
@@ -198,7 +198,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What arterial blood gas specimens after collection need what handling?",
+        "What handling do arterial blood gas specimens need after collection?",
         "Immediate gentle mixing, ice when required, and analysis within stability limits",
         [
             "Clotting upright like a serum chemistry tube",
@@ -212,7 +212,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What chain-of-custody documentation is required for what purpose?",
+        "For what purpose is chain-of-custody documentation required?",
         "Forensic or legal specimens where possession must be traceable",
         [
             "Every routine complete blood count in outpatient clinics",
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What pneumatic tube system transport of blood specimens should use what method?",
+        "What method should pneumatic tube system transport of blood specimens use?",
         "Leak-proof padded carriers approved by the laboratory for fragile tests",
         [
             "Uncapped tubes upright without secondary containment",
@@ -254,10 +254,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What holding serum at room temperature too long before centrifugation can cause what problems?",
+        "What problems can holding serum at room temperature too long before centrifugation cause?",
         "Falsely elevate potassium as cells leak intracellular contents",
         [
-            "Only change glucose without affecting electrolytes",
+            "Change glucose without affecting electrolytes",
             "Improve coagulation factor stability in serum",
             "Eliminate the need for any centrifuge step",
         ],
@@ -282,7 +282,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What outbound courier pickup of specimens should ensure what?",
+        "What should outbound courier pickup of specimens ensure?",
         "Secure leak-proof packaging with required temperature monitors or ice",
         [
             "Open tubes grouped in an unlabeled plastic bag",
@@ -296,10 +296,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What point-of-care testing logs should record what?",
+        "What should point-of-care testing logs record?",
         "Operator identity, quality control, patient identifiers, and results",
         [
-            "Only outdoor temperature at the time of testing",
+            "Outdoor temperature at the time of testing",
             "Random numbers instead of patient identifiers",
             "Lunch orders for staff working the meter",
         ],
@@ -310,7 +310,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "If a specimen container breaks during transit, staff should?",
+        "If a specimen container breaks during transit, what should staff do?",
         "Notify the laboratory, document the incident, and recollect when necessary",
         [
             "Tape broken glass together and submit without note",
@@ -324,7 +324,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What aliquoting serum or plasma into secondary tubes helps how?",
+        "How does aliquoting serum or plasma into secondary tubes help?",
         "Avoid repeated freeze-thaw cycles on the primary sample when policy requires",
         [
             "Eliminate all labeling requirements",
@@ -338,12 +338,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "When refrigerated storage after collection applies when?",
+        "When does refrigerated storage after collection apply?",
         "Only to tests with defined cold stability in the laboratory manual",
         [
             "Identically to every tube type without reading the manual",
-            "Never in any clinical laboratory",
-            "Only when the patient requests cold samples",
+            "In no clinical laboratory",
+            "When the patient requests cold samples",
         ],
         "Some analytes require refrigeration; others must not be chilled. "
         "GP41 directs collectors to follow test-specific stability rather than universal rules.",
@@ -352,7 +352,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What exposure of blood tubes to extreme heat during summer transport may cause what?",
+        "What can exposure of blood tubes to extreme heat during summer transport cause?",
         "Cell lysis and degradation of temperature-labile analytes",
         [
             "Automatic refrigeration inside the tube",
@@ -384,7 +384,7 @@ FACTS: list[dict] = [
         "Additive carryover contaminates tubes and invalidates results",
         [
             "It is faster and therefore encouraged for stat orders",
-            "Only culture bottles are affected by transfer",
+            "Culture bottles are affected by transfer while other tubes are not",
             "Transfer improves coagulation studies in citrate",
         ],
         "Each tube is filled directly from the patient with its intended additive load. "
@@ -394,10 +394,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What underfilled citrate (light-blue) tubes most threaten what results?",
+        "What results are most threatened by underfilled citrate tubes?",
         "Coagulation studies because the blood-to-anticoagulant ratio is wrong",
         [
-            "Complete blood count indices only",
+            "Complete blood count indices",
             "Urinalysis dipstick reading",
             "ABG analysis in a heparin syringe",
         ],
@@ -408,7 +408,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "When a butterfly set is used for multiple tubes, maintaining flow helps?",
+        "How does maintaining flow help when a butterfly set is used for multiple tubes?",
         "Prevent clot formation in the tubing and ensure proper tube fill",
         [
             "Allow air bubbles to replace blood in each tube",
@@ -422,7 +422,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "Why time of collection on the label matters for what reason?",
+        "Why does time of collection on the label matter?",
         "Reference ranges and stability calculations often depend on draw time",
         [
             "It is decorative information for the courier only",
@@ -436,7 +436,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "If the wrong tube type was collected for an ordered test, the collector should?",
+        "If the wrong tube type was collected for an ordered test, what should the collector do?",
         "Notify the laboratory and follow policy for recollection or add-on testing",
         [
             "Pour blood into the correct tube without documenting",
@@ -482,7 +482,7 @@ FACTS: list[dict] = [
         "Laboratory instructions for the specific test and carrier design",
         [
             "Whichever is closest regardless of contamination risk",
-            "Never using ice because all tests are room temperature",
+            "Avoiding ice because all tests are kept at room temperature",
             "Patient preference between wet and dry cooling",
         ],
         "Some specimens need wet ice; others tolerate insulated cool packs without free water exposure. "
@@ -509,7 +509,7 @@ FACTS: list[dict] = [
         "What can happen when EDTA hematology tubes are placed in direct contact with ice before CBC analysis?",
         "May cause cell morphology changes unless the manual requires chilling",
         [
-            "Is always required for every complete blood count",
+            "Is required for every complete blood count",
             "Prevents all clotting in serum separator tubes",
             "Replaces gentle mixing after collection",
         ],
@@ -534,7 +534,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What rechecking the requisition against collected tubes before leaving the patient helps how?",
+        "How does rechecking the requisition against collected tubes before leaving the patient help?",
         "Catch missing tubes or wrong tests before the patient departs",
         [
             "Replace two-identifier patient verification",
@@ -551,7 +551,7 @@ FACTS: list[dict] = [
         "Why is delaying plasma separation from cells in a heparin tube problematic for ammonia-like assays?",
         "Can falsely change results as cells metabolize analytes",
         [
-            "Only affects urine color without changing chemistry",
+            "Affects urine color without changing chemistry",
             "Improves accuracy by concentrating cells",
             "Is recommended for all routine electrolyte panels",
         ],

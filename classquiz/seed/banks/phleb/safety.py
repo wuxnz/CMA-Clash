@@ -28,7 +28,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Used phlebotomy needles must be discarded?",
+        "How should used phlebotomy needles be discarded?",
         "Immediately into an approved sharps container at the point of use",
         [
             "In a regular office waste basket lined with paper",
@@ -42,12 +42,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Why is Hand hygiene after removing gloves required?",
+        "Why is hand hygiene after removing gloves required?",
         "Gloves may have microtears and hands can still be contaminated",
         [
-            "Gloves sterilize hands so washing is never needed",
+            "Gloves sterilize the hands so washing is unnecessary",
             "Alcohol-based rub is banned in healthcare settings",
-            "Only the first patient of the day needs hand hygiene",
+            "The first patient of the day is the one who needs hand hygiene",
         ],
         "CDC hand hygiene guidance applies before patient contact and after glove removal. "
         "Microscopic defects and handling of contaminated surfaces leave pathogens on skin.",
@@ -56,7 +56,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Patient identification before phlebotomy should use?",
+        "Which identifiers should be used to verify patient identity before phlebotomy?",
         "Active verification such as spelling name and date of birth",
         [
             "Room number alone without speaking to the patient",
@@ -70,7 +70,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How must Sharps containers be handled?",
+        "How must sharps containers be handled?",
         "Puncture-resistant, labeled, closable, and not overfilled",
         [
             "Left open on the counter for quick access",
@@ -84,7 +84,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How should Eating or drinking in the phlebotomy work area be handled?",
+        "How should eating or drinking in the phlebotomy work area be handled?",
         "Prohibited to reduce contamination and exposure risk",
         [
             "Encouraged during active blood collection",
@@ -101,9 +101,9 @@ FACTS: list[dict] = [
         "Why is transporting uncapped needles between rooms unsafe?",
         "Unsafe and prohibited by work practice controls",
         [
-            "Standard practice to save time",
+            "Accepted practice that saves walking time",
             "Required when the sharps box is down the hall",
-            "Safe if the patient watches the collector walk",
+            "Acceptable if the patient watches the collector walk",
         ],
         "Needlesticks often occur during carrying and transfer of unprotected sharps. "
         "Activate safety devices and dispose at the bedside whenever possible.",
@@ -112,12 +112,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Gloves should be changed when?",
+        "When should gloves be changed?",
         "Moving from a contaminated task to a clean task or between patients",
         [
             "One pair may be worn all day for efficiency",
-            "Only when a large visible hole appears",
-            "Never during a batch of draws in the same room",
+            "When a large visible hole appears in the glove",
+            "Between draws in the same room during a batch",
         ],
         "Cross-contamination between patients and surfaces spreads bloodborne pathogens. "
         "Change gloves after blood contact before touching keyboards, phones, or clean supplies.",
@@ -126,10 +126,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "What are Biohazard waste bags used for?",
+        "What are biohazard waste bags used for?",
         "Items contaminated with blood or other potentially infectious material",
         [
-            "Clean office paper and unsoiled packaging only",
+            "Clean office paper and unsoiled packaging",
             "Patient personal belongings and clothing",
             "Sterile unused supplies in original boxes",
         ],
@@ -140,11 +140,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "To reduce fainting during phlebotomy, patients at risk should?",
+        "What should be done for patients at risk of fainting during phlebotomy?",
         "Be drawn seated with observation during and after the procedure",
         [
             "Stand for every draw regardless of history",
-            "Be left alone immediately after the last tube",
+            "Be left alone immediately after the last tube is filled",
             "Keep a tight tourniquet on for the entire visit",
         ],
         "Seated positioning and post-draw observation lower fall injury from vasovagal events. "
@@ -154,12 +154,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "When should Labeling blood tubes occur?",
+        "When should blood tubes be labeled?",
         "At the bedside immediately after collection per policy",
         [
             "At the central lab bench without the patient present",
             "The next day if the draw was busy",
-            "Only on every third tube to save time",
+            "On every third tube to save time",
         ],
         "Bedside labeling ties the specimen to the identified patient and reduces mislabel errors. "
         "Pre-labeled tubes before draw are a common source of wrong-patient results.",
@@ -168,7 +168,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How should Specimens transported in bags be handled?",
+        "How should specimens transported in bags be handled?",
         "Sealed in leak-proof secondary containment",
         [
             "Carried uncapped in a coat pocket",
@@ -182,10 +182,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How should Horizontal work surfaces between patients be handled?",
+        "How should horizontal work surfaces between patients be handled?",
         "Cleaned with facility-approved disinfectant on a defined schedule",
         [
-            "Wiped with water only between every fifth patient",
+            "Wiped with water between every fifth patient",
             "Left untouched because gloves replace cleaning",
             "Sprayed with air freshener instead of disinfectant",
         ],
@@ -196,7 +196,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Staff with open lesions on hands should?",
+        "What should staff with open lesions on their hands do?",
         "Avoid patient contact or use approved barriers per occupational health policy",
         [
             "Perform draws without any covering if gloves are worn",
@@ -210,11 +210,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Safety-engineered phlebotomy devices should be activated?",
+        "When should safety-engineered phlebotomy devices be activated?",
         "Immediately after use according to manufacturer and facility policy",
         [
-            "Only at the end of the shift for reuse planning",
-            "Never, because activation increases hemolysis always",
+            "At the end of the shift for reuse planning",
+            "After the patient leaves, because activation increases hemolysis",
             "By another patient to demonstrate the feature",
         ],
         "OSHA expects feasible engineering controls to reduce sharps injuries. "
@@ -242,7 +242,7 @@ FACTS: list[dict] = [
         "Discouraged; use one-hand scoop or safety devices when recapping is unavoidable",
         [
             "Required before every disposal in sharps boxes",
-            "Safer than safety-engineered needles always",
+            "Safer than safety-engineered needles in every case",
             "Recommended to speed multi-patient rounds",
         ],
         "Most needlestick injuries involve recapping or transfer between hands. "
@@ -252,10 +252,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "The employer exposure control plan for bloodborne pathogens must include?",
+        "What must the employer exposure control plan for bloodborne pathogens include?",
         "Engineering controls, work practices, hepatitis B vaccination offer, and post-exposure follow-up",
         [
-            "Only annual payroll review without clinical content",
+            "An annual payroll review without clinical content",
             "Optional vaccination with no training requirement",
             "A promise to buy gloves without written procedures",
         ],
@@ -266,21 +266,22 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Drawing blood in an isolation room requires?",
+        "What is required when drawing blood in an isolation room?",
         "Isolation PPE and exit procedures per the patient's precautions",
         [
-            "Skipping PPE if the draw is brief",
-            "Leaving contaminated tubes in the hallway",
-            "Removing PPE inside the room against policy",
+            "Standard precautions without the added isolation PPE",
+            "Leaving contaminated tubes in the hallway for later pickup",
+            "Removing PPE inside the room before leaving it",
         ],
         "CDC isolation guidance matches transmission risk (contact, droplet, airborne). "
-        "Incorrect doffing spreads pathogens to clean areas and other patients.",
+        "Incorrect doffing spreads pathogens to clean areas and other patients. "
+        "Using standard precautions alone, leaving tubes in the hallway, and removing PPE inside the room each break the isolation workflow.",
         [S.CDC_ISOLATION_2007, S.CDC_STANDARD_PRECAUTIONS],
         "intermediate",
     ),
     fact(
         "phleb-safety",
-        "What action should A needlestick with unknown source HIV status prompt?",
+        "What action should a needlestick with unknown source HIV status prompt?",
         "Immediate wound care and urgent occupational health evaluation",
         [
             "Ignoring injury if the needle looked clean",
@@ -294,7 +295,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How should Shared cloth tourniquets between patients be handled?",
+        "How should shared cloth tourniquets between patients be handled?",
         "Managed per facility policy, often disposable or disinfected between uses",
         [
             "Used on every patient without cleaning for speed",
@@ -308,12 +309,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Patients on anticoagulant therapy have increased risk of?",
+        "Patients on anticoagulant therapy have an increased risk of what?",
         "Bleeding and bruising at the venipuncture site",
         [
-            "Automatic hemolysis in every tube",
+            "Hemolysis in every tube that is collected",
             "No bleeding despite therapeutic anticoagulation",
-            "Higher serum sodium from the tourniquet alone",
+            "Higher serum sodium from the tourniquet",
         ],
         "Medications prolong hemostasis at the skin puncture. "
         "Longer pressure and clear aftercare instructions improve safety for these patients.",
@@ -322,7 +323,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Transporting filled sharps containers should use?",
+        "What should be used to transport filled sharps containers?",
         "Closed containers kept upright and secured during movement",
         [
             "Open tops so staff can add needles while walking",
@@ -336,24 +337,25 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "A blood spill on the phlebotomy floor requires?",
+        "What is required after a blood spill on the phlebotomy floor?",
         "Donning PPE and cleaning with approved disinfectant per spill protocol",
         [
-            "Wiping with dry paper towels only",
-            "Leaving the spill until housekeeping arrives without barriers",
-            "Using bare hands if the volume looks small",
+            "Wiping the spill with dry paper towels",
+            "Waiting for housekeeping to arrive without placing a barrier",
+            "Cleaning the area with bare hands when the volume looks small",
         ],
         "Bloodborne pathogen standards require prompt decontamination of OPIM spills. "
-        "Follow contact time on the disinfectant label and dispose of materials as biohazard waste.",
+        "Follow contact time on the disinfectant label and dispose of materials as biohazard waste. "
+        "Dry towels, waiting for housekeeping, and cleaning without protection each leave blood exposed in the work area.",
         [S.OSHA_BBP, S.CDC_STANDARD_PRECAUTIONS],
         "intermediate",
     ),
     fact(
         "phleb-safety",
-        "Unattended patients in the draw chair should?",
-        "Not occur; observation continues through and briefly after the procedure",
+        "What is the expectation for patients left unattended in the draw chair?",
+        "Not be left unattended; observation continues through and briefly after the procedure",
         [
-            "Be normal if the patient's eyes are closed",
+            "Be acceptable if the patient's eyes are closed",
             "Be sent to the parking lot alone when dizzy",
             "Be restrained without an order when nervous",
         ],
@@ -364,10 +366,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "What should Phlebotomy competency training include?",
+        "What should phlebotomy competency training include?",
         "Venipuncture technique, order of draw, identification, and safety regulations",
         [
-            "Billing codes only without hands-on practice",
+            "Billing codes without hands-on practice",
             "Social media tips instead of institutional policy",
             "No documentation of completed validation",
         ],
@@ -378,7 +380,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "When a patient becomes combative during venipuncture, the collector should?",
+        "When a patient becomes combative during venipuncture, what should the collector do?",
         "Stop and follow de-escalation and security policy to protect everyone",
         [
             "Force the draw quickly before behavior worsens",
@@ -397,7 +399,7 @@ FACTS: list[dict] = [
         [
             "Forbidden under OSHA rules",
             "Optional with no requirement to document declination",
-            "Required only for laboratory directors, never collectors",
+            "Required for laboratory directors rather than for collectors",
         ],
         "The Bloodborne Pathogens Standard includes hepatitis B vaccine series at employer expense. "
         "Declinations must be documented but vaccination remains strongly recommended.",
@@ -406,12 +408,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How does Privacy during phlebotomy support safety?",
+        "How does privacy during phlebotomy support safety?",
         "Allowing accurate identification and reducing patient stress that can provoke syncope",
         [
             "Eliminating the need for two identifiers",
             "Permitting draws without consent in public hallways",
-            "Replacing hand hygiene with curtains only",
+            "Replacing hand hygiene with privacy curtains",
         ],
         "HIPAA-aligned privacy helps patients speak freely to confirm identity and allergies. "
         "Calmer patients tolerate procedures better with fewer movement-related sticks.",
@@ -420,26 +422,27 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Latex allergy in a patient requires?",
+        "What is required for a patient with a latex allergy?",
         "Using non-latex gloves and equipment per supply policy",
         [
             "Using latex gloves because they stretch more",
-            "Ignoring allergy if the reaction was mild years ago",
+            "Continuing with latex if the reaction was mild years ago",
             "Switching to powdered latex for easier donning",
         ],
         "Allergic reactions can progress to anaphylaxis during procedures. "
-        "Facilities stock latex-free alternatives for at-risk individuals.",
+        "Facilities stock latex-free alternatives for at-risk individuals. "
+        "Stretchability, a remote mild reaction, and powdered latex for easier donning each leave the patient exposed during the draw.",
         [S.CDC_STANDARD_PRECAUTIONS],
         "intermediate",
     ),
     fact(
         "phleb-safety",
-        "How should Eyewash stations where chemical or splash risk exists be handled?",
+        "How should eyewash stations where chemical or splash risk exists be handled?",
         "Accessible and known to staff per OSHA first-aid requirements",
         [
             "Locked to prevent casual use",
-            "Used only for hand dishwashing",
-            "Optional in every outpatient draw station without policy",
+            "Used for washing dishes in the break room",
+            "Optional at outpatient draw stations that have no policy",
         ],
         "Rapid irrigation limits damage from splashes of disinfectants or blood. "
         "Orientation and drills ensure staff reach eyewash within seconds.",
@@ -451,9 +454,9 @@ FACTS: list[dict] = [
         "When should needlestick incidents be reported?",
         "Immediately so post-exposure evaluation can begin",
         [
-            "Only if the patient is known HIV positive",
+            "When the patient is known to be HIV positive",
             "At the annual performance review",
-            "Only when the patient is known to have a bloodborne infection",
+            "When the patient has a confirmed bloodborne infection",
         ],
         "Delay reduces options for prophylaxis and compromises surveillance data. "
         "OSHA prohibits retaliation against employees who report exposures promptly.",
@@ -462,7 +465,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "WHO injection safety principles applied to phlebotomy stress?",
+        "What do WHO injection safety principles applied to phlebotomy stress?",
         "One sterile needle and syringe or set per patient procedure",
         [
             "Changing only the needle while reusing the barrel",
@@ -476,7 +479,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How does A safety syringe with a retractable needle reduce risk?",
+        "How does a safety syringe with a retractable needle reduce risk?",
         "Covering the sharp immediately after use without hand proximity to the point",
         [
             "Eliminating the need for gloves during all draws",
@@ -490,7 +493,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "What is Source-patient testing after a blood exposure used for?",
+        "What is source-patient testing after a blood exposure used for?",
         "Guide post-exposure prophylaxis and baseline serology for the employee",
         [
             "Punish the patient for the staff injury",
@@ -504,7 +507,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "What should Central supply of safety lancets for fingersticks ensure?",
+        "What should central supply of safety lancets for fingersticks ensure?",
         "Single-patient use and activation of sharps injury protection before disposal",
         [
             "Shared lancet devices cleaned with alcohol between patients",
@@ -518,11 +521,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "When gloves are visibly torn during a draw, the collector should?",
+        "When gloves are visibly torn during a draw, what should the collector do?",
         "Stop, remove gloves, perform hand hygiene, and reglove before continuing safely",
         [
             "Finish the procedure because small holes do not matter",
-            "Wipe gloves on the pants and keep drawing",
+            "Wiping gloves on the pants and keep drawing",
             "Double glove without washing hands underneath",
         ],
         "Visible breaches negate barrier protection and may have already contaminated hands. "
@@ -532,21 +535,22 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Fire safety during mobile phlebotomy with oxygen in use requires?",
+        "What does fire safety during mobile phlebotomy with oxygen in use require?",
         "Avoiding sparks and following facility oxygen precautions in the home or room",
         [
-            "Smoking near tanks to test airflow",
+            "Allowing smoking near the cylinders to check airflow",
             "Using alcohol-based products freely on running oxygen tubing",
             "Storing oxygen cylinders horizontal without securing",
         ],
         "Oxygen-enriched environments lower ignition thresholds for flammable vapors including alcohol prep. "
-        "Follow home health and hospital policies for oxygen and electrical equipment near patients.",
+        "Follow home health and hospital policies for oxygen and electrical equipment near patients. "
+        "Smoking nearby, using alcohol products freely on oxygen tubing, and leaving cylinders unsecured each raise the chance of an ignition event.",
         [S.CDC_STANDARD_PRECAUTIONS],
         "advanced",
     ),
     fact(
         "phleb-safety",
-        "Pediatric phlebotomy often requires a chaperone to?",
+        "What is a chaperone often required for during pediatric phlebotomy?",
         "Support positioning and emotional safety while staff maintain aseptic technique",
         [
             "Replace two-identifier verification entirely",
@@ -588,7 +592,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How should Reusable tourniquets suspected of blood contamination be handled?",
+        "How should reusable tourniquets suspected of blood contamination be handled?",
         "Removed from service and cleaned or discarded per infection control policy",
         [
             "Used on the next patient without cleaning",
@@ -602,10 +606,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "What must Annual bloodborne pathogen training for staff cover?",
+        "What must annual bloodborne pathogen training for staff cover?",
         "Exposure risks, use of engineering controls, and post-exposure steps",
         [
-            "Only payroll direct deposit changes",
+            "Payroll direct deposit changes",
             "Social media marketing for the laboratory",
             "Parking assignments without clinical content",
         ],
@@ -616,7 +620,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How does Selecting a safety winged infusion set over a plain needle primarily improve safety?",
+        "How does selecting a safety winged infusion set over a plain needle primarily improve safety?",
         "Sharps injury protection during high-risk butterfly collections",
         [
             "Elimination of patient identification requirements",
@@ -630,7 +634,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "When a coworker is stuck with a contaminated needle, you should?",
+        "When a coworker is stuck with a contaminated needle, what should you do?",
         "Assist them to initiate washing and reporting while they seek occupational health care",
         [
             "Keep drawing patients before helping",

@@ -71,7 +71,7 @@ FACTS: list[dict] = [
         "Which measure best prevents pressure injuries in an immobile patient?",
         "Regular repositioning with support surfaces and moisture control",
         [
-            "Regular repositioning with massage of reddened bony prominences",
+            "Regular repositioning with massage over reddened bony prominences",
             "Regular repositioning with a foam ring under the heels",
             "Regular repositioning with a rigid ring under the sacrum",
         ],
@@ -208,7 +208,7 @@ FACTS: list[dict] = [
     # skill-wound-care-015
     fact(
         "skill-wound-care",
-        "Before applying a prescribed topical antibiotic to a suture line, what does the MA verify?",
+        "A patient brings an antibiotic ointment to a suture line visit. Before applying it, what does the MA verify?",
         "Allergies and the prescriber order for that agent",
         [
             "Allergies and the wound measurements from the prior visit",
@@ -226,10 +226,10 @@ FACTS: list[dict] = [
         "Repositioning schedule, support surfaces, and skin inspection",
         [
             "Repositioning schedule, donut cushions, and skin inspection",
-            "Repositioning schedule, elevating heels on a ring, and skin inspection",
+            "Repositioning schedule, massaging reddened areas, and skin inspection",
             "Repositioning schedule, limiting salt intake, and skin inspection",
         ],
-        "Teaching for pressure injury prevention centers on a repositioning schedule, the use of support surfaces, and regular skin checks that catch early changes. Donut cushions and ring devices concentrate pressure instead of relieving it, and salt restriction addresses fluid balance rather than pressure relief.",
+        "Teaching for pressure injury prevention centers on a repositioning schedule, the use of support surfaces, and regular skin checks that catch early changes. Donut cushions concentrate pressure instead of relieving it, massage can damage ischemic tissue, and salt restriction addresses fluid balance rather than pressure relief.",
         [S.NHA_CCMA],
         "intermediate",
     ),
@@ -306,14 +306,14 @@ FACTS: list[dict] = [
     # skill-wound-care-022
     fact(
         "skill-wound-care",
-        "Which supplies and glove choice belong in clean technique for a chronic wound dressing change?",
-        "Clean gloves with clean dressings and irrigation supplies",
+        "Which statement correctly describes clean technique for a chronic wound dressing change?",
+        "Clean gloves and clean supplies are used because the bed harbors flora",
         [
-            "Sterile gloves with sterile dressings and irrigation supplies",
-            "Clean gloves with sterile dressings and irrigation supplies",
-            "Sterile gloves with clean dressings and irrigation supplies",
+            "Sterile gloves and sterile supplies are used because the bed harbors flora",
+            "Clean gloves and clean supplies are used because the wound is deep",
+            "Sterile gloves and sterile supplies are used because the wound is deep",
         ],
-        "Clean technique suits a chronic wound whose bed carries colonizing flora, so clean gloves with clean dressings and irrigation supplies are used. Sterile gloves with sterile supplies define sterile technique, and pairing clean gloves with sterile supplies or the reverse describes no recognized technique for a chronic wound.",
+        "Clean technique suits a chronic wound whose bed harbors colonizing flora, so clean gloves and clean supplies are used for the dressing change. Sterile gloves and sterile supplies define sterile technique for surgically closed or deep wounds, and neither the supply set nor the reason in the other options fits clean technique.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
         "advanced",
     ),
@@ -489,13 +489,13 @@ FACTS: list[dict] = [
     fact(
         "skill-wound-care",
         "Which statement describes the sterile field during a bedside wound dressing change?",
-        "The inner wrapper and tray rim define the field once the kit is opened",
+        "The inner wrapper and tray rim define the sterile field",
         [
             "The bedside table and the patient linens define the field",
-            "The outer packaging and the Mayo stand define the field",
+            "The patient's bed and the privacy curtain define the field",
             "The exam table surface and the supply cart define the field",
         ],
-        "Once a sterile kit is opened, the inner surface of the wrapper and the rim of the tray form the sterile field, and anything crossing that rim is no longer sterile. The bedside table and supply cart are working surfaces outside the field, and the exam table and linens sit outside it as well.",
+        "Once a sterile kit is opened, the inner surface of the wrapper and the rim of the tray form the sterile field, and anything crossing that rim is no longer sterile. The bedside table and supply cart are working surfaces outside the field, and the bed, curtain, exam table, and linens sit outside it as well.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
         "intermediate",
     ),
@@ -590,10 +590,10 @@ FACTS: list[dict] = [
         "Shallow partial-thickness wounds with minimal exudate",
         [
             "Full-thickness wounds with heavy drainage and tissue slough",
-            "Wounds with heavy drainage that need a film plus foam pad",
+            "Wounds with heavy drainage that need an absorbent foam pad",
             "Deep wounds with a tunnel that need packing and a secondary layer",
         ],
-        "A transparent film keeps a shallow, lightly exuding wound moist while letting the provider see the bed through the dressing, so it works well as a primary layer on partial-thickness wounds. Heavy drainage, slough, and deep tunnels need an absorbent primary dressing with a secondary layer rather than a film alone.",
+        "A transparent film keeps a shallow, lightly exuding wound moist while letting the provider see the bed through the dressing, so it works well as a primary layer on partial-thickness wounds. Heavy drainage needs an absorbent primary dressing such as foam or alginate, slough needs a dressing that manages moisture, and a deep tunnel needs packing and a secondary layer.",
         [S.NHA_CCMA],
         "advanced",
     ),

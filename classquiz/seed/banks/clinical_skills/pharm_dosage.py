@@ -353,7 +353,7 @@ FACTS: list[dict] = [
         [
             "Tell them that any spoon from the kitchen drawer holds exactly 5 mL",
             "Convert milliliters to tablespoons without using a measuring device",
-            "Estimate the volume by how full the bottle looks on the shelf",
+            "Estimate the volume by how full the bottle looks when it is on the shelf",
         ],
         "Metric oral syringes improve accuracy for pediatric liquids. Household utensils are not standardized, so volume should be demonstrated on a labeled syringe.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],

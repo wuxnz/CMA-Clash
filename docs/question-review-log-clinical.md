@@ -1005,3 +1005,184 @@ skill-injection-041 | fail | Removed banned skip qualifier from the glove order 
 skill-vitals-013 | fail | Undersized cuff stem kept but distractor set made parallel and the guaranteed-sounding option removed.
 skill-vitals-014 | fail | Oversized cuff stem reworded to clear the near-duplicate stem guard; guaranteed-sounding option removed.
 
+
+## Parallel-options pass batch P06 (skill-med-safety-001 to skill-med-safety-042)
+
+skill-med-safety-001 | fail | stem reworded into a complete question; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-002 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-003 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-004 | fail | key reworded; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-005 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-006 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-007 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-008 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-009 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-010 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-011 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-012 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-013 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-014 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-015 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-016 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-017 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-018 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-019 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-020 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-021 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-022 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-023 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-024 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-025 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-026 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-027 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-028 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-029 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-030 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-031 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-032 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-033 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-034 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-035 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-036 | fail | key reworded; sabotage distractor replaced; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-037 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-038 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-039 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-040 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-041 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-med-safety-042 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+
+## Parallel-options pass batch P07 (skill-wound-care-001 to skill-wound-care-042)
+
+skill-wound-care-001 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-002 | fail | verified against the parallel-options standard.
+skill-wound-care-003 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-004 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-005 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-006 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-007 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-008 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-009 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-010 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-011 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-012 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-013 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-014 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-015 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-016 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-017 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-018 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-019 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-020 | fail | stem reworded into a complete question; key reworded; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-021 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-022 | fail | stem reworded into a complete question; key reworded without the policy hedge; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-023 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-024 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-025 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-026 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-027 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-028 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-029 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-030 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-031 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-032 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-033 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-034 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-035 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-036 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-037 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-038 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-039 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-040 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-041 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-wound-care-042 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+
+## Parallel-options pass batch P08 (skill-life-stages-001 to skill-life-stages-042)
+
+skill-life-stages-001 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-002 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-003 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-004 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-005 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-006 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-007 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-008 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-009 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-010 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-011 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-012 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-013 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-014 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-015 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-016 | fail | stem reworded into a complete question; key reworded; sabotage distractor replaced; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-017 | fail | stem reworded into a complete question; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-018 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-019 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-020 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-021 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-022 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-023 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-024 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-025 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-026 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-027 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-028 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-029 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-030 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-031 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-032 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-033 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-034 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-035 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-036 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-037 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-038 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-039 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-040 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-041 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-life-stages-042 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+
+## Parallel-options pass batch P09 (skill-emergency-aid-001 to skill-emergency-aid-042)
+
+skill-emergency-aid-001 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-002 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-003 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-004 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-005 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-006 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-007 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-008 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-009 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-010 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-011 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-012 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-013 | fail | stem reworded into a complete question; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-014 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-015 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-016 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-017 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-018 | fail | stem reworded into a complete question; key reworded; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-019 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-020 | fail | stem reworded into a complete question; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-021 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-022 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-023 | fail | stem reworded into a complete question; key reworded; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-024 | fail | stem reworded into a complete question; key reworded without the policy hedge; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-025 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-026 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-027 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-028 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-029 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-030 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-031 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-032 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-033 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-034 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-035 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-036 | fail | stem reworded into a complete question; key reworded; absolute distractor reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-037 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-038 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-039 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-040 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-041 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-emergency-aid-042 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+

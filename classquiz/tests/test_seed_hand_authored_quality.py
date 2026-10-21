@@ -344,6 +344,21 @@ def test_skill_correct_answer_not_uniquely_longest():
     assert not bad, f"Skill items with uniquely longest correct answer: {bad[:12]}"
 
 
+def test_skill_correct_answer_not_much_longer_than_every_distractor():
+    """A key that runs far longer than every distractor reads as the complete answer."""
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("skill-"):
+            continue
+        correct_len = len(fact["correct"].strip())
+        longest_distractor = max(len(d.strip()) for d in fact["distractors"])
+        if longest_distractor and correct_len > longest_distractor * 1.12:
+            bad.append(f"{fact['stem'][:60]} ({correct_len} vs {longest_distractor})")
+    assert not bad, f"Skill keys far longer than every distractor: {bad[:12]}"
+
+
 def test_hand_authored_no_near_duplicate_stems():
     from classquiz.seed.banks import load_all_facts
     from classquiz.seed.stem_normalize import normalize_stem

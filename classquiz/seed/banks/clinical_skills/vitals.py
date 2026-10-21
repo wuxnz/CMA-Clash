@@ -450,7 +450,7 @@ FACTS: list[dict] = [
         "How can a full bladder affect seated blood pressure readings?",
         "It may elevate readings until the patient voids",
         [
-            "It lowers systolic pressure by increasing vagal tone every time",
+            "It lowers systolic pressure by increasing vagal tone during the reading",
             "It removes audible Korotkoff sounds at normal cuff pressures",
             "It replaces orthostatic testing with a single supine value",
         ],
@@ -476,7 +476,7 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "Which action is inappropriate when obtaining routine vital signs in an outpatient exam room?",
-        "Placing every patient in steep head-down tilt for all measurements",
+        "Placing patients in steep head-down tilt for routine measurements",
         [
             "Supporting the arm at heart level during blood pressure on the chosen side",
             "Confirming two identifiers before attaching monitoring devices at the bedside",

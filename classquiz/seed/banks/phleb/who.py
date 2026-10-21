@@ -21,7 +21,7 @@ FACTS: list[dict] = [
         'One sterile needle and holder assembly per patient procedure without reuse',
         [
             'Reusing the needle if the sleeve looks clean',
-            'Sharing a multi-patient lancet after alcohol wipe only',
+            'Sharing a multi-patient lancet after an alcohol wipe',
             'Recapping used needles by hand for storage',
         ],
         'WHO links unsafe injection and phlebotomy practices to outbreaks of hepatitis B, hepatitis C, and HIV. Single-patient devices break the chain of bloodborne pathogen transmission.',
@@ -30,7 +30,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO guidance on health worker protection from sharps during blood collection stresses?',
+        'What does WHO guidance on health worker protection from sharps during blood collection stress?',
         'Eliminating unnecessary sharps and using safety-engineered devices when available',
         [
             'Disabling needle safety clips to save seconds',
@@ -48,7 +48,7 @@ FACTS: list[dict] = [
         [
             'A single poster without soap or alcohol rub at the draw station',
             'Punishing staff without providing supplies',
-            'Removing sinks to force glove use only',
+            'Removing sinks to force glove use',
         ],
         'WHO multimodal programs combine resources and accountability so hand hygiene is possible and measured. Culture reinforces technique at the bedside where phlebotomy occurs.',
         _HAND,
@@ -59,9 +59,9 @@ FACTS: list[dict] = [
         'Which pair of WHO hand hygiene moments apply before phlebotomy?',
         'Before touching the patient and before a clean or aseptic procedure such as skin antisepsis',
         [
-            'Only after eating lunch in the break room',
-            'Never after exposure to blood on gloves',
-            'Only at home before coming to work',
+            'After eating lunch in the break room',
+            'After an exposure to blood on gloves',
+            'At home before coming to work',
         ],
         'WHO defines five moments that map directly to identification, tourniquet placement, and antiseptic skin prep. Missing the pre-procedure moment undermines aseptic technique.',
         _HAND,
@@ -69,7 +69,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO alcohol-based hand rub technique requires?',
+        'What does the WHO alcohol-based hand rub technique require?',
         'Covering all hand surfaces until the product is completely dry',
         [
             'A single fingertip dip without spreading product',
@@ -82,7 +82,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'What should Phlebotomy aligned with WHO clean care include?',
+        'What should phlebotomy aligned with WHO clean care include?',
         'Hand hygiene before patient contact and aseptic preparation of the puncture site',
         [
             'Blowing on the antiseptic site to speed drying',
@@ -95,12 +95,12 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO recommends verifying phlebotomy competency?',
+        'When does WHO recommend verifying phlebotomy competency?',
         'Before independent practice and on a recurring schedule with observation',
         [
-            'Never after initial hire regardless of skill drift',
-            'Only by self-checklist without a trainer',
-            'Only for physicians, not specimen collectors',
+            'Once at initial hire regardless of later skill drift',
+            'By self-checklist without a trainer',
+            'For physicians rather than for specimen collectors',
         ],
         'Competency assessment catches technique errors that cause hemolysis, wrong tubes, or exposures. WHO treats skilled collectors as a patient-safety intervention.',
         _CPT,
@@ -108,7 +108,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Global patient safety for phlebotomy identification means?',
+        'What does global patient safety for phlebotomy identification mean?',
         'The right patient is confirmed with open-ended identifiers every draw',
         [
             'Assuming identity because the patient is in the expected bed',
@@ -121,10 +121,10 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO advocacy on safe injection practices forbids?',
+        'What does WHO advocacy on safe injection practices forbid?',
         'Using the same syringe to re-enter a vial or flush line for more than one patient',
         [
-            'Labeling a single-patient vial for one person only',
+            'Labeling a single-patient vial for one person',
             'Discarding a syringe after one patient use',
             'Using a new sterile syringe per medication administration',
         ],
@@ -147,10 +147,10 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO training for safe phlebotomy should cover?',
+        'What should WHO training for safe phlebotomy cover?',
         'Anatomy, technique, communication, waste handling, and exposure response',
         [
-            'Billing codes only without skills practice',
+            'Billing codes without skills practice',
             'Social media trends instead of standards',
             'No supervised return demonstration',
         ],
@@ -160,7 +160,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Patient-centered communication during phlebotomy per WHO safety culture should?',
+        'What should patient-centered communication during phlebotomy per WHO safety culture include?',
         'Explain the procedure, expected sensation, and post-puncture pressure care',
         [
             'Remain silent so the patient cannot refuse',
@@ -173,11 +173,11 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO quality indicators useful for phlebotomy services track?',
+        'What do WHO quality indicators useful for phlebotomy services track?',
         'Hemolysis rates, identification errors, and patient harm events',
         [
             'Staff hair color or uniform style',
-            'Parking lot capacity only',
+            'Parking lot capacity',
             'Number of pens at the draw station',
         ],
         'Measuring harm and pre-analytic errors drives corrective action. WHO patient safety programs rely on data, not anecdote, to improve collection systems.',
@@ -186,7 +186,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Occupational health programs supporting WHO workforce safety provide?',
+        'What do occupational health programs supporting WHO workforce safety provide?',
         'Hepatitis B vaccination and confidential post-exposure evaluation',
         [
             'Penalties for reporting needlestick injuries',
@@ -199,12 +199,12 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Specimen labeling errors in WHO patient safety frameworks are treated as?',
+        'How are specimen labeling errors in WHO patient safety frameworks treated?',
         'Preventable system failures requiring redesign, not blame alone',
         [
             'Minor paperwork acceptable when results look normal',
-            "Always the patient's fault for giving wrong name",
-            'Ignored unless a lawsuit occurs',
+            "The patient's fault when the wrong name is given",
+            'Ignored until a lawsuit occurs',
         ],
         'A mislabeled tube can cause catastrophic treatment decisions. WHO learning systems analyze root causes such as distractions or missing barcode workflows.',
         _CPT,
@@ -212,20 +212,22 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Safe blood collection in resource-limited settings per WHO still requires?',
+        'What does safe blood collection in resource-limited settings per WHO still require?',
         'Feasible minimum standards such as single-patient devices and segregated sharps waste',
         [
             'Reusing needles after informal boiling without validation',
             'Skipping identification when supplies are low',
             'Sharing gloves for an entire clinic day without change',
         ],
-        'Adaptation is not abandonment of core infection prevention. WHO guides pragmatic steps that remain effective where resources are constrained.',
+        'Adaptation is not abandonment of core infection prevention. '
+        'Boiling reused needles, dropping identification when supplies run short, and keeping gloves on for a whole clinic day each defeat the minimum standards WHO keeps. '
+        'WHO guides pragmatic steps that remain effective where resources are constrained.',
         _WHO,
         'intermediate',
     ),
     fact(
         'phleb-who',
-        'WHO encourages patients in laboratory safety to?',
+        'What does WHO encourage patients in laboratory safety to do?',
         'Speak up if name bands, labels, or tubes do not match',
         [
             'Stay silent to avoid delaying the line',
@@ -238,7 +240,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Documentation of phlebotomy incidents under WHO learning systems supports?',
+        'What does documentation of phlebotomy incidents under WHO learning systems support?',
         'Root cause analysis and prevention of recurrence',
         [
             'Deleting records to reduce liability',
@@ -251,7 +253,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Alignment between CLSI GP41 and WHO patient safety emphasizes?',
+        'What does alignment between CLSI GP41 and WHO patient safety emphasize?',
         'Correct patient, correct tube, and correct process on every collection',
         [
             'Random tube color selection to save time',
@@ -264,11 +266,11 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO surgical hand preparation principles parallel phlebotomy by stressing?',
+        'What do WHO surgical hand preparation principles parallel phlebotomy by stressing?',
         'Effective antisepsis before any skin-breaking procedure',
         [
             'Skipping hand hygiene whenever gloves are worn',
-            'Using non-antimicrobial lotion only',
+            'Using a non-antimicrobial lotion',
             'Sharing unwashed nail brushes between patients',
         ],
         'Invasive procedures share a need for clean hands and antiseptic technique. Phlebotomy is lower complexity than surgery but not lower responsibility for asepsis.',
@@ -282,7 +284,7 @@ FACTS: list[dict] = [
         [
             'Allowed if the outside is wiped with a dry cloth',
             'Encouraged in pediatrics to reduce cost',
-            'Required when only one tube is available',
+            'Required when one tube is available',
         ],
         'Carryover of cells, additives, or pathogens can corrupt results and infect staff. WHO single-use policies apply to all blood collection devices.',
         [S.WHO_INJECTION_SAFETY, S.CLSI_GP41],
@@ -290,7 +292,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO health system strengthening for phlebotomy includes ensuring?',
+        'What does WHO health system strengthening for phlebotomy include ensuring?',
         'Reliable supply of safety devices and puncture-proof waste containers',
         [
             'Eliminating training budgets to buy cheaper needles',
@@ -303,7 +305,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'When multi-dose vials are used near a draw station, WHO expects?',
+        'What does WHO expect when multi-dose vials are used near a draw station?',
         'Aseptic vial entry and beyond-use dating per institutional policy',
         [
             'Leaving a needle embedded in the rubber stopper between patients',
@@ -316,7 +318,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Global reduction of needlestick injuries is supported by?',
+        'What supports global reduction of needlestick injuries?',
         'Safety-engineered devices plus reporting and follow-up of exposures',
         [
             'Ignoring near-miss sticks as not important',
@@ -329,7 +331,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Patient education before venipuncture per WHO should cover?',
+        'What should patient education before venipunctomy per WHO cover?',
         'Purpose of tests, expected pinch, and holding pressure afterward',
         [
             'Guaranteeing abnormal results to motivate compliance',
@@ -342,8 +344,8 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO guidance to reduce unnecessary injections also implies for phlebotomy?',
-        'Collect only tubes medically indicated rather than drawing extra volume routinely',
+        'What does WHO guidance to reduce unnecessary injections also imply for phlebotomy?',
+        'Collect tubes that are medically indicated rather than drawing extra volume routinely',
         [
             'Drawing maximum tubes on every patient for stock',
             'Adding unordered tests to practice technique',
@@ -355,12 +357,12 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Community outreach blood screening using WHO principles must maintain?',
+        'What must community outreach blood screening using WHO principles maintain?',
         'The same infection prevention standards as hospital draw stations',
         [
             'Lower glove use because the event is outdoors',
             'Skipping sharps containers when crowds are large',
-            'Optional hand hygiene if water is inconvenient',
+            'Hand hygiene when water is inconvenient',
         ],
         'Setting does not change bloodborne pathogen risk. Mobile teams need puncture-resistant disposal and single-use devices like fixed sites.',
         _WHO,
@@ -368,7 +370,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Segregation of infectious and sharps waste per WHO means?',
+        'What does segregation of infectious and sharps waste per WHO mean?',
         'Sharps and blood-contaminated items are kept out of general municipal trash',
         [
             'Discarding needles in household waste bags',
@@ -381,10 +383,10 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'What policy should Post-exposure prophylaxis after a phlebotomy needlestick follow?',
+        'What policy should post-exposure prophylaxis after a phlebotomy needlestick follow?',
         'Facility protocol based on source patient risk and timely assessment',
         [
-            'Never offering evaluation to part-time staff',
+            'Offering no evaluation to part-time staff',
             'Identical drug regimens without any risk review',
             'Delaying assessment until the next work week',
         ],
@@ -394,20 +396,22 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO clean care focus during pediatric capillary collection still requires?',
+        'What does the WHO clean care focus during pediatric capillary collection still require?',
         'Single-use lancets and hand hygiene before and after the procedure',
         [
             'Rotating one spring-loaded device among siblings',
             'Skipping gloves because the blood volume is small',
-            'Cleaning the lancet with a dry tissue only',
+            'Cleaning the lancet with a dry tissue',
         ],
-        'Small volumes do not eliminate hepatitis or HIV transmission risk. Pediatric settings have documented outbreaks from reused fingerstick devices.',
+        'Small volumes do not eliminate hepatitis or HIV transmission risk. '
+        'Pediatric settings have documented outbreaks from reused fingerstick devices. '
+        'Sharing a spring-loaded device, working without gloves, and wiping the lancet with a dry tissue each preserve the transmission risk.',
         _WHO,
         'beginner',
     ),
     fact(
         'phleb-who',
-        'WHO patient safety curriculum promotes after phlebotomy errors?',
+        'What does the WHO patient safety curriculum promote after phlebotomy errors?',
         'Open disclosure and system fixes rather than secrecy',
         [
             'Blame-only investigations without process review',
@@ -420,7 +424,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'To reduce HCV and HIV transmission during venipuncture, WHO prioritizes?',
+        'What does WHO prioritize to reduce HCV and HIV transmission during venipuncture?',
         'Preventing needle reuse and protecting workers from percutaneous injuries',
         [
             'Squeezing blood without gloves to speed fills',
@@ -433,11 +437,11 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO recommends health workers including phlebotomists routinely apply?',
+        'What do WHO recommendations call for health workers including phlebotomists to apply routinely?',
         'Standard Precautions treating all blood as potentially infectious',
         [
             'Bare-hand technique whenever patients look healthy',
-            'Shared personal tourniquets never cleaned',
+            'Shared personal tourniquets that are rarely cleaned',
             'Optional consent for invasive collection',
         ],
         'Standard Precautions unify OSHA and CDC expectations with WHO global guidance. They apply in every country and clinical setting.',
@@ -446,20 +450,22 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Safe phlebotomy waste transport in WHO-aligned programs requires?',
+        'What does safe phlebotomy waste transport in WHO-aligned programs require?',
         'Closed, labeled containers handled by trained staff without public access',
         [
             'Dragging open boxes through public hallways',
             'Mixing food waste with blood-soaked gauze',
             'Storing full sharps boxes on the floor in patient pathways',
         ],
-        'Leak-proof containment prevents secondary exposures during housekeeping or transport. Full containers should be replaced before overfilling.',
+        'Leak-proof containment prevents secondary exposures during housekeeping or transport. '
+        'Full containers should be replaced before overfilling. '
+        'Open boxes in public hallways, food waste mixed with gauze, and full boxes on the floor each expose sharps waste to the public.',
         _BBP,
         'intermediate',
     ),
     fact(
         'phleb-who',
-        'WHO emphasis on single-use devices in low-resource clinics targets?',
+        'What does WHO emphasis on single-use devices in low-resource clinics target?',
         'Eliminating needle and lancet reuse between patients',
         [
             'Boiling needles once as a substitute for sterilization validation',
@@ -476,7 +482,7 @@ FACTS: list[dict] = [
         'Budgeting for safety needles, containers, and time for training',
         [
             'Pressuring staff to skip disposal to see more patients',
-            'Purchasing only cheapest conventional needles without evaluation',
+            'Purchasing the cheapest conventional needles without evaluation',
             'Discouraging reporting to keep injury rates looking low',
         ],
         'Administrative commitment determines whether frontline staff can follow guidelines. Underfunded safety programs fail despite individual effort.',
@@ -485,12 +491,12 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'When gloves are worn during WHO-aligned draws, hand hygiene is still needed?',
+        'Is hand hygiene still needed when gloves are worn during WHO-aligned draws?',
         'Before donning gloves and after removal when hands may be contaminated',
         [
-            'Never, because gloves replace all hygiene',
-            'Only once per week regardless of patient contact',
-            'Only after visible gross soil, never after blood contact',
+            'No, because gloves replace hand hygiene entirely',
+            'Once a week regardless of patient contact',
+            'After visible gross soil rather than after blood contact',
         ],
         'Gloves can tear or leak and do not protect against touch contamination of phones or labels. Hand hygiene breaks the chain between patients.',
         _HAND,
@@ -498,10 +504,10 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO global campaigns on injection safety expect facilities to audit?',
+        'What do WHO global campaigns on injection safety expect facilities to audit?',
         'Adherence to single-use policies and availability of sharps disposal',
         [
-            'Only patient satisfaction surveys about wait time',
+            'Patient satisfaction surveys about wait time',
             'Staff social media usage',
             'Parking assignments',
         ],
@@ -511,7 +517,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Explaining vasovagal risk during phlebotomy supports WHO safety by?',
+        'How does explaining vasovagal risk during phlebotomy support WHO safety?',
         'Positioning the patient safely and monitoring during and after the stick',
         [
             'Having dizzy patients stand alone to walk to the lab',
@@ -524,7 +530,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO ties phlebotomy safety to broader antimicrobial stewardship by?',
+        'How does WHO tie phlebotomy safety to broader antimicrobial stewardship?',
         'Discouraging unnecessary invasive procedures and specimens that do not change care',
         [
             'Ordering duplicate tubes on every patient by default',
@@ -537,10 +543,10 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'During an outbreak investigation, WHO phlebotomy practices are reviewed for?',
+        'During an outbreak investigation, what are WHO phlebotomy practices reviewed for?',
         'Reuse of devices, vial contamination, and breakdowns in hand hygiene',
         [
-            'Only cafeteria menu choices',
+            'Cafeteria menu choices',
             'Patient television channels',
             'Parking lot lighting',
         ],
@@ -550,11 +556,11 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'WHO recommends involving phlebotomists in safety committees to?',
+        'Why does WHO recommend involving phlebotomists in safety committees?',
         'Translate frontline barriers into practical policy and supply fixes',
         [
             'Exclude collectors from discussions about needle devices',
-            'Use them only for data entry without input',
+            'Use them for data entry without offering input',
             'Limit feedback to annual satisfaction surveys',
         ],
         'Collectors know when containers are missing or barcodes fail at the chair. Their input improves realistic workflows that leadership may not see.',

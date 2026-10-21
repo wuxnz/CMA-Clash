@@ -156,7 +156,7 @@ FACTS: list[dict] = [
         "Open, date, and draw the vial in a dedicated medication area",
         [
             "Whenever the stopper looks intact after alcohol swabbing each time",
-            "When all patients share the same morning clinic session",
+            "When the patients booked that morning share the same clinic session",
             "When the vial stayed in the refrigerator between patient rooms",
         ],
         "Shared multidose vials need controlled prep, dating, and aseptic technique, not intact rubber alone or shared scheduling. Refrigeration between rooms does not replace beyond-use dating and dedicated prep space.",
@@ -533,7 +533,7 @@ FACTS: list[dict] = [
         "When should you mix a vaccine that requires reconstitution?",
         "Immediately before administration for the dose you will give",
         [
-            "During morning prep for every patient scheduled that clinic day",
+            "During morning prep for the patients scheduled that clinic day",
             "When the multidose vial is first opened at the start of season",
             "After drawing diluent and holding it refrigerated until later",
         ],

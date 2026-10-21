@@ -14,11 +14,11 @@ _REF = [S.CLSI_GP41, S.NHA_CPT]
 FACTS: list[dict] = [
     fact(
         "phleb-site",
-        "Before venipuncture, patient identification should use?",
+        "Which identifiers should be used for patient identification before venipuncture?",
         "At least two unique identifiers verified against the order",
         [
             "Room number alone when the door chart matches",
-            "First name only when the patient verbally confirms",
+            "First name when the patient verbally confirms",
             "A photograph on the wristband without speaking to the patient",
         ],
         "CLSI GP41 ties safe collection to positive patient identification before any puncture. "
@@ -28,7 +28,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "The median cubital vein is often the first antecubital choice because it?",
+        "Why is the median cubital vein often the first antecubital choice?",
         "Is usually superficial, anchored, and away from major nerves",
         [
             "Runs deep beside the radial artery in every patient",
@@ -45,7 +45,7 @@ FACTS: list[dict] = [
         "When assessing a vein by palpation, the phlebotomist should evaluate?",
         "Size, depth, direction, and resilience without relying on color alone",
         [
-            "Skin tone only because veins always show through equally",
+            "Skin tone because veins show through equally in every patient",
             "Patient shoe size as a proxy for vessel diameter",
             "Insurance type to decide which arm to use",
         ],
@@ -56,7 +56,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "A tourniquet for routine venipuncture is typically placed?",
+        "Where is a tourniquet for routine venipuncture typically placed?",
         "Three to four inches (about 8, 10 cm) above the intended puncture site",
         [
             "Distal to the puncture site below the antecubital crease",
@@ -75,7 +75,7 @@ FACTS: list[dict] = [
         [
             "Five to ten minutes until every tube is labeled",
             "As long as needed even if petechiae appear",
-            "Only removed after the needle is fully withdrawn in every case",
+            "Removed after the needle is fully withdrawn in every case",
         ],
         "Prolonged venous stasis causes hemoconcentration and can falsely shift analytes such as potassium. "
         "GP41 emphasizes minimizing tourniquet time while still allowing successful vein entry.",
@@ -84,12 +84,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What for standard superficial venipuncture, needle bevel orientation is usually what?",
+        "For standard superficial venipuncture, what is the usual needle bevel orientation?",
         "Up (bevel facing upward) per facility training",
         [
             "Down against the vein floor in every patient",
             "Sideways parallel to the skin without anchoring",
-            "Random because bevel direction never affects entry",
+            "Random because bevel direction does not affect entry",
         ],
         "Bevel-up entry is the conventional technique taught for straight needles and many butterfly sets. "
         "Facility policy may vary slightly, but bevel-down insertion is not the default GP41-aligned approach.",
@@ -98,7 +98,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "The recommended needle insertion angle for venipuncture is typically?",
+        "What is the recommended needle insertion angle for venipuncture?",
         "15 to 30 degrees with controlled advancement",
         [
             "90 degrees perpendicular through the entire forearm",
@@ -112,7 +112,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "After initial vein entry, lowering the angle of the needle helps?",
+        "After initial vein entry, how does lowering the angle of the needle help?",
         "Advance along the lumen and stabilize the hub",
         [
             "Lift the vein away from surrounding tissue",
@@ -126,7 +126,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "How anchoring the vein during venipuncture is done how?",
+        "How is the vein anchored during venipuncture?",
         "Drawing the skin taut distal to the puncture site with the non-dominant hand",
         [
             "Pressing directly over the needle hub during insertion",
@@ -143,7 +143,7 @@ FACTS: list[dict] = [
         "What butterfly (winged infusion) needle sets are especially useful when?",
         "Veins are fragile, small, or require precise control",
         [
-            "Large-volume cultures must be drawn with the largest bore only",
+            "Large-volume cultures must be drawn with the largest bore",
             "Arterial blood gas sampling replaces venipuncture policy",
             "Tourniquet application can be skipped entirely",
         ],
