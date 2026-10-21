@@ -667,3 +667,48 @@ skill-injection-039 | fail | Epinephrine stock vault and pharmacy-only near-miss
 skill-injection-040 | fail | Warfarin IM hold vs proceed and silent-refusal near-misses.
 skill-injection-041 | fail | Glove order distractors reuse and partial hygiene near-misses.
 skill-injection-042 | fail | Vaccine freeze risk correct; potency-freeze and skip-log near-miss distractors.
+
+## Parallel-options pass batch P01 (skill-vitals-001 to skill-vitals-042)
+
+skill-vitals-001 | fail | Parallel resting pulse rate bands; removed absolute/every-adult phrasing in distractors.
+skill-vitals-002 | fail | Cuff bladder width distractors as parallel upper-arm percentages; dropped forearm/wrist mix.
+skill-vitals-003 | fail | Hydrostatic rationale distractors as parallel To-clauses; stripped outpatient padding tail.
+skill-vitals-004 | fail | Pre-BP rest timing distractors parallel; no filler tails.
+skill-vitals-005 | fail | Korotkoff phase distractors as parallel BP definitions; removed oximetry padding option.
+skill-vitals-006 | fail | Diastolic vs systolic/MAP near-miss distractors parallel; venous pressure removed.
+skill-vitals-007 | fail | Respiratory rate bands parallel; pulse-rate confusion distractor aligned in structure.
+skill-vitals-008 | fail | Oral temperature range distractors as parallel Fahrenheit spans.
+skill-vitals-009 | fail | Site-difference distractors as parallel measurement-error mechanisms; no glucose myth.
+skill-vitals-010 | fail | Axillary vs oral comparison distractors parallel signed deltas and match claims.
+skill-vitals-011 | fail | SpO2 normal band distractors parallel percent ranges.
+skill-vitals-012 | fail | Urgent hypoxemia vs benign exertion and O2-on-order near-misses parallel.
+skill-vitals-013 | fail | Undersized cuff effect distractors parallel raise/lower/Korotkoff myths.
+skill-vitals-014 | fail | Oversized cuff effect distractors mirror 013 structure.
+skill-vitals-015 | fail | Two-identifier correct; room/name/insurance distractors parallel without padding.
+skill-vitals-016 | fail | BP documentation element distractors as partial-chart near-misses; length balanced.
+skill-vitals-017 | fail | Orthostatic definition distractors parallel position protocols; padding removed.
+skill-vitals-018 | fail | Standing wait timing distractors parallel duration near-misses.
+skill-vitals-019 | fail | Apical site distractors as parallel anatomic landmarks; popliteal padding removed.
+skill-vitals-020 | fail | Apical full-minute indication distractors parallel clinical scenarios.
+skill-vitals-021 | fail | Irregular pulse counting method distractors parallel technique near-misses.
+skill-vitals-022 | fail | Oral fever threshold distractors parallel temperature values and sites.
+skill-vitals-023 | fail | Pain scale distractors parallel what-is-measured near-misses; BP padding removed.
+skill-vitals-024 | fail | Infant vs adult rate comparison distractors parallel comparative statements.
+skill-vitals-025 | fail | Infant respiratory rate band distractors parallel breaths-per-minute ranges.
+skill-vitals-026 | fail | Scale calibration rationale distractors parallel false benefits; shoe padding removed.
+skill-vitals-027 | fail | Height technique distractors parallel posture/measurement near-misses.
+skill-vitals-028 | fail | BMI formula distractors parallel incorrect anthropometric calculations.
+skill-vitals-029 | fail | Automated BP limitation distractors parallel device myths; screen/ankle padding removed.
+skill-vitals-030 | fail | Stethoscope placement distractors parallel artery landmarks; radial padding removed.
+skill-vitals-031 | fail | Pre-BP smoking effect distractors parallel nicotine myths.
+skill-vitals-032 | fail | Full-bladder BP effect distractors parallel autonomic near-misses.
+skill-vitals-033 | fail | Fifth vital sign rationale distractors parallel documentation myths.
+skill-vitals-034 | fail | Inappropriate vitals action stem kept; appropriate actions as parallel distractors without padding.
+skill-vitals-035 | fail | Core temperature sites as parallel short labels (Rectal, Oral, Tympanic membrane, Temporal artery).
+skill-vitals-036 | fail | Mercury thermometer replacement distractors parallel safety and accuracy myths.
+skill-vitals-037 | fail | Forehead thermometer limitation distractors parallel over-trust myths; green-text padding removed.
+skill-vitals-038 | fail | Cap refill interpretation distractors parallel perfusion/temperature/pain near-misses.
+skill-vitals-039 | fail | MAP estimate distractors parallel incorrect formulas.
+skill-vitals-040 | fail | Hypertensive emergency BP pattern distractors parallel stable/normotensive near-misses.
+skill-vitals-041 | fail | Athlete bradycardia interpretation distractors parallel escalation myths; lab padding removed.
+skill-vitals-042 | fail | Abnormal vitals reporting timing distractors parallel delay/preferences; appointment padding removed.
