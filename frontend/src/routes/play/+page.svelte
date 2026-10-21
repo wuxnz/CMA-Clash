@@ -60,8 +60,14 @@ SPDX-License-Identifier: MPL-2.0
 		ensurePlaySocketSession,
 		emitRejoinFromCookie,
 		normalizePlayPin,
-		persistJoinedGameCookie
+		persistJoinedGameCookie,
+		preparePlaySessionForPin,
+		readJoinedGameCookie
 	} from '$lib/play/player-socket-session';
+	import {
+		markPlaySocketBound,
+		setExpectedPlayPin
+	} from '$lib/play/play-socket-pin';
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import {
 		bindPlayPageSocketHandlers,
@@ -99,9 +105,13 @@ SPDX-License-Identifier: MPL-2.0
 		if (!browser) return;
 		const urlPin = normalizePlayPin(data.game_pin);
 		if (urlPin.length < 6) return;
-		clearJoinedGameCookieIfPinMismatch(urlPin);
 		if (urlPin !== normalizePlayPin(playSessionPin)) {
+			setExpectedPlayPin(urlPin);
+			preparePlaySessionForPin(urlPin);
 			resetPlayStateForPin(urlPin);
+		} else {
+			setExpectedPlayPin(urlPin);
+			clearJoinedGameCookieIfPinMismatch(urlPin);
 		}
 	});
 
@@ -173,8 +183,11 @@ SPDX-License-Identifier: MPL-2.0
 			if (latestQuestionIndex > closedQuestionIndex) {
 				return;
 			}
-			const cookie_data = Cookies.get('joined_game');
-			if (!cookie_data || !socket.connected) {
+			const cookie = readJoinedGameCookie();
+			if (!cookie || !socket.connected) {
+				return;
+			}
+			if (normalizePlayPin(cookie.game_pin) !== normalizePlayPin(game_pin)) {
 				return;
 			}
 			emitRejoinFromCookie(game_pin);
@@ -360,6 +373,7 @@ SPDX-License-Identifier: MPL-2.0
 				if (gameData?.game_mode != null) {
 					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 				}
+				markPlaySocketBound(game_pin);
 				// eslint-disable-next-line no-undef
 				plausible('Joined Game', { props: { game_id: gameData?.game_id } });
 				persistJoinedGameCookie(username, game_pin);
@@ -372,6 +386,7 @@ SPDX-License-Identifier: MPL-2.0
 				if (gameData?.game_mode != null) {
 					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 				}
+				markPlaySocketBound(game_pin);
 				if (username && game_pin) {
 					persistJoinedGameCookie(username, game_pin);
 				}

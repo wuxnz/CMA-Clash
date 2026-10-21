@@ -24,3 +24,18 @@ async def save_session(sid: str, sio: AsyncServer, data: Any, disconnect_on_erro
     if session_id is None:
         raise ConnectionRefusedError("Session not configured")
     await redis.set(f"socket_io_session:{session_id}", json.dumps(data), ex=3600)
+
+
+async def leave_game_rooms(sio: AsyncServer, sid: str, game_pin: str | None) -> None:
+    if not game_pin:
+        return
+    await sio.leave_room(sid, game_pin)
+    await sio.leave_room(sid, f"admin:{game_pin}")
+
+
+async def detach_socket_from_prior_game(sio: AsyncServer, sid: str) -> None:
+    try:
+        prior = await get_session(sid, sio, disconnect_on_error=False)
+    except ConnectionRefusedError:
+        return
+    await leave_game_rooms(sio, sid, prior.get("game_pin"))
