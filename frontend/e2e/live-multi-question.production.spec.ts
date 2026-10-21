@@ -44,6 +44,22 @@ async function waitForRevealPoints(page: import('@playwright/test').Page, min = 
 	return last;
 }
 
+async function scoreboardTotalForPlayer(
+	page: import('@playwright/test').Page,
+	playerName: string
+): Promise<number> {
+	const row = page.getByTestId('scoreboard-row').filter({ hasText: playerName });
+	await expect(row).toBeVisible({ timeout: 12_000 });
+	let total = 0;
+	await expect
+		.poll(async () => {
+			total = Number((await row.locator('td').last().innerText()).replace(/[^\d]/g, ''));
+			return total;
+		}, { timeout: 20_000 })
+		.toBeGreaterThan(0);
+	return total;
+}
+
 async function expectRevealStats(
 	page: import('@playwright/test').Page,
 	revealTimeoutMs = 45_000
@@ -108,13 +124,14 @@ test.describe('production live multi-question UI', () => {
 
 			const rankingsStart = Date.now();
 			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 12_000 });
-			const q1BoardTotal = Number(
-				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
-					/[^\d]/g,
-					''
-				)
-			);
-			expect(q1BoardTotal).toBe(q1RevealDelta);
+			const p1Name = `P1${suffix}`;
+			let q1BoardTotal = 0;
+			await expect
+				.poll(async () => {
+					q1BoardTotal = await scoreboardTotalForPlayer(p1, p1Name);
+					return q1BoardTotal;
+				}, { timeout: 20_000 })
+				.toBe(q1RevealDelta);
 			expect(await p1.getByTestId('scoreboard-row').count()).toBeLessThanOrEqual(5);
 			await p1.screenshot({
 				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-scoreboard-q1.png`),
@@ -134,18 +151,19 @@ test.describe('production live multi-question UI', () => {
 			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
 			const q2RevealDelta = await waitForRevealPoints(p1);
 			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
-			const q2BoardTotal = Number(
-				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
-					/[^\d]/g,
-					''
-				)
-			);
-			expect(q2BoardTotal).toBe(q1BoardTotal + q2RevealDelta);
+			await expect
+				.poll(async () => scoreboardTotalForPlayer(p1, p1Name), { timeout: 20_000 })
+				.toBe(q1BoardTotal + q2RevealDelta);
 
 			await new Promise((r) => setTimeout(r, 14_000));
 
 			await expectPlayerAdvancedToNextQuestion(p1, 'P1 Q3');
 			await expectPlayerAdvancedToNextQuestion(p2, 'P2 Q3');
+
+			await p1.screenshot({
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-q3-tiles.png`),
+				fullPage: true
+			});
 
 			lobby.close();
 			await p1Ctx.close();

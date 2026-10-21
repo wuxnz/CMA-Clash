@@ -28,8 +28,12 @@ export function isKahootStyleMode(gameMode: unknown): boolean {
 
 function questionTypeKey(type: unknown): string | null {
 	if (type == null) return null;
-	if (typeof type === 'string') return type;
-	return String(type);
+	if (typeof type === 'string') {
+		const trimmed = type.trim();
+		return trimmed === '' ? null : trimmed.toUpperCase();
+	}
+	const asString = String(type).trim();
+	return asString === '' ? null : asString.toUpperCase();
 }
 
 /** ABCD / voting questions rendered as the 2×2 tile grid on player devices. */
