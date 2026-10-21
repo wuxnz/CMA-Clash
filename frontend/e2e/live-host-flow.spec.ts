@@ -80,7 +80,7 @@ test.describe('live host navbar flow', () => {
 		const pin = await startFromNavbarHost(hostPage, 'On player devices');
 		const playerPage = await joinPlayer(await browser.newContext(), pin, 'PlayerB1');
 
-		await hostPage.keyboard.press('Enter');
+		await hostPage.getByRole('button', { name: /start game/i }).click({ timeout: 90_000 });
 		await expect(hostPage.getByText(/Players see the question/i)).toBeVisible({ timeout: 90_000 });
 		await expect(playerPage.getByText(/Which|Is|Do/i).first()).toBeVisible({ timeout: 90_000 });
 
