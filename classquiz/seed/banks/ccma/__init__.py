@@ -18,6 +18,7 @@ from .vaccines import FACTS as VACCINES_FACTS
 from .diabetes import FACTS as DIABETES_FACTS
 from .expansion_batch_01 import FACTS as EXPANSION_BATCH_01_FACTS
 from .expansion_batch_02 import FACTS as EXPANSION_BATCH_02_FACTS
+from .expansion_batch_03 import FACTS as EXPANSION_BATCH_03_FACTS
 
 FACTS: list[dict] = (
     ADMIN_FACTS
@@ -32,6 +33,7 @@ FACTS: list[dict] = (
     + VACCINES_FACTS
     + DIABETES_FACTS
     + EXPANSION_BATCH_01_FACTS
+    + EXPANSION_BATCH_02_FACTS
 )
 
 __all__ = [
@@ -48,5 +50,6 @@ __all__ = [
     "VACCINES_FACTS",
     "DIABETES_FACTS",
     "EXPANSION_BATCH_01_FACTS",
+    "EXPANSION_BATCH_02_FACTS",
 ]
 
