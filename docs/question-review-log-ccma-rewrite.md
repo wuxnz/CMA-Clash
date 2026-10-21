@@ -580,3 +580,205 @@ ccma-admin-039 | fail | Social-feed/password joke scan distractors.
 ccma-admin-039 | pass | Wrong chart, encounter, and filename near-misses.
 ccma-transmission-003 | fail | promote? stem; mask-reuse distractor too obvious.
 ccma-transmission-003 | pass | Full goal stem; hand hygiene and rash near-misses.
+
+## Near-miss and tier pass run 2026-10-21 (99 items; IDs in `docs/ccma-run-rewritten-ids-2026-10-21.txt`)
+
+Each line below: prior state fail, then pass after this run.
+ccma-clinical-care-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-clinical-care-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-clinical-care-048 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-clinical-care-048 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-clinical-care-060 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-clinical-care-060 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-diabetes-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-diabetes-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-diabetes-057 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-diabetes-057 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-transmission-003 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-transmission-003 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-transmission-019 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-transmission-019 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-003 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-003 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-005 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-005 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-009 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-009 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-012 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-012 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-017 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-017 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-018 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-018 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-022 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-022 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-030 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-032 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-032 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-033 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-033 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-034 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-034 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-037 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-037 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-038 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-038 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-039 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-039 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-040 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-040 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-041 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-041 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-042 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-042 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-043 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-043 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-044 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-044 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-045 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-045 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-046 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-046 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-011 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-011 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-018 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-018 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-019 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-019 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-020 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-020 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-021 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-021 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-022 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-022 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-023 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-023 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-024 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-024 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-025 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-025 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-028 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-028 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-034 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-034 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-037 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-037 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-038 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-038 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-039 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-039 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-040 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-040 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-041 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-041 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-042 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-042 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-043 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-043 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-044 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-044 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-045 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-045 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-046 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-046 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-047 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-047 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-050 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-050 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-053 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-053 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-054 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-054 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-055 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-055 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-058 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-058 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-060 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-060 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-061 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-061 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-003 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-003 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-007 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-007 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-023 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-023 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-024 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-024 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-026 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-026 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-038 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-038 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-041 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-041 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-043 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-043 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-049 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-049 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-012 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-012 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-026 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-026 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-027 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-027 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-030 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-044 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-044 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-045 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-045 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-049 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-049 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-050 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-050 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-002 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-002 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-011 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-011 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-020 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-020 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-021 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-021 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-028 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-028 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-034 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-034 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-037 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-037 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-040 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-040 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-016 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-016 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-017 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-017 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-024 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-024 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-communication-020 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-communication-020 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-communication-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-communication-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-communication-051 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-communication-051 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-009 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-009 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-030 | pass | Near-miss distractors and/or scenario tier fix this run.

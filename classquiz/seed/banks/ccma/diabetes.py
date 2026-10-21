@@ -491,9 +491,9 @@ FACTS: list[dict] = [
         "Under CLIA, how are most point-of-care blood glucose meters classified when used according to manufacturer instructions?",
         "Waived tests with defined personnel and quality requirements",
         [
-            "High-complexity tests requiring a pathologist on site for every fingerstick",
-            "Exempt from infection control and documentation standards",
-            "Laboratory-developed tests with no FDA oversight",
+            "Moderate-complexity laboratory procedures",
+            "Provider-performed microscopy in the point-of-care setting",
+            "High-complexity testing whenever the patient is critically ill in the clinic",
         ],
         "Waived status still obligates trained operators, control testing, and policies that align with the Clinical Laboratory Improvement Amendments and facility protocols.",
         ["FDA: CLIA Waived Tests — https://www.fda.gov/medical-devices/ivd-regulatory-assistance/clia-waived-tests", "American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.NHA_CCMA],
@@ -800,7 +800,7 @@ FACTS: list[dict] = [
         "Glucose values, relevant symptoms, interventions provided, and patient response",
         [
             "Subjective food preferences without glucose values, symptoms, interventions, or response",
-            "Identifying details about unrelated patients in the same note",
+            "Subjective diet preferences without glucose values or interventions documented",
             "Narrative entries that omit numeric results and times",
         ],
         "Accurate, timely charting supports safe handoffs, billing integrity, and quality measurement across the care team.",

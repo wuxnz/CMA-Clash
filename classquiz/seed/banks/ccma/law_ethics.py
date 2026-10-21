@@ -29,7 +29,7 @@ FACTS: list[dict] = [
         'What does fidelity mean as an ethical obligation in patient care?',
         'Keeping promises and honoring professional duties to patients and employers',
         [
-            'Sharing identifiable patient stories on personal social media',
+            'Breaking confidentiality when a patient shares sensitive information in trust',
             'Leaving assigned patients without notifying a qualified replacement',
             'Performing tasks beyond training without telling the supervising provider',
         ],
@@ -157,7 +157,7 @@ FACTS: list[dict] = [
         [
             'Call the parent and disclose all visit details before checking whether confidentiality applies',
             'Refuse all laboratory testing for patients under 18 regardless of state law',
-            'Post normal results on a public social media page to reduce phone calls',
+            'Leave results on the patient portal without confirming confidential minor consent rules',
         ],
         'Many states allow minors to consent to certain sensitive services; HIPAA still requires safeguarding PHI. Automatic parental notification or public disclosure may be illegal and unethical.',
         [S.NHA_CCMA],
@@ -281,7 +281,7 @@ FACTS: list[dict] = [
         'You suspect a coworker is practicing while impaired by alcohol or drugs. What is the appropriate first step?',
         'Notify a supervisor or follow the facility\'s policy for reporting impaired practice',
         [
-            'Describe the coworker\'s behavior on a public social media post',
+            'Ask other staff to monitor the coworker without notifying leadership',
             'Say nothing because loyalty to colleagues matters more than safety',
             'Physically confront the coworker in the patient waiting area',
         ],
@@ -297,7 +297,7 @@ FACTS: list[dict] = [
         [
             'The estimated patient responsibility on the billing statement',
             'A guarantee that no complication will ever occur',
-            'Contact information for staff personal social media accounts',
+            'Names of every staff member who will enter the operating room',
         ],
         'Informed consent rests on meaningful disclosure, not billing alone. Outcomes cannot be guaranteed, and unrelated personal details do not substitute for clinical education.',
         [S.NHA_CCMA],
@@ -422,7 +422,7 @@ FACTS: list[dict] = [
         'State scope-of-practice rules and the supervising provider\'s delegation policy',
         [
             'Whatever the patient prefers if they sign a waiver',
-            'Popular advice on social media from non-licensed influencers',
+            'Verbal instructions from a family member who works in another clinic',
             'The MA\'s personal comfort level with medications',
         ],
         'Medical assistants work under licensed supervision with tasks defined by law and employer policy. Patient requests and informal tips do not expand legal authority to practice medicine.',
@@ -520,7 +520,7 @@ FACTS: list[dict] = [
         'Decline or follow facility policy on gifts and keep the relationship professional',
         [
             'Accept all gifts because refusal might hurt the patient\'s feelings',
-            'Exchange social media friend requests to discuss care informally',
+            'Accept frequent home-cooked meals during every office visit',
             'Agree to provide care when gifts are received',
         ],
         'Accepting substantial gifts or blurring personal lines can create undue influence and boundary problems. Policies help staff respond consistently without abandoning courteous care.',
@@ -533,7 +533,7 @@ FACTS: list[dict] = [
         'In health care law, battery most often refers to which action?',
         'Performing a procedure or touching a patient without valid consent or legal authority',
         [
-            'Using rude language during a heated argument in the parking lot',
+            'Raising your voice to match the patient without seeking assistance',
             'Submitting an incorrect insurance code with no patient contact',
             'Running fifteen minutes behind schedule on a busy clinic day',
         ],
@@ -563,7 +563,7 @@ FACTS: list[dict] = [
         [
             'Complete the task immediately to avoid slowing the schedule',
             'Poll waiting-room patients about whether the task seems legal',
-            'Post the question on a personal social media page for quick opinions',
+            'Ask the patient waiting next in line whether the task seems appropriate',
         ],
         'When legality or scope is unclear, use internal escalation paths. Rushing, informal crowdsourcing, or public posts can increase patient risk and personal liability.',
         [S.NHA_CCMA],

@@ -45,7 +45,7 @@ FACTS: list[dict] = [
         [
             'Encourage sharing login credentials with family members by default',
             'Use portal messages for chest pain or other emergencies',
-            'Post laboratory results on public social media for convenience',
+            'Share portal login credentials with adult children by default',
         ],
         'Portals improve access to results and messaging but are not a substitute for emergency services. Credential sharing and public posting violate privacy expectations.',
         [S.NHA_CCMA],
@@ -100,7 +100,7 @@ FACTS: list[dict] = [
         'Reason for consult, urgency, and pertinent clinical findings',
         [
             'The patient\'s favorite color as the sole clinical note',
-            'Links to unrelated personal social media profiles',
+            'Demographics and insurance ID without clinical indication or urgency',
             'Front-desk staff scheduling preferences as the sole referral content',
         ],
         'Complete referral data helps the specialist prepare and prioritize the visit. Nonclinical trivia does not support safe handoffs between providers.',
@@ -325,7 +325,7 @@ FACTS: list[dict] = [
         [
             'Market unrelated retail products during the call',
             'Replace annual wellness visits with phone outreach alone',
-            'Discuss patient names and results on public social networks',
+            'Leave voicemail messages with full laboratory values on a shared family line',
         ],
         'Outreach targets evidence-based screenings that improve early detection and chronic disease control. It supplements clinical visits rather than replacing them and must stay confidential.',
         [S.NHA_CCMA],
@@ -338,7 +338,7 @@ FACTS: list[dict] = [
         'Submit clinical documentation supporting medical necessity to the payer',
         [
             'Rely on the patient\'s verbal assurance that insurance will pay',
-            'Post the order on a public website for faster approval',
+            'Submit the order to the payer without supporting clinical documentation',
             'Proceed with imaging without contacting the payer',
         ],
         'Payers review diagnosis, indications, and prior treatments before approving high-cost studies. Starting without authorization commonly results in denial and patient financial liability.',
@@ -351,7 +351,7 @@ FACTS: list[dict] = [
         'When completing a prior authorization request for physical therapy, which supporting information do payers usually need?',
         'Clinical notes that document medical necessity for the ordered service',
         [
-            'A list of the patient\'s hobbies unrelated to the condition',
+            'Diagnosis codes without symptoms, medications, or functional status',
             'Random diagnosis codes chosen to match the fee schedule',
             'Deleted visit documentation to shorten the packet',
         ],
@@ -367,7 +367,7 @@ FACTS: list[dict] = [
         [
             'Contact brand-new patients while omitting established panel members',
             'Remove patients from the list after refusal without charting the discussion',
-            'Post patient names and due dates on an unencrypted public website',
+            'Export the recall list to a shared drive folder without access controls',
         ],
         'Recall workflows depend on consistent outreach and accurate lists. Undocumented refusals and privacy breaches undermine gap closure and violate confidentiality expectations.',
         [S.NHA_CCMA],
@@ -534,7 +534,7 @@ FACTS: list[dict] = [
         'Assess barriers such as transport or work schedule and adjust outreach per policy',
         [
             'Automatically discharge the patient from the practice without contact',
-            'Discuss the patient\'s attendance on a public social media page',
+            'Document no-show letters without attempting barrier assessment or outreach',
             'Ignore the pattern because reminders were sent once',
         ],
         'No-shows often reflect access, literacy, or social barriers rather than disinterest. Structured outreach and documentation support engagement and medicolegal clarity.',
@@ -575,7 +575,7 @@ FACTS: list[dict] = [
         'When booking a colonoscopy or other diagnostic procedure, what should the scheduler verify with the patient?',
         'Preparation instructions and prior authorization when the payer requires it',
         [
-            'Social media account names for appointment reminders without prep instructions',
+            'Preferred appointment day without bowel prep or authorization details',
             'Footwear size for unrelated orthopedic billing',
             'Vaccine lot numbers with no connection to the ordered test',
         ],
@@ -605,7 +605,7 @@ FACTS: list[dict] = [
         'Clinical urgency, provider instructions, and patient availability',
         ['The color of the patient\'s clothing',
         'Whether the front desk prefers morning breaks',
-        'Unrelated social media posts'],
+        'Insurance member ID without clinical context'],
         'Scheduling should reflect medical need and ordered follow-up intervals. Cosmetic or staff convenience factors do not determine safe return intervals.',
         [S.NHA_CCMA],
         'beginner',
@@ -677,7 +677,7 @@ FACTS: list[dict] = [
         'Signed orders describing skilled needs and frequency',
         ['A handwritten grocery list',
         'Unrelated school transcripts',
-        'Social media screenshots'],
+        'Insurance card copy without skilled orders'],
         'Payers require authorized plans of care. Nonclinical documents do not establish medical necessity for home visits.',
         [S.NHA_CCMA],
         'intermediate',

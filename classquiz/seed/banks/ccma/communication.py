@@ -283,7 +283,7 @@ FACTS: list[dict] = [
         [
             'Continue arguing in front of patients in the waiting room',
             'Give each other silent treatment while patients wait for help',
-            'Post details of the disagreement on personal social media',
+            'Ask the practice manager to settle the dispute during peak patient check-in',
         ],
         'Patients expect a calm, coordinated environment. Resolving conflict away from public view protects dignity and prevents care delays.',
         [S.NHA_CCMA],
@@ -491,9 +491,9 @@ FACTS: list[dict] = [
         'The provider is running more than thirty minutes behind. How should staff communicate with waiting patients?',
         'Give honest delay updates and revised timing estimates when available',
         [
-            'Withhold wait information until someone complains loudly in the lobby',
+            'Post a sign that the provider is busy without giving estimated wait times',
             'Tell patients the delay is because they arrived before the physician was ready',
-            'Close the check-in desk without informing patients already seated',
+            'Ask patients to reschedule every delayed appointment without offering updates',
         ],
         'Transparent updates reduce anxiety and help patients reschedule errands or childcare. Silence or blame shifts frustration onto individuals who cannot control clinic flow.',
         [S.NHA_CCMA],
@@ -718,7 +718,7 @@ FACTS: list[dict] = [
         [
             'Address them loudly at the front desk while matching their volume',
             'Continue routine check-in tasks without acknowledging their distress',
-            'Quote average wait times for other patients waiting in the lobby',
+            'Offer to discuss the issue at the front desk where others can overhear',
         ],
         'Privacy and calm communication support de-escalation. Public confrontation or comparisons escalate tension and may breach confidentiality.',
         [S.NHA_CCMA],

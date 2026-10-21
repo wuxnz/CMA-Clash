@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             'By staff estimate without a thermometer',
             'In Fahrenheit with no conversion records',
-            'By checking the clinic parking lot thermometer',
+            'Using the wall thermostat reading from the front office',
         ],
         'CDC ranges and excursion thresholds are defined in Celsius for vaccine refrigerators. Calibrated probes or loggers provide auditable data; guesswork cannot prove the cold chain stayed in range.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -239,7 +239,7 @@ FACTS: list[dict] = [
         'How should expired or unused vaccine doses be handled in the clinic?',
         'Document the waste and dispose per facility and immunization program policy',
         [
-            'Pour remaining liquid down the sink',
+            'Return partial vials to the refrigerator for the next patient',
             'Offer doses to staff as personal supplies',
             'Pool partial doses into one syringe for the next patient',
         ],
@@ -505,9 +505,9 @@ FACTS: list[dict] = [
         'Where should clinically significant post-vaccination adverse events be reported when appropriate?',
         'The Vaccine Adverse Event Reporting System (VAERS)',
         [
-            'On personal social media accounts',
+            'In the patient chart only, with no report to the immunization safety system',
             'Nowhere because vaccine reactions are not tracked',
-            'The patient\'s neighbors for informal monitoring',
+            'To the vaccine manufacturer sales representative who visited last month',
         ],
         'VAERS is the national early-warning system used to detect possible safety signals. Formal reporting complements clinical documentation and does not replace medical evaluation of the patient.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],

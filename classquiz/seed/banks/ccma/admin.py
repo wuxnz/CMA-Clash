@@ -43,9 +43,9 @@ FACTS: list[dict] = [
         "What information does a superbill or encounter form capture for billing staff?",
         "Diagnoses, procedures performed, and charges for the visit",
         [
-            "Kitchen supply orders and staff meal preferences",
-            "Parking assignments for the waiting lot",
-            "Unrelated social media account names",
+            "Procedure codes without linked diagnosis pointers",
+            "Charges posted without units or service dates",
+            "Patient demographic updates without encounter diagnoses",
         ],
         "Superbills translate the clinical encounter into codable data for claims. Supply and parking details are operational, not claim drivers.",
         [S.NHA_CCMA],
@@ -72,8 +72,8 @@ FACTS: list[dict] = [
         "They report the patient's diagnoses and reasons for the encounter",
         [
             "They list surgical instrument sterilization times",
-            "They document nursing shift handoffs",
-            "They describe refrigerator temperature logs",
+            "They document nursing shift handoffs as the primary diagnosis",
+            "They report supply par levels for exam room stock",
         ],
         "Diagnosis codes establish medical necessity for billed services. Environmental logs and staffing notes are not ICD-10-CM purposes.",
         [S.NHA_CCMA],
@@ -128,8 +128,8 @@ FACTS: list[dict] = [
         "Member identifier, group number, and coverage effective dates",
         [
             "Card background color and font style",
-            "Employer picnic schedule",
-            "Patient shoe size",
+            "Payer phone number without member or group identifiers",
+            "Prior plan name without updating effective dates",
         ],
         "Payers route claims using member and group identifiers with effective dates. Cosmetic card features do not determine eligibility.",
         [S.NHA_CCMA],
@@ -171,7 +171,7 @@ FACTS: list[dict] = [
         [
             "It matches patient hobbies to payroll deductions",
             "It ties parking citations to laboratory orders",
-            "It connects marketing clicks to vital sign flowsheets",
+            "It links nursing vital signs to payroll tax withholdings",
         ],
         "Charge capture depends on accurate code linkage from the encounter. Nonclinical data do not generate insurable claims.",
         [S.NHA_CCMA],
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         "Follow written financial policy and issue receipts when required",
         [
             "Waive balances informally for acquaintances without documentation",
-            "Post payment amounts on a public lobby board",
+            "Collect a flat cash amount without checking the eligibility copay",
             "Ignore contracted copay amounts on the eligibility response",
         ],
         "Consistent policy application supports fairness and audits. Public posting of payments violates privacy expectations.",
@@ -254,7 +254,7 @@ FACTS: list[dict] = [
         "Charges posted, payments received, and adjustments for that business day",
         [
             "Patient birth dates for the calendar year",
-            "Regional weather forecasts",
+            "Year-to-date revenue without daily payment detail",
             "Personal staff vacation requests",
         ],
         "Day sheets reconcile cash drawers and posting batches. Demographic lists and weather are unrelated to daily financial totals.",
@@ -310,7 +310,7 @@ FACTS: list[dict] = [
         "Federal and state law, accreditation standards, and organizational policy",
         [
             "Whichever staff member prefers the shortest period",
-            "Informal polls on social media",
+            "The same interval used for general office supply invoices",
             "Text messages from patients without documentation",
         ],
         "Retention schedules are governed by legal and accreditation rules. Individual preference or informal polls do not set retention.",
@@ -418,14 +418,14 @@ FACTS: list[dict] = [
     # ccma-admin-030
     fact(
         "ccma-admin",
-        "When may protected health information be disclosed to an outside attorney?",
-        "The patient signs a valid HIPAA authorization naming the attorney or another permitted disclosure applies",
+        "An attorney's office faxes a records request for a current patient. The cover sheet shows firm letterhead and a HIPAA authorization, but the printed patient name is one letter different from the chart while date of birth matches. What should staff do before releasing information?",
+        "Follow policy to verify patient identity and confirm the authorization matches the correct chart",
         [
-            "The attorney sends firm letterhead by fax without patient authorization",
-            "A family member requests records for estate planning without patient consent",
-            "Staff release records because the patient treated at the clinic last year",
+            "Release the full chart because the date of birth matches even if the printed name differs",
+            "Release records because firm letterhead establishes legal authority without further checks",
+            "Release to any caller who can state the patient's last visit date without verifying authorization",
         ],
-        "Attorney requests require authorization or another HIPAA exception. Curiosity or generic signage does not authorize disclosure.",
+        "Valid disclosure requires a correct authorization tied to the right individual. Similar names and partial identifiers are a common source of misdirected PHI.",
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
         "advanced",
     ),
@@ -435,13 +435,13 @@ FACTS: list[dict] = [
         "What does a signed release of information (ROI) form authorize?",
         "Disclosure of specified health information to named recipients",
         [
-            "Automatic posting of the chart on a public website",
+            "Disclosure of the entire chart to any caller who knows the patient name",
             "Deletion of every diagnosis from the legal record",
             "Unlimited use of data for unrelated product marketing",
         ],
         "ROI forms define who may receive which records. They do not permit marketing or destruction of legally required documentation.",
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-032
     fact(
@@ -449,13 +449,13 @@ FACTS: list[dict] = [
         "Under CLIA, what characterizes a waived laboratory test?",
         "It is simple and low risk of an erroneous result per FDA waiver criteria",
         [
-            "It requires on-site pathologist review for every specimen",
+            "It requires the same daily quality control as high-complexity chemistry",
             "It is exempt from quality checks and training",
             "It may be run without following manufacturer instructions",
         ],
         "Waived tests still require controlled procedures, personnel competency, and manufacturer directions. Waived status is not the same as unregulated testing.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-033
     fact(
@@ -463,13 +463,13 @@ FACTS: list[dict] = [
         "When should verification of benefits be performed for a scheduled procedure?",
         "Before or at the time of service when feasible",
         [
-            "Several years after the encounter",
+            "After the payer denies the first claim without a prior eligibility check",
             "After the patient has filed bankruptcy",
             "After the claim has been denied without review",
         ],
         "Timely benefit verification clarifies coverage and cost sharing before service. Delayed checks increase surprise bills and rework.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-034
     fact(
@@ -477,13 +477,13 @@ FACTS: list[dict] = [
         "Which practices support safe clinic supply inventory control?",
         "Set par levels, monitor expiration dates, and store items securely",
         [
-            "Keep open sharps containers in the public lobby",
+            "Reorder supplies when shelves are empty without par levels",
             "Ignore lot numbers on vaccines",
             "Store personal medications with clinic stock",
         ],
         "Inventory control prevents waste and safety events. Sharps and commingled personal drugs create exposure and error risk.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-035
     fact(
@@ -497,7 +497,7 @@ FACTS: list[dict] = [
         ],
         "Many plans mandate authorization for high-cost imaging or specialty drugs. Skipping required auth commonly results in denial.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-036
     fact(
@@ -505,13 +505,13 @@ FACTS: list[dict] = [
         "Which demographic updates should be confirmed at registration?",
         "Legal name, address, contacts, insurance, and communication preferences",
         [
-            "Informal staff opinions about the patient",
-            "Unverified social media handles listed as diagnoses",
+            "Nickname only without confirming legal name for the health record",
+            "Mailing address copied from a prior patient with the same last name",
             "Removal of documented allergy entries without clinician review",
         ],
         "Accurate demographics keep claims and messages routed correctly. Allergy deletion requires clinical oversight, not front desk discretion alone.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-037
     fact(
@@ -519,13 +519,13 @@ FACTS: list[dict] = [
         "What should telephone triage documentation record?",
         "Caller identity, symptoms, advice given, and follow-up instructions",
         [
-            "Personal opinions about coworkers",
-            "Names of unrelated patients in the waiting room",
+            "Symptoms described without documenting advice given",
+            "Callback number missing when the caller is not the patient",
             "Full credit card numbers in unencrypted progress text",
         ],
         "Triage notes create a legal record of the call. Other patients' identifiers and card data must not appear in clinical documentation.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-038
     fact(
@@ -539,19 +539,19 @@ FACTS: list[dict] = [
         ],
         "Patients have rights to billing information within policy and law. Sharing another person's charges or unsecured records violates privacy.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-039
     fact(
         "ccma-admin",
-        "When scanning documents into the EHR, what prevents a serious indexing error?",
-        "Confirming the scan is attached to the correct patient record",
+        "The scanner queue shows two active charts for patients named Maria Lopez with the same date of birth but different medical record numbers. The medical assistant is indexing an outside referral PDF for the patient standing at the desk. Which step prevents a serious indexing error?",
+        "Confirm legal name, date of birth, and medical record number against the patient and wristband or photo ID before attaching the scan",
         [
-            "Saving all scans in one shared folder for every patient",
-            "Posting images to a public social feed",
-            "Writing passwords on the scanned cover sheet",
+            "Attach the PDF to the chart that appears first alphabetically in the queue",
+            "Attach to whichever chart was opened last during the previous shift",
+            "Attach using the scanner default filename when the first and last names match",
         ],
-        "Misfiled documents can lead to wrong treatment and privacy breaches. Shared folders and public posts defeat access controls.",
+        "Same-name patients are a high-risk scenario for misfiled documents. Two identifiers alone are insufficient when names and birth dates collide.",
         [S.NHA_CCMA],
         "advanced",
     ),
@@ -561,13 +561,13 @@ FACTS: list[dict] = [
         "Which data are required for many workers' compensation visits?",
         "Employer name, date of injury, and mechanism of injury when known",
         [
-            "Retail store receipt from unrelated shopping",
+            "Employer name documented without date or mechanism of injury",
             "Verbal report without any charting",
             "Standard cosmetic procedure consent for elective surgery",
         ],
-        "Occupational carriers need injury context to adjudicate claims. Unrelated retail receipts do not establish a work-related event.",
+        "Occupational carriers need injury context to adjudicate claims. Incomplete injury details delay claim adjudication.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-041
     fact(
@@ -575,13 +575,13 @@ FACTS: list[dict] = [
         "What does an electronic remittance advice (ERA) explain?",
         "How each claim line was paid, denied, or adjusted",
         [
-            "Weekly cafeteria menu selections",
+            "Patient appointment reminders for the next week",
             "Annual staff performance rankings",
-            "Assigned parking stall numbers",
+            "Vital sign flowsheet trends for the nursing unit",
         ],
-        "ERAs drive payment posting and appeal decisions. Food service and parking data are not claim adjudication tools.",
+        "ERAs drive payment posting and appeal decisions. Clinical flowsheet data are not claim adjudication tools.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-042
     fact(
@@ -595,7 +595,7 @@ FACTS: list[dict] = [
         ],
         "Days in A/R is a revenue cycle metric. Clinical safety indicators such as needlesticks are tracked separately.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-043
     fact(
@@ -603,13 +603,13 @@ FACTS: list[dict] = [
         "A payer denies a claim for missing prior authorization. What should staff do first?",
         "Review the denial code and contract rules, then follow appeal or correction steps",
         [
-            "Delete the patient record",
+            "Rebill the same claim without correcting the authorization issue",
             "Bill the patient for the entire charge without review",
-            "Publish the denial on a public website",
+            "Write off the balance without documenting the denial reason",
         ],
         "Denials require structured follow-up that may include retro authorization or appeal. Immediate full balance billing without review may violate policy.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-044
     fact(
@@ -623,7 +623,7 @@ FACTS: list[dict] = [
         ],
         "Coding must reflect the record to pass audits. Upcoding or blank diagnoses creates compliance and denial risk.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-045
     fact(
@@ -637,7 +637,7 @@ FACTS: list[dict] = [
         ],
         "Stale insurance data produces rejections at clearinghouses. Structured updates plus eligibility checks catch benefit changes early.",
         [S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-admin-046
     fact(
@@ -647,7 +647,7 @@ FACTS: list[dict] = [
         [
             "Quote random amounts verbally without documentation",
             "Refuse to discuss fees with any patient",
-            "Post other patients' balances in the lobby",
+            "Collect the full charge at check-in without discussing the self-pay policy",
         ],
         "Transparent financial communication supports informed decisions. Public display of other balances violates privacy.",
         [S.NHA_CCMA],

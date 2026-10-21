@@ -43,7 +43,7 @@ FACTS: list[dict] = [
         "What is the primary infection-control goal of respiratory hygiene posters in waiting areas?",
         "Source control of respiratory secretions",
         [
-            "Eliminating the need for hand hygiene near waiting room entrances",
+            "Replacing alcohol-based hand rub stations with posters alone at entrances",
             "Using Droplet Precautions for every patient with a skin rash",
             "Reusing the same surgical mask for multiple patients in the waiting area",
         ],
@@ -267,8 +267,8 @@ FACTS: list[dict] = [
         "Under Standard Precautions, goggles or a face shield are needed when?",
         "Splashes or sprays of blood or other potentially infectious material are anticipated",
         [
-            "Answering the clinic phone at the front desk",
-            "Walking through the parking lot to escort a patient",
+            "Measuring oral temperature at the bedside without anticipated splashes",
+            "Documenting in the EHR at the nurses station without patient contact",
             "Every conversation with a patient regardless of procedure risk",
         ],
         "Eye protection is selected for tasks with splash risk, such as suctioning or handling bloody linens. Routine conversation without anticipated splashes does not require a face shield.",

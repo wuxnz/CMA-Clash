@@ -129,7 +129,7 @@ FACTS: list[dict] = [
         [
             'They apply when gross blood is visible on linens',
             'They replace the need for hand hygiene after glove removal',
-            'They are reserved for inpatient hospital units',
+            'They are reserved for patients with known positive bloodborne pathogen tests',
         ],
         'Standard Precautions treat blood, non-intact skin, and most body fluids as potentially infectious regardless of diagnosis. Limiting precautions to visible blood or specific settings leaves gaps in outpatient and ambulatory care.',
         [S.CDC_STANDARD_PRECAUTIONS],
@@ -156,7 +156,7 @@ FACTS: list[dict] = [
         'Contact the provider to clarify the order before proceeding',
         [
             'Follow what was done for a similar patient last week',
-            'Ask an uninvolved patient in the waiting room',
+            'Ask another medical assistant who was not present for the order',
             'Proceed and document uncertainty after the task',
         ],
         'Ambiguous orders are a common source of medication and procedure errors. Clarification before action protects the patient; guessing from prior cases can cause wrong-site or wrong-dose mistakes.',
@@ -254,7 +254,7 @@ FACTS: list[dict] = [
         'Best available research, clinical expertise, and patient values',
         [
             'Tradition, anecdote, and personal habit',
-            'Billing codes, marketing data, and social media trends',
+            'Payer reimbursement rates without clinical expertise or patient preferences',
             'Laboratory reference ranges without clinical context',
         ],
         'Evidence-based practice weighs published evidence with clinician judgment and what matters to the patient. Reference ranges alone or informal habits do not replace that structured approach.',
@@ -273,7 +273,7 @@ FACTS: list[dict] = [
         ],
         'My/o relates to muscle, as in myopathy. Myel/o refers to bone marrow or spinal cord, which is a frequent terminology distractor paired with my/o.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-020
     fact(
@@ -287,7 +287,7 @@ FACTS: list[dict] = [
         ],
         'On the arm, the elbow is proximal to the wrist because it lies nearer the shoulder attachment. Distal describes structures farther from the trunk, which is the opposite pairing tested on anatomy items.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-021
     fact(
@@ -301,7 +301,7 @@ FACTS: list[dict] = [
         ],
         'CDC recommends soap and water when hands are visibly dirty or contaminated with proteinaceous material. Alcohol rub is appropriate for routine decontamination when soil is not visible.',
         [S.CDC_HAND_HYGIENE],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-022
     fact(
@@ -315,7 +315,7 @@ FACTS: list[dict] = [
         ],
         'A frontal plane separates front from back. A sagittal plane divides right from left, which is a common plane-of-section mix-up in foundational anatomy questions.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-023
     fact(
@@ -329,7 +329,7 @@ FACTS: list[dict] = [
         ],
         'Hyper- signals excess, as in elevated blood glucose. Hypo- means below normal, and different suffixes convey pain or absence of structure.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-024
     fact(
@@ -343,7 +343,7 @@ FACTS: list[dict] = [
         ],
         'Boiling point at 1 atmosphere is a fixed reference used when converting metric temperature scales in science coursework. Body temperature and freezing point are different landmark values on the Celsius scale.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-025
     fact(
@@ -357,7 +357,7 @@ FACTS: list[dict] = [
         ],
         'The metric system moves by powers of ten; milli- is one thousandth of a gram. Confusing gram-to-milligram conversion with centi- or micro- prefixes leads to tenfold or thousandfold dosing errors on paper problems.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-026
     fact(
@@ -393,9 +393,9 @@ FACTS: list[dict] = [
         'Why are professional boundaries important for medical assistants?',
         'They help maintain appropriate, trust-based therapeutic relationships',
         [
-            'They encourage sharing personal contact details with every patient',
-            'They permit accepting large gifts from pharmaceutical representatives',
-            'They allow discussing identifiable patients in public waiting areas',
+            'They permit accepting small gifts from every patient without policy review',
+            'They allow dual relationships when the patient initiates friendship',
+            'They allow discussing patient cases in the elevator with visitors present',
         ],
         'Clear boundaries protect patient privacy, prevent favoritism, and reduce ethical conflicts. Dual relationships and casual disclosure of protected health information undermine the professional role of the care team.',
         [S.NHA_CCMA],
@@ -421,8 +421,8 @@ FACTS: list[dict] = [
         'Under Standard Precautions, which body fluids are generally treated as potentially infectious?',
         'All blood, non-intact skin, and most body fluids',
         [
-            'Blood from patients with a documented positive HIV test',
-            'Blood drawn during inpatient hospitalization',
+            'Blood from patients with a documented positive HIV test only',
+            'Blood drawn during inpatient hospitalization only',
             'Saliva during routine dental prophylaxis without blood',
         ],
         'Standard Precautions apply to every patient encounter because infection status is not always known. Sweat is not included unless it is visibly contaminated with blood or other fluids.',
@@ -435,9 +435,9 @@ FACTS: list[dict] = [
         'In the chain of infection, what is the final link that must be present for disease to occur in a person?',
         'Susceptible host',
         [
-            'Insurance prior authorization',
-            'Provider diagnosis on the chart',
-            'Trend in serial vital signs',
+            'A vector organism that carries the pathogen',
+            'Portal of entry without an infectious agent present',
+            'Mode of transmission with no reservoir identified',
         ],
         'The classic chain includes an infectious agent, reservoir, portal of exit, mode of transmission, portal of entry, and a susceptible host. Interventions such as vaccination or isolation break one or more links to stop spread.',
         [S.NHA_CCMA],
@@ -483,7 +483,7 @@ FACTS: list[dict] = [
         ],
         'Tachy- denotes speed or rate, as in a heart rate above the expected range. Brady- is the paired prefix for slowness, which is a common terminology contrast on CCMA exams.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-035
     fact(
@@ -497,7 +497,7 @@ FACTS: list[dict] = [
         ],
         'Hypo- signals a decrease, such as low blood glucose. Hyper- means excessive, and different prefixes convey absence of structure or pain.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-036
     fact(
@@ -505,13 +505,13 @@ FACTS: list[dict] = [
         'What information does a Safety Data Sheet (SDS) provide for a chemical used in the clinic?',
         'Hazards, safe handling, and emergency measures for that substance',
         [
-            'Insurance billing codes for the supply item',
-            'Login credentials for the electronic health record',
+            'Recommended storage temperature for the chemical only',
+            'Employee parking assignments for the clinic lot',
             'A substitute for infection-control precautions during patient care',
         ],
         'OSHA hazard communication rules require accessible SDS files for hazardous chemicals such as disinfectants and fixatives. They support safe storage and spill response but do not replace clinical infection prevention practices.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-037
     fact(
@@ -525,7 +525,7 @@ FACTS: list[dict] = [
         ],
         'Each nephron contains a glomerulus and tubule segments that regulate filtration and reabsorption. Neurons conduct impulses, alveoli exchange gases in the lungs, and osteons are structural units of compact bone.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-038
     fact(
@@ -539,7 +539,7 @@ FACTS: list[dict] = [
         ],
         '-pathy appears in terms such as neuropathy and cardiomyopathy to describe disease processes. Surgical repair uses -plasty or -ectomy, inflammation uses -itis, and blood conditions often end in -emia.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-039
     fact(
@@ -553,7 +553,7 @@ FACTS: list[dict] = [
         ],
         'Valid consent requires disclosure of the procedure, benefits, risks, and alternatives in language the patient understands. It must be voluntary and given by a competent decision-maker; a blank form or guaranteed results do not meet that standard.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-040
     fact(
@@ -567,7 +567,7 @@ FACTS: list[dict] = [
         ],
         'Critical thinking combines observation, knowledge, and judgment to spot errors or changes in condition. Clarifying ambiguous orders and documenting contemporaneously support safer care than unchecked routine.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-041
     fact(
@@ -581,7 +581,7 @@ FACTS: list[dict] = [
         ],
         'Milli- scales doses and measurements by 10⁻³, as in milligrams and milliliters. Centi- is one hundredth, micro- is one millionth, and deci- is one tenth; mixing these prefixes causes large calculation errors.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-042
     fact(
@@ -595,7 +595,7 @@ FACTS: list[dict] = [
         ],
         'A single elevated reading should be interpreted with symptoms, route, and baseline. Core temperature near 91°F suggests hypothermia, while 98.6°F is closer to average than to fever.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-043
     fact(
@@ -609,7 +609,7 @@ FACTS: list[dict] = [
         ],
         'Near misses reveal system weaknesses before injury occurs and are valuable for proactive improvement. Sentinel events involve actual serious harm; they are reported and analyzed under a different safety category.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-044
     fact(
@@ -623,7 +623,7 @@ FACTS: list[dict] = [
         ],
         'Q.d. indicates one dose per day. Q4h means every four hours, p.r.n. means as needed, and b.i.d. means twice daily; many organizations now prefer plain-language directions to reduce abbreviation errors.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-045
     fact(
@@ -637,7 +637,7 @@ FACTS: list[dict] = [
         ],
         'The thoracic cavity lies within the rib cage and is separated from the abdomen by the diaphragm. The abdominal cavity contains digestive organs, the pelvic cavity contains reproductive and urinary structures inferiorly, and the cranial cavity encloses the brain.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-046
     fact(
@@ -651,7 +651,7 @@ FACTS: list[dict] = [
         ],
         'A sagittal section runs parallel to the midline; a midsagittal cut produces equal right and left halves. The frontal plane separates anterior from posterior, and the transverse plane divides superior from inferior.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
     # ccma-foundational-047
     fact(
@@ -665,7 +665,7 @@ FACTS: list[dict] = [
         ],
         'Derm/o relates to the skin and its appendages. Hepat/o refers to the liver, nephr/o to the kidney, and oste/o to bone; pairing the wrong combining form with a suffix changes the meaning of the whole term.',
         [S.NHA_CCMA],
-        'advanced',
+        'beginner',
     ),
 
     # ccma-foundational-048
@@ -697,12 +697,12 @@ FACTS: list[dict] = [
         'ccma-foundational',
         'A clinic implements a new chemical disinfectant. What must the medical assistant review before use?',
         'The product label for contact time, dilution, and compatible surfaces',
-        ['Social media reviews from other clinics',
+        ['A competitor product label copied without reading dilution instructions',
         'The color of the bottle alone',
         'Whether patients prefer scented products'],
         'EPA-registered disinfectants require label-directed contact times to kill pathogens. Dilution and surface compatibility affect both safety and effectiveness.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-051
     fact(
@@ -738,7 +738,7 @@ FACTS: list[dict] = [
         'Ignore because the skin was intact'],
         'OSHA bloodborne pathogen rules require prompt cleansing and evaluation after exposure. Intact skin still warrants protocol because permeability and microabrasions vary.',
         [S.OSHA_BBP, S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-054
     fact(
@@ -746,8 +746,8 @@ FACTS: list[dict] = [
         'How does medical asepsis differ from surgical asepsis in its primary goal?',
         'Reduce the number and spread of microorganisms',
         ['Eliminate every microorganism on all surfaces in the building',
-        'Replace hand hygiene with perfume',
-        'Sterilize lunchroom utensils for patients'],
+        'Use scented lotion instead of hand hygiene between patients',
+        'Apply surgical sterility standards to every waiting room chair'],
         'Clean technique lowers bioburden for noninvasive care. Sterility targets absence of microbes on instruments entering sterile fields.',
         [S.NHA_CCMA],
         'intermediate',
@@ -762,7 +762,7 @@ FACTS: list[dict] = [
         'Document as a patient allergy'],
         'OSHA requires prompt reporting and medical follow-up for sharps injuries. Delayed care reduces prophylaxis options for bloodborne viruses.',
         [S.OSHA_NEEDLESTICK, S.OSHA_BBP, S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-056
     fact(
@@ -781,9 +781,9 @@ FACTS: list[dict] = [
         'ccma-foundational',
         'What is the reservoir in the chain of infection?',
         'The place where pathogens live and multiply',
-        ['The handwashing sink',
-        'The billing computer',
-        'The waiting room chair fabric'],
+        ['The handwashing sink as the biologic host',
+        'A sterile instrument pack in central supply',
+        'The clinic scheduling software database'],
         'Reservoirs include humans, animals, or the environment where microbes persist. Equipment can transmit but is not the biologic reservoir itself.',
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
         'intermediate',
@@ -793,12 +793,12 @@ FACTS: list[dict] = [
         'ccma-foundational',
         'A clinic switches to a new EPA-registered surface disinfectant after a norovirus outbreak in the community. What training should staff receive?',
         'Proper dilution, contact time, and PPE for the new product',
-        ['How to mix disinfectant with patient beverages',
+        ['Use the previous product contact time for the new bottle',
         'That any cleaner works the same without reading labels',
         'How to store disinfectant in exam rooms unlocked'],
         'Label instructions define kill claims and safe use. Misuse leaves viable viruses on surfaces and risks chemical exposure.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-foundational-059
     fact(
@@ -834,6 +834,6 @@ FACTS: list[dict] = [
         'Document the event tomorrow'],
         'Prompt irrigation dilutes caustic agents and limits corneal injury. Delay worsens chemical burns.',
         [S.OSHA_BBP, S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
 ]
