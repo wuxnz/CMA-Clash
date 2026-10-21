@@ -12,7 +12,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What does the P wave on a standard 12-lead EKG represent?",
-        "Atrial depolarization spreading through both atria",
+        "Atrial depolarization of both atria",
         [
             "Ventricular repolarization during the T wave",
             "Delayed conduction through the bundle of His",
@@ -25,9 +25,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What electrical event produces the QRS complex on the tracing?",
-        "Ventricular depolarization as impulse spreads through ventricles",
+        "Ventricular depolarization across the ventricles",
         [
-            "Atrial repolarization hidden in the QRS",
+            "Atrial repolarization hidden within the wide QRS complex",
             "Slow AV nodal delay that forms the PR segment",
             "Late diastolic filling of the ventricles",
         ],
@@ -38,7 +38,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Where is the sinoatrial node located in the heart?",
-        "Upper posterior wall of the right atrium near the superior vena cava",
+        "Posterior right atrial wall near the superior vena cava",
         [
             "Apex of the left ventricle beneath the papillary muscles",
             "Outer surface of the pulmonary artery at the bifurcation",
@@ -64,11 +64,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Through which structure does the atrial impulse travel immediately before reaching the ventricles?",
-        "The atrioventricular node and bundle of His",
+        "AV node and bundle of His",
         [
-            "The coronary sinus draining venous blood",
-            "The pulmonary valve cusps during systole",
-            "The aortic arch baroreceptor region",
+            "Coronary sinus draining venous blood from myocardium",
+            "Pulmonary valve cusps during ventricular systole",
+            "Aortic arch baroreceptor region sensing pressure",
         ],
         "AV nodal tissue and the His bundle form the normal bridge from atria to ventricles. Valves and venous structures conduct blood, not the cardiac action potential.",
         [S.NHA_CCMA],
@@ -77,7 +77,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What does the T wave on the EKG primarily reflect?",
-        "Ventricular repolarization as myocytes recover resting potential",
+        "Ventricular repolarization as myocytes recover",
         [
             "Atrial contraction against closed AV valves",
             "SA node spontaneous depolarization before the P wave",
@@ -90,11 +90,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What is the main purpose of the AV node's brief delay in conduction?",
-        "To allow ventricular filling while atria finish contracting",
+        "Allow ventricular filling while atria finish contracting",
         [
-            "To increase afterload on the pulmonary circulation",
-            "To filter red blood cells before they enter ventricles",
-            "To synchronize ventricular ejection with exhalation",
+            "Increase afterload on the pulmonary circulation during delay",
+            "Filter red blood cells before they enter the ventricles",
+            "Synchronize ventricular ejection with each exhalation phase",
         ],
         "AV delay creates the PR interval so ventricles fill before systole. It does not filter blood or tie ejection directly to the respiratory cycle.",
         [S.NHA_CCMA],
@@ -129,7 +129,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What does preload refer to in ventricular physiology?",
-        "End-diastolic stretch related to ventricular filling volume",
+        "End-diastolic stretch from ventricular filling volume",
         [
             "Arterial resistance faced during ventricular ejection",
             "Heart rate recorded as beats per minute on the monitor",
@@ -168,7 +168,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What does the ST segment represent between the end of the QRS and the start of the T wave?",
-        "Early ventricular repolarization when most ventricular cells share the same membrane potential",
+        "Ventricular repolarization plateau before the T wave",
         [
             "Atrial depolarization continuing after the P wave peak",
             "AV nodal recovery that shortens the next PR interval",
@@ -181,11 +181,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "How does increased sympathetic tone typically change the sinus rate on the EKG?",
-        "It raises heart rate by increasing SA nodal automaticity",
+        "Higher heart rate from increased SA nodal automaticity",
         [
-            "It eliminates P waves while QRS remains narrow",
-            "It prolongs the PR interval to third-degree block",
-            "It widens every QRS to bundle branch duration",
+            "Elimination of P waves while QRS complexes remain narrow",
+            "PR interval prolongation progressing to third-degree block",
+            "Uniform QRS widening to bundle branch block duration",
         ],
         "Catecholamines accelerate pacemaker cells, producing sinus tachycardia with preserved P before each QRS. Sympathetic surge does not by itself create complete AV block or global wide QRS.",
         [S.NHA_CCMA],
@@ -207,7 +207,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What hemodynamic change best describes increased afterload in the left ventricle?",
-        "Greater resistance to ejection from elevated arterial pressure",
+        "Higher resistance to ejection from elevated arterial pressure",
         [
             "Greater diastolic filling volume from increased venous return",
             "Faster SA nodal firing from vagal stimulation",
@@ -246,11 +246,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Which EKG pattern may accompany chronic left ventricular hypertrophy from pressure overload?",
-        "Tall R waves in lateral precordial leads with ST-T strain",
+        "Tall lateral precordial R waves with ST-T strain",
         [
             "Diffuse PR elevation in every lead without QRS change",
-            "Narrow QRS complexes shorter than 0.06 second",
-            "Complete loss of T waves with flat ST in all leads",
+            "Narrow QRS complexes shorter than 0.06 second on all beats",
+            "Complete loss of T waves with flat ST segments in all leads",
         ],
         "LVH increases leftward forces and repolarization abnormalities in V5-V6 and lateral leads. PR elevation alone or globally absent T waves suggest other processes.",
         [S.NHA_CCMA],
@@ -259,7 +259,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "From which anatomic origin do the left and right coronary arteries arise?",
-        "The aortic sinuses just above the aortic valve leaflets",
+        "Aortic sinuses just above the aortic valve leaflets",
         [
             "The pulmonary trunk distal to the pulmonic valve",
             "The superior vena cava at its right atrial junction",
@@ -272,10 +272,10 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What is the primary role of Purkinje fibers in ventricular activation?",
-        "Rapid conduction to synchronize ventricular depolarization",
+        "Rapid spread to synchronize ventricular depolarization",
         [
-            "Slow conduction that creates the PR interval delay",
-            "Generation of the P wave in the right atrium",
+            "Slow conduction through the AV node creating PR delay",
+            "Generation of the P wave in the right atrial myocardium",
             "Collection of deoxygenated blood from coronary veins",
         ],
         "Purkinje tissue spreads the impulse quickly so the ventricles contract efficiently. AV nodal tissue slows conduction, and atrial myocardium forms P waves.",
@@ -285,7 +285,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "How does myocardial ischemia from reduced coronary flow tend to affect repolarization on the EKG?",
-        "ST segment and T wave changes in leads facing the affected wall",
+        "Territorial ST-T changes facing the ischemic wall",
         [
             "Uniform shortening of the PR interval in every lead",
             "Permanent absence of P waves with regular narrow QRS",
@@ -337,7 +337,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "How does the ventricular refractory period relate to diastolic filling on the EKG cycle?",
-        "It prevents immediate re-excitation so chambers can refill before the next beat",
+        "Prevents re-excitation so ventricles refill before next beat",
         [
             "It blocks all electrical activity between every T and P wave",
             "It synchronizes atrial contraction with ventricular systole",
@@ -350,11 +350,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What does QRS duration on the tracing measure clinically?",
-        "Time for ventricular depolarization to spread through the conduction system and myocardium",
+        "Time for ventricular depolarization through ventricular tissue",
         [
             "Time from atrial depolarization start to ventricular repolarization end",
-            "Interval between consecutive P waves during sinus rhythm",
-            "Period when the ST segment must remain isoelectric",
+            "Interval between consecutive P waves during sinus rhythm on the strip",
+            "Period when the ST segment must remain isoelectric between QRS and T",
         ],
         "QRS width reflects His-Purkinje and ventricular muscle conduction speed. PP interval measures atrial rate, and ST isoelectric time is not the QRS definition.",
         [S.NHA_CCMA],
@@ -376,7 +376,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Within normal contractile limits, how does increased preload from volume expansion affect stroke volume?",
-        "Stroke volume rises as sarcomeres stretch according to Starling law",
+        "Stroke volume rises with fiber stretch per Starling law",
         [
             "Stroke volume falls because afterload becomes zero",
             "Stroke volume becomes independent of heart rate",
@@ -389,7 +389,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "What happens to the PR interval when AV nodal conduction slows uniformly?",
-        "The PR interval lengthens while each P wave still conducts to a QRS",
+        "PR lengthens while each P wave still conducts to a QRS",
         [
             "P waves disappear while QRS complexes continue regularly",
             "QRS complexes widen to more than 0.12 second without P waves",
@@ -402,9 +402,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "A patient with acute chest pain has ST elevation in leads II, III, and aVF with reciprocal ST depression in I and aVL. Which myocardial territory is most likely injured?",
-        "Inferior wall supplied by the right coronary artery in most right-dominant hearts",
+        "Inferior wall injury in typical right coronary artery territory",
         [
-            "Anterior septum supplied by a ramus intermedius branch",
+            "Anterior septum supplied by a ramus intermedius branch only",
             "Basal lateral wall supplied by a circumflex marginal branch",
             "Right ventricular free wall supplied by the bronchial circulation",
         ],
@@ -415,7 +415,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "A hypertensive patient shows increased R wave amplitude in V5 with lateral ST depression and asymmetric T inversion. What physiologic change best explains the EKG?",
-        "Left ventricular hypertrophy from chronic pressure overload",
+        "Chronic pressure-overload left ventricular hypertrophy",
         [
             "Acute pericarditis with diffuse PR segment elevation",
             "Right ventricular dilation from acute pulmonary embolism",
@@ -428,7 +428,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "The monitor shows P waves marching through QRS complexes at independent rates with no fixed PR relationship. At what level is conduction blocked?",
-        "Complete block between atria and ventricles with separate pacemakers",
+        "Complete AV block with separate atrial and ventricular pacemakers",
         [
             "Delayed conduction within the right atrium before the P wave",
             "Reversible slowing limited to the bundle of His without escape",
@@ -441,7 +441,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "After inferior ST elevation myocardial infarction, a new first-degree AV block appears with PR 0.24 second. Which vascular relationship is often involved?",
-        "Right coronary artery supply to the AV node in right-dominant circulation",
+        "RCA-related AV node ischemia in right-dominant circulation",
         [
             "Left main coronary spasm affecting the aortic root",
             "Pulmonary embolus reducing flow through the bronchial arteries",
@@ -454,7 +454,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Lead II shows a tall peaked P wave in a patient with chronic lung disease and right heart strain. What atrial change does this suggest?",
-        "Right atrial enlargement increasing P wave amplitude inferiorly",
+        "Right atrial enlargement with tall P waves in inferior leads",
         [
             "Left atrial enlargement producing a broad notched P in V1",
             "SA node exit block eliminating atrial depolarization",
@@ -467,11 +467,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "A wide QRS tachycardia at 160 bpm shows occasional narrow capture beats and fusion complexes. What mechanism explains these findings?",
-        "Ventricular tachycardia with intermittent supraventricular capture through the AV node",
+        "Ventricular tachycardia with occasional supraventricular capture",
         [
-            "Sinus tachycardia with uniform PR 0.12 second in every beat",
-            "Typical atrial flutter with 2:1 conduction and sawtooth waves",
-            "Junctional rhythm at 40 bpm with retrograde P waves",
+            "Sinus tachycardia with uniform PR 0.12 second in every captured beat",
+            "Typical atrial flutter with 2:1 conduction and sawtooth flutter waves",
+            "Junctional rhythm at 40 bpm with retrograde P waves before each QRS",
         ],
         "Capture and fusion imply a ventricular focus with some impulses conducting antegrade from above. Pure sinus tachycardia or slow junctional rhythm lack fusion during wide tachycardia.",
         [S.NHA_CCMA],
@@ -480,7 +480,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "During treadmill testing, horizontal ST depression appears in V4 through V6 with exercise-induced angina. What supply-demand imbalance does this suggest?",
-        "Subendocardial ischemia in the lateral or anterolateral wall during increased workload",
+        "Subendocardial ischemia in lateral leads during exercise",
         [
             "Transmural infarction with ST elevation at rest in aVR",
             "Pericardial inflammation with PR segment depression globally",
@@ -506,7 +506,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Pulmonary hypertension causes right ventricular pressure overload. Which EKG findings may appear in the right precordial leads?",
-        "Dominant R wave in V1 with right axis deviation and RV strain T changes",
+        "Dominant R in V1 with right axis and RV strain T changes",
         [
             "Deep Q waves in V5 and V6 with tall lateral R waves",
             "Short PR with delta waves in the limb leads",
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Acute chest pain produces ST elevation in V2 through V4 with reciprocal ST depression in inferior leads. What ischemic pattern does this combination suggest?",
-        "Anterior ST elevation myocardial infarction involving the LAD territory",
+        "Anterior STEMI in the left anterior descending artery territory",
         [
             "Inferior infarction isolated to leads II, III, and aVF",
             "Lateral subendocardial ischemia without ST elevation",
@@ -545,7 +545,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "A febrile patient has diffuse ST elevation with PR segment depression across many leads and pleuritic chest pain. What pericardial process best fits the EKG?",
-        "Acute pericarditis inflaming epicardium and shifting repolarization",
+        "Acute pericarditis shifting diffuse repolarization",
         [
             "Acute transmural anterior infarction confined to V1 alone",
             "Hyperkalemia with peaked T waves and wide QRS at rest",
