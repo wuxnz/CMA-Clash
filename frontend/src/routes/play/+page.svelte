@@ -26,6 +26,7 @@ SPDX-License-Identifier: MPL-2.0
 	import {
 		hasActiveQuestion,
 		hasChoiceTileAnswers,
+		initialLivePhaseForQuestion,
 		isKahootStyleMode,
 		normalizeGameMode,
 		normalizeGamePayload,
@@ -38,6 +39,7 @@ SPDX-License-Identifier: MPL-2.0
 		applyClockSync,
 		parseQuestionTiming,
 		remainingAnswerSeconds,
+		remainingIntroSeconds,
 		resolveLivePhase,
 		serverNowMs,
 		totalAnswerSeconds,
@@ -80,6 +82,40 @@ SPDX-License-Identifier: MPL-2.0
 	let question: QuestionType = $state();
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
+	let advanceSyncTimer: ReturnType<typeof setTimeout> | undefined;
+	const ADVANCE_RESYNC_MS = 7500;
+
+	function clearAdvanceResyncTimer() {
+		if (advanceSyncTimer !== undefined) {
+			clearTimeout(advanceSyncTimer);
+			advanceSyncTimer = undefined;
+		}
+	}
+
+	function scheduleAdvanceResync(closedQuestionIndex: number | null) {
+		clearAdvanceResyncTimer();
+		if (closedQuestionIndex == null || !Number.isFinite(closedQuestionIndex)) {
+			return;
+		}
+		advanceSyncTimer = setTimeout(() => {
+			if (answer_results === undefined) {
+				return;
+			}
+			if (latestQuestionIndex > closedQuestionIndex) {
+				return;
+			}
+			const cookie_data = Cookies.get('joined_game');
+			if (!cookie_data || !socket.connected) {
+				return;
+			}
+			const payload = JSON.parse(cookie_data);
+			socket.emit('rejoin_game', {
+				old_sid: payload.sid,
+				username: payload.username,
+				game_pin: payload.game_pin
+			});
+		}, ADVANCE_RESYNC_MS);
+	}
 	let selectedAnswer = $state<string | undefined>(undefined);
 	let remainingLive = $state(30);
 	let questionTiming = $state<QuestionTiming | null>(null);
@@ -229,6 +265,7 @@ SPDX-License-Identifier: MPL-2.0
 		selectedAnswer = undefined;
 		pointsThisRound = 0;
 		clearTimeout(revealTimer);
+		clearAdvanceResyncTimer();
 		prevRanks = Object.fromEntries(
 			Object.keys(scores)
 				.sort(
@@ -239,6 +276,11 @@ SPDX-License-Identifier: MPL-2.0
 		);
 		applyQuestionSocketData(data as Record<string, unknown>);
 		syncPlayerClock();
+		const introLeft =
+			questionTiming != null
+				? Math.ceil(remainingIntroSeconds(questionTiming, serverNowMs(clockOffsetMs)))
+				: 0;
+		livePhase = initialLivePhaseForQuestion(game_mode, introLeft);
 		if (!gameMeta.started) {
 			gameMeta.started = true;
 		}
@@ -283,6 +325,7 @@ SPDX-License-Identifier: MPL-2.0
 		revealTimer = setTimeout(() => {
 			livePhase = 'rankings';
 		}, 4500);
+		scheduleAdvanceResync(resultsIndex ?? (typeof question_index === 'number' ? question_index : null));
 	});
 
 	socket.on('username_already_exists', () => {
