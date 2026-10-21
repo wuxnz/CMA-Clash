@@ -25,7 +25,11 @@ SPDX-License-Identifier: MPL-2.0
 	import HostTopBar from '$lib/play/admin/host-top-bar.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
-	import { isKahootStyleMode } from '$lib/play/live-game';
+	import {
+		isKahootStyleMode,
+		isStaleQuestionResults,
+		parseQuestionResultsPayload
+	} from '$lib/play/live-game';
 	import { applyQuestionResultScores } from '$lib/play/live-scoring';
 	import {
 		applyClockSync,
@@ -55,6 +59,7 @@ SPDX-License-Identifier: MPL-2.0
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let prevRanks: Record<string, number> = {};
 	let lastScoreAppliedQuestionIndex: number | null = $state(null);
+	let latestQuestionIndex = $state(-1);
 	let questionTiming = $state<QuestionTiming | null>(null);
 	let clockOffsetMs = $state(0);
 
@@ -86,6 +91,13 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	socket.on('set_question_number', (data) => {
+		const nextIndex = Number(data.question_index);
+		if (Number.isFinite(nextIndex) && latestQuestionIndex > nextIndex) {
+			return;
+		}
+		if (Number.isFinite(nextIndex)) {
+			latestQuestionIndex = nextIndex;
+		}
 		game_state.timer_res = '0';
 		game_state.question_results = null;
 		game_state.shown_question_now = data.question_index;
@@ -128,18 +140,27 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	socket.on('question_results', (data) => {
-		game_state.question_results = data;
-		game_state.timer_res = '0';
-		if (Array.isArray(data)) {
-			const applied = applyQuestionResultScores(
-				game_state.player_scores ?? {},
-				data,
-				game_state.shown_question_now ?? game_state.selected_question,
-				lastScoreAppliedQuestionIndex
-			);
-			game_state.player_scores = applied.scores;
-			lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
+		const { questionIndex: resultsIndex, rows } = parseQuestionResultsPayload(data);
+		if (
+			isStaleQuestionResults(
+				game_state.selected_question,
+				resultsIndex,
+				latestQuestionIndex
+			) ||
+			rows.length === 0
+		) {
+			return;
 		}
+		game_state.question_results = rows;
+		game_state.timer_res = '0';
+		const applied = applyQuestionResultScores(
+			game_state.player_scores ?? {},
+			rows,
+			resultsIndex ?? game_state.shown_question_now ?? game_state.selected_question,
+			lastScoreAppliedQuestionIndex
+		);
+		game_state.player_scores = applied.scores;
+		lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
 		livePhase = 'reveal';
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {

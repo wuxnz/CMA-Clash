@@ -74,3 +74,53 @@ export function initialLivePhaseForQuestion(
 	}
 	return introLeftSec > 0 ? 'intro' : 'answer';
 }
+
+export type QuestionResultsPayload = {
+	questionIndex: number | null;
+	rows: Array<Record<string, unknown>>;
+};
+
+/** Legacy bare arrays and wrapped `{ question_index, results }` payloads. */
+export function parseQuestionResultsPayload(data: unknown): QuestionResultsPayload {
+	if (Array.isArray(data)) {
+		return { questionIndex: null, rows: data as Array<Record<string, unknown>> };
+	}
+	if (data && typeof data === 'object') {
+		const obj = data as Record<string, unknown>;
+		const rawRows = obj.results ?? obj.answers;
+		if (Array.isArray(rawRows)) {
+			const qi = obj.question_index;
+			const questionIndex =
+				qi === null || qi === undefined || qi === ''
+					? null
+					: Number(qi);
+			return {
+				questionIndex: Number.isFinite(questionIndex) ? questionIndex : null,
+				rows: rawRows as Array<Record<string, unknown>>
+			};
+		}
+	}
+	return { questionIndex: null, rows: [] };
+}
+
+/** Drop results for a question the client has already advanced past. */
+export function isStaleQuestionResults(
+	activeQuestionIndex: number | null | undefined,
+	resultsQuestionIndex: number | null,
+	latestQuestionIndex: number
+): boolean {
+	if (resultsQuestionIndex == null || !Number.isFinite(resultsQuestionIndex)) {
+		return false;
+	}
+	if (latestQuestionIndex > resultsQuestionIndex) {
+		return true;
+	}
+	if (
+		activeQuestionIndex != null &&
+		activeQuestionIndex !== '' &&
+		Number(activeQuestionIndex) > resultsQuestionIndex
+	) {
+		return true;
+	}
+	return false;
+}

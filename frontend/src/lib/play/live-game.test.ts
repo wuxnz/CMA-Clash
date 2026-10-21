@@ -8,7 +8,9 @@ import {
 	hasChoiceTileAnswers,
 	initialLivePhaseForQuestion,
 	isKahootStyleMode,
+	isStaleQuestionResults,
 	normalizeGamePayload,
+	parseQuestionResultsPayload,
 	questionFromSocketPayload
 } from './live-game';
 
@@ -85,6 +87,30 @@ describe('questionFromSocketPayload', () => {
 	it('reads nested question', () => {
 		const q = { question: 'Hi', answers: [{ answer: 'a' }], type: 'ABCD', time: '30' };
 		expect(questionFromSocketPayload({ question_index: 0, question: q })?.question).toBe('Hi');
+	});
+});
+
+describe('parseQuestionResultsPayload', () => {
+	it('unwraps wrapped payloads with question_index', () => {
+		const parsed = parseQuestionResultsPayload({
+			question_index: 2,
+			results: [{ username: 'a', score: 1 }]
+		});
+		expect(parsed.questionIndex).toBe(2);
+		expect(parsed.rows).toHaveLength(1);
+	});
+
+	it('supports legacy bare arrays', () => {
+		const parsed = parseQuestionResultsPayload([{ username: 'b', score: 0 }]);
+		expect(parsed.questionIndex).toBeNull();
+		expect(parsed.rows).toHaveLength(1);
+	});
+});
+
+describe('isStaleQuestionResults', () => {
+	it('rejects results for an older question after advance', () => {
+		expect(isStaleQuestionResults(1, 0, 1)).toBe(true);
+		expect(isStaleQuestionResults(1, 1, 1)).toBe(false);
 	});
 });
 
