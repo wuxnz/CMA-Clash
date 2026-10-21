@@ -117,3 +117,59 @@ cpr-adult-047 | fail | Expanded AED pad placement key; deduped shorter variant f
 cpr-adult-048 | fail | Rewrote fatigue management with parallel depth/rest distractors.
 cpr-adult-049 | fail | Added AED no-shock advisory continue CPR item (new slot 049).
 cpr-adult-050 | fail | Added EMS arrival handoff without compression gap item (new slot 050).
+
+## CPR batch 03 (cpr-child-001 to cpr-child-025)
+
+cpr-child-001 | pass | Single-rescuer 30:2; near-miss 15:2 two-rescuer, 5:1, compression-only until advanced airway.
+cpr-child-002 | pass | Rate 100–120; near-miss slow 60–80 rib-sparing, fast 140–160, slow without metronome.
+cpr-child-003 | pass | Heel lower sternum; near-miss xiphoid, epigastrium, lateral apex-only.
+cpr-child-004 | pass | Why ventilate peds; near-miss compressions unnecessary after breaths, optional all school-age, compression-only preferred.
+cpr-child-005 | pass | Scene-safe responsiveness check; near-miss compress first, AED search first, pour water test.
+cpr-child-006 | pass | AED as soon as available; near-miss 10 min delay, age 12 only, EMS-only placement.
+cpr-child-007 | pass | HQ hard fast recoil minimal pause; near-miss soft lean, fast no depth, held deep no recoil.
+cpr-child-008 | pass | Mild choking effective cough; near-miss thrusts any cough, CPR weak pulse, flat rescue breaths.
+cpr-child-009 | pass | Head tilt-chin lift; near-miss jaw hyperextension, towel flex, finger sweep every breath.
+cpr-child-010 | pass | Two-rescuer breath 1 s chest rise; near-miss forceful distension, puffs no rise, 5 s breaths.
+cpr-child-011 | pass | CAB compressions first pulseless; near-miss wait EMS, breaths two minutes, seated observe.
+cpr-child-012 | pass | Depth one-third AP or ~2 in; near-miss 1 in all, 3 in under 12, visible motion only.
+cpr-child-013 | pass | Carotid/femoral pulse ≤10 s; near-miss radial 2 min, apical through clothes, skip pulse.
+cpr-child-014 | pass | Agonal gasps abnormal start CPR; near-miss gasp normal withhold, O2 only, thrusts before pulse.
+cpr-child-015 | pass | Two-rescuer 15:2; near-miss 30:2 two people, 5:1, continuous breaths q30 s.
+cpr-child-016 | pass | No chest rise reopen airway retry 1 s; near-miss 5 s force, skip vents 10 min, blind sweeps.
+cpr-child-017 | pass | Witnessed collapse activate EMS/AED; near-miss CPR five minutes first, pulse 2 min defer, wait wake.
+cpr-child-018 | pass | Reassess q2 min or AED prompt; near-miss once only, q15 s compressions, after EMS ROSC only.
+cpr-child-019 | pass | AED resume compressions after shock/no shock; near-miss 2 min rest per prompt, remove pads, wait movement.
+cpr-child-020 | pass | Unresponsive choking start CPR look mouth; near-miss thrusts unresponsive, breaths only, blind sweeps each cycle.
+cpr-child-021 | pass | Pediatric AED pads/attenuator per instructions; near-miss withhold until adult size, max adult energy always, abdominal pads.
+cpr-child-022 | pass | No compression-only when willing to ventilate; near-miss never breaths under 18, compression-only always, breaths two rescuers only.
+cpr-child-023 | pass | Two-rescuer roles 15:2 compressions vs vents; near-miss dual simultaneous 30:2, breaths-only wait, delay compressions for EMS.
+cpr-child-024 | pass | Leaning incomplete recoil reduces filling; near-miss leaning steadies, recoil only affects rate, partial recoil OK.
+cpr-child-025 | pass | Lone rescuer ~2 min leave for EMS/AED; near-miss never leave, stop CPR at 2 min, private transport.
+
+## CPR rewrite batch 03 (cpr-child-001 to 025)
+
+cpr-child-001 | fail | Rewrote single-rescuer ratio stem; expanded 30:2 key and parallel ratio distractors.
+cpr-child-002 | fail | Reframed rate item with full-sentence slow/fast distractors matching adult batch style.
+cpr-child-003 | fail | Aligned hand-placement stem and options with adult lower-sternum wording.
+cpr-child-004 | fail | Expanded ventilations-rationale correct answer; parallel compression-only distractors.
+cpr-child-005 | fail | Polished playground responsiveness stem; removed joke water option phrasing edge.
+cpr-child-006 | fail | Expanded AED timing key; balanced delay/age/EMS distractors.
+cpr-child-007 | fail | Polished HQ composite stem; parallel low-quality pattern distractors.
+cpr-child-008 | fail | Expanded mild-choking correct option; thrust/CPR/flat-breath near-misses parallel.
+cpr-child-009 | fail | Replaced telegraphic “Head tilt-chin lift” key with full-sentence maneuver option.
+cpr-child-010 | fail | Tied breath-delivery stem to two-rescuer 15:2 context; parallel timing distractors.
+cpr-child-011 | fail | Added CAB wording to compressions-first pulseless stem; balanced wait/breath-only distractors.
+cpr-child-012 | fail | Reframed depth as target question; added visible-motion-only near-miss.
+cpr-child-013 | fail | Expanded pulse-check stem with where/how long; full-sentence central-pulse key.
+cpr-child-014 | fail | Expanded agonal-gasp correct answer with 10-second pulse context in stem.
+cpr-child-015 | fail | Standardized 15:2 key format; parallel two-rescuer ratio distractors.
+cpr-child-016 | fail | Replaced duplicate ventilation-volume item with no-chest-rise airway reposition scenario.
+cpr-child-017 | fail | Expanded witnessed-collapse EMS/AED stem; parallel delay distractors.
+cpr-child-018 | fail | Polished reassessment interval stem; fixed fragment “out-of- hospital” line break.
+cpr-child-019 | fail | Expanded AED integration pause-management stem and resume-compressions key.
+cpr-child-020 | fail | Polished unresponsive-choking CPR sequence options to full parallel sentences.
+cpr-child-021 | fail | Expanded pediatric AED equipment stem; balanced withhold/energy/placement distractors.
+cpr-child-022 | fail | Reframed compression-only as yes/no stem; full-sentence “No; include ventilations…” key.
+cpr-child-023 | fail | Polished two-rescuer task division stem; parallel team-error distractors.
+cpr-child-024 | fail | Replaced duplicate recoil definition with leaning/incomplete recoil consequence scenario.
+cpr-child-025 | fail | Expanded lone-rescuer EMS/AED retrieval stem and correct option to full sentence.
