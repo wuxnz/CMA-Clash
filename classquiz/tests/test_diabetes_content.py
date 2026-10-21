@@ -26,7 +26,7 @@ def test_diabetes_quiz_set_chunks():
 
 def test_phleb_glucose_topic_meets_minimum():
     facts = _facts_for("phleb-glucose")
-    assert len(facts) >= 20
+    assert len(facts) >= 28
 
 
 def test_diabetes_unique_stems():

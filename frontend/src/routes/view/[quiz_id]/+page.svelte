@@ -73,6 +73,7 @@ SPDX-License-Identifier: MPL-2.0
 		dislikes?: number;
 		difficulty?: string | null;
 		certification_id?: string | null;
+		questions_per_game?: number | null;
 	}
 
 	const author = $derived(
@@ -83,6 +84,13 @@ SPDX-License-Identifier: MPL-2.0
 	const certLabel = $derived(certLabelFor({ title: quiz.title, certification_id: quiz.certification_id }));
 	const difficulty = $derived(prettyDifficulty(quiz.difficulty));
 	const questionCount = $derived(Array.isArray(quiz.questions) ? quiz.questions.length : 0);
+	const perGame = $derived(quiz.questions_per_game ?? 10);
+	const drawSize = $derived(Math.min(perGame, questionCount));
+	const perGameLabel = $derived(
+		questionCount > drawSize
+			? `${questionCount} questions, ${drawSize} per game`
+			: `${questionCount} questions`
+	);
 	const plays = $derived(quiz.plays ?? 0);
 	const views = $derived(quiz.views ?? 0);
 </script>
@@ -128,7 +136,7 @@ SPDX-License-Identifier: MPL-2.0
 				{#if certLabel && difficulty}<span aria-hidden="true">·</span>{/if}
 				{#if difficulty}<span>{difficulty}</span>{/if}
 				{#if (certLabel || difficulty) && questionCount}<span aria-hidden="true">·</span>{/if}
-				{#if questionCount}<span>{questionCount} questions</span>{/if}
+				{#if questionCount}<span>{perGameLabel}</span>{/if}
 				{#if plays > 0}
 					<span aria-hidden="true">·</span>
 					<span class="inline-flex items-center gap-1">
