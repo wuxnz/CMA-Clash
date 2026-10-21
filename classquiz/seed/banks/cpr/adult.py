@@ -608,17 +608,20 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-adult",
-        "What chest compression rate should rescuers use during adult CPR?",
-        "100 to 120 compressions per minute",
+        "During prolonged adult CPR the compressor's rate drifts to about 85 per minute despite "
+        "feeling exhausted. What is the best team response while maintaining AHA rate guidance?",
+        "Switch compressors about every two minutes and use a metronome or coach to stay near "
+        "100 to 120 per minute",
         [
-            "70 to 90 compressions per minute to prioritize depth only",
-            "125 to 145 compressions per minute without monitoring depth",
-            "Sync compressions to the patient's last known heart rate",
+            "Accept the slower rate because deeper compressions matter more than speed alone",
+            "Increase rate above 140 per minute to compensate for earlier fatigue",
+            "Pause compressions for one minute so the tired rescuer can recover fully",
         ],
-        "The adult rate band is 100 to 120 compressions per minute. Very slow or very fast rates "
-        "outside this window fail AHA high-quality CPR parameters even if depth feels adequate.",
+        "Fatigue commonly slows rate below 100 even when depth still feels adequate. Switching "
+        "compressors and audible pacing keeps rate in the 100 to 120 band without sacrificing "
+        "uninterrupted perfusion for a full-minute break.",
         [S.AHA_ADULT_BLS],
-        "beginner",
+        "advanced",
     ),
     fact(
         "cpr-adult",
