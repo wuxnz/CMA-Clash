@@ -481,7 +481,7 @@ FACTS: list[dict] = [
         "How should wet ice versus gel packs for transport be chosen?",
         "Laboratory instructions for the specific test and carrier design",
         [
-            "Whichever is closest regardless of contamination risk",
+            "Whichever cold pack is nearest the collection area that day",
             "Never using ice because all tests are room temperature",
             "Patient preference between wet and dry cooling",
         ],

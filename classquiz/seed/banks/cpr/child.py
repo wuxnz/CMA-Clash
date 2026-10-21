@@ -395,8 +395,8 @@ FACTS: list[dict] = [
         "yet been contacted. What should the rescuer do next?",
         "Leave the child briefly to activate EMS and obtain an AED if possible, then return to CPR",
         [
-            "Continue CPR indefinitely at the scene without ever leaving to call for help",
-            "Stop CPR entirely once two minutes have elapsed and wait for bystanders to act",
+            "Continue CPR at the scene without leaving to activate emergency response",
+            "Stop CPR at two minutes and wait for bystanders to call emergency services",
             "Transport the child in a private vehicle to the hospital without activating EMS",
         ],
         "After about two minutes of lone-rescuer CPR, activation and AED retrieval become priorities. "
@@ -541,7 +541,7 @@ FACTS: list[dict] = [
         "signs of poor perfusion. What is the appropriate BLS action?",
         "Begin chest compressions and provide ventilations per pediatric BLS bradycardia protocol",
         [
-            "Monitor only at the bedside because any palpable pulse means CPR is always contraindicated",
+            "Monitor at the bedside because a palpable pulse excludes chest compressions",
             "Provide high-flow oxygen but withhold compressions until the pulse is completely absent",
             "Wait for a second rescuer to arrive before starting any treatment for bradycardia",
         ],
