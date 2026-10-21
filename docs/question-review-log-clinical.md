@@ -622,3 +622,48 @@ skill-med-safety-016 | fail | Replaced leading-zero distractor padding with weig
 skill-med-safety-030 | fail | Replaced opioid diversion distractor padding with signed-prescription near-miss.
 skill-med-safety-042 | fail | Replaced return-to-stock distractor padding with billing-credit near-miss.
 skill-pharm-dosage-028 | fail | Replaced high-alert double-check distractor padding with busy-clinic near-miss.
+
+## Parallel-options pass batch P01 (skill-injection-001 to skill-injection-042)
+
+skill-injection-001 | fail | Parallel angle distractors (fat, intradermal, sliding) instead of sabotage phrasing; balanced lengths.
+skill-injection-002 | fail | SubQ pinch fold vs no-pinch and route-layer near-misses; correct shortened for length parity.
+skill-injection-003 | fail | Removed through-clothing distractor; added no-bleb intradermal near-miss.
+skill-injection-004 | fail | Replaced identifier/IV joke distractors with deltoid volume and workflow near-misses.
+skill-injection-005 | fail | Swapped neck site for infant deltoid volume near-miss; parallel site wording.
+skill-injection-006 | fail | Partial rights lists as distractors; trimmed correct list label for length balance.
+skill-injection-007 | fail | Sharps disposal distractors kept plausible; correct shortened so not uniquely longest.
+skill-injection-008 | fail | Rotation timing distractors parallel; stem unchanged full question.
+skill-injection-009 | fail | Gauge/route confusion distractors; no heparin-only absolute in wrong options.
+skill-injection-010 | fail | Replaced family-room-storage distractors with ward-stock and next-shift near-misses.
+skill-injection-011 | fail | Multidose sharing distractors as clinic-session near-misses; hedge removed from correct.
+skill-injection-012 | fail | Drying timing distractors parallel; removed per-labeling hedge from correct.
+skill-injection-013 | fail | Hand hygiene order distractors; correct shortened for length tie.
+skill-injection-014 | fail | Wrong extremity landmarks as parallel near-misses without joke sites.
+skill-injection-015 | fail | Cold-chain verify correct direct; counter-warm and log-ignore near-misses lengthened.
+skill-injection-016 | fail | Removed per-CDC hedge from correct; catch-up and route near-miss distractors.
+skill-injection-017 | fail | Z-track distractors reframed as aspiration, IV, and documentation near-misses.
+skill-injection-018 | fail | Route mismatch stem unchanged; parallel proceed/hold distractors.
+skill-injection-019 | fail | Vial labeling correct tightened; pool and unlabeled-draw near-misses parallel.
+skill-injection-020 | fail | Anaphylaxis correct without per-protocol hedge; ice and antihistamine near-misses.
+skill-injection-021 | fail | Landmark pair distractors use plausible wrong regions; parallel structure.
+skill-injection-022 | fail | Needle length distractors comfort and one-size near-misses; balanced lengths.
+skill-injection-023 | fail | Documentation element distractors partial-chart near-misses; correct length balanced.
+skill-injection-024 | fail | Unreadable label: hub color, season, and patient-recall near-misses only.
+skill-injection-025 | fail | Aspiration evidence distractors as hand-hygiene and insulin myths.
+skill-injection-026 | fail | Negative stem kept; safe practices vs reinsert needle parallel wording.
+skill-injection-027 | fail | Deltoid volume distractors high-mL near-misses; correct split for length parity.
+skill-injection-028 | fail | Two-vaccine administration distractors one-syringe and one-bleb near-misses.
+skill-injection-029 | fail | Gelatin allergy: give-now and blanket-cancel near-misses; provider review correct.
+skill-injection-030 | fail | Infant site avoid deltoid; thigh distractors deduplicated to parallel landmarks.
+skill-injection-031 | fail | Safety needle: defer shield and reuse near-misses instead of save-space joke.
+skill-injection-032 | fail | Ampule filter correct; bare snap and reuse near-miss distractors parallel.
+skill-injection-033 | fail | Insulin mix shake and skip-mix near-misses; removed heat/freeze sabotage.
+skill-injection-034 | fail | Post-vaccine wait distractors no-wait and overnight near-misses; length balanced.
+skill-injection-035 | fail | Wrong-label syringe relabel and fridge near-misses; discard correct balanced.
+skill-injection-036 | fail | Deltoid placement wrong shoulder, elbow, wrist near-misses parallel.
+skill-injection-037 | fail | Damaged skin: potency and documentation myths replaced with plausible errors.
+skill-injection-038 | fail | Reconstitution timing batch-prep near-misses; correct not uniquely longest.
+skill-injection-039 | fail | Epinephrine stock vault and pharmacy-only near-misses; unit stock correct balanced.
+skill-injection-040 | fail | Warfarin IM hold vs proceed and silent-refusal near-misses.
+skill-injection-041 | fail | Glove order distractors reuse and partial hygiene near-misses.
+skill-injection-042 | fail | Vaccine freeze risk correct; potency-freeze and skip-log near-miss distractors.
