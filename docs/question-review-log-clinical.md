@@ -802,3 +802,48 @@ skill-terminology-030 | fail | -uria/-otomy/-gravida distractors parallel relate
 skill-terminology-031 | fail | Cholelithiasis scenario distractors parallel plain-language organ conditions.
 skill-terminology-032 | fail | CBC specimen-type distractors parallel blood/urine/stool/sputum collection phrasing.
 skill-terminology-033 | fail | BMP panel distractors parallel analyte-list structure; correct shortened for length balance.
+
+## Parallel-options pass batch P03b (skill-specimen-lab-001 to skill-specimen-lab-042)
+
+skill-specimen-lab-001 | fail | Parallel pre-draw identity actions; removed verifying/without-asking padding and outpatient tail.
+skill-specimen-lab-002 | fail | Parallel SST versus EDTA, citrate, and heparin chemistry-tube near-misses.
+skill-specimen-lab-003 | fail | Parallel CBC tube-type distractors aligned to lavender EDTA correct.
+skill-specimen-lab-004 | fail | Parallel coagulation fill and tube-color near-misses; length balanced with citrate correct.
+skill-specimen-lab-005 | fail | Parallel culture-first rationale distractors; additive carryover myths aligned.
+skill-specimen-lab-006 | fail | Parallel inversion-count technique near-misses; CLSI wording on correct balanced.
+skill-specimen-lab-007 | fail | Parallel preanalytic problem definitions; hemolysis mechanism length tied to distractors.
+skill-specimen-lab-008 | fail | Parallel tourniquet timing and fist-pumping near-misses; outpatient padding removed.
+skill-specimen-lab-009 | fail | Parallel venipuncture angle distractors; dropped banned only qualifier on epidermis option.
+skill-specimen-lab-010 | fail | Parallel bedside-versus-batch labeling timing near-misses without asking-padding.
+skill-specimen-lab-011 | fail | Parallel required label element omissions; room color and billing near-misses.
+skill-specimen-lab-012 | fail | Parallel GTT timing and handling near-misses; delayed processing distractors aligned.
+skill-specimen-lab-013 | fail | Parallel urine collection type near-misses for UA and culture orders.
+skill-specimen-lab-014 | fail | Parallel culture transport timing near-misses; heat and sunlight myths aligned.
+skill-specimen-lab-015 | fail | Parallel 24-hour urine purpose versus random-spot near-misses.
+skill-specimen-lab-016 | fail | Parallel sputum AFB source near-misses; saliva and nasal swab distractors aligned.
+skill-specimen-lab-017 | fail | Parallel occult-blood kit sampling near-misses; toilet water and glove-tip errors.
+skill-specimen-lab-018 | fail | Parallel fasting lipid prep near-misses; meal and alcohol distractors aligned.
+skill-specimen-lab-019 | fail | Parallel order-of-draw rationale near-misses; additive carryover theme consistent.
+skill-specimen-lab-020 | fail | Parallel citrate short-draw response near-misses; dilution and tube-switch errors.
+skill-specimen-lab-021 | fail | Parallel sharps disposal near-misses; recap and red-bag distractors aligned.
+skill-specimen-lab-022 | fail | Parallel centrifugation purpose near-misses; heat and EDTA myths aligned.
+skill-specimen-lab-023 | fail | Parallel IV venipuncture site plan; opposite-arm or proximal correct balanced with draw-site distractors.
+skill-specimen-lab-024 | fail | Parallel first-choice vein site near-misses; hand and femoral distractors aligned.
+skill-specimen-lab-025 | fail | Parallel failed-attempt escalation near-misses; deep probe and reuse errors.
+skill-specimen-lab-026 | fail | Parallel gray-top glucose processing near-misses; clot and freeze distractors aligned.
+skill-specimen-lab-027 | fail | Parallel requisition content near-misses; admin trivia distractors length balanced.
+skill-specimen-lab-028 | fail | Parallel biohazard transport rationale near-misses; pooling and warming myths.
+skill-specimen-lab-029 | fail | Parallel underfilled citrate tube actions; saline top-off and send-anyway near-misses.
+skill-specimen-lab-030 | fail | Parallel capillary versus venous indication near-misses across age and test type.
+skill-specimen-lab-031 | fail | Parallel alcohol dry-time technique near-misses; wet prep insertion errors aligned.
+skill-specimen-lab-032 | fail | Parallel missed-collection documentation near-misses; silent cancel and fabricated time.
+skill-specimen-lab-033 | fail | Parallel EDTA tube top colors with additive parentheticals; lavender correct length tied.
+skill-specimen-lab-034 | fail | Parallel potassium hemolysis artifact near-misses; label-color and refrigeration myths.
+skill-specimen-lab-035 | fail | Parallel chain-of-custody purpose near-misses; grocery list and identifier replacement myths.
+skill-specimen-lab-036 | fail | Parallel venipuncture positioning near-misses; dangling arm and wrong tourniquet limb.
+skill-specimen-lab-037 | fail | Parallel legal blood-alcohol collection indication near-misses; routine panel confusion.
+skill-specimen-lab-038 | fail | Parallel STAT order meaning near-misses; delay and bedside storage myths.
+skill-specimen-lab-039 | fail | Parallel tourniquet hygiene rationale near-misses; hand hygiene and ID substitution myths.
+skill-specimen-lab-040 | fail | Parallel unlabeled specimen response near-misses; run-anyway and guess-patient errors.
+skill-specimen-lab-041 | fail | Parallel fasting capillary glucose interpretation near-misses; meal and tube-type myths.
+skill-specimen-lab-042 | fail | Parallel post-draw mixing rationale near-misses; warming and underfill distractors aligned.
