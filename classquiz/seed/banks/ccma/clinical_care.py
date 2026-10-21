@@ -648,19 +648,6 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-clinical-care',
-        'When collecting a clean-catch urine specimen, the patient should?',
-        'Clean the urinary meatus and discard the first portion before collecting midstream urine',
-        [
-            'Collect the first stream only without cleaning',
-            'Use the same container for multiple patients',
-            'Add tap water if volume is low',
-        ],
-        'Midstream clean-catch reduces contamination. Choosing Collect the first stream only without cleaning is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-clinical-care',
         'When measuring peak flow, the patient should?',
         'Use maximal effort after proper instruction',
         [

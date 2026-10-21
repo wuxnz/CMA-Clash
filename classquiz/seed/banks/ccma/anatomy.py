@@ -531,19 +531,6 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-anatomy',
-        'The tricuspid valve lies between the?',
-        'Right atrium and right ventricle',
-        [
-            'Left atrium and left ventricle',
-            'Aorta and left ventricle',
-            'Pulmonary vein and left atrium',
-        ],
-        'Right-sided AV valve prevents backflow into the atrium. Choosing Left atrium and left ventricle is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-anatomy',
         'The tricuspid valve separates the?',
         'Right atrium and right ventricle',
         [
@@ -591,19 +578,6 @@ FACTS: list[dict] = [
             'Pericardial sac',
         ],
         'CSF cushions the CNS and is produced mainly by the choroid plexus. Choosing Epidural space only is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-anatomy',
-        'The hepatic portal vein carries blood from the?',
-        'Gastrointestinal tract to the liver',
-        [
-            'Lungs to the left atrium',
-            'Kidneys to the bladder',
-            'Brain to the heart directly',
-        ],
-        'Portal circulation delivers absorbed nutrients to the liver. Choosing Lungs to the left atrium is a plausible near-miss that does not match the clinical fact tested in this question.',
         [S.NHA_CCMA],
         'advanced',
     ),
