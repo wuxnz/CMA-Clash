@@ -4,15 +4,6 @@
 
 import type { PageLoad } from './$types';
 
-export const load: PageLoad = async ({ fetch }) => {
-	const res = await fetch('/api/v1/results/list?include_quiz=true');
-	let json;
-	if (res.ok) {
-		json = await res.json();
-	} else {
-		json = [];
-	}
-	return {
-		results: json
-	};
-}; // satisfies PageLoad;
+export const load: PageLoad = () => ({
+	results: []
+});

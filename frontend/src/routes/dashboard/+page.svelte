@@ -21,6 +21,7 @@ SPDX-License-Identifier: MPL-2.0
 	import QuizRow from '$lib/quiz/QuizRow.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
+	import { loadDashboardData } from '$lib/dashboard/loadDashboardData';
 
 	interface Props {
 		data: PageData;
@@ -29,6 +30,9 @@ SPDX-License-Identifier: MPL-2.0
 	let { data }: Props = $props();
 	signedIn.set(true);
 	navbarVisible.visible = true;
+
+	let dashLoading = $state(true);
+	let dashboardData = $state(data);
 
 	const CERT_LANES = [
 		{ slug: 'ccma', name: 'NHA CCMA', prefix: 'ccma-' },
@@ -41,7 +45,7 @@ SPDX-License-Identifier: MPL-2.0
 	type DashItem = Record<string, any> & { type: 'quiz' | 'quiztivity'; certLabel?: string };
 
 	function certLabelFor(item: Record<string, any>): string | undefined {
-		const certs = data.certifications ?? [];
+		const certs = dashboardData.certifications ?? [];
 		const match = certs.find((c) => c.id === item.certification_id);
 		if (match) return certificationShortLabel(match.slug, match.name);
 		const fromTitle = certificationShortLabel(null, item.title);
@@ -49,8 +53,8 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function buildItems(): DashItem[] {
-		const quizzes = Array.isArray(data.quizzes) ? data.quizzes : [];
-		const quiztivities = Array.isArray(data.quiztivities) ? data.quiztivities : [];
+		const quizzes = Array.isArray(dashboardData.quizzes) ? dashboardData.quizzes : [];
+		const quiztivities = Array.isArray(dashboardData.quiztivities) ? dashboardData.quiztivities : [];
 		return [
 			...quizzes.map((q) => ({ ...q, type: 'quiz' as const, certLabel: certLabelFor(q) })),
 			...quiztivities.map((q) => ({ ...q, type: 'quiztivity' as const, certLabel: certLabelFor(q) }))
@@ -65,7 +69,7 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function lastPlayedFor(item: DashItem): string | null {
-		const results = data.results ?? [];
+		const results = dashboardData.results ?? [];
 		const hit = results.find((r) => {
 			const q = r.quiz;
 			const id = typeof q === 'object' && q ? q.id : q;
@@ -85,17 +89,17 @@ SPDX-License-Identifier: MPL-2.0
 	const forceEmpty = $derived(page.url.searchParams.get('empty') === '1');
 	const visibleItems = $derived(forceEmpty ? [] : items_to_show);
 
-	const displayName = $derived(data.username || 'there');
-	const g = $derived(data.gamification);
+	const displayName = $derived(dashboardData.username || 'there');
+	const g = $derived(dashboardData.gamification);
 	const level = $derived(g?.level ?? 1);
 	const xp = $derived(g?.total_xp ?? 0);
 	const streak = $derived(g?.current_streak_days ?? 0);
 	const hasStats = $derived(streak > 0 || xp > 0);
 
 	const masteryLanes = $derived.by(() => {
-		const stats = data.topicStats ?? [];
-		const topics = data.topics ?? [];
-		const certs = data.certifications ?? [];
+		const stats = dashboardData.topicStats ?? [];
+		const topics = dashboardData.topics ?? [];
+		const certs = dashboardData.certifications ?? [];
 		return CERT_LANES.map((lane) => {
 			const cert = certs.find((c) => c.slug === lane.slug);
 			const slugs = new Set(
@@ -118,8 +122,8 @@ SPDX-License-Identifier: MPL-2.0
 	});
 	const startedMastery = $derived(masteryLanes.filter((l) => l.started));
 
-	const recent = $derived((data.results ?? []).slice(0, 5));
-	const board = $derived((data.leaderboard ?? []).slice(0, 5));
+	const recent = $derived((dashboardData.results ?? []).slice(0, 5));
+	const board = $derived((dashboardData.leaderboard ?? []).slice(0, 5));
 
 	const search = () => {
 		if (!fuse || search_term === '') {
@@ -129,14 +133,25 @@ SPDX-License-Identifier: MPL-2.0
 		items_to_show = fuse.search(search_term).map((r) => r.item);
 	};
 
-	onMount(() => {
-		void refreshSiteAdminFlag();
+	function applyDashboardData() {
 		all_items = buildItems();
 		items_to_show = all_items;
 		fuse = new Fuse(all_items, {
 			keys: ['title', 'description', 'questions.title'],
 			findAllMatches: true
 		});
+	}
+
+	onMount(() => {
+		void refreshSiteAdminFlag();
+		void (async () => {
+			try {
+				dashboardData = await loadDashboardData(fetch);
+			} finally {
+				dashLoading = false;
+				applyDashboardData();
+			}
+		})();
 	});
 
 	const deleteQuiz = async (to_delete: string, type: 'quiz' | 'quiztivity') => {
@@ -220,7 +235,15 @@ SPDX-License-Identifier: MPL-2.0
 					{/if}
 				</div>
 
-				{#if visibleItems.length === 0}
+				{#if dashLoading}
+					<ul class="animate-pulse pt-2" aria-busy="true" aria-label="Loading quizzes">
+						{#each [1, 2, 3, 4, 5] as n (n)}
+							<li class="border-b border-white/[0.07] py-3">
+								<div class="h-3 w-2/5 max-w-xs rounded bg-elevated"></div>
+							</li>
+						{/each}
+					</ul>
+				{:else if visibleItems.length === 0}
 					<div class="pt-5" data-empty-quizzes>
 						<p class="text-sm text-ink">No quizzes yet.</p>
 						<p class="text-sm text-ink-muted mt-1">

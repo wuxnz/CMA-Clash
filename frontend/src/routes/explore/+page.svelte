@@ -32,7 +32,7 @@
 	let featured = $state<BrowseRow[]>(data.featured);
 	let hasMore = $state(data.hasMore);
 	let page = $state(data.page);
-	let loading = $state(false);
+	let loading = $state(true);
 	let loadingMore = $state(false);
 	let exploreError = $state('');
 	let start_game = $state<string | null>(null);
@@ -104,7 +104,7 @@
 	});
 
 	onMount(() => {
-		if (rows.length === 0 || data.exploreSsrFailed) loadPage(1, true);
+		void loadPage(1, true);
 	});
 </script>
 

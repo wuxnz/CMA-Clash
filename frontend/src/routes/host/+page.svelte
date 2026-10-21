@@ -28,14 +28,12 @@ SPDX-License-Identifier: MPL-2.0
 
 	let quizzes = $state<QuizBrowseItem[]>(data.quizzes ?? []);
 	let certs = $state<Certification[]>([]);
-	let catalogLoading = $state(data.ssrQuizLoadFailed && quizzes.length === 0);
+	let catalogLoading = $state(true);
 	let error = $state('');
 	let start_game = $state<string | null>(null);
 
 	onMount(async () => {
 		certs = await fetchCerts(fetch);
-		if (quizzes.length > 0) return;
-		catalogLoading = true;
 		error = '';
 		const list = await loadPublicQuizCatalogClient();
 		catalogLoading = false;
