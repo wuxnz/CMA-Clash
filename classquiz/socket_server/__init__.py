@@ -264,11 +264,13 @@ async def get_question_results(sid: str, data: dict):
     if not session["admin"]:
         return
     game_pin = session["game_pin"]
-    answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, data["question_number"])
-    game_data = await PlayGame.get_from_redis(game_pin)
-    game_data.question_show = False
-    await game_data.save(game_pin)
-    await sio.emit("question_results", answer_data_list.model_dump(), room=game_pin)
+    question_number = int(data["question_number"])
+    from classquiz.socket_server.question_lifecycle import close_question_now
+
+    closed = await close_question_now(sio, game_pin, question_number)
+    if not closed:
+        answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, question_number)
+        await sio.emit("question_results", answer_data_list.model_dump(), room=game_pin)
 
 
 @sio.event
@@ -343,11 +345,15 @@ async def submit_answer(sid: str, data: dict):
     await sio.emit("player_answer", {}, room=f"admin:{game_pin}")
     if player_count > 0 and answer_count >= player_count:
         game_data = await PlayGame.get_from_redis(game_pin)
-        game_data.question_show = False
-        await game_data.save(game_pin)
         await sio.emit("everyone_answered", {}, room=game_pin)
         if game_data.game_mode == "battle":
+            game_data.question_show = False
+            await game_data.save(game_pin)
             await battle_maybe_advance(sio, session["game_pin"], game_data)
+        else:
+            from classquiz.socket_server.question_lifecycle import try_close_question_when_complete
+
+            await try_close_question_when_complete(sio, game_pin, question_index)
 
 
 @sio.event

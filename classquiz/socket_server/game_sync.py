@@ -63,6 +63,9 @@ async def _prepare_question_payload(
 
 async def emit_show_question(sio, game_pin: str, game_data: PlayGame, question_index: int, room: str | None = None) -> None:
     """Show a question to everyone in the game room (or a single sid when room is a sid)."""
+    from classquiz.socket_server.question_lifecycle import cancel_question_lifecycle
+
+    cancel_question_lifecycle(game_pin)
     game_data.current_question = question_index
     game_data.question_show = True
     await game_data.save(game_pin)
@@ -70,8 +73,13 @@ async def emit_show_question(sio, game_pin: str, game_data: PlayGame, question_i
     await redis.set(f"game:{game_pin}:current_time", payload.pop("_answer_phase_iso"), ex=7200)
     target = room or game_pin
     await sio.emit("set_question_number", payload, room=target)
+    timing = await load_question_timing(game_pin)
     if game_data.game_mode == "battle":
         _schedule_battle_question_timeout(sio, game_pin, question_index)
+    elif timing and timing.get("question_index") == question_index:
+        from classquiz.socket_server.question_lifecycle import schedule_question_deadline
+
+        schedule_question_deadline(sio, game_pin, question_index, timing["answer_deadline_ms"])
 
 
 def _schedule_battle_question_timeout(sio, game_pin: str, question_index: int) -> None:
