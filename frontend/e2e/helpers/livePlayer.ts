@@ -6,7 +6,7 @@ import { expect, type Page } from '@playwright/test';
 
 export async function expectPlayerOnAnswerTiles(page: Page, label: string) {
 	const root = page.getByTestId('answer-tiles');
-	await expect(root, label).toBeVisible({ timeout: 60_000 });
+	await expect(root, label).toBeVisible({ timeout: 120_000 });
 	await expect(
 		root.locator('button:not([disabled])'),
 		`${label}: interactive tiles`

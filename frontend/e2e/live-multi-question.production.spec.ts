@@ -33,7 +33,7 @@ test.describe('production live multi-question UI', () => {
 			const p2 = await joinPlayer(p2Ctx, pin, `P2${suffix}`);
 
 			lobby.startGame();
-			await new Promise((r) => setTimeout(r, 1500));
+			await new Promise((r) => setTimeout(r, gameMode === 'normal' ? 5500 : 2000));
 
 			await expectPlayerOnAnswerTiles(p1, 'P1 Q1');
 			await expectPlayerOnAnswerTiles(p2, 'P2 Q1');
