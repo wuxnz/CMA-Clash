@@ -73,7 +73,7 @@ FACTS: list[dict] = [
         [
             'Billing codes with all patient identifiers permanently removed',
             'Aggregate quality reports with no link to a person',
-            'Paper appointment books that list only first names of staff',
+            'Paper appointment books that list first names of staff without patient data',
         ],
         'PHI includes demographic and clinical details that identify the individual or could reasonably be used to identify them. De-identified or workforce scheduling data without patient health content is not PHI.',
         [S.NHA_CCMA],
@@ -99,8 +99,8 @@ FACTS: list[dict] = [
         'When should HIPAA privacy and security training occur for medical assistants and other workforce members?',
         'At hire and on a recurring schedule defined by facility policy',
         [
-            'Only after OCR opens a formal investigation',
-            'Only for information technology staff, not clinical assistants',
+            'After OCR opens a formal investigation',
+            'For information technology staff, not clinical assistants',
             'One session with no refresher unless a new law passes',
         ],
         'Administrative safeguards under the Security Rule expect workforce members to understand policies before handling ePHI. Periodic retraining reinforces safe workflows as systems and threats change.',
@@ -114,7 +114,7 @@ FACTS: list[dict] = [
         'Execute a business associate agreement before PHI is shared',
         [
             'Rely on a verbal promise because the vendor is well known',
-            'Skip a contract when the vendor only receives encrypted files',
+            'Omit a contract when the vendor receives encrypted files',
             'Treat the vendor like an office supply order with no privacy terms',
         ],
         'Business associates must contractually agree to safeguard PHI and report breaches. Covered entities remain accountable for PHI handled on their behalf by vendors.',
@@ -184,7 +184,7 @@ FACTS: list[dict] = [
         'Remove specified identifier elements such as names and dates tied to the individual',
         [
             'Rename the patient but keep the medical record number in the file',
-            'Delete only the patient favorite color field and call the file de-identified',
+            'Delete the patient favorite color field and call the file de-identified',
             'Share the full chart because the research protocol was approved locally',
         ],
         'Safe Harbor requires removal of 18 categories of identifiers unless an expert certifies very low re-identification risk. Partial redaction that leaves key identifiers still counts as PHI.',
@@ -211,7 +211,7 @@ FACTS: list[dict] = [
         'Before buying new software that stores ePHI, what Security Rule process should the practice complete?',
         'Conduct an accurate and thorough risk analysis of ePHI vulnerabilities',
         [
-            'Install the product first and document risks only after a breach occurs',
+            'Install the product first and document risks after a breach occurs',
             'Rely on the vendor brochure without reviewing local workflows',
             'Delegate the decision entirely to staff who do not handle patient data',
         ],
@@ -281,8 +281,8 @@ FACTS: list[dict] = [
         'A patient believes the clinic mishandled their PHI. Where may they file a privacy complaint?',
         'With the covered entity\'s privacy officer and with the HHS Office for Civil Rights',
         [
-            'Only with the local restaurant health inspector',
-            'Only on anonymous gossip boards with no contact information',
+            'With the local restaurant health inspector',
+            'On anonymous gossip boards with no contact information',
             'Nowhere, because patients waive privacy rights by seeking care',
         ],
         'Covered entities must have a complaint process and may not retaliate for filing. OCR investigates alleged violations of the Privacy and Security Rules.',
@@ -423,7 +423,7 @@ FACTS: list[dict] = [
         [
             'Blank permission to release every record for any reason with no end date',
             'A verbal okay from an unidentified caller without the patient\'s signature',
-            'Only the patient\'s social media username as the sole identifier',
+            'The patient\'s social media username as the sole identifier',
         ],
         'Privacy Rule authorizations must state what will be shared, who may receive it, an expiration, and the patient\'s right to revoke. Vague or open-ended forms are not valid for non-permitted disclosures.',
         [S.NHA_CCMA],
@@ -463,7 +463,7 @@ FACTS: list[dict] = [
         'A quality team reviews aggregate readmission rates with all patient names removed using the HIPAA Safe Harbor method. How is that dataset classified?',
         'De-identified health information that is not PHI when the standard is met',
         [
-            'PHI because any health-related number always identifies someone',
+            'PHI because any health-related number identifies someone',
             'PHI unless the patient signs a new authorization every month',
             'Public domain information that may be sold without any restrictions',
         ],
@@ -479,7 +479,7 @@ FACTS: list[dict] = [
         [
             'Leave the prior patient\'s chart open while calling the next person forward',
             'Store login passwords on sticky notes attached to the keyboard',
-            'Connect the EHR only through unsecured public Wi-Fi with no VPN',
+            'Connect the EHR through unsecured public Wi-Fi with no VPN',
         ],
         'Physical safeguards complement technical controls by limiting who can see screens in public areas. Visible charts and shared credentials are frequent sources of incidental disclosure.',
         [S.NHA_CCMA],
@@ -492,7 +492,7 @@ FACTS: list[dict] = [
         'Encrypting portable device storage as an addressable safeguard when risk warrants it',
         [
             'Prohibiting encryption because HIPAA forbids protecting laptops',
-            'Ignoring the finding because encryption is never considered after analysis',
+            'Ignoring the finding because encryption is not considered after analysis',
             'Posting ePHI on public blogs instead of storing it locally',
         ],
         'Addressable specifications require covered entities to implement a safeguard or document why an equivalent measure is reasonable. Encryption mitigates loss or theft of mobile media.',
@@ -507,7 +507,7 @@ FACTS: list[dict] = [
         [
             'Release records when the caller states the patient birthday found online',
             'Fax results immediately if the caller knows the patient\'s nickname',
-            'Skip verification because voice recognition apps are always accurate',
+            'Omit verification because voice recognition apps are accurate',
         ],
         'The right of access and minimum necessary rules assume the requester is who they claim to be. Weak verification enables wrongful disclosure to strangers or domestic abusers.',
         [S.NHA_CCMA],
@@ -519,9 +519,9 @@ FACTS: list[dict] = [
         'A marketing firm offers payment if the clinic emails patient lists for a supplement promotion. When is patient authorization required?',
         'For the marketing use because it is not a permitted treatment, payment, or operations disclosure',
         [
-            'Never, because any employee may disclose PHI for commercial gain',
-            'Only when the patient is hospitalized, not in outpatient clinics',
-            'Never, because treatment, payment, and operations always cover third-party ads',
+            'No authorization is needed because any employee may disclose PHI for commercial gain',
+            'When the patient is hospitalized, not in outpatient clinics',
+            'No authorization is needed because treatment, payment, and operations cover third-party ads',
         ],
         'Financially motivated marketing to sell unrelated products generally needs explicit authorization. Core TPO and legally required public health reporting follow different pathways.',
         [S.NHA_CCMA],
@@ -534,7 +534,7 @@ FACTS: list[dict] = [
         'Perform a risk assessment to determine whether notification to individuals, HHS, or media is required',
         [
             'Assume no breach occurred if the thief promises to return the tapes',
-            'Skip documentation because criminal theft automatically exempts all HIPAA duties',
+            'Omit documentation because criminal theft automatically exempts all HIPAA duties',
             'Announce every patient diagnosis on the clinic website before investigating',
         ],
         'Not every impermissible use is a reportable breach; risk analysis examines probability that PHI was compromised. Timely assessment drives individual and regulatory notice when thresholds are met.',
@@ -548,7 +548,7 @@ FACTS: list[dict] = [
         'A data use agreement between the covered entity and the researcher',
         [
             'No contract because limited data sets may be posted on open internet forums',
-            'Only a verbal promise that the laptop will stay in the cafeteria',
+            'A verbal promise that the laptop will stay in the cafeteria',
             'A business associate agreement that replaces all institutional review board oversight',
         ],
         'Limited data sets exclude direct identifiers but may retain certain geographic and date elements. Recipients must sign data use agreements promising safeguards and permitted uses.',
@@ -575,8 +575,8 @@ FACTS: list[dict] = [
         'A vendor offers to sell a clinic list of patients with full names and MRNs for outreach. Why does that dataset fail HIPAA de-identification?',
         'It retains direct identifiers that tie health information to specific individuals',
         [
-            'De-identified data must always include social security numbers',
-            'Quality improvement projects may never use any health-related numbers',
+            'De-identified data must include social security numbers',
+            'Quality improvement projects may not use any health-related numbers',
             'De-identified and PHI are legally identical terms with no difference',
         ],
         'PHI remains regulated until identifiers are removed under Safe Harbor or expert certification. Selling identifiable lists for marketing violates privacy rules and usually needs authorization.',
@@ -589,7 +589,7 @@ FACTS: list[dict] = [
         'A patient asks the clinic not to bill the spouse\'s insurance because it would reveal sensitive care. How should the practice handle a restriction request?',
         'Follow Privacy Rule procedures to consider the request and document any agreed limits',
         [
-            'Ignore the patient because insurers always receive every diagnosis automatically',
+            'Ignore the patient because insurers receive every diagnosis automatically',
             'Agree to delete all factual entries from the medical record permanently',
             'Require the patient to accept unlimited marketing emails as a condition of care',
         ],
@@ -632,8 +632,8 @@ FACTS: list[dict] = [
         'Encrypting device storage and using remote wipe after documented risk analysis',
         [
             'Storing tablets unlocked in vehicles because encryption is banned by HIPAA',
-            'Relying on hope that devices are never lost without reviewing threats',
-            'Limiting encryption to desktop billing computers only, never field tablets',
+            'Relying on hope that devices are not lost without reviewing threats',
+            'Limiting encryption to desktop billing computers and excluding field tablets',
         ],
         'Portable media face theft and loss outside the clinic. Addressable encryption and device management reduce the chance that ePHI is readable if hardware disappears.',
         [S.NHA_CCMA],

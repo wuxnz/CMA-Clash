@@ -617,7 +617,7 @@ FACTS: list[dict] = [
         'In which spaces does cerebrospinal fluid (CSF) circulate after leaving the ventricular system?',
         'Subarachnoid space around the brain and spinal cord (and within ventricles)',
         [
-            'Epidural space between skull and dura only',
+            'Epidural space between skull and dura',
             'Synovial cavities of diarthrodial joints',
             'Pericardial sac surrounding the heart',
         ],

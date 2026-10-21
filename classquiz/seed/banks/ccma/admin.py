@@ -493,7 +493,7 @@ FACTS: list[dict] = [
         [
             "A vital sign measurement taken at check-in",
             "A requirement to bandage every minor abrasion",
-            "An optional step that payers never enforce",
+            "An optional step that payers do not enforce",
         ],
         "Many plans mandate authorization for high-cost imaging or specialty drugs. Skipping required auth commonly results in denial.",
         [S.NHA_CCMA],

@@ -272,3 +272,145 @@ ccma-diabetes-087 | fail | Banned "Only when" in urine ketone indication distrac
 ccma-diabetes-087 | pass | Asymptomatic hypoglycemia ketone-testing near-miss.
 ccma-diabetes-089 | fail | Banned "only" and "never" in hypoglycemia awareness distractor.
 ccma-diabetes-089 | pass | Diet-controlled type 2 without insulin near-miss.
+
+## Coordination, HIPAA, law/ethics, vaccines, admin, anatomy — banned-qualifier distractor pass
+
+ccma-coordination-001 | fail | Banned "only" in pamphlet-only distractor.
+ccma-coordination-001 | pass | Printed pamphlet without teach-back near-miss.
+ccma-coordination-005 | fail | Banned "only" trailing merchandise distractor.
+ccma-coordination-005 | pass | Unrelated retail coupon near-miss.
+ccma-coordination-006 | fail | Banned "Only" age-only referral distractor.
+ccma-coordination-006 | pass | Chronological age without indication near-miss.
+ccma-coordination-007 | fail | Banned "only" scheduling-preference distractor.
+ccma-coordination-007 | pass | Staff preference as sole referral content near-miss.
+ccma-coordination-009 | fail | Banned "Only" opinion-only documentation distractor.
+ccma-coordination-009 | pass | MA opinion without refusal details near-miss.
+ccma-coordination-011 | fail | Banned "Only" vitamin-only reconciliation distractor.
+ccma-coordination-011 | pass | Enjoyed vitamins without Rx meds near-miss.
+ccma-coordination-012 | fail | Banned "only" sticky-note documentation distractor.
+ccma-coordination-012 | pass | Unsecured sticky notes at desk near-miss.
+ccma-coordination-018 | fail | Banned "Skip" group-visit documentation distractor.
+ccma-coordination-018 | pass | Defer documentation in group room near-miss.
+ccma-coordination-023 | fail | Banned "only" phone-outreach replacement distractor.
+ccma-coordination-023 | pass | Phone outreach alone replacing wellness visits near-miss.
+ccma-coordination-026 | fail | Banned "only" and "skip" recall-outreach distractor.
+ccma-coordination-026 | pass | New patients while omitting panel near-miss.
+ccma-coordination-027 | fail | Banned "only" cosmetic-surgery SDOH distractor.
+ccma-coordination-027 | pass | Elective surgery unrelated to housing near-miss.
+ccma-coordination-031 | fail | Banned "never" static care-plan distractor.
+ccma-coordination-031 | pass | Unchanged plan when status worsens near-miss.
+ccma-coordination-034 | fail | Banned "Only" favorite-color log distractor.
+ccma-coordination-034 | pass | Favorite color for filing near-miss.
+ccma-coordination-036 | fail | Banned "Only" and "Never" HF follow-up distractors.
+ccma-coordination-036 | pass | Deferred symptom-based scheduling and discharge-complete near-misses.
+ccma-coordination-039 | fail | Banned "Only" nonclinical home-health note distractor.
+ccma-coordination-039 | pass | Nonclinical trivia near-miss.
+ccma-coordination-040 | fail | Banned "Only" address-only confirmation distractor.
+ccma-coordination-040 | pass | Mailing address confirmation alone near-miss.
+ccma-coordination-041 | fail | Banned "only" social-media reminder distractor.
+ccma-coordination-041 | pass | Social handles without prep instructions near-miss.
+ccma-coordination-042 | fail | Banned "Only," "never," and "Never" sharps-log distractors.
+ccma-coordination-042 | pass | Inspector-present, inpatient-only, and office-exempt near-misses.
+
+ccma-hipaa-005 | fail | Banned "only" staff appointment-book distractor.
+ccma-hipaa-005 | pass | Staff first names without patient data near-miss.
+ccma-hipaa-007 | fail | Banned "Only" OCR and IT-only training distractors.
+ccma-hipaa-007 | pass | Post-investigation and IT-exclusive training near-misses.
+ccma-hipaa-008 | fail | Banned "Skip" and "only" BAA distractor.
+ccma-hipaa-008 | pass | Omit contract for encrypted vendor near-miss.
+ccma-hipaa-013 | fail | Banned "only" partial de-identification distractor.
+ccma-hipaa-013 | pass | Favorite-color deletion as de-ID near-miss.
+ccma-hipaa-015 | fail | Banned "only" post-breach risk documentation distractor.
+ccma-hipaa-015 | pass | Install-first document-after-breach near-miss.
+ccma-hipaa-020 | fail | Banned "Only" complaint-venue distractors.
+ccma-hipaa-020 | pass | Health inspector and gossip-board near-misses.
+ccma-hipaa-030 | fail | Banned "Only" social-media authorization distractor.
+ccma-hipaa-030 | pass | Social username as sole identifier near-miss.
+ccma-hipaa-033 | fail | Banned "always" de-identified PHI distractor.
+ccma-hipaa-033 | pass | Health number always identifies someone near-miss.
+ccma-hipaa-034 | fail | Banned "only" public Wi-Fi EHR distractor.
+ccma-hipaa-034 | pass | Unsecured Wi-Fi without VPN near-miss.
+ccma-hipaa-035 | fail | Banned "never" encryption-after-analysis distractor.
+ccma-hipaa-035 | pass | Encryption not considered post-analysis near-miss.
+ccma-hipaa-036 | fail | Banned "Skip" and "always" phone verification distractor.
+ccma-hipaa-036 | pass | Voice-app accuracy without verification near-miss.
+ccma-hipaa-037 | fail | Banned "Never," "Only," and "always" marketing authorization distractors.
+ccma-hipaa-037 | pass | Commercial-gain, inpatient-only, and TPO-ad near-misses.
+ccma-hipaa-038 | fail | Banned "Skip" breach-documentation distractor.
+ccma-hipaa-038 | pass | Theft exempts HIPAA duties near-miss.
+ccma-hipaa-039 | fail | Banned "Only" verbal limited-data-set distractor.
+ccma-hipaa-039 | pass | Cafeteria laptop verbal promise near-miss.
+ccma-hipaa-041 | fail | Banned "always" and "never" de-identification distractors.
+ccma-hipaa-041 | pass | SSN-required de-ID and QI number ban near-misses.
+ccma-hipaa-042 | fail | Banned "always" insurer disclosure distractor.
+ccma-hipaa-042 | pass | Insurers receive every diagnosis near-miss.
+ccma-hipaa-045 | fail | Banned "never" and "only" portable-device encryption distractors.
+ccma-hipaa-045 | pass | Hope devices not lost and desktop-only encryption near-misses.
+
+ccma-law-ethics-004 | fail | Banned "Skip" side-effect reporting distractor.
+ccma-law-ethics-004 | pass | Defer reporting when patient uncomfortable near-miss.
+ccma-law-ethics-006 | fail | Banned "only" benefits-only consent distractor.
+ccma-law-ethics-006 | pass | Benefits while omitting complications near-miss.
+ccma-law-ethics-016 | fail | Banned "never" chart recreation distractor.
+ccma-law-ethics-016 | pass | Recreate note as if error had not occurred near-miss.
+ccma-law-ethics-017 | fail | Banned "never" emancipated-minor care distractor.
+ccma-law-ethics-017 | pass | May not receive outpatient care without parent near-miss.
+ccma-law-ethics-018 | fail | Banned "Skip" repeat vitals distractor.
+ccma-law-ethics-018 | pass | Omit repeat vitals when patient feels fine near-miss.
+ccma-law-ethics-021 | fail | Banned "Only" billing-only consent distractor.
+ccma-law-ethics-021 | pass | Patient responsibility on statement near-miss.
+ccma-law-ethics-023 | fail | Banned "only" justice favoritism distractor.
+ccma-law-ethics-023 | pass | Premium services to staff friends near-miss.
+ccma-law-ethics-024 | fail | Banned "only" and "Skip" vaccine-shortage justice distractors.
+ccma-law-ethics-024 | pass | Highest-fee and bypass-triage near-misses.
+ccma-law-ethics-026 | fail | Banned "only" and "never" mandatory-reporting distractors.
+ccma-law-ethics-026 | pass | Paid-in-full and inpatient-only report near-misses.
+ccma-law-ethics-037 | fail | Banned "only" gift-conditioned care distractor.
+ccma-law-ethics-037 | pass | Care when gifts received near-miss.
+ccma-law-ethics-045 | fail | Banned "only" Good Samaritan scope distractor.
+ccma-law-ethics-045 | pass | Fraudulent Medicare billing disputes near-miss.
+ccma-law-ethics-046 | fail | Banned "only" False Claims Act scope distractor.
+ccma-law-ethics-046 | pass | Tube order-of-draw discipline near-miss.
+
+ccma-vaccines-001 | fail | Banned "Only" VIS timing distractors.
+ccma-vaccines-001 | pass | Post-reaction and commercial-insurance gate near-misses.
+ccma-vaccines-002 | fail | Banned "only" newborn ventrogluteal distractor.
+ccma-vaccines-002 | pass | Ventrogluteal in newborns near-miss.
+ccma-vaccines-004 | fail | Banned "Only" weather-log distractor.
+ccma-vaccines-004 | pass | Outdoor forecast on temp log near-miss.
+ccma-vaccines-005 | fail | Banned "only" cosmetic lot-number distractor.
+ccma-vaccines-005 | pass | Lot number for cosmetic charting near-miss.
+ccma-vaccines-006 | fail | Banned "only" nickname documentation distractor.
+ccma-vaccines-006 | pass | Nickname without product/lot near-miss.
+ccma-vaccines-008 | fail | Banned "Skip" identity-check distractor.
+ccma-vaccines-008 | pass | Omit checks for familiar patient near-miss.
+ccma-vaccines-013 | fail | Banned "Only" syringe-label distractor.
+ccma-vaccines-013 | pass | Preparer initials in unshared code near-miss.
+ccma-vaccines-015 | fail | Banned "Only" delayed VIS paper-copy distractor.
+ccma-vaccines-015 | pass | Paper copy years later near-miss.
+ccma-vaccines-016 | fail | Banned "only" Fahrenheit-only monitoring distractor.
+ccma-vaccines-016 | pass | Fahrenheit without conversion records near-miss.
+ccma-vaccines-019 | fail | Banned "only" business-hours fridge distractor.
+ccma-vaccines-019 | pass | Unplugged unit during business hours near-miss.
+ccma-vaccines-020 | fail | Banned "only" subcutaneous needle-length distractor.
+ccma-vaccines-020 | pass | Short needle for every product near-miss.
+ccma-vaccines-021 | fail | Banned "only" needle-change syringe-sharing distractor.
+ccma-vaccines-021 | pass | Share syringe after needle change near-miss.
+ccma-vaccines-025 | fail | Banned "never" and "only" same-day inactivated vaccine distractors.
+ccma-vaccines-025 | pass | Same-day prohibition and one-syringe mix near-misses.
+ccma-vaccines-027 | fail | Banned "only" thigh-only adult flu distractor.
+ccma-vaccines-027 | pass | Adult influenza in thigh near-miss.
+ccma-vaccines-033 | fail | Banned "only" localized rash discharge distractor.
+ccma-vaccines-033 | pass | Rash limited to arms discharge near-miss.
+ccma-vaccines-035 | fail | Banned "Skip" allergy-history distractor.
+ccma-vaccines-035 | pass | Omit allergy history near-miss.
+ccma-vaccines-036 | fail | Banned "Only" social-media VAERS distractor.
+ccma-vaccines-036 | pass | Personal social media reporting near-miss.
+ccma-vaccines-043 | fail | Banned "Only" transport-documentation distractor.
+ccma-vaccines-043 | pass | Handwritten cooler felt cold note near-miss.
+
+ccma-admin-035 | fail | Banned "never" prior-auth optional distractor.
+ccma-admin-035 | pass | Payers do not enforce prior auth near-miss.
+
+ccma-anatomy-044 | fail | Banned "only" epidural CSF distractor.
+ccma-anatomy-044 | pass | Epidural skull-dura space near-miss.

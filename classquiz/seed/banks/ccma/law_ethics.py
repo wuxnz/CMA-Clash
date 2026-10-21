@@ -58,7 +58,7 @@ FACTS: list[dict] = [
         'Follow the five rights and report concerns before giving a medication that may harm the patient',
         [
             'Give the dose on time even when the allergy band contradicts the order',
-            'Skip reporting new side effects if the patient seems uncomfortable complaining',
+            'Defer reporting new side effects if the patient seems uncomfortable complaining',
             'Carry out a procedure the provider ordered if you are unsure you are trained for it',
         ],
         'Safe practice means verifying identity, drug, dose, route, and time, then stopping when something does not fit. Speed, silence about adverse effects, or working outside scope increases harm risk.',
@@ -86,7 +86,7 @@ FACTS: list[dict] = [
         'Support honest education so the patient can weigh benefits against risks',
         [
             'Encourage the patient to sign quickly so the schedule stays full',
-            'Emphasize only benefits and avoid mentioning complications',
+            'Emphasize benefits while omitting discussion of complications',
             'Tell the patient the team will decide what is best without their input',
         ],
         'Beneficence includes helping patients pursue favorable outcomes, which requires truthful information. Rushed or one-sided consent undermines the patient\'s ability to choose what is best for them.',
@@ -225,7 +225,7 @@ FACTS: list[dict] = [
         'A late entry is needed because vital signs were charted in the wrong column. What is the ethical way to correct the record?',
         'Add a dated, signed addendum per policy without deleting or obscuring the original entry',
         [
-            'Delete the entire electronic note and recreate it as if the error never occurred',
+            'Delete the entire electronic note and recreate it as if the error had not occurred',
             'Change the timestamp so the entry appears to have been made on the prior day',
             'Ask a colleague to sign the note as if they had witnessed the visit',
         ],
@@ -239,7 +239,7 @@ FACTS: list[dict] = [
         'When state law recognizes a patient as an emancipated minor, what consent authority usually applies?',
         'The minor may consent to their own medical care within the limits of that statute',
         [
-            'The minor may never receive outpatient care without a parent present',
+            'The minor may not receive outpatient care without a parent present',
             'The minor may hire and fire all clinic employees',
             'The minor may override federal and state practice acts for every facility',
         ],
@@ -253,7 +253,7 @@ FACTS: list[dict] = [
         'Which action by a medical assistant best demonstrates beneficence during a routine visit?',
         'Notice the patient\'s uncontrolled blood pressure and promptly alert the licensed provider',
         [
-            'Skip repeat vitals because the patient says they feel fine',
+            'Omit repeat vitals because the patient says they feel fine',
             'Tell the patient elevated readings are normal without provider input',
             'Delay reporting abnormal findings until the end of the week',
         ],
@@ -295,7 +295,7 @@ FACTS: list[dict] = [
         'Before a surgical procedure, what information must the patient receive for consent to be considered informed?',
         'The nature of the procedure, material risks, expected benefits, and reasonable alternatives',
         [
-            'Only the estimated patient responsibility on the billing statement',
+            'The estimated patient responsibility on the billing statement',
             'A guarantee that no complication will ever occur',
             'Contact information for staff personal social media accounts',
         ],
@@ -323,7 +323,7 @@ FACTS: list[dict] = [
         'In bioethics, what does the principle of justice emphasize?',
         'Fair distribution of health care benefits and burdens among patients and populations',
         [
-            'Delivering premium services only to personal friends of the staff',
+            'Delivering premium services to personal friends of the staff',
             'Ignoring insurance status when allocating scarce resources in every setting',
             'Denying care based on race, religion, or other protected characteristics',
         ],
@@ -337,9 +337,9 @@ FACTS: list[dict] = [
         'During a vaccine shortage, how does justice guide clinic triage decisions?',
         'Allocate doses using evidence-based priority rules that treat similar patients fairly',
         [
-            'Give vaccine only to patients who pay the highest cash fee',
+            'Reserve vaccine for patients who pay the highest cash fee',
             'Select recipients based on staff members\' personal preferences',
-            'Skip triage protocols and vaccinate whoever arrives first regardless of risk',
+            'Bypass triage protocols and vaccinate whoever arrives first regardless of risk',
         ],
         'Justice supports transparent criteria, such as age, risk, and occupation, during scarcity. Payment alone, bias, or chaos undermines fair access to preventive care.',
         [S.NHA_CCMA],
@@ -366,8 +366,8 @@ FACTS: list[dict] = [
         'Promptly notify the state-designated child or adult protective services agency per statute',
         [
             'Wait until the alleged abuser agrees to a family meeting',
-            'Report only when the patient pays outstanding balances in full',
-            'Limit reports to inpatient hospitals and never outpatient clinics',
+            'Report when the patient pays outstanding balances in full',
+            'Limit reports to inpatient hospitals and exclude outpatient clinics',
         ],
         'Mandated reporters must follow written facility policy and state timelines for agency contact. Delaying for convenience, billing disputes, or care setting alone can violate the law and leave vulnerable people at risk.',
         [S.NHA_CCMA],
@@ -521,7 +521,7 @@ FACTS: list[dict] = [
         [
             'Accept all gifts because refusal might hurt the patient\'s feelings',
             'Exchange social media friend requests to discuss care informally',
-            'Agree to provide care only when gifts are received',
+            'Agree to provide care when gifts are received',
         ],
         'Accepting substantial gifts or blurring personal lines can create undue influence and boundary problems. Policies help staff respond consistently without abandoning courteous care.',
         [S.NHA_CCMA],
@@ -632,7 +632,7 @@ FACTS: list[dict] = [
         'They do not shield deliberate or grossly negligent conduct',
         [
             'They immunize any action regardless of intent or recklessness',
-            'They apply only to fraudulent Medicare billing disputes',
+            'They apply to fraudulent Medicare billing disputes',
             'They remove all medical record documentation requirements in clinics',
         ],
         'Protections target good-faith emergency aid, not malice or reckless behavior. Billing fraud and routine documentation rules fall outside Good Samaritan purpose.',
@@ -647,7 +647,7 @@ FACTS: list[dict] = [
         [
             'Automatic immunity whenever any billing typo appears on a claim',
             'Regulation of hand hygiene technique during routine vital signs',
-            'Mandatory discipline only for incorrect specimen tube order of draw',
+            'Mandatory discipline for incorrect specimen tube order of draw',
         ],
         'Program integrity laws target intentional false claims, not benign lab technique debates. Penalties can be severe and include repayment multiples and loss of billing privileges.',
         [S.NHA_CCMA],

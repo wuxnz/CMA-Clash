@@ -15,9 +15,9 @@ FACTS: list[dict] = [
         'When must a Vaccine Information Statement (VIS) be offered for a federally covered vaccine?',
         'Before each dose when a current VIS is required for that vaccine',
         [
-            'Only after the patient reports a reaction',
+            'After the patient reports a reaction',
             'Once per lifetime regardless of booster doses',
-            'Only when billing commercial insurance',
+            'When billing commercial insurance',
         ],
         'Federal requirements tie VIS distribution to specific vaccines and doses so patients receive current benefit and risk information. Waiting until after administration or tying VIS solely to billing would not meet informed consent expectations for immunization.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -29,7 +29,7 @@ FACTS: list[dict] = [
         'Which site is most often used for intramuscular vaccines in healthy adults?',
         'Deltoid muscle of the upper arm',
         [
-            'Ventrogluteal muscle in newborns only',
+            'Ventrogluteal muscle in newborns',
             'Plantar surface of the foot',
             'Subcutaneous tissue of the earlobe',
         ],
@@ -57,7 +57,7 @@ FACTS: list[dict] = [
         'Per CDC vaccine storage guidance, what should staff record on the refrigerator temperature log at least twice daily?',
         'Minimum and maximum temperatures inside the vaccine storage unit',
         [
-            'Only the outdoor weather forecast',
+            'The outdoor weather forecast',
             'Patient copayment amounts collected that day',
             'Staff break schedules',
         ],
@@ -72,7 +72,7 @@ FACTS: list[dict] = [
         'It links the dose to the manufacturer for safety tracking and recalls',
         [
             'It replaces the need to record route and site',
-            'It is collected only for cosmetic charting',
+            'It is collected for cosmetic charting',
             'It allows vials to be used after expiration',
         ],
         'Lot numbers identify production batches if safety alerts or recalls occur. Lot data supports traceability but does not replace full administration documentation or override expiration rules.',
@@ -85,7 +85,7 @@ FACTS: list[dict] = [
         'After giving a vaccine, which documentation best supports registry reporting and medicolegal records?',
         'Vaccine product, lot number, site, route, and VIS or education when applicable',
         [
-            'Patient nickname only',
+            'Patient nickname without product or lot details',
             'Billing code without clinical details',
             'No entry when the clinic is busy',
         ],
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
         [
             'Select any open vial without reading the label',
             'Shake every vaccine vigorously regardless of instructions',
-            'Skip identity checks when the patient is familiar',
+            'Omit identity checks when the patient is familiar',
         ],
         'Medication safety rules apply to immunizations, including correct patient, product, dose, route, time, and documentation. Skipping checks or mishandling vials increases wrong-patient and wrong-product risk.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -183,7 +183,7 @@ FACTS: list[dict] = [
         'When policy requires labeling a syringe after vaccine is drawn, what information should the label include?',
         'Vaccine name, dose, date, and time of preparation',
         [
-            'Only the preparer\'s initials in an unshared code',
+            'The preparer\'s initials in an unshared code',
             'The patient\'s full Social Security number on the barrel',
             'No label if the dose will be given within the hour',
         ],
@@ -212,7 +212,7 @@ FACTS: list[dict] = [
         'Before vaccination with the current edition for that vaccine',
         [
             'After all injections are complete',
-            'Only if the parent requests a paper copy years later',
+            'If the parent requests a paper copy years later',
             'Replaced by informal online forums',
         ],
         'VIS materials support informed consent before immunization. Providing them only after doses are given or substituting unverified sources does not meet federal expectations for covered vaccines.',
@@ -226,7 +226,7 @@ FACTS: list[dict] = [
         'In degrees Celsius with calibrated thermometers or continuous digital data loggers',
         [
             'By staff estimate without a thermometer',
-            'In Fahrenheit only with no conversion records',
+            'In Fahrenheit with no conversion records',
             'By checking the clinic parking lot thermometer',
         ],
         'CDC ranges and excursion thresholds are defined in Celsius for vaccine refrigerators. Calibrated probes or loggers provide auditable data; guesswork cannot prove the cold chain stayed in range.',
@@ -268,7 +268,7 @@ FACTS: list[dict] = [
         'A dedicated, purpose-built or pharmacy-grade unit with temperature monitoring',
         [
             'Any dorm-style refrigerator shared with lunches',
-            'An unplugged unit used only during business hours',
+            'An unplugged unit used during business hours',
             'A vehicle glove compartment during summer',
         ],
         'Purpose-built units maintain stable temperatures away from frequent door openings that occur with food storage. Improvised locations cannot reliably keep vaccines within labeled ranges.',
@@ -281,7 +281,7 @@ FACTS: list[dict] = [
         'For intramuscular vaccination, how should needle length be chosen?',
         'Long enough for the patient\'s size to reach muscle at the selected site',
         [
-            'Short enough to stay only in subcutaneous tissue for every product',
+            'Short enough to stay in subcutaneous tissue for every product',
             'Identical length for neonates and large adults without adjustment',
             'Based solely on whichever syringe is already open',
         ],
@@ -296,7 +296,7 @@ FACTS: list[dict] = [
         'Aseptic technique and adherence to beyond-use dating on the label',
         [
             'Leave a used needle inserted in the stopper between patients',
-            'Share one syringe after changing only the needle',
+            'Share one syringe after changing the needle',
             'Store the open vial indefinitely without a date',
         ],
         'Repeated entry increases contamination risk, so sterile technique and manufacturer beyond-use times apply. Reusing syringes or needles between patients violates fundamental injection safety.',
@@ -351,8 +351,8 @@ FACTS: list[dict] = [
         'Can multiple inactivated vaccines be administered during the same visit?',
         'Yes, generally at different anatomical sites per the immunization schedule',
         [
-            'No, inactivated vaccines may never be given the same day',
-            'Yes, but only if mixed in one syringe',
+            'No, inactivated vaccines may not be given the same day',
+            'Yes, but if mixed in one syringe',
             'No, unless doses are separated by twelve months',
         ],
         'ACIP schedules routinely allow same-day inactivated vaccines at separate sites to improve coverage. Combining unrelated products in one syringe is not standard unless explicitly labeled for combination.',
@@ -379,7 +379,7 @@ FACTS: list[dict] = [
         'The anterolateral thigh is a preferred intramuscular site for which group?',
         'Infants and young children when labeling allows that site',
         [
-            'Healthy adults receiving influenza vaccine only in the thigh',
+            'Healthy adults receiving influenza vaccine in the thigh',
             'Patients who require intradermal TB testing in the thigh',
             'Anyone regardless of age for every intramuscular product',
         ],
@@ -465,7 +465,7 @@ FACTS: list[dict] = [
         [
             'Oral diphenhydramine alone as definitive therapy',
             'Observation without medication for twenty-four hours',
-            'Discharge home if the rash is only on the arms',
+            'Discharge home if the rash is limited to the arms',
         ],
         'Anaphylaxis requires rapid epinephrine and emergency care because symptoms can progress quickly. Antihistamines and passive observation do not reliably reverse airway edema or shock.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -492,7 +492,7 @@ FACTS: list[dict] = [
         'Current ACIP vaccine-specific contraindications and precautions',
         [
             'Defer all vaccines permanently for any egg mention',
-            'Skip allergy history because vaccines contain no protein',
+            'Omit allergy history because vaccines contain no protein',
             'Substitute oral home remedies for every injection',
         ],
         'Egg-related recommendations differ by product; for example, influenza guidance has evolved while other vaccines have distinct rules. Blanket deferral without product review can leave patients under-immunized.',
@@ -505,7 +505,7 @@ FACTS: list[dict] = [
         'Where should clinically significant post-vaccination adverse events be reported when appropriate?',
         'The Vaccine Adverse Event Reporting System (VAERS)',
         [
-            'Only on personal social media accounts',
+            'On personal social media accounts',
             'Nowhere because vaccine reactions are not tracked',
             'The patient\'s neighbors for informal monitoring',
         ],
@@ -603,7 +603,7 @@ FACTS: list[dict] = [
         'When relocating vaccines between buildings on the same campus, what must accompany the shipment?',
         'Validated transport materials and a temperature record for the trip',
         [
-            'Only a handwritten note that the cooler felt cold',
+            'A handwritten note that the cooler felt cold',
             'Ice packs without a thermometer or data logger',
             'Open transfer on a loading dock for several hours unmonitored',
         ],

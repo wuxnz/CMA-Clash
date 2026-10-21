@@ -17,7 +17,7 @@ FACTS: list[dict] = [
         [
             'Read the handout silently while the patient waits',
             'Assume the patient can read because they signed the form',
-            'Provide only a printed pamphlet without discussion',
+            'Provide a printed pamphlet without discussion or teach-back',
         ],
         'Teach-back reveals misunderstandings before the patient leaves the clinic. Silent review or paperwork alone does not verify that safety-critical details were grasped.',
         [S.NHA_CCMA],
@@ -73,7 +73,7 @@ FACTS: list[dict] = [
         [
             'Unverified online products marketed as guaranteed cures',
             'Retail sales seminars unrelated to medical care',
-            'Coupon programs for unrelated merchandise only',
+            'Coupon programs for unrelated retail merchandise',
         ],
         'Evidence-based self-management programs reinforce monitoring, nutrition, and follow-up. Unvalidated cures and unrelated promotions do not meet care coordination standards.',
         [S.NHA_CCMA],
@@ -85,7 +85,7 @@ FACTS: list[dict] = [
         'The provider asks you to coordinate an urgent cardiology referral. What should appear in the referral documentation?',
         'Clinical reason, urgency, and confirmation that the consultation request was sent',
         [
-            'Only the patient\'s chronological age',
+            'The patient\'s chronological age without clinical indication',
             'Internal staff meal preferences for the week',
             'Unrelated procedure codes with no clinical narrative',
         ],
@@ -101,7 +101,7 @@ FACTS: list[dict] = [
         [
             'The patient\'s favorite color as the sole clinical note',
             'Links to unrelated personal social media profiles',
-            'Front-desk staff scheduling preferences only',
+            'Front-desk staff scheduling preferences as the sole referral content',
         ],
         'Complete referral data helps the specialist prepare and prioritize the visit. Nonclinical trivia does not support safe handoffs between providers.',
         [S.NHA_CCMA],
@@ -128,7 +128,7 @@ FACTS: list[dict] = [
         'The refusal, teaching provided, and notification of the ordering provider',
         [
             'No documentation because the patient changed their mind',
-            'Only the medical assistant\'s personal opinion about the decision',
+            'The medical assistant\'s personal opinion about the decision without refusal details',
             'Another patient\'s documented choice from a different chart',
         ],
         'Informed refusal creates a legal and clinical record that the patient understood risks and alternatives. Objective notes support continuity if symptoms worsen later.',
@@ -155,7 +155,7 @@ FACTS: list[dict] = [
         'During a transition-of-care visit, medication reconciliation should compare which sources?',
         'Every medication the patient actually takes against the clinic medication list',
         [
-            'Only vitamins the patient enjoys taking',
+            'Vitamins the patient enjoys taking without prescription medications',
             'Prescriptions filled on a single arbitrary day',
             'Herbal products the patient denies using',
         ],
@@ -170,7 +170,7 @@ FACTS: list[dict] = [
         'Objective, timely entries accessible to authorized members of the care team',
         [
             'Unsubstantiated personal judgments about the patient',
-            'Notes kept only on unsecured sticky notes at the desk',
+            'Notes kept on unsecured sticky notes at the desk',
             'Progress entries with no date or time stamp',
         ],
         'Shared electronic or paper records support safe transitions. Opinionated, undated, or hidden notes break continuity when other clinicians pick up the case.',
@@ -255,7 +255,7 @@ FACTS: list[dict] = [
         [
             'Waive all HIPAA privacy protections for participants',
             'Eliminate individual consent for every sensitive topic',
-            'Skip documentation because the visit is held in a group room',
+            'Defer documentation because the visit is held in a group room',
         ],
         'Group visits can improve efficiency and peer support when facilitation, privacy, and documentation follow policy. Privacy rules and consents still apply.',
         [S.NHA_CCMA],
@@ -324,7 +324,7 @@ FACTS: list[dict] = [
         'Close documented preventive care gaps with scheduled screening',
         [
             'Market unrelated retail products during the call',
-            'Replace annual wellness visits with phone outreach only',
+            'Replace annual wellness visits with phone outreach alone',
             'Discuss patient names and results on public social networks',
         ],
         'Outreach targets evidence-based screenings that improve early detection and chronic disease control. It supplements—not replaces—clinical visits and must stay confidential.',
@@ -365,7 +365,7 @@ FACTS: list[dict] = [
         'When running preventive-care recall outreach, which practice best supports ethical and effective contact?',
         'Follow the clinic protocol for patients due for screening, including documented refusals',
         [
-            'Contact only brand-new patients and skip established panel members',
+            'Contact brand-new patients while omitting established panel members',
             'Remove patients from the list after refusal without charting the discussion',
             'Post patient names and due dates on an unencrypted public website',
         ],
@@ -379,7 +379,7 @@ FACTS: list[dict] = [
         'A validated social determinants of health screen flags unstable housing. Which need category does that finding represent?',
         'A nonclinical barrier that can interfere with treatment adherence and follow-up',
         [
-            'A request for elective cosmetic surgery only',
+            'A request for elective cosmetic surgery unrelated to housing insecurity',
             'A retail loyalty program enrollment opportunity',
             'A reason to delete the electronic health record',
         ],
@@ -436,7 +436,7 @@ FACTS: list[dict] = [
         'Measurable self-management goals and scheduled follow-up intervals',
         [
             'Procedure codes with no patient-facing targets',
-            'A static plan that never changes when status worsens',
+            'A static plan that remains unchanged when status worsens',
             'A blanket rule to exclude caregivers from all discussions',
         ],
         'Shared goals align the patient and team on monitoring, lifestyle changes, and when to seek help. Plans without targets or updates fail when disease activity shifts.',
@@ -477,7 +477,7 @@ FACTS: list[dict] = [
         'What minimum data should a referral tracking log capture for each specialty consult?',
         'Clinical reason, referral date, specialist, and current follow-up status',
         [
-            'Only the patient\'s favorite color for filing purposes',
+            'The patient\'s favorite color for filing purposes',
             'Catering orders from the last staff meeting',
             'Unrelated diagnosis codes with no narrative indication',
         ],
@@ -505,9 +505,9 @@ FACTS: list[dict] = [
         'For a patient discharged after heart failure exacerbation, when should outpatient follow-up typically be arranged?',
         'Within the timeframe recommended by transition-of-care guidelines and the discharging team',
         [
-            'Only if the patient develops new symptoms months later',
+            'Defer follow-up until the patient develops new symptoms months later',
             'Whenever front desk has an opening with no clinical urgency review',
-            'Never, because hospital care is considered complete at discharge',
+            'Decline scheduling because hospital care is considered complete at discharge',
         ],
         'Early post-discharge visits catch fluid overload, medication errors, and misunderstanding of diet or activity limits. Delayed access is linked to higher readmission rates.',
         [S.NHA_CCMA],
@@ -547,7 +547,7 @@ FACTS: list[dict] = [
         'When arranging home health services, what should the medical assistant document in the chart?',
         'That the referral was sent, ordered services are listed, and consent followed policy',
         [
-            'Only nonclinical trivia unrelated to the visit',
+            'Nonclinical trivia unrelated to the visit',
             'Unrelated procedure codes with no home health context',
             'Staff personal schedules instead of patient-specific actions',
         ],
@@ -561,7 +561,7 @@ FACTS: list[dict] = [
         'Before home health begins visits, which items must the coordinator typically confirm?',
         'Signed orders, payer authorization when required, and patient agreement to services',
         [
-            'Only that the mailing address on the ID is current',
+            'Confirmation that the mailing address on the ID is current',
             'That durable medical equipment is decorative rather than functional',
             'Nothing further if a family member verbally insists on care',
         ],
@@ -575,7 +575,7 @@ FACTS: list[dict] = [
         'When booking a colonoscopy or other diagnostic procedure, what should the scheduler verify with the patient?',
         'Preparation instructions and prior authorization when the payer requires it',
         [
-            'Social media account names for appointment reminders only',
+            'Social media account names for appointment reminders without prep instructions',
             'Footwear size for unrelated orthopedic billing',
             'Vaccine lot numbers with no connection to the ordered test',
         ],
@@ -589,9 +589,9 @@ FACTS: list[dict] = [
         'After a needlestick in the clinic, why must sharps injury logs be maintained per OSHA?',
         'To document exposure incidents and support required follow-up and program evaluation',
         [
-            'Only when a federal inspector is already on site',
-            'Only in inpatient hospitals, never in outpatient offices',
-            'Never, because medical offices are exempt from bloodborne pathogen rules',
+            'When a federal inspector is already on site',
+            'In inpatient hospitals but not in ambulatory outpatient offices',
+            'Withhold logs because medical offices are exempt from bloodborne pathogen rules',
         ],
         'The bloodborne pathogens standard applies to many ambulatory settings and requires a sharps injury log for needlestick tracking. Records guide post-exposure care and device safety reviews.',
         [S.NHA_CCMA],
