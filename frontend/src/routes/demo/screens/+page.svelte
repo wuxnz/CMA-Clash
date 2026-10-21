@@ -7,6 +7,7 @@
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import FinalResults from '$lib/play/admin/final_results.svelte';
+	import Podium from '$lib/ui/Podium.svelte';
 	import GrayButton from '$lib/components/buttons/gray.svelte';
 	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
 	import MasteryHeatmap from '$lib/ui/MasteryHeatmap.svelte';
@@ -83,6 +84,24 @@
 					<GrayButton>Save results</GrayButton>
 				{/snippet}
 			</FinalResults>
+		</section>
+	{/if}
+	{#if show('host-podium-desktop')}
+		<section
+			id="host-podium-desktop"
+			class="min-h-dvh flex flex-col items-center justify-center py-12 px-4"
+		>
+			<p class="font-display text-gold text-sm tracking-[0.3em] mb-2">Final</p>
+			<h1 class="font-display text-5xl sm:text-6xl text-ink mb-8">Podium</h1>
+			<Podium
+				staged={false}
+				celebrate={false}
+				entries={[
+					{ name: 'A. Okafor', score: 9420 },
+					{ name: 'M. Chen', score: 9105 },
+					{ name: 'Jordan Lee', score: 8870 }
+				]}
+			/>
 		</section>
 	{/if}
 	{#if show('player-join')}

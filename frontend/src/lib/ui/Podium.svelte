@@ -34,6 +34,21 @@
 	let second = $derived(entries[1]);
 	let third = $derived(entries[2]);
 
+	/** 1st tallest, 2nd mid, 3rd shortest — same step ratio in compact and full layouts. */
+	let pedestal = $derived(
+		compact
+			? {
+					first: 'h-14 sm:h-28',
+					second: 'h-11 sm:h-[5.5rem]',
+					third: 'h-9 sm:h-20'
+				}
+			: {
+					first: 'h-28 sm:h-32',
+					second: 'h-[5.5rem] sm:h-24',
+					third: 'h-16 sm:h-20'
+				}
+	);
+
 	async function fireConfetti() {
 		if (!browser || !celebrate || reduced) return;
 		const confetti = (await import('canvas-confetti')).default;
@@ -126,8 +141,8 @@
 
 	<div
 		class="flex items-end justify-center w-full max-w-lg {compact
-			? 'gap-1.5 min-h-[4.75rem]'
-			: 'gap-3 sm:gap-6 min-h-[10rem]'}"
+			? 'gap-1.5 min-h-[3.5rem]'
+			: 'gap-3 sm:gap-6 min-h-[7rem] sm:min-h-[10rem]'}"
 	>
 		{#if second && showSecond}
 			<div
@@ -135,9 +150,7 @@
 				in:fly={reduced ? { duration: 0 } : { y: 40, duration: 500 }}
 			>
 				<div
-					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {compact
-						? 'h-12 sm:h-20'
-						: 'h-20 sm:h-24'}"
+					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {pedestal.second}"
 				>
 					<p class="font-mono text-ink-muted {compact ? 'text-lg sm:text-2xl' : 'text-2xl'}">2</p>
 				</div>
@@ -157,9 +170,7 @@
 				in:fly={reduced ? { duration: 0 } : { y: 60, duration: 600 }}
 			>
 				<div
-					class="w-full rounded-t-lg sm:rounded-t-xl bg-gold/20 border-2 border-gold px-1 py-2 sm:px-2 sm:py-4 text-center shadow-md flex flex-col justify-end relative overflow-hidden {compact
-						? 'h-[3.25rem] sm:h-28'
-						: 'h-28 sm:h-32'}"
+					class="w-full rounded-t-lg sm:rounded-t-xl bg-gold/20 border-2 border-gold px-1 py-2 sm:px-2 sm:py-4 text-center shadow-md flex flex-col justify-end relative overflow-hidden {pedestal.first}"
 				>
 					<div class="absolute inset-x-0 top-0 h-0.5 sm:h-1 bg-gold" aria-hidden="true"></div>
 					<p class="font-mono text-gold font-bold {compact ? 'text-xl sm:text-3xl' : 'text-3xl'}">
@@ -185,9 +196,7 @@
 				in:fly={reduced ? { duration: 0 } : { y: 40, delay: 100, duration: 500 }}
 			>
 				<div
-					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {compact
-						? 'h-12 sm:h-20'
-						: 'h-20 sm:h-24'}"
+					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {pedestal.third}"
 				>
 					<p class="font-mono text-ink-muted {compact ? 'text-lg sm:text-2xl' : 'text-2xl'}">3</p>
 				</div>
