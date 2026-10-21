@@ -169,7 +169,7 @@ FACTS: list[dict] = [
         "Under what condition may electrolytes be measured on heparinized plasma from a green-top tube?",
         "The laboratory method and reference intervals are validated for heparinized plasma",
         [
-            "Green tubes may replace serum for every chemistry test on the menu",
+            "Green heparin plasma may replace serum for most chemistry tests on the menu",
             "Prothrombin time and INR may run on the same heparin specimen when the tube color must match the ordered assay",
             "Blood cultures may be inoculated from leftover green-top plasma",
         ],

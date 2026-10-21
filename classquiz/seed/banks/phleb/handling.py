@@ -482,8 +482,8 @@ FACTS: list[dict] = [
         "According to laboratory shipping instructions for the ordered tests and the approved carrier design",
         [
             "Use whichever cold pack is stocked nearest the draw station that shift",
-            "Use gel packs for every specimen because wet ice is prohibited for all chemistry orders",
-            "Use crushed dry ice for routine outpatient chemistry panels regardless of analyte stability tables",
+            "Use gel packs for all chemistry specimens because wet ice is prohibited in the lab",
+            "Use crushed dry ice for routine outpatient chemistry panels without checking stability tables",
         ],
         "Some specimens need wet ice; others tolerate insulated cool packs without free water exposure. "
         "GP41 transport sections defer to validated laboratory shipping methods.",

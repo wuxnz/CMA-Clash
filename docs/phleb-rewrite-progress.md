@@ -8,7 +8,6 @@ Batch size 25. Log: `docs/question-review-log-phleb.md`. Plausibility: `docs/pla
 | 03–04 | additives 001–050 | done |
 | 05–06 | site 001–042 | done |
 | 07 | handling 001–025 | done |
+| 08 | handling 026–039 | done |
 
-**Done: 167 / 337**. **Remaining: 170** (handling 26+, complications, safety, who, glucose, …).
-
-**Plausibility pass (1-in-5 rule):** order-draw, additives, site, handling (001–025+) — see `docs/plausibility-pass-rewritten.md`.
+**Done: 181 / 337** (order-draw 50, additives 50, site 42, handling 39). **Remaining: 156** (handling 40+, complications, safety, who, glucose, …).

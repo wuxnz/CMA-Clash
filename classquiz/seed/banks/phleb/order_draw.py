@@ -282,7 +282,7 @@ FACTS: list[dict] = [
         "The same order of draw and fill-volume rules as direct vacuum collection",
         [
             "Any transfer sequence because syringe plastic binds additive chemicals",
-            "Serum tubes after all additive tubes regardless of which tests are ordered",
+            "Serum tubes after all additive tubes when coagulation and chemistry share one stick",
             "Citrate first after cultures even when transfer delays exceed several minutes",
         ],
         "Syringe technique does not waive ratio or sequence requirements; citrate still needs proper fill and placement. "
@@ -295,7 +295,7 @@ FACTS: list[dict] = [
         "How many gentle inversions are commonly recommended for citrate and EDTA tubes right after collection?",
         "About 5 to 10 end-over-end inversions per manufacturer directions, without vigorous shaking",
         [
-            "Exactly one inversion for every anticoagulated tube type during multi-tube draws with coagulation and chemistry ordered",
+            "Exactly one inversion for citrate and EDTA tubes during multi-tube coagulation and chemistry draws",
             "Twenty to thirty rapid shakes to activate clot factors in gel tubes",
             "No inversion until processing staff mix the tube in the central laboratory",
         ],
@@ -619,7 +619,7 @@ FACTS: list[dict] = [
         [
             "Lavender EDTA first on every neonate because infants have higher hematocrit than adults on heel sticks",
             "Any fill sequence because capillary specimens are exempt from CLSI order-of-draw guidance for neonates",
-            "Gray fluoride before all other microtainers for every newborn regardless of ordered tests",
+            "Gray fluoride before lavender EDTA on newborn screening heel-stick collections",
         ],
         "Neonatal microcollection still limits additive carryover between tiny volumes; wrong order can ruin bilirubin or hematology on the same puncture. "
         "Universal EDTA-first or fluoride-first rules ignore test-specific laboratory manuals for microtainers.",

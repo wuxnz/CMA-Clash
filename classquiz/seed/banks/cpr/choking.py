@@ -433,7 +433,7 @@ FACTS: list[dict] = [
         "An obese conscious adult has severe airway obstruction, and abdominal thrusts cannot be applied effectively. What alternative does AHA BLS recommend?",
         "Deliver chest thrusts in place of abdominal thrusts until the object is expelled or the victim becomes unresponsive",
         [
-            "Continue standard abdominal thrusts with markedly increased force over the epigastrium only",
+            "Continue standard abdominal thrusts with harder force centered on the upper abdomen",
             "Withhold further maneuvers and observe until the patient loses consciousness on the floor",
             "Perform blind finger sweeps while the patient remains standing before any chest thrusts",
         ],
@@ -550,7 +550,7 @@ FACTS: list[dict] = [
         "A conscious patient in late pregnancy or with marked obesity has severe choking and abdominal thrusts are unsafe or ineffective. What maneuver should you use?",
         "Deliver chest thrusts in place of abdominal thrusts until relief or the patient becomes unresponsive",
         [
-            "Use standard abdominal thrusts centered over the mid abdomen regardless of pregnancy or body size",
+            "Use standard abdominal thrusts centered over the mid abdomen in late pregnancy",
             "Withhold all foreign-body maneuvers until the patient becomes unconscious on the floor",
             "Alternate large sips of water with thrust attempts to flush the airway between compressions",
         ],
