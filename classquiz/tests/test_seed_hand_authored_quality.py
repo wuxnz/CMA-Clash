@@ -62,6 +62,54 @@ _INCOMPLETE_STEM_END = re.compile(
     r")\?\s*$",
     re.I,
 )
+_FRAGMENT_CLAUSE_WAS = re.compile(
+    r"(?:^|[.;])\s*[^?]{8,120}\b(was|is|are|were)\?\s*$",
+    re.I,
+)
+# "How does A safety syringe" — article mid-sentence after lowercase (missing "a/an/the" flow).
+_MID_STEM_CAPITAL_ARTICLE = re.compile(r"[a-z] (A|An|The) [A-Z]")
+# Title-style fragment: stem ends with ? but lacks a wh-word or auxiliary-led question.
+_FRAGMENT_STEM_NO_WH = re.compile(
+    r"^(?!.*\b(what|which|why|how|when|where|who|does|do|is|are|was|were|can|could|should|would|will|may|might)\b).+\?\s*$",
+    re.I,
+)
+_BANNED_CHOICE_FRAGMENT_START = re.compile(
+    r"^(Are not|Is not|Was not|Eliminating the need)\b",
+    re.I,
+)
+_CPR_PHLEB_JOKE_DISTRACTOR_PATTERNS = [
+    re.compile(r"\banother patient to demonstrate\b", re.I),
+    re.compile(r"\bnever,\s+because\b.*\balways\b", re.I),
+    re.compile(r"\bincreasing the exposed sharp time\b", re.I),
+    re.compile(r"\bpack nose with tissue deep inside\b", re.I),
+    re.compile(r"\boxygen mask only\b", re.I),
+]
+# Exaggeration / self-refuting wording in CPR and phleb distractors (batch-07 second pass).
+_CPR_PHLEB_EXAGGERATION_DISTRACTOR = re.compile(
+    r"\b("
+    r"indefinitely|entirely|regardless|markedly|barely|maximal|"
+    r"for\s+thirty\s+minutes|upright\s+indefinitely|"
+    r"Stop\s+CPR\s+entirely|across\s+the\s+face\b"
+    r")\b",
+    re.I,
+)
+# "every" as a giveaway when paired with "regardless" or "without" in distractors only.
+_CPR_PHLEB_EVERY_DISTRACTOR = re.compile(
+    r"\bfor\s+every\b|\bevery\s+(infant|child|adult|patient|cycle|specimen)\b",
+    re.I,
+)
+_CPR_PHLEB_IMPLAUSIBLE_DISTRACTOR_PATTERNS = [
+    re.compile(r"\bpour\s+water\b", re.I),
+    re.compile(r"\bmicrowave\b", re.I),
+    re.compile(r"\bfingernail", re.I),
+    re.compile(r"\bunrelated\s+finger\b", re.I),
+    re.compile(r"\bpowers\s+off\s+permanently\b", re.I),
+    re.compile(r"\bsaline\s+dilution\b", re.I),
+    re.compile(r"\bimmediate\s+freezing\s+before\s+clot\b", re.I),
+    re.compile(r"\bchange\s+into\s+dry\s+clothing\b", re.I),
+    re.compile(r"\bmother'?s\s+chest\b", re.I),
+    re.compile(r"\bresuscitation\s+futile\b", re.I),
+]
 _FRAGMENT_TAIL_QUESTION = re.compile(
     r"(?:"
     r"\bis placed\?|\bshould\?|\bfrom the\?|\bof\?|\bbe\?|\bserves as\?|"
@@ -154,6 +202,37 @@ def test_cpr_distractors_lack_absurd_patterns():
     assert not hits, f"CPR absurd distractors: {hits[:12]}"
 
 
+def test_cpr_phleb_distractors_lack_implausible_joke_patterns():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        topic = fact["topic"]
+        if not (topic.startswith("cpr-") or topic.startswith("phleb-")):
+            continue
+        for choice in fact["distractors"]:
+            for pat in _CPR_PHLEB_IMPLAUSIBLE_DISTRACTOR_PATTERNS:
+                if pat.search(choice):
+                    hits.append(f"{topic}: {choice[:72]}")
+    assert not hits, f"Implausible CPR/phleb distractors: {hits[:15]}"
+
+
+def test_cpr_phleb_distractors_lack_exaggeration_tells():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        topic = fact["topic"]
+        if not (topic.startswith("cpr-") or topic.startswith("phleb-")):
+            continue
+        for choice in fact["distractors"]:
+            if _CPR_PHLEB_EXAGGERATION_DISTRACTOR.search(choice):
+                hits.append(f"exaggeration in {topic}: {choice[:72]}")
+            if _CPR_PHLEB_EVERY_DISTRACTOR.search(choice):
+                hits.append(f"every/regardless tell in {topic}: {choice[:72]}")
+    assert not hits, f"CPR/phleb exaggeration distractors: {hits[:15]}"
+
+
 def test_no_generic_presents_for_care_stem_prefix():
     from classquiz.seed.banks import load_all_facts
 
@@ -198,6 +277,21 @@ def test_hand_authored_stems_are_complete_questions():
         if _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
             if _FRAGMENT_TAIL_QUESTION.search(stem):
                 bad.append(stem[:90])
+            if _FRAGMENT_CLAUSE_WAS.search(stem):
+                bad.append(stem[:90])
+            if _MID_STEM_CAPITAL_ARTICLE.search(stem):
+                bad.append(stem[:90])
+            if _FRAGMENT_STEM_NO_WH.search(stem) and len(stem) < 120:
+                bad.append(stem[:90])
+        if fact["topic"].startswith(("cpr-", "phleb-")):
+            if _MID_STEM_CAPITAL_ARTICLE.search(stem):
+                bad.append(stem[:90])
+            for choice in (fact["correct"], *fact["distractors"]):
+                if _BANNED_CHOICE_FRAGMENT_START.search(choice.strip()):
+                    bad.append(f"{fact['topic']} choice: {choice[:60]}")
+                for pat in _CPR_PHLEB_JOKE_DISTRACTOR_PATTERNS:
+                    if pat.search(choice):
+                        bad.append(f"{fact['topic']} joke: {choice[:60]}")
         if not stem.endswith("?") and not stem.endswith("."):
             bad.append(stem[:90])
     assert not bad, f"Incomplete stems in hand-authored certs: {bad[:12]}"
@@ -262,6 +356,63 @@ def test_hand_authored_no_near_duplicate_stems():
                 if overlap >= 0.82:
                     pairs.append(f"{prefix} {overlap:.2f}: {a['stem'][:45]} | {b['stem'][:45]}")
     assert not pairs, f"Near-duplicate stems (Jaccard>=0.82): {pairs[:10]}"
+
+
+def test_hand_authored_correct_not_uniquely_longest_option():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.choice_quality import correct_is_uniquely_longest
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            continue
+        if correct_is_uniquely_longest(fact["correct"], fact["distractors"]):
+            bad.append(f"{fact['topic']}: {fact['stem'][:70]}")
+    assert not bad, f"Correct answer uniquely longest ({len(bad)} items): {bad[:12]}"
+
+
+def test_hand_authored_correct_not_uniquely_short_by_wide_margin():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.choice_quality import correct_is_uniquely_short_by_margin
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            continue
+        if correct_is_uniquely_short_by_margin(fact["correct"], fact["distractors"]):
+            bad.append(f"{fact['topic']}: {fact['stem'][:70]}")
+    assert not bad, f"Correct answer uniquely short vs distractors ({len(bad)} items): {bad[:12]}"
+
+
+def test_hand_authored_choices_lack_banned_balance_suffixes():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.choice_quality import BANNED_BALANCE_SUFFIXES
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(
+            fact["topic"], ("ekg-", "cpr-", "phleb-")
+        ):
+            continue
+        for choice in (fact["correct"], *fact["distractors"]):
+            for suffix in BANNED_BALANCE_SUFFIXES:
+                if suffix in choice:
+                    hits.append(f"{fact['topic']}: {suffix!r} in {choice[:60]}")
+    assert not hits, f"Banned auto-balance suffixes in bank text: {hits[:12]}"
+
+
+def test_cert_correct_positions_spread_after_seed_shuffle():
+    from classquiz.seed.choice_quality import seeded_correct_index
+
+    from classquiz.seed.banks import load_all_facts
+
+    for prefix in _STRICT_QUALITY_CERT_PREFIXES:
+        facts = [f for f in load_all_facts() if f["topic"].startswith(prefix)]
+        assert facts, f"No facts for {prefix}"
+        counts = Counter(seeded_correct_index(f["stem"], f["correct"], f["distractors"]) for f in facts)
+        assert len(counts) >= 3, f"{prefix} correct positions use only {counts}"
+        dominant = max(counts.values()) / len(facts)
+        assert dominant <= 0.45, f"{prefix} position skew {dict(counts)}"
 
 
 def test_cpr_aha_choking_does_not_use_red_cross_adult_five_and_five_answer():

@@ -16,105 +16,104 @@ FACTS: list[dict] = [
     # --- beginner (14) ---
     fact(
         "cpr-child",
-        "A single lay rescuer is performing BLS on a school-age child in cardiac arrest. "
-        "Which compression-to-ventilation ratio should they use?",
-        "30 compressions followed by 2 ventilations",
+        "What compression-to-ventilation ratio should a single lay rescuer use during child BLS CPR?",
+        "30 compressions followed by 2 ventilations (30:2)",
         [
-            "15 compressions followed by 2 ventilations",
-            "5 compressions followed by 1 ventilation",
-            "Continuous chest compressions with no ventilations for the entire arrest",
+            "15 compressions followed by 2 ventilations when two rescuers are present at the scene",
+            "5 compressions followed by 1 ventilation to shorten pauses between breaths",
+            "Continuous chest compressions with no ventilations until EMS places an advanced airway",
         ],
-        "AHA pediatric BLS uses 30:2 when only one rescuer is available. The 15:2 ratio is reserved "
-        "for two-rescuer child CPR so one person can focus on compressions. Continuous compressions "
-        "without breaths omit needed oxygenation in many pediatric arrests.",
+        "AHA pediatric BLS uses 30:2 when only one rescuer is available. Fifteen-to-two is reserved "
+        "for two-rescuer child CPR so one person can maintain compressions. Compression-only care "
+        "without breaths omits needed oxygenation in many hypoxic pediatric arrests.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "During high-quality child CPR, what chest compression rate should rescuers target?",
+        "Which chest compression rate should rescuers deliver during high-quality child CPR?",
         "100 to 120 compressions per minute",
         [
-            "60 to 80 compressions per minute",
+            "90 to 100 compressions per minute",
+            "120 to 140 compressions per minute",
             "140 to 160 compressions per minute",
-            "As slow as possible to reduce rib injury",
         ],
-        "Pediatric compressions follow the same rate target as adult BLS. A rate of 60 to 80 is too "
-        "slow to maintain adequate coronary and cerebral perfusion. Extremely fast compressions "
-        "prevent full recoil and reduce effectiveness.",
+        "Pediatric compressions follow the same rate target as adult BLS. Rates below 100 often fail "
+        "to maintain coronary and cerebral perfusion. Very fast rates usually sacrifice depth and "
+        "full recoil, reducing effectiveness.",
         _HQ,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "Where should the heel of the hand be placed for chest compressions on a child?",
-        "Center of the chest on the lower half of the sternum",
+        "Where should rescuers place the heel of one hand when performing chest compressions on a child?",
+        "On the lower half of the sternum in the center of the chest",
         [
-            "Directly over the xiphoid process with maximal force",
-            "Upper abdomen just below the rib cage",
-            "Left nipple line over the cardiac apex only",
+            "Directly over the xiphoid process at the distal tip of the sternum",
+            "On the upper abdomen just below the costal margin",
+            "On the left lateral chest wall over the cardiac apex",
         ],
-        "Compressions over the lower sternum generate forward blood flow with the least risk of "
-        "injury. Pressing on the xiphoid can cause fracture and does not compress the heart "
-        "effectively. Abdominal compressions do not substitute for sternal compressions.",
+        "Hand placement on the lower half of the sternum directs force through the heart. Compressing "
+        "the xiphoid, epigastrium, or lateral chest is a frequent error that reduces effectiveness "
+        "and increases injury risk during pediatric BLS.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "Why does AHA emphasize rescue ventilations for many pediatric arrests when rescuers are "
-        "willing and able to give breaths?",
-        "Children often arrest from respiratory causes, so early oxygenation and ventilation matter",
+        "Why does AHA recommend including rescue ventilations during child CPR when the rescuer can "
+        "deliver breaths safely?",
+        "Many pediatric arrests begin with respiratory failure, so early ventilation and oxygenation matter",
         [
-            "Children never need chest compressions once breaths are given",
-            "Ventilations are optional for all children over age 5",
-            "Compression-only CPR is preferred for every pediatric age group",
+            "Chest compressions are unnecessary once two effective rescue breaths are given",
+            "Rescue breaths are optional when the child had a witnessed collapse on dry land",
+            "Compression-only CPR is the preferred lay approach for all pediatric age groups",
         ],
         "Hypoxia and respiratory failure are common pathways to pediatric cardiac arrest. "
-        "Compressions remain essential, but breaths address the underlying problem in many cases. "
-        "Compression-only CPR is not the preferred approach when ventilations can be delivered safely.",
+        "Compressions remain essential, but ventilations address the underlying problem in many cases. "
+        "Compression-only CPR is not preferred when full BLS ventilations can be delivered safely.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "You approach a playground where a child is lying motionless. What is the first BLS action "
-        "after confirming scene safety?",
-        "Check responsiveness by tapping shoulders and shouting",
+        "You confirm scene safety at a playground where a child lies motionless. What is the first "
+        "pediatric BLS action you should take?",
+        "Check responsiveness by tapping the shoulders and shouting for a response",
         [
-            "Begin chest compressions before checking for response",
-            "Search the area for an AED before touching the child",
-            "Pour water on the child to test for reaction",
+            "Begin chest compressions immediately without checking for responsiveness",
+            "Search the area for an AED before touching or assessing the child",
+            "Shake the torso repeatedly before checking responsiveness or calling for help",
         ],
-        "Recognition of unresponsiveness triggers activation of emergency response and assessment of "
-        "breathing and pulse. Starting compressions on a responsive child would be inappropriate. "
-        "Scene safety and responsiveness checks precede device retrieval.",
+        "Recognition of unresponsiveness triggers emergency activation and assessment of breathing "
+        "and pulse. Starting compressions on a responsive child would be inappropriate. Scene safety "
+        "and responsiveness checks precede device retrieval.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "When should an AED be applied to a child in suspected cardiac arrest?",
-        "As soon as it becomes available while high-quality CPR continues",
+        "When should rescuers apply an AED during suspected cardiac arrest in a child?",
+        "As soon as the device is available while high-quality CPR continues with minimal pauses",
         [
-            "Only after 10 minutes of compressions have been completed",
-            "Only if the child is older than 12 years",
-            "After EMS arrives and takes over compressions exclusively",
+            "Only after at least 10 minutes of uninterrupted chest compressions have been completed",
+            "Only when the child is older than 12 years and adult pads are the only option",
+            "After EMS arrives and takes over compressions exclusively at the bedside",
         ],
-        "Early defibrillation improves survival in shockable rhythms. Delaying pad placement for a "
-        "fixed time wastes the defibrillation link in the Chain of Survival. Pediatric patients can "
-        "benefit from AED use with appropriate pad systems when indicated.",
+        "Early defibrillation improves survival in shockable rhythms. Delaying pad placement for an "
+        "arbitrary time wastes the defibrillation link in the Chain of Survival. Children can "
+        "benefit from AED use with appropriate pediatric pad systems when indicated.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "Which combination best describes high-quality chest compressions during child CPR?",
-        "Hard, fast compressions with full chest recoil and minimal pauses",
+        "Which description best matches high-quality chest compressions during child CPR?",
+        "Hard, fast compressions with full chest recoil and as few interruptions as possible",
         [
-            "Soft compressions with the rescuer leaning on the chest between pushes",
-            "Fast compressions with no attention to depth or recoil",
-            "Deep compressions held without allowing the chest to return",
+            "Soft compressions with the rescuer leaning on the chest between each push",
+            "Fast compressions with no attention to depth, rate, or chest recoil",
+            "Deep compressions held down without allowing the chest to return between pushes",
         ],
         "Depth, rate, recoil, and limited interruptions define high-quality CPR. Leaning on the chest "
         "blocks recoil and reduces perfusion. Holding compressions without release prevents diastolic "
@@ -124,60 +123,60 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "A conscious 8-year-old is eating when he begins coughing forcefully and can still speak in "
-        "short sentences. What is the best immediate care?",
-        "Stay with him, encourage coughing, and be ready to activate EMS if breathing worsens",
+        "A conscious 8-year-old begins choking while eating but coughs forcefully and can still speak "
+        "in short sentences. What is the best immediate BLS care?",
+        "Stay with the child, encourage coughing, and activate EMS if breathing or cough becomes ineffective",
         [
-            "Deliver abdominal thrusts immediately",
-            "Start CPR compressions in case his pulse is weak",
-            "Lay him flat and begin rescue breaths",
+            "Deliver abdominal thrusts immediately because any cough indicates severe obstruction",
+            "Start CPR chest compressions in case the pulse is weak despite effective speech",
+            "Lay the child flat and begin rescue breaths before assessing cough effectiveness",
         ],
         "A strong cough with air movement suggests mild airway obstruction. Abdominal thrusts are for "
         "severe obstruction when cough is ineffective. CPR is indicated for unresponsiveness and "
-        "abnormal breathing, not for effective coughing.",
+        "abnormal breathing, not for effective coughing with good air exchange.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "When opening the airway for child CPR and significant trauma is not suspected, which "
-        "maneuver is standard?",
-        "Head tilt-chin lift",
+        "When opening the airway for child CPR and significant trauma is not suspected, which maneuver "
+        "should rescuers use?",
+        "Head tilt-chin lift to open the airway without routine finger sweeps",
         [
-            "Jaw thrust with deliberate maximal neck hyperextension",
-            "Placement of a rolled towel under the neck to flex the spine",
-            "Finger sweep of the oropharynx before every ventilation",
+            "Jaw thrust with slight head extension when no trauma is suspected",
+            "Rolled towel under the neck to flex the spine before each ventilation",
+            "Finger sweep of the mouth before each breath when no object is seen",
         ],
-        "Head tilt-chin lift opens the airway in most medical arrests. Routine hyperextension is not "
-        "needed and may be harmful if spine injury is possible. Blind finger sweeps are discouraged "
-        "because they can push objects deeper.",
+        "Head tilt-chin lift opens the airway in most medical pediatric arrests. Routine "
+        "hyperextension is not needed and may be harmful if spine injury is possible. Blind finger "
+        "sweeps are discouraged because they can push objects deeper.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "How should rescue breaths be delivered during two-rescuer child CPR?",
-        "Each breath over about one second until visible chest rise, without excessive volume",
+        "How should a rescuer deliver rescue breaths during two-rescuer child CPR at a 15:2 ratio?",
+        "Give each breath over about 1 second until visible chest rise, without excessive volume",
         [
-            "Forceful breaths until the stomach is fully distended",
-            "Very short puffs with no attempt to see chest rise",
-            "Breaths lasting at least five seconds each",
+            "Deliver forceful breaths until the stomach is fully distended after each 15:2 cycle",
+            "Give very short puffs with no attempt to confirm visible chest rise",
+            "Provide breaths lasting at least 5 seconds each to maximize oxygen delivery",
         ],
         "Gentle ventilations that produce chest rise limit gastric inflation. Forceful breaths "
-        "inflate the stomach and reduce effective ventilation. Prolonged breaths interrupt "
-        "compressions unnecessarily.",
+        "inflate the stomach and reduce effective ventilation. Prolonged breaths unnecessarily "
+        "interrupt compressions.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "After EMS has been activated, an unresponsive child is not breathing normally and has no "
-        "pulse. What should a trained lone rescuer do next?",
-        "Begin CPR, starting with chest compressions in most lay BLS programs",
+        "After EMS activation, an unresponsive child is not breathing normally and has no pulse. What "
+        "should a trained lone rescuer do next?",
+        "Begin CPR, starting with chest compressions per CAB in most lay pediatric BLS programs",
         [
-            "Wait for EMS on scene before starting any compressions",
-            "Give two minutes of rescue breaths before any compressions",
-            "Place the child in a seated position and observe breathing",
+            "Wait on scene for EMS arrival before starting any chest compressions",
+            "Give two minutes of rescue breaths alone before any compressions are started",
+            "Place the child in a seated position and observe breathing without compressions",
         ],
         "Immediate CPR supports circulation and oxygen delivery until advanced care arrives. Waiting "
         "for EMS without compressions sacrifices perfusion. Breath-only care without compressions does "
@@ -187,60 +186,61 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "For most child victims during BLS CPR, what compression depth is recommended?",
+        "What compression depth target is recommended for most child victims during BLS CPR?",
         "At least one third of the anterior-posterior chest diameter, or about 2 inches (5 cm)",
         [
-            "Exactly 1 inch (2.5 cm) regardless of child size",
-            "At least 3 inches (7.5 cm) for every child under 12",
-            "Depth does not matter if the compression rate is fast enough",
+            "Exactly 1 inch (2.5 cm) as the standard depth target for child CPR",
+            "At least 3 inches (7.5 cm) for all victims under 12 years even when body size is small",
+            "Any visible chest motion without a specified minimum depth target",
         ],
         "Adequate depth generates blood flow while limiting injury from excessive force. One inch is "
         "too shallow for most children. A fixed deep depth without regard to body size is not "
-        "recommended.",
+        "recommended per AHA pediatric BLS guidance.",
         _HQ,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "During a pulse check on an unresponsive child, which sites are appropriate?",
-        "Carotid or femoral pulse, felt for no more than 10 seconds",
+        "During a pulse check on an unresponsive child, where and how long should the rescuer assess "
+        "for a pulse?",
+        "Feel the carotid or femoral pulse for no more than about 10 seconds",
         [
-            "Radial pulse at the wrist for up to two minutes",
-            "Apical pulse only through clothing without exposing the chest",
-            "No pulse assessment is performed in pediatric BLS",
+            "Palpate the radial pulse at the wrist for up to two minutes before starting CPR",
+            "Auscultate the apical pulse only through clothing without exposing the chest",
+            "Rely on agonal gasps alone and omit pulse assessment before starting compressions",
         ],
         "Central pulses are easier to detect in children with poor perfusion. Brief checks limit "
-        "interruption of compressions. A prolonged radial check can falsely suggest perfusion when "
-        "central pulses are absent.",
+        "harmful interruption of compressions. A prolonged radial check can falsely suggest perfusion "
+        "when central pulses are absent.",
         _REF,
         "beginner",
     ),
     fact(
         "cpr-child",
-        "An unresponsive child has only occasional gasping breaths. How should you treat this "
-        "pattern?",
-        "Recognize it as abnormal breathing and provide CPR if no pulse is detected",
+        "An unresponsive child has only occasional gasping breaths and no effective ventilation. How "
+        "should rescuers treat this breathing pattern?",
+        "Treat gasping as abnormal breathing and start CPR if no pulse is detected within 10 seconds",
         [
-            "Consider gasping normal breathing and withhold CPR",
-            "Give supplemental oxygen only without compressions",
-            "Perform abdominal thrusts before checking pulse",
+            "Consider gasping normal breathing and withhold CPR until EMS confirms arrest",
+            "Provide supplemental oxygen by mask only without chest compressions",
+            "Perform abdominal thrusts before any pulse check or compressions",
         ],
         "Agonal gasps are not effective ventilation and may occur during cardiac arrest. Treating "
         "gasps as normal breathing delays CPR. Abdominal thrusts address foreign-body obstruction, "
-        "not primary gasping in arrest.",
+        "not primary gasping in pulseless arrest.",
         _REF,
         "beginner",
     ),
     # --- intermediate (18) ---
     fact(
         "cpr-child",
-        "Two trained rescuers are managing cardiac arrest in a 6-year-old after EMS activation. "
+        "Two trained rescuers are managing cardiac arrest in a 6-year-old after EMS has been activated. "
         "What compression-to-ventilation ratio should they use?",
-        "15 compressions to 2 ventilations",
+        "15 compressions followed by 2 ventilations (15:2)",
         [
-            "30 compressions to 2 ventilations",
-            "5 compressions to 1 ventilation",
-            "Continuous compressions with breaths every 30 seconds only",
+            "30 compressions followed by 2 ventilations when two trained rescuers manage pediatric arrest",
+            "5 compressions followed by 1 ventilation to minimize compression interruptions",
+            "Continuous compressions with rescue breaths given only every 30 seconds",
         ],
         "Two-rescuer pediatric BLS uses 15:2 so ventilations can be given more frequently while one "
         "rescuer focuses on compressions. The 30:2 ratio applies to single-rescuer CPR. The 5:1 "
@@ -250,29 +250,29 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "How should ventilations be delivered during child CPR to balance oxygenation and "
-        "compression time?",
-        "Breaths just large enough for visible chest rise, delivered in about one second each",
+        "During child CPR, a rescue breath does not produce visible chest rise on the first attempt. "
+        "What should the rescuer do before giving the next breath?",
+        "Reposition the airway with head tilt-chin lift and retry a breath over about 1 second",
         [
-            "Large breaths held for five seconds to maximize oxygen",
-            "Tiny breaths with no visible chest movement",
-            "Breaths only after every fifth compression cycle regardless of chest rise",
+            "Deliver the next breath with force over 5 seconds until resistance is felt",
+            "Skip further ventilations for the remainder of the arrest and continue compressions only",
+            "Perform blind finger sweeps of the mouth before every subsequent rescue breath",
         ],
-        "Visible chest rise indicates adequate tidal volume without overpressurizing the stomach. "
-        "Five-second breaths excessively interrupt compressions. Breaths without chest rise do not "
-        "provide effective ventilation.",
+        "Inadequate chest rise usually means the airway is not open or the breath volume was wrong. "
+        "Repositioning and a one-second breath limits gastric inflation. Forceful prolonged breaths "
+        "and blind sweeps are discouraged in AHA pediatric BLS.",
         _REF,
         "intermediate",
     ),
     fact(
         "cpr-child",
         "A child collapses suddenly while running on a sports field and is unresponsive. What should "
-        "the lone rescuer do about EMS activation?",
-        "Call EMS and send for an AED immediately because witnessed collapse may be cardiac",
+        "the lone rescuer do about EMS activation and AED retrieval?",
+        "Activate EMS and send for an AED immediately because witnessed collapse may be a cardiac event",
         [
-            "Complete five minutes of CPR before any call for help",
-            "Defer activation until a pulse check lasts two full minutes",
-            "Ask bystanders to wait until the child wakes up before calling",
+            "Complete five minutes of CPR before any call for help or AED retrieval",
+            "Defer EMS activation until a pulse check has lasted two full minutes",
+            "Ask bystanders to wait until the child wakes up before calling emergency services",
         ],
         "Witnessed sudden collapse in a child may represent a primary cardiac event where early "
         "defibrillation matters. Delaying EMS activation reduces the chance of timely AED use. CPR "
@@ -282,32 +282,31 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "When should rescuers reassess pulse and rhythm during ongoing child CPR in the out-of-"
-        "hospital setting?",
-        "About every two minutes or when the AED prompts a rhythm check",
+        "When should rescuers reassess pulse and rhythm during ongoing out-of-hospital child CPR?",
+        "About every two minutes or whenever the AED prompts a rhythm analysis",
         [
-            "Only once at the beginning of the arrest",
-            "Every 15 seconds between every compression",
-            "After ROSC has been confirmed by EMS only",
+            "Only once at the beginning of the arrest before any further compressions",
+            "Every 15 seconds between individual compressions throughout the resuscitation",
+            "Only after return of spontaneous circulation has been confirmed by EMS personnel",
         ],
         "Periodic reassessment aligns with two-minute CPR cycles and AED analysis intervals. "
         "Checking every 15 seconds causes harmful compression interruptions. A single initial check "
-        "misses changes that affect care.",
+        "misses rhythm changes that affect care.",
         _REF,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "Which action best limits harmful pauses during child CPR when an AED is used?",
-        "Resume compressions immediately after shock delivery or when no shock is advised",
+        "Which action best limits harmful pauses during child CPR when an AED is integrated into care?",
+        "Resume chest compressions immediately after shock delivery or when no shock is advised",
         [
-            "Stop compressions for two minutes after every AED prompt to rest",
-            "Remove AED pads after the first shock and continue CPR without the device",
-            "Wait for the child to move before resuming compressions after analysis",
+            "Stop compressions for two minutes after every AED voice prompt to rest the team",
+            "Remove AED pads after the first shock and continue CPR without further rhythm analysis",
+            "Wait until the child moves spontaneously before resuming compressions after analysis",
         ],
         "Minimizing post-shock pause preserves coronary perfusion pressure. Extended rest periods "
-        "after prompts are not recommended. AED pads should remain in place for continued analysis "
-        "during resuscitation.",
+        "after AED prompts are not recommended. AED pads should remain in place for continued "
+        "analysis during resuscitation.",
         _HQ,
         "intermediate",
     ),
@@ -315,11 +314,11 @@ FACTS: list[dict] = [
         "cpr-child",
         "A child becomes unresponsive while choking on a hot dog. After lowering the child safely to "
         "the ground, what BLS sequence is appropriate?",
-        "Begin CPR with compressions and look in the mouth for a visible object before breaths",
+        "Start CPR with chest compressions and look in the mouth for a visible object before breaths",
         [
-            "Continue abdominal thrusts on an unresponsive patient",
-            "Give rescue breaths repeatedly without compressions",
-            "Perform blind finger sweeps after every compression",
+            "Continue abdominal thrusts on the unresponsive child until EMS arrives on scene",
+            "Give repeated rescue breaths without chest compressions until the airway clears",
+            "Perform blind finger sweeps after every compression cycle throughout CPR",
         ],
         "Unresponsive choking victims receive CPR; compressions may dislodge the object. Abdominal "
         "thrusts are for conscious severe obstruction. Blind finger sweeps can push material deeper "
@@ -329,13 +328,13 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "When pediatric AED pads or a dose-attenuating system is available for a child in arrest, "
-        "how should rescuers use it?",
-        "Attach pediatric equipment per manufacturer instructions and follow AED prompts",
+        "Pediatric AED pads or a dose-attenuating system is available for a child in cardiac arrest. "
+        "How should rescuers use the device?",
+        "Attach pediatric pads or attenuator per manufacturer instructions and follow AED prompts",
         [
-            "Withhold the AED until the child reaches adult size",
-            "Use adult energy without pediatric pads in every case",
-            "Place both pads on the abdomen because the chest is small",
+            "Withhold defibrillation until the child reaches adult size even in shockable rhythms",
+            "Use full adult AED energy when pediatric pads or an attenuator are unavailable",
+            "Place both AED pads on the abdomen because the anterior chest is too small",
         ],
         "Pediatric pads or attenuators deliver appropriate energy for smaller patients. Withholding "
         "defibrillation arbitrarily delays care. Abdominal pad placement does not treat ventricular "
@@ -345,13 +344,13 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "Is compression-only CPR recommended for a lay rescuer who is trained and willing to give "
-        "rescue breaths to a child in cardiac arrest?",
-        "No; ventilations should be included when the rescuer can provide them safely",
+        "Should a lay rescuer who is trained and willing to give rescue breaths use compression-only "
+        "CPR on a child in cardiac arrest?",
+        "No; include ventilations in 30:2 CPR when breaths can be delivered safely",
         [
-            "Yes; breaths are never indicated below age 18",
-            "Yes; compressions alone are always preferred for children",
-            "Only if two rescuers are present may breaths be considered",
+            "Yes; rescue breaths are never indicated for any patient below 18 years of age",
+            "Yes; compression-only CPR is always preferred over ventilated CPR for children",
+            "Breaths may be given only when two rescuers are present at the scene",
         ],
         "Pediatric arrests are often hypoxic in origin, so ventilations are important when feasible. "
         "Compression-only CPR is not the preferred lay approach for children who need full BLS. "
@@ -361,12 +360,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "During two-rescuer child CPR, how should rescuers organize roles?",
-        "One rescuer performs compressions while the other gives ventilations at a 15:2 ratio",
+        "During two-rescuer child CPR, how should rescuers divide tasks to maintain quality?",
+        "One rescuer performs chest compressions while the other gives ventilations at a 15:2 ratio",
         [
-            "Both rescuers compress opposite sides of the chest simultaneously at 30:2",
-            "One rescuer gives breaths only while the other waits without compressing",
-            "Rescuers alternate breaths but nobody performs compressions until EMS arrives",
+            "Both rescuers compress opposite sides of the chest simultaneously using a 30:2 ratio",
+            "One rescuer gives breaths only while the other waits without performing compressions",
+            "Rescuers alternate rescue breaths but delay compressions until EMS arrives on scene",
         ],
         "Dedicated roles maintain compression quality and timely ventilations. Simultaneous dual "
         "compressions are not standard BLS. Breath-only care without compressions does not treat "
@@ -376,27 +375,29 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "What is required for adequate chest recoil between compressions on a child?",
-        "Allow the chest to return fully without leaning on it between pushes",
+        "A rescuer performing child CPR keeps partial weight on the sternum between compressions. "
+        "Why does incomplete chest recoil reduce perfusion?",
+        "Leaning on the chest prevents full diastolic filling before the next compression",
         [
-            "Keep downward pressure on the sternum between compressions",
-            "Compress only the upper ribs without sternal contact",
-            "Use partial recoil to save energy during prolonged CPR",
+            "Leaning on the chest steadies hand placement and is encouraged for child CPR",
+            "Incomplete recoil mainly lowers compression rate without affecting cardiac filling",
+            "Partial recoil is acceptable during prolonged CPR to conserve rescuer energy",
         ],
-        "Full recoil permits cardiac filling during diastole. Leaning on the chest between compressions "
-        "is a common error that reduces perfusion. Partial recoil is not high-quality CPR.",
+        "Full recoil permits cardiac filling during diastole so the next compression can perfuse the "
+        "brain and myocardium. Leaning between compressions is a common high-quality CPR error. "
+        "Partial recoil is not acceptable when effective BLS is the goal.",
         _HQ,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "A lone rescuer without a phone has been performing child CPR for about two minutes. EMS "
-        "has not yet been contacted. What should the rescuer do next?",
-        "Leave briefly to activate EMS and obtain an AED if possible, then return to the child",
+        "A lone rescuer without a phone has performed child CPR for about two minutes and EMS has not "
+        "yet been contacted. What should the rescuer do next?",
+        "Leave the child briefly to activate EMS and obtain an AED if possible, then return to CPR",
         [
-            "Continue CPR indefinitely without ever leaving to call for help",
-            "Stop CPR entirely once two minutes have elapsed",
-            "Transport the child in a private vehicle without calling EMS",
+            "Continue CPR at the scene without leaving to activate emergency response",
+            "Stop CPR at two minutes and wait for bystanders to call emergency services",
+            "Transport the child in a private vehicle to the hospital without activating EMS",
         ],
         "After about two minutes of lone-rescuer CPR, activation and AED retrieval become priorities. "
         "Never activating EMS abandons the emergency response link. Stopping CPR at two minutes "
@@ -406,315 +407,324 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-child",
-        "When should a rescuer switch to adult compression depth guidelines for a pediatric patient?",
-        "When the child is large enough that adult technique is appropriate, often after puberty",
+        "A tall adolescent looks adult-sized but is still managed with pediatric BLS in your course. "
+        "When should rescuers use adult compression depth and hand-placement targets instead?",
+        "When the victim is large enough that adult BLS technique is appropriate, often after puberty",
         [
-            "For every child older than one year regardless of size",
-            "Only when three rescuers are present",
-            "Whenever an AED is attached, regardless of patient size",
+            "For any child older than one year even when the victim appears small for age",
+            "Only when three trained rescuers are present and rotating compressor roles",
+            "Whenever an AED is attached, using adult depth targets on all pediatric victims",
         ],
-        "AHA bases technique on victim size rather than age alone. One year of age alone does not "
-        "mandate adult depth. AED attachment does not change compression depth targets.",
+        "AHA pediatric BLS selects technique from victim size rather than age alone. One year of age "
+        "does not automatically mandate adult depth. Attaching an AED does not change compression "
+        "depth or hand-placement targets.",
         _REF,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "A conscious child with severe choking cannot speak and has a weak ineffective cough. What "
-        "is appropriate BLS care?",
-        "Abdominal thrusts appropriate to the child's size until relief or unresponsiveness",
+        "A conscious 7-year-old cannot speak, has a silent weak cough, and shows signs of severe "
+        "airway obstruction. What is the best immediate BLS action?",
+        "Give abdominal thrusts sized to the child and repeat until relief or unresponsiveness",
         [
-            "Encourage coughing only because any cough means mild obstruction",
-            "Begin CPR compressions immediately while the child is still standing",
-            "Deliver back blows only until the child loses consciousness",
+            "Encourage forceful coughing and observe at the bedside without abdominal thrusts",
+            "Begin chest compressions while the child remains conscious and upright",
+            "Deliver back blows alone until the child loses consciousness, then start compressions",
         ],
-        "Severe obstruction requires abdominal thrusts sized to the child per AHA BLS. A weak cough "
-        "indicates ineffective air exchange, not mild obstruction. CPR compressions are for unresponsive "
-        "victims, not conscious severe choking.",
+        "Severe obstruction with ineffective cough requires active relief maneuvers, not observation "
+        "alone. Abdominal thrusts are appropriate for a child with severe choking per AHA BLS. CPR "
+        "compressions begin when the victim becomes unresponsive, not while still conscious.",
         _REF,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "Which patients are generally managed with child BLS compression and ventilation guidelines?",
-        "From about one year of age until puberty or until adult size is reached",
+        "Which description best defines who should receive child BLS compression and ventilation "
+        "guidelines during training and real events?",
+        "Victims from about one year of age until puberty or until adult body size is reached",
         [
-            "Only neonates under one month of age",
-            "All patients from birth through 21 years without exception",
-            "Only children who weigh less than 10 pounds",
+            "Only neonates under one month of age even when they appear school-age in size",
+            "All patients from birth through 21 years of age without exception or size assessment",
+            "Only children who weigh less than 10 pounds even when clearly older than infancy",
         ],
-        "Child guidelines apply to pediatric victims who are not infants and not adult-sized. Neonates "
-        "follow infant BLS. Weight alone without age and size context does not define the algorithm.",
+        "Child algorithms bridge infant and adult BLS for victims who are not infants and not "
+        "adult-sized. Neonates and young infants follow infant BLS. Weight alone without age and "
+        "size context does not define the correct compression technique.",
         _REF,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "After return of spontaneous circulation in a child without suspected spine injury, what "
-        "position supports the airway while awaiting EMS?",
-        "Recovery position on the side with continued monitoring of breathing and pulse",
+        "After return of spontaneous circulation, a breathing child has no suspected spine injury and "
+        "EMS is en route. What position and monitoring best support the airway?",
+        "Place the child in a recovery position on the side and continue monitoring breathing and pulse",
         [
-            "Flat supine with head fully extended backward",
-            "Prone position with face buried in a pillow",
-            "Sitting upright while unattended in another room",
+            "Keep the child flat supine with the head fully extended backward until EMS arrives",
+            "Keep the child flat supine with the chin forced fully upward toward the ceiling",
+            "Prop the child upright in a car seat without ongoing pulse or breathing checks",
         ],
-        "The recovery position helps maintain airway patency in a breathing patient. Maximal "
-        "hyperextension is not routine post-ROSC care. Unmonitored positioning risks recurrent "
-        "compromise.",
+        "The recovery position helps maintain airway patency in a breathing post-arrest patient. "
+        "Routine maximal hyperextension is not indicated after ROSC without trauma concerns. "
+        "Unmonitored positioning risks recurrent airway compromise or arrest.",
         _REF,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "How deep should compressions be for a thin 9-year-old during BLS CPR?",
-        "About one third of the chest's front-to-back diameter, roughly 2 inches (5 cm)",
+        "During CPR on a thin 9-year-old, feedback shows compressions are fast but barely indent the "
+        "sternum. What depth target should the team prioritize?",
+        "At least one third of the anterior-posterior chest diameter, about 2 inches (5 cm)",
         [
-            "Barely indenting the skin without sternal movement",
-            "At least 4 inches (10 cm) for every pediatric patient",
-            "Only deep enough to hear a click from the ribs each time",
+            "Shallow sternal indentation without reaching one third AP depth on each push",
+            "At least 4 inches (10 cm) as the depth target for all pediatric CPR",
+            "Only deep enough to produce an audible rib click on every compression cycle",
         ],
-        "One-third AP diameter balances perfusion and injury risk. Barely visible indentation is too "
-        "shallow. A fixed 4-inch depth may be excessive for a small child.",
+        "Adequate depth generates perfusion while limiting injury from excessive force. Barely visible "
+        "indentation is too shallow for most children. A fixed 4-inch depth may be excessive for a "
+        "thin school-age victim.",
         _HQ,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "During child CPR, when should rescuers switch the person performing compressions?",
-        "About every two minutes or sooner if compression quality falls",
+        "Two rescuers have provided high-quality child CPR for nearly two minutes and the compressor "
+        "reports arm fatigue with slowing rate. What should the team do next?",
+        "Switch compressors at the two-minute mark or sooner if rate, depth, or recoil is falling",
         [
-            "Only after EMS takes over on arrival",
-            "Never switch roles to avoid confusion",
-            "Every 30 seconds regardless of fatigue",
+            "Keep the same compressor until EMS arrives even if compression quality is clearly declining",
+            "Keep one compressor for the entire arrest without rotating roles",
+            "Rotate compressors every 30 seconds even when rate and depth still meet targets",
         ],
-        "Compressor switching limits fatigue-related shallow compressions. Waiting only for EMS may "
-        "allow poor quality for many cycles. Switching every 30 seconds is unnecessarily disruptive.",
+        "Timely compressor switching limits fatigue-related shallow or slow compressions. Waiting only "
+        "for EMS may allow poor quality for many two-minute cycles. Switching every 30 seconds is "
+        "unnecessarily disruptive without quality benefit.",
         _HQ,
         "intermediate",
     ),
     fact(
         "cpr-child",
-        "A bystander is unsure whether a toddler or a small school-age child needs infant versus "
-        "child compressions. Which factor matters most in BLS training?",
-        "Victim size and developmental stage per local protocol, not the bystander's guess alone",
+        "A rescuer finds an unresponsive victim and is unsure whether to use infant or child "
+        "compressions on a small school-age patient. Which factor should drive the algorithm choice?",
+        "Victim size and developmental stage using AHA age and size landmarks, not guesswork alone",
         [
-            "Always use infant technique for anyone under 10 years old",
-            "Always use adult technique for anyone who can walk",
-            "Choose technique based on the rescuer's hand size only",
+            "Always use infant compressions for any victim under 10 years of age without assessment",
+            "Always use adult compressions for any victim who can walk independently",
+            "Choose infant versus child technique based on the rescuer's hand size alone",
         ],
-        "Algorithms distinguish infant, child, and adult victims by size and age landmarks. Applying "
-        "infant technique to all under 10 is incorrect for school-age children. Rescuer hand size "
-        "does not define patient category.",
+        "Pediatric BLS distinguishes infant, child, and adult victims using size and age landmarks. "
+        "Applying infant technique to all children under 10 is incorrect for many school-age victims. "
+        "Rescuer hand size does not define which patient category applies.",
         _REF,
         "intermediate",
     ),
     # --- advanced (13) ---
     fact(
         "cpr-child",
-        "A 7-year-old is pulled unresponsive from a swimming pool. After safe rescue from the water, "
-        "what BLS sequence is most appropriate?",
-        "Activate EMS, open the airway, give rescue breaths if not breathing, and start 30:2 CPR if "
-        "no pulse after a brief check",
+        "A 7-year-old is pulled unresponsive from a swimming pool. After safe rescue and drying the "
+        "face, the child is not breathing normally. What BLS sequence is most appropriate?",
+        "Activate EMS, open the airway, give rescue breaths, and start 30:2 CPR if no pulse after "
+        "a brief check",
         [
-            "Dry the child completely and wait for normal breathing before any breaths",
-            "Perform abdominal thrusts as the first step for every drowning victim",
-            "Begin compressions only after 10 minutes of rescue breaths without pulse check",
+            "Dry the entire body completely and wait for spontaneous breathing before giving any breaths",
+            "Perform abdominal thrusts before opening the airway for submersion victims on land",
+            "Give rescue breaths for 10 minutes before any pulse check or chest compressions begin",
         ],
-        "Drowning arrests are often hypoxic; ventilations are emphasized early after rescue. Delaying "
-        "breaths while waiting for spontaneous breathing sacrifices oxygenation. Abdominal thrusts "
-        "are not the primary drowning response for unresponsive victims.",
+        "Drowning arrests are often hypoxic, so ventilations are emphasized early after water rescue. "
+        "Waiting for spontaneous breathing before assisting breaths sacrifices needed oxygenation. "
+        "Abdominal thrusts are not the primary response for an unresponsive drowning victim.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "A 5-year-old has a palpable pulse of 50 per minute, lethargy, and poor skin perfusion. "
-        "What is the appropriate BLS action?",
-        "Begin chest compressions and provide ventilations per pediatric BLS protocol",
+        "A 5-year-old is lethargic with cold mottled skin, a palpable pulse of 50 per minute, and "
+        "signs of poor perfusion. What is the appropriate BLS action?",
+        "Begin chest compressions and provide ventilations per pediatric BLS bradycardia protocol",
         [
-            "Monitor only because any palpable pulse means CPR is contraindicated",
-            "Give high-flow oxygen but withhold compressions until pulse is absent",
-            "Wait for a second rescuer before treating bradycardia",
+            "Monitor at the bedside because a palpable pulse excludes chest compressions",
+            "Provide high-flow oxygen but withhold compressions until the pulse is completely absent",
+            "Wait for a second rescuer to arrive before starting any treatment for bradycardia",
         ],
-        "Bradycardia with signs of poor perfusion in children is treated as arrest-equivalent. A weak "
-        "pulse with shock does not justify observation alone. Oxygen without compressions does not "
-        "restore adequate systemic perfusion in this scenario.",
+        "Bradycardia with poor perfusion in children is treated as arrest-equivalent in BLS. A weak "
+        "pulse with shock does not justify observation alone. Supplemental oxygen without compressions "
+        "does not restore adequate systemic perfusion in this presentation.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "During child CPR after a diving injury, spinal motion must be minimized. How should the "
-        "airway be opened for ventilations?",
-        "Jaw thrust without excessive head tilt when trauma cannot be ruled out",
+        "During child CPR after a suspected diving injury, cervical motion must be limited. How should "
+        "rescuers open the airway for rescue breaths?",
+        "Use a jaw thrust with minimal head tilt when spine injury cannot be ruled out",
         [
-            "Maximal head tilt with neck hyperextension every cycle",
-            "Routine blind finger sweeps before each breath",
-            "Flex the neck forward with a pillow under the shoulders",
+            "Apply full head tilt with neck hyperextension before each rescue breath cycle",
+            "Perform routine blind finger sweeps of the mouth before each ventilation attempt",
+            "Flex the neck forward and place a pillow under the shoulders to open the airway",
         ],
-        "Jaw thrust limits cervical movement while opening the airway. Maximal hyperextension may "
-        "worsen spine injury. Blind finger sweeps are not recommended in BLS airway management.",
+        "Jaw thrust opens the airway while limiting cervical movement when trauma is possible. Maximal "
+        "hyperextension may worsen spine injury. Blind finger sweeps are discouraged in BLS airway "
+        "management because they can push objects deeper.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "Two rescuers are performing child CPR and the compressor's depth has become inadequate. "
-        "What team action best restores quality?",
-        "Coach hand placement and switch compressors at the next two-minute mark if needed",
+        "During two-rescuer child CPR, real-time feedback shows compression rate drifting above "
+        "130 per minute while depth remains adequate. What team action best restores quality?",
+        "Coach the compressor to stay between 100 and 120 per minute and switch roles if fatigue persists",
         [
-            "Stop all compressions until the child moves spontaneously",
-            "Switch to ventilations only until depth improves on its own",
-            "Continue shallow compressions because any activity is sufficient",
+            "Accept the faster rate because speed always compensates for any minor depth loss",
+            "Stop all compressions until the child moves spontaneously and rate normalizes on its own",
+            "Switch to ventilations only for two minutes while the compressor rests without switching",
         ],
-        "Fatigue and poor technique reduce coronary perfusion; coaching and role switching address "
-        "this. Ventilation-only care does not support pulseless arrest. Accepting shallow compressions "
-        "is not high-quality CPR.",
+        "Pediatric compressions should stay within 100 to 120 per minute with adequate depth and "
+        "recoil. Very fast rates often sacrifice depth and full recoil. Ventilation-only care does "
+        "not treat pulseless arrest while waiting for rate to improve.",
         _HQ,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "Why does AHA recommend a 15:2 ratio for two-rescuer child CPR instead of 30:2?",
-        "More frequent ventilations address common pediatric respiratory causes of arrest while one "
-        "rescuer maintains compressions",
+        "An instructor asks why two-rescuer child CPR uses 15:2 instead of the lone rescuer 30:2 "
+        "ratio. Which rationale best matches AHA pediatric BLS?",
+        "15:2 delivers ventilations more often while one rescuer maintains uninterrupted compressions",
         [
-            "15:2 reduces the number of breaths compared with 30:2",
-            "30:2 is only used for adults and never for children",
-            "Two rescuers should never give ventilations during pediatric arrest",
+            "15:2 reduces the total number of rescue breaths given compared with lone-rescuer 30:2",
+            "30:2 is reserved for adults and is never appropriate for any pediatric arrest scenario",
+            "Two rescuers should perform compressions only and withhold ventilations during child CPR",
         ],
-        "Fifteen compressions between breaths increase ventilation rate compared with lone 30:2. "
-        "The ratio does not reduce breaths; it changes their frequency. Pediatric two-rescuer BLS "
-        "still includes ventilations.",
+        "Shorter compression runs between breaths increase ventilation frequency compared with lone "
+        "30:2, which matters when respiratory failure contributes to arrest. The ratio changes breath "
+        "timing, not elimination of ventilations. Pediatric two-rescuer BLS still includes rescue breaths.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
         "EMS places an advanced airway in a child during ongoing resuscitation. How should "
-        "ventilations be coordinated with compressions afterward?",
-        "Continue compressions without pausing for breaths and give about one breath every six "
-        "seconds",
+        "ventilations be coordinated with chest compressions afterward?",
+        "Continue compressions without pausing for breaths and deliver about one breath every six seconds",
         [
-            "Pause compressions for five seconds before every breath",
-            "Stop compressions entirely once the airway is in place",
-            "Give breaths only when the compressor requests a break",
+            "Pause compressions for five seconds before every rescue breath delivered through the tube",
+            "Stop chest compressions once the advanced airway is successfully in place",
+            "Give rescue breaths only when the compressor verbally requests a pause from compressions",
         ],
-        "With an advanced airway, compressions should be continuous with asynchronous ventilations. "
-        "Pausing compressions for each breath lowers perfusion pressure. Stopping compressions after "
-        "airway placement abandons circulation support.",
+        "After advanced airway placement, compressions should be continuous with asynchronous "
+        "ventilations. Pausing compressions for each breath lowers coronary perfusion pressure. "
+        "Stopping compressions when the airway is placed abandons circulation support.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "A child in cardiac arrest has no pulse, and chest compressions are in progress. When an AED "
-        "arrives, what is the best integration with ongoing CPR?",
-        "Apply pads with minimal pause, follow prompts, and resume compressions immediately after "
-        "shock or no-shock advice",
+        "During ongoing child CPR, a bystander arrives with an AED while the lone compressor is "
+        "mid-cycle. What division of tasks best limits compression pauses?",
+        "The second rescuer prepares and attaches AED pads while compressions continue until analysis",
         [
-            "Remove the child from the AED area until ROSC occurs",
-            "Wait until compressions have continued for 15 minutes before attaching pads",
-            "Deliver shocks without clearing rescuers from the patient",
+            "Stop all compressions for three minutes so the AED can be unpacked and applied without rush",
+            "Remove the child from the resuscitation area until return of spontaneous circulation occurs",
+            "Deliver defibrillation shocks without clearing rescuers from contact with the patient",
         ],
-        "Rapid pad placement and immediate post-shock CPR preserve perfusion. Arbitrary delays before "
-        "AED use weaken defibrillation benefit. Failing to clear the patient before shock risks "
-        "rescuer injury and ineffective delivery.",
+        "Continuous compressions during pad preparation minimize perfusion gaps before rhythm analysis. "
+        "Extended planned pauses for equipment setup harm coronary perfusion pressure. Rescuers must "
+        "clear the patient during shock delivery to avoid injury and ensure effective energy transfer.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "After ROSC, a 10-year-old child is breathing but remains very lethargic. What BLS-level "
-        "priority applies while awaiting EMS?",
-        "Maintain airway, provide oxygen if trained and available, and monitor breathing and pulse",
+        "After ROSC, a 10-year-old is breathing spontaneously but remains very lethargic and "
+        "difficult to arouse while EMS is en route. What BLS priority applies?",
+        "Maintain airway patency, provide supplemental oxygen, and monitor breathing and pulse",
         [
-            "Discharge the child to parents without EMS evaluation",
-            "Resume CPR compressions because lethargy always means recurrent arrest",
-            "Withhold oxygen even if the child appears cyanotic",
+            "Discharge the child to parents at the scene without EMS transport or supplemental oxygen",
+            "Resume CPR compressions immediately for lethargy without reassessing pulse and breathing",
+            "Provide supplemental oxygen but stop monitoring breathing and pulse until EMS arrives",
         ],
-        "Post-ROSC patients need close monitoring for recurrence and support of oxygenation. "
-        "Automatic return to compressions without reassessment is inappropriate. Withholding oxygen "
-        "when indicated ignores post-arrest hypoxia risk.",
+        "Post-ROSC patients require close monitoring for recurrent arrest and support of oxygenation. "
+        "Automatic return to compressions without reassessment of pulse and breathing is inappropriate. "
+        "Withholding oxygen when the child appears hypoxic ignores post-arrest respiratory risk.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "A child with severe asthma collapses and is unresponsive with agonal gasps. Pulse is absent. "
-        "How does pediatric BLS address the likely hypoxic mechanism?",
-        "Provide full CPR with compressions and ventilations at the appropriate ratio for rescuer "
-        "number",
+        "A child with severe asthma collapses, becomes unresponsive, has agonal gasps, and has no "
+        "palpable pulse after a 10-second check. What pediatric BLS approach addresses the likely "
+        "hypoxic arrest mechanism?",
+        "Provide full CPR with compressions and ventilations at the ratio appropriate for rescuer number",
         [
-            "Give ventilations only because asthma means compressions are harmful",
-            "Use compression-only CPR because asthma is a cardiac disease",
-            "Wait for bronchodilator medication before starting any CPR",
+            "Give rescue ventilations only because asthma means chest compressions are harmful or useless",
+            "Use compression-only CPR because asthma is primarily a cardiac rhythm disorder in children",
+            "Delay all CPR until inhaled bronchodilator medication can be administered by bystanders",
         ],
-        "Respiratory disease can lead to hypoxic arrest requiring compressions and ventilations. "
-        "Breath-only care does not treat pulseless arrest. Medication delay should not postpone CPR "
-        "when arrest is present.",
+        "Severe respiratory disease can progress to hypoxic pulseless arrest requiring compressions and "
+        "ventilations together. Ventilation-only care does not treat absent perfusion when pulse is "
+        "missing. Medication should not delay CPR when arrest criteria are met.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "During prolonged child CPR in a cool outdoor environment, what adjunct supports the child "
-        "beyond compressions and ventilations?",
-        "Cover the child with a dry blanket after exposing the chest for compressions when possible",
+        "During prolonged child CPR on a cool playground, the team has exposed the chest for "
+        "compressions. What adjunct best supports the victim beyond compressions and ventilations?",
+        "Cover the child with a dry blanket when possible while continuing high-quality CPR",
         [
-            "Immerse the child in cold water to prevent fever",
-            "Remove all clothing and leave the child uncovered in wind",
-            "Stop CPR every five minutes to warm hands only",
+            "Remove the shirt and leave the chest fully exposed to the air to speed cooling during CPR",
+            "Pause compressions for one minute each cycle so rescuers can warm their hands",
+            "Focus on compressions only and skip covering the child until EMS takes over",
         ],
-        "Preventing hypothermia supports resuscitation efforts in children. Cold water immersion is "
-        "harmful during active CPR. Uncovered exposure increases heat loss unnecessarily.",
+        "Preventing hypothermia supports metabolic and resuscitation efforts during prolonged pediatric "
+        "CPR. Leaving the chest exposed or pausing compressions to warm rescuers works against "
+        "effective care in cool environments when a dry blanket can help maintain warmth.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "A school-age child receives CPR, and the compressor notes the chest does not rise with "
-        "rescue breaths. What is the best next step before additional breaths?",
-        "Reopen the airway with head tilt-chin lift or jaw thrust if trauma is suspected and "
-        "reattempt a gentle breath",
+        "During two-rescuer child CPR at 15:2, the ventilation rescuer notes no chest rise despite a "
+        "one-second breath attempt. What is the best next step before giving another breath?",
+        "Reposition the airway with head tilt-chin lift or jaw thrust if trauma is suspected and retry",
         [
-            "Increase breath force until gastric distension is obvious",
-            "Abandon all ventilations for the remainder of the arrest",
-            "Perform blind finger sweeps between every compression",
+            "Increase breath force until obvious gastric distension is visible on every ventilation",
+            "Abandon all further ventilations for the remainder of the resuscitation attempt",
+            "Perform blind finger sweeps of the oropharynx between every compression cycle",
         ],
-        "Poor chest rise usually reflects airway position or seal, not insufficient force. Forceful "
-        "breaths cause gastric inflation. Blind sweeps are discouraged in BLS.",
+        "Inadequate chest rise usually reflects airway position, obstruction, or seal—not simply "
+        "insufficient force. Forceful breaths promote gastric inflation and reduce effective "
+        "ventilation. Blind finger sweeps are discouraged in AHA BLS airway management.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "Which description best reflects chest compression fraction goals during child resuscitation?",
-        "Compressing the chest for most of the resuscitation period with pauses under about 10 "
-        "seconds for pulse checks and defibrillation",
+        "Which description best reflects the chest compression fraction goal during high-quality child "
+        "resuscitation?",
+        "Compress the chest for most of the resuscitation time, keeping pauses under about 10 seconds",
         [
-            "Pausing compressions for at least 30 seconds each minute for team discussion",
-            "Limiting compressions to less than 20 percent of total resuscitation time",
-            "Stopping compressions whenever the rescuer feels tired without switching roles",
+            "Pause compressions for at least 30 seconds each minute to allow team discussion and rest",
+            "Limit active compressions to less than 20 percent of total resuscitation time by design",
+            "Stop compressions whenever the rescuer feels tired without switching to a fresh compressor",
         ],
-        "High compression fraction maintains coronary perfusion pressure. Thirty-second routine pauses "
-        "are harmful. Deliberately limiting compression time contradicts high-quality CPR principles.",
+        "High compression fraction maintains coronary perfusion pressure throughout arrest care. "
+        "Routine 30-second pauses for non-essential tasks harm outcomes. Deliberately minimizing "
+        "compression time contradicts high-quality CPR principles.",
         _HQ,
         "advanced",
     ),
     fact(
         "cpr-child",
-        "A child has a suspected opioid exposure and is unresponsive with absent pulse after a brief "
-        "check. EMS is activated. What BLS care remains appropriate for the lay rescuer?",
-        "High-quality CPR with ventilations if trained, and naloxone per local protocol if available",
+        "A child with suspected opioid exposure is unresponsive with agonal breathing and no pulse "
+        "after a brief check; EMS has been activated. What care should a trained lay rescuer provide?",
+        "Perform high-quality CPR with ventilations and give naloxone when available",
         [
-            "Naloxone only without compressions until the child wakes up",
-            "Rescue breaths only because opioids never cause cardiac arrest in children",
-            "Delay CPR until toxicology confirms the substance",
+            "Give naloxone and withhold compressions until the child is fully responsive",
+            "Provide rescue breaths without compressions until toxicology confirms opioids",
+            "Delay CPR until hospital toxicology confirms which substance was ingested or injected",
         ],
-        "Opioids can cause respiratory arrest progressing to pulseless arrest; CPR and ventilation "
-        "support circulation and oxygenation. Naloxone does not replace CPR when pulse is absent. "
-        "Waiting for toxicology delays life-saving compressions.",
+        "Opioids can cause respiratory depression progressing to pulseless arrest requiring CPR and "
+        "ventilation support. Naloxone does not replace compressions when perfusion is absent. Waiting "
+        "for toxicology confirmation inappropriately delays life-saving chest compressions.",
         _REF,
         "advanced",
     ),
