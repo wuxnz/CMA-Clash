@@ -328,7 +328,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "Rapid-acting insulin analogs (for example lispro or aspart) begin working in about:",
-        "15 minutes with peak near 1 hour",
+        "15 minutes, with peak activity in about 1 to 2 hours",
         [
             "6 to 8 hours only",
             "24 hours with no onset",
@@ -627,14 +627,14 @@ FACTS: list[dict] = [
     ),
     fact(
         "ccma-diabetes",
-        "When scheduling A1C testing, typical ADA goal for many nonpregnant adults is:",
-        "Below 7% individualized to patient factors",
+        "For many nonpregnant adults with diabetes, a common ADA A1C target is:",
+        "Less than 7% when it can be reached without significant hypoglycemia",
         [
             "Always below 4%",
-            "Always above 10%",
-            "Never test A1C",
+            "Always 8% or higher",
+            "Never measure A1C",
         ],
-        "Targets are personalized for age, hypoglycemia risk, and comorbidities.",
+        "Goals are individualized for age, hypoglycemia risk, comorbidities, and pregnancy status.",
         _REF,
         "advanced",
     ),

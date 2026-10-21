@@ -141,7 +141,7 @@ STUDY_BY_TOPIC: dict[str, list[dict]] = {
         },
         {
             "title": "Insulin types and safe handling",
-            "summary": "Rapid analogs act within about 15 minutes; regular insulin peaks around 2 to 3 hours; NPH is intermediate; glargine and similar agents provide basal coverage. Store unopened insulin refrigerated when required; in-use pens or vials per label. Never use cloudy or expired insulin.",
+            "summary": "Rapid analogs act within about 15 minutes with peak activity in about 1 to 2 hours; regular insulin peaks around 2 to 3 hours; NPH is intermediate and normally cloudy until mixed; glargine and similar agents provide basal coverage. Store unopened insulin refrigerated when required; in-use pens or vials per label. Do not use insulin that is expired, has been frozen, or looks wrong for its type: clear insulin that has turned cloudy, or any insulin with clumps or crystals.",
             "url": ADA_STANDARDS.split(" — ", 1)[1],
         },
         {
