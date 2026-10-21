@@ -24,7 +24,7 @@ def _bank_facts(module_name: str) -> list[dict]:
 
 
 from .ccma import FACTS as CCMA_FACTS
-CLINICAL_SKILLS_FACTS = _bank_facts("clinical_skills")
+from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
 CPR_BLS_FACTS = _bank_facts("cpr_bls")
 from .ekg import FACTS as EKG_FACTS
 PHLEBOTOMY_FACTS = _bank_facts("phlebotomy")
