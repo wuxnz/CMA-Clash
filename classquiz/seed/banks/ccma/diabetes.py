@@ -897,9 +897,9 @@ FACTS: list[dict] = [
         "An adult with gradual hyperglycemia, positive islet autoantibodies, and eventual insulin requirement most likely has which condition?",
         "Latent autoimmune diabetes in adults (LADA)",
         [
-            "Classic type 2 diabetes with insulin resistance only and no immune markers",
+            "Classic type 2 diabetes with dominant insulin resistance and absent islet autoantibodies",
             "Gestational diabetes that resolves after delivery",
-            "Steroid-induced hyperglycemia that never needs insulin",
+            "Transient steroid-induced hyperglycemia that resolves with taper and oral agents alone",
         ],
         "LADA bridges type 1 and type 2 phenotypes; insulin is often needed earlier than in typical type 2 disease.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -925,9 +925,9 @@ FACTS: list[dict] = [
         "A patient started on prednisone for asthma reports rising fingerstick glucose. What is the most likely mechanism?",
         "Increased hepatic glucose production and insulin resistance from glucocorticoids",
         [
-            "Direct beta-cell stimulation that always lowers glucose",
-            "Hyperglycemia limited to patients with type 1 diabetes only",
-            "Glucose elevation only with topical steroids, never systemic therapy",
+            "Direct beta-cell stimulation that lowers fasting glucose even without meals",
+            "Hyperglycemia limited to patients with established autoimmune type 1 disease",
+            "Glucose elevation confined to inhaled or topical corticosteroids without systemic dosing",
         ],
         "Systemic steroids commonly worsen glycemic control; glucose monitoring and medication adjustment follow provider orders.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -939,7 +939,7 @@ FACTS: list[dict] = [
         "How can a history of recurrent acute pancreatitis relate to diabetes mellitus?",
         "Injury to pancreatic islet cells can reduce insulin secretion",
         [
-            "Pancreatitis always causes symptomatic hypoglycemia without hyperglycemia",
+            "Pancreatitis that produces symptomatic hypoglycemia as the primary glucose pattern",
             "Pancreatic inflammation reliably lowers hemoglobin A1C",
             "There is no relationship between pancreas disease and glucose metabolism",
         ],
@@ -953,8 +953,8 @@ FACTS: list[dict] = [
         "Cystic fibrosis-related diabetes (CFRD) differs from typical type 1 diabetes because:",
         "It arises in the setting of cystic fibrosis with distinct screening and treatment considerations",
         [
-            "It is identical to gestational diabetes diagnosed only after delivery",
-            "It always presents with acute autoimmune ketoacidosis in infancy only",
+            "It is identical to gestational diabetes that remits immediately after delivery",
+            "It presents as acute autoimmune ketoacidosis during the first year of life",
             "It does not involve pancreatic endocrine function",
         ],
         "CFRD reflects progressive insulin deficiency in cystic fibrosis and is managed with specialized protocols.",
@@ -967,9 +967,9 @@ FACTS: list[dict] = [
         "Before relying on hemoglobin A1C in a patient with sickle cell trait, what should the clinical team consider?",
         "Some A1C assays are inaccurate when hemoglobin variants are present",
         [
-            "Hemoglobin variants affect only point-of-care fingerstick meters, never laboratory A1C",
+            "Hemoglobin variants alter fingerstick capillary glucose but spare laboratory A1C assays",
             "Variants change cuff size needed for blood pressure measurement",
-            "Variants make urine ketone strips read falsely low only",
+            "Variants interfere with urine ketone strips while leaving A1C assays unaffected",
         ],
         "When A1C may be unreliable, alternate diagnostic tests such as fasting glucose or OGTT are used per guidelines.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -981,9 +981,9 @@ FACTS: list[dict] = [
         "How can iron-deficiency anemia influence interpretation of a hemoglobin A1C result?",
         "It may falsely raise or lower A1C depending on the assay and red cell turnover",
         [
-            "Anemia never alters A1C because the test measures only plasma glucose",
-            "Anemia affects A1C only during pregnancy and never in other adults",
-            "Anemia always produces a true A1C that matches average glycemia",
+            "Anemia has no effect on A1C because the assay quantifies plasma glucose rather than glycated hemoglobin",
+            "Anemia distorts A1C in the third trimester but spares iron-deficient nonpregnant adults",
+            "Anemia yields an A1C that tracks average glycemia despite altered red cell turnover",
         ],
         "Review hematologic conditions and assay limitations when A1C disagrees with daily glucose readings.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -996,7 +996,7 @@ FACTS: list[dict] = [
         "Diabetes mellitus without requiring a second confirmatory test",
         [
             "A normal glucose tolerance state requiring no follow-up",
-            "Diagnosis only if a 75-g OGTT is performed and never with random glucose",
+            "Diagnosis requires a 75-g OGTT even when random glucose and classic symptoms are present",
             "Isolated hypoglycemia requiring carbohydrate restriction",
         ],
         "Unequivocal hyperglycemia with classic symptoms meets diagnostic thresholds on a single qualifying value.",
@@ -1010,8 +1010,8 @@ FACTS: list[dict] = [
         "Those who are overweight or obese and have additional risk factors",
         [
             "All newborns before hospital discharge as the sole universal screen",
-            "Only patients already using basal-bolus insulin therapy",
-            "No adults in primary care because screening is emergency-department only",
+            "Patients already established on basal-bolus insulin as the primary screening cohort",
+            "Ambulatory screening is unnecessary because emergency departments detect all adult diabetes",
         ],
         "Risk-based screening in ambulatory settings helps detect undiagnosed diabetes and prediabetes early.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1023,7 +1023,7 @@ FACTS: list[dict] = [
         "For a newly diagnosed adult with type 2 diabetes and no contraindication, what initial pharmacotherapy do guidelines most often recommend alongside lifestyle change?",
         "Metformin",
         [
-            "Scheduled sliding-scale insulin as the only agent for every new patient",
+            "Scheduled sliding-scale insulin as first-line monotherapy for each newly diagnosed adult",
             "Systemic glucocorticoids to blunt postmeal glucose spikes",
             "Deferring all medication until A1C reaches 10% or higher",
         ],
@@ -1079,7 +1079,7 @@ FACTS: list[dict] = [
         "When reviewing a new prescription for glipizide, what hypoglycemia risk should the medical assistant reinforce with the patient?",
         "Insulin release continues even if the patient skips or delays a meal",
         [
-            "Sulfonylureas block intestinal glucose absorption as their only action",
+            "Sulfonylureas work chiefly by blocking intestinal glucose absorption like alpha-glucosidase inhibitors",
             "They increase urinary glucose loss like SGLT2 inhibitors",
             "They supply basal insulin coverage for 24 hours",
         ],
@@ -1093,7 +1093,7 @@ FACTS: list[dict] = [
         "In a basal-bolus insulin plan, what role does once-daily glargine most often serve?",
         "Background insulin between meals and overnight",
         [
-            "Coverage of mealtime carbohydrate spikes as the only injection",
+            "A single daily injection timed to cover postprandial spikes without basal insulin",
             "Automatic discontinuation during febrile illness without provider input",
             "Oral administration with breakfast",
         ],
@@ -1108,7 +1108,7 @@ FACTS: list[dict] = [
         "Shortly before or with the meal to match postprandial glucose rise",
         [
             "Once weekly at bedtime for all regimens",
-            "Only when fasting glucose is below 70 mg/dL",
+            "When premeal fasting glucose is below 70 mg/dL regardless of planned carbohydrate",
             "As an oral tablet taken with water instead of injection",
         ],
         "Matching insulin onset to carbohydrate absorption reduces postmeal hyperglycemia and late hypoglycemia.",
@@ -1150,8 +1150,8 @@ FACTS: list[dict] = [
         "Anticipate impending highs or lows and respond per the action plan",
         [
             "Eliminate all confirmatory fingersticks in every patient without a provider order",
-            "Ignore urgent low alerts because trends are decorative only",
-            "Skip scheduled diabetes follow-up because data self-adjust therapy",
+            "Ignore urgent low alerts because trend arrows are informational rather than actionable",
+            "Defer scheduled diabetes follow-up because continuous data replaces clinician review",
         ],
         "Trend information complements A1C and supports time-in-range goals when patients are trained on alarm responses.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1191,7 +1191,7 @@ FACTS: list[dict] = [
         "Hyperosmolar hyperglycemic state (HHS) is most often seen in which clinical context?",
         "Older adults with type 2 diabetes, extreme hyperglycemia, and profound dehydration",
         [
-            "Otherwise healthy children with new-onset type 1 disease only",
+            "Otherwise healthy children with new-onset autoimmune type 1 diabetes",
             "Euglycemic patients without fluid losses",
             "Athletes immediately after moderate exercise with normal hydration",
         ],
@@ -1207,7 +1207,7 @@ FACTS: list[dict] = [
         [
             "Stop all insulin until oral intake returns to normal",
             "Restrict fluids to prevent worsening hyperglycemia",
-            "Ignore moderate or large urine ketones because illness always lowers glucose",
+            "Ignore moderate or large urine ketones because intercurrent illness predictably lowers glucose",
         ],
         "Counter-regulatory hormones during illness raise glucose; withholding insulin increases ketosis and dehydration risk.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1219,7 +1219,7 @@ FACTS: list[dict] = [
         "When should urine ketone testing be emphasized for a patient with type 1 diabetes?",
         "During illness or when blood glucose stays elevated despite extra insulin per the plan",
         [
-            "Only when fingerstick glucose is below 70 mg/dL without symptoms",
+            "When fingerstick glucose is below 70 mg/dL in an asymptomatic patient at routine checks",
             "Whenever A1C is at goal and the patient feels well",
             "Solely while fasting overnight for a routine chemistry panel",
         ],
@@ -1248,7 +1248,7 @@ FACTS: list[dict] = [
         "Warning signs such as tremor and sweating may be blunted at low glucose levels",
         [
             "Autonomic symptoms reliably occur whenever glucose is above 200 mg/dL",
-            "The phenomenon occurs only in diet-controlled type 2 diabetes never treated with insulin",
+            "The phenomenon occurs in diet-controlled type 2 disease without prior insulin therapy",
             "Repeated untreated lows improve awareness over time without medical intervention",
         ],
         "Loss of warning symptoms raises the risk of severe hypoglycemia; more frequent monitoring and therapy adjustment may be needed.",

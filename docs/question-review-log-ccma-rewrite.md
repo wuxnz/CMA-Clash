@@ -235,3 +235,40 @@ ccma-diabetes-057 | fail | Banned "Only subjective" documentation distractor.
 ccma-diabetes-057 | pass | Food preferences without glucose/intervention data near-miss.
 ccma-diabetes-060 | fail | Banned "only as jewelry" medical ID distractor.
 ccma-diabetes-060 | pass | Decorative jewelry without engraved emergency data near-miss.
+
+## Diabetes batch 02 (ccma-diabetes-061 to 127) — banned-qualifier distractor pass
+
+ccma-diabetes-064 | fail | Banned "only" and "never" in LADA classification distractors.
+ccma-diabetes-064 | pass | Insulin-resistance-without-antibodies and steroid-taper near-misses.
+ccma-diabetes-066 | fail | Banned "always," "only," and "never" in prednisone mechanism distractors.
+ccma-diabetes-066 | pass | Beta-cell stimulation, type 1 scope, and topical-steroid near-misses.
+ccma-diabetes-067 | fail | Banned "always" in pancreatitis glucose distractor.
+ccma-diabetes-067 | pass | Hypoglycemia-primary-pattern near-miss vs islet-injury key.
+ccma-diabetes-068 | fail | Banned "only" and "always" in CFRD distractors.
+ccma-diabetes-068 | pass | Postpartum GDM remission and infant DKA timing near-misses.
+ccma-diabetes-069 | fail | Banned "only" and "never" in hemoglobin-variant A1C distractors.
+ccma-diabetes-069 | pass | Fingerstick-vs-lab and ketone-strip interference near-misses.
+ccma-diabetes-070 | fail | Banned "never," "only," and "always" in anemia-A1C distractors.
+ccma-diabetes-070 | pass | Plasma-glucose misconception and pregnancy-vs-adult anemia near-misses.
+ccma-diabetes-071 | fail | Banned "only" and "never" in symptomatic hyperglycemia diagnosis distractor.
+ccma-diabetes-071 | pass | OGTT-required-with-symptoms near-miss vs single-value key.
+ccma-diabetes-072 | fail | Banned "Only" and "only" in ADA screening distractors.
+ccma-diabetes-072 | pass | Established insulin-user and ED-screening near-misses.
+ccma-diabetes-073 | fail | Banned "only" in metformin first-line distractor.
+ccma-diabetes-073 | pass | Sliding-scale monotherapy near-miss vs metformin key.
+ccma-diabetes-077 | fail | Banned "only" in sulfonylurea mechanism distractor.
+ccma-diabetes-077 | pass | Alpha-glucosidase-style absorption block near-miss.
+ccma-diabetes-078 | fail | Banned "only" in glargine role distractor.
+ccma-diabetes-078 | pass | Prandial-only injection without basal near-miss.
+ccma-diabetes-079 | fail | Banned "Only when" in rapid insulin timing distractor.
+ccma-diabetes-079 | pass | Sub-70 fasting dose timing near-miss.
+ccma-diabetes-082 | fail | Banned "only" and "Skip" in CGM trend distractors.
+ccma-diabetes-082 | pass | Decorative-trend and self-adjusting-data near-misses.
+ccma-diabetes-085 | fail | Banned "only" in HHS population distractor.
+ccma-diabetes-085 | pass | Pediatric type 1 context near-miss vs older adult HHS key.
+ccma-diabetes-086 | fail | Banned "always" in sick-day ketone distractor.
+ccma-diabetes-086 | pass | Illness-lowers-glucose misconception near-miss.
+ccma-diabetes-087 | fail | Banned "Only when" in urine ketone indication distractor.
+ccma-diabetes-087 | pass | Asymptomatic hypoglycemia ketone-testing near-miss.
+ccma-diabetes-089 | fail | Banned "only" and "never" in hypoglycemia awareness distractor.
+ccma-diabetes-089 | pass | Diet-controlled type 2 without insulin near-miss.
