@@ -11,6 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import { normalizeGameMode } from '$lib/play/live-game';
+	import { markPlaySocketBound, resetPlaySocketBinding } from '$lib/play/play-socket-pin';
 	import { warmPlaySocketConnection } from '$lib/play/player-socket-session';
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
@@ -49,6 +50,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	const onJoinError = (payload?: { code?: string }) => {
 		joining = false;
+		resetPlaySocketBinding();
 		joinError = joinErrorMessage(payload?.code);
 	};
 
@@ -73,6 +75,7 @@ SPDX-License-Identifier: MPL-2.0
 	};
 	const onGameNotFound = () => {
 		joining = false;
+		resetPlaySocketBinding();
 		joinError = 'Game not found. Check the PIN with your host.';
 	};
 	const onUsernameAlreadyExists = () => {
@@ -199,6 +202,8 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	const emitJoin = (captcha_resp?: string) => {
+		// Allow set_question_number through the pin guard as soon as join is in flight.
+		markPlaySocketBound(game_pin);
 		socket.emit('join_game', {
 			username,
 			game_pin,

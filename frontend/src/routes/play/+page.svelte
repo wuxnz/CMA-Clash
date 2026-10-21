@@ -238,7 +238,8 @@ SPDX-License-Identifier: MPL-2.0
 	);
 
 	let isBattleMode = $derived(normalizeGameMode(game_mode) === 'battle');
-	let hideTileQuestion = $derived(normalizeGameMode(game_mode) === 'kahoot');
+	/** Always show the question stem on player phones (kahoot host may show it on a projector). */
+	let hideTileQuestion = $derived(false);
 
 	let battleOutcomeNote = $derived.by(() => {
 		if (!isBattleMode) return undefined;
