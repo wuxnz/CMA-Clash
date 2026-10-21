@@ -53,11 +53,18 @@ export function certificationShortLabel(slug: string | undefined | null, name?: 
 	return name?.split('—')[0]?.trim() ?? slug.toUpperCase();
 }
 
+export type StudyBlock = {
+	title: string;
+	summary: string;
+	url: string;
+};
+
 export type Topic = {
 	id: string;
 	slug: string;
 	name: string;
 	description: string | null;
+	study_content?: StudyBlock[] | null;
 	certification_id: string | null;
 	sort_order: number;
 };

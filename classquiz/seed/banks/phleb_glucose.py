@@ -1,0 +1,273 @@
+# SPDX-FileCopyrightText: 2026 CMA Clash contributors
+#
+# SPDX-License-Identifier: MPL-2.0
+
+"""Phlebotomy-focused blood glucose specimen and POC testing questions."""
+
+from classquiz.seed import sources as S
+from classquiz.seed.banks._builder import fact
+
+_REF = [S.CLSI_GP41, S.FDA_CLIA_WAIVED, S.CDC_DIABETES, S.NHA_CPT]
+
+FACTS: list[dict] = [
+    fact(
+        "phleb-glucose",
+        "A gray-top sodium fluoride tube is used to:",
+        "Preserve glucose for laboratory analysis by inhibiting glycolysis",
+        [
+            "Clot serum for chemistry only",
+            "Culture bacteria from venous blood",
+            "Measure prothrombin time",
+        ],
+        "Fluoride/oxalate tubes are common for glucose tolerance and fasting glucose draws.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "When drawing a fasting glucose specimen, phlebotomists should:",
+        "Confirm fasting status per order and label tubes immediately at bedside",
+        [
+            "Delay labeling until end of shift",
+            "Shake additive tubes vigorously for minutes",
+            "Draw into serum separator first without order of draw",
+        ],
+        "Proper labeling and order of draw protect result integrity.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Hemolysis in a glucose sample can:",
+        "Falsely lower or alter results depending on assay and timing",
+        [
+            "Never affect any analyte",
+            "Only change sodium",
+            "Improve accuracy always",
+        ],
+        "Gentle technique and appropriate tube choice reduce hemolysis.",
+        _REF,
+        "advanced",
+    ),
+    fact(
+        "phleb-glucose",
+        "Capillary blood for glucose monitoring differs from venous plasma because:",
+        "Values may not match laboratory venous results exactly",
+        [
+            "They are always identical to arterial gas",
+            "Capillary samples never require hand hygiene",
+            "Meters read only venous values",
+        ],
+        "Document specimen type when reporting critical values.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "If a patient is dizzy immediately after venipuncture for glucose testing, you should:",
+        "Secure the site, have the patient lie or sit safely, and notify staff",
+        [
+            "Send them to drive home alone",
+            "Ignore symptoms if the tube filled",
+            "Apply a tourniquet to both arms",
+        ],
+        "Syncope can occur with fasting draws or vasovagal response.",
+        _REF,
+        "beginner",
+    ),
+    fact(
+        "phleb-glucose",
+        "CLIA-waived glucose testing requires:",
+        "Following the manufacturer's instructions and facility quality control program",
+        [
+            "No training for staff",
+            "Using any strip brand interchangeably without verification",
+            "Skipping documentation",
+        ],
+        "Waived status applies to specific test systems, not careless practice.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Control solution testing for a glucose meter verifies:",
+        "That the meter and strips are performing within expected range",
+        [
+            "Patient identity only",
+            "Insurance eligibility",
+            "Room temperature only",
+        ],
+        "Failed controls require troubleshooting before patient use.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Lancets for fingersticks must be:",
+        "Single-patient use and disposed in sharps container",
+        [
+            "Rinsed and reused on siblings",
+            "Left uncapped on the counter",
+            "Shared if the patient is calm",
+        ],
+        "Sharps safety follows OSHA and CDC injection safety principles.",
+        [S.OSHA_NEEDLESTICK, S.CDC_INJECTION_SAFETY, S.NHA_CPT],
+        "beginner",
+    ),
+    fact(
+        "phleb-glucose",
+        "The best time to warm a cool hand before capillary collection is:",
+        "Brief warm wash or rub to increase perfusion when ordered",
+        [
+            "Apply ice for 10 minutes",
+            "Use a tourniquet on the finger indefinitely",
+            "Skip hand hygiene",
+        ],
+        "Adequate perfusion improves sample quality.",
+        _REF,
+        "beginner",
+    ),
+    fact(
+        "phleb-glucose",
+        "When collecting blood for oral glucose tolerance testing, timing of the 2-hour draw is:",
+        "Exactly 2 hours from the start of the glucose drink per protocol",
+        [
+            "Whenever the phlebotomist is free",
+            "Before the patient drinks glucose",
+            "24 hours after the drink",
+        ],
+        "OGTT timing errors invalidate interpretation.",
+        [S.ADA_DIAGNOSIS, S.CLSI_GP41],
+        "advanced",
+    ),
+    fact(
+        "phleb-glucose",
+        "Transport of glucose specimens to the lab should:",
+        "Follow facility policy for temperature and timing to limit glycolysis",
+        [
+            "Leave tubes in direct sun for hours",
+            "Freeze all serum tubes routinely",
+            "Pool samples from multiple patients",
+        ],
+        "Delayed processing can falsely lower glucose.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "A patient on IV dextrose may have glucose results that:",
+        "Do not reflect fasting status and must be interpreted with clinical context",
+        [
+            "Are always diagnostic for diabetes without context",
+            "Are invalid on any meter",
+            "Require no documentation",
+        ],
+        "Communicate concurrent infusions to the laboratory.",
+        _REF,
+        "advanced",
+    ),
+    fact(
+        "phleb-glucose",
+        "For pediatric heelsticks, the recommended safe site is:",
+        "Lateral plantar surface of the heel per age-appropriate lancet depth",
+        [
+            "Center of the arch",
+            "Any finger of a newborn without policy",
+            "Earlobe as default for all infants",
+        ],
+        "Avoid previous puncture sites and bruised areas.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Gloves during glucose POC testing are worn to:",
+        "Reduce exposure to blood and body fluids",
+        [
+            "Improve meter accuracy",
+            "Replace hand washing entirely",
+            "Identify patients by glove color",
+        ],
+        "Hand hygiene is performed before donning and after removing gloves.",
+        [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CPT],
+        "beginner",
+    ),
+    fact(
+        "phleb-glucose",
+        "If meter error codes appear repeatedly, the phlebotomist should:",
+        "Stop patient testing, troubleshoot, and use backup protocol",
+        [
+            "Average error codes into a result",
+            "Guess a number for the chart",
+            "Hide the meter",
+        ],
+        "Device failures require supervisor notification.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Strip vials should be:",
+        "Closed tightly, stored per package insert, and checked for expiration",
+        [
+            "Left open overnight",
+            "Mixed with other brands in one vial",
+            "Used years after expiration without note",
+        ],
+        "Humidity and age affect strip chemistry.",
+        _REF,
+        "beginner",
+    ),
+    fact(
+        "phleb-glucose",
+        "When performing a glucose tolerance test, the glucose drink volume is:",
+        "Given per lab order (commonly 75 g glucose for adults)",
+        [
+            "Always 500 mL of water only",
+            "Chosen by the patient preference",
+            "Replaced with diet soda",
+        ],
+        "Pediatric protocols use weight-based doses.",
+        [S.ADA_DIAGNOSIS, S.CLSI_GP41],
+        "advanced",
+    ),
+    fact(
+        "phleb-glucose",
+        "Order of draw matters when glucose is drawn with other tubes because:",
+        "Additive carryover can corrupt other tests or glucose itself",
+        [
+            "It only affects urine cups",
+            "Tubes may explode if reversed",
+            "It is optional in all settings",
+        ],
+        "Follow CLSI order of draw charts posted in the draw station.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Reporting a critical low glucose to the provider should include:",
+        "Patient symptoms, value, time, and actions taken",
+        [
+            "Only the patient's middle name",
+            "A joke to reduce anxiety",
+            "No repeat assessment",
+        ],
+        "Critical value policies define thresholds and callbacks.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "phleb-glucose",
+        "Alternate site testing (forearm) with some meters may:",
+        "Lag behind fingertip values during rapid glucose change",
+        [
+            "Always replace laboratory A1C",
+            "Never require hand hygiene",
+            "Be used during suspected hypoglycemia without caution",
+        ],
+        "Follow manufacturer warnings for hypoglycemia detection.",
+        _REF,
+        "advanced",
+    ),
+]

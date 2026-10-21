@@ -21,6 +21,7 @@ CERTIFICATIONS = [
             ("ccma-vaccines", "Vaccine Administration & Storage", 8),
             ("ccma-hipaa", "HIPAA & Patient Privacy", 9),
             ("ccma-transmission", "Transmission-Based Precautions", 10),
+            ("ccma-diabetes", "Diabetes", 11),
         ],
     },
     {
@@ -50,6 +51,7 @@ CERTIFICATIONS = [
             ("phleb-complications", "Complications", 5),
             ("phleb-safety", "Safety & Infection Control", 6),
             ("phleb-who", "WHO Phlebotomy Safety", 7),
+            ("phleb-glucose", "Blood Glucose & POC Testing", 8),
         ],
     },
     {
@@ -89,6 +91,11 @@ CERTIFICATIONS = [
         ],
     },
 ]
+
+# Questions per public quiz for topics that need more than the default chunk size.
+TOPIC_QUESTIONS_PER_QUIZ: dict[str, int] = {
+    "ccma-diabetes": 12,
+}
 
 
 def study_content_for_topic(slug: str) -> list[dict] | None:
