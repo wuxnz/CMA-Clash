@@ -62,6 +62,24 @@ _FRAGMENT_CLAUSE_WAS = re.compile(
     r"(?:^|[.;])\s*[^?]{8,120}\b(was|is|are|were)\?\s*$",
     re.I,
 )
+# "How does A safety syringe" — article mid-sentence after lowercase (missing "a/an/the" flow).
+_MID_STEM_CAPITAL_ARTICLE = re.compile(r"[a-z] (A|An|The) [A-Z]")
+# Title-style fragment: stem ends with ? but lacks a wh-word or auxiliary-led question.
+_FRAGMENT_STEM_NO_WH = re.compile(
+    r"^(?!.*\b(what|which|why|how|when|where|who|does|do|is|are|was|were|can|could|should|would|will|may|might)\b).+\?\s*$",
+    re.I,
+)
+_BANNED_CHOICE_FRAGMENT_START = re.compile(
+    r"^(Are not|Is not|Was not|Eliminating the need)\b",
+    re.I,
+)
+_CPR_PHLEB_JOKE_DISTRACTOR_PATTERNS = [
+    re.compile(r"\banother patient to demonstrate\b", re.I),
+    re.compile(r"\bnever,\s+because\b.*\balways\b", re.I),
+    re.compile(r"\bincreasing the exposed sharp time\b", re.I),
+    re.compile(r"\bpack nose with tissue deep inside\b", re.I),
+    re.compile(r"\boxygen mask only\b", re.I),
+]
 _FRAGMENT_TAIL_QUESTION = re.compile(
     r"(?:"
     r"\bis placed\?|\bshould\?|\bfrom the\?|\bof\?|\bbe\?|\bserves as\?|"
@@ -203,6 +221,19 @@ def test_hand_authored_stems_are_complete_questions():
                 bad.append(stem[:90])
             if _FRAGMENT_CLAUSE_WAS.search(stem):
                 bad.append(stem[:90])
+            if _MID_STEM_CAPITAL_ARTICLE.search(stem):
+                bad.append(stem[:90])
+            if _FRAGMENT_STEM_NO_WH.search(stem) and len(stem) < 120:
+                bad.append(stem[:90])
+        if fact["topic"].startswith(("cpr-", "phleb-")):
+            if _MID_STEM_CAPITAL_ARTICLE.search(stem):
+                bad.append(stem[:90])
+            for choice in (fact["correct"], *fact["distractors"]):
+                if _BANNED_CHOICE_FRAGMENT_START.search(choice.strip()):
+                    bad.append(f"{fact['topic']} choice: {choice[:60]}")
+                for pat in _CPR_PHLEB_JOKE_DISTRACTOR_PATTERNS:
+                    if pat.search(choice):
+                        bad.append(f"{fact['topic']} joke: {choice[:60]}")
         if not stem.endswith("?") and not stem.endswith("."):
             bad.append(stem[:90])
     assert not bad, f"Incomplete stems in hand-authored certs: {bad[:12]}"

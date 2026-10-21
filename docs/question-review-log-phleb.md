@@ -30,6 +30,34 @@ phleb-order-draw-023 | pass | Pediatric microtainer order of draw; near-miss no 
 phleb-order-draw-024 | pass | Reverse fill notify lab recollect; near-miss relabel, saline dilute, freeze tubes.
 phleb-order-draw-025 | pass | _(next line in file reviewed with batch 02 start)_
 
+## Phleb rewrite batch 01 (phleb-order-draw-001 to phleb-order-draw-025)
+
+phleb-order-draw-001 | pass | Full stem on CLSI carryover; parallel size, tourniquet, color-code distractors; no banned-only distractors.
+phleb-order-draw-002 | pass | Cultures-first sterile timing; parallel gray-last, chemistry-first, order-irrelevant near-misses.
+phleb-order-draw-003 | pass | Post-culture citrate; parallel SST-first, lavender-first, gray-before-blue distractors.
+phleb-order-draw-004 | pass | Citrate slot after cultures before serum/heparin/EDTA/gray; parallel last, before-cultures, multi-tube exclusion.
+phleb-order-draw-005 | pass | Heparin after citrate and serum; parallel green-before-blue, before-cultures, after-gray distractors.
+phleb-order-draw-006 | pass | Lavender after heparin before gray; parallel before-citrate, first-after-tourniquet, after-gray-last.
+phleb-order-draw-007 | pass | Gray last in sequence; parallel glucose-first, before-lavender, after-cultures-before-citrate.
+phleb-order-draw-008 | pass | Pour-over recollect and document; parallel equilibrate remix, saline top-off, plasma-only send.
+phleb-order-draw-009 | pass | Gentle 5–10 inversions; removed floor-roll joke; parallel shake, no-mix, roll-without-inversion.
+phleb-order-draw-010 | pass | Single-patient sharps disposal; removed sibling-share joke; parallel alcohol wipe, recap-reuse, bent regular trash.
+phleb-order-draw-011 | pass | Two-identifier verification stem; parallel color-only, bedmate name, room-number distractors.
+phleb-order-draw-012 | pass | Fill-to ratio on citrate; parallel any-volume, overfill, silent underfill near-misses.
+phleb-order-draw-013 | pass | Bedside labeling timing; parallel post-spin, next-shift, label-before-ID distractors.
+phleb-order-draw-014 | pass | Lone EDTA carryover scope; parallel every-draw, arterial-only, heel-only near-misses without never-distractors.
+phleb-order-draw-015 | pass | Discard tube dead-space; parallel citrate-prohibited-first, dilute-citrate, EDTA-discard myths.
+phleb-order-draw-016 | pass | 60% citrate fill PT/INR; parallel Hgb-on-citrate, culture, serum sodium distractors.
+phleb-order-draw-017 | pass | Lavender-before-citrate EDTA carryover; parallel fluoride-shortens-PT, neutralize myth, glucose distractor.
+phleb-order-draw-018 | pass | Green-before-citrate heparin carryover; fixed broken stem; parallel gray-hemolysis, culture, urine distractors.
+phleb-order-draw-019 | pass | Butterfly continuous flow; parallel air-bubble, tight tourniquet, dry-needle distractors.
+phleb-order-draw-020 | pass | Syringe transfer same order rules; parallel neutralize-additives, serum-last, delayed-citrate-first.
+phleb-order-draw-021 | pass | Citrate/EDTA inversion count; parallel one inversion, 20–30 shakes, lab-only mix.
+phleb-order-draw-022 | pass | Unsure sequence consult manual; parallel memory guess, one-tube cancel, defer-ID distractors.
+phleb-order-draw-023 | pass | Microtainer order of draw; fixed grammar; parallel no-order, culture-last, EDTA-before-citrate pediatrics.
+phleb-order-draw-024 | pass | Reverse-order notify lab recollect; parallel relabel, saline dilute, freeze tubes.
+phleb-order-draw-025 | pass | Routine tubes before cultures contamination; parallel vacuum, broth-kills, arterial-only distractors.
+
 ## Phleb WHO module (spot)
 
 phleb-who hand-hygiene moments | fail | Five Moments pair before touch and before aseptic skin prep; replaced joke distractors with parallel wrong-moment options.
