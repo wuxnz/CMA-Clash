@@ -236,6 +236,97 @@ ccma-diabetes-057 | pass | Food preferences without glucose/intervention data ne
 ccma-diabetes-060 | fail | Banned "only as jewelry" medical ID distractor.
 ccma-diabetes-060 | pass | Decorative jewelry without engraved emergency data near-miss.
 
+## Transmission batch (ccma-transmission-001 to 057) — banned-qualifier and weak distractor pass
+
+ccma-transmission-001 | fail | Banned Skip in visitor hand-hygiene distractor.
+ccma-transmission-001 | pass | Doorway-without-touch defer-hygiene near-miss.
+ccma-transmission-002 | fail | Banned only in Airborne Precautions distractor.
+ccma-transmission-002 | pass | Airborne without splash eye protection near-miss.
+ccma-transmission-004 | fail | Banned Only in transmission-based setting distractors; Skip stem peer.
+ccma-transmission-004 | pass | Home-vs-facility and asymptomatic triage near-misses; in-place-of-hygiene peer.
+ccma-transmission-005 | fail | Banned only at room door in lice droplet distractor.
+ccma-transmission-005 | pass | Door mask without gown/gloves near-miss.
+ccma-transmission-006 | fail | Banned Only/Never in contact PPE timing distractors.
+ccma-transmission-006 | pass | Exit timing, N95 conflation, and flu-vaccine near-misses.
+ccma-transmission-007 | fail | Banned only in airborne posted-instruction distractor.
+ccma-transmission-007 | pass | Surgical mask without respirator distance near-miss.
+ccma-transmission-008 | fail | Banned only at bedside in TB droplet distractor.
+ccma-transmission-008 | pass | Bedside surgical mask without airborne placement near-miss.
+ccma-transmission-009 | fail | Banned never in outpatient ABHR distractor.
+ccma-transmission-009 | pass | Prohibit-all-rub policy near-miss.
+ccma-transmission-010 | fail | Banned Skip in anteroom cleaning distractor; meal-storage weak distractor.
+ccma-transmission-010 | pass | Break-space PPE and defer-cleaning near-misses.
+ccma-transmission-011 | fail | Banned only extra measure in C. difficile distractor.
+ccma-transmission-011 | pass | Droplet mask without contact barriers or soap-and-water near-miss.
+ccma-transmission-012 | fail | Banned avoid any/only in cohorting distractors; weak avoid-cleaning joke.
+ccma-transmission-012 | pass | Housekeeping-limit and mixed-precaution cohort near-misses.
+ccma-transmission-014 | fail | Banned only in contact-route distractor.
+ccma-transmission-014 | pass | Vector-only transmission category near-miss.
+ccma-transmission-016 | fail | Banned Only/Never in droplet distance distractors.
+ccma-transmission-016 | pass | Hallway-only placement and nuclei-confusion near-misses.
+ccma-transmission-017 | fail | Billing-code weak discontinuation distractor.
+ccma-transmission-017 | pass | Early symptom-improvement discontinuation near-miss.
+ccma-transmission-018 | fail | Weak sole-measure norovirus distractors.
+ccma-transmission-018 | pass | Droplet/airborne/ABHR-without-contact near-misses for enteric outbreak.
+ccma-transmission-020 | fail | Banned only in MRSA airborne distractor.
+ccma-transmission-020 | pass | Negative-pressure without gown/gloves near-miss.
+ccma-transmission-021 | fail | Banned only once per year sharps distractor.
+ccma-transmission-021 | pass | Calendar-year emptying regardless of fill near-miss.
+ccma-transmission-023 | fail | Random rotation weak discontinuation distractor.
+ccma-transmission-023 | pass | Bed-number rotation policy near-miss.
+ccma-transmission-025 | fail | Banned only in TB droplet nuclei distractor.
+ccma-transmission-025 | pass | Three-foot settling without airborne spread near-miss.
+ccma-transmission-027 | fail | Banned only at nurses' station norovirus staff distractor.
+ccma-transmission-027 | pass | Mask-at-station while continuing care near-miss.
+ccma-transmission-028 | fail | Banned Only at end of shift doffing distractor.
+ccma-transmission-028 | pass | Shift-end regardless of recent contact near-miss.
+ccma-transmission-030 | fail | Banned never/only in PPE donning sequence distractors.
+ccma-transmission-030 | pass | Bare-hand gown contact and post-exit eye protection near-misses.
+ccma-transmission-032 | fail | Banned only added barrier in crusted scabies distractor.
+ccma-transmission-032 | pass | Droplet mask without gown/gloves/cleaning near-miss.
+ccma-transmission-033 | fail | Banned always in influenza clinic bundle distractor.
+ccma-transmission-033 | pass | Symptomatic front-desk staffing near-miss.
+ccma-transmission-034 | fail | Banned only in private-room rationale distractor.
+ccma-transmission-034 | pass | Standard Precautions-alone replacement near-miss.
+ccma-transmission-035 | fail | Banned Only/never in measles standard-precautions distractors.
+ccma-transmission-035 | pass | Respirator without hand hygiene and droplet-for-measles near-misses.
+ccma-transmission-036 | fail | Banned Only/Never in MDRO timing distractors; weak cost-based peer.
+ccma-transmission-036 | pass | Roommate infection delay, outpatient wound delay, bed-availability near-misses.
+ccma-transmission-038 | fail | Banned only in varicella precaution distractor.
+ccma-transmission-038 | pass | Childhood exanthem standard-precautions near-miss.
+ccma-transmission-039 | fail | Banned Skip in visitor mask distractor; weak toy/meal distractors.
+ccma-transmission-039 | pass | Policy-aligned visitor toy/meal/mask near-misses.
+ccma-transmission-040 | fail | Banned only in contact cleaning distractor.
+ccma-transmission-040 | pass | Floor-wax primary disinfection near-miss.
+ccma-transmission-041 | fail | Banned only inches in droplet rooming distractor.
+ccma-transmission-041 | pass | Open-bay inches-fall near-miss.
+ccma-transmission-042 | fail | Banned Skip in post-glove hygiene distractor.
+ccma-transmission-042 | pass | Defer hygiene unless visible holes near-miss.
+ccma-transmission-044 | fail | Banned only in TB transport cohort distractor.
+ccma-transmission-044 | pass | MRSA contact transport sharing near-miss.
+ccma-transmission-045 | fail | Banned only in N95 indication distractor.
+ccma-transmission-045 | pass | Contact-precautions vitals without added PPE near-miss.
+ccma-transmission-047 | fail | Banned only at doorway in measles staff PPE distractor.
+ccma-transmission-047 | pass | Doorway surgical mask without respirator near-miss.
+ccma-transmission-049 | fail | Banned only in AGP PPE distractor.
+ccma-transmission-049 | pass | Brief-procedure surgical mask near-miss.
+ccma-transmission-050 | fail | Short weak droplet-scenario distractors.
+ccma-transmission-050 | pass | C. difficile, TB AIIR, and MRSA wound parallel scenarios.
+ccma-transmission-051 | fail | Weak no-mask / rash-visible / remove-PPE distractors.
+ccma-transmission-051 | pass | Droplet-without-respirator, contact-alone, street-clothes entry near-misses.
+ccma-transmission-052 | fail | Weak short contact-PPE distractors.
+ccma-transmission-052 | pass | Universal N95, street clothes, double-glove near-misses.
+ccma-transmission-053 | fail | Weak glove-replaces-hygiene distractor.
+ccma-transmission-053 | pass | Spore-production, gloves-in-place-of-hygiene, air-dry near-misses.
+ccma-transmission-054 | fail | Weak short N95 indication distractors.
+ccma-transmission-054 | pass | Capillary glucose, break room, hygiene-replacement near-misses.
+ccma-transmission-055 | fail | Weak hallway/hearing droplet-distance distractors.
+ccma-transmission-055 | pass | Unmasked triage proximity, hallway seating, mask removal near-misses.
+ccma-transmission-056 | fail | Weak short influenza mask distractors.
+ccma-transmission-056 | pass | Unrelated vaccination, staff oxygen mask, chin cloth near-misses.
+ccma-transmission-057 | fail | Weak short airborne transport distractors.
+ccma-transmission-057 | pass | Elevator doff, hallway discontinue, shared wheelchair near-misses.
+
 ## Diabetes batch 02 (ccma-diabetes-061 to 127) — banned-qualifier distractor pass
 
 ccma-diabetes-064 | fail | Banned "only" and "never" in LADA classification distractors.
