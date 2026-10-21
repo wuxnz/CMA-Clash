@@ -56,12 +56,12 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Which pair of WHO hand hygiene moments apply before phlebotomy?',
-        'Before touching the patient and before a clean or aseptic procedure such as skin antisepsis',
+        'Which pair of WHO “My Five Moments for Hand Hygiene” apply before venipuncture?',
+        'Before touching the patient and before the aseptic task of skin antisepsis',
         [
-            'Only after eating lunch in the break room',
-            'Never after exposure to blood on gloves',
-            'Only at home before coming to work',
+            'After body fluid exposure risk only, with no hygiene before patient contact',
+            'Before touching the patient only, with no hygiene before skin antisepsis',
+            'After touching patient surroundings only, skipping hygiene before the puncture site',
         ],
         'WHO defines five moments that map directly to identification, tourniquet placement, and antiseptic skin prep. Missing the pre-procedure moment undermines aseptic technique.',
         _HAND,

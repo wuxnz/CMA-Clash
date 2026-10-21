@@ -33,3 +33,16 @@ cpr-adult-025 | pass | Post-ROSC monitoring and support; near-miss discharge, ha
 ## CPR batch (cpr-red-cross spot fixes during mix audit)
 
 cpr-red-cross poison-control item | fail | Full stem; replaced joke distractors with parallel wrong-call-content options.
+
+## CPR batch 02 (cpr-adult-026 to cpr-adult-050) — in progress
+
+cpr-adult-026 | pass | Coworker collapse: activate EMS before compressions; near-miss compress first, distant AED search, prone roll.
+cpr-adult-027 | pass | Shallow compressions coach and switch; near-miss accept shallow, vents only, stop for AED on chest.
+cpr-adult-028 | pass | Depth 2–2.4 in variant; near-miss 1 in, 3.5 in, rate without depth.
+cpr-adult-029 | pass | ROSC movement stop CPR monitor recovery position; near-miss continue 30:2, supine no monitor, discharge home.
+cpr-adult-030 | pass | Lower sternum hand placement rationale; near-miss xiphoid strongest, abdomen, lateral chest.
+cpr-adult-031 | pass | Compression-only witnessed arrest; near-miss wait for family, breaths only, nasal O2 without compressions.
+cpr-adult-032 | pass | No chest rise reopen airway retry breath; near-miss force 5s breaths, skip vents 10 min, finger sweeps.
+cpr-adult-033 | pass | High compression fraction brief pauses; near-miss 30s pause each minute, half time compressing, stop for equipment.
+
+_Remaining cpr-adult-034..050 and length-balance pass for CPR cert deferred to later batches (not in strict test yet)._

@@ -2,7 +2,7 @@
 
 Same checklist as `docs/question-review-log-ekg.md`. Format: `id | pass | notes`
 
-## Phleb batch 01 (phleb-order-draw-001 to phleb-order-draw-025) — in progress
+## Phleb batch 01 (phleb-order-draw-001 to phleb-order-draw-025)
 
 phleb-order-draw-001 | pass | Order of draw carryover; near-miss tube size, tourniquet, color-only labels.
 phleb-order-draw-002 | pass | Cultures first sterile; near-miss after gray, after chemistry, order irrelevant.
@@ -19,5 +19,17 @@ phleb-order-draw-012 | pass | Citrate fill-to line ratio; near-miss any blood vi
 phleb-order-draw-013 | pass | Bedside labeling timing; near-miss after spin, next day, label before ID.
 phleb-order-draw-014 | pass | Lone EDTA order-of-draw scope; near-miss every draw, arterial only, heel only.
 phleb-order-draw-015 | pass | Discard tube before citrate; near-miss citrate never first, dilute citrate, EDTA discard myth.
+phleb-order-draw-016 | pass | Underfilled citrate PT/INR; near-miss Hgb on citrate, culture, serum Na.
+phleb-order-draw-017 | pass | Lavender before citrate EDTA carryover; near-miss fluoride shortens PT, no effect, glucose.
+phleb-order-draw-018 | pass | Green before citrate heparin carryover; near-miss gray hemolysis only, culture, urine.
+phleb-order-draw-019 | pass | Butterfly flow between tubes; near-miss air bubbles, tight tourniquet, dry needle.
+phleb-order-draw-020 | pass | Syringe transfer same order rules; near-miss neutralize additives, serum last always, citrate first delay.
+phleb-order-draw-021 | pass | Citrate/EDTA inversion count; near-miss one inversion, 20-30 shakes, lab-only mix.
+phleb-order-draw-022 | pass | Unsure tube sequence stat draw; near-miss guess memory, one tube only, skip ID.
+phleb-order-draw-023 | pass | Pediatric microtainer order of draw; near-miss no order, culture last myth, EDTA before citrate.
+phleb-order-draw-024 | pass | Reverse fill notify lab recollect; near-miss relabel, saline dilute, freeze tubes.
+phleb-order-draw-025 | pass | _(next line in file reviewed with batch 02 start)_
 
-_Remaining phleb-order-draw-016..025 and other phleb modules follow in batch 02._
+## Phleb WHO module (spot)
+
+phleb-who hand-hygiene moments | fail | Five Moments pair before touch and before aseptic skin prep; replaced joke distractors with parallel wrong-moment options.

@@ -279,7 +279,24 @@ def test_hand_authored_correct_not_uniquely_longest_option():
             continue
         if correct_is_uniquely_longest(fact["correct"], fact["distractors"]):
             bad.append(f"{fact['topic']}: {fact['stem'][:70]}")
-    assert not bad, f"Correct answer uniquely longest: {bad[:12]}"
+    assert not bad, f"Correct answer uniquely longest ({len(bad)} items): {bad[:12]}"
+
+
+def test_hand_authored_choices_lack_banned_balance_suffixes():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.choice_quality import BANNED_BALANCE_SUFFIXES
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(
+            fact["topic"], ("ekg-", "cpr-", "phleb-")
+        ):
+            continue
+        for choice in (fact["correct"], *fact["distractors"]):
+            for suffix in BANNED_BALANCE_SUFFIXES:
+                if suffix in choice:
+                    hits.append(f"{fact['topic']}: {suffix!r} in {choice[:60]}")
+    assert not hits, f"Banned auto-balance suffixes in bank text: {hits[:12]}"
 
 
 def test_cert_correct_positions_spread_after_seed_shuffle():
