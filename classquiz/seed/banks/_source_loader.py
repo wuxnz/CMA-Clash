@@ -23,7 +23,7 @@ def _bank_facts(module_name: str) -> list[dict]:
     return mod.FACTS
 
 
-CCMA_FACTS = _bank_facts("ccma")
+from .ccma import FACTS as CCMA_FACTS
 CLINICAL_SKILLS_FACTS = _bank_facts("clinical_skills")
 CPR_BLS_FACTS = _bank_facts("cpr_bls")
 from .ekg import FACTS as EKG_FACTS
@@ -31,7 +31,7 @@ PHLEBOTOMY_FACTS = _bank_facts("phlebotomy")
 DIABETES_FACTS = _bank_facts("diabetes")
 PHLEB_GLUCOSE_FACTS = _bank_facts("phleb_glucose")
 SUPPLEMENT_FACTS = []
-for _supp_name in ("ccma", "clinical_skills", "cpr_bls", "phlebotomy"):
+for _supp_name in ("clinical_skills", "cpr_bls", "phlebotomy"):
     _p = _BANKS / "supplement" / f"{_supp_name}.py"
     _spec = importlib.util.spec_from_file_location(f"_supp_{_supp_name}", _p)
     _mod = importlib.util.module_from_spec(_spec)
