@@ -16,8 +16,8 @@ FACTS: list[dict] = [
         "Early diabetic nephropathy before serum creatinine rises",
         [
             "Acute urinary tract infection with pyuria as the primary marker of diabetic kidney disease",
-            "Gallbladder inflammation on abdominal imaging",
-            "Iron-deficiency anemia from chronic blood loss",
+            "Elevated serum creatinine as the earliest sign before urinary protein changes",
+            "Isolated hematuria on dipstick without measuring urinary albumin excretion",
         ],
         "Persistent albuminuria signals glomerular damage and guides ACE inhibitor or ARB therapy and nephrology referral per ADA kidney care standards.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -43,9 +43,9 @@ FACTS: list[dict] = [
         "What clinical information does continuous glucose monitoring (CGM) most often provide compared with intermittent fingersticks?",
         "Trends in interstitial glucose with optional high and low alerts",
         [
-            "Direct measurement of arterial oxygen saturation",
-            "Bone mineral density at the sensor insertion site",
-            "Bacterial culture results from subcutaneous fluid",
+            "A single fasting capillary glucose at clinic arrival without trend data",
+            "Hemoglobin A1C reflecting average glycemia over months without real-time alerts",
+            "Urinary glucose on dipstick from the prior void without continuous interstitial readings",
         ],
         "CGM shows direction and rate of glucose change, helping patients and clinicians adjust therapy between laboratory A1C checks.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -72,7 +72,7 @@ FACTS: list[dict] = [
         "Hyperglycemia, ketonemia or ketonuria, and metabolic acidosis",
         [
             "Normoglycemia with isolated peripheral edema",
-            "Bradycardia and pinpoint pupils without acidosis",
+            "Marked hyperglycemia with metabolic alkalosis and absent ketones",
             "A single maculopapular rash without ketosis, acidosis, or marked hyperglycemia",
         ],
         "DKA reflects insulin deficiency with lipolysis and ketone production; it is a medical emergency requiring IV fluids, insulin, and electrolyte monitoring.",
@@ -83,11 +83,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "On repeat testing, fasting plasma glucose at or above which value meets the ADA threshold for diabetes mellitus?",
-        "126 mg/dL (7.0 mmol/L)",
+        "126 mg/dL (7.0 mmol/L) on confirmatory fasting plasma glucose",
         [
             "100 mg/dL (5.6 mmol/L), which defines prediabetes on FPG",
-            "110 mg/dL regardless of symptoms or confirmatory testing",
-            "200 mg/dL on a random sample in an asymptomatic adult without confirmatory testing",
+            "110 mg/dL on one sample without symptoms or repeat confirmation",
+            "200 mg/dL on a random sample without symptoms or confirmatory testing",
         ],
         "Unless unequivocal hyperglycemia with symptoms is present, diagnosis generally requires a second abnormal result or a different qualifying test.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -100,8 +100,8 @@ FACTS: list[dict] = [
         "Peripheral neuropathy, skin ulcers, and vascular perfusion",
         [
             "Hair color, nail polish shade, and cosmetic nail changes without monofilament testing",
-            "Visual acuity without inspecting the feet",
-            "Hearing thresholds without monofilament testing",
+            "Palpable pedal pulses without monofilament testing or skin inspection",
+            "Footwear inspection without monofilament testing or vascular assessment",
         ],
         "Loss of protective sensation and poor circulation predispose to nonhealing ulcers and amputation; monofilament and pulse checks are routine components.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -111,11 +111,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "Using a standardized assay on repeat testing, hemoglobin A1C at or above which level indicates diabetes mellitus?",
-        "6.5%",
+        "6.5% on repeat standardized laboratory testing",
         [
             "5.0%, which is within typical normal range",
             "5.7% from a single test without confirmation",
-            "8.0% from a single draw during pregnancy without repeat confirmatory testing",
+            "8.0% from one pregnancy draw without repeat confirmatory testing",
         ],
         "A1C estimates average glycemia over roughly two to three months and is one of the ADA-listed diagnostic criteria when performed in a certified laboratory.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -155,9 +155,9 @@ FACTS: list[dict] = [
         "According to ADA categories, which A1C range most often defines prediabetes?",
         "5.7% to 6.4%",
         [
-            "Below 5.0% in all adults",
-            "8.0% or higher, which meets diabetes criteria",
-            "Exactly 7.0% regardless of other test results",
+            "Below 5.0% in adults without other risk factors",
+            "8.0% or higher, meeting diabetes diagnostic threshold",
+            "Exactly 7.0% when fasting glucose and OGTT are normal",
         ],
         "Prediabetes carries higher future diabetes and cardiovascular risk; lifestyle programs and periodic rescreening are recommended.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -185,11 +185,11 @@ FACTS: list[dict] = [
         [
             "Isolated insulin resistance without beta-cell loss",
             "Reversible hyperglycemia from placental hormones during an uncomplicated pregnancy",
-            "Primary dietary excess without any immune component",
+            "Primary dietary excess with preserved beta-cell mass and no autoimmunity",
         ],
         "Type 1 usually presents in younger patients and requires exogenous insulin for survival; autoantibody testing may support diagnosis.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-014
     fact(
@@ -203,7 +203,7 @@ FACTS: list[dict] = [
         ],
         "Genetics, adiposity, and inactivity contribute to insulin resistance; oral agents and later insulin may be needed as beta-cell function declines.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-015
     fact(
@@ -217,7 +217,7 @@ FACTS: list[dict] = [
         ],
         "Stress hormones raise glucose during illness; withholding insulin can worsen ketosis, while frequent monitoring guides supplemental doses per provider plan.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-016
     fact(
@@ -255,7 +255,7 @@ FACTS: list[dict] = [
         [
             "Glucose intolerance that first appears during postpartum lactation",
             "Diagnosis based on a random fingerstick below 70 mg/dL",
-            "A condition that guarantees normal glucose forever after birth",
+            "Hyperglycemia during pregnancy assumed resolved after delivery without postpartum testing",
         ],
         "Obstetric screening between 24 and 28 weeks (or earlier with risk factors) identifies GDM; postpartum glucose testing is recommended.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -297,7 +297,7 @@ FACTS: list[dict] = [
         [
             "Normal glucose metabolism",
             "Prediabetes without progression risk",
-            "Hypoglycemia managed with oral fluid restriction and bed rest without carbohydrate",
+            "Hypoglycemia managed with rest and oral fluids without fast-acting carbohydrate",
         ],
         "A1C reflects average glycemia over approximately two to three months and is listed among ADA diagnostic criteria.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -329,7 +329,7 @@ FACTS: list[dict] = [
         ],
         "OGTT remains an ADA-listed criterion and may clarify diagnosis when FPG or A1C results are equivocal.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-024
     fact(
@@ -337,8 +337,8 @@ FACTS: list[dict] = [
         "Which symptom cluster is classically associated with untreated hyperglycemia?",
         "Increased urination, increased thirst, and unexplained weight loss",
         [
-            "Bradycardia with pinpoint pupils",
-            "Sudden unresponsiveness in every hyperglycemic patient",
+            "Blurred vision and headache without polyuria, polydipsia, or weight change",
+            "Fatigue and mild nausea without polyuria, polydipsia, or weight loss",
             "Isolated foot numbness without polyuria or polydipsia",
         ],
         "Polyuria and polydipsia result from osmotic diuresis; weight loss may occur despite polyphagia when insulin is insufficient.",
@@ -395,7 +395,7 @@ FACTS: list[dict] = [
         [
             "200 mg/dL, which is above typical postmeal targets",
             "126 mg/dL, the diabetes diagnostic FPG threshold",
-            "50 mg/dL during sleep without treatment until the morning fingerstick",
+            "50 mg/dL overnight rechecked at breakfast without treating during the night",
         ],
         "Alert patients receive fast-acting carbohydrate; severe or unresponsive hypoglycemia triggers emergency protocols including glucagon when available.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -407,9 +407,9 @@ FACTS: list[dict] = [
         "When applying the 15-15 rule for mild hypoglycemia in a patient who can swallow, what should the medical assistant do?",
         "Administer about 15 grams of carbohydrate and recheck glucose in roughly 15 minutes",
         [
-            "Withhold all food for 15 hours to reset insulin sensitivity",
-            "Give 15 units of rapid-acting insulin subcutaneously",
-            "Restrict oral fluids for 15 minutes after treatment",
+            "Wait 15 minutes before giving carbohydrate so symptoms can fully develop",
+            "Give 15 grams of protein alone without rechecking glucose afterward",
+            "Recheck glucose in 15 minutes without administering carbohydrate first",
         ],
         "If glucose remains low, repeat carbohydrate and notify the provider per facility policy; once stable, add a snack with protein if the next meal is delayed.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -435,9 +435,9 @@ FACTS: list[dict] = [
         "A conscious patient with hypoglycemia is vomiting and cannot swallow oral carbohydrate safely. What is the appropriate medical assistant action?",
         "Summon help immediately and follow facility emergency protocol without forcing oral glucose",
         [
-            "Pour juice into the mouth despite active gagging",
-            "Leave the patient unattended until the next scheduled visit",
-            "Administer rapid-acting insulin to raise counter-regulatory hormones",
+            "Attempt oral glucose gel while the patient is actively vomiting",
+            "Leave the patient alone to retrieve glucagon from the medication room",
+            "Document the low reading and defer treatment until the next scheduled visit",
         ],
         "Aspiration risk outweighs oral treatment when swallowing is unsafe; severe hypoglycemia may require intramuscular glucagon or EMS activation per scope and standing orders.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -455,7 +455,7 @@ FACTS: list[dict] = [
         ],
         "Insulin deficiency drives lipolysis and ketone production; DKA is most common in type 1 diabetes but can occur in type 2 under stress or illness.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-033
     fact(
@@ -463,13 +463,13 @@ FACTS: list[dict] = [
         "Hyperosmolar hyperglycemic state (HHS) is distinguished from DKA mainly by which features?",
         "Marked hyperglycemia and dehydration with little or no ketosis",
         [
-            "Rapid onset limited to healthy school-age children",
-            "Blood glucose consistently below 100 mg/dL",
-            "Primary hypothermia without osmotic symptoms",
+            "Profound ketonemia with normal or near-normal glucose levels",
+            "Blood glucose consistently below 100 mg/dL with severe dehydration",
+            "Primary hypothermia without osmotic diuresis or hyperglycemia",
         ],
         "HHS often develops gradually in older adults with type 2 diabetes and carries high mortality without aggressive fluids and insulin in a monitored setting.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-034
     fact(
@@ -505,9 +505,9 @@ FACTS: list[dict] = [
         "Which steps are required before performing a fingerstick glucose test in the clinic?",
         "Confirm patient identity, perform hand hygiene, don gloves, and prepare the puncture site per protocol",
         [
-            "Puncture the thumb without cleaning because capillary flow is faster",
-            "Reuse the same lancet device on multiple patients to save supplies",
-            "Proceed without verifying the patient name when the room is busy",
+            "Puncture the thumb pad without site prep because capillary flow is faster",
+            "Use the same lancet for repeat checks on one patient during the same visit",
+            "Confirm identity verbally but omit hand hygiene when gloves are already worn",
         ],
         "Standard precautions and two-patient identifiers reduce wrong-patient errors and bloodborne pathogen transmission during waived testing.",
         ["CDC: Infection Control in Healthcare Settings (overview) — https://www.cdc.gov/infection-control/hcp/index.html", S.NHA_CCMA],
@@ -519,9 +519,9 @@ FACTS: list[dict] = [
         "For an adult fingerstick glucose sample, which puncture site is generally preferred?",
         "The lateral aspect of the fingertip, avoiding cold, cyanotic, or edematous digits",
         [
-            "The center of the palm as the routine first choice",
-            "The earlobe for every ambulatory adult without exception",
-            "The heel, which is standard for all walking patients",
+            "The center of the palm as the routine first choice for capillary sampling",
+            "The earlobe as the preferred site for routine adult glucose monitoring",
+            "The heel as the primary puncture site for ambulatory adults in clinic",
         ],
         "Rotating fingers and matching lancet depth to skin thickness improve comfort and sample quality while limiting callus formation.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -561,13 +561,13 @@ FACTS: list[dict] = [
         "Rapid-acting insulin analogs such as lispro or aspart typically begin lowering glucose in about how long?",
         "Approximately 15 minutes, peaking around 1 to 2 hours after injection",
         [
-            "6 to 8 hours after injection with no earlier effect",
-            "24 hours later with no discernible peak",
-            "Instantaneously with no peak or duration",
+            "Onset at 30 to 60 minutes with peak near 4 to 6 hours like regular insulin",
+            "Onset at 2 to 4 hours with minimal peak like intermediate NPH insulin",
+            "Onset within minutes with flat action over 24 hours like glargine basal insulin",
         ],
         "Mealtime analogs are given shortly before or with food so insulin action parallels postprandial glucose rise per the prescribed regimen.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
-        "advanced",
+        "intermediate",
     ),
     # ccma-diabetes-041
     fact(
