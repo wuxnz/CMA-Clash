@@ -19,7 +19,7 @@ FACTS: list[dict] = [
         "What compression-to-ventilation ratio should a single lay rescuer use during child BLS CPR?",
         "30 compressions followed by 2 ventilations (30:2)",
         [
-            "15 compressions followed by 2 ventilations for every child arrest",
+            "15 compressions followed by 2 ventilations when two rescuers are present at the scene",
             "5 compressions followed by 1 ventilation to shorten pauses between breaths",
             "Continuous chest compressions with no ventilations until EMS places an advanced airway",
         ],
@@ -83,7 +83,7 @@ FACTS: list[dict] = [
         [
             "Begin chest compressions immediately without checking for responsiveness",
             "Search the area for an AED before touching or assessing the child",
-            "Shake the shoulders for one full minute before calling for help",
+            "Shake the shoulders vigorously for 15 seconds before calling for help",
         ],
         "Recognition of unresponsiveness triggers emergency activation and assessment of breathing "
         "and pulse. Starting compressions on a responsive child would be inappropriate. Scene safety "
@@ -158,7 +158,7 @@ FACTS: list[dict] = [
         "How should a rescuer deliver rescue breaths during two-rescuer child CPR at a 15:2 ratio?",
         "Give each breath over about 1 second until visible chest rise, without excessive volume",
         [
-            "Deliver forceful breaths until the stomach is fully distended on every cycle",
+            "Deliver forceful breaths until the stomach is fully distended after each 15:2 cycle",
             "Give very short puffs with no attempt to confirm visible chest rise",
             "Provide breaths lasting at least 5 seconds each to maximize oxygen delivery",
         ],
@@ -190,7 +190,7 @@ FACTS: list[dict] = [
         "At least one third of the anterior-posterior chest diameter, or about 2 inches (5 cm)",
         [
             "Exactly 1 inch (2.5 cm) as the standard depth target for child CPR",
-            "At least 3 inches (7.5 cm) for every child under 12 years of age",
+            "At least 3 inches (7.5 cm) for all victims under 12 years even when body size is small",
             "Any visible chest motion without a specified minimum depth target",
         ],
         "Adequate depth generates blood flow while limiting injury from excessive force. One inch is "
@@ -207,7 +207,7 @@ FACTS: list[dict] = [
         [
             "Palpate the radial pulse at the wrist for up to two minutes before starting CPR",
             "Auscultate the apical pulse only through clothing without exposing the chest",
-            "Skip pulse assessment entirely because pediatric BLS never requires a pulse check",
+            "Rely on agonal gasps alone and omit pulse assessment before starting compressions",
         ],
         "Central pulses are easier to detect in children with poor perfusion. Brief checks limit "
         "harmful interruption of compressions. A prolonged radial check can falsely suggest perfusion "
@@ -238,7 +238,7 @@ FACTS: list[dict] = [
         "What compression-to-ventilation ratio should they use?",
         "15 compressions followed by 2 ventilations (15:2)",
         [
-            "30 compressions followed by 2 ventilations for every two-rescuer pediatric arrest",
+            "30 compressions followed by 2 ventilations when two trained rescuers manage pediatric arrest",
             "5 compressions followed by 1 ventilation to minimize compression interruptions",
             "Continuous compressions with rescue breaths given only every 30 seconds",
         ],
@@ -255,7 +255,7 @@ FACTS: list[dict] = [
         "Reposition the airway with head tilt-chin lift and retry a breath over about 1 second",
         [
             "Deliver the next breath with force over 5 seconds until resistance is felt",
-            "Skip all further ventilations for 10 minutes and continue compressions only",
+            "Skip further ventilations for the remainder of the arrest and continue compressions only",
             "Perform blind finger sweeps of the mouth before every subsequent rescue breath",
         ],
         "Inadequate chest rise usually means the airway is not open or the breath volume was wrong. "
@@ -333,7 +333,7 @@ FACTS: list[dict] = [
         "Attach pediatric pads or attenuator per manufacturer instructions and follow AED prompts",
         [
             "Withhold defibrillation until the child reaches adult size even in shockable rhythms",
-            "Use maximum adult energy without pediatric equipment in every pediatric arrest",
+            "Use full adult AED energy when pediatric pads or an attenuator are unavailable",
             "Place both AED pads on the abdomen because the anterior chest is too small",
         ],
         "Pediatric pads or attenuators deliver appropriate energy for smaller patients. Withholding "
@@ -460,7 +460,7 @@ FACTS: list[dict] = [
         "Place the child in a recovery position on the side and continue monitoring breathing and pulse",
         [
             "Keep the child flat supine with the head fully extended backward until EMS arrives",
-            "Keep the child flat supine with the chin forced maximally upward toward the ceiling",
+            "Keep the child flat supine with the chin forced fully upward toward the ceiling",
             "Prop the child upright in a car seat without ongoing pulse or breathing checks",
         ],
         "The recovery position helps maintain airway patency in a breathing post-arrest patient. "
@@ -475,7 +475,7 @@ FACTS: list[dict] = [
         "sternum. What depth target should the team prioritize?",
         "At least one third of the anterior-posterior chest diameter, about 2 inches (5 cm)",
         [
-            "Barely visible skin indentation without measurable sternal depression on each push",
+            "Shallow sternal indentation without reaching one third AP depth on each push",
             "At least 4 inches (10 cm) as the depth target for all pediatric CPR",
             "Only deep enough to produce an audible rib click on every compression cycle",
         ],
@@ -526,7 +526,7 @@ FACTS: list[dict] = [
         "a brief check",
         [
             "Dry the entire body completely and wait for spontaneous breathing before giving any breaths",
-            "Perform abdominal thrusts as the first intervention for every drowning victim on land",
+            "Perform abdominal thrusts before opening the airway for submersion victims on land",
             "Give rescue breaths for 10 minutes before any pulse check or chest compressions begin",
         ],
         "Drowning arrests are often hypoxic, so ventilations are emphasized early after water rescue. "
@@ -557,7 +557,7 @@ FACTS: list[dict] = [
         "rescuers open the airway for rescue breaths?",
         "Use a jaw thrust with minimal head tilt when spine injury cannot be ruled out",
         [
-            "Apply maximal head tilt with neck hyperextension before every rescue breath cycle",
+            "Apply full head tilt with neck hyperextension before each rescue breath cycle",
             "Perform routine blind finger sweeps of the mouth before each ventilation attempt",
             "Flex the neck forward and place a pillow under the shoulders to open the airway",
         ],
@@ -606,7 +606,7 @@ FACTS: list[dict] = [
         "Continue compressions without pausing for breaths and deliver about one breath every six seconds",
         [
             "Pause compressions for five seconds before every rescue breath delivered through the tube",
-            "Stop chest compressions entirely once the advanced airway is successfully in place",
+            "Stop chest compressions once the advanced airway is successfully in place",
             "Give rescue breaths only when the compressor verbally requests a pause from compressions",
         ],
         "After advanced airway placement, compressions should be continuous with asynchronous "

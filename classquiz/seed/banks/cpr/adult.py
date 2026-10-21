@@ -15,7 +15,7 @@ FACTS: list[dict] = [
  "What compression-to-ventilation ratio should a single rescuer use during adult BLS CPR?",
  "30 compressions followed by 2 ventilations (30:2)",
  [
- "15 compressions followed by 2 ventilations for every adult arrest",
+ "15 compressions followed by 2 ventilations when two rescuers are present at the scene",
  "5 compressions followed by 1 ventilation to shorten pauses between breaths",
  "Continuous compressions with no ventilations until advanced airway placement",
  ],
@@ -106,7 +106,7 @@ FACTS: list[dict] = [
  "Give each breath over about 1 second until visible chest rise is seen",
  [
  "Deliver forceful gusts in under half a second to minimize compression pauses",
- "Give two slow breaths lasting about 5 seconds each for maximal oxygen",
+ "Give two slow breaths lasting about 5 seconds each to maximize oxygen delivery",
  "Withhold all ventilations until EMS places an advanced airway device",
  ],
  "Each breath should produce visible chest rise over roughly one second, limiting ventilation "
@@ -316,7 +316,7 @@ FACTS: list[dict] = [
  "When an AED arrives while adult CPR is in progress, what sequence best follows AHA guidance?",
  "Apply pads to bare skin and follow prompts while limiting pauses in compressions",
  [
- "Stop all CPR until the AED completes three full rhythm analysis cycles",
+ "Pause CPR until the AED completes three consecutive rhythm analysis cycles",
  "Finish five minutes of compressions before opening the AED and attaching pads",
  "Continue compressions while AED pads remain placed over clothing and belts",
  ],
@@ -481,7 +481,7 @@ FACTS: list[dict] = [
  "During 30:2 adult CPR you give a rescue breath and the chest does not rise. What is the best next action before additional ventilations?",
  "Reopen the airway and give another breath over about one second",
  [
- "Deliver each subsequent breath with maximal force for about five seconds until resistance is felt",
+ "Deliver each subsequent breath with increased force over about five seconds until resistance is felt",
  "Stop all ventilations for ten minutes and compress continuously without further breath attempts",
  "Perform blind finger sweeps in the mouth before every rescue breath attempt",
  ],

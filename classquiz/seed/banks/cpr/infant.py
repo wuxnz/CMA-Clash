@@ -19,7 +19,7 @@ FACTS: list[dict] = [
         "What compression-to-ventilation ratio should a single lay rescuer use during infant BLS CPR?",
         "30 compressions followed by 2 ventilations (30:2)",
         [
-            "15 compressions followed by 2 ventilations for every infant arrest",
+            "15 compressions followed by 2 ventilations when two rescuers are present at the scene",
             "5 compressions followed by 1 ventilation to shorten pauses between breaths",
             "Continuous chest compressions with no ventilations until EMS places an advanced airway",
         ],
@@ -50,7 +50,7 @@ FACTS: list[dict] = [
         "On the lower half of the sternum in the center of the chest, just below the nipple line",
         [
             "On the upper abdomen over the stomach with the heel of one hand",
-            "Directly on the xiphoid process with maximal downward pressure",
+            "Directly on the xiphoid process with firm downward pressure on the sternal tip",
             "On the infant's back while the infant lies prone without sternal contact",
         ],
         "Sternal compressions on the lower half of the sternum direct force through the heart. "
@@ -96,8 +96,8 @@ FACTS: list[dict] = [
         "immediately after checking responsiveness?",
         "Shout for nearby help and activate emergency response or send someone to call EMS",
         [
-            "Begin chest compressions immediately without ever activating emergency response",
-            "Leave the infant alone to search a distant building for an AED before any assessment",
+            "Begin chest compressions immediately before activating emergency response or calling for help",
+            "Leave the crib briefly to search another room for an AED before activating EMS",
             "Wait for a caregiver to arrive before activating emergency response",
         ],
         "Early activation brings EMS and equipment while assessment continues. Compressions follow "
@@ -128,7 +128,7 @@ FACTS: list[dict] = [
         "Treat gasping as abnormal breathing and start CPR if no pulse is detected within 10 seconds",
         [
             "Consider gasping normal sleep breathing and withhold CPR until EMS confirms arrest",
-            "Offer small sips of formula because gasping may reflect hunger rather than arrest",
+            "Observe weak gasps at the bedside without a pulse check or starting chest compressions",
             "Perform abdominal thrusts before any pulse check or chest compressions",
         ],
         "Agonal gasps are not effective ventilation and may occur during cardiac arrest. Treating "
@@ -220,7 +220,7 @@ FACTS: list[dict] = [
         "maneuver should rescuers use?",
         "Head tilt-chin lift while avoiding excessive neck extension",
         [
-            "Jaw thrust with deliberate maximal neck hyperextension on every infant arrest",
+            "Jaw thrust with deliberate neck hyperextension as the routine maneuver when trauma is not suspected",
             "Keep the head and neck completely still even when the airway does not open",
             "Finger sweep of the oropharynx before every rescue breath even when no object is seen",
         ],
@@ -237,7 +237,7 @@ FACTS: list[dict] = [
         "What compression-to-ventilation ratio should they use?",
         "15 compressions followed by 2 ventilations (15:2)",
         [
-            "30 compressions followed by 2 ventilations for every two-rescuer infant arrest",
+            "30 compressions followed by 2 ventilations when two trained rescuers manage infant arrest",
             "5 compressions followed by 1 ventilation to minimize compression interruptions",
             "Continuous compressions with rescue breaths given only every 30 seconds",
         ],
@@ -270,7 +270,7 @@ FACTS: list[dict] = [
         "Excessive neck extension during head tilt that can obstruct the airway",
         [
             "Avoid any head or neck movement even when the airway stays obstructed",
-            "Using a jaw thrust maneuver on every infant even when spine injury is not suspected",
+            "Using a jaw thrust maneuver on all infants even when spine injury is not suspected",
             "Keeping the neck completely neutral with no attempt to open the airway",
         ],
         "Infants have a relatively large occiput; overextension can obstruct the airway. Complete "
@@ -317,7 +317,7 @@ FACTS: list[dict] = [
         "in a cool environment?",
         "Infants lose heat quickly, and hypothermia can worsen resuscitation outcomes",
         [
-            "Covering the infant replaces the need for rescue ventilations entirely",
+            "Covering the infant replaces the need for rescue ventilations during prolonged CPR",
             "Infants always overheat during CPR and need active cooling with ice packs",
             "Body temperature has no effect on infant perfusion during resuscitation",
         ],
@@ -334,7 +334,7 @@ FACTS: list[dict] = [
         [
             "Stop compressions until the AED finishes its automatic self-test on startup",
             "Remove AED pads after each shock and do not resume CPR until EMS arrives",
-            "Defer all AED use until the infant is transported to an outpatient clinic",
+            "Defer AED attachment until EMS arrives with hospital-grade monitoring equipment",
         ],
         "Short pauses preserve coronary perfusion during pad placement. Extended reading or rest "
         "periods delay care. CPR must resume immediately after shock delivery or when no shock is "
@@ -365,7 +365,7 @@ FACTS: list[dict] = [
         "Leave the infant briefly to activate EMS and obtain an AED if possible, then return to CPR",
         [
             "Never leave the infant to activate EMS under any circumstance",
-            "Stop CPR permanently at two minutes without calling for emergency help",
+            "Stop compressions at two minutes and wait for bystanders to call emergency services",
             "Transport the infant alone to a pharmacy without activating EMS",
         ],
         "After about two minutes, getting help becomes critical for lone rescuers without a phone. "
@@ -411,7 +411,7 @@ FACTS: list[dict] = [
  "Before giving rescue breaths if you suspect obstruction or after compressions as trained",
  [
  "Skip mouth inspection until EMS arrives even when obstruction is suspected",
- "Perform blind finger sweeps after every compression",
+ "Perform blind finger sweeps before each rescue breath attempt during CPR",
  "Only inspect the mouth after several full 30:2 cycles without any breath attempt",
  ],
  "Visible objects may be removed if seen, but blind sweeps are not recommended. Never inspecting "
@@ -516,7 +516,7 @@ FACTS: list[dict] = [
  [
  "Run to a neighbor's house for two minutes before calling or starting CPR",
  "Wait until the infant turns blue before giving ventilations",
- "Perform abdominal thrusts as the first step for every unresponsive infant",
+ "Perform abdominal thrusts as the first step for unresponsive infants without a choking history",
  ],
  "Speakerphone activation allows EMS dispatch while CPR starts immediately. Leaving the infant "
  "delays both activation and compressions. Color change is a late sign, and abdominal thrusts "
@@ -656,7 +656,7 @@ FACTS: list[dict] = [
  "Continue compressions without pausing for breaths and deliver about one breath every six seconds",
  [
  "Pause compressions for 10 seconds before each breath",
- "Stop compressions entirely after the airway is placed",
+ "Stop compressions after the advanced airway is placed and ventilate without further compressions",
  "Give triple breaths after every compression",
  ],
  "Continuous compressions with asynchronous ventilations maintain perfusion after advanced "
@@ -719,7 +719,7 @@ FACTS: list[dict] = [
         "should the team use once roles are assigned?",
         "15 compressions followed by 2 ventilations (15:2) with one rescuer compressing and one ventilating",
         [
-            "Continue 30:2 with both rescuers alternating compressions on every cycle",
+            "Continue 30:2 with both rescuers alternating compressions after each ventilation pause",
             "5 compressions followed by 1 ventilation to minimize pause time between breaths",
             "Continuous compressions with ventilations withheld until EMS places an advanced airway",
         ],

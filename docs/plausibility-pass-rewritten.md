@@ -67,6 +67,46 @@ Summaries of fact-check and distractor plausibility work on hand-authored seed b
 
 **Counts:** 29 items reviewed; **28** items received distractor and/or key wording edits; **1** item (022) unchanged. No factual key changes.
 
+## CPR adult, child, infant (completed)
+
+**Scope:** 1-in-5 plausibility pass on `classquiz/seed/banks/cpr/adult.py` (50), `child.py` (45), and `infant.py` (50). Keyed answers unchanged; stems and explanations unchanged except where distractor edits required minor explanation alignment (none this pass).
+
+**1-in-5 / near-miss:** Sampled every fifth item per file for absurd elimination; scanned all **145** distractors for exaggeration tells (`maximal`, `entirely`, `barely`, `for every …`), implausible jokes (formula feeding, distant-building AED hunt), and options no student would pick (permanent stop-CPR, 10-minute ventilation withhold, three-cycle AED pause). Replaced with single-clause confusions (pediatric 15:2 vs 30:2, depth/rate targets, airway and AED sequencing, post-airway compression myths).
+
+**Counts:** **31** facts received distractor edits (**4** adult, **13** child, **14** infant).
+
+- **adult:** `What compression-to-ventilation ratio should a single r`
+- **adult:** `How should rescue breaths be delivered during adult CPR`
+- **adult:** `When an AED arrives while adult CPR is in progress, wha`
+- **adult:** `During 30:2 adult CPR you give a rescue breath and the `
+- **child:** `What compression-to-ventilation ratio should a single l`
+- **child:** `You confirm scene safety at a playground where a child `
+- **child:** `How should a rescuer deliver rescue breaths during two-`
+- **child:** `What compression depth target is recommended for most c`
+- **child:** `During a pulse check on an unresponsive child, where an`
+- **child:** `Two trained rescuers are managing cardiac arrest in a 6`
+- **child:** `During child CPR, a rescue breath does not produce visi`
+- **child:** `After return of spontaneous circulation, a breathing chil`
+- **child:** `During CPR on a thin 9-year-old, feedback shows compres`
+- **child:** `A 7-year-old is pulled unresponsive from a swimming poo`
+- **child:** `During child CPR after a suspected diving injury, cervi`
+- **child:** `EMS places an advanced airway in a child during ongoing`
+- **child:** `Pediatric AED pads or a dose-attenuating system is avai`
+- **infant:** `What compression-to-ventilation ratio should a single l`
+- **infant:** `You confirm scene safety and find an infant unresponsiv`
+- **infant:** `Where should a single rescuer place two-finger chest co`
+- **infant:** `An unresponsive infant has only weak gasping breaths an`
+- **infant:** `When opening the airway for infant CPR and significant `
+- **infant:** `Two trained rescuers are managing cardiac arrest in an `
+- **infant:** `When opening an infant's airway for ventilations during`
+- **infant:** `Why might rescuers cover an infant with a dry blanket d`
+- **infant:** `Which action best limits harmful pauses during infant C`
+- **infant:** `A lone rescuer without a cell phone has provided infan`
+- **infant:** `A 4-month-old infant becomes unresponsive and is not br`
+- **infant:** `EMS places an advanced airway in an infant during resus`
+- **infant:** `During CPR on an infant with suspected foreign body obs`
+- **infant:** `A second rescuer joins while a lone provider is perform`
+
 ## CPR choking (batch 10 + full-file 1-in-5)
 
 **Scope:** `classquiz/seed/banks/cpr/choking.py` — **44** items (`cpr-choking-001` to `044`). Batch 10 rewrote **19** legacy items (`026`–`044`, indices 25–43). Full-file pass on **001**–**025** removed remaining shake-based near-miss distractors on **003**, **005**, and **017**.
