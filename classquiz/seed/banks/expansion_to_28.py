@@ -440,7 +440,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'Medication reconciliation compares:',
+        'At transitions of care, medication reconciliation compares:',
         'All medications the patient takes with the current clinic list',
         [
             'Only vitamins the patient likes',
@@ -3631,7 +3631,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'cpr-chain',
-        'The first link in the adult out-of-hospital chain of survival is:',
+        'The opening link in the adult out-of-hospital chain of survival is:',
         'Recognition of cardiac arrest and activation of emergency response',
         [
             'Immediate surgery',
@@ -3849,7 +3849,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'cpr-red-cross',
-        'Seizure first aid includes:',
+        'During an active seizure, bystander first aid includes:',
         'Protecting head, clearing area, and timing the event',
         [
             'Putting objects in mouth',
@@ -4258,7 +4258,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-terminology',
-        'The prefix "hyper-" means:',
+        'In medical terminology, the prefix "hyper-" means:',
         'Excessive or above normal',
         [
             'Below normal',
@@ -4273,7 +4273,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-terminology',
-        'The suffix "-itis" means:',
+        'The suffix "-itis" in a disease name means:',
         'Inflammation',
         [
             'Tumor',
@@ -4318,7 +4318,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-terminology',
-        'The suffix "-ectomy" means:',
+        'A medical term ending in "-ectomy" means:',
         'Surgical removal',
         [
             'Inflammation',
@@ -4501,7 +4501,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-specimen-lab',
-        'Midstream clean-catch urine reduces:',
+        'Collecting midstream clean-catch urine reduces:',
         'Contamination with periurethral flora',
         [
             'Need for label',
@@ -4945,7 +4945,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-med-safety',
-        'Expired medications in clinic should be:',
+        'Outdated clinic stock medications should be:',
         'Removed from use and disposed per policy',
         [
             'Given to staff as samples',
@@ -5115,7 +5115,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-wound-care',
-        'Signs of wound infection include:',
+        'Clinical signs of wound infection include:',
         'Increasing pain, erythema, warmth, purulent drainage, or fever',
         [
             'Decreased pain only always',
@@ -5237,7 +5237,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'skill-life-stages',
-        'Infant fontanelle assessment notes:',
+        'When assessing an infant fontanelle, documentation should note:',
         'Soft spots that normally close over time; bulging may indicate illness',
         [
             'Always sunken means health',

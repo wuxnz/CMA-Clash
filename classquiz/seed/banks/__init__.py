@@ -15,6 +15,7 @@ from .diabetes import FACTS as DIABETES_FACTS
 from .phleb_glucose import FACTS as PHLEB_GLUCOSE_FACTS
 from .supplement import FACTS as SUPPLEMENT_FACTS
 from .expansion_to_28 import FACTS as EXPANSION_TO_28_FACTS
+from .expansion_growth import FACTS as EXPANSION_GROWTH_FACTS
 from .supplement.diabetes_expansion import FACTS as DIABETES_EXPANSION_FACTS
 
 _DIABETES_ALL = DIABETES_FACTS + DIABETES_EXPANSION_FACTS
@@ -29,6 +30,7 @@ _ALL_MODULES = (
     PHLEB_GLUCOSE_FACTS,
     SUPPLEMENT_FACTS,
     EXPANSION_TO_28_FACTS,
+    EXPANSION_GROWTH_FACTS,
 )
 
 _LEGACY_REFERENCE_MAP: dict[str, list[str]] = {
