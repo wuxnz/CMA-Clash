@@ -76,7 +76,7 @@ describe('player socket session cookies', () => {
 		expect(readJoinedGameCookie()).toBeNull();
 	});
 
-	it('preparePlaySessionForPin clears stale cookie and reconnects socket', () => {
+	it('preparePlaySessionForPin clears stale cookie without forcing reconnect', () => {
 		cookieStore.joined_game = JSON.stringify({
 			sid: 'a',
 			username: 'OldHost',
@@ -84,7 +84,6 @@ describe('player socket session cookies', () => {
 		});
 		preparePlaySessionForPin('222222');
 		expect(readJoinedGameCookie()).toBeNull();
-		expect(socketMock.disconnect).toHaveBeenCalled();
-		expect(socketMock.connect).toHaveBeenCalled();
+		expect(socketMock.disconnect).not.toHaveBeenCalled();
 	});
 });

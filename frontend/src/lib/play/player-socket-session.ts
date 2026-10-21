@@ -65,7 +65,6 @@ export function preparePlaySessionForPin(expectedPin: string): void {
 		clearJoinedGameCookie();
 	}
 	resetPlaySocketBinding();
-	reconnectPlaySocket();
 }
 
 export function persistJoinedGameCookie(username: string, game_pin: string): void {

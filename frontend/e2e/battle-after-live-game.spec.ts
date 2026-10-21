@@ -149,6 +149,7 @@ test.describe('battle after live game in same browser', () => {
 		await hostPage.getByRole('button', { name: /start battle/i }).click();
 
 		await waitForBattleQuestions(hostPage, 'host Q1');
+		await guestPage.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
 		await waitForBattleQuestions(guestPage, 'guest Q1');
 
 		const hostUrlPin = new URL(hostPage.url()).searchParams.get('pin');
