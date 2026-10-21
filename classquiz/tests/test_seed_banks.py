@@ -14,12 +14,12 @@ from classquiz.seed.stem_normalize import normalize_stem
 
 def test_question_bank_coverage():
     facts = load_all_facts()
-    assert len(facts) >= 920
+    assert len(facts) >= 1336
     counts = Counter(f["topic"] for f in facts)
     catalog_slugs = {slug for cert in CERTIFICATIONS for slug, _, _ in cert["topics"]}
     assert catalog_slugs.issubset(set(counts.keys()))
     assert len(counts) == 45
-    assert min(counts.values()) >= 20
+    assert min(counts.values()) >= 28
     for fact in facts:
         refs = fact.get("references") or []
         assert refs, f"Missing references on: {fact['stem'][:60]}"
