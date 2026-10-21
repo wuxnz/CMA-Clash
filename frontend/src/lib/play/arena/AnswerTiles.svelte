@@ -20,6 +20,11 @@
 		showRing?: boolean;
 		compact?: boolean;
 		hideQuestion?: boolean;
+		/** e.g. cert · topic · Q1/10 (shown above the question in battle mode). */
+		questionLabel?: string;
+		questionImage?: string | null;
+		/** High-contrast question copy for player-only battle screens. */
+		battlePlayerLayout?: boolean;
 		/** Host admin shell: fill scroll region, not full viewport. */
 		hostFit?: boolean;
 	}
@@ -37,6 +42,9 @@
 		showRing = false,
 		compact = false,
 		hideQuestion = false,
+		questionLabel = '',
+		questionImage = null,
+		battlePlayerLayout = false,
 		hostFit = false
 	}: Props = $props();
 
@@ -51,11 +59,36 @@
 >
 	<div class="w-full max-w-[28rem] sm:max-w-xl flex flex-col gap-4 flex-1">
 		{#if !hideQuestion && question}
-			<p
-				class="font-sans text-lg sm:text-xl text-ink text-center font-semibold leading-snug text-balance"
-			>
-				{@html normalizeQuizText(question)}
-			</p>
+			<div class="flex flex-col gap-3 w-full">
+				{#if questionLabel}
+					<p
+						class="text-center text-xs sm:text-sm font-mono uppercase tracking-wide {battlePlayerLayout
+							? 'text-white/70'
+							: 'text-ink-muted'}"
+					>
+						{questionLabel}
+					</p>
+				{/if}
+				{#if questionImage}
+					<div class="w-full max-h-40 sm:max-h-52 overflow-hidden rounded-xl border border-white/15">
+						<img
+							src={questionImage.startsWith('http') || questionImage.startsWith('/')
+								? questionImage
+								: `/api/v1/storage/download/${questionImage}`}
+							alt=""
+							class="w-full h-full object-contain bg-black/40"
+						/>
+					</div>
+				{/if}
+				<p
+					data-testid="battle-question-text"
+					class="font-sans text-base sm:text-lg text-center font-semibold leading-snug text-balance wrap-break-word px-1 {battlePlayerLayout
+						? 'text-white'
+						: 'text-ink'}"
+				>
+					{@html normalizeQuizText(question)}
+				</p>
+			</div>
 		{/if}
 
 		<div class="w-full rounded-xl border border-white/10 bg-surface/80 px-3 py-2.5 shadow-sm">

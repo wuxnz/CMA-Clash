@@ -82,6 +82,48 @@ async function waitForBattleQuestions(page: Page, label: string): Promise<void> 
 	await expectPlayerOnAnswerTiles(page, label);
 }
 
+async function playBattleUntilFinalPodium(hostPage: Page, guestPage: Page): Promise<void> {
+	const podium = (page: Page) => page.getByTestId('host-final-podium');
+	for (let round = 0; round < 25; round++) {
+		if (await podium(hostPage).isVisible().catch(() => false)) break;
+		if (!(await hostPage.getByTestId('answer-tiles').isVisible().catch(() => false))) {
+			await hostPage.waitForTimeout(800);
+			continue;
+		}
+		await answerFirstTile(hostPage);
+		await answerFirstTile(guestPage);
+		await hostPage.waitForTimeout(400);
+	}
+	await expect(podium(hostPage), 'host final podium').toBeVisible({ timeout: 120_000 });
+	await expect(podium(guestPage), 'guest final podium').toBeVisible({ timeout: 120_000 });
+}
+
+async function expectBattleFinalScores(
+	page: Page,
+	names: string[],
+	label: string
+): Promise<void> {
+	const podium = page.getByTestId('host-final-podium');
+	for (const name of names) {
+		await expect(podium.getByText(name, { exact: false }), `${label}: ${name}`).toBeVisible({
+			timeout: 30_000
+		});
+	}
+	const scoreTexts = await podium.locator('.tabular-nums').allTextContents();
+	const numeric = scoreTexts
+		.map((t) => parseFloat(t.replace(/,/g, '')))
+		.filter((n) => Number.isFinite(n) && n > 0);
+	expect(numeric.length, `${label}: nonzero scores on podium`).toBeGreaterThanOrEqual(2);
+}
+
+async function expectBattleQuestionText(page: Page, label: string): Promise<string> {
+	const q = page.getByTestId('battle-question-text');
+	await expect(q, label).toBeVisible({ timeout: 60_000 });
+	const text = (await q.textContent())?.replace(/\s+/g, ' ').trim() ?? '';
+	expect(text.length, `${label} question text`).toBeGreaterThan(8);
+	return text;
+}
+
 test.describe('battle after live game in same browser', () => {
 	test.beforeAll(() => {
 		fs.mkdirSync(artifactDir, { recursive: true });
@@ -114,12 +156,27 @@ test.describe('battle after live game in same browser', () => {
 		expect(hostUrlPin).toBeTruthy();
 		expect(hostUrlPin).toBe(guestUrlPin);
 		await expect(hostPage.getByText(STALE_LIVE_PIN)).toHaveCount(0);
+
+		const hostQ1 = await expectBattleQuestionText(hostPage, 'host Q1 text');
+		const guestQ1 = await expectBattleQuestionText(guestPage, 'guest Q1 text');
+		expect(hostQ1).toBe(guestQ1);
+
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q1-host.png'),
 			fullPage: true
 		});
 		await guestPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q1-guest.png'),
+			fullPage: true
+		});
+		await hostPage.setViewportSize({ width: 1280, height: 800 });
+		await hostPage.screenshot({
+			path: path.join(artifactDir, 'battle-question-desktop.png'),
+			fullPage: true
+		});
+		await guestPage.setViewportSize({ width: 390, height: 844 });
+		await guestPage.screenshot({
+			path: path.join(artifactDir, 'battle-question-mobile.png'),
 			fullPage: true
 		});
 
@@ -129,12 +186,35 @@ test.describe('battle after live game in same browser', () => {
 		await expectPlayerAdvancedToNextQuestion(hostPage, 'host Q2');
 		await expectPlayerAdvancedToNextQuestion(guestPage, 'guest Q2');
 
+		const hostQ2 = await expectBattleQuestionText(hostPage, 'host Q2 text');
+		const guestQ2 = await expectBattleQuestionText(guestPage, 'guest Q2 text');
+		expect(hostQ2).toBe(guestQ2);
+		expect(hostQ2).not.toBe(hostQ1);
+
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q2-host.png'),
 			fullPage: true
 		});
 		await guestPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q2-guest.png'),
+			fullPage: true
+		});
+
+		await answerFirstTile(hostPage);
+		await answerFirstTile(guestPage);
+
+		await playBattleUntilFinalPodium(hostPage, guestPage);
+		await expectBattleFinalScores(hostPage, ['HostAlpha', 'GuestBeta'], 'host final');
+		await expectBattleFinalScores(guestPage, ['HostAlpha', 'You'], 'guest final');
+		await expect(hostPage.getByTestId('battle-final-outcome')).toBeVisible();
+		await expect(guestPage.getByTestId('battle-final-outcome')).toBeVisible();
+
+		await hostPage.screenshot({
+			path: path.join(artifactDir, 'battle-final-host.png'),
+			fullPage: true
+		});
+		await guestPage.screenshot({
+			path: path.join(artifactDir, 'battle-final-guest.png'),
 			fullPage: true
 		});
 

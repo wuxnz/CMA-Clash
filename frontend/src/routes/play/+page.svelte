@@ -40,7 +40,11 @@ SPDX-License-Identifier: MPL-2.0
 		placeLine,
 		speedRankLine
 	} from '$lib/play/live-standings-copy';
-	import { applyQuestionResultScores, scoreDeltaForUser } from '$lib/play/live-scoring';
+	import {
+		aggregateScoresFromFinalResults,
+		applyQuestionResultScores,
+		scoreDeltaForUser
+	} from '$lib/play/live-scoring';
 	import {
 		applyClockSync,
 		parseQuestionTiming,
@@ -210,6 +214,23 @@ SPDX-License-Identifier: MPL-2.0
 				)
 			: ''
 	);
+
+	let isBattleMode = $derived(normalizeGameMode(game_mode) === 'battle');
+	let hideTileQuestion = $derived(normalizeGameMode(game_mode) === 'kahoot');
+
+	let battleOutcomeNote = $derived.by(() => {
+		if (!isBattleMode) return undefined;
+		const ranked = Object.keys(scores).sort(
+			(a, b) => (parseFloat(String(scores[b])) || 0) - (parseFloat(String(scores[a])) || 0)
+		);
+		if (ranked.length < 2) return undefined;
+		const topScore = parseFloat(String(scores[ranked[0]])) || 0;
+		const secondScore = parseFloat(String(scores[ranked[1]])) || 0;
+		if (topScore === secondScore) return "It's a tie!";
+		const winner = ranked[0];
+		if (winner === username) return 'You win!';
+		return `${winner} wins`;
+	});
 
 	let preventReload = true;
 
@@ -388,6 +409,10 @@ SPDX-License-Identifier: MPL-2.0
 			},
 			onFinalResults: (data) => {
 				final_results = data;
+				const fromFinal = aggregateScoresFromFinalResults(data);
+				if (Object.keys(fromFinal).length > 0) {
+					scores = fromFinal;
+				}
 				Cookies.remove('joined_game');
 			},
 			onSolutions: (data) => {
@@ -502,7 +527,12 @@ SPDX-License-Identifier: MPL-2.0
 		{#if !gameMeta.started && gameData === undefined}
 			<JoinGame bind:game_pin bind:game_mode bind:username />
 		{:else if JSON.stringify(final_results) !== JSON.stringify([null])}
-			<ShowEndScreen bind:data={scores} show_final_results={true} {username} />
+			<ShowEndScreen
+				bind:data={scores}
+				show_final_results={true}
+				{username}
+				outcomeNote={battleOutcomeNote}
+			/>
 		{:else if gameData !== undefined && !hasActiveQuestion(question_index)}
 			<ShowTitle
 				title={gameData.title}
@@ -526,7 +556,10 @@ SPDX-License-Identifier: MPL-2.0
 					totalSeconds={remainingTime}
 					interactive={true}
 					showRing={false}
-					hideQuestion={isKahootStyleMode(game_mode)}
+					hideQuestion={hideTileQuestion}
+					questionLabel={isBattleMode ? topic_tag : ''}
+					questionImage={isBattleMode ? (question.image ?? null) : null}
+					battlePlayerLayout={isBattleMode}
 					selected={selectedAnswer}
 					onSelect={pickAnswer}
 				/>
