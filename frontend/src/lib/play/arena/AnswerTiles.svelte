@@ -39,6 +39,7 @@
 </script>
 
 <div
+	data-testid="answer-tiles"
 	class="w-full min-h-dvh bg-paper flex flex-col items-center px-4 sm:px-6 py-4 sm:py-6 {compact
 		? 'h-full'
 		: ''}"

@@ -323,47 +323,44 @@ SPDX-License-Identifier: MPL-2.0
 	class:text-ink={bg_color}
 >
 	{#if JSON.stringify(game_state.final_results) !== JSON.stringify([null])}
-		{#if game_state.control_visible}
-			<div class="w-screen flex justify-center mt-16">
-				<div class="w-fit">
-					{#if export_token === undefined}
-						<GrayButton onclick={request_answer_export}
-							>{$t('admin_page.request_export_results')}</GrayButton
-						>
-					{:else}
-						<GrayButton
-							target="_blank"
-							href="/api/v1/quiz/export_data/{export_token}?ts={new Date().getTime()}&game_pin={game_pin}"
-							>{$t('admin_page.download_export_results')}</GrayButton
-						>
-					{/if}
-				</div>
-			</div>
-			<div class="w-screen flex justify-center mt-2">
-				<div class="w-fit">
-					<GrayButton onclick={save_quiz} flex={true} disabled={results_saved}>
-						{#if results_saved}
-							<svg
-								class="w-4 h-4"
-								aria-hidden="true"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
+		<div class="h-dvh max-h-dvh flex flex-col overflow-hidden">
+			<FinalResults bind:data={game_state.player_scores} {show_final_results} hostLayout>
+				{#snippet actions()}
+					{#if game_state.control_visible}
+						{#if export_token === undefined}
+							<GrayButton onclick={request_answer_export}
+								>{$t('admin_page.request_export_results')}</GrayButton
 							>
-								<path
-									d="M5 13l4 4L19 7"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-								/>
-							</svg>
-						{:else}{$t('admin_page.save_results')}{/if}
-					</GrayButton>
-				</div>
-			</div>
-		{/if}
-		<FinalResults bind:data={game_state.player_scores} {show_final_results} />
+						{:else}
+							<GrayButton
+								target="_blank"
+								href="/api/v1/quiz/export_data/{export_token}?ts={new Date().getTime()}&game_pin={game_pin}"
+								>{$t('admin_page.download_export_results')}</GrayButton
+							>
+						{/if}
+						<GrayButton onclick={save_quiz} flex={true} disabled={results_saved}>
+							{#if results_saved}
+								<svg
+									class="w-4 h-4"
+									aria-hidden="true"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									viewBox="0 0 24 24"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M5 13l4 4L19 7"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									/>
+								</svg>
+							{:else}{$t('admin_page.save_results')}{/if}
+						</GrayButton>
+					{/if}
+				{/snippet}
+			</FinalResults>
+		</div>
 	{/if}
 	{#if !success}
 		<div class="flex min-h-screen w-full items-center justify-center p-6">

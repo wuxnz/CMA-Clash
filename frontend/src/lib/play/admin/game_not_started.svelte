@@ -107,6 +107,7 @@ SPDX-License-Identifier: MPL-2.0
 	<div class="flex justify-center w-full mt-4">
 		<div>
 			<GrayButton
+				data-testid="lobby-start-game"
 				disabled={game_state.players.length < 1}
 				onclick={() => {
 					socket_game_controls.start_game();

@@ -82,3 +82,44 @@ async def test_early_complete_closes_question(test_client) -> None:
     await try_close_question_when_complete(mock_sio, game_pin, 0)
     events = [call.args[0] for call in mock_sio.emit.call_args_list]
     assert "question_results" in events
+
+
+@pytest.mark.order("last")
+@pytest.mark.asyncio
+async def test_submit_answer_increments_redis_total_once(test_client) -> None:
+    import json
+
+    from classquiz.config import redis
+    from classquiz.socket_server import join_game, register_as_admin, start_game, submit_answer
+    from classquiz.socket_server.question_lifecycle import close_question_now
+
+    start = test_client.post(
+        f"/api/v1/quiz/start/{ValueStorage.quiz_id}?game_mode=kahoot&captcha_enabled=False",
+        cookies=ValueStorage.cookies,
+    )
+    body = start.json()
+    game_pin = body["game_pin"]
+    game_id = body["game_id"]
+
+    await register_as_admin("pytest-admin-score", {"game_pin": game_pin, "game_id": game_id})
+    await join_game(
+        "pytest-player-score",
+        {"game_pin": game_pin, "username": "Scorer", "captcha": "", "custom_field": ""},
+    )
+    await start_game("pytest-admin-score", {})
+
+    before = int(await redis.hget(f"game_session:{game_pin}:player_scores", "Scorer") or 0)
+    await submit_answer("pytest-player-score", {"question_index": 0, "answer": "Yes"})
+    after_submit = int(await redis.hget(f"game_session:{game_pin}:player_scores", "Scorer") or 0)
+    rows = await redis.lrange(f"game_session:{game_pin}:0", 0, -1)
+    row_score = json.loads(rows[0])["score"]
+
+    assert after_submit - before == row_score
+    assert row_score > 0
+
+    from unittest.mock import AsyncMock
+
+    mock_sio = AsyncMock()
+    await close_question_now(mock_sio, game_pin, 0)
+    after_close = int(await redis.hget(f"game_session:{game_pin}:player_scores", "Scorer") or 0)
+    assert after_close == after_submit

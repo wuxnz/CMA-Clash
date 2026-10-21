@@ -9,6 +9,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { onDestroy, onMount } from 'svelte';
 	import { browser } from '$app/environment';
 	import { joinErrorMessage } from '$lib/play/join-errors';
+	import { normalizeGameMode } from '$lib/play/live-game';
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
@@ -112,7 +113,7 @@ SPDX-License-Identifier: MPL-2.0
 		try {
 			const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
 			const json = await res.json().catch(() => ({}));
-			game_mode = json.game_mode;
+			game_mode = normalizeGameMode(json.game_mode) ?? json.game_mode;
 			if (res.status === 200) {
 				captcha_enabled = json.enabled;
 				custom_field = json.custom_field;

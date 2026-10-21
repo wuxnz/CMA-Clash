@@ -5,9 +5,11 @@
 import { describe, expect, it } from 'vitest';
 import {
 	hasActiveQuestion,
+	hasChoiceTileAnswers,
 	initialLivePhaseForQuestion,
 	isKahootStyleMode,
-	normalizeGamePayload
+	normalizeGamePayload,
+	questionFromSocketPayload
 } from './live-game';
 
 describe('normalizeGamePayload', () => {
@@ -41,6 +43,48 @@ describe('hasActiveQuestion', () => {
 	it('rejects empty waiting state', () => {
 		expect(hasActiveQuestion(null)).toBe(false);
 		expect(hasActiveQuestion('')).toBe(false);
+	});
+});
+
+describe('hasChoiceTileAnswers', () => {
+	it('accepts ABCD and voting arrays', () => {
+		expect(
+			hasChoiceTileAnswers({
+				type: 'ABCD',
+				question: 'Q?',
+				answers: [{ answer: 'A', right: true }],
+				time: '30'
+			})
+		).toBe(true);
+		expect(
+			hasChoiceTileAnswers({
+				type: 'VOTING',
+				question: 'Q?',
+				answers: [{ answer: 'A' }],
+				time: '30'
+			})
+		).toBe(true);
+	});
+
+	it('rejects range and empty answers', () => {
+		expect(
+			hasChoiceTileAnswers({
+				type: 'RANGE',
+				question: 'Q?',
+				answers: { min: 0, max: 10 },
+				time: '30'
+			})
+		).toBe(false);
+		expect(hasChoiceTileAnswers({ type: 'ABCD', question: 'Q?', answers: [], time: '30' })).toBe(
+			false
+		);
+	});
+});
+
+describe('questionFromSocketPayload', () => {
+	it('reads nested question', () => {
+		const q = { question: 'Hi', answers: [{ answer: 'a' }], type: 'ABCD', time: '30' };
+		expect(questionFromSocketPayload({ question_index: 0, question: q })?.question).toBe('Hi');
 	});
 });
 
