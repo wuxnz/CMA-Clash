@@ -10,5 +10,6 @@ Batch size 25. Log: `docs/question-review-log-phleb.md`. Plausibility: `docs/pla
 | 07 | handling 001–025 | done |
 | 08 | handling 026–039 | done |
 | 09 | handling 040, complications 001–039 | dual-answer + grammar pass |
+| 10 | phleb-safety 001–012 | grammar + distractor touch-up (batch in progress) |
 
-**Done: 220 / 337** (order-draw 52, additives 50, site 42, handling 40, complications 39). **Remaining: 117** (safety, who, glucose, …).
+**Done: 220 / 337** (order-draw 52, additives 50, site 42, handling 40, complications 39). **Remaining: 117** (safety tail, who, glucose, …). **Strict:** `phleb-` after remaining modules reviewed.

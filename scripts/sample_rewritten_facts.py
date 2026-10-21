@@ -49,7 +49,15 @@ def main() -> None:
             pool.append(f)
         elif t in ("cpr-child", "cpr-infant", "cpr-aed", "cpr-choking"):
             pool.append(f)
-        elif t in ("phleb-order-draw", "phleb-additives", "phleb-site", "phleb-handling"):
+        elif t in (
+            "phleb-order-draw",
+            "phleb-additives",
+            "phleb-site",
+            "phleb-handling",
+            "phleb-complications",
+        ):
+            pool.append(f)
+        elif t in ("cpr-chain", "cpr-red-cross"):
             pool.append(f)
     picks = random.sample(pool, min(n, len(pool)))
     for f in picks:
