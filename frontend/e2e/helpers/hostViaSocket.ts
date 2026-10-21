@@ -57,7 +57,13 @@ export async function hostLiveGame(gameMode: 'kahoot' | 'normal'): Promise<Hoste
 	return {
 		pin,
 		socket,
-		startGame: () => socket.emit('start_game', {}),
+		startGame: () => {
+			socket.emit('start_game', {});
+			// "On player devices" (normal) does not auto-push Q1; host must show it.
+			if (gameMode === 'normal') {
+				socket.emit('set_question_number', '0');
+			}
+		},
 		close: () => socket.disconnect()
 	};
 }
