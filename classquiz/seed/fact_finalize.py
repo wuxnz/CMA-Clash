@@ -132,7 +132,8 @@ def enrich_explanation(fact: dict) -> str:
     correct = str(fact["correct"]).strip()
     distractors = fact.get("distractors") or []
     wrong = _pick_tempting_wrong(distractors, correct)
-    base = str(fact.get("explanation") or "").strip().replace("—", "-").replace("–", "-")
+    base = str(fact.get("explanation") or "").strip().replace("—", " to ").replace("–", " to ")
+    base = re.sub(r"(\d)\s*-\s*(\d)", r"\1 to \2", base)
 
     if _sentence_count(base) >= 2 and len(base) >= 80:
         return base

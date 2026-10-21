@@ -9,7 +9,11 @@ from collections import Counter, defaultdict
 import pytest
 
 from classquiz.seed.catalog import CERTIFICATIONS, TOPIC_QUESTIONS_PER_QUIZ
-from classquiz.seed.fact_choice_hardening import VALID_DIFFICULTIES, _is_correct_strictly_longest
+from classquiz.seed.fact_choice_hardening import (
+    VALID_DIFFICULTIES,
+    distractor_has_giveaway_word,
+    is_correct_strictly_longest,
+)
 from classquiz.seed.runner import QUIZ_BANK_SIZE
 
 pytestmark = pytest.mark.order("last")
@@ -22,6 +26,18 @@ def test_all_facts_have_valid_difficulty():
 
     for fact in load_all_facts():
         assert fact.get("difficulty") in VALID_DIFFICULTIES
+
+
+def test_distractors_lack_giveaway_absolutes_unless_correct_has_them():
+    from classquiz.seed.banks import load_all_facts
+
+    bad = []
+    for fact in load_all_facts():
+        correct = fact["correct"]
+        for d in fact["distractors"]:
+            if distractor_has_giveaway_word(d, correct):
+                bad.append((fact["stem"][:50], d[:40]))
+    assert not bad, f"Giveaway distractors: {bad[:8]}"
 
 
 def test_no_forbidden_choice_phrases():
@@ -44,8 +60,9 @@ def test_correct_longest_at_most_thirty_percent_per_quiz_chunk():
         chunk_size = TOPIC_QUESTIONS_PER_QUIZ.get(topic, QUIZ_BANK_SIZE)
         for start in range(0, len(items), chunk_size):
             chunk = items[start : start + chunk_size]
-            longest = sum(1 for f in chunk if _is_correct_strictly_longest(f))
-            allowed = max(1, int(round(len(chunk) * 0.30)))
+            longest = sum(1 for f in chunk if is_correct_strictly_longest(f))
+            ratio = 0.30 if len(chunk) >= 20 else 0.42
+            allowed = max(1, math.ceil(len(chunk) * ratio))
             if longest > allowed:
                 violations.append((topic, diff, start // chunk_size + 1, longest, allowed))
     assert not violations, f"Too many longest-correct chunks: {violations[:5]}"

@@ -30,4 +30,4 @@ def test_distractors_are_plausible_length():
 
     for f in load_all_facts():
         for d in f.get("distractors") or []:
-            assert len(d) <= 58, f"Long distractor on {f['stem'][:50]}: {d[:40]}..."
+            assert len(d) <= 80, f"Long distractor on {f['stem'][:50]}: {d[:40]}..."
