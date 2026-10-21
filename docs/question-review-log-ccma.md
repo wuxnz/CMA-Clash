@@ -143,3 +143,26 @@ ccma-exp-b05-022 | pass | Airborne transport mask scenario.
 ccma-exp-b05-023 | pass | Contact room cleaning; removed skip qualifier.
 ccma-exp-b05-024 | pass | Vaccine aspiration guidance.
 ccma-exp-b05-025 | pass | Personal glucose log use.
+
+## Full-bank rewrite run (698 package items)
+
+All topic modules under `classquiz/seed/banks/ccma/` were hand-rewritten module by module (admin, foundational, communication, coordination, anatomy, clinical-care, law-ethics, hipaa, transmission, vaccines, diabetes). Legacy template explanations were removed; `test_ccma_explanations_lack_banned_template_phrases` passes.
+
+| Module | Items | Notes |
+|--------|------:|-------|
+| ccma-admin | 56 | Complete stems; deduped CPT/ICD/superbill |
+| ccma-foundational | 63 | Terminology, asepsis, metrics |
+| ccma-communication | 57 | SBAR, empathy, interpreters |
+| ccma-coordination | 52 | Referrals, teach-back, SDOH |
+| ccma-anatomy | 65 | A/P scenarios |
+| ccma-clinical-care | 71 | Deduped orthostatic/peak flow/urine |
+| ccma-law-ethics | 56 | Ethics scenarios |
+| ccma-hipaa | 55 | Privacy and Security Rule |
+| ccma-transmission | 59 | Lice/contact/droplet/airborne distractors |
+| ccma-vaccines | 49 | CDC storage and administration |
+| ccma-diabetes | 127 | Consolidated from legacy diabetes banks |
+| **Total** | **698** | Single source in package; cert load = 698 |
+
+**Strict quality prefix:** `ccma-` not enabled yet (~154 distractors still contain banned qualifier tokens; some stems end with words that trip the fragment-tail regex). Next pass: reword distractors, then add `ccma-` to `_STRICT_QUALITY_CERT_PREFIXES`.
+
+**Log totals this run:** expansion batch lines 125 pass; full-bank rewrite treated as fail→pass per legacy item during module commits (see git history on `cursor/ccma-expand-banks-ba36`).
