@@ -803,6 +803,51 @@ skill-terminology-031 | fail | Cholelithiasis scenario distractors parallel plai
 skill-terminology-032 | fail | CBC specimen-type distractors parallel blood/urine/stool/sputum collection phrasing.
 skill-terminology-033 | fail | BMP panel distractors parallel analyte-list structure; correct shortened for length balance.
 
+## Parallel-options pass batch P03 (skill-terminology-034 to skill-terminology-042, skill-pharm-dosage-001 to skill-pharm-dosage-033)
+
+skill-terminology-034 | fail | Hypertension plain-language distractors parallel chronic-condition phrasing; hypoglycemia and tachypnea near-misses aligned.
+skill-terminology-035 | fail | Left-sided IM site distractors parallel deltoid/gluteal/thigh/rectus landmark wording; correct shortened for length balance.
+skill-terminology-036 | fail | Laparoscopic procedure distractors parallel minimally invasive versus open near-misses; neck-appendectomy joke removed.
+skill-terminology-037 | fail | Hematuria finding distractors parallel CBC and urine analyte near-misses with matched on-a-CBC phrasing.
+skill-terminology-038 | fail | Confirmed parallel PO q6h PRN sig explanation distractors; stem unchanged.
+skill-terminology-039 | fail | GERD acronym distractors parallel gastro/gallbladder/renal near-miss expansions.
+skill-terminology-040 | fail | Distal radius location distractors parallel upper-arm, hip, and shin landmark phrasing.
+skill-terminology-041 | fail | Bilateral otitis distractors parallel both-paired-organ near-misses; stem unchanged.
+skill-terminology-042 | fail | Cyanosis color finding distractors parallel yellow/pale/red discoloration phrasing; length balanced.
+skill-pharm-dosage-001 | fail | Confirmed parallel mcg conversion near-miss magnitudes; stem unchanged.
+skill-pharm-dosage-002 | fail | Confirmed parallel mg-per-gram near-miss values; stem unchanged.
+skill-pharm-dosage-003 | fail | Confirmed parallel tablet-count near-misses for 500 mg order; stem unchanged.
+skill-pharm-dosage-004 | fail | Confirmed parallel liquid volume near-misses for 10 mg/mL vial; stem unchanged.
+skill-pharm-dosage-005 | fail | Confirmed parallel U-100 units-per-mL near-miss concentrations; stem unchanged.
+skill-pharm-dosage-006 | fail | Spoon-versus-syringe rationale distractors parallel legal and accuracy myths; self-refuting memory padding removed.
+skill-pharm-dosage-007 | fail | Confirmed parallel mL volume near-misses for 250 mg per 5 mL label; stem unchanged.
+skill-pharm-dosage-008 | fail | Confirmed parallel 1:1000 ratio-strength near-miss definitions; stem unchanged.
+skill-pharm-dosage-009 | fail | Label verification element distractors parallel partial-check near-misses; MAR padding tail removed.
+skill-pharm-dosage-010 | fail | Confirmed parallel mcg-to-mg conversion near-miss values; stem unchanged.
+skill-pharm-dosage-011 | fail | Confirmed parallel lb-to-kg conversion near-miss weights; stem unchanged.
+skill-pharm-dosage-012 | fail | Insulin unit-mark distractors parallel mg/mEq/mL confusion near-misses; schedule-padding distractor removed.
+skill-pharm-dosage-013 | fail | Confirmed parallel gram-to-tablet count near-misses; stem unchanged.
+skill-pharm-dosage-014 | fail | Confirmed parallel mg-per-kg total dose near-miss calculations; stem unchanged.
+skill-pharm-dosage-015 | fail | Confirmed parallel 1:10 ratio gram near-miss amounts; stem unchanged.
+skill-pharm-dosage-016 | fail | Scored-tablet split distractors parallel whole-tablet and withhold near-misses; expiration padding removed.
+skill-pharm-dosage-017 | fail | Confirmed parallel oral liquid rounding near-miss volumes; stem unchanged.
+skill-pharm-dosage-018 | fail | Confirmed parallel 2% w/v gram near-miss amounts; stem unchanged.
+skill-pharm-dosage-019 | fail | LASA safety distractors parallel storage and identifier near-misses; barcode-noise padding removed.
+skill-pharm-dosage-020 | fail | Confirmed parallel divided-daily-dose near-miss milligram amounts; stem unchanged.
+skill-pharm-dosage-021 | fail | Confirmed parallel half-tablet near-miss tablet counts; stem unchanged.
+skill-pharm-dosage-022 | fail | IM volume draw distractors parallel decimal mL near-misses; refused-dose padding removed.
+skill-pharm-dosage-023 | fail | Wrong-route scenario distractors parallel correct topical/oral/ophthalmic administration phrasing.
+skill-pharm-dosage-024 | fail | Expired vial action distractors parallel administer/double-dose/unlabeled-storage near-misses; label padding removed.
+skill-pharm-dosage-025 | fail | Confirmed parallel household-spoon teaching near-misses; stem unchanged.
+skill-pharm-dosage-026 | fail | Confirmed parallel 7.5 mg tablet-count near-misses; stem unchanged.
+skill-pharm-dosage-027 | fail | Confirmed parallel concentration-times-volume near-miss mg totals; stem unchanged.
+skill-pharm-dosage-028 | fail | High-alert double-check distractors parallel single-check and chart-first near-misses; correct shortened for length balance.
+skill-pharm-dosage-029 | fail | Confirmed parallel pound-to-kilogram near-miss weights for mg/kg orders; stem unchanged.
+skill-pharm-dosage-030 | fail | Tuberculin syringe rationale distractors parallel unit-graduation myths; similar-name memory padding removed.
+skill-pharm-dosage-031 | fail | Confirmed parallel neonatal mg-per-kg dose near-miss amounts; stem unchanged.
+skill-pharm-dosage-032 | fail | Confirmed parallel 1:1000 stock mL near-miss volumes; stem unchanged.
+skill-pharm-dosage-033 | fail | Tablet-rounding policy distractors parallel fractional and round-up near-misses with matched mg phrasing.
+
 ## Parallel-options pass batch P03b (skill-specimen-lab-001 to skill-specimen-lab-042)
 
 skill-specimen-lab-001 | fail | Parallel pre-draw identity actions; removed verifying/without-asking padding and outpatient tail.
