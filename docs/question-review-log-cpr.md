@@ -29,3 +29,7 @@ cpr-adult-022 | pass | Agonal gasps advanced; near-miss O2 only, delay pulse che
 cpr-adult-023 | pass | AED during CPR minimal pause; near-miss stop CPR three cycles, delay five minutes, pads on clothing.
 cpr-adult-024 | pass | Opioid overdose ventilate and naloxone; near-miss withhold vents, thrusts first, delay EMS.
 cpr-adult-025 | pass | Post-ROSC monitoring and support; near-miss discharge, half-depth compressions, upright fluids.
+
+## CPR batch (cpr-red-cross spot fixes during mix audit)
+
+cpr-red-cross poison-control item | fail | Full stem; replaced joke distractors with parallel wrong-call-content options.
