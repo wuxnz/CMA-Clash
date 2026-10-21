@@ -7,7 +7,10 @@ import {
 	battleLobbyUsernameForPlayer,
 	setBattlePlayUsername
 } from '$lib/cma/battle-guest';
-import { clearJoinedGameCookie } from '$lib/play/player-socket-session';
+import {
+	clearJoinedGameCookie,
+	preparePlaySessionForPin
+} from '$lib/play/player-socket-session';
 
 /** Clear stale live-game state and stash the lobby nickname for /play auto-join. */
 export function prepareBattlePlayHandoff(
@@ -17,6 +20,7 @@ export function prepareBattlePlayHandoff(
 	const pin = lobby.game_pin?.replace(/\D/g, '') ?? '';
 	if (pin.length < 6) return null;
 	clearJoinedGameCookie();
+	preparePlaySessionForPin(pin);
 	const name = battleLobbyUsernameForPlayer(lobby, opts);
 	if (name) setBattlePlayUsername(pin, name);
 	return pin;

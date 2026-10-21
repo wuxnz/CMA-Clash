@@ -5,6 +5,7 @@
 import Cookies from 'js-cookie';
 import { socket } from '$lib/socket';
 import { attachPlaySocketDebug } from '$lib/play/play-socket-debug';
+import { resetPlaySocketBinding } from '$lib/play/play-socket-pin';
 
 export interface JoinedGameCookie {
 	sid: string;
@@ -41,6 +42,32 @@ export function clearJoinedGameCookieIfPinMismatch(expectedPin: string): boolean
 	return true;
 }
 
+/** Force a new transport so the server drops old game room membership. */
+export function reconnectPlaySocket(): void {
+	if (!socket.connected) {
+		socket.connect();
+		return;
+	}
+	socket.disconnect();
+	socket.connect();
+}
+
+/**
+ * Entering /play for a pin: drop stale live cookie, invalidate socket binding, reconnect.
+ * Call when the URL pin changes (including battle handoff).
+ */
+export function preparePlaySessionForPin(expectedPin: string): void {
+	const expected = normalizePlayPin(expectedPin);
+	if (expected.length < 6) return;
+	clearJoinedGameCookieIfPinMismatch(expected);
+	const payload = readJoinedGameCookie();
+	if (payload && normalizePlayPin(payload.game_pin) !== expected) {
+		clearJoinedGameCookie();
+	}
+	resetPlaySocketBinding();
+	reconnectPlaySocket();
+}
+
 export function persistJoinedGameCookie(username: string, game_pin: string): void {
 	Cookies.set(
 		'joined_game',
@@ -56,6 +83,7 @@ export function emitRejoinFromCookie(gamePinFallback?: string): boolean {
 	const expected = normalizePlayPin(gamePinFallback);
 	const stored = normalizePlayPin(payload.game_pin);
 	if (expected.length >= 6 && stored !== expected) {
+		clearJoinedGameCookie();
 		return false;
 	}
 	socket.emit('rejoin_game', {
@@ -82,13 +110,17 @@ export function ensurePlaySocketSession(options?: {
 	attachPlaySocketDebug(socket);
 
 	const onConnect = () => {
-		const pin = options?.getGamePin?.();
-		if (pin && pin.length >= 6) {
+		const pin = normalizePlayPin(options?.getGamePin?.() ?? '');
+		if (pin.length >= 6) {
 			clearJoinedGameCookieIfPinMismatch(pin);
 		}
 		const payload = readJoinedGameCookie();
 		if (!payload) return;
-		emitRejoinFromCookie(pin);
+		if (pin.length >= 6 && normalizePlayPin(payload.game_pin) !== pin) {
+			clearJoinedGameCookie();
+			return;
+		}
+		emitRejoinFromCookie(pin.length >= 6 ? pin : undefined);
 		void options?.onReconnected?.();
 	};
 
