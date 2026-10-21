@@ -12,6 +12,10 @@ export interface JoinedGameCookie {
 	game_pin: string;
 }
 
+export function normalizePlayPin(pin: string | undefined | null): string {
+	return (pin ?? '').replace(/\D/g, '');
+}
+
 export function readJoinedGameCookie(): JoinedGameCookie | null {
 	const raw = Cookies.get('joined_game');
 	if (!raw) return null;
@@ -20,6 +24,21 @@ export function readJoinedGameCookie(): JoinedGameCookie | null {
 	} catch {
 		return null;
 	}
+}
+
+export function clearJoinedGameCookie(): void {
+	Cookies.remove('joined_game');
+}
+
+/** Drop a prior live-game session when the URL pin does not match the cookie. */
+export function clearJoinedGameCookieIfPinMismatch(expectedPin: string): boolean {
+	const expected = normalizePlayPin(expectedPin);
+	if (expected.length < 6) return false;
+	const payload = readJoinedGameCookie();
+	if (!payload) return false;
+	if (normalizePlayPin(payload.game_pin) === expected) return false;
+	clearJoinedGameCookie();
+	return true;
 }
 
 export function persistJoinedGameCookie(username: string, game_pin: string): void {
@@ -34,6 +53,11 @@ export function persistJoinedGameCookie(username: string, game_pin: string): voi
 export function emitRejoinFromCookie(gamePinFallback?: string): boolean {
 	const payload = readJoinedGameCookie();
 	if (!payload) return false;
+	const expected = normalizePlayPin(gamePinFallback);
+	const stored = normalizePlayPin(payload.game_pin);
+	if (expected.length >= 6 && stored !== expected) {
+		return false;
+	}
 	socket.emit('rejoin_game', {
 		old_sid: payload.sid,
 		username: payload.username,
@@ -49,7 +73,7 @@ let sessionInstalled = false;
  * Must run before JoinGame can unmount so connect handlers are not the only copy on join UI.
  */
 export function ensurePlaySocketSession(options?: {
-	gamePinFallback?: string;
+	getGamePin?: () => string | undefined;
 	onReconnected?: () => void | Promise<void>;
 }): void {
 	if (sessionInstalled) return;
@@ -58,9 +82,13 @@ export function ensurePlaySocketSession(options?: {
 	attachPlaySocketDebug(socket);
 
 	const onConnect = () => {
-		const hadSession = Boolean(readJoinedGameCookie());
-		if (!hadSession) return;
-		emitRejoinFromCookie(options?.gamePinFallback);
+		const pin = options?.getGamePin?.();
+		if (pin && pin.length >= 6) {
+			clearJoinedGameCookieIfPinMismatch(pin);
+		}
+		const payload = readJoinedGameCookie();
+		if (!payload) return;
+		emitRejoinFromCookie(pin);
 		void options?.onReconnected?.();
 	};
 

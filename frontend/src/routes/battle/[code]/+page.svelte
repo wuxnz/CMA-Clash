@@ -9,6 +9,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import { getBattle, joinBattle, startBattle, type BattleLobby } from '$lib/cma/client';
+	import { prepareBattlePlayHandoff } from '$lib/cma/battle-play-handoff';
 	import {
 		getBattleGuestPlayerId,
 		getBattleHostSecret,
@@ -144,7 +145,17 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function goToPlay() {
-		if (lobby?.game_pin) goto(`/play?pin=${lobby.game_pin}`);
+		if (!lobby) return;
+		const pin = prepareBattlePlayHandoff(lobby, {
+			userId: myUserId,
+			guestPlayerId: getBattleGuestPlayerId()
+		});
+		if (!pin) return;
+		goto(`/play?pin=${pin}`);
+	}
+
+	function enterGameFromLobby() {
+		goToPlay();
 	}
 
 	let playerNames = $derived(
@@ -211,7 +222,9 @@ SPDX-License-Identifier: MPL-2.0
 		{:else if lobby?.status === 'waiting' && !isHost}
 			<p class="text-center text-sm text-ink-muted">Waiting for the host to start…</p>
 		{:else if lobby?.game_pin}
-			<a href="/play?pin={lobby.game_pin}" class="ledger-btn-primary text-center">Enter game</a>
+			<button type="button" class="ledger-btn-primary text-center w-full" onclick={enterGameFromLobby}>
+				Enter game
+			</button>
 		{/if}
 	</Card>
 </div>

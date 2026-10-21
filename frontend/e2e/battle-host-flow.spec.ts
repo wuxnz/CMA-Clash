@@ -11,7 +11,7 @@ const artifactDir = '/opt/cursor/artifacts/screenshots';
 
 async function hostBattle(page: Page): Promise<string> {
 	await page.goto('/battle');
-	await page.getByRole('button', { name: /^Host$/ }).first().click({ timeout: 60_000 });
+	await page.locator('button.action-button', { hasText: 'Host' }).first().click({ timeout: 60_000 });
 	await expect(page).toHaveURL(/\/battle\/\d+/, { timeout: 30_000 });
 	const segments = new URL(page.url()).pathname.split('/');
 	return segments[segments.length - 1]!;
@@ -26,16 +26,15 @@ async function joinBattleLobby(page: Page, code: string, nickname: string): Prom
 	});
 }
 
-async function enterPlayFromLobby(page: Page): Promise<void> {
-	const enter = page.getByRole('link', { name: /enter game/i });
-	if (await enter.isVisible().catch(() => false)) {
-		await enter.click();
-	} else {
-		await page.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
-	}
-	await expect(page.getByTestId('answer-tiles').or(page.locator('button').first())).toBeVisible({
-		timeout: 120_000
-	});
+async function waitForBattleQuestions(page: Page): Promise<void> {
+	await page.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
+	await expect(page.getByTestId('answer-tiles')).toBeVisible({ timeout: 120_000 });
+}
+
+async function answerFirstTile(page: Page): Promise<void> {
+	const tiles = page.getByTestId('answer-tiles');
+	await expect(tiles).toBeVisible({ timeout: 120_000 });
+	await tiles.locator('button').first().click();
 }
 
 test.describe('battle host without create nickname', () => {
@@ -66,14 +65,33 @@ test.describe('battle host without create nickname', () => {
 		});
 
 		await hostPage.getByRole('button', { name: /start battle/i }).click();
-		await guestPage.waitForURL(/\/play\?pin=/, { timeout: 120_000 }).catch(() => undefined);
-		await hostPage.waitForURL(/\/play\?pin=/, { timeout: 120_000 }).catch(() => undefined);
 
-		await enterPlayFromLobby(hostPage);
-		await enterPlayFromLobby(guestPage);
+		await waitForBattleQuestions(hostPage);
+		await waitForBattleQuestions(guestPage);
+
+		await hostPage.screenshot({
+			path: path.join(artifactDir, 'battle-production-q1-host.png'),
+			fullPage: true
+		});
+		await guestPage.screenshot({
+			path: path.join(artifactDir, 'battle-production-q1-guest.png'),
+			fullPage: true
+		});
+
+		await answerFirstTile(hostPage);
+		await answerFirstTile(guestPage);
 
 		await expect(hostPage.getByTestId('answer-tiles')).toBeVisible({ timeout: 120_000 });
 		await expect(guestPage.getByTestId('answer-tiles')).toBeVisible({ timeout: 120_000 });
+
+		await hostPage.screenshot({
+			path: path.join(artifactDir, 'battle-production-q2-host.png'),
+			fullPage: true
+		});
+		await guestPage.screenshot({
+			path: path.join(artifactDir, 'battle-production-q2-guest.png'),
+			fullPage: true
+		});
 
 		await hostContext.close();
 		await guestContext.close();
