@@ -98,7 +98,7 @@ FACTS: list[dict] = [
         [
             "Begin chest compressions immediately without ever activating emergency response",
             "Leave the infant alone to search a distant building for an AED before any assessment",
-            "Offer water from a bottle to test swallowing before checking breathing or pulse",
+            "Wait for a caregiver to arrive before activating emergency response",
         ],
         "Early activation brings EMS and equipment while assessment continues. Compressions follow "
         "quick activation when arrest criteria are met, but ignoring help entirely delays advanced "
@@ -128,7 +128,7 @@ FACTS: list[dict] = [
         "Treat gasping as abnormal breathing and start CPR if no pulse is detected within 10 seconds",
         [
             "Consider gasping normal sleep breathing and withhold CPR until EMS confirms arrest",
-            "Provide oral fluids only because gasping suggests mild dehydration rather than arrest",
+            "Offer small sips of formula because gasping may reflect hunger rather than arrest",
             "Perform abdominal thrusts before any pulse check or chest compressions",
         ],
         "Agonal gasps are not effective ventilation and may occur during cardiac arrest. Treating "
@@ -142,7 +142,7 @@ FACTS: list[dict] = [
         "When should rescuers apply an AED during suspected cardiac arrest in an infant?",
         "As soon as the device is available, using pediatric pads or equipment when possible",
         [
-            "Only after the infant reaches 12 months of age regardless of arrest presentation",
+            "Only after the infant reaches 12 months of age even during witnessed collapse",
             "Never for patients under 10 kg even when arrest criteria are met",
             "Only in the hospital after physician approval and advanced monitoring are in place",
         ],
@@ -158,12 +158,12 @@ FACTS: list[dict] = [
         "Hard, fast compressions to one third AP depth with full chest recoil and minimal pauses",
         [
             "Leaning on the chest between compressions to conserve rescuer energy",
-            "Compressing only once every 10 seconds regardless of pulse status",
-            "Using fingertip pressure on the infant's face for leverage instead of sternal contact",
+            "Compressing only once every 10 seconds even when pulse is absent",
+            "Two-finger compressions on the lateral rib cage instead of the sternum",
         ],
         "Depth, rate, recoil, and limited interruptions define high-quality CPR. Leaning on the chest "
-        "blocks recoil and reduces perfusion. Facial leverage does not provide effective sternal "
-        "compression.",
+        "blocks recoil and reduces perfusion. Lateral rib compressions do not provide effective "
+        "sternal compression.",
         _HQ,
         "beginner",
     ),
@@ -190,7 +190,7 @@ FACTS: list[dict] = [
         "Many infant arrests begin with respiratory failure and hypoxia, so early ventilation matters",
         [
             "Chest compressions are unnecessary once two effective rescue breaths are given",
-            "Rescue breaths are optional for every infant regardless of arrest cause",
+            "Rescue breaths are optional when the infant had a witnessed collapse at home",
             "Compression-only CPR is the preferred lay approach for all infants under one year",
         ],
         "Respiratory failure commonly precedes infant cardiac arrest. Compressions remain essential "
@@ -206,7 +206,7 @@ FACTS: list[dict] = [
         [
             "Deliver each breath over at least 5 seconds to maximize oxygen delivery",
             "Give very short forceful puffs in under 0.1 second without checking chest rise",
-            "Continue blowing until the rescuer feels dizzy from hyperventilation",
+            "Deliver each breath over at least 5 seconds to maximize oxygen delivery",
         ],
         "Brief breaths that produce chest rise limit interruption time and gastric inflation. "
         "Five-second breaths excessively pause compressions. Forceful puffs without visible rise "
@@ -221,8 +221,8 @@ FACTS: list[dict] = [
         "Head tilt-chin lift while avoiding excessive neck extension",
         [
             "Jaw thrust with deliberate maximal neck hyperextension on every infant arrest",
-            "No head or chin movement regardless of whether the airway opens",
-            "Finger sweep of the oropharynx before every rescue breath regardless of visible objects",
+            "Keep the head and neck completely still even when the airway does not open",
+            "Finger sweep of the oropharynx before every rescue breath even when no object is seen",
         ],
         "Head tilt-chin lift opens the airway in most medical infant arrests. Infants have a "
         "relatively large occiput, so overextension can obstruct rather than open the airway. "
@@ -253,12 +253,12 @@ FACTS: list[dict] = [
         "of the bed?",
         "Two-thumb encircling hands technique on the lower half of the sternum",
         [
-            "One rescuer compresses the infant's head while the other delivers ventilations",
+            "Two-finger compressions on the upper sternum near the chin while ventilating",
             "Two-finger technique with both rescuers stacking hands on the upper abdomen",
             "Heel of one hand using adult compression depth on the upper sternum only",
         ],
         "Two-thumb encircling hands improve depth and recoil with two providers at the head of the "
-        "bed. Head compression is never appropriate. Abdominal stacking does not provide effective "
+        "bed. Upper-sternum two-finger placement and abdominal stacking do not provide effective "
         "cardiac compression during infant BLS.",
         _REF,
         "intermediate",
@@ -269,7 +269,7 @@ FACTS: list[dict] = [
         "rescuers avoid?",
         "Excessive neck extension during head tilt that can obstruct the airway",
         [
-            "Any head or neck movement regardless of trauma or airway status",
+            "Avoid any head or neck movement even when the airway stays obstructed",
             "Using a jaw thrust maneuver on every infant even when spine injury is not suspected",
             "Keeping the neck completely neutral with no attempt to open the airway",
         ],
@@ -332,7 +332,7 @@ FACTS: list[dict] = [
         "Which action best limits harmful pauses during infant CPR when an AED is integrated into care?",
         "Continue compressions until pads are ready, then pause only briefly for attachment and rhythm analysis",
         [
-            "Stop compressions for five minutes while reading the AED operator manual cover to cover",
+            "Stop compressions until the AED finishes its automatic self-test on startup",
             "Remove AED pads after each shock and do not resume CPR until EMS arrives",
             "Defer all AED use until the infant is transported to an outpatient clinic",
         ],
@@ -396,7 +396,7 @@ FACTS: list[dict] = [
         [
             "Only after return of spontaneous circulation has been confirmed",
             "Never switch compressors to avoid breaking team rhythm",
-            "Every 10 seconds regardless of fatigue or compression quality",
+            "Every 10 seconds even when rate and depth still meet targets",
         ],
         "Switching limits fatigue-related shallow compressions in prolonged infant resuscitation. "
         "Waiting for ROSC may allow poor quality for many cycles. Ten-second switches are excessively "
@@ -410,12 +410,12 @@ FACTS: list[dict] = [
  "mouth?",
  "Before giving rescue breaths if you suspect obstruction or after compressions as trained",
  [
- "Skip mouth inspection until several minutes of CPR have been completed",
+ "Skip mouth inspection until EMS arrives even when obstruction is suspected",
  "Perform blind finger sweeps after every compression",
- "Only after 30 minutes of compressions",
+ "Only inspect the mouth after several full 30:2 cycles without any breath attempt",
  ],
  "Visible objects may be removed if seen, but blind sweeps are not recommended. Never inspecting "
- "misses dislodged material before breaths. Delaying inspection for 30 minutes is inappropriate.",
+ "misses dislodged material before breaths when obstruction is suspected.",
  _REF,
  "intermediate",
  ),
@@ -593,12 +593,12 @@ FACTS: list[dict] = [
  "positioned how?",
  "At the infant's head with thumbs on the sternum and hands encircling the chest",
  [
- "At the infant's feet compressing the abdomen with stacked fists",
- "Standing across the room while directing breaths only",
- "Kneeling on the infant's legs to stabilize the body",
+ "At the infant's feet using stacked fists on the upper abdomen",
+ "One rescuer at the side compressing the abdomen while the other ventilates",
+ "Both rescuers kneeling on opposite sides of the chest to stabilize the infant",
  ],
  "Two-thumb technique is performed from the head with thumbs on the lower sternum. Abdominal "
- "fist compression is incorrect. Kneeling on the infant is unsafe and not part of BLS.",
+ "fist compression and side abdominal compressions are incorrect for infant BLS.",
  _REF,
  "advanced",
  ),
@@ -704,7 +704,7 @@ FACTS: list[dict] = [
  "Provide infant CPR with appropriate ratio for rescuer number, using gentle but effective compressions and ventilations",
  [
  "Defer all CPR because prematurity makes resuscitation futile",
- "Ventilate only without compressions regardless of pulse status",
+ "Ventilate only without compressions even when pulse is absent after the check",
  "Use adult 30:2 on the mother's chest instead of the infant",
  ],
  "Premature infants receive standard infant BLS when arrest criteria are met; gentleness does "

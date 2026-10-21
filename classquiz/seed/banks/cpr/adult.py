@@ -30,8 +30,8 @@ FACTS: list[dict] = [
  "What is the recommended compression depth range for most adults during BLS CPR?",
  "At least 2 inches (5 cm) but not more than 2.4 inches (6 cm)",
  [
- "About 1 inch (2.5 cm) to limit rib and sternal injury in all patients",
- "At least 3 inches (7.5 cm) for every adult regardless of body size",
+ "About 1 inch (2.5 cm) to limit rib and sternal injury during adult CPR",
+ "At least 3 inches (7.5 cm) on the sternum for all adult victims",
  "Any visible chest movement without a specified minimum depth target",
  ],
  "AHA targets at least 2 inches (5 cm) with an upper limit near 2.4 inches (6 cm) to balance "
@@ -348,7 +348,7 @@ FACTS: list[dict] = [
  [
  "Discharge the patient from the scene once a palpable pulse returns",
  "Resume chest compressions at half depth to maintain forward blood flow",
- "Place the patient upright in a chair and offer oral fluids immediately",
+ "Place the patient upright in a chair and stop all monitoring once pulse returns",
  ],
  "ROSC begins post-arrest care: maintain airway, support breathing, and monitor perfusion. "
  "Stopping all care at the scene or restarting full CPR without re-arrest ignores AHA integrated "
@@ -361,7 +361,7 @@ FACTS: list[dict] = [
  "When should a lay rescuer stop CPR on an adult who was in cardiac arrest?",
  "When the patient shows purposeful movement and begins breathing normally",
  [
- "After exactly two minutes of CPR regardless of any patient response",
+ "After exactly two minutes of CPR even when breathing and movement look normal",
  "When a single cough is heard once during ongoing compressions",
  "Only after EMS verbally orders cessation over the emergency radio",
  ],
@@ -389,7 +389,7 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "An unresponsive adult is on a soft mattress during CPR and compressions feel ineffective. What surface adjustment best supports high-quality compressions?",
- "Move the patient to a firm flat surface or use a backboard when available before continuing compressions",
+ "Move the patient to a firm flat surface before continuing compressions",
  [
  "Continue on the mattress because depth targets are unchanged on soft bedding",
  "Elevate the head of the bed to maximum height to improve blood return",
@@ -404,7 +404,7 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "During two-rescuer adult CPR, compressions measure about 1.5 inches despite full rescuer effort. What is the best immediate team response?",
- "Coach hand placement on the lower sternum, push for at least 2 inches (5 cm), and switch compressors if depth stays inadequate",
+ "Reposition on the lower sternum and compress to at least 2 inches (5 cm)",
  [
  "Accept 1.5 inches because any sternal movement creates some forward flow",
  "Stop chest compressions and provide ventilations only until depth improves on its own",
@@ -422,7 +422,7 @@ FACTS: list[dict] = [
  "At least 2 inches (5 cm) but not more than about 2.4 inches (6 cm) for most adults",
  [
  "Exactly 1 inch (2.5 cm) for all adults to minimize rib injury risk",
- "At least 3.5 inches (9 cm) for every adult regardless of chest size",
+ "At least 3.5 inches (9 cm) on the sternum for all adult victims",
  "Any visible chest motion without a measured depth target during arrest care",
  ],
  "One-and-a-half-inch compressions fall below the AHA minimum that generates useful coronary "
@@ -434,11 +434,11 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "After ROSC, an adult breathes normally and moves purposefully, and no trauma is suspected. What should BLS rescuers do while awaiting EMS?",
- "Stop compressions, monitor breathing and pulse continuously, and use a recovery position if the patient can maintain an open airway",
+ "Stop compressions and monitor breathing and pulse until EMS arrives",
  [
  "Continue 30:2 cycles because post-arrest movement may still represent seizure activity",
  "Stop compressions and leave the patient flat without further monitoring or positioning",
- "End all care at the scene and arrange private transport home without EMS evaluation",
+ "Stop compressions and leave the patient unattended once movement is seen",
  ],
  "Normal breathing with purposeful movement indicates circulation has returned; ongoing "
  "compressions can injure a perfusing patient. Monitoring and recovery positioning support "
@@ -479,7 +479,7 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "During 30:2 adult CPR you give a rescue breath and the chest does not rise. What is the best next action before additional ventilations?",
- "Reopen the airway with head tilt-chin lift or jaw thrust if trauma is suspected, then give another breath over about one second",
+ "Reopen the airway and give another breath over about one second",
  [
  "Deliver each subsequent breath with maximal force for about five seconds until resistance is felt",
  "Stop all ventilations for ten minutes and compress continuously without further breath attempts",
@@ -601,7 +601,7 @@ FACTS: list[dict] = [
  "EMS is still en route but an adult arrest victim starts breathing normally and moving purposefully during your CPR. When should a lay rescuer stop chest compressions?",
  "When there are obvious signs of life such as normal breathing and purposeful movement, while continuing to monitor until EMS arrives",
  [
- "After exactly two minutes of CPR regardless of any change in breathing or movement",
+ "After exactly two minutes of CPR even when breathing and movement look normal",
  "When a single cough is heard once while compressions are still in progress",
  "Only after EMS personnel verbally order CPR to stop over the radio or phone",
  ],
@@ -647,8 +647,8 @@ FACTS: list[dict] = [
  "Pauses let coronary perfusion pressure fall, reducing blood flow to the heart and brain between compressions",
  [
  "Pauses mainly increase the risk of rib fractures so compressions should never stop for any reason",
- "Pauses are primarily needed so family members can speak with the resuscitation team at the bedside",
- "Pauses help rescuers stay cool and reduce sweating during long resuscitation attempts",
+ "Pauses are mainly required so each rescuer can palpate a radial pulse before every compression",
+ "Long pauses help the compressor regain grip on the sternum between compression cycles",
  ],
  "Myocardial and cerebral perfusion depend on sustained compressions that rebuild pressure "
  "during diastole. Fracture concern or team comfort does not replace the physiologic reason "
@@ -691,7 +691,7 @@ FACTS: list[dict] = [
  "For which situation does AHA teach lay rescuers that compression-only CPR is appropriate for adults?",
  "Witnessed sudden cardiac arrest when the rescuer is unwilling or unable to give rescue breaths",
  [
- "Any unresponsive person regardless of whether breathing or a pulse is present",
+ "Any unresponsive adult even when breathing is normal and pulse is strong",
  "A lone rescuer with a pediatric drowning victim who is pulseless and apneic",
  "Only adults with end-stage chronic lung disease who still have a palpable pulse",
  ],

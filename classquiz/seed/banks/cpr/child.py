@@ -66,7 +66,7 @@ FACTS: list[dict] = [
         "Many pediatric arrests begin with respiratory failure, so early ventilation and oxygenation matter",
         [
             "Chest compressions are unnecessary once two effective rescue breaths are given",
-            "Rescue breaths are optional for every school-age child regardless of arrest cause",
+            "Rescue breaths are optional when the child had a witnessed collapse on dry land",
             "Compression-only CPR is the preferred lay approach for all pediatric age groups",
         ],
         "Hypoxia and respiratory failure are common pathways to pediatric cardiac arrest. "
@@ -83,7 +83,7 @@ FACTS: list[dict] = [
         [
             "Begin chest compressions immediately without checking for responsiveness",
             "Search the area for an AED before touching or assessing the child",
-            "Pour water on the child to test for reaction before any other assessment",
+            "Shake the shoulders for one full minute before calling for help",
         ],
         "Recognition of unresponsiveness triggers emergency activation and assessment of breathing "
         "and pulse. Starting compressions on a responsive child would be inappropriate. Scene safety "
@@ -189,7 +189,7 @@ FACTS: list[dict] = [
         "What compression depth target is recommended for most child victims during BLS CPR?",
         "At least one third of the anterior-posterior chest diameter, or about 2 inches (5 cm)",
         [
-            "Exactly 1 inch (2.5 cm) for every child regardless of chest size",
+            "Exactly 1 inch (2.5 cm) as the standard depth target for child CPR",
             "At least 3 inches (7.5 cm) for every child under 12 years of age",
             "Any visible chest motion without a specified minimum depth target",
         ],
@@ -332,7 +332,7 @@ FACTS: list[dict] = [
         "How should rescuers use the device?",
         "Attach pediatric pads or attenuator per manufacturer instructions and follow AED prompts",
         [
-            "Withhold defibrillation until the child reaches adult size regardless of rhythm",
+            "Withhold defibrillation until the child reaches adult size even in shockable rhythms",
             "Use maximum adult energy without pediatric equipment in every pediatric arrest",
             "Place both AED pads on the abdomen because the anterior chest is too small",
         ],
@@ -411,9 +411,9 @@ FACTS: list[dict] = [
         "When should rescuers use adult compression depth and hand-placement targets instead?",
         "When the victim is large enough that adult BLS technique is appropriate, often after puberty",
         [
-            "For every child older than one year regardless of chest size or body habitus",
+            "For any child older than one year even when the victim appears small for age",
             "Only when three trained rescuers are present and rotating compressor roles",
-            "Whenever an AED is attached to the chest, regardless of the victim's size",
+            "Whenever an AED is attached, using adult depth targets on all pediatric victims",
         ],
         "AHA pediatric BLS selects technique from victim size rather than age alone. One year of age "
         "does not automatically mandate adult depth. Attaching an AED does not change compression "
@@ -443,9 +443,9 @@ FACTS: list[dict] = [
         "guidelines during training and real events?",
         "Victims from about one year of age until puberty or until adult body size is reached",
         [
-            "Only neonates under one month of age regardless of weight or developmental stage",
+            "Only neonates under one month of age even when they appear school-age in size",
             "All patients from birth through 21 years of age without exception or size assessment",
-            "Only children who weigh less than 10 pounds regardless of age or appearance",
+            "Only children who weigh less than 10 pounds even when clearly older than infancy",
         ],
         "Child algorithms bridge infant and adult BLS for victims who are not infants and not "
         "adult-sized. Neonates and young infants follow infant BLS. Weight alone without age and "
@@ -460,8 +460,8 @@ FACTS: list[dict] = [
         "Place the child in a recovery position on the side and continue monitoring breathing and pulse",
         [
             "Keep the child flat supine with the head fully extended backward until EMS arrives",
-            "Place the child prone with the face buried in a pillow to prevent tongue obstruction",
-            "Sit the child upright unattended in another room while waiting for the ambulance",
+            "Keep the child flat supine with the chin forced maximally upward toward the ceiling",
+            "Prop the child upright in a car seat without ongoing pulse or breathing checks",
         ],
         "The recovery position helps maintain airway patency in a breathing post-arrest patient. "
         "Routine maximal hyperextension is not indicated after ROSC without trauma concerns. "
@@ -476,7 +476,7 @@ FACTS: list[dict] = [
         "At least one third of the anterior-posterior chest diameter, about 2 inches (5 cm)",
         [
             "Barely visible skin indentation without measurable sternal depression on each push",
-            "At least 4 inches (10 cm) for every pediatric patient regardless of chest size",
+            "At least 4 inches (10 cm) as the depth target for all pediatric CPR",
             "Only deep enough to produce an audible rib click on every compression cycle",
         ],
         "Adequate depth generates perfusion while limiting injury from excessive force. Barely visible "
@@ -493,7 +493,7 @@ FACTS: list[dict] = [
         [
             "Keep the same compressor until EMS arrives even if compression quality is clearly declining",
             "Keep one compressor for the entire arrest without rotating roles",
-            "Rotate compressors every 30 seconds regardless of fatigue or measured quality",
+            "Rotate compressors every 30 seconds even when rate and depth still meet targets",
         ],
         "Timely compressor switching limits fatigue-related shallow or slow compressions. Waiting only "
         "for EMS may allow poor quality for many two-minute cycles. Switching every 30 seconds is "
@@ -670,13 +670,13 @@ FACTS: list[dict] = [
         "compressions. What adjunct best supports the victim beyond compressions and ventilations?",
         "Cover the child with a dry blanket when possible while continuing high-quality CPR",
         [
-            "Immerse the child in cold water periodically to prevent post-arrest fever during CPR",
-            "Remove all remaining clothing and leave the child fully uncovered in the wind to cool down",
-            "Stop CPR every five minutes solely to warm the rescuers' hands before resuming compressions",
+            "Remove the shirt and leave the chest fully exposed to the air to speed cooling during CPR",
+            "Pause compressions for one minute each cycle so rescuers can warm their hands",
+            "Focus on compressions only and skip covering the child until EMS takes over",
         ],
         "Preventing hypothermia supports metabolic and resuscitation efforts during prolonged pediatric "
-        "CPR. Cold water immersion during active resuscitation is harmful. Deliberate heat loss from "
-        "uncovered exposure works against effective care in cool environments.",
+        "CPR. Leaving the chest exposed or pausing compressions to warm rescuers works against "
+        "effective care in cool environments when a dry blanket can help maintain warmth.",
         _REF,
         "advanced",
     ),
