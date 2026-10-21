@@ -11,6 +11,8 @@
 		subtitle?: string;
 	};
 
+	type Place = '1' | '2' | '3';
+
 	interface Props {
 		entries: PodiumEntry[];
 		/** Confetti after staged reveal (final game podium only). */
@@ -43,11 +45,50 @@
 					third: 'h-9 sm:h-20'
 				}
 			: {
-					first: 'h-28 sm:h-32',
-					second: 'h-[5.5rem] sm:h-24',
-					third: 'h-16 sm:h-20'
+					first: 'h-32 sm:h-36',
+					second: 'h-24 sm:h-28',
+					third: 'h-[4.5rem] sm:h-20'
 				}
 	);
+
+	type Column = {
+		place: Place;
+		entry: PodiumEntry;
+		visible: boolean;
+		heightClass: string;
+		flyY: number;
+		flyDelay?: number;
+	};
+
+	let columns = $derived.by((): Column[] => {
+		const cols: Column[] = [];
+		if (second)
+			cols.push({
+				place: '2',
+				entry: second,
+				visible: showSecond,
+				heightClass: pedestal.second,
+				flyY: 40
+			});
+		if (first)
+			cols.push({
+				place: '1',
+				entry: first,
+				visible: showFirst,
+				heightClass: pedestal.first,
+				flyY: 60
+			});
+		if (third)
+			cols.push({
+				place: '3',
+				entry: third,
+				visible: showThird,
+				heightClass: pedestal.third,
+				flyY: 40,
+				flyDelay: 100
+			});
+		return cols;
+	});
 
 	async function fireConfetti() {
 		if (!browser || !celebrate || reduced) return;
@@ -116,6 +157,7 @@
 		? 'gap-2 py-1'
 		: 'gap-6 py-8'}"
 	aria-label="Final standings"
+	data-testid="podium-root"
 >
 	<div
 		class="pointer-events-none absolute inset-0"
@@ -140,75 +182,72 @@
 	{/if}
 
 	<div
-		class="flex items-end justify-center w-full max-w-lg {compact
-			? 'gap-1.5 min-h-[3.5rem]'
-			: 'gap-3 sm:gap-6 min-h-[7rem] sm:min-h-[10rem]'}"
+		class="grid grid-cols-3 w-full mx-auto items-end {compact
+			? 'gap-1.5 max-w-[17.5rem] sm:max-w-lg'
+			: 'gap-3 sm:gap-5 max-w-md sm:max-w-lg'}"
 	>
-		{#if second && showSecond}
-			<div
-				class="flex flex-col items-center flex-1 max-w-[8rem]"
-				in:fly={reduced ? { duration: 0 } : { y: 40, duration: 500 }}
-			>
+		{#each columns as col (col.place)}
+			{#if col.visible}
 				<div
-					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {pedestal.second}"
+					class="flex flex-col items-center min-w-0 w-full"
+					in:fly={reduced ? { duration: 0 } : { y: col.flyY, delay: col.flyDelay ?? 0, duration: 500 }}
 				>
-					<p class="font-mono text-ink-muted {compact ? 'text-lg sm:text-2xl' : 'text-2xl'}">2</p>
+					<div
+						class="w-full shrink-0 text-center mb-1 sm:mb-2 {compact
+							? 'min-h-[2rem] sm:min-h-[2.5rem]'
+							: 'min-h-[2.75rem] sm:min-h-[3.25rem]'}"
+					>
+						<p
+							class="font-display text-ink truncate w-full px-0.5 {col.place === '1'
+								? 'font-bold'
+								: 'font-semibold'} {compact
+								? 'text-[11px] sm:text-sm'
+								: 'text-sm sm:text-base'}"
+							title={col.entry.name}
+						>
+							{col.entry.name}
+						</p>
+						<p
+							class="font-mono text-ink-muted tabular-nums {compact
+								? 'text-[10px] sm:text-xs'
+								: 'text-xs sm:text-sm'}"
+						>
+							{col.entry.score}
+						</p>
+						{#if col.place === '1' && col.entry.subtitle}
+							<p class="text-[10px] sm:text-xs text-ink-muted truncate w-full px-0.5">
+								{col.entry.subtitle}
+							</p>
+						{/if}
+					</div>
+					<div
+						data-testid="podium-pedestal-{col.place}"
+						class="w-full box-border rounded-t-lg sm:rounded-t-xl flex flex-col justify-end text-center shadow-sm border-2 {col.heightClass} {col.place ===
+						'1'
+							? 'bg-gold/20 border-gold shadow-md relative overflow-hidden'
+							: 'bg-surface border-transparent'}"
+					>
+						{#if col.place === '1'}
+							<div class="absolute inset-x-0 top-0 h-0.5 sm:h-1 bg-gold" aria-hidden="true"></div>
+						{/if}
+						<p
+							class="font-mono font-bold pb-1 sm:pb-2 {col.place === '1'
+								? 'text-gold'
+								: 'text-ink-muted'} {compact
+								? col.place === '1'
+									? 'text-xl sm:text-3xl'
+									: 'text-lg sm:text-2xl'
+								: col.place === '1'
+									? 'text-3xl sm:text-4xl'
+									: 'text-2xl sm:text-3xl'}"
+						>
+							{col.place}
+						</p>
+					</div>
 				</div>
-				<p
-					class="mt-1 sm:mt-2 font-display font-semibold text-ink truncate w-full text-center {compact
-						? 'text-[11px] sm:text-sm'
-						: 'text-sm'}"
-				>
-					{second.name}
-				</p>
-				<p class="font-mono text-[10px] sm:text-xs text-ink-muted tabular-nums">{second.score}</p>
-			</div>
-		{/if}
-		{#if first && showFirst}
-			<div
-				class="flex flex-col items-center flex-1 max-w-[9rem]"
-				in:fly={reduced ? { duration: 0 } : { y: 60, duration: 600 }}
-			>
-				<div
-					class="w-full rounded-t-lg sm:rounded-t-xl bg-gold/20 border-2 border-gold px-1 py-2 sm:px-2 sm:py-4 text-center shadow-md flex flex-col justify-end relative overflow-hidden {pedestal.first}"
-				>
-					<div class="absolute inset-x-0 top-0 h-0.5 sm:h-1 bg-gold" aria-hidden="true"></div>
-					<p class="font-mono text-gold font-bold {compact ? 'text-xl sm:text-3xl' : 'text-3xl'}">
-						1
-					</p>
-				</div>
-				<p
-					class="mt-1 sm:mt-2 font-display font-bold text-ink truncate w-full text-center {compact
-						? 'text-xs sm:text-base'
-						: ''}"
-				>
-					{first.name}
-				</p>
-				<p class="font-mono text-[10px] sm:text-sm text-ink tabular-nums">{first.score}</p>
-				{#if first.subtitle}
-					<p class="text-xs text-ink-muted text-center">{first.subtitle}</p>
-				{/if}
-			</div>
-		{/if}
-		{#if third && showThird}
-			<div
-				class="flex flex-col items-center flex-1 max-w-[8rem]"
-				in:fly={reduced ? { duration: 0 } : { y: 40, delay: 100, duration: 500 }}
-			>
-				<div
-					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {pedestal.third}"
-				>
-					<p class="font-mono text-ink-muted {compact ? 'text-lg sm:text-2xl' : 'text-2xl'}">3</p>
-				</div>
-				<p
-					class="mt-1 sm:mt-2 font-display font-semibold text-ink truncate w-full text-center {compact
-						? 'text-[11px] sm:text-sm'
-						: 'text-sm'}"
-				>
-					{third.name}
-				</p>
-				<p class="font-mono text-[10px] sm:text-xs text-ink-muted tabular-nums">{third.score}</p>
-			</div>
-		{/if}
+			{:else}
+				<div class="min-w-0 w-full" aria-hidden="true"></div>
+			{/if}
+		{/each}
 	</div>
 </div>
