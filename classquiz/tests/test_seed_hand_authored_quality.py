@@ -94,6 +94,18 @@ _CPR_PHLEB_EVERY_DISTRACTOR = re.compile(
     r"\bfor\s+every\b|\bevery\s+(infant|child|adult|patient|cycle|specimen)\b",
     re.I,
 )
+_CPR_PHLEB_IMPLAUSIBLE_DISTRACTOR_PATTERNS = [
+    re.compile(r"\bpour\s+water\b", re.I),
+    re.compile(r"\bmicrowave\b", re.I),
+    re.compile(r"\bfingernail", re.I),
+    re.compile(r"\bunrelated\s+finger\b", re.I),
+    re.compile(r"\bpowers\s+off\s+permanently\b", re.I),
+    re.compile(r"\bsaline\s+dilution\b", re.I),
+    re.compile(r"\bimmediate\s+freezing\s+before\s+clot\b", re.I),
+    re.compile(r"\bchange\s+into\s+dry\s+clothing\b", re.I),
+    re.compile(r"\bmother'?s\s+chest\b", re.I),
+    re.compile(r"\bresuscitation\s+futile\b", re.I),
+]
 _FRAGMENT_TAIL_QUESTION = re.compile(
     r"(?:"
     r"\bis placed\?|\bshould\?|\bfrom the\?|\bof\?|\bbe\?|\bserves as\?|"
