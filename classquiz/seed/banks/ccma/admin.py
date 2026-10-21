@@ -10,33 +10,11 @@ from classquiz.seed.banks._builder import fact
 
 FACTS: list[dict] = [
     # ccma-admin-001
-    fact(
-        "ccma-admin",
-        "When should a medical office collect a patient copayment?",
-        "At the time of service according to the payer contract",
-        [
-            "After the plan's annual deductible resets in January",
-            "When the patient submits a tax return",
-            "During inpatient admission regardless of outpatient policy",
-        ],
-        "Copayments are fixed cost-sharing amounts defined in the benefit plan. Collecting at the visit matches most payer contracts and reduces accounts receivable follow-up.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'When should a medical office collect a patient copayment?', 'Collect the contracted copayment at the time of service', ["Bill the copayment after the plan's annual deductible is fully met for the year", 'Collect the copayment after the payer sends an explanation of benefits', 'Defer copayment collection until the patient submits a tax return'], 'Copayments are fixed cost-sharing amounts defined in the benefit plan. Collecting at the visit matches most payer contracts and reduces accounts receivable follow-up.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-002
-    fact(
-        "ccma-admin",
-        "Under which circumstance may a managed care plan require a referral?",
-        "The member selected a primary care gatekeeper plan that mandates specialist authorization",
-        [
-            "The patient pays the day sheet in cash",
-            "The visit includes a routine blood pressure screening",
-            "The clinic schedules a flu vaccine clinic",
-        ],
-        "Gatekeeper models tie specialist access to PCP referral rules. Cash payment or preventive nursing measures do not by themselves trigger referral requirements.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'Under which circumstance may a managed care plan require a referral?', 'The member selected a primary care gatekeeper plan that mandates specialist authorization', ['The member enrolled in a plan that requires primary care referral for specialists', 'The patient pays cash at check-in for a covered preventive visit', 'The visit includes a routine blood pressure screening in primary care'], 'Gatekeeper models tie specialist access to PCP referral rules. Cash payment or preventive nursing measures do not by themselves trigger referral requirements.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-003
     fact(
         "ccma-admin",
@@ -52,19 +30,8 @@ FACTS: list[dict] = [
         "beginner",
     ),
     # ccma-admin-004
-    fact(
-        "ccma-admin",
-        "What does the accounts receivable ledger track for a medical practice?",
-        "Outstanding balances owed by patients and third-party payers",
-        [
-            "Par levels for exam room gloves",
-            "Employee paid time off balances",
-            "Laboratory specimen rejection rates",
-        ],
-        "Accounts receivable reflects revenue still due after service. Inventory and HR metrics belong to other operational reports.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What does the accounts receivable ledger track for a medical practice?', 'Outstanding balances owed by patients and third-party payers', ['Daily cash receipts at check-in without tracking unpaid claim balances', 'Par levels and reorder points for exam room supplies', 'Paid-time-off accrual balances maintained for clinic employees'], 'Accounts receivable reflects revenue still due after service. Inventory and HR metrics belong to other operational reports.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-005
     fact(
         "ccma-admin",
@@ -80,47 +47,14 @@ FACTS: list[dict] = [
         "beginner",
     ),
     # ccma-admin-006
-    fact(
-        "ccma-admin",
-        "How should no-show appointments be handled in the electronic health record?",
-        "Document the missed visit per policy so scheduling and outreach can follow up",
-        [
-            "Delete the patient's entire chart to free space",
-            "Convert the slot into a billing code for a completed visit",
-            "Leave the schedule blank without any note",
-        ],
-        "No-show tracking supports access management and may trigger outreach. Deleting charts or fabricating visits creates legal and revenue integrity problems.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'How should no-show appointments be handled in the electronic health record?', 'Document the missed visit per policy so scheduling and outreach can follow up', ['Reschedule the slot silently without documenting the missed visit', 'Convert the missed appointment into a completed visit for billing', 'Leave the schedule entry blank without a no-show note or status update'], 'No-show tracking supports access management and may trigger outreach. Deleting charts or fabricating visits creates legal and revenue integrity problems.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-007
-    fact(
-        "ccma-admin",
-        "What is the primary legal role of the medical record?",
-        "It documents the care provided and supports continuity, billing, and legal review",
-        [
-            "It serves as a personal journal for staff opinions",
-            "It may be discarded after each outpatient visit",
-            "It replaces informed consent forms in every setting",
-        ],
-        "The record is the formal account of patient care. It is retained per law and policy, and it complements rather than replaces consent documentation.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What is the primary legal role of the medical record?', 'It documents the care provided and supports continuity, billing, and legal review', ['It serves as an informal staff journal for opinions unrelated to patient care', 'It may be discarded after each outpatient visit when storage is limited', 'It replaces informed consent forms in every clinical setting'], 'The record is the formal account of patient care. It is retained per law and policy, and it complements rather than replaces consent documentation.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-008
-    fact(
-        "ccma-admin",
-        "How is a copayment defined in most commercial insurance plans?",
-        "A fixed dollar amount the member pays for a covered service at the time of care",
-        [
-            "The full billed charge regardless of contract",
-            "A payment made by the clinic to the employer",
-            "A penalty assessed when the patient uses an in-network provider",
-        ],
-        "Copays are predetermined member responsibility for covered services. They differ from total charges and are not paid by the clinic to others.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'How is a copayment defined in most commercial insurance plans?', 'A fixed dollar amount the member pays for a covered service at the time of care', ['The full billed charge before contractual adjustments are applied', "A payment made by the clinic to the member's employer each quarter", 'A penalty assessed when the member uses an in-network contracted provider'], 'Copays are predetermined member responsibility for covered services. They differ from total charges and are not paid by the clinic to others.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-009
     fact(
         "ccma-admin",
@@ -136,33 +70,11 @@ FACTS: list[dict] = [
         "beginner",
     ),
     # ccma-admin-010
-    fact(
-        "ccma-admin",
-        "Why is insurance eligibility verification helpful when scheduling a new patient?",
-        "It confirms active coverage before services are provided",
-        [
-            "It removes the need to obtain a medical history",
-            "It exempts the clinic from HIPAA privacy rules",
-            "It eliminates member cost sharing for every service",
-        ],
-        "Eligibility responses reduce surprise denials and clarify benefits. Privacy rules and clinical assessment requirements still apply.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'Why is insurance eligibility verification helpful when scheduling a new patient?', 'It confirms active coverage before services are provided', ['It removes the need to obtain a focused medical history at the visit', 'It exempts the clinic from HIPAA privacy rules during registration', 'It eliminates member cost sharing for every covered service on the plan'], 'Eligibility responses reduce surprise denials and clarify benefits. Privacy rules and clinical assessment requirements still apply.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-011
-    fact(
-        "ccma-admin",
-        "What is the goal of a practice compliance program?",
-        "Promote ethical coding, billing, and adherence to regulations",
-        [
-            "Maximize revenue through intentional upcoding",
-            "Destroy audit logs after each business day",
-            "Ignore Office of Inspector General guidance",
-        ],
-        "Compliance programs train staff and monitor processes to prevent fraud and abuse. Destroying audits or ignoring OIG guidance increases legal risk.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What is the goal of a practice compliance program?', 'Promote ethical coding, billing, and adherence to regulations', ['Maximize revenue through intentional upcoding without supporting documentation', 'Disable audit logs after each business day to reduce storage use', 'Ignore Office of Inspector General guidance on billing integrity'], 'Compliance programs train staff and monitor processes to prevent fraud and abuse. Destroying audits or ignoring OIG guidance increases legal risk.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-012
     fact(
         "ccma-admin",
@@ -178,61 +90,17 @@ FACTS: list[dict] = [
         "beginner",
     ),
     # ccma-admin-013
-    fact(
-        "ccma-admin",
-        "What is the focus of accounts receivable follow-up work?",
-        "Collecting or resolving unpaid patient and payer balances",
-        [
-            "Ordering exam room paper supplies",
-            "Scheduling staff break rotations",
-            "Archiving personal email folders",
-        ],
-        "Follow-up targets outstanding balances on statements and remittance advice. Supply ordering is materials management, not collections.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What is the focus of accounts receivable follow-up work?', 'Collecting or resolving unpaid patient and payer balances', ['Ordering exam room paper supplies when par levels fall below threshold', 'Scheduling staff break rotations for the front desk each week', 'Archiving personal email folders unrelated to patient billing'], 'Follow-up targets outstanding balances on statements and remittance advice. Supply ordering is materials management, not collections.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-014
-    fact(
-        "ccma-admin",
-        "Why are audit trails in billing modules important?",
-        "They show who changed charges, payments, or adjustments",
-        [
-            "They hide user activity from compliance officers",
-            "They replace clinical progress notes",
-            "They remove the need for unique login credentials",
-        ],
-        "Audit logs support internal monitoring and payer audits. They supplement, not replace, clinical documentation and authentication controls.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'Why are audit trails in billing modules important?', 'They show who changed charges, payments, or adjustments', ['They hide user activity from compliance officers during internal audits', 'They replace clinical progress notes in the legal medical record', 'They remove the need for unique login credentials on shared workstations'], 'Audit logs support internal monitoring and payer audits. They supplement, not replace, clinical documentation and authentication controls.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-015
-    fact(
-        "ccma-admin",
-        "What do Current Procedural Terminology (CPT) codes describe?",
-        "Physician and other qualified health care professional services and procedures",
-        [
-            "Vacutainer tube additive colors",
-            "Reference ranges for vital signs",
-            "Recommended injection angles for vaccines",
-        ],
-        "CPT codes report billable procedures and visits. Specimen handling colors and vital norms are reference data, not CPT descriptors.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What do Current Procedural Terminology (CPT) codes describe?', 'Physician and other qualified health care professional services and procedures', ['Vacutainer tube additive colors used during outpatient phlebotomy', 'Reference ranges for adult vital signs documented in triage', 'Recommended injection angles for intramuscular vaccines in the deltoid'], 'CPT codes report billable procedures and visits. Specimen handling colors and vital norms are reference data, not CPT descriptors.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-016
-    fact(
-        "ccma-admin",
-        "When does coordination of benefits apply?",
-        "A patient has more than one active health plan that may share payment responsibility",
-        [
-            "The patient is uninsured and pays cash",
-            "The visit is limited to vision hardware fitting",
-            "The clinic closes for a weather emergency",
-        ],
-        "Secondary and primary payers are identified when multiple policies exist. Uninsured cash visits do not trigger coordination rules.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'When does coordination of benefits apply?', 'A patient has more than one active health plan that may share payment responsibility', ['The patient is uninsured and pays cash at the time of service', 'The visit is limited to vision hardware fitting without medical services', 'The clinic closes for a weather emergency before the visit occurs'], 'Secondary and primary payers are identified when multiple policies exist. Uninsured cash visits do not trigger coordination rules.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-017
     fact(
         "ccma-admin",
@@ -262,47 +130,14 @@ FACTS: list[dict] = [
         "intermediate",
     ),
     # ccma-admin-019
-    fact(
-        "ccma-admin",
-        "Which data may appear on an electronic eligibility response?",
-        "Coverage status, plan name, and benefit highlights",
-        [
-            "Patient portal passwords",
-            "Unrelated consumer credit scores by default",
-            "Home addresses of billing staff",
-        ],
-        "Eligibility transactions return benefit information permitted by the transaction. Authentication secrets and employee home data are out of scope.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'Which data may appear on an electronic eligibility response?', 'Coverage status, plan name, and benefit highlights', ['Patient portal passwords stored for password-reset convenience', 'Unrelated consumer credit scores pulled for every eligibility check', 'Home addresses of billing staff maintained in the registration module'], 'Eligibility transactions return benefit information permitted by the transaction. Authentication secrets and employee home data are out of scope.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-020
-    fact(
-        "ccma-admin",
-        "How does the HIPAA minimum necessary standard apply in the billing office?",
-        "Staff should access the least PHI needed to perform the billing task",
-        [
-            "Entire charts may be emailed to any vendor upon request",
-            "Diagnosis lists can be posted in the waiting room",
-            "Break room televisions may display claim details",
-        ],
-        "Minimum necessary limits incidental disclosure during payment operations. Public display of diagnoses violates privacy expectations.",
-        [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'How does the HIPAA minimum necessary standard apply in the billing office?', 'Staff should access the least PHI needed to perform the billing task', ['Entire charts may be emailed to any vendor upon verbal request', 'Diagnosis lists may be posted in the waiting room for registration efficiency', 'Break room televisions may display claim details during lunch breaks'], 'Minimum necessary limits incidental disclosure during payment operations. Public display of diagnoses violates privacy expectations.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-021
-    fact(
-        "ccma-admin",
-        "What is the purpose of ICD-10-CM diagnosis coding on a claim?",
-        "Communicate why the patient was seen and justify medical necessity",
-        [
-            "Record the sequence of blood tube draws",
-            "Document chest compression depth during CPR",
-            "List EKG electrode cable colors",
-        ],
-        "Diagnosis codes explain the reason for service. Procedural technique details belong in clinical documentation, not ICD-10-CM selection.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'What is the purpose of ICD-10-CM diagnosis coding on a claim?', 'Communicate why the patient was seen and justify medical necessity', ['Record the sequence of blood tube draws as the primary diagnosis code', 'Document chest compression depth during CPR as an ICD-10-CM entry', 'List EKG electrode cable colors as diagnosis descriptors on the claim'], 'Diagnosis codes explain the reason for service. Procedural technique details belong in clinical documentation, not ICD-10-CM selection.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-022
     fact(
         "ccma-admin",
@@ -318,75 +153,20 @@ FACTS: list[dict] = [
         "intermediate",
     ),
     # ccma-admin-023
-    fact(
-        "ccma-admin",
-        "When should CPT modifiers be appended to a claim line?",
-        "When payer rules require clarification of how a service was performed",
-        [
-            "On every line to raise payment without documentation",
-            "Instead of supplying any diagnosis code",
-            "To replace medical record documentation entirely",
-        ],
-        "Modifiers convey special circumstances such as bilateral procedures. They do not substitute for diagnoses or clinical records.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'When should CPT modifiers be appended to a claim line?', 'When payer rules require clarification of how a service was performed', ['On every claim line to increase payment without supporting documentation', 'Instead of supplying any diagnosis code on the professional claim', 'To replace medical record documentation required for audit review'], 'Modifiers convey special circumstances such as bilateral procedures. They do not substitute for diagnoses or clinical records.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-024
-    fact(
-        "ccma-admin",
-        "What does prior authorization indicate for a scheduled service?",
-        "The payer may require approval before the procedure or test is performed",
-        [
-            "The member will have no cost sharing for the service",
-            "HIPAA authorization is no longer required for treatment",
-            "The medical assistant may perform invasive surgery independently",
-        ],
-        "Prior auth addresses coverage and medical necessity review. It does not change scope of practice or eliminate copays by itself.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'What does prior authorization indicate for a scheduled service?', 'The payer may require approval before the procedure or test is performed', ['The member will have no cost sharing for the service once scheduled', 'HIPAA authorization is no longer required for treatment at that visit', 'The medical assistant may perform invasive surgery without provider oversight'], 'Prior auth addresses coverage and medical necessity review. It does not change scope of practice or eliminate copays by itself.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-025
-    fact(
-        "ccma-admin",
-        "What registration steps are important when enrolling a minor patient?",
-        "Verify guardian identity and custody or consent authority when applicable",
-        [
-            "Accept the minor's signature as the sole legal authorization",
-            "Omit guardian contact information to save time",
-            "Publish the patient's home address on the clinic website",
-        ],
-        "Minors generally require guardian involvement for consent and billing. Public posting of addresses breaches privacy and safety expectations.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'What registration steps are important when enrolling a minor patient?', 'Verify guardian identity and custody or consent authority when applicable', ["Accept the minor's signature as the sole legal authorization for surgery", 'Omit guardian contact information when the minor appears cooperative', "Publish the patient's home address on the clinic website for verification"], 'Minors generally require guardian involvement for consent and billing. Public posting of addresses breaches privacy and safety expectations.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-026
-    fact(
-        "ccma-admin",
-        "What risk can occur if providers are double-booked without a written scheduling policy?",
-        "Visit length and patient access may suffer, leading to dissatisfaction",
-        [
-            "Clinical quality automatically improves for every patient",
-            "HIPAA privacy rules are waived for that day",
-            "Waiting times disappear for all appointment types",
-        ],
-        "Overbooking without controls can shorten contact time and delay care. It does not alter privacy law or eliminate queues by itself.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'What risk can occur if providers are double-booked without a written scheduling policy?', 'Visit length and patient access may suffer, leading to dissatisfaction', ['Clinical quality automatically improves for every patient in the schedule', 'HIPAA privacy rules are waived for the day when double booking occurs', 'Waiting times disappear for all appointment types without added staff'], 'Overbooking without controls can shorten contact time and delay care. It does not alter privacy law or eliminate queues by itself.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-027
-    fact(
-        "ccma-admin",
-        "How do scheduling templates benefit an outpatient practice?",
-        "They align appointment types with provider time and room resources",
-        [
-            "They permanently hide all open appointment slots",
-            "They require unlimited double booking of physical exams",
-            "They remove the need to document visit types",
-        ],
-        "Templates balance acute, preventive, and procedure visits. Hiding slots or skipping documentation undermines access and data quality.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'How do scheduling templates benefit an outpatient practice?', 'They align appointment types with provider time and room resources', ['They permanently hide all open appointment slots from schedulers', 'They require unlimited double booking of comprehensive physical exams', 'They remove the need to document visit types in the health record'], 'Templates balance acute, preventive, and procedure visits. Hiding slots or skipping documentation undermines access and data quality.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-028
     fact(
         "ccma-admin",
@@ -402,19 +182,8 @@ FACTS: list[dict] = [
         "intermediate",
     ),
     # ccma-admin-029
-    fact(
-        "ccma-admin",
-        "For which type of claim is the CMS-1500 form commonly used?",
-        "Professional services provided in outpatient settings",
-        [
-            "Inpatient facility charges billed on the UB-04",
-            "Retail prescription labels printed by pharmacies",
-            "Internal employee payroll direct deposits",
-        ],
-        "CMS-1500 is the standard professional claim form in many ambulatory settings. Inpatient facilities typically use UB-04 institutional claims.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'For which type of claim is the CMS-1500 form commonly used?', 'Professional services provided in outpatient settings', ['Inpatient facility charges billed on the UB-04 institutional claim', 'Retail prescription labels printed at the community pharmacy counter', 'Internal employee payroll direct deposits from the practice bank account'], 'CMS-1500 is the standard professional claim form in many ambulatory settings. Inpatient facilities typically use UB-04 institutional claims.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-030
     fact(
         "ccma-admin",
@@ -654,114 +423,30 @@ FACTS: list[dict] = [
         "intermediate",
     ),
     # ccma-admin-047
-    fact(
-        "ccma-admin",
-        "During end-of-day reconciliation, the day sheet total does not match the cash drawer. What is the best next step?",
-        "Investigate discrepancies using receipts and EHR posting reports per policy",
-        [
-            "Adjust totals without documentation to match the drawer",
-            "Discard the day sheet to avoid supervisor review",
-            "Combine tomorrow's deposits without recounting",
-        ],
-        "Financial controls require tracing variances through documented transactions. Undocumented adjustments hide errors or theft.",
-        [S.NHA_CCMA],
-        "advanced",
-    ),
+        fact('ccma-admin', 'During end-of-day reconciliation, the day sheet total does not match the cash drawer. What is the best next step?', 'Investigate discrepancies using receipts and EHR posting reports per policy', ['Adjust totals without documentation so the drawer balance matches', 'Discard the day sheet to avoid supervisor review of the variance', "Combine tomorrow's deposits without recounting today's transactions"], 'Financial controls require tracing variances through documented transactions. Undocumented adjustments hide errors or theft.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-admin-048
-    fact(
-        "ccma-admin",
-        "What does a Current Procedural Terminology (CPT) code primarily describe on a claim?",
-        "A procedure or service performed",
-        ["A patient address",
-        "A nursing diagnosis narrative",
-        "A medication allergy"],
-        "CPT codes report professional services and procedures. Diagnoses are coded with ICD-10-CM, which students sometimes swap on billing items.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'Which of the following does a Current Procedural Terminology (CPT) code describe on a claim?', 'A procedure or service performed during the encounter', ["The patient's mailing address and demographic identifiers", 'A nursing diagnosis narrative entered in the progress note', 'A medication allergy listed in the allergy module'], 'CPT codes report professional services and procedures. Diagnoses are coded with ICD-10-CM, which students sometimes swap on billing items.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-049
-    fact(
-        "ccma-admin",
-        "When verifying insurance eligibility, what key detail confirms active coverage on the date of service?",
-        "Payer response showing plan status and effective dates for the patient",
-        ["A verbal promise from the patient",
-        "The color of the insurance card",
-        "Whether the patient parked in the clinic lot"],
-        "Eligibility systems return structured benefit data tied to policy dates. Card appearance does not prove active enrollment.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'When verifying insurance eligibility before a visit, which response element best confirms active coverage?', 'Payer data showing plan status and effective dates for the member', ['A verbal assurance from the patient that coverage is current', 'The background color and layout of the plastic insurance card', 'Group and member numbers on the card without an eligibility transaction response'], 'Eligibility systems return structured benefit data tied to policy dates. Card appearance does not prove active enrollment.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-050
-    fact(
-        "ccma-admin",
-        "What is a deductible in a commercial health plan?",
-        "The amount the patient pays for covered services before the plan begins sharing cost",
-        ["A fixed copay collected at every visit",
-        "The clinic's wholesale supply budget",
-        "A code describing surgical procedures"],
-        "Deductibles are annual patient responsibility thresholds. Copays are per-visit amounts; CPT codes describe services, not plan design.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What is a deductible in a commercial health plan?', 'The amount the patient pays for covered services before the plan shares cost', ['A fixed copay collected at every visit regardless of benefit design', "The clinic's wholesale budget for medical supplies and vaccines", 'A diagnosis code describing the reason for the outpatient visit'], 'Deductibles are annual patient responsibility thresholds. Copays are per-visit amounts; CPT codes describe services, not plan design.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-051
-    fact(
-        "ccma-admin",
-        "Why is accurate demographic data entry important at registration?",
-        "It links results, bills, and correspondence to the correct individual",
-        ["It allows sharing records with random callers",
-        "It removes the need for patient identification later",
-        "It guarantees clinical outcomes"],
-        "Wrong demographics cause merged charts and misdirected PHI. Identification and clinical quality still require ongoing verification.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'Why is accurate demographic data entry important at registration?', 'It links results, bills, and correspondence to the correct individual', ['It allows sharing records with any caller who knows the patient name', 'It removes the need for patient identification at subsequent visits', 'It guarantees improved clinical outcomes without ongoing verification'], 'Wrong demographics cause merged charts and misdirected PHI. Identification and clinical quality still require ongoing verification.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-052
-    fact(
-        "ccma-admin",
-        "What does accounts receivable aging track?",
-        "How long patient and payer balances have remained unpaid",
-        ["Vaccine refrigerator temperature trends",
-        "Employee vacation accrual",
-        "Suture removal dates"],
-        "AR aging supports collection workflows and cash flow analysis. Clinical device logs track different quality metrics.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'What does accounts receivable aging track?', 'How long patient and payer balances have remained unpaid', ['Vaccine refrigerator temperature trends documented on daily logs', 'Employee vacation accrual balances maintained by human resources', 'Suture removal dates tracked in the procedure room log'], 'AR aging supports collection workflows and cash flow analysis. Clinical device logs track different quality metrics.', [S.NHA_CCMA], 'beginner'),
+
     # ccma-admin-053
-    fact(
-        "ccma-admin",
-        "A workers' compensation visit requires which registration detail?",
-        "Employer name, injury date, and mechanism when known",
-        ["Patient shoe size for billing",
-        "Favorite television show",
-        "Unrelated family member income"],
-        "Occupational claims need injury context for adjusters. Personal preferences do not satisfy regulatory billing fields.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', "A workers' compensation visit requires which registration detail?", 'Employer name, injury date, and mechanism when known', ['Employer name documented without date or mechanism of injury', 'Verbal injury report charted without employer identification', 'Standard cosmetic procedure consent for elective surgery'], 'Occupational claims need injury context for adjusters. Personal preferences do not satisfy regulatory billing fields.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-054
-    fact(
-        "ccma-admin",
-        "What is coordination of benefits when a patient has two insurance plans?",
-        "Rules that determine which plan pays first",
-        ["A method to duplicate payment for the same service",
-        "A nursing diagnosis code",
-        "A type of surgical consent"],
-        "Primary and secondary payers follow contract order to avoid overpayment. It is not a clinical consent document.",
-        [S.NHA_CCMA],
-        "intermediate",
-    ),
+        fact('ccma-admin', 'What is coordination of benefits when a patient has two insurance plans?', 'Rules that determine which plan pays first', ['A method to duplicate payment from both plans for the same service', 'A nursing diagnosis code describing self-care deficits in the chart', 'A type of surgical consent signed before invasive procedures'], 'Primary and secondary payers follow contract order to avoid overpayment. It is not a clinical consent document.', [S.NHA_CCMA], 'intermediate'),
+
     # ccma-admin-055
-    fact(
-        "ccma-admin",
-        "When collecting a copayment, what receipt information helps the patient?",
-        "Date, amount paid, and service location",
-        ["Another patient's account number",
-        "Staff home addresses",
-        "Unrelated lab reference ranges"],
-        "Copay receipts support personal records and secondary billing. Other patients' identifiers must not appear.",
-        [S.NHA_CCMA],
-        "beginner",
-    ),
+        fact('ccma-admin', 'When collecting a copayment, what receipt information helps the patient?', 'Date, amount paid, and service location', ["Another patient's account number printed for cross-reference", 'Staff home addresses listed for patient billing questions', 'Unrelated laboratory reference ranges copied from a lab report'], "Copay receipts support personal records and secondary billing. Other patients' identifiers must not appear.", [S.NHA_CCMA], 'beginner'),
+
 ]
