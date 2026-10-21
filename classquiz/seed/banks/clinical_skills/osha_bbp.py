@@ -129,7 +129,7 @@ FACTS: list[dict] = [
         "Wash the area, report promptly, and seek medical evaluation per exposure protocol",
         [
             "Squeeze the wound and return to patient care without telling anyone",
-            "Apply a cosmetic bandage and finish the schedule before clocking out",
+            "Cover with a dry bandage and complete the patient schedule before reporting",
             "Discard the needle in regular waste and document nothing in routine outpatient care",
         ],
         "Early reporting enables source testing and post-exposure prophylaxis when indicated. Concealing sticks delays potentially life-saving treatment.",
