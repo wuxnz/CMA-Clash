@@ -629,14 +629,14 @@ FACTS: list[dict] = [
     # ccma-vaccines-045
     fact(
         'ccma-vaccines',
-        'Before giving an injectable vaccine, which "right" confirms the correct patient?',
-        'Verify identity with at least two identifiers per facility policy',
+        'Before giving an injectable vaccine, which patient check matches two identifiers to the order?',
+        'Match full legal name and date of birth stated by the patient to the order',
         [
-            'Confirm identity using the room number posted on the exam room door',
-            'Use the first name called from the waiting room sign-in sheet',
-            'Match the patient to the label on the vial selected from stock',
+            'Match legal name and assigned room number to the order',
+            'Match legal name and date of birth printed on the vial label to the order',
+            'Match medical record number and vaccine lot number to the order',
         ],
-        'Two-identifier checks prevent wrong-patient immunization errors. Room numbers change and clothing is not unique.',
+        'Active patient confirmation of name and date of birth catches wrong-chart and wrong-patient errors. Room numbers, vial labels, and lot numbers do not verify the person receiving the dose.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
         'beginner',
     ),

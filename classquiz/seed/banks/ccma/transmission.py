@@ -600,14 +600,14 @@ FACTS: list[dict] = [
     # ccma-transmission-043
     fact(
         "ccma-transmission",
-        "A negative-pressure airborne infection isolation room (AIIR) maintains?",
-        "Lower pressure inside the room so air flows inward rather than into the corridor",
+        "The pressure monitor alarm sounds on an airborne infection isolation room while a patient with pulmonary tuberculosis rule-out is inside. Relative to the corridor, which airflow pattern should the room maintain?",
+        "Lower air pressure in the room than in the corridor so air flows into the room",
         [
-            "Positive pressure that pushes room air outward into the corridor",
-            "HEPA filtration in the room without maintaining inward airflow",
-            "Increased humidity control without negative pressure differential",
+            "Higher air pressure in the room than in the corridor so air flows out into the hallway",
+            "Equal air pressure between the room and corridor when the door stays closed",
+            "Lower air pressure in the corridor than in adjacent standard patient rooms only",
         ],
-        "Engineering controls contain droplet nuclei from diseases such as TB and measles. Staff still use fit-tested respirators; negative pressure does not replace PPE or hand hygiene.",
+        "A functioning AIIR keeps the isolation room at negative pressure so corridor air is not contaminated when the door opens. Positive or neutral pressure would allow infectious droplet nuclei to escape toward staff and other patients.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
         "advanced",
     ),
