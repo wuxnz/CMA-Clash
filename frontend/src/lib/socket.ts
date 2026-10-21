@@ -36,6 +36,10 @@ function resolveSocketTransports(): ('websocket' | 'polling')[] {
 	if (browser && isLocalHost(window.location.hostname) && configured) {
 		return ['polling', 'websocket'];
 	}
+	// Production site → Render API: prefer polling first (headless e2e + some networks block WS upgrade).
+	if (browser && !isLocalHost(window.location.hostname)) {
+		return ['polling', 'websocket'];
+	}
 	return ['websocket', 'polling'];
 }
 
