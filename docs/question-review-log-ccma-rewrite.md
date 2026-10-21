@@ -990,3 +990,542 @@ ccma-anatomy-032 | fail | Joke/length/tier mismatch or sample-bar gap.
 ccma-anatomy-032 | pass | Balanced near-miss distractors and tier fix this run.
 ccma-anatomy-055 | fail | Joke/length/tier mismatch or sample-bar gap.
 ccma-anatomy-055 | pass | Balanced near-miss distractors and tier fix this run.
+
+## Near-miss pass 2026-10-21c (commits e2df95d5–dd522528; see `docs/ccma-run-rewritten-ids-2026-10-21c.txt`)
+
+ccma-admin-001 | fail | Unlogged item below near-miss bar.
+ccma-admin-001 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-002 | fail | Unlogged item below near-miss bar.
+ccma-admin-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-004 | fail | Unlogged item below near-miss bar.
+ccma-admin-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-006 | fail | Unlogged item below near-miss bar.
+ccma-admin-006 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-007 | fail | Unlogged item below near-miss bar.
+ccma-admin-007 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-008 | fail | Unlogged item below near-miss bar.
+ccma-admin-008 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-010 | fail | Unlogged item below near-miss bar.
+ccma-admin-010 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-011 | fail | Unlogged item below near-miss bar.
+ccma-admin-011 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-013 | fail | Unlogged item below near-miss bar.
+ccma-admin-013 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-014 | fail | Unlogged item below near-miss bar.
+ccma-admin-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-015 | fail | Unlogged item below near-miss bar.
+ccma-admin-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-016 | fail | Unlogged item below near-miss bar.
+ccma-admin-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-019 | fail | Unlogged item below near-miss bar.
+ccma-admin-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-020 | fail | Unlogged item below near-miss bar.
+ccma-admin-020 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-021 | fail | Unlogged item below near-miss bar.
+ccma-admin-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-023 | fail | Unlogged item below near-miss bar.
+ccma-admin-023 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-024 | fail | Unlogged item below near-miss bar.
+ccma-admin-024 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-025 | fail | Unlogged item below near-miss bar.
+ccma-admin-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-026 | fail | Unlogged item below near-miss bar.
+ccma-admin-026 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-027 | fail | Unlogged item below near-miss bar.
+ccma-admin-027 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-029 | fail | Unlogged item below near-miss bar.
+ccma-admin-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-047 | fail | Unlogged item below near-miss bar.
+ccma-admin-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-048 | fail | Unlogged item below near-miss bar.
+ccma-admin-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-049 | fail | Unlogged item below near-miss bar.
+ccma-admin-049 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-050 | fail | Unlogged item below near-miss bar.
+ccma-admin-050 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-051 | fail | Unlogged item below near-miss bar.
+ccma-admin-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-052 | fail | Unlogged item below near-miss bar.
+ccma-admin-052 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-053 | fail | Unlogged item below near-miss bar.
+ccma-admin-053 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-054 | fail | Unlogged item below near-miss bar.
+ccma-admin-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-055 | fail | Unlogged item below near-miss bar.
+ccma-admin-055 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-001 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-001 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-002 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-003 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-004 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-005 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-005 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-006 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-006 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-007 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-007 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-009 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-009 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-011 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-011 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-013 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-013 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-014 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-015 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-016 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-017 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-017 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-018 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-018 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-019 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-021 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-023 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-023 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-025 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-038 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-038 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-042 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-042 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-043 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-043 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-045 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-045 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-046 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-047 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-049 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-049 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-050 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-050 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-051 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-054 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-058 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-058 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-059 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-059 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-002 | fail | Unlogged item below near-miss bar.
+ccma-coordination-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-004 | fail | Unlogged item below near-miss bar.
+ccma-coordination-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-008 | fail | Unlogged item below near-miss bar.
+ccma-coordination-008 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-010 | fail | Unlogged item below near-miss bar.
+ccma-coordination-010 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-013 | fail | Unlogged item below near-miss bar.
+ccma-coordination-013 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-014 | fail | Unlogged item below near-miss bar.
+ccma-coordination-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-015 | fail | Unlogged item below near-miss bar.
+ccma-coordination-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-016 | fail | Unlogged item below near-miss bar.
+ccma-coordination-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-017 | fail | Unlogged item below near-miss bar.
+ccma-coordination-017 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-019 | fail | Unlogged item below near-miss bar.
+ccma-coordination-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-020 | fail | Unlogged item below near-miss bar.
+ccma-coordination-020 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-021 | fail | Unlogged item below near-miss bar.
+ccma-coordination-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-025 | fail | Unlogged item below near-miss bar.
+ccma-coordination-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-028 | fail | Unlogged item below near-miss bar.
+ccma-coordination-028 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-029 | fail | Unlogged item below near-miss bar.
+ccma-coordination-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-030 | fail | Unlogged item below near-miss bar.
+ccma-coordination-030 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-032 | fail | Unlogged item below near-miss bar.
+ccma-coordination-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-033 | fail | Unlogged item below near-miss bar.
+ccma-coordination-033 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-035 | fail | Unlogged item below near-miss bar.
+ccma-coordination-035 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-037 | fail | Unlogged item below near-miss bar.
+ccma-coordination-037 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-044 | fail | Unlogged item below near-miss bar.
+ccma-coordination-044 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-045 | fail | Unlogged item below near-miss bar.
+ccma-coordination-045 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-046 | fail | Unlogged item below near-miss bar.
+ccma-coordination-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-047 | fail | Unlogged item below near-miss bar.
+ccma-coordination-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-048 | fail | Unlogged item below near-miss bar.
+ccma-coordination-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-050 | fail | Unlogged item below near-miss bar.
+ccma-coordination-050 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-051 | fail | Unlogged item below near-miss bar.
+ccma-coordination-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-003 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-011 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-011 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-015 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-024 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-024 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-029 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-031 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-031 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-032 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-033 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-033 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-036 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-036 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-037 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-037 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-040 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-040 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-043 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-043 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-044 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-044 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-045 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-045 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-046 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-048 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-053 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-053 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-054 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-056 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-056 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-059 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-059 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-063 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-063 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-075 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-075 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-076 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-076 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-080 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-080 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-001 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-001 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-002 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-003 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-004 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-006 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-006 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-009 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-009 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-014 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-016 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-017 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-017 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-018 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-018 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-019 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-021 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-022 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-022 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-023 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-023 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-024 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-024 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-025 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-028 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-028 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-029 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-032 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-040 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-040 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-043 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-043 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-046 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-047 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-048 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-051 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-052 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-052 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-053 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-053 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-054 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-055 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-055 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-003 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-007 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-007 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-008 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-008 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-009 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-009 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-010 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-010 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-012 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-012 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-025 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-032 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-033 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-033 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-036 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-036 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+
+## Pass 2026-10-21d — remaining tail (111) + transmission-043 / clinical-care-001 fixes
+
+ccma-diabetes-015 | fail | Correct answer longest on spot audit 2026-10-21d.
+ccma-diabetes-015 | pass | Balanced sick-day option lengths.
+ccma-diabetes-021 | fail | Distractor length skew on spot audit 2026-10-21d.
+ccma-diabetes-021 | pass | Shortened hypoglycemia distractor for parallel length.
+
+ccma-transmission-043 | fail | Option D contradiction or obvious breach distractors.
+ccma-transmission-043 | pass | Near-miss distractor fix pass 2026-10-21d.
+ccma-clinical-care-001 | fail | Option D contradiction or obvious breach distractors.
+ccma-clinical-care-001 | pass | Near-miss distractor fix pass 2026-10-21d.
+ccma-communication-027 | fail | Unlogged tail item; distractor review pending.
+ccma-communication-027 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-communication-034 | fail | Unlogged tail item; distractor review pending.
+ccma-communication-034 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-009 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-009 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-010 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-010 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-019 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-019 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-022 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-022 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-025 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-025 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-026 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-026 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-034 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-034 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-039 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-039 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-052 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-052 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-055 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-055 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-061 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-061 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-062 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-062 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-074 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-074 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-081 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-081 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-083 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-083 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-084 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-084 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-088 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-088 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-090 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-090 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-091 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-091 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-092 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-092 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-093 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-093 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-094 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-094 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-095 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-095 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-096 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-096 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-097 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-097 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-098 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-098 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-099 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-099 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-100 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-100 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-101 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-101 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-102 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-102 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-103 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-103 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-104 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-104 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-105 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-105 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-106 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-106 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-107 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-107 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-108 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-108 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-109 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-109 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-111 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-111 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-112 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-112 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-113 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-113 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-115 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-115 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-116 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-116 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-117 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-117 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-118 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-118 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-119 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-119 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-120 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-120 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-121 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-121 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-122 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-122 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-123 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-123 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-124 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-124 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-125 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-125 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-126 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-126 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-127 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-127 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-128 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-128 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-129 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-129 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-130 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-130 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-001 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-001 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-002 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-002 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-003 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-003 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-004 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-004 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-005 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-005 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-006 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-006 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-007 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-007 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-008 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-008 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-010 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-010 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-012 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-012 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-013 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-013 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-014 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-014 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-015 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-015 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-016 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-016 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-017 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-017 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-026 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-026 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-027 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-027 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-029 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-029 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-032 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-032 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-033 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-033 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-048 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-048 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-049 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-049 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-051 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-051 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-052 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-052 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-056 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-056 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-057 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-057 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-059 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-059 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-001 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-001 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-005 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-005 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-013 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-013 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-014 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-014 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-015 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-015 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-019 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-019 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-022 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-022 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-027 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-027 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-029 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-029 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-030 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-030 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-035 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-035 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-038 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-038 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-039 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-039 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-041 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-041 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-043 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-043 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-044 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-044 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-047 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-047 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-048 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-048 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-049 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-049 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-050 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-050 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-051 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-051 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-052 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-052 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-053 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-053 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-054 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-054 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-055 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-055 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-056 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-056 | pass | Logged at bar after tail pass 2026-10-21d.

@@ -605,7 +605,7 @@ FACTS: list[dict] = [
         [
             "Higher air pressure in the room than in the corridor so air flows out into the hallway",
             "Equal air pressure between the room and corridor when the door stays closed",
-            "Lower air pressure in the room than in the corridor, moving air out of the room toward the hallway",
+            "Positive pressure with HEPA filtration as in a protective environment room",
         ],
         "A functioning AIIR keeps the isolation room at negative pressure so corridor air is not contaminated when the door opens. Positive or neutral pressure would allow infectious droplet nuclei to escape toward staff and other patients.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],

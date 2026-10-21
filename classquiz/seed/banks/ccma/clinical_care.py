@@ -15,9 +15,9 @@ FACTS: list[dict] = [
         'Before applying a topical antibiotic to an open wound in the clinic, what should the medical assistant do first?',
         'Perform hand hygiene and use clean or aseptic technique per facility policy',
         [
-            'Don fresh gloves without hand hygiene because the prior gloves looked clean',
-            'Apply ointment with the same gloves worn while removing the soiled dressing',
-            'Cleanse the wound and apply ointment before hand hygiene when drainage is scant',
+            'Perform hand hygiene, then don sterile gloves for all topical applications',
+            'Clean the wound with alcohol, then apply ointment without new gloves',
+            'Perform hand hygiene and new gloves, then apply ointment from the tube tip to the wound',
         ],
         'Topical medications can introduce pathogens if hands or supplies are contaminated. Facility policy guides whether clean or sterile technique is required for the specific wound presentation.',
         [S.NHA_CCMA],

@@ -477,9 +477,9 @@ FACTS: list[dict] = [
         'When discharging a patient with limited health literacy, which communication pair is most effective?',
         'Plain language plus teach-back of critical steps',
         [
-            'Dense textbook paragraphs with medical abbreviations',
-            'Assuming college-level reading without checking understanding',
-            'Refusing written materials because the visit was brief',
+            'Written handouts at a high reading level without checking understanding',
+            'Teach-back for medication names while skipping lifestyle and follow-up steps',
+            'Qualified interpreter for spoken language with no written after-visit summary',
         ],
         'Simple wording and patient restatement catch gaps in medication and follow-up instructions. Dense text without verification raises home safety errors.',
         [S.NHA_CCMA],
