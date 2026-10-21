@@ -296,7 +296,7 @@ FACTS: list[dict] = [
         "Use pediatric-sized electrodes and follow age-appropriate lead placement guidelines",
         [
             "Use full adult precordial electrodes centered on the abdomen",
-            "Skip skin preparation to save time",
+            "Omit skin preparation to shorten setup time",
             "Record a single precordial lead instead of a full study",
         ],
         "Pediatric anatomy requires smaller sensors and modified landmarks. Abdomen-only or single-lead recordings do not meet a diagnostic pediatric 12-lead protocol.",
@@ -324,8 +324,8 @@ FACTS: list[dict] = [
         "The tracing may mimic limb lead reversal with altered axis and mislabeled limb leads",
         [
             "The tracing will be identical to a correctly wired study",
-            "Only the printed paper speed will change",
-            "Only the heart rate numeric will change with unchanged waveforms",
+            "The printed paper speed setting will change the QRS axis",
+            "The heart rate numeric will change while QRS morphology stays identical",
         ],
         "Swapping arm electrodes flips expected limb lead vectors and can suggest pathology. Rate may be unchanged while P-QRS-T morphology and axis are wrong until leads are corrected.",
         [S.NHA_CCMA],
