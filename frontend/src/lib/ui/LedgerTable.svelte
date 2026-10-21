@@ -72,6 +72,7 @@
 		<tbody bind:this={tbodyRef}>
 			{#each rows as row (row.name)}
 				<tr
+					data-testid="scoreboard-row"
 					class="border-t border-ink/5 transition-colors {row.isYou
 						? 'bg-primary/10 font-medium'
 						: 'hover:bg-paper-muted/50'}"

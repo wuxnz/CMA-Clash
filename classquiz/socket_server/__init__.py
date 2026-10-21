@@ -302,9 +302,47 @@ async def set_question_number(sid: str, data: str):
     await emit_show_question(sio, game_pin, game_data, question_index)
 
 
+async def _score_live_answer(
+    game_pin: str,
+    question_index: int,
+    question_time_sec: int,
+    answer_right: bool,
+    latency_ms: int,
+) -> tuple[int, int, int, float]:
+    """Return base_score, speed_bonus, total_score, time_taken_ms (server timing)."""
+    from classquiz.helpers.live_scoring import score_correct_answer
+    from classquiz.socket_server.timing import load_question_timing, server_now_ms
+
+    if not answer_right:
+        return 0, 0, 0, 0.0
+
+    submitted_ms = server_now_ms()
+    timing = await load_question_timing(game_pin)
+    if timing and timing.get("question_index") == question_index:
+        phase_start = int(timing["answer_phase_start_ms"])
+        deadline = int(timing["answer_deadline_ms"])
+        time_taken = float(max(0, submitted_ms - phase_start - latency_ms))
+        base, bonus, total = score_correct_answer(submitted_ms - latency_ms, phase_start, deadline)
+        return base, bonus, total, time_taken
+
+    raw_start = await redis.get(f"game:{game_pin}:current_time")
+    if not raw_start:
+        window_ms = max(1000, question_time_sec * 1000)
+        base, bonus, total = score_correct_answer(submitted_ms - latency_ms, submitted_ms - window_ms, submitted_ms)
+        return base, bonus, total, 0.0
+
+    time_q_started = datetime.fromisoformat(raw_start)
+    now = datetime.now()
+    diff_ms = abs((now - time_q_started).total_seconds() * 1000) - latency_ms
+    window_ms = max(1000, question_time_sec * 1000)
+    phase_start = int(now.timestamp() * 1000) - int(diff_ms)
+    deadline = phase_start + window_ms
+    base, bonus, total = score_correct_answer(int(now.timestamp() * 1000) - latency_ms, phase_start, deadline)
+    return base, bonus, total, float(diff_ms)
+
+
 @sio.event
 async def submit_answer(sid: str, data: dict):
-    now = datetime.now()
     try:
         data = SubmitAnswerData(**data)
     except ValidationError as e:
@@ -314,36 +352,33 @@ async def submit_answer(sid: str, data: dict):
     data.answer = str(data.answer)
     session = await get_session(sid, sio)
     question_index = int(float(data.question_index))
-    game_data = await PlayGame.get_from_redis(session["game_pin"])
+    game_pin = session["game_pin"]
+    game_data = await PlayGame.get_from_redis(game_pin)
 
     if question_index != game_data.current_question:
         await sio.emit("question_not_active", room=sid)
         return
 
-    already_answered = await has_already_answered(session["game_pin"], question_index, session["username"])
+    already_answered = await has_already_answered(game_pin, question_index, session["username"])
     if already_answered:
         await sio.emit("already_replied", room=sid)
         return
 
     answer_right, answer = check_answer(game_data, data)
     latency = int(float(session.get("ping", 0)))
-    time_q_started = datetime.fromisoformat(await redis.get(f"game:{session['game_pin']}:current_time"))
-    diff = (time_q_started - now).total_seconds() * 1000  # - timedelta(milliseconds=latency)
-    score = 0
-    if answer_right:
-        score = calculate_score(
-            abs(diff) - latency,
-            int(float(game_data.questions[question_index].time)),
-        )
-        if score > 1000:
-            score = 1000
-    await redis.hincrby(f"game_session:{session['game_pin']}:player_scores", session["username"], score)
+    q_time = int(float(game_data.questions[question_index].time))
+    base_score, speed_bonus, score, time_taken = await _score_live_answer(
+        game_pin, question_index, q_time, answer_right, latency
+    )
+    await redis.hincrby(f"game_session:{game_pin}:player_scores", session["username"], score)
     answer_data = AnswerData(
         username=session["username"],
         answer=answer,
         right=answer_right,
-        time_taken=abs(diff) - latency,
+        time_taken=time_taken,
         score=score,
+        base_score=base_score,
+        speed_bonus=speed_bonus,
     )
     game_pin = session["game_pin"]
     answer_count = await set_answer(game_pin=game_pin, q_index=question_index, data=answer_data)

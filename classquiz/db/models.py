@@ -327,6 +327,13 @@ class AnswerData(BaseModel):
     right: bool
     time_taken: float  # In milliseconds
     score: int
+    base_score: int = 0
+    speed_bonus: int = 0
+    speed_rank: int | None = None
+    overall_rank: int | None = None
+    points_behind_above: int | None = None
+    player_above: str | None = None
+    points_ahead_of_next: int | None = None
 
 
 class AnswerDataList(RootModel):

@@ -98,6 +98,7 @@ describe('parseQuestionResultsPayload', () => {
 		});
 		expect(parsed.questionIndex).toBe(2);
 		expect(parsed.rows).toHaveLength(1);
+		expect(parsed.scoreboardHoldSec).toBe(9);
 	});
 
 	it('supports legacy bare arrays', () => {

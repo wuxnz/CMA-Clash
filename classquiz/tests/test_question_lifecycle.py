@@ -114,7 +114,7 @@ async def test_advance_after_reveal_emits_next_question_to_game_room(test_client
     await close_question_now(mock_sio, game_pin, 0)
 
     mock_sio.reset_mock()
-    with patch("classquiz.socket_server.question_lifecycle.REVEAL_SEC", 0):
+    with patch("classquiz.socket_server.question_lifecycle.live_post_question_hold_sec", lambda: 0):
         await _advance_after_reveal(mock_sio, game_pin, 0)
 
     set_calls = [c for c in mock_sio.emit.call_args_list if c.args[0] == "set_question_number"]

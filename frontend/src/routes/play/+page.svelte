@@ -32,8 +32,14 @@ SPDX-License-Identifier: MPL-2.0
 		normalizeGamePayload,
 		parseQuestionResultsPayload,
 		isStaleQuestionResults,
-		questionFromSocketPayload
+		questionFromSocketPayload,
+		type StandingsRow
 	} from '$lib/play/live-game';
+	import {
+		behindOrLeadLine,
+		placeLine,
+		speedRankLine
+	} from '$lib/play/live-standings-copy';
 	import { applyQuestionResultScores, scoreDeltaForUser } from '$lib/play/live-scoring';
 	import {
 		applyClockSync,
@@ -104,6 +110,13 @@ SPDX-License-Identifier: MPL-2.0
 		answer: string;
 		right: boolean | string;
 		score?: number;
+		base_score?: number;
+		speed_bonus?: number;
+		speed_rank?: number;
+		overall_rank?: number;
+		points_behind_above?: number;
+		player_above?: string;
+		points_ahead_of_next?: number;
 		time_taken?: number;
 	}
 
@@ -132,6 +145,8 @@ SPDX-License-Identifier: MPL-2.0
 	let question: QuestionType = $state();
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
+	let standingsTop = $state<StandingsRow[]>([]);
+	let revealHoldMs = $state(4000);
 	let advanceSyncTimer: ReturnType<typeof setTimeout> | undefined;
 	const ADVANCE_RESYNC_MS = 7500;
 
@@ -241,6 +256,7 @@ SPDX-License-Identifier: MPL-2.0
 		question = questionFromSocketPayload(data);
 		question_index = Number.isFinite(nextIndex) ? nextIndex : data.question_index;
 		answer_results = undefined;
+		standingsTop = [];
 		selectedAnswer = undefined;
 		pointsThisRound = 0;
 		clearTimeout(revealTimer);
@@ -266,7 +282,12 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function handleQuestionResults(data: unknown) {
-		const { questionIndex: resultsIndex, rows } = parseQuestionResultsPayload(data);
+		const {
+			questionIndex: resultsIndex,
+			rows,
+			revealHoldSec,
+			standingsTop: top
+		} = parseQuestionResultsPayload(data);
 		if (
 			isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex) ||
 			rows.length === 0
@@ -275,6 +296,8 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		restart();
 		answer_results = rows as PlayerAnswer[];
+		standingsTop = top;
+		revealHoldMs = Math.max(0, revealHoldSec * 1000);
 		pointsThisRound = scoreDeltaForUser(rows, username);
 		const scoreIndex = resultsIndex ?? question_index;
 		const applied = applyQuestionResultScores(
@@ -293,7 +316,7 @@ SPDX-License-Identifier: MPL-2.0
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {
 			livePhase = 'rankings';
-		}, 4500);
+		}, revealHoldMs);
 		scheduleAdvanceResync(resultsIndex ?? (typeof question_index === 'number' ? question_index : null));
 	}
 
@@ -401,10 +424,24 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	let rankingRows = $derived.by((): LedgerRow[] => {
+		if (standingsTop.length > 0) {
+			return standingsTop.slice(0, 5).map((row) => {
+				const name = row.username;
+				const rank = row.overall_rank;
+				const prev = prevRanks[name];
+				return {
+					rank,
+					name: name === username ? 'You' : name,
+					score: row.score,
+					isYou: name === username,
+					delta: prev != null ? prev - rank : 0
+				};
+			});
+		}
 		const names = Object.keys(scores).sort(
 			(a, b) => (parseFloat(String(scores[b])) || 0) - (parseFloat(String(scores[a])) || 0)
 		);
-		return names.map((name, idx) => {
+		return names.slice(0, 5).map((name, idx) => {
 			const rank = idx + 1;
 			const prev = prevRanks[name];
 			return {
@@ -416,6 +453,10 @@ SPDX-License-Identifier: MPL-2.0
 			};
 		});
 	});
+
+	let revealPlaceText = $derived(placeLine(playerMine));
+	let revealBehindText = $derived(behindOrLeadLine(playerMine));
+	let revealSpeedRankText = $derived(speedRankLine(playerMine));
 
 	$effect(() => {
 		if (!questionTiming) return;
@@ -515,6 +556,11 @@ SPDX-License-Identifier: MPL-2.0
 					isPlayer={true}
 					correct={isRightFlag(playerMine?.right)}
 					points={pointsThisRound}
+					baseScore={Number(playerMine?.base_score ?? 0)}
+					speedBonus={Number(playerMine?.speed_bonus ?? 0)}
+					placeText={revealPlaceText}
+					behindText={revealBehindText}
+					speedRankText={revealSpeedRankText}
 					{streak}
 				/>
 			{:else if livePhase === 'rankings'}

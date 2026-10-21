@@ -75,15 +75,36 @@ export function initialLivePhaseForQuestion(
 	return introLeftSec > 0 ? 'intro' : 'answer';
 }
 
+export type StandingsRow = {
+	username: string;
+	score: number;
+	overall_rank: number;
+	points_behind_above?: number;
+	player_above?: string;
+	points_ahead_of_next?: number;
+};
+
 export type QuestionResultsPayload = {
 	questionIndex: number | null;
 	rows: Array<Record<string, unknown>>;
+	revealHoldSec: number;
+	scoreboardHoldSec: number;
+	standingsTop: StandingsRow[];
 };
+
+const DEFAULT_REVEAL_HOLD_SEC = 4;
+const DEFAULT_SCOREBOARD_HOLD_SEC = 9;
 
 /** Legacy bare arrays and wrapped `{ question_index, results }` payloads. */
 export function parseQuestionResultsPayload(data: unknown): QuestionResultsPayload {
 	if (Array.isArray(data)) {
-		return { questionIndex: null, rows: data as Array<Record<string, unknown>> };
+		return {
+			questionIndex: null,
+			rows: data as Array<Record<string, unknown>>,
+			revealHoldSec: DEFAULT_REVEAL_HOLD_SEC,
+			scoreboardHoldSec: DEFAULT_SCOREBOARD_HOLD_SEC,
+			standingsTop: []
+		};
 	}
 	if (data && typeof data === 'object') {
 		const obj = data as Record<string, unknown>;
@@ -94,13 +115,36 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 				qi === null || qi === undefined || qi === ''
 					? null
 					: Number(qi);
+			const revealHoldSec = Number(obj.reveal_hold_sec);
+			const scoreboardHoldSec = Number(obj.scoreboard_hold_sec);
+			const standingsTop = Array.isArray(obj.standings_top)
+				? (obj.standings_top as StandingsRow[])
+				: [];
 			return {
 				questionIndex: Number.isFinite(questionIndex) ? questionIndex : null,
-				rows: rawRows as Array<Record<string, unknown>>
+				rows: rawRows as Array<Record<string, unknown>>,
+				revealHoldSec: Number.isFinite(revealHoldSec) ? revealHoldSec : DEFAULT_REVEAL_HOLD_SEC,
+				scoreboardHoldSec: Number.isFinite(scoreboardHoldSec)
+					? scoreboardHoldSec
+					: DEFAULT_SCOREBOARD_HOLD_SEC,
+				standingsTop
 			};
 		}
 	}
-	return { questionIndex: null, rows: [] };
+	return {
+		questionIndex: null,
+		rows: [],
+		revealHoldSec: DEFAULT_REVEAL_HOLD_SEC,
+		scoreboardHoldSec: DEFAULT_SCOREBOARD_HOLD_SEC,
+		standingsTop: []
+	};
+}
+
+export function ordinalPlace(n: number): string {
+	if (n === 1) return '1st';
+	if (n === 2) return '2nd';
+	if (n === 3) return '3rd';
+	return `${n}th`;
 }
 
 /** Drop results for a question the client has already advanced past. */

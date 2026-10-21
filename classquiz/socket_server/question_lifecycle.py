@@ -13,7 +13,13 @@ from classquiz.db.models import AnswerData, AnswerDataList, GamePlayer, PlayGame
 from classquiz.socket_server.helpers import has_already_answered
 from classquiz.socket_server.timing import load_question_timing, server_now_ms
 
-REVEAL_SEC = 5.0
+LIVE_REVEAL_HOLD_SEC = 4.0
+LIVE_SCOREBOARD_HOLD_SEC = 9.0
+
+
+def live_post_question_hold_sec() -> float:
+    """Server sleep after question_results before auto-advance (reveal + scoreboard)."""
+    return LIVE_REVEAL_HOLD_SEC + LIVE_SCOREBOARD_HOLD_SEC
 
 _lifecycle_tasks: dict[str, asyncio.Task] = {}
 _advance_tasks: dict[str, asyncio.Task] = {}
@@ -47,15 +53,40 @@ async def record_non_answers_as_wrong(game_pin: str, question_index: int) -> Non
 
 
 async def broadcast_question_results(sio, game_pin: str, question_index: int) -> AnswerDataList:
+    from classquiz.helpers.live_scoring import (
+        assign_speed_ranks,
+        build_standings,
+        merge_standings_into_results,
+        standings_top_n,
+    )
+
     answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, question_index)
     game_data = await PlayGame.get_from_redis(game_pin)
     if game_data.question_show:
         game_data.question_show = False
         await game_data.save(game_pin)
+    raw_scores = await redis.hgetall(f"game_session:{game_pin}:player_scores")
+    player_scores = {k: int(v) for k, v in raw_scores.items()}
+    result_dicts = [a.model_dump() for a in answer_data_list]
+    assign_speed_ranks(result_dicts)
+    standings = build_standings(player_scores)
+    enriched = merge_standings_into_results(result_dicts, standings)
+    for row, model in zip(enriched, answer_data_list.root, strict=True):
+        model.speed_rank = row.get("speed_rank")
+        model.overall_rank = row.get("overall_rank")
+        model.points_behind_above = row.get("points_behind_above")
+        model.player_above = row.get("player_above")
+        model.points_ahead_of_next = row.get("points_ahead_of_next")
     await sio.emit("question_times_up", {"question_index": question_index}, room=game_pin)
     await sio.emit(
         "question_results",
-        {"question_index": question_index, "results": answer_data_list.model_dump()},
+        {
+            "question_index": question_index,
+            "reveal_hold_sec": LIVE_REVEAL_HOLD_SEC,
+            "scoreboard_hold_sec": LIVE_SCOREBOARD_HOLD_SEC,
+            "standings_top": standings_top_n(standings, 5),
+            "results": enriched,
+        },
         room=game_pin,
     )
     return answer_data_list
@@ -63,7 +94,7 @@ async def broadcast_question_results(sio, game_pin: str, question_index: int) ->
 
 async def _advance_after_reveal(sio, game_pin: str, question_index: int) -> None:
     try:
-        await asyncio.sleep(REVEAL_SEC)
+        await asyncio.sleep(live_post_question_hold_sec())
         game_data = await PlayGame.get_from_redis(game_pin)
         if game_data.current_question != question_index:
             return

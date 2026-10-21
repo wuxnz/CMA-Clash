@@ -46,7 +46,7 @@ async def test_players_in_game_room_receive_second_question(test_client) -> None
     await close_question_now(sio, game_pin, 0)
 
     emitted.clear()
-    with patch("classquiz.socket_server.question_lifecycle.REVEAL_SEC", 0):
+    with patch("classquiz.socket_server.question_lifecycle.live_post_question_hold_sec", lambda: 0):
         await _advance_after_reveal(sio, game_pin, 0)
 
     q1 = [
