@@ -60,6 +60,7 @@ class QuizBrowseItem(BaseModel):
     topic_id: uuid.UUID | None
     certification_id: uuid.UUID | None
     question_count: int
+    questions_per_game: int | None = None
     plays: int
 
 
@@ -167,6 +168,7 @@ async def browse_quizzes(
             topic_id=q.topic_id,
             certification_id=q.certification_id,
             question_count=len(q.questions),
+            questions_per_game=q.questions_per_game,
             plays=q.plays,
         )
         for q in quizzes

@@ -27,7 +27,10 @@ SEED_USER_USERNAME = "cmaclash_content"
 DEMO_USER_EMAIL = "demo@cmaclash.local"
 DEMO_USER_USERNAME = "demo"
 DEMO_USER_PASSWORD = "CMA-Clash-Demo1!"
-QUESTIONS_PER_QUIZ = 8
+QUIZ_BANK_SIZE = 28
+DEFAULT_QUESTIONS_PER_GAME = 10
+# Legacy name used in tests and topic overrides.
+QUESTIONS_PER_QUIZ = QUIZ_BANK_SIZE
 
 
 def _certification_uuid(topic: Topic) -> uuid.UUID | None:
@@ -159,45 +162,78 @@ async def run_seed(force: bool = False) -> dict:
     for fact in facts:
         by_topic[fact["topic"]].append(fact)
     quizzes_created = 0
+    quizzes_updated = 0
     questions_seeded = 0
+    expected_seed_slugs: set[str] = set()
     for topic_slug, topic_facts in sorted(by_topic.items()):
         topic = topic_by_slug.get(topic_slug)
         if topic is None:
             LOGGER.warning("Unknown topic slug in bank: %s", topic_slug)
             continue
         cert_id = _certification_uuid(topic)
-        chunk_size = TOPIC_QUESTIONS_PER_QUIZ.get(topic_slug, QUESTIONS_PER_QUIZ)
+        chunk_size = TOPIC_QUESTIONS_PER_QUIZ.get(topic_slug, QUIZ_BANK_SIZE)
         chunks = [topic_facts[i : i + chunk_size] for i in range(0, len(topic_facts), chunk_size)]
         for idx, chunk in enumerate(chunks):
             seed_slug = f"quiz:{topic_slug}:{idx + 1}"
-            existing = await Quiz.objects.get_or_none(seed_slug=seed_slug)
-            if existing is not None:
-                questions_seeded += len(chunk)
-                continue
+            expected_seed_slugs.add(seed_slug)
             questions = [_fact_to_question(f) for f in chunk]
             difficulty = chunk[0].get("difficulty", "intermediate")
             title = f"{topic.name}: Set {idx + 1}"
-            quiz = await Quiz(
-                id=uuid.uuid4(),
-                public=True,
-                title=title,
-                description=f"CMA Clash practice: {topic.name}. Exam-style multiple-choice questions with rationales.",
-                user_id=user.id,
-                questions=[q.model_dump() for q in questions],
-                certification_id=cert_id,
-                topic_id=topic.id,
-                difficulty=difficulty,
-                seed_slug=seed_slug,
-                updated_at=datetime.now(),
-            ).save()
-            quizzes_created += 1
-            questions_seeded += len(chunk)
+            description = (
+                f"CMA Clash practice: {topic.name}. Exam-style multiple-choice questions with rationales."
+            )
+            question_payload = [q.model_dump() for q in questions]
+            existing = await Quiz.objects.get_or_none(seed_slug=seed_slug)
+            if existing is not None:
+                existing.title = title
+                existing.description = description
+                existing.questions = question_payload
+                existing.certification_id = cert_id
+                existing.topic_id = topic.id
+                existing.difficulty = difficulty
+                existing.questions_per_game = DEFAULT_QUESTIONS_PER_GAME
+                existing.public = True
+                existing.updated_at = datetime.now()
+                await existing.update()
+                quizzes_updated += 1
+                questions_seeded += len(chunk)
+                quiz = existing
+            else:
+                quiz = await Quiz(
+                    id=uuid.uuid4(),
+                    public=True,
+                    title=title,
+                    description=description,
+                    user_id=user.id,
+                    questions=question_payload,
+                    certification_id=cert_id,
+                    topic_id=topic.id,
+                    difficulty=difficulty,
+                    seed_slug=seed_slug,
+                    questions_per_game=DEFAULT_QUESTIONS_PER_GAME,
+                    updated_at=datetime.now(),
+                ).save()
+                quizzes_created += 1
+                questions_seeded += len(chunk)
             try:
                 meilisearch.index(settings().meilisearch_index).add_documents([await get_meili_data(quiz)])
             except Exception as exc:
                 LOGGER.warning("Meilisearch index update failed for %s: %s", seed_slug, exc)
+
+    owned_seed_quizzes = await Quiz.objects.filter(user_id=user.id).all()
+    for quiz in owned_seed_quizzes:
+        if not quiz.seed_slug or quiz.seed_slug in expected_seed_slugs:
+            continue
+        quiz.public = False
+        await quiz.update()
+        try:
+            meilisearch.index(settings().meilisearch_index).delete_document(str(quiz.id))
+        except Exception as exc:
+            LOGGER.warning("Meilisearch delete failed for stale seed %s: %s", quiz.seed_slug, exc)
+
     summary = {
         "quizzes_created": quizzes_created,
+        "quizzes_updated": quizzes_updated,
         "questions_in_bank": len(facts),
         "questions_accounted": questions_seeded,
         "topics": len(by_topic),
