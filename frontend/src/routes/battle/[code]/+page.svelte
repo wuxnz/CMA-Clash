@@ -10,9 +10,11 @@ SPDX-License-Identifier: MPL-2.0
 	import { onMount } from 'svelte';
 	import { getBattle, joinBattle, startBattle, type BattleLobby } from '$lib/cma/client';
 	import {
+		battleLobbyUsernameForPlayer,
 		getBattleGuestPlayerId,
 		getBattleHostSecret,
-		setBattleGuestPlayerId
+		setBattleGuestPlayerId,
+		setBattlePlayUsername
 	} from '$lib/cma/battle-guest';
 	import Card from '$lib/ui/Card.svelte';
 	import PlayerChip from '$lib/ui/PlayerChip.svelte';
@@ -144,7 +146,14 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function goToPlay() {
-		if (lobby?.game_pin) goto(`/play?pin=${lobby.game_pin}`);
+		const pin = lobby?.game_pin;
+		if (!pin) return;
+		const name = battleLobbyUsernameForPlayer(lobby!, {
+			userId: myUserId,
+			guestPlayerId: getBattleGuestPlayerId()
+		});
+		if (name) setBattlePlayUsername(pin, name);
+		goto(`/play?pin=${pin}`);
 	}
 
 	let playerNames = $derived(

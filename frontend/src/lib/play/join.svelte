@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { socket } from '$lib/socket';
 	import { onDestroy, onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import { normalizeGameMode } from '$lib/play/live-game';
 	import * as Sentry from '@sentry/browser';
@@ -42,6 +43,7 @@ SPDX-License-Identifier: MPL-2.0
 	let joinError = $state('');
 	let joining = $state(false);
 	let socketConnected = $state(false);
+	let battleAutoJoinStarted = $state(false);
 
 	const onJoinError = (payload?: { code?: string }) => {
 		joining = false;
@@ -105,6 +107,13 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	const prefetch_username = async () => {
+		if (game_pin.length >= 6) {
+			const battleName = getBattlePlayUsername(game_pin);
+			if (battleName) {
+				username = battleName;
+				return;
+			}
+		}
 		try {
 			const res = await fetch('/api/v1/users/me');
 			if (res.status !== 200) return;
@@ -114,6 +123,14 @@ SPDX-License-Identifier: MPL-2.0
 			/* guest join */
 		}
 	};
+
+	$effect(() => {
+		if (!browser || game_pin.length < 6) return;
+		const battleName = getBattlePlayUsername(game_pin);
+		if (battleName && username !== battleName) {
+			username = battleName;
+		}
+	});
 
 	const set_game_pin = async () => {
 		try {
@@ -147,8 +164,7 @@ SPDX-License-Identifier: MPL-2.0
 		});
 	};
 
-	const setUsername = async (e: Event) => {
-		e.preventDefault();
+	const performJoin = async () => {
 		joinError = '';
 		if (username.length <= 3) {
 			joinError = 'Nickname must be at least 4 characters.';
@@ -161,13 +177,11 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		joining = true;
-		let captcha_resp: string;
 		if (captcha_enabled) {
 			if (hcaptchaSitekey) {
 				try {
 					const { response } = await hcaptcha.execute(hcaptchaWidgetID, { async: true });
-					captcha_resp = response;
-					emitJoin(captcha_resp);
+					emitJoin(response);
 				} catch (err) {
 					joining = false;
 					if (sentry_dsn !== null) Sentry.captureException(err);
@@ -193,6 +207,20 @@ SPDX-License-Identifier: MPL-2.0
 			emitJoin();
 		}
 	};
+
+	const setUsername = async (e: Event) => {
+		e.preventDefault();
+		await performJoin();
+	};
+
+	$effect(() => {
+		if (!browser || battleAutoJoinStarted || joining) return;
+		if (normalizeGameMode(game_mode) !== 'battle') return;
+		if (game_pin.length < 6 || username.length <= 3) return;
+		if (!socketConnected) return;
+		battleAutoJoinStarted = true;
+		void performJoin();
+	});
 	$effect(() => {
 		const cleaned = game_pin.replace(/\D/g, '');
 		if (game_pin.replace(/\D/g, '') === game_pin) return;
