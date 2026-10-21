@@ -13,13 +13,13 @@ def _facts_for(topic: str):
 
 def test_diabetes_topic_question_count():
     facts = _facts_for("ccma-diabetes")
-    assert len(facts) == 48
+    assert len(facts) == 112
 
 
 def test_diabetes_quiz_set_chunks():
     facts = _facts_for("ccma-diabetes")
     chunk = TOPIC_QUESTIONS_PER_QUIZ.get("ccma-diabetes", QUESTIONS_PER_QUIZ)
-    assert chunk == 12
+    assert chunk == 28
     assert len(facts) % chunk == 0
     assert len(facts) // chunk == 4
 

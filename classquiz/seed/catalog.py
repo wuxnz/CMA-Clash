@@ -21,7 +21,7 @@ CERTIFICATIONS = [
             ("ccma-vaccines", "Vaccine Administration & Storage", 8),
             ("ccma-hipaa", "HIPAA & Patient Privacy", 9),
             ("ccma-transmission", "Transmission-Based Precautions", 10),
-            ("ccma-diabetes", "Diabetes", 11),
+            ("ccma-diabetes", "Diabetes", 11),  # 112 facts → four 28-question quiz sets
         ],
     },
     {
@@ -94,7 +94,7 @@ CERTIFICATIONS = [
 
 # Questions per public quiz for topics that need more than the default chunk size.
 TOPIC_QUESTIONS_PER_QUIZ: dict[str, int] = {
-    "ccma-diabetes": 12,
+    "ccma-diabetes": 28,
 }
 
 
