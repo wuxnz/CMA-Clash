@@ -99,6 +99,70 @@ async def _ranked_from_weekly_events(
     return out
 
 
+async def _ranked_from_all_time_events(
+    limit: int,
+    certification_id: uuid.UUID | None,
+) -> list[tuple[uuid.UUID, int, int]]:
+    cert_clause = ""
+    params: dict = {"limit": limit}
+    if certification_id is not None:
+        cert_clause = "AND e.certification_id = :cert_id"
+        params["cert_id"] = certification_id
+    rows = await database.fetch_all(
+        f"""
+        SELECT e.user_id, SUM(e.amount) AS xp, MAX(p.level) AS level
+        FROM xp_events e
+        INNER JOIN users u ON u.id = e.user_id
+        LEFT JOIN user_gamification_profiles p ON p.user_id = e.user_id
+        WHERE 1=1
+        {cert_clause}
+        GROUP BY e.user_id
+        HAVING SUM(e.amount) > 0
+        ORDER BY xp DESC, e.user_id
+        LIMIT :limit
+        """,
+        params,
+    )
+    out: list[tuple[uuid.UUID, int, int]] = []
+    for row in rows:
+        xp = int(row["xp"] or 0)
+        level = int(row["level"] or level_from_xp(xp))
+        out.append((uuid.UUID(str(row["user_id"])), xp, level))
+    return out
+
+
+async def _ranked_from_leaderboard_scores_aggregate(
+    limit: int,
+    certification_id: uuid.UUID | None,
+) -> list[tuple[uuid.UUID, int, int]]:
+    cert_clause = ""
+    params: dict = {"limit": limit}
+    if certification_id is not None:
+        cert_clause = "AND ls.certification_id = :cert_id"
+        params["cert_id"] = certification_id
+    rows = await database.fetch_all(
+        f"""
+        SELECT ls.user_id, SUM(ls.xp) AS xp, MAX(p.level) AS level
+        FROM leaderboard_scores ls
+        INNER JOIN users u ON u.id = ls.user_id
+        LEFT JOIN user_gamification_profiles p ON p.user_id = ls.user_id
+        WHERE ls.period = 'all_time'
+        {cert_clause}
+        GROUP BY ls.user_id
+        HAVING SUM(ls.xp) > 0
+        ORDER BY xp DESC, ls.user_id
+        LIMIT :limit
+        """,
+        params,
+    )
+    out: list[tuple[uuid.UUID, int, int]] = []
+    for row in rows:
+        xp = int(row["xp"] or 0)
+        level = int(row["level"] or level_from_xp(xp))
+        out.append((uuid.UUID(str(row["user_id"])), xp, level))
+    return out
+
+
 async def _ranked_from_leaderboard_scores(
     period: Literal["all_time", "weekly"],
     period_key: str,
@@ -131,10 +195,16 @@ async def fetch_leaderboard_rows(
         period_key = _iso_week_key()
         return await _ranked_from_leaderboard_scores(period, period_key, certification_id, limit)
 
-    rows = await _ranked_from_profiles(limit, certification_id)
-    if rows:
-        return rows
-    return await _ranked_from_leaderboard_scores(period, "global", certification_id, limit)
+    for loader in (
+        lambda: _ranked_from_profiles(limit, certification_id),
+        lambda: _ranked_from_all_time_events(limit, certification_id),
+        lambda: _ranked_from_leaderboard_scores_aggregate(limit, certification_id),
+        lambda: _ranked_from_leaderboard_scores(period, "global", certification_id, limit),
+    ):
+        rows = await loader()
+        if rows:
+            return rows
+    return []
 
 
 async def viewer_rank_row(
