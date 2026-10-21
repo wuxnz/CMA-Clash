@@ -8,9 +8,11 @@
 		topic?: string;
 		seconds?: number;
 		onComplete?: () => void;
+		/** Fit inside host admin shell (no full-viewport height). */
+		hostFit?: boolean;
 	}
 
-	let { question, topic = '', seconds = 4, onComplete }: Props = $props();
+	let { question, topic = '', seconds = 4, onComplete, hostFit = false }: Props = $props();
 	const reduced = prefersReducedMotion();
 
 	let remaining = $state(seconds);
@@ -33,18 +35,28 @@
 	let progress = $derived(seconds > 0 ? remaining / seconds : 0);
 </script>
 
-<div class="h-dvh min-h-dvh w-full bg-paper flex flex-col items-center justify-center px-6 py-10">
+<div
+	class="w-full bg-paper flex flex-col items-center justify-center px-4 sm:px-6 {hostFit
+		? 'h-full min-h-0 py-6 sm:py-10'
+		: 'h-dvh min-h-dvh py-10'}"
+>
 	{#if topic}
-		<p class="text-cyan text-xs font-semibold uppercase tracking-[0.28em] mb-6">{topic}</p>
+		<p
+			class="text-cyan text-xs font-semibold uppercase tracking-[0.28em] mb-4 sm:mb-6 text-center line-clamp-2"
+		>
+			{topic}
+		</p>
 	{/if}
 	<h1
-		class="font-display text-4xl sm:text-6xl md:text-7xl text-ink text-center max-w-5xl leading-[0.95] normal-case"
+		class="font-display text-ink text-center max-w-5xl leading-[0.95] normal-case {hostFit
+			? 'text-2xl sm:text-4xl md:text-5xl'
+			: 'text-4xl sm:text-6xl md:text-7xl'}"
 		in:fly={reduced ? { duration: 0 } : { y: 12, duration: 300 }}
 	>
 		{@html normalizeQuizText(question)}
 	</h1>
 	<div
-		class="mt-12 h-1.5 w-full max-w-md rounded-full bg-elevated overflow-hidden"
+		class="mt-6 sm:mt-12 h-1.5 w-full max-w-md rounded-full bg-elevated overflow-hidden"
 		role="progressbar"
 		aria-valuenow={remaining}
 		aria-valuemin={0}

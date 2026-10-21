@@ -20,6 +20,8 @@
 		showRing?: boolean;
 		compact?: boolean;
 		hideQuestion?: boolean;
+		/** Host admin shell: fill scroll region, not full viewport. */
+		hostFit?: boolean;
 	}
 
 	let {
@@ -34,15 +36,18 @@
 		onSelect,
 		showRing = false,
 		compact = false,
-		hideQuestion = false
+		hideQuestion = false,
+		hostFit = false
 	}: Props = $props();
+
+	const embedded = $derived(hostFit || compact);
 </script>
 
 <div
 	data-testid="answer-tiles"
-	class="w-full min-h-dvh bg-paper flex flex-col items-center px-4 sm:px-6 py-4 sm:py-6 {compact
-		? 'h-full'
-		: ''}"
+	class="w-full bg-paper flex flex-col items-center px-4 sm:px-6 py-4 sm:py-6 {embedded
+		? 'h-full min-h-0'
+		: 'min-h-dvh'}"
 >
 	<div class="w-full max-w-[28rem] sm:max-w-xl flex flex-col gap-4 flex-1">
 		{#if !hideQuestion && question}
