@@ -86,8 +86,8 @@ FACTS: list[dict] = [
         "Household spoons vary in size and can cause inaccurate volumes",
         [
             "Spoons are required by law for every liquid antibiotic",
-            "Milliliter syringes are less accurate than eye measurement",
-            "Teaspoons are calibrated identically in every home",
+            "Milliliter syringes are less accurate than unmarked cups",
+            "Teaspoons are calibrated identically in every home when staff rely on memory from a prior patient with a similar name",
         ],
         "FDA medication safety messaging discourages teaspoon dosing because families use different utensils. A syringe with milliliter marks gives a reproducible volume for each administration.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
         [
             "1 milligram in 1000 liters",
             "1000 grams in 1 milliliter",
-            "1 tablet dissolved in 1 teaspoon without measuring",
+            "1 part drug in 1 part solvent without volume units",
         ],
         "Ratio strengths express drug mass per total solution volume. Recognizing the 1:1000 pattern helps compare labels before measuring a dose.",
         [S.NHA_CCMA],
@@ -127,11 +127,11 @@ FACTS: list[dict] = [
         "Before pouring or drawing any medication, which label elements must be verified?",
         "Patient match, drug name, dose, route, and expiration when visible",
         [
-            "Vial color matched to the patient's bracelet color",
-            "Pharmacy phone number memorized without reading the label",
-            "Lot number ignored if the drug name sounds familiar",
+            "Cap color matched to the order without reading the name",
+            "Pharmacy address when the drug name is familiar",
+            "Lot number alone when the strength is assumed without recording the dose on the medication administration record",
         ],
-        "The rights of medication administration start with reading the complete label against the order. Cosmetic similarities between products do not confirm identity or dose.",
+        "The rights of medication administration start with reading the complete label against the order. Partial checks do not confirm identity or dose.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
         "beginner",
     ),
@@ -166,12 +166,12 @@ FACTS: list[dict] = [
     # skill-pharm-dosage-012
     fact(
         "skill-pharm-dosage",
-        "An insulin syringe barrel is marked in units. What do those unit marks represent for U-100 insulin?",
-        "Insulin units at the U-100 concentration, not milligrams of glucose",
+        "On an insulin syringe barrel marked in units, what do those unit marks represent for U-100 insulin?",
+        "Insulin units at the U-100 concentration, not milligrams of drug",
         [
             "Milligrams of oral metformin",
-            "Milliequivalents of sodium",
-            "Milliliters of saline flush",
+            "Milliequivalents of electrolyte",
+            "Milliliters of saline flush when the clinic is behind schedule and checks are abbreviated",
         ],
         "Insulin syringes are calibrated for insulin units when paired with U-100 product. Confusing units with milligrams or milliliters from other syringes causes large dosing mistakes.",
         [S.CDC_DIABETES, S.NHA_CCMA],
@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             "3 tablets because halves are forbidden",
             "Quarter tablet without prescriber clarification",
-            "0 tablets until the next visit",
+            "0 tablets until the next visit without reading the expiration date on the product label",
         ],
         "When half tablets are within policy and the product is scored, 1.5 tablets matches the math. Rounding up to 3 tablets or omitting the dose would deviate from the order without prescriber input.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -267,9 +267,9 @@ FACTS: list[dict] = [
         "Look-alike sound-alike medication pairs in the clinic require which safety practice?",
         "Tall-man lettering on labels and an independent double-check before administration",
         [
-            "Storing all vials in one unlabeled bin",
+            "Storing all vials in one unlabeled bin when barcode equipment is turned off to reduce alert noise",
             "Relying on cap color as the sole identifier",
-            "Verifying the first letter of the drug name without the rest",
+            "Verifying the first letter of the drug name without the full name",
         ],
         "FDA medication safety resources highlight tall-man lettering and independent verification to reduce swaps between similar names. Cap color alone does not distinguish drug identity.",
         [S.FDA_MEDICATION_SAFETY],
@@ -310,7 +310,7 @@ FACTS: list[dict] = [
         "0.25 mL",
         [
             "2.5 mL",
-            "4 mL",
+            "4 mL without notifying the prescriber about a refused or missed dose",
             "10 mL",
         ],
         "Ten milligrams divided by 40 milligrams per milliliter equals 0.25 milliliter. Drawing the ordered milligram number as milliliters would be a tenfold overdose.",
@@ -324,7 +324,7 @@ FACTS: list[dict] = [
         "Giving an intramuscular antibiotic as an intravenous push",
         [
             "Placing a transdermal patch on clean dry skin as ordered",
-            "Administering an oral tablet with a sip of water",
+            "Administering an oral tablet with a sip of water when partial doses are saved for a different patient later",
             "Instilling ordered eye drops into the conjunctival sac",
         ],
         "Route changes absorption rate and toxicity. Intramuscular products given intravenously can cause rapid harm, whereas correct oral, topical, and ophthalmic routes follow the order.",
@@ -337,7 +337,7 @@ FACTS: list[dict] = [
         "You discover a multi-dose vial past its expiration date while preparing a routine injection. What is the appropriate action?",
         "Do not use the product; obtain a current supply and follow wastage documentation",
         [
-            "Administer it if the dose is small",
+            "Administer it if the dose is small without comparing the drug name and strength to the prescriber order",
             "Double the dose to compensate for lost potency",
             "Transfer the contents into an unlabeled cup for later",
         ],
@@ -352,8 +352,8 @@ FACTS: list[dict] = [
         "Provide or recommend an oral syringe marked in milliliters and show how to read the meniscus",
         [
             "Tell them any spoon from the drawer is exactly 5 mL",
-            "Convert milliliters to tablespoons without a device",
-            "Estimate volume by bottle weight in the hand",
+            "Convert milliliters to tablespoons without a measuring device",
+            "Estimate volume by how full the bottle feels when the package resembles another medication on the shelf",
         ],
         "Metric oral syringes improve accuracy for pediatric liquids. Household utensils are not standardized, so volume should be demonstrated on a labeled syringe.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -393,9 +393,9 @@ FACTS: list[dict] = [
         "High-alert medications in the clinic often require which extra step before administration?",
         "Independent double-check of the order, calculation, and prepared dose by a second qualified staff member",
         [
-            "Single staff member guessing when busy",
-            "Checking the patient's shoe size against the vial",
-            "Documenting after giving without reading the label",
+            "Single staff verification when the clinic is busy without reviewing documented allergies before preparation",
+            "Documentation after giving without reading the label",
+            "Skipping calculation when the vial looks familiar",
         ],
         "Independent verification catches calculation and selection errors before they reach the patient. High-alert drugs have narrow safety margins described in medication safety literature.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -422,8 +422,8 @@ FACTS: list[dict] = [
         "Tuberculin syringes are graduated in milliliters, not insulin units, which invites unit-to-volume confusion",
         [
             "Insulin must be drawn with a 10 mL venipuncture syringe",
-            "U-100 insulin has no relationship to milliliters",
-            "Tuberculin syringes are reserved for oral liquids",
+            "U-100 insulin has no defined relationship to volume when staff rely on memory from a prior patient with a similar name",
+            "Tuberculin syringes are approved for all injectable hormones",
         ],
         "U-100 insulin dosing is expressed in units on insulin syringes. A tuberculin syringe lacks unit graduations matched to insulin labeling, increasing the risk of tenfold errors.",
         [S.CDC_DIABETES, S.FDA_MEDICATION_SAFETY],
@@ -477,8 +477,8 @@ FACTS: list[dict] = [
         "Heparin for subcutaneous injection is ordered in units, while many oral drugs are ordered in milligrams. What is the key safety step when switching between these products?",
         "Read the label unit of measure and match the syringe or device to that unit before calculating volume",
         [
-            "Assume every injectable uses milligrams per milliliter",
-            "Convert units to milligrams with a fixed factor for all drugs",
+            "Assume every injectable uses milligrams per milliliter without recording the dose on the medication administration record",
+            "Convert units to milligrams with one fixed factor for all drugs",
             "Use the same syringe graduations for insulin and heparin interchangeably",
         ],
         "Heparin and insulin use unit-based labeling distinct from milligram concentrations. Verifying the unit on the vial and order prevents applying the wrong formula.",
@@ -520,7 +520,7 @@ FACTS: list[dict] = [
         "Use the syringe and patient education matched to U-500 because concentration differs from U-100",
         [
             "U-500 may be drawn in a tuberculin syringe using the same unit marks as U-100",
-            "U-500 has 5 units per mL like normal saline",
+            "U-500 has 5 units per mL like normal saline when the clinic is behind schedule and checks are abbreviated",
             "Unit markings are identical on every insulin product without reading the label",
         ],
         "U-500 insulin is five times more concentrated than U-100. Matching device and training to the labeled concentration prevents catastrophic under- or overdosing.",
@@ -530,7 +530,7 @@ FACTS: list[dict] = [
     # skill-pharm-dosage-038
     fact(
         "skill-pharm-dosage",
-        "A 1% w/v solution is diluted to patient use. How many milligrams of drug are in 5 mL of a true 1% w/v aqueous solution?",
+        "A 1% w/v solution is prepared for patient use. How many milligrams of drug are in 5 mL of a true 1% w/v aqueous solution?",
         "50 mg",
         [
             "5 mg",
@@ -562,7 +562,7 @@ FACTS: list[dict] = [
         "Stop and clarify the order with the prescriber before preparing the dose",
         [
             "Give the calculated amount because math overrides policy",
-            "Split the dose across two unrelated patients",
+            "Split the dose across two unrelated patients without reading the expiration date on the product label",
             "Halve the dose silently without documentation",
         ],
         "Maximum dose tables and prescriber limits protect against transcription and weight entry errors. Clarification is required when math conflicts with policy or reference maxima.",
@@ -575,7 +575,7 @@ FACTS: list[dict] = [
         "The medication administration record shows 10 units of insulin but the order reads 8 units at lunch. What action fits medication safety practice?",
         "Hold the dose, recheck the order and blood glucose log, and contact the prescriber per protocol",
         [
-            "Give 10 units because the MAR is usually wrong",
+            "Give 10 units because the MAR is usually wrong when barcode equipment is turned off to reduce alert noise",
             "Give 8 units and erase the MAR entry without note",
             "Average the two numbers without telling anyone",
         ],
