@@ -7,8 +7,6 @@ import logging
 import re
 import uuid
 
-from sqlalchemy import text
-
 from classquiz.cache import clear_cache_for_account
 from classquiz.config import meilisearch, settings, storage
 from classquiz.db import database
@@ -40,18 +38,22 @@ MEILI_DELETE_TIMEOUT_SECONDS = 10
 
 _pic_name_regex = re.compile("^.*/(.{36}--.{36})$")
 
-# PostgreSQL jsonb key-exists via jsonb_exists(); do not use the `?` operator in bound SQL
-# (some drivers / layers mishandle `?` next to named parameters and can hang or mis-bind).
-_BATTLE_RESULTS_BY_PLAYER_SQL = text(
-    "DELETE FROM battle_results WHERE jsonb_exists("
-    "COALESCE(player_scores::jsonb, '{}'::jsonb), CAST(:uid_key AS text))"
-)
+async def _delete_battle_results_for_user(user: User) -> None:
+    """Remove battle rows for this user (winner and participant).
 
-
-async def _delete_battle_results_for_user(user_id: uuid.UUID) -> None:
+    player_scores keys are display names (see gamification.record_battle_result), not user UUIDs.
+    Avoid jsonb_exists in bulk SQL: non-object JSON values can raise and abort the delete transaction.
+    """
+    user_id = user.id
+    username = user.username
     uid_key = str(user_id)
     await BattleResult.objects.filter(winner_user_id=user_id).delete()
-    await database.execute(_BATTLE_RESULTS_BY_PLAYER_SQL, {"uid_key": uid_key})
+    for row in await BattleResult.objects.all():
+        scores = row.player_scores
+        if not isinstance(scores, dict):
+            continue
+        if username in scores or uid_key in scores:
+            await row.delete()
 
 
 async def _remove_storage_item_rows(user_id: uuid.UUID) -> list[str]:
@@ -123,7 +125,7 @@ async def _delete_user_db_rows(user_id: uuid.UUID, user: User) -> tuple[int, lis
     await UserTopicStat.objects.filter(user_id=user_id).delete()
     await XpEvent.objects.filter(user_id=user_id).delete()
     await LeaderboardScore.objects.filter(user_id=user_id).delete()
-    await _delete_battle_results_for_user(user_id)
+    await _delete_battle_results_for_user(user)
     await Rating.objects.filter(user=user_id).delete()
     await Controller.objects.filter(user=user_id).delete()
     await GameResults.objects.filter(user=user_id).delete()

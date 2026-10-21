@@ -10,7 +10,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from ormar import or_
 from pydantic import BaseModel
 
-from classquiz.auth import get_admin_user, get_site_admin_user
+from classquiz.auth import get_site_admin_user
 from classquiz.db.models import Quiz, User
 from classquiz.services.user_deletion import (
     delete_user_by_email as delete_user_by_email_service,
@@ -87,33 +87,39 @@ async def list_admin_users(
 
 
 @router.delete("/user/id")
-async def delete_user_by_id(user_id: UUID, _: User = Depends(get_admin_user)):
+async def delete_user_by_id(user_id: UUID, _: User = Depends(get_site_admin_user)):
     try:
         result = await delete_user_by_id_service(user_id)
     except asyncio.TimeoutError:
         raise HTTPException(status_code=504, detail="User deletion timed out")
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"User deletion failed: {exc}") from exc
     if result is None:
         raise HTTPException(status_code=404, detail="User not found")
     return result
 
 
 @router.delete("/user/username")
-async def delete_user_by_username(username: str, _: User = Depends(get_admin_user)):
+async def delete_user_by_username(username: str, _: User = Depends(get_site_admin_user)):
     try:
         result = await delete_user_by_username_service(username)
     except asyncio.TimeoutError:
         raise HTTPException(status_code=504, detail="User deletion timed out")
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"User deletion failed: {exc}") from exc
     if result is None:
         raise HTTPException(status_code=404, detail="User not found")
     return result
 
 
 @router.delete("/user/email")
-async def delete_user_by_email(email: str, _: User = Depends(get_admin_user)):
+async def delete_user_by_email(email: str, _: User = Depends(get_site_admin_user)):
     try:
         result = await delete_user_by_email_service(email)
     except asyncio.TimeoutError:
         raise HTTPException(status_code=504, detail="User deletion timed out")
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"User deletion failed: {exc}") from exc
     if result is None:
         raise HTTPException(status_code=404, detail="User not found")
     return result
