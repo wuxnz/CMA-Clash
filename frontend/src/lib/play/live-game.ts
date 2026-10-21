@@ -109,17 +109,27 @@ export function isStaleQuestionResults(
 	resultsQuestionIndex: number | null,
 	latestQuestionIndex: number
 ): boolean {
-	if (resultsQuestionIndex == null || !Number.isFinite(resultsQuestionIndex)) {
+	const active =
+		activeQuestionIndex != null && activeQuestionIndex !== ''
+			? Number(activeQuestionIndex)
+			: null;
+	const latest = Number.isFinite(latestQuestionIndex) ? latestQuestionIndex : -1;
+
+	if (resultsQuestionIndex != null && Number.isFinite(resultsQuestionIndex)) {
+		if (latest > resultsQuestionIndex) {
+			return true;
+		}
+		if (active != null && Number.isFinite(active) && active > resultsQuestionIndex) {
+			return true;
+		}
 		return false;
 	}
-	if (latestQuestionIndex > resultsQuestionIndex) {
+
+	// Legacy bare arrays have no question_index — treat as stale once the client has advanced.
+	if (latest > 0) {
 		return true;
 	}
-	if (
-		activeQuestionIndex != null &&
-		activeQuestionIndex !== '' &&
-		Number(activeQuestionIndex) > resultsQuestionIndex
-	) {
+	if (active != null && Number.isFinite(active) && active > 0) {
 		return true;
 	}
 	return false;

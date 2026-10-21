@@ -224,7 +224,7 @@ SPDX-License-Identifier: MPL-2.0
 		solution = undefined;
 		restart();
 		question = questionFromSocketPayload(data as Record<string, unknown>);
-		question_index = data.question_index;
+		question_index = Number.isFinite(nextIndex) ? nextIndex : data.question_index;
 		answer_results = undefined;
 		selectedAnswer = undefined;
 		pointsThisRound = 0;
