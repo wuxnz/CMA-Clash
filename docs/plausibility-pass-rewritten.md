@@ -1,0 +1,42 @@
+## CPR adult/child/infant
+
+**Facts touched:** 35
+
+- What compression depth range for most adults during BLS CPR?
+- What is the recommended compression depth range for most adults
+- An unresponsive adult is on a soft mattress during CPR and comp
+- During two-rescuer adult CPR, compressions measure about 1.5 
+- Real-time feedback shows an adult victim is receiving compressi
+- After return of spontaneous circulation (ROSC) in an adult, what
+- When should a lay rescuer stop CPR on an adult who was in card
+- After ROSC, an adult breathes normally and moves purposefully,
+- During 30:2 adult CPR you give a rescue breath and the chest do
+- EMS is still en route but an adult arrest victim starts breath
+- Why does AHA stress limiting pauses in chest compressions duri
+- For which situation does AHA teach lay rescuers that compressi
+- Why does AHA recommend including rescue ventilations during ch
+- You confirm scene safety at a playground where a child lies m
+- What compression depth target is recommended for most child vi
+- Pediatric AED pads or a dose-attenuating system is available 
+- When should rescuers use adult compression depth and hand-pla
+- Which description best defines who should receive child BLS co
+- After return of spontaneous circulation, a breathing child has
+- During CPR on a thin 9-year-old, feedback shows compressions 
+- Two rescuers have provided high-quality child CPR for nearly t
+- During prolonged child CPR on a cool playground, the team has 
+- What compression-to-ventilation ratio should a single lay resc
+- You confirm scene safety and find an infant unresponsive in a
+- An unresponsive infant has only weak gasping breaths and no ef
+- When should rescuers apply an AED during suspected cardiac ar
+- Which description best matches high-quality chest compression
+- Why does AHA recommend including rescue ventilations during in
+- How should a rescuer deliver each rescue breath during infant 
+- When opening the airway for infant CPR and significant trauma
+- Which compression technique is preferred when two rescuers pe
+- When opening an infant's airway for ventilations during CPR, w
+- Why might rescuers cover an infant with a dry blanket during p
+- Which action best limits harmful pauses during infant CPR when
+- How often should rescuers switch the compressor during two-res
+- During CPR on an infant with suspected foreign body obstructio
+- During two-rescuer infant CPR, the compressor using two-thumb 
+- A premature infant in the home develops unresponsiveness and a
