@@ -58,6 +58,32 @@ _INCOMPLETE_STEM_END = re.compile(
     r")\?\s*$",
     re.I,
 )
+_FRAGMENT_TAIL_QUESTION = re.compile(
+    r"(?:"
+    r"\bis placed\?|\bshould\?|\bfrom the\?|\bof\?|\bbe\?|\bserves as\?|"
+    r"\bare\?|\bshows\?|\bhelp by\?|\brecords\?|\binclude\?|"
+    r"\bfunctions mainly as\?|\bis typically\?|\bis commonly placed\?|"
+    r"\bis created by viewing from\?|\bis placed at the\?|\bis typically placed\?|"
+    r"\bis placed at\?|\bis typically at\?|\bto detect\?|\bto assess\?|"
+    r"\bto evaluate\?|\bto improve visualization of\?|\badds posterior leads to improve visualization of\?"
+    r")\s*$",
+    re.I,
+)
+_BANNED_DISTRACTOR_QUALIFIER = re.compile(
+    r"\b(only|always|never|skip|unmeasurable)\b|"
+    r"\bavoid any\b|"
+    r"\bstandard\s*$",
+    re.I,
+)
+_HAND_AUTHORED_BANK_PREFIXES = (
+    "cpr-",
+    "phleb-",
+    "ekg-",
+    "ccma-",
+    "skill-",
+)
+# Certs that must pass fragment, duplicate-choice, qualifier, and near-duplicate stem checks.
+_STRICT_QUALITY_CERT_PREFIXES = ("ekg-",)
 _AHA_ADULT_CHOKING_FIVE_FIVE = re.compile(
     r"(alternate|alternating)\s+5\s+back|five\s+back\s+blows\s+and\s+five\s+abdominal",
     re.I,
@@ -165,9 +191,73 @@ def test_hand_authored_stems_are_complete_questions():
             bad.append(stem[:90])
         if _COLON_FRAGMENT_STEM.search(stem) or _FRAGMENT_MUST_BE.search(stem):
             bad.append(stem[:90])
+        if _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            if _FRAGMENT_TAIL_QUESTION.search(stem):
+                bad.append(stem[:90])
         if not stem.endswith("?") and not stem.endswith("."):
             bad.append(stem[:90])
     assert not bad, f"Incomplete stems in hand-authored certs: {bad[:12]}"
+
+
+def _normalize_choice(text: str) -> str:
+    return re.sub(r"\s+", " ", text.strip().lower())
+
+
+def test_hand_authored_no_duplicate_choices_within_item():
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            continue
+        choices = [fact["correct"], *fact["distractors"]]
+        norms = [_normalize_choice(c) for c in choices]
+        if len(set(norms)) != len(norms):
+            bad.append(f"{fact['topic']}: {fact['stem'][:70]}")
+    assert not bad, f"Duplicate answer options in same item: {bad[:12]}"
+
+
+def test_hand_authored_distractors_lack_banned_qualifiers():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            continue
+        for choice in fact["distractors"]:
+            if _BANNED_DISTRACTOR_QUALIFIER.search(choice):
+                hits.append(f"{fact['stem'][:50]}: {choice[:60]}")
+    assert not hits, f"Banned distractor qualifiers: {hits[:12]}"
+
+
+def test_hand_authored_no_near_duplicate_stems():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.stem_normalize import normalize_stem
+
+    def _tokens(stem: str) -> set[str]:
+        return set(re.findall(r"[a-z0-9]+", normalize_stem(stem)))
+
+    by_prefix: dict[str, list[dict]] = {}
+    for fact in load_all_facts():
+        for prefix in _STRICT_QUALITY_CERT_PREFIXES:
+            if fact["topic"].startswith(prefix):
+                by_prefix.setdefault(prefix, []).append(fact)
+                break
+
+    pairs: list[str] = []
+    for prefix, facts in by_prefix.items():
+        for i, a in enumerate(facts):
+            ta = _tokens(a["stem"])
+            if not ta:
+                continue
+            for b in facts[i + 1 :]:
+                tb = _tokens(b["stem"])
+                if not tb:
+                    continue
+                overlap = len(ta & tb) / len(ta | tb)
+                if overlap >= 0.82:
+                    pairs.append(f"{prefix} {overlap:.2f}: {a['stem'][:45]} | {b['stem'][:45]}")
+    assert not pairs, f"Near-duplicate stems (Jaccard>=0.82): {pairs[:10]}"
 
 
 def test_cpr_aha_choking_does_not_use_red_cross_adult_five_and_five_answer():
@@ -244,7 +334,7 @@ def test_ccma_cert_meets_minimum_hand_authored_floor():
     from classquiz.seed.banks import load_all_facts
 
     ccma = [f for f in load_all_facts() if f["topic"].startswith("ccma-")]
-    assert len(ccma) >= 479, f"CCMA cert has {len(ccma)} questions; floor is 479 hand-authored unique items"
+    assert len(ccma) >= 588, f"CCMA cert has {len(ccma)} questions; floor is 588 (+50% vs ~392 baseline)"
 
 
 def test_ekg_cert_meets_minimum_hand_authored_floor():
