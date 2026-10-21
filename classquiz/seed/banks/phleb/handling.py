@@ -44,12 +44,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What processing step do serum separator tubes for routine chemistry often require before centrifugation?",
-        "Upright clotting for the laboratory-defined interval",
+        "How long should a serum separator tube usually clot upright before centrifugation?",
+        "For the interval defined in the laboratory procedure manual",
         [
-            "Immediate centrifugation without allowing clot formation to complete",
-            "Eight to ten inversions followed by refrigeration before centrifugation",
-            "Horizontal storage on ice while the clot forms inside the tube",
+            "Centrifuge immediately without an upright clotting period",
+            "Five gentle inversions then immediate refrigeration before centrifugation",
+            "Horizontal storage on ice during the clotting period",
         ],
         "Complete clot formation allows fibrin to contract so serum separates cleanly during centrifugation. "
         "GP41-aligned processing follows the test manual for clot time, temperature, and validated spin settings.",

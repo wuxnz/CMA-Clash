@@ -67,6 +67,19 @@ Summaries of fact-check and distractor plausibility work on hand-authored seed b
 
 **Counts:** 29 items reviewed; **28** items received distractor and/or key wording edits; **1** item (022) unchanged. No factual key changes.
 
+## Phleb order-draw read-through (facts 1–40, accuracy + 1-in-5 + parity)
+
+- **Inversion accuracy (CLSI):** citrate tube item keyed **3–4** inversions; lavender EDTA item keyed **8–10** (replaced incorrect combined citrate/EDTA “5–10” item). Distractors use **3–4 / 5 / 8–10 / none** parallel bands.
+- **Partial and underfilled citrate:** stems ask one decision; correct keys shortened; near-miss distractors (send with comment, saline top-off, second-stick pairing) without absurd volume claims.
+- **Auto-padded distractors:** removed repeated “blood culture and light blue…” / “additive carryover…” clause tails from order-draw options (batch hygiene).
+- **Handling SST:** clot-time stem with **5-inversion** near-miss vs manual clot interval (not EDTA inversion count).
+
+## Choking / AED touch-up (sample failures)
+
+- Adult severe obstruction: fluids / observe-until-collapse / ARC back-blow cycle → thrust vs fluids / ARC-style alternate / monitor-without-thrust near-misses.
+- Infant severe obstruction: adult abdominal thrusts → abdominal-thrust / finger-sweep / CPR-before-slaps near-misses.
+- AED during CPR: nurses’ station / distant cart → supply room / closed case / foot-of-bed cart near-misses.
+
 ## CPR adult, child, infant (completed)
 
 **Scope:** 1-in-5 plausibility pass on `classquiz/seed/banks/cpr/adult.py` (50), `child.py` (45), and `infant.py` (50). Keyed answers unchanged; stems and explanations unchanged except where distractor edits required minor explanation alignment (none this pass).

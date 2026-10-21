@@ -379,11 +379,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "A bystander retrieves an AED while compressions are in progress. Where should the device be opened?",
-        "Open the case near the patient so pads can be applied with minimal delay",
+        "At the bedside near the patient with minimal delay",
         [
-            "Prepare the AED at the nurses' station until a two-minute CPR cycle finishes at the bedside",
-            "Keep the device in the closed case until EMS enters the building",
-            "Place the AED on a distant cart until compressions have stopped completely",
+            "In the supply room until two minutes of CPR are complete",
+            "In the closed case until EMS arrives on scene",
+            "On a cart at the foot of the bed until compressions pause",
         ],
         "Proximity and readiness shorten the time to first analysis and shock. Opening the unit nearby allows rapid pad placement with brief pauses in compressions.",
         _REF,
