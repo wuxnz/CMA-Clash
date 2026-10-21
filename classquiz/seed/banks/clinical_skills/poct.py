@@ -576,7 +576,7 @@ FACTS: list[dict] = [
         "How should waived test results be shared with patients?",
         "Per provider or protocol, with privacy safeguards and chart documentation",
         [
-            "Announced loudly in a crowded waiting room so patients hear results quickly",
+            "Left on the printer tray in the waiting area with the patient's name visible",
             "Sent as plain text messages without verifying the recipient phone number",
             "Released as abnormal values to the patient without provider review first",
         ],

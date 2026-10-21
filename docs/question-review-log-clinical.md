@@ -605,3 +605,5 @@ skill-osha-bbp-014 | fail | Post-exposure evaluation distractor replaced parking
 skill-osha-bbp-036 | fail | Housekeeping training distractor replaced parking-lot signs with orientation-only near-miss.
 skill-specimen-lab-027 | fail | Requisition distractors replaced parking and chair-color jokes with scheduling and facilities near-misses.
 skill-med-safety-034 | fail | Teach-back distractors replaced parking and break-schedule jokes with appointment and med-bottle near-misses.
+skill-specimen-lab-023 | fail | Replaced tourniquet-color joke distractor with butterfly-versus-vacutainer near-miss.
+skill-poct-041 | fail | Replaced waiting-room announcement distractor with mislabeled printer-tray near-miss.

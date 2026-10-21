@@ -326,7 +326,7 @@ FACTS: list[dict] = [
         [
             "Whenever any IV is present regardless of location or fluid type",
             "When the patient prefers the opposite arm without medical reason",
-            "When the tourniquet color does not match facility supply stock in routine outpatient care",
+            "When a butterfly set is available but a standard vacutainer holder is not",
         ],
         "Fluids infusing distal to the draw site dilute analytes. Above-the-IV draws or stopping infusion may be ordered when distal samples are invalid.",
         [S.CLSI_GP41, S.NHA_CPT],
