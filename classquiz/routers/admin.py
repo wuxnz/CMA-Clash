@@ -2,6 +2,7 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
+import asyncio
 from datetime import datetime
 from uuid import UUID
 
@@ -87,7 +88,10 @@ async def list_admin_users(
 
 @router.delete("/user/id")
 async def delete_user_by_id(user_id: UUID, _: User = Depends(get_admin_user)):
-    result = await delete_user_by_id_service(user_id)
+    try:
+        result = await delete_user_by_id_service(user_id)
+    except asyncio.TimeoutError:
+        raise HTTPException(status_code=504, detail="User deletion timed out")
     if result is None:
         raise HTTPException(status_code=404, detail="User not found")
     return result
@@ -95,7 +99,10 @@ async def delete_user_by_id(user_id: UUID, _: User = Depends(get_admin_user)):
 
 @router.delete("/user/username")
 async def delete_user_by_username(username: str, _: User = Depends(get_admin_user)):
-    result = await delete_user_by_username_service(username)
+    try:
+        result = await delete_user_by_username_service(username)
+    except asyncio.TimeoutError:
+        raise HTTPException(status_code=504, detail="User deletion timed out")
     if result is None:
         raise HTTPException(status_code=404, detail="User not found")
     return result
@@ -103,7 +110,10 @@ async def delete_user_by_username(username: str, _: User = Depends(get_admin_use
 
 @router.delete("/user/email")
 async def delete_user_by_email(email: str, _: User = Depends(get_admin_user)):
-    result = await delete_user_by_email_service(email)
+    try:
+        result = await delete_user_by_email_service(email)
+    except asyncio.TimeoutError:
+        raise HTTPException(status_code=504, detail="User deletion timed out")
     if result is None:
         raise HTTPException(status_code=404, detail="User not found")
     return result

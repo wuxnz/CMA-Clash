@@ -177,3 +177,41 @@ class TestAdminApi:
         monkeypatch.setattr(auth_module.settings, "admin_emails", test_user_email)
         resp2 = test_client.get("/api/v1/users/me")
         assert resp2.json()["is_site_admin"] is True
+
+    @pytest.mark.asyncio
+    async def test_admin_delete_user_by_id_minimal_user(self, test_client: TestClient, monkeypatch):
+        from classquiz.config import settings
+        from classquiz.db.models import User
+
+        victim_email = f"del-id-{uuid.uuid4().hex[:8]}@example.com"
+        victim_username = f"delid{uuid.uuid4().hex[:6]}"
+        test_client.post(
+            "/api/v1/users/create",
+            json={
+                "email": victim_email,
+                "username": victim_username,
+                "password": "delete-me-12",
+            },
+        )
+        victim = test_client.get(
+            f"/api/v1/internal/testing/user/{victim_email}?secret_key={settings().secret_key}"
+        ).json()
+        victim_id = victim["id"]
+
+        admin_email = f"del-admin-{uuid.uuid4().hex[:8]}@example.com"
+        test_client.post(
+            "/api/v1/users/create",
+            json={
+                "email": admin_email,
+                "username": f"deladmin{uuid.uuid4().hex[:6]}",
+                "password": "admin-pass-123",
+            },
+        )
+        test_client.get(f"/api/v1/internal/testing/user/{admin_email}?secret_key={settings().secret_key}")
+        monkeypatch.setattr(auth_module.settings, "admin_emails", admin_email)
+        _log_in_admin(test_client, admin_email, "admin-pass-123")
+
+        resp = test_client.delete(f"/api/v1/admin/user/id?user_id={victim_id}")
+        assert resp.status_code == 200
+        assert resp.json()["deleted"] == 1
+        assert await User.objects.get_or_none(id=uuid.UUID(victim_id)) is None

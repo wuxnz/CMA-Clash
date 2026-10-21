@@ -11,6 +11,9 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import { focusTrap } from '$lib/ui/focusTrap';
 	import { onMount } from 'svelte';
+	import { formatApiErrorDetail } from '$lib/apiErrorDetail';
+
+	const DELETE_TIMEOUT_MS = 30_000;
 
 	navbarVisible.visible = true;
 
@@ -84,23 +87,35 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		deleteBusy = true;
 		banner = null;
+		const controller = new AbortController();
+		const timeoutId = setTimeout(() => controller.abort(), DELETE_TIMEOUT_MS);
 		try {
 			const res = await fetch(
 				`/api/v1/admin/user/id?user_id=${encodeURIComponent(deleteTarget.id)}`,
-				{ method: 'DELETE', credentials: 'include' }
+				{ method: 'DELETE', credentials: 'include', signal: controller.signal }
 			);
 			if (!res.ok) {
 				const body = await res.json().catch(() => ({}));
 				banner = {
 					kind: 'error',
-					text: body.detail ? String(body.detail) : 'Delete failed.'
+					text: formatApiErrorDetail(body.detail, 'Delete failed.')
 				};
 				return;
 			}
 			banner = { kind: 'success', text: `Deleted user ${deleteTarget.username}.` };
 			closeDelete();
 			await loadUsers();
+		} catch (err) {
+			if (err instanceof DOMException && err.name === 'AbortError') {
+				banner = {
+					kind: 'error',
+					text: 'Delete timed out. The server may still be working; refresh and check the list.'
+				};
+			} else {
+				banner = { kind: 'error', text: 'Delete failed.' };
+			}
 		} finally {
+			clearTimeout(timeoutId);
 			deleteBusy = false;
 		}
 	}
