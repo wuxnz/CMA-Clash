@@ -6,6 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
 
 const port = 3000;
 const baseURL = `http://127.0.0.1:${port}`;
+const apiBase = process.env.PLAYWRIGHT_API_BASE ?? 'https://cmaclash-api.onrender.com';
 
 export default defineConfig({
 	testDir: 'e2e',
@@ -18,7 +19,7 @@ export default defineConfig({
 		baseURL
 	},
 	webServer: {
-		command: `pnpm exec vite preview --host 127.0.0.1 --port ${port}`,
+		command: `BACKEND_URL=${apiBase} pnpm exec vite preview --host 127.0.0.1 --port ${port}`,
 		url: baseURL,
 		reuseExistingServer: !process.env.CI,
 		timeout: 120_000

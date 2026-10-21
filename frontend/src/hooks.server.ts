@@ -152,7 +152,9 @@ export const handle: Handle = async ({ event, resolve }) => {
 			}
 			return withRobotsTag(resp);
 		}
+		event.locals.email = null;
+		return withRobotsTag(await resolve(event));
 	}
-	event.locals.email = jwt.sub;
+	event.locals.email = typeof jwt.sub === 'string' ? jwt.sub : null;
 	return withRobotsTag(await resolve(event));
 };
