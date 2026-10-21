@@ -173,34 +173,39 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	function answerTileClass(index: number): string {
+		const base =
+			'rounded-xl p-3 sm:p-4 text-white min-h-[5.25rem] sm:min-h-[5.75rem] flex flex-col items-center justify-center gap-1.5 press-scale cursor-pointer border-2';
 		if (!revealed) {
-			return 'rounded-xl p-4 text-white min-h-[4.5rem] flex flex-col items-center justify-center gap-1 press-scale cursor-pointer border-2 border-transparent';
+			return `${base} border-transparent`;
 		}
 		const ans = payload.answers[index];
 		if (ans.right) {
-			return 'rounded-xl p-4 text-white min-h-[4.5rem] flex flex-col items-center justify-center gap-1 border-2 border-gold ring-2 ring-gold/40';
+			return `${base} border-gold ring-2 ring-gold/40`;
 		}
 		if (index === selectedIndex) {
-			return 'rounded-xl p-4 text-white min-h-[4.5rem] flex flex-col items-center justify-center gap-1 border-2 border-white/70 opacity-80';
+			return `${base} border-white/70 opacity-80`;
 		}
-		return 'rounded-xl p-4 text-white min-h-[4.5rem] flex flex-col items-center justify-center gap-1 opacity-60';
+		return `${base} border-transparent opacity-60`;
 	}
 </script>
 
-<div class="rounded-2xl bg-surface p-5 sm:p-6" aria-live="polite">
-	<div class="flex items-center justify-between mb-4">
-		<span class="font-display text-2xl text-gold">VS</span>
-		<span class="text-sm text-ink-muted tabular-nums">{questionNumber} / 12</span>
+<div
+	class="rounded-2xl bg-surface p-5 sm:p-7 w-full min-w-0 text-base sm:text-[1.0625rem]"
+	aria-live="polite"
+>
+	<div class="flex items-center justify-between mb-4 sm:mb-5">
+		<span class="font-display text-2xl sm:text-3xl text-gold">VS</span>
+		<span class="text-base text-ink-muted tabular-nums font-medium">{questionNumber} / 12</span>
 	</div>
-	<p class="text-sm text-ink-muted mb-2">{payload.tagLine}</p>
-	<p class="font-semibold text-ink mb-4">
+	<p class="text-base sm:text-lg text-ink-muted mb-2 leading-snug">{payload.tagLine}</p>
+	<p class="font-semibold text-ink mb-4 sm:mb-5 text-lg sm:text-xl leading-snug">
 		{#if loading}
 			<span class="text-ink-muted">Loading a sample question…</span>
 		{:else}
 			{@html normalizeQuizText(payload.question)}
 		{/if}
 	</p>
-	<div class="grid grid-cols-2 gap-2">
+	<div class="grid grid-cols-2 gap-2.5 sm:gap-3">
 		{#each payload.answers as a, i}
 			<button
 				type="button"
@@ -209,18 +214,21 @@ SPDX-License-Identifier: MPL-2.0
 				disabled={loading || revealed}
 				onclick={() => selectAnswer(i)}
 			>
-				<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[i]} class="w-6 h-6" />
-				<span class="font-display text-sm normal-case">{normalizeQuizText(a.text)}</span>
+				<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[i]} class="w-7 h-7 sm:w-8 sm:h-8 shrink-0" />
+				<span
+					class="font-display text-base sm:text-lg normal-case text-center leading-snug line-clamp-3 px-0.5"
+					>{normalizeQuizText(a.text)}</span
+				>
 			</button>
 		{/each}
 	</div>
 	{#if revealed && payload.explanation}
-		<p class="mt-4 text-sm text-ink-muted leading-relaxed">
+		<p class="mt-4 text-base text-ink-muted leading-relaxed">
 			<span class="font-semibold text-ink">{lastCorrect ? 'Correct.' : 'Not quite.'}</span>
 			{payload.explanation}
 		</p>
 	{/if}
-	<div class="mt-4 text-center text-sm text-ink-muted">
+	<div class="mt-4 sm:mt-5 text-center text-base text-ink-muted">
 		{#if revealed}
 			<button
 				type="button"
