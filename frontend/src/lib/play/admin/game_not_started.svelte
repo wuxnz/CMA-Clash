@@ -39,11 +39,12 @@ SPDX-License-Identifier: MPL-2.0
 	}
 </script>
 
-<div class="w-full min-h-screen bg-paper px-4 py-8">
+<div class="w-full h-dvh max-h-dvh bg-paper flex flex-col overflow-hidden">
+	<div class="flex-1 min-h-0 overflow-y-auto px-4 pt-6 pb-4 sm:py-8">
 	<!-- <AudioPlayer bind:play={play_music} /> -->
 	<div class="max-w-5xl mx-auto text-center mb-8">
 		<p class="font-display text-gold text-sm tracking-[0.35em] mb-2">Arena stage</p>
-		<h1 class="font-display text-6xl text-ink">Host lobby</h1>
+		<h1 class="font-display text-4xl sm:text-6xl text-ink">Host lobby</h1>
 		<p class="text-ink-muted mt-2">Share the PIN or QR so players can drop in</p>
 		<div class="mt-6">
 			<PinDisplay pin={game_pin} />
@@ -104,19 +105,7 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 		{/if}
 	</div>
-	<div class="flex justify-center w-full mt-4">
-		<div>
-			<GrayButton
-				data-testid="lobby-start-game"
-				disabled={game_state.players.length < 1}
-				onclick={() => {
-					socket_game_controls.start_game();
-				}}
-				>{$t('admin_page.start_game')}
-			</GrayButton>
-		</div>
-	</div>
-	<Card class="max-w-5xl mx-auto mt-8" padding="md">
+	<Card class="max-w-5xl mx-auto mt-6 sm:mt-8" padding="md">
 		<h2 class="font-display font-semibold text-ink mb-4">Players in lobby</h2>
 		<div class="flex flex-row w-full flex-wrap gap-2">
 			{#if game_state.players.length > 0}
@@ -137,7 +126,30 @@ SPDX-License-Identifier: MPL-2.0
 			{/if}
 		</div>
 	</Card>
+	</div>
+	<div
+		class="shrink-0 border-t border-white/10 bg-surface/95 backdrop-blur-md px-3 py-3 safe-bottom"
+		data-testid="host-lobby-controls"
+	>
+		<div class="max-w-xl mx-auto w-full [&_button]:w-full [&_button]:justify-center">
+			<GrayButton
+				data-testid="lobby-start-game"
+				flex={true}
+				disabled={game_state.players.length < 1}
+				onclick={() => {
+					socket_game_controls.start_game();
+				}}
+				>{$t('admin_page.start_game')}
+			</GrayButton>
+		</div>
+	</div>
 </div>
+
+<style>
+	.safe-bottom {
+		padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+	}
+</style>
 
 {#if fullscreen_open}
 	<div

@@ -22,7 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import HostProgress from '$lib/play/admin/host-progress.svelte';
-	import HostTopBar from '$lib/play/admin/host-top-bar.svelte';
+	import HostLiveShell from '$lib/play/admin/host-live-shell.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import {
@@ -219,14 +219,12 @@ SPDX-License-Identifier: MPL-2.0
 	<Controls {bg_color} {socket_game_controls} {game_token} bind:game_state />
 {/if}
 
-<div class="w-full min-h-dvh bg-paper pb-28">
-	{#if game_state.selected_question >= 0 && game_state.quiz_data}
-		<HostTopBar
-			current={game_state.selected_question + 1}
-			total={game_state.quiz_data.questions.length}
-			gamePin={game_state.quiz_data.game_pin}
-		/>
-	{/if}
+<HostLiveShell
+	current={game_state.selected_question < 0 ? 0 : game_state.selected_question + 1}
+	total={game_state.quiz_data?.questions?.length ?? 0}
+	gamePin={game_state.quiz_data?.game_pin}
+	showTopBar={Boolean(game_state.quiz_data)}
+>
 	{#if game_state.timer_res !== undefined && !final_results_clicked && !game_state.question_results}
 		{#if game_state.quiz_data.questions[game_state.selected_question].type === QuizQuestionType.SLIDE}
 			{#await import('$lib/play/admin/slide.svelte')}
@@ -238,6 +236,7 @@ SPDX-License-Identifier: MPL-2.0
 			{/await}
 		{:else if hostKahootStyle && livePhase === 'intro' && activeQ}
 			<QuestionIntro
+				hostFit
 				question={activeQ.question}
 				topic={formatQuestionTopicTag(
 					cert_label,
@@ -251,6 +250,7 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 		{:else if hostKahootStyle && activeQ}
 			<AnswerTiles
+				hostFit
 				question={activeQ.question}
 				answers={Array.isArray(activeQ.answers) ? activeQ.answers : []}
 				remainingSeconds={parseInt(game_state.timer_res) || 0}
@@ -298,12 +298,9 @@ SPDX-License-Identifier: MPL-2.0
 				/>
 			{/await}
 		{:else if livePhase === 'reveal' && activeQ}
-			<RevealPhase
-				question={activeQ.question}
-				distribution={hostDistribution}
-			/>
+			<RevealPhase hostFit question={activeQ.question} distribution={hostDistribution} />
 		{:else if livePhase === 'rankings'}
-			<RankingsBoard rows={rankingRows} />
+			<RankingsBoard hostFit rows={rankingRows} />
 		{:else}
 			{#await import('$lib/play/admin/results.svelte')}
 				<Spinner />
@@ -316,22 +313,31 @@ SPDX-License-Identifier: MPL-2.0
 			{/await}
 		{/if}
 	{/if}
-	{#if game_state.selected_question === -1}
-		<div class="flex flex-col justify-center w-screen min-h-dvh px-6">
-			<p class="font-display text-gold text-sm tracking-[0.3em] text-center mb-4">Get ready</p>
-			<h1 class="font-display text-6xl sm:text-7xl text-center">{@html normalizeQuizText(game_state.quiz_data.title)}</h1>
-			<p class="text-xl pt-6 text-center text-ink-muted">{@html game_state.quiz_data.description}</p>
+	{#if game_state.selected_question === -1 && game_state.quiz_data}
+		<div
+			class="flex flex-col items-center justify-center h-full min-h-0 px-4 sm:px-6 py-6 text-center"
+			data-testid="host-get-ready"
+		>
+			<p class="font-display text-gold text-xs sm:text-sm tracking-[0.3em] mb-2">Get ready</p>
+			<h1
+				class="font-display text-3xl sm:text-5xl md:text-6xl text-ink leading-tight line-clamp-4 max-w-3xl"
+			>
+				{@html normalizeQuizText(game_state.quiz_data.title)}
+			</h1>
+			{#if game_state.quiz_data.description}
+				<p class="text-sm sm:text-base pt-3 text-ink-muted line-clamp-4 max-w-xl">
+					{@html game_state.quiz_data.description}
+				</p>
+			{/if}
 			{#if game_state.quiz_data.cover_image}
-				<div class="flex justify-center align-middle items-center">
-					<div class="h-[30vh] m-auto w-auto mt-12">
-						<img
-							class="max-h-full max-w-full block"
-							src="/api/v1/storage/download/{game_state.quiz_data.cover_image}"
-							alt="Not provided"
-						/>
-					</div>
+				<div class="mt-4 w-full flex justify-center max-h-[min(26vh,11rem)] sm:max-h-[min(30vh,14rem)]">
+					<img
+						class="max-h-full max-w-full object-contain rounded-lg"
+						src="/api/v1/storage/download/{game_state.quiz_data.cover_image}"
+						alt=""
+					/>
 				</div>
 			{/if}
 		</div>
 	{/if}
-</div>
+</HostLiveShell>

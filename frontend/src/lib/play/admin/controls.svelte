@@ -28,6 +28,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div
+	data-testid="host-controls"
 	class="fixed inset-x-0 bottom-0 z-30 border-t border-white/10 bg-surface/95 backdrop-blur-md px-3 py-3 safe-bottom"
 	style="background: {bg_color ? `${bg_color}ee` : undefined}"
 >
@@ -36,6 +37,7 @@ SPDX-License-Identifier: MPL-2.0
 			{#if JSON.stringify(game_state.final_results) === JSON.stringify([null])}
 				<button
 					type="button"
+					data-testid="host-primary-action"
 					onclick={() => socket_game_controls.get_final_results()}
 					class="admin-button flex-1 min-w-[10rem]"
 				>
@@ -46,6 +48,7 @@ SPDX-License-Identifier: MPL-2.0
 			{#if (game_state.selected_question + 1 !== game_state.quiz_data.questions.length && game_state.question_results !== null) || game_state.selected_question === -1}
 				<button
 					type="button"
+					data-testid="host-primary-action"
 					onclick={() => {
 						socket_game_controls.set_question_number(game_state.selected_question + 1);
 					}}
@@ -90,6 +93,7 @@ SPDX-License-Identifier: MPL-2.0
 				{:else}
 					<button
 						type="button"
+						data-testid="host-primary-action"
 						onclick={() =>
 							socket_game_controls.get_question_results(
 								game_token,
@@ -115,7 +119,12 @@ SPDX-License-Identifier: MPL-2.0
 					})}
 				</button>
 			{:else}
-				<button type="button" onclick={show_solutions} class="admin-button flex-1 min-w-[10rem]">
+				<button
+					type="button"
+					data-testid="host-primary-action"
+					onclick={show_solutions}
+					class="admin-button flex-1 min-w-[10rem]"
+				>
 					{$t('admin_page.stop_time_and_solutions')}
 				</button>
 			{/if}

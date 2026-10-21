@@ -14,6 +14,7 @@
 		points?: number;
 		streak?: number;
 		isPlayer?: boolean;
+		hostFit?: boolean;
 	}
 
 	let {
@@ -22,14 +23,23 @@
 		correct = null,
 		points = 0,
 		streak = 0,
-		isPlayer = false
+		isPlayer = false,
+		hostFit = false
 	}: Props = $props();
 
 	let max = $derived(Math.max(1, ...distribution.map((d) => d.count)));
 </script>
 
-<div class="h-dvh min-h-dvh w-full bg-paper flex flex-col px-4 sm:px-8 py-8">
-	<p class="font-sans text-lg sm:text-2xl text-ink text-center font-semibold max-w-4xl mx-auto mb-8">
+<div
+	class="w-full bg-paper flex flex-col px-4 sm:px-8 {hostFit
+		? 'h-full min-h-0 py-4 sm:py-6'
+		: 'h-dvh min-h-dvh py-8'}"
+>
+	<p
+		class="font-sans text-ink text-center font-semibold max-w-4xl mx-auto shrink-0 {hostFit
+			? 'text-base sm:text-lg mb-4 line-clamp-3'
+			: 'text-lg sm:text-2xl mb-8'}"
+	>
 		{@html normalizeQuizText(question)}
 	</p>
 
@@ -50,7 +60,7 @@
 		</div>
 	{/if}
 
-	<ul class="max-w-2xl mx-auto w-full space-y-4 flex-1">
+	<ul class="max-w-2xl mx-auto w-full space-y-2.5 sm:space-y-4 flex-1 min-h-0 overflow-y-auto">
 		{#each distribution as row, i}
 			<li>
 				<div class="flex items-center gap-3 mb-1">
