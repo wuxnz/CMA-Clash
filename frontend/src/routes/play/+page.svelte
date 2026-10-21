@@ -42,7 +42,7 @@ SPDX-License-Identifier: MPL-2.0
 	} from '$lib/play/live-standings-copy';
 	import {
 		aggregateScoresFromFinalResults,
-		applyQuestionResultScores,
+		integrateLiveQuestionResults,
 		scoreDeltaForUser
 	} from '$lib/play/live-scoring';
 	import {
@@ -330,18 +330,17 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		restart();
 		answer_results = rows as PlayerAnswer[];
-		standingsTop = top;
 		revealHoldMs = Math.max(0, revealHoldSec * 1000);
 		pointsThisRound = scoreDeltaForUser(rows, username);
-		const scoreIndex = resultsIndex ?? question_index;
-		const applied = applyQuestionResultScores(
-			scores,
-			rows,
-			scoreIndex,
-			lastScoreAppliedQuestionIndex
+		const scoreIndex =
+			resultsIndex ?? (typeof question_index === 'number' ? question_index : null);
+		const integrated = integrateLiveQuestionResults(
+			{ scores, lastAppliedQuestionIndex: lastScoreAppliedQuestionIndex, standingsTop },
+			{ questionIndex: scoreIndex, rows, standingsTop: top }
 		);
-		scores = applied.scores;
-		lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
+		scores = integrated.scores;
+		lastScoreAppliedQuestionIndex = integrated.lastAppliedQuestionIndex;
+		standingsTop = integrated.standingsTop;
 		const mine = rows.find((r) => r.username === username);
 		const right =
 			mine?.right === true || mine?.right === 'true' || mine?.right === 1;

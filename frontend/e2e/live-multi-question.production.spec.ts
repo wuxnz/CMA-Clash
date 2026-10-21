@@ -50,13 +50,32 @@ test.describe('production live multi-question UI', () => {
 
 			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
 			await expect(p1.getByTestId('reveal-speed-rank')).toBeVisible();
+
+			const revealPointsText = await p1
+				.locator('.font-display.text-3xl.text-gold.tabular-nums')
+				.first()
+				.innerText();
+			const q1RevealDelta = Number(revealPointsText.replace(/[^\d]/g, ''));
+			expect(q1RevealDelta).toBeGreaterThan(500);
+
 			await p1.screenshot({
-				path: path.join(ARTIFACT_DIR, `${slug}-player-reveal-q1.png`),
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-reveal-q1.png`),
 				fullPage: true
 			});
 
 			const rankingsStart = Date.now();
 			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
+			const q1BoardTotal = Number(
+				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
+					/[^\d]/g,
+					''
+				)
+			);
+			expect(q1BoardTotal).toBe(q1RevealDelta);
+			await p1.screenshot({
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-scoreboard-q1.png`),
+				fullPage: true
+			});
 			expect(await p1.getByTestId('scoreboard-row').count()).toBeLessThanOrEqual(5);
 			await new Promise((r) => setTimeout(r, 14_000));
 			expect(Date.now() - rankingsStart).toBeGreaterThanOrEqual(8000);
@@ -77,6 +96,22 @@ test.describe('production live multi-question UI', () => {
 			await answerFirstTile(p1);
 			await answerFirstTile(p2);
 			await answerFirstTile(p3);
+
+			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
+			const q2RevealText = await p1
+				.locator('.font-display.text-3xl.text-gold.tabular-nums')
+				.first()
+				.innerText();
+			const q2RevealDelta = Number(q2RevealText.replace(/[^\d]/g, ''));
+			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
+			const q2BoardTotal = Number(
+				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
+					/[^\d]/g,
+					''
+				)
+			);
+			expect(q2BoardTotal).toBe(q1BoardTotal + q2RevealDelta);
+
 			await new Promise((r) => setTimeout(r, 14_000));
 
 			// Q3
