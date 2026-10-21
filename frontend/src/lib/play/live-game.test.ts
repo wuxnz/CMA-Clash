@@ -11,6 +11,8 @@ import {
 	isStaleQuestionResults,
 	normalizeGamePayload,
 	parseQuestionResultsPayload,
+	computeResultsPhaseUntilMs,
+	shouldDeferSetQuestionDuringResults,
 	questionFromSocketPayload
 } from './live-game';
 
@@ -113,6 +115,33 @@ describe('parseQuestionResultsPayload', () => {
 		const parsed = parseQuestionResultsPayload([{ username: 'b', score: 0 }]);
 		expect(parsed.questionIndex).toBeNull();
 		expect(parsed.rows).toHaveLength(1);
+	});
+});
+
+describe('results phase deferral', () => {
+	it('computes reveal + scoreboard window', () => {
+		expect(computeResultsPhaseUntilMs(8, 9, 1000)).toBe(1000 + 8000 + 9000);
+	});
+
+	it('defers next question during the hold window', () => {
+		expect(
+			shouldDeferSetQuestionDuringResults({
+				hasAnswerResults: true,
+				resultsPhaseUntilMs: 10_000,
+				nowMs: 5_000,
+				currentQuestionIndex: 0,
+				nextQuestionIndex: 1
+			})
+		).toBe(true);
+		expect(
+			shouldDeferSetQuestionDuringResults({
+				hasAnswerResults: true,
+				resultsPhaseUntilMs: 10_000,
+				nowMs: 10_000,
+				currentQuestionIndex: 0,
+				nextQuestionIndex: 1
+			})
+		).toBe(false);
 	});
 });
 

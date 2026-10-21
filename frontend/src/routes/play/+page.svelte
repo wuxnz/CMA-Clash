@@ -32,6 +32,8 @@ SPDX-License-Identifier: MPL-2.0
 		normalizeGamePayload,
 		parseQuestionResultsPayload,
 		isStaleQuestionResults,
+		computeResultsPhaseUntilMs,
+		shouldDeferSetQuestionDuringResults,
 		questionFromSocketPayload,
 		type StandingsRow
 	} from '$lib/play/live-game';
@@ -171,6 +173,10 @@ SPDX-License-Identifier: MPL-2.0
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let standingsTop = $state<StandingsRow[]>([]);
 	let revealHoldMs = $state(8000);
+	let scoreboardHoldMs = $state(9000);
+	let resultsPhaseUntilMs = $state(0);
+	let pendingSetQuestionPayload: Record<string, unknown> | null = null;
+	let resultsPhaseDeferTimer: ReturnType<typeof setTimeout> | undefined;
 	let revealExplanation = $state<string | null>(null);
 	let revealCorrectAnswer = $state<string | null>(null);
 	let advanceSyncTimer: ReturnType<typeof setTimeout> | undefined;
@@ -289,7 +295,23 @@ SPDX-License-Identifier: MPL-2.0
 		syncPlayerClock();
 	}
 
-	function handleSetQuestionNumber(data: Record<string, unknown>) {
+	function clearResultsPhaseDeferTimer() {
+		if (resultsPhaseDeferTimer !== undefined) {
+			clearTimeout(resultsPhaseDeferTimer);
+			resultsPhaseDeferTimer = undefined;
+		}
+	}
+
+	function flushPendingSetQuestion() {
+		const pending = pendingSetQuestionPayload;
+		pendingSetQuestionPayload = null;
+		clearResultsPhaseDeferTimer();
+		if (pending) {
+			applySetQuestionNumber(pending);
+		}
+	}
+
+	function applySetQuestionNumber(data: Record<string, unknown>) {
 		const nextIndex = Number(data.question_index);
 		if (Number.isFinite(nextIndex) && latestQuestionIndex > nextIndex) {
 			return;
@@ -297,6 +319,7 @@ SPDX-License-Identifier: MPL-2.0
 		if (Number.isFinite(nextIndex)) {
 			latestQuestionIndex = nextIndex;
 		}
+		resultsPhaseUntilMs = 0;
 		solution = undefined;
 		restart();
 		question = questionFromSocketPayload(data);
@@ -329,11 +352,41 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	}
 
+	function handleSetQuestionNumber(data: Record<string, unknown>) {
+		const nextIndex = Number(data.question_index);
+		const now = Date.now();
+		const currentIdx =
+			typeof question_index === 'number'
+				? question_index
+				: Number.isFinite(Number(question_index))
+					? Number(question_index)
+					: null;
+		if (
+			shouldDeferSetQuestionDuringResults({
+				hasAnswerResults: answer_results !== undefined,
+				resultsPhaseUntilMs,
+				nowMs: now,
+				currentQuestionIndex: currentIdx,
+				nextQuestionIndex: nextIndex
+			})
+		) {
+			pendingSetQuestionPayload = data;
+			const waitMs = Math.max(0, resultsPhaseUntilMs - now);
+			clearResultsPhaseDeferTimer();
+			resultsPhaseDeferTimer = setTimeout(() => flushPendingSetQuestion(), waitMs);
+			return;
+		}
+		pendingSetQuestionPayload = null;
+		clearResultsPhaseDeferTimer();
+		applySetQuestionNumber(data);
+	}
+
 	function handleQuestionResults(data: unknown) {
 		const {
 			questionIndex: resultsIndex,
 			rows,
 			revealHoldSec,
+			scoreboardHoldSec,
 			standingsTop: top,
 			explanation,
 			correctAnswer
@@ -347,6 +400,8 @@ SPDX-License-Identifier: MPL-2.0
 		restart();
 		answer_results = rows as PlayerAnswer[];
 		revealHoldMs = Math.max(0, revealHoldSec * 1000);
+		scoreboardHoldMs = Math.max(0, scoreboardHoldSec * 1000);
+		resultsPhaseUntilMs = computeResultsPhaseUntilMs(revealHoldSec, scoreboardHoldSec);
 		revealExplanation = explanation ?? question?.explanation ?? null;
 		revealCorrectAnswer = correctAnswer ?? correctAnswerFromQuestion(question);
 		pointsThisRound = scoreDeltaForUser(rows, username);
@@ -458,6 +513,7 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	onDestroy(() => {
+		clearResultsPhaseDeferTimer();
 		unbindPlayPageSocketHandlers();
 	});
 

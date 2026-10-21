@@ -23,6 +23,8 @@ from classquiz.socket_server.timing import (
 
 INTRO_GRACE_SEC = 3.5
 
+BATTLE_RESULTS_CLOSED_PREFIX = "game:battle:results_closed:"
+
 _battle_timer_tasks: dict[str, asyncio.Task] = {}
 
 
@@ -69,6 +71,8 @@ async def emit_show_question(sio, game_pin: str, game_data: PlayGame, question_i
     from classquiz.socket_server.question_lifecycle import cancel_question_lifecycle
 
     cancel_question_lifecycle(game_pin)
+    if game_data.game_mode == "battle" and question_index > 0:
+        await redis.delete(f"{BATTLE_RESULTS_CLOSED_PREFIX}{game_pin}:{question_index - 1}")
     game_data.current_question = question_index
     game_data.question_show = True
     await game_data.save(game_pin)
@@ -174,12 +178,17 @@ async def battle_maybe_advance(sio, game_pin: str, game_data: PlayGame) -> None:
     from classquiz.socket_server.question_lifecycle import _schedule_advance, broadcast_question_results
 
     q_index = game_data.current_question
-    if q_index >= 0:
-        _, payload = await broadcast_question_results(sio, game_pin, q_index)
-        _schedule_advance(
-            sio,
-            game_pin,
-            q_index,
-            float(payload["reveal_hold_sec"]),
-            float(payload["scoreboard_hold_sec"]),
-        )
+    if q_index < 0:
+        return
+    closed_key = f"{BATTLE_RESULTS_CLOSED_PREFIX}{game_pin}:{q_index}"
+    if await redis.get(closed_key):
+        return
+    await redis.set(closed_key, "1", ex=7200)
+    _, payload = await broadcast_question_results(sio, game_pin, q_index)
+    _schedule_advance(
+        sio,
+        game_pin,
+        q_index,
+        float(payload["reveal_hold_sec"]),
+        float(payload["scoreboard_hold_sec"]),
+    )
