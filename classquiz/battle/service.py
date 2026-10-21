@@ -12,6 +12,7 @@ from random import randint
 from classquiz.config import redis
 from classquiz.db.cma_models import BattleLobbyState
 from classquiz.db.models import GameInLobby, PlayGame, Quiz, User
+from classquiz.helpers.game_questions import select_questions_for_game
 
 BATTLE_REDIS_PREFIX = "cma_battle"
 LOBBY_TTL = 3600
@@ -165,10 +166,14 @@ async def start_battle_game(
     while await redis.get(f"game:{game_pin}") is not None:
         game_pin = randint(100000, 999999)
     game_id = uuid.uuid4()
+    game_questions = select_questions_for_game(
+        quiz.questions,
+        getattr(quiz, "questions_per_game", None),
+    )
     game = PlayGame(
         quiz_id=quiz.id,
         game_pin=str(game_pin),
-        questions=quiz.questions,
+        questions=game_questions,
         game_id=game_id,
         title=quiz.title,
         description=quiz.description or "",

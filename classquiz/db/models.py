@@ -205,6 +205,7 @@ class Quiz(ormar.Model):
     topic_id: uuid.UUID | None = ormar.UUID(nullable=True, default=None)
     difficulty: str | None = ormar.String(max_length=32, nullable=True, default=None)
     seed_slug: str | None = ormar.String(max_length=128, nullable=True, unique=True, default=None)
+    questions_per_game: int | None = ormar.Integer(nullable=True, default=10)
 
     ormar_config = ormar.OrmarConfig(
         tablename="quiz",

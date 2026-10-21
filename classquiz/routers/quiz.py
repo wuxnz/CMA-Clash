@@ -22,6 +22,7 @@ from classquiz.rate_limit import rate_limit_request
 from classquiz.config import redis, settings, storage, meilisearch
 from classquiz.db.models import Quiz, User, PlayGame, GameInLobby, QuizQuestion, QuizQuestionType
 from classquiz.helpers.box_controller import generate_code
+from classquiz.helpers.game_questions import select_questions_for_game
 from classquiz.kahoot_importer.import_quiz import import_quiz
 import urllib.parse
 
@@ -121,8 +122,13 @@ async def start_quiz(
         game_pin = randint(100000, 999999)
         game = await redis.get(f"game:{game_pin}")
 
+    game_questions = select_questions_for_game(
+        quiz.questions,
+        getattr(quiz, "questions_per_game", None),
+    )
+
     if randomize_answers:
-        for question in quiz.questions:
+        for question in game_questions:
             if question["type"] == QuizQuestionType.RANGE:
                 continue
             if question["type"] == QuizQuestionType.SLIDE:
@@ -132,7 +138,7 @@ async def start_quiz(
     game = PlayGame(
         quiz_id=quiz_id,
         game_pin=str(game_pin),
-        questions=quiz.questions,
+        questions=game_questions,
         game_id=uuid.uuid4(),
         title=quiz.title,
         description=quiz.description,
