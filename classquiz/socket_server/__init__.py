@@ -285,14 +285,12 @@ async def get_question_results(sid: str, data: dict):
     if not closed:
         # Question already closed (auto-advance or prior show_results). Re-emit only for
         # late admin sync — clients must treat question_results idempotently per index.
+        from classquiz.socket_server.question_lifecycle import build_question_results_payload
+
         game_data = await PlayGame.get_from_redis(game_pin)
         if not game_data.question_show and game_data.current_question == question_number:
-            answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, question_number)
-            await sio.emit(
-                "question_results",
-                {"question_index": question_number, "results": answer_data_list.model_dump()},
-                room=game_pin,
-            )
+            payload, _ = await build_question_results_payload(game_pin, question_number)
+            await sio.emit("question_results", payload, room=game_pin)
 
 
 @sio.event
