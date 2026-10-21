@@ -156,6 +156,9 @@ def enrich_explanation(fact: dict) -> str:
     if len(text) < 80:
         sentences.append(f"The correct option is {correct}.")
         text = " ".join(sentences)
+    if len(text) < 80:
+        sentences.append("Check the linked reference for the full calculation or protocol.")
+        text = " ".join(sentences)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
