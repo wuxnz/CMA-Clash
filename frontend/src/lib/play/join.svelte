@@ -11,6 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import { normalizeGameMode } from '$lib/play/live-game';
+	import { waitForPlaySocketConnected } from '$lib/play/player-socket-session';
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
@@ -190,9 +191,14 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		if (Cookies.get('kicked')) return;
-		if (!socket.connected) {
+		try {
+			await waitForPlaySocketConnected(25_000);
+			socketConnected = true;
+		} catch {
 			joinError = joinErrorMessage('not_connected');
-			socket.connect();
+			if (normalizeGameMode(game_mode) === 'battle') {
+				battleAutoJoinStarted = false;
+			}
 			return;
 		}
 		joining = true;
@@ -246,7 +252,6 @@ SPDX-License-Identifier: MPL-2.0
 		if (!browser || battleAutoJoinStarted || joining) return;
 		if (normalizeGameMode(game_mode) !== 'battle') return;
 		if (game_pin.length < 6 || username.length <= 3) return;
-		if (!socketConnected) return;
 		battleAutoJoinStarted = true;
 		void performJoin();
 	});

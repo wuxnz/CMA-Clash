@@ -67,6 +67,10 @@ async function joinBattleLobby(page: Page, code: string, nickname: string): Prom
 
 async function waitForBattleQuestions(page: Page, label: string): Promise<void> {
 	await page.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
+	await expect(
+		page.getByText(/not connected to the game server/i),
+		`${label}: no socket error`
+	).toHaveCount(0);
 	const connecting = page.getByText(/connecting to game server/i);
 	if (await connecting.isVisible().catch(() => false)) {
 		await expect(connecting).toBeHidden({ timeout: 120_000 });
