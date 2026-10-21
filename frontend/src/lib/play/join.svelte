@@ -44,6 +44,7 @@ SPDX-License-Identifier: MPL-2.0
 	let joining = $state(false);
 	let socketConnected = $state(false);
 	let battleAutoJoinStarted = $state(false);
+	let battleAutoJoinPin = $state('');
 
 	const onJoinError = (payload?: { code?: string }) => {
 		joining = false;
@@ -70,6 +71,9 @@ SPDX-License-Identifier: MPL-2.0
 
 	onMount(() => {
 		if (browser) {
+			if (!socket.connected) {
+				socket.connect();
+			}
 			prefetch_username();
 			hcaptcha = window.hcaptcha;
 			if (hcaptcha.render) {
@@ -130,6 +134,14 @@ SPDX-License-Identifier: MPL-2.0
 		if (battleName && username !== battleName) {
 			username = battleName;
 		}
+	});
+
+	$effect(() => {
+		if (!browser || game_pin.length < 6) return;
+		if (game_pin === battleAutoJoinPin) return;
+		battleAutoJoinPin = game_pin;
+		battleAutoJoinStarted = false;
+		joining = false;
 	});
 
 	const set_game_pin = async () => {

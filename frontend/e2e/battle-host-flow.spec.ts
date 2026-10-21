@@ -11,7 +11,7 @@ const artifactDir = '/opt/cursor/artifacts/screenshots';
 
 async function hostBattle(page: Page): Promise<string> {
 	await page.goto('/battle');
-	await page.getByRole('button', { name: /^Host$/ }).first().click({ timeout: 60_000 });
+	await page.locator('button.action-button', { hasText: 'Host' }).first().click({ timeout: 60_000 });
 	await expect(page).toHaveURL(/\/battle\/\d+/, { timeout: 30_000 });
 	const segments = new URL(page.url()).pathname.split('/');
 	return segments[segments.length - 1]!;

@@ -2,55 +2,64 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-/** Minimal socket.io-style emitter (off w/o fn clears all listeners for that event). */
-function miniSocketEmitter() {
-	const map = new Map<string, Set<(...args: unknown[]) => void>>();
-	return {
-		on(event: string, fn: (...args: unknown[]) => void) {
-			if (!map.has(event)) map.set(event, new Set());
-			map.get(event)!.add(fn);
+const cookieStore: Record<string, string> = {};
+
+vi.mock('$lib/play/play-socket-debug', () => ({
+	attachPlaySocketDebug: vi.fn()
+}));
+
+vi.mock('js-cookie', () => ({
+	default: {
+		get: (key: string) => cookieStore[key] ?? undefined,
+		set: (key: string, value: string) => {
+			cookieStore[key] = value;
 		},
-		off(event: string, fn?: (...args: unknown[]) => void) {
-			if (!fn) {
-				map.delete(event);
-				return;
-			}
-			map.get(event)?.delete(fn);
-		},
-		emit(event: string) {
-			for (const fn of map.get(event) ?? []) fn();
+		remove: (key: string) => {
+			delete cookieStore[key];
 		}
-	};
-}
+	}
+}));
 
-/**
- * Documents socket.io-client behavior: off(event) without a listener removes ALL handlers.
- * join.svelte must always pass the same function reference to off().
- */
-describe('socket.io off() semantics', () => {
-	it('off(event) without listener removes every handler for that event', () => {
-		const emitter = miniSocketEmitter();
-		const pageHandler = vi.fn();
-		const joinHandler = vi.fn();
-		emitter.on('connect', pageHandler);
-		emitter.on('connect', joinHandler);
-		emitter.off('connect');
-		emitter.emit('connect');
-		expect(pageHandler).not.toHaveBeenCalled();
-		expect(joinHandler).not.toHaveBeenCalled();
+vi.mock('$lib/socket', () => ({
+	socket: { emit: vi.fn(), id: 'sid-1', on: vi.fn(), off: vi.fn() }
+}));
+
+import {
+	clearJoinedGameCookieIfPinMismatch,
+	emitRejoinFromCookie,
+	normalizePlayPin,
+	readJoinedGameCookie
+} from './player-socket-session';
+
+describe('player socket session cookies', () => {
+	beforeEach(() => {
+		for (const key of Object.keys(cookieStore)) delete cookieStore[key];
 	});
 
-	it('off(event, fn) removes only that handler', () => {
-		const emitter = miniSocketEmitter();
-		const pageHandler = vi.fn();
-		const joinHandler = vi.fn();
-		emitter.on('connect', pageHandler);
-		emitter.on('connect', joinHandler);
-		emitter.off('connect', joinHandler);
-		emitter.emit('connect');
-		expect(pageHandler).toHaveBeenCalledTimes(1);
-		expect(joinHandler).not.toHaveBeenCalled();
+	it('normalizes pins to digits', () => {
+		expect(normalizePlayPin('183-310')).toBe('183310');
+	});
+
+	it('clears cookie when URL pin differs from stored live game', () => {
+		cookieStore.joined_game = JSON.stringify({
+			sid: 'a',
+			username: 'OldHost',
+			game_pin: '111111'
+		});
+		expect(clearJoinedGameCookieIfPinMismatch('222222')).toBe(true);
+		expect(readJoinedGameCookie()).toBeNull();
+	});
+
+	it('does not rejoin when fallback pin mismatches cookie', async () => {
+		const { socket } = await import('$lib/socket');
+		cookieStore.joined_game = JSON.stringify({
+			sid: 'a',
+			username: 'OldHost',
+			game_pin: '111111'
+		});
+		expect(emitRejoinFromCookie('222222')).toBe(false);
+		expect(socket.emit).not.toHaveBeenCalled();
 	});
 });

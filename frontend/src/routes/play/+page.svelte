@@ -46,14 +46,18 @@ SPDX-License-Identifier: MPL-2.0
 		type QuestionTiming
 	} from '$lib/play/live-timing';
 	import {
+		clearJoinedGameCookieIfPinMismatch,
 		ensurePlaySocketSession,
 		emitRejoinFromCookie,
+		normalizePlayPin,
 		persistJoinedGameCookie
 	} from '$lib/play/player-socket-session';
+	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import {
 		bindPlayPageSocketHandlers,
 		unbindPlayPageSocketHandlers
 	} from '$lib/play/play-page-socket';
+	import { browser } from '$app/environment';
 	import { onDestroy, onMount } from 'svelte';
 	const { t } = getLocalization();
 
@@ -63,6 +67,33 @@ SPDX-License-Identifier: MPL-2.0
 
 	let { data }: Props = $props();
 	let game_pin = $state(data.game_pin ?? '');
+	let playSessionPin = $state('');
+
+	function resetPlayStateForPin(pin: string) {
+		game_pin = pin;
+		playSessionPin = pin;
+		gameData = undefined;
+		gameMeta.started = false;
+		question_index = null;
+		answer_results = undefined;
+		question = undefined;
+		solution = undefined;
+		scores = {};
+		final_results = [null];
+		username = getBattlePlayUsername(pin) ?? '';
+		lastScoreAppliedQuestionIndex = null;
+		latestQuestionIndex = -1;
+	}
+
+	$effect(() => {
+		if (!browser) return;
+		const urlPin = normalizePlayPin(data.game_pin);
+		if (urlPin.length < 6) return;
+		clearJoinedGameCookieIfPinMismatch(urlPin);
+		if (urlPin !== normalizePlayPin(playSessionPin)) {
+			resetPlayStateForPin(urlPin);
+		}
+	});
 
 	interface GameMeta {
 		started: boolean;
@@ -86,6 +117,7 @@ SPDX-License-Identifier: MPL-2.0
 	let scores = $state({});
 	let game_mode = $state();
 	ensurePlaySocketSession({
+		getGamePin: () => game_pin,
 		onReconnected: async () => {
 			if (!game_pin) return;
 			const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
