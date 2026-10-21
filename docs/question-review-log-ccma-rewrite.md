@@ -121,3 +121,54 @@ ccma-communication-035 | fail | Correct answer longest vs short wait-room distra
 ccma-communication-035 | pass | Expanded blame/silence near-misses for length balance.
 ccma-communication-041 | fail | Correct answer longest vs short device distractors.
 ccma-communication-041 | pass | Caregiver-only / interrupt device / remove device near-misses.
+
+## Diabetes batch 01 (ccma-diabetes-001 to 060) — banned-qualifier distractor pass
+
+ccma-diabetes-001 | fail | Banned "only" in UTI distractor.
+ccma-diabetes-001 | pass | Pyuria-as-nephropathy-marker near-miss; length balanced with key.
+ccma-diabetes-002 | fail | Banned "only" in BP goal distractor.
+ccma-diabetes-002 | pass | Annual-wellness 140/90 near-miss vs individualized 130/80 key.
+ccma-diabetes-004 | fail | Banned "Only when" insurance gate distractor.
+ccma-diabetes-004 | pass | Authorization-timing DSMES near-miss aligned with continuum key.
+ccma-diabetes-005 | fail | Banned "only abnormality" DKA distractor.
+ccma-diabetes-005 | pass | Rash-without-ketosis/acidosis near-miss.
+ccma-diabetes-006 | fail | Banned "only when asymptomatic" FPG distractor.
+ccma-diabetes-006 | pass | Random 200 without confirmation near-miss.
+ccma-diabetes-007 | fail | Banned "only" cosmetic foot-exam distractor.
+ccma-diabetes-007 | pass | Cosmetic nail focus without monofilament near-miss.
+ccma-diabetes-008 | fail | Banned "only when measured during pregnancy" A1C distractor.
+ccma-diabetes-008 | pass | Single pregnancy draw without confirmatory testing near-miss.
+ccma-diabetes-012 | fail | Banned "Never" and "Only when" statin distractors.
+ccma-diabetes-012 | pass | Sole-risk-factor withhold and hypoglycemia-trigger near-misses.
+ccma-diabetes-013 | fail | Banned "only by pregnancy hormones" type 1 distractor.
+ccma-diabetes-013 | pass | Placental-hormone gestational near-miss vs autoimmune key.
+ccma-diabetes-014 | fail | Banned "infancy only" and "delivery only" type 2 distractors.
+ccma-diabetes-014 | pass | Infant autoimmune and persistent postpartum GDM near-misses.
+ccma-diabetes-016 | fail | Banned "only by insulin resistance" type confusion distractor.
+ccma-diabetes-016 | pass | Insulin resistance without beta-cell failure near-miss.
+ccma-diabetes-017 | fail | Banned "third trimester only" type 2 distractor.
+ccma-diabetes-017 | pass | Third-trimester hyperglycemia with normal prepregnancy glucose near-miss.
+ccma-diabetes-018 | fail | Banned "only after delivery" GDM distractor.
+ccma-diabetes-018 | pass | Postpartum lactation glucose intolerance near-miss.
+ccma-diabetes-021 | fail | Banned "only fluid restriction" A1C diagnosis distractor.
+ccma-diabetes-021 | pass | Fluid-restriction hypoglycemia category near-miss.
+ccma-diabetes-027 | fail | Banned "Only" short-fast fasting glucose distractor.
+ccma-diabetes-027 | pass | 30-minute fast with fluid/medication withhold near-miss.
+ccma-diabetes-028 | fail | Banned "only while asleep" hypoglycemia threshold distractor.
+ccma-diabetes-028 | pass | Untreated nocturnal 50 mg/dL near-miss vs 70 mg/dL treatment key.
+ccma-diabetes-030 | fail | Banned "only symptom" hypoglycemia distractor.
+ccma-diabetes-030 | pass | Kussmaul pattern without autonomic symptoms near-miss.
+ccma-diabetes-038 | fail | Banned "Skip" QC distractor.
+ccma-diabetes-038 | pass | Defer controls during high volume near-miss.
+ccma-diabetes-041 | fail | Banned "Never" regular insulin peak distractor.
+ccma-diabetes-041 | pass | Flat action curve without peak near-miss.
+ccma-diabetes-042 | fail | Banned "only approved route" NPH distractor.
+ccma-diabetes-042 | pass | Routine outpatient IV push route near-miss.
+ccma-diabetes-049 | fail | Banned "only" GLP-1 hydration distractor.
+ccma-diabetes-049 | pass | Hypertonic saline first-line near-miss vs incretin mechanism key.
+ccma-diabetes-051 | fail | Banned "Only footwear" pre-med review distractor.
+ccma-diabetes-051 | pass | DME footwear inventory without allergy/renal review near-miss.
+ccma-diabetes-057 | fail | Banned "Only subjective" documentation distractor.
+ccma-diabetes-057 | pass | Food preferences without glucose/intervention data near-miss.
+ccma-diabetes-060 | fail | Banned "only as jewelry" medical ID distractor.
+ccma-diabetes-060 | pass | Decorative jewelry without engraved emergency data near-miss.

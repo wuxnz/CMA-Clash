@@ -15,7 +15,7 @@ FACTS: list[dict] = [
         "When screening a patient with diabetes for kidney disease, what does a urine albumin-to-creatinine ratio primarily detect?",
         "Early diabetic nephropathy before serum creatinine rises",
         [
-            "Acute urinary tract infection requiring antibiotics only",
+            "Acute urinary tract infection with pyuria as the primary marker of diabetic kidney disease",
             "Gallbladder inflammation on abdominal imaging",
             "Iron-deficiency anemia from chronic blood loss",
         ],
@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         [
             "Above 160/100 mmHg to preserve renal perfusion in every patient",
             "No routine measurement because hypertension is unrelated to diabetes",
-            "Exactly 140/90 mmHg only during annual wellness visits",
+            "Exactly 140/90 mmHg at annual wellness visits regardless of cardiovascular risk",
         ],
         "Hypertension and diabetes both raise atherosclerotic cardiovascular disease risk; tighter BP control is individualized but often aims near 130/80 mmHg.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -58,7 +58,7 @@ FACTS: list[dict] = [
         "At diagnosis and whenever treatment, comorbidities, or life circumstances change",
         [
             "One group class at diagnosis with no follow-up education",
-            "Only when the patient lacks health insurance coverage",
+            "After insurance authorization is obtained, with no further sessions when therapy changes",
             "As a substitute for scheduled medical visits and laboratory monitoring",
         ],
         "DSMES teaches meal planning, glucose monitoring, and sick-day planning; revisiting skills improves adherence when regimens or goals shift.",
@@ -73,7 +73,7 @@ FACTS: list[dict] = [
         [
             "Normoglycemia with isolated peripheral edema",
             "Bradycardia and pinpoint pupils without acidosis",
-            "A single maculopapular rash as the only abnormality",
+            "A single maculopapular rash without ketosis, acidosis, or marked hyperglycemia",
         ],
         "DKA reflects insulin deficiency with lipolysis and ketone production; it is a medical emergency requiring IV fluids, insulin, and electrolyte monitoring.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -87,7 +87,7 @@ FACTS: list[dict] = [
         [
             "100 mg/dL (5.6 mmol/L), which defines prediabetes on FPG",
             "110 mg/dL regardless of symptoms or confirmatory testing",
-            "200 mg/dL only when the patient is asymptomatic",
+            "200 mg/dL on a random sample in an asymptomatic adult without confirmatory testing",
         ],
         "Unless unequivocal hyperglycemia with symptoms is present, diagnosis generally requires a second abnormal result or a different qualifying test.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -99,7 +99,7 @@ FACTS: list[dict] = [
         "During a comprehensive foot examination in a patient with diabetes, what should the clinician assess?",
         "Peripheral neuropathy, skin ulcers, and vascular perfusion",
         [
-            "Hair color and nail polish shade only",
+            "Hair color, nail polish shade, and cosmetic nail changes without monofilament testing",
             "Visual acuity without inspecting the feet",
             "Hearing thresholds without monofilament testing",
         ],
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
         [
             "5.0%, which is within typical normal range",
             "5.7% from a single test without confirmation",
-            "8.0% only when measured during pregnancy",
+            "8.0% from a single draw during pregnancy without repeat confirmatory testing",
         ],
         "A1C estimates average glycemia over roughly two to three months and is one of the ADA-listed diagnostic criteria when performed in a certified laboratory.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -169,8 +169,8 @@ FACTS: list[dict] = [
         "When might a moderate- or high-intensity statin be recommended for an adult with diabetes?",
         "Based on age, ASCVD history, and additional risk factors per guidelines",
         [
-            "Never, because diabetes alone excludes lipid-lowering therapy",
-            "Only when fingerstick glucose is below 70 mg/dL",
+            "Lipid-lowering therapy is withheld when diabetes is the sole cardiovascular risk factor",
+            "When fingerstick glucose is below 70 mg/dL with documented symptomatic hypoglycemia",
             "Instead of any glucose or blood pressure monitoring",
         ],
         "Most adults with diabetes benefit from statin therapy when cardiovascular risk warrants it, alongside glycemic and blood pressure management.",
@@ -184,7 +184,7 @@ FACTS: list[dict] = [
         "Autoimmune destruction of pancreatic beta cells with absolute insulin deficiency",
         [
             "Isolated insulin resistance without beta-cell loss",
-            "Reversible hyperglycemia caused only by pregnancy hormones",
+            "Reversible hyperglycemia from placental hormones during an uncomplicated pregnancy",
             "Primary dietary excess without any immune component",
         ],
         "Type 1 usually presents in younger patients and requires exogenous insulin for survival; autoantibody testing may support diagnosis.",
@@ -197,9 +197,9 @@ FACTS: list[dict] = [
         "Type 2 diabetes mellitus most commonly develops through which mechanism?",
         "Progressive insulin resistance with relative insulin secretory failure",
         [
-            "Sudden autoimmune loss of all beta cells in infancy only",
+            "Sudden autoimmune loss of pancreatic beta cells presenting in infancy",
             "Absence of blood glucose despite high dietary sugar intake",
-            "Exclusive gestational hormone effects after delivery only",
+            "Gestational hormone effects that persist after delivery without return to euglycemia",
         ],
         "Genetics, adiposity, and inactivity contribute to insulin resistance; oral agents and later insulin may be needed as beta-cell function declines.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -225,7 +225,7 @@ FACTS: list[dict] = [
         "A newly diagnosed adolescent has positive pancreatic autoantibodies and requires insulin immediately. Which diabetes type does this presentation most suggest?",
         "Type 1 diabetes mellitus with autoimmune beta-cell destruction",
         [
-            "Type 2 diabetes driven only by insulin resistance",
+            "Type 2 diabetes driven by insulin resistance without meaningful beta-cell failure",
             "Gestational diabetes that resolves after delivery",
             "Steroid-induced hyperglycemia without ongoing insulin need",
         ],
@@ -241,7 +241,7 @@ FACTS: list[dict] = [
         [
             "Acute autoimmune destruction of beta cells in infancy",
             "Complete absence of circulating glucose",
-            "Hyperglycemia limited to the third trimester of pregnancy only",
+            "Hyperglycemia confined to the third trimester with normal prepregnancy glucose values",
         ],
         "Type 2 is the most common form in adults and may progress from lifestyle measures to oral agents and/or insulin.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -253,7 +253,7 @@ FACTS: list[dict] = [
         "How is gestational diabetes mellitus (GDM) distinguished from preexisting diabetes?",
         "Hyperglycemia first detected during pregnancy that was not overt diabetes before conception",
         [
-            "Glucose intolerance that appears only after delivery",
+            "Glucose intolerance that first appears during postpartum lactation",
             "Diagnosis based on a random fingerstick below 70 mg/dL",
             "A condition that guarantees normal glucose forever after birth",
         ],
@@ -297,7 +297,7 @@ FACTS: list[dict] = [
         [
             "Normal glucose metabolism",
             "Prediabetes without progression risk",
-            "Hypoglycemia requiring only fluid restriction",
+            "Hypoglycemia managed with oral fluid restriction and bed rest without carbohydrate",
         ],
         "A1C reflects average glycemia over approximately two to three months and is listed among ADA diagnostic criteria.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -380,7 +380,7 @@ FACTS: list[dict] = [
         "No caloric intake for at least 8 hours unless the order allows plain water",
         [
             "A full breakfast eaten within the past hour",
-            "Only a 30-minute fast with all fluids withheld",
+            "A brief 30-minute fast with withholding of water and morning diabetes medications",
             "Doubling diabetes medications the morning of the draw",
         ],
         "Nonfasting samples can falsely lower or raise interpreted results; follow the laboratory requisition and facility protocol.",
@@ -395,7 +395,7 @@ FACTS: list[dict] = [
         [
             "200 mg/dL, which is above typical postmeal targets",
             "126 mg/dL, the diabetes diagnostic FPG threshold",
-            "50 mg/dL only while the patient is asleep",
+            "50 mg/dL during sleep without treatment until the morning fingerstick",
         ],
         "Alert patients receive fast-acting carbohydrate; severe or unresponsive hypoglycemia triggers emergency protocols including glucagon when available.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -421,7 +421,7 @@ FACTS: list[dict] = [
         "Which signs and symptoms may indicate hypoglycemia in a patient taking insulin or sulfonylureas?",
         "Shakiness, diaphoresis, irritability, and difficulty concentrating",
         [
-            "Slow, deep respirations as the only symptom",
+            "Slow, deep respirations without shakiness, diaphoresis, or other autonomic symptoms",
             "Marked polyuria without thirst or autonomic symptoms",
             "Warm dry skin with severe hypertension exclusively",
         ],
@@ -533,7 +533,7 @@ FACTS: list[dict] = [
         "What quality control practice is expected for waived glucose meters in clinical use?",
         "Run control solution on the schedule in policy and document each result",
         [
-            "Skip control runs when patient volume is high",
+            "Defer control solution runs when clinic patient volume is high",
             "Use expired test strips if the vial seal looks intact",
             "Adjust calibration by estimating rather than following the manual",
         ],
@@ -577,7 +577,7 @@ FACTS: list[dict] = [
         [
             "Within 30 seconds of administration",
             "At 12 hours with no earlier onset",
-            "Never; regular insulin has no peak effect",
+            "Regular insulin has a flat action curve with no discernible peak after injection",
         ],
         "Onset is roughly 30 minutes and total duration is often 5 to 8 hours, so timing relative to meals and snacks must match the provider order.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -590,7 +590,7 @@ FACTS: list[dict] = [
         "Onset in 1 to 2 hours, peak between 4 and 12 hours, duration up to about 24 hours",
         [
             "Immediate onset with no measurable duration",
-            "Intravenous push as the only approved route",
+            "Intravenous push as the routine outpatient administration route for NPH",
             "Mixing with oral metformin in one syringe without a provider order",
         ],
         "NPH suspension appears cloudy and must be rolled gently to resuspend particles before drawing the dose into the syringe.",
@@ -687,7 +687,7 @@ FACTS: list[dict] = [
         "GLP-1 receptor agonists improve glycemic control mainly by:",
         "Enhancing glucose-dependent insulin secretion and delaying gastric emptying",
         [
-            "Replacing oral hydration with hypertonic saline only",
+            "Replacing oral hydration with hypertonic saline infusions as first-line therapy",
             "Mandating permanent fasting without medical supervision",
             "Removing the need for glucose monitoring entirely",
         ],
@@ -715,7 +715,7 @@ FACTS: list[dict] = [
         "Before administering a prescribed diabetes medication, which patient information should the medical assistant review?",
         "Documented allergies, relevant renal or hepatic notes, and whether food is required with the dose",
         [
-            "Only footwear size for inventory purposes",
+            "Footwear size for durable medical equipment inventory without allergy or renal review",
             "Patient preference for tablets over injections regardless of the order",
             "Unverified dosing suggestions from nonclinical sources",
         ],
@@ -799,7 +799,7 @@ FACTS: list[dict] = [
         "Complete documentation of diabetes-related care in the medical record should include:",
         "Glucose values, relevant symptoms, interventions provided, and patient response",
         [
-            "Only subjective food preferences without objective data",
+            "Subjective food preferences without glucose values, symptoms, interventions, or response",
             "Identifying details about unrelated patients in the same note",
             "Narrative entries that omit numeric results and times",
         ],
@@ -842,7 +842,7 @@ FACTS: list[dict] = [
         "It informs emergency personnel of diabetes and need for glucose monitoring or treatment",
         [
             "It eliminates the need for daily glucose checks at home",
-            "It serves only as jewelry without clinical purpose",
+            "Decorative jewelry worn for fashion without emergency medical information engraved",
             "It guarantees euglycemia during any acute illness",
         ],
         "Combined with patient education on when to seek urgent care, medical ID supports safer management when the patient cannot speak for themselves.",
