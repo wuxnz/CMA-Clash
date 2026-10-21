@@ -321,13 +321,13 @@ FACTS: list[dict] = [
     fact(
         "ekg-leads",
         "After a 12-lead EKG is acquired, the tracing shows unexpected axis and morphology. The technician realizes the left and right arm electrodes were swapped. What is the most likely effect?",
-        "The tracing may mimic limb lead reversal with altered axis and mislabeled limb leads",
+        "Lead I shows inverted P, QRS, and T waves, and the appearances of aVR and aVL are switched compared with correct placement",
         [
             "The tracing will be identical to a correctly wired study",
             "The printed paper speed setting will change the QRS axis",
             "The heart rate numeric will change while QRS morphology stays identical",
         ],
-        "Swapping arm electrodes flips expected limb lead vectors and can suggest pathology. Rate may be unchanged while P-QRS-T morphology and axis are wrong until leads are corrected.",
+        "With LA and RA reversed, lead I voltage flips so P, QRS, and T deflect opposite to normal. aVR and aVL also trade expected patterns, which can mimic axis shift or ischemia until leads are fixed.",
         [S.NHA_CCMA],
         "intermediate",
     ),
@@ -390,14 +390,14 @@ FACTS: list[dict] = [
     # ekg-leads-028
     fact(
         "ekg-leads",
-        "A patient with inferior ST elevation also has ST depression in V1 to V3. Which additional lead placement best evaluates right ventricular involvement?",
+        "A patient with acute inferior ST elevation in leads II, III, and aVF has hypotension and jugular venous distension. Which additional precordial lead placement best assesses right ventricular infarction?",
         "Right-sided precordial lead V4R",
         [
             "Posterior lead V9 on the left back",
-            "Lead aVR on the right shoulder",
-            "An extra V6 on the midaxillary line",
+            "Lead aVR recorded a second time at higher gain",
+            "An extra V6 on the left midaxillary line",
         ],
-        "V4R looks at the right ventricle when inferior injury is present. V9 targets posterior wall, and duplicate V6 does not assess the right ventricle.",
+        "Inferior injury plus hypotension and elevated neck veins raise concern for right ventricular involvement. V4R faces the right ventricle; V9 evaluates the posterior left ventricle, and repeating aVR or V6 does not replace V4R.",
         [S.NHA_CCMA],
         "advanced",
     ),
