@@ -18,7 +18,7 @@ from classquiz.auth import get_password_hash
 from classquiz.helpers import get_meili_data, meilisearch_init
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
-from classquiz.seed.catalog import CERTIFICATIONS, study_content_for_topic
+from classquiz.seed.catalog import CERTIFICATIONS, TOPIC_QUESTIONS_PER_QUIZ, study_content_for_topic
 
 LOGGER = logging.getLogger(__name__)
 
@@ -166,9 +166,8 @@ async def run_seed(force: bool = False) -> dict:
             LOGGER.warning("Unknown topic slug in bank: %s", topic_slug)
             continue
         cert_id = _certification_uuid(topic)
-        chunks = [
-            topic_facts[i : i + QUESTIONS_PER_QUIZ] for i in range(0, len(topic_facts), QUESTIONS_PER_QUIZ)
-        ]
+        chunk_size = TOPIC_QUESTIONS_PER_QUIZ.get(topic_slug, QUESTIONS_PER_QUIZ)
+        chunks = [topic_facts[i : i + chunk_size] for i in range(0, len(topic_facts), chunk_size)]
         for idx, chunk in enumerate(chunks):
             seed_slug = f"quiz:{topic_slug}:{idx + 1}"
             existing = await Quiz.objects.get_or_none(seed_slug=seed_slug)

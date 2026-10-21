@@ -118,6 +118,14 @@ async def list_certifications():
     return await Certification.objects.order_by("sort_order").all()
 
 
+@router.get("/topics/{topic_slug}", response_model=TopicOut)
+async def get_topic(topic_slug: str):
+    topic = await Topic.objects.get_or_none(slug=topic_slug)
+    if topic is None:
+        raise HTTPException(status_code=404, detail="topic not found")
+    return topic
+
+
 @router.get("/topics", response_model=list[TopicOut])
 async def list_topics(certification_slug: str | None = None):
     if certification_slug:

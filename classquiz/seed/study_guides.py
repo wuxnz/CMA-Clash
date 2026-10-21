@@ -23,6 +23,12 @@ from classquiz.seed.sources import (
     OSHA_BBP,
     RED_CROSS_FIRST_AID,
     WHO_INJECTION_SAFETY,
+    ADA_STANDARDS,
+    ADA_DIAGNOSIS,
+    CDC_DIABETES,
+    CDC_DIABETES_BASICS,
+    FDA_CLIA_WAIVED,
+    MEDLINEPLUS_DIABETES,
 )
 
 # Each entry: title, summary, url (parsed from cite strings' URL portion)
@@ -106,5 +112,58 @@ STUDY_BY_TOPIC: dict[str, list[dict]] = {
         CDC_STANDARD_PRECAUTIONS,
         MEDLINEPLUS_HAND_HYGIENE,
         summary="Use clean or sterile technique per wound type; protect yourself with appropriate PPE and hand hygiene.",
+    ),
+    "ccma-diabetes": [
+        {
+            "title": "Types of diabetes",
+            "summary": "Type 1 is autoimmune beta-cell destruction with insulin deficiency. Type 2 combines insulin resistance with declining insulin secretion. Gestational diabetes is first recognized in pregnancy. Prediabetes is a warning range on A1C, fasting glucose, or OGTT before diabetes thresholds are met.",
+            "url": CDC_DIABETES_BASICS.split(" — ", 1)[1],
+        },
+        {
+            "title": "Signs, symptoms, and pathophysiology",
+            "summary": "Hyperglycemia may cause polyuria, polydipsia, fatigue, and blurred vision. Insulin deficiency or resistance raises blood glucose; without treatment, chronic elevation damages microvascular and macrovascular tissues.",
+            "url": MEDLINEPLUS_DIABETES.split(" — ", 1)[1],
+        },
+        {
+            "title": "Hypoglycemia and hyperglycemia emergencies",
+            "summary": "Treat hypoglycemia below about 70 mg/dL with 15 grams of fast carbohydrate and recheck in about 15 minutes. DKA features hyperglycemia, ketosis, and acidosis. HHS features extreme hyperglycemia and dehydration with minimal ketosis. Both need urgent medical care.",
+            "url": ADA_STANDARDS.split(" — ", 1)[1],
+        },
+        {
+            "title": "Laboratory diagnosis (FPG, OGTT, A1C)",
+            "summary": "Diabetes: FPG 126 mg/dL or higher; 2-hour OGTT 200 mg/dL or higher; A1C 6.5% or higher on a standardized assay. Prediabetes: FPG 100 to 125 mg/dL; 2-hour OGTT 140 to 199 mg/dL; A1C 5.7% to 6.4%. Confirm abnormal results per ADA unless classic symptoms and hyperglycemia are present.",
+            "url": ADA_DIAGNOSIS.split(" — ", 1)[1],
+        },
+        {
+            "title": "Point-of-care glucose testing",
+            "summary": "Use hand hygiene, gloves, site prep, and patient identification. Many clinic meters are CLIA-waived when staff follow manufacturer instructions, run control solution on schedule, and document results. Report critical values per policy.",
+            "url": FDA_CLIA_WAIVED.split(" — ", 1)[1],
+        },
+        {
+            "title": "Insulin types and safe handling",
+            "summary": "Rapid analogs act within about 15 minutes; regular insulin peaks around 2 to 3 hours; NPH is intermediate; glargine and similar agents provide basal coverage. Store unopened insulin refrigerated when required; in-use pens or vials per label. Never use cloudy or expired insulin.",
+            "url": ADA_STANDARDS.split(" — ", 1)[1],
+        },
+        {
+            "title": "Oral and injectable non-insulin agents",
+            "summary": "Metformin lowers hepatic glucose output. Sulfonylureas stimulate insulin release and can cause hypoglycemia. SGLT2 inhibitors increase urinary glucose loss. DPP-4 inhibitors prolong incretin activity. GLP-1 agonists slow gastric emptying and enhance glucose-dependent insulin secretion.",
+            "url": ADA_STANDARDS.split(" — ", 1)[1],
+        },
+        {
+            "title": "Complications, foot care, and patient education",
+            "summary": "Screen for retinopathy, neuropathy, and nephropathy per plan. Teach daily foot checks, proper footwear, and prompt reporting of wounds. Review carbohydrate awareness, sick-day rules, medical ID, and when to call the clinic or EMS.",
+            "url": CDC_DIABETES.split(" — ", 1)[1],
+        },
+        {
+            "title": "Medical assistant scope and documentation",
+            "summary": "Perform POC testing, vitals, patient teaching, and injections only within state law and delegation. Document glucose values, symptoms, treatments, and patient response. Do not change insulin doses without an order unless explicitly delegated.",
+            "url": NHA_CCMA.split(" — ", 1)[1],
+        },
+    ],
+    "phleb-glucose": _blocks(
+        CLSI_GP41,
+        FDA_CLIA_WAIVED,
+        CDC_DIABETES,
+        summary="Collect glucose specimens with correct tubes, order of draw, and timing for OGTT. Run waived meter controls, use single-use lancets, and transport samples to limit glycolysis.",
     ),
 }

@@ -11,6 +11,8 @@ from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
 from .cpr_bls import FACTS as CPR_BLS_FACTS
 from .ekg import FACTS as EKG_FACTS
 from .phlebotomy import FACTS as PHLEBOTOMY_FACTS
+from .diabetes import FACTS as DIABETES_FACTS
+from .phleb_glucose import FACTS as PHLEB_GLUCOSE_FACTS
 from .supplement import FACTS as SUPPLEMENT_FACTS
 
 _ALL_MODULES = (
@@ -19,6 +21,8 @@ _ALL_MODULES = (
     CPR_BLS_FACTS,
     EKG_FACTS,
     PHLEBOTOMY_FACTS,
+    DIABETES_FACTS,
+    PHLEB_GLUCOSE_FACTS,
     SUPPLEMENT_FACTS,
 )
 
