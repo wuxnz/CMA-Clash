@@ -51,7 +51,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "What is the usual upper limit for a normal QRS duration on the EKG?",
-        "Below 0.12 second",
+        "QRS duration below 0.12 second at the J point",
         [
             "0.12 to 0.20 second (normal PR range)",
             "0.20 to 0.32 second (marked QRS widening)",
@@ -90,7 +90,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "A QRS duration of 0.14 second in sinus rhythm most likely indicates what?",
-        "IVCD or bundle branch block",
+        "Intraventricular conduction delay or bundle branch block",
         [
             "Normal narrow ventricular conduction under 0.12 second",
             "First-degree AV block with prolonged PR interval",
@@ -129,7 +129,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "On a standard EKG, where is the PR interval measured?",
-        "From P-wave onset to QRS onset",
+        "From earliest P-wave deflection to QRS complex onset",
         [
             "From the peak of the P wave to the peak of the R wave",
             "From the end of the P wave to the end of the QRS complex",
@@ -155,11 +155,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "Tall, peaked, narrow T waves in multiple leads with a widened QRS suggest which electrolyte disturbance?",
-        "Hyperkalemia",
+        "Hyperkalemia with peaked narrow T waves and QRS widening",
         [
-            "Hypokalemia with U waves",
-            "Hypocalcemia with short QT",
-            "Normal variant early repolarization",
+            "Hypokalemia with flattened T waves and U waves on the strip",
+            "Hypocalcemia with prolonged QT without peaked T morphology",
+            "Benign early repolarization with concave ST elevation pattern",
         ],
         "Hyperkalemia sharpens T waves and can widen the QRS. Hypokalemia often flattens T and adds U waves, and hypocalcemia prolongs QT more than it peaks T waves.",
         [S.NHA_CCMA],
@@ -454,7 +454,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "A patient receives IV magnesium for torsades. Which interval change is the treatment intended to stabilize?",
-        "QT and repolarization stability",
+        "QT interval and repolarization stability during torsades",
         [
             "PR interval shortening below 0.12 second on every beat",
             "QRS narrowing below 0.06 second in all precordial leads",

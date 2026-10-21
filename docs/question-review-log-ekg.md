@@ -312,3 +312,96 @@ ekg-acls-basics-041 | pass | Shockable definition VF/pVT neighbors.
 ## EKG rhythm sweep (batch 04 item tied to NSVT)
 
 ekg-rhythm-038 | fail | NSVT distractors: AIVR, SVT aberrancy, sustained VT neighbors.
+
+## EKG length/parallelism pass 2 (intervals+artifacts)
+
+Pass 2 rules: parallel option length/structure; no stem-contradicting distractors. Verified `correct_is_uniquely_short_by_margin` and `correct_is_uniquely_longest` for topics `ekg-intervals` (42 items) and `ekg-artifacts` (43 items): **0 short-margin, 0 uniquely-longest** after edits.
+
+**Length rebalance edits (5):** ekg-intervals-004, -007, -010, -012, -035 (correct answer was uniquely short vs near-miss distractors).
+
+ekg-intervals-001 | pass | Length/parallel verified; QRS depolarization neighbors.
+ekg-intervals-002 | pass | P wave neighbors parallel.
+ekg-intervals-003 | pass | PR range neighbors parallel.
+ekg-intervals-004 | pass | **Pass 2:** lengthened correct QRS upper limit; PR-range near-miss distractors unchanged.
+ekg-intervals-005 | pass | QTc rationale parallel options.
+ekg-intervals-006 | pass | First-degree block scenario neighbors.
+ekg-intervals-007 | pass | **Pass 2:** restored full IVCD/BBB wording vs widened near-miss distractors.
+ekg-intervals-008 | pass | ST segment phase parallel distractors.
+ekg-intervals-009 | pass | T wave repolarization neighbors.
+ekg-intervals-010 | pass | **Pass 2:** PR landmarks phrasing aligned with distractor length.
+ekg-intervals-011 | pass | Prolonged QT pattern neighbors.
+ekg-intervals-012 | pass | **Pass 2:** hyperkalemia stem matched with parallel electrolyte distractors.
+ekg-intervals-013 | pass | Contiguous ST STEMI scenario neighbors.
+ekg-intervals-014 | pass | WPW delta short PR neighbors.
+ekg-intervals-015 | pass | Wide QRS VT vs SVT neighbors.
+ekg-intervals-016 | pass | Bradycardia QTc scenario neighbors.
+ekg-intervals-017 | pass | Wenckebach PR ladder neighbors.
+ekg-intervals-018 | pass | STEMI ST pattern focus neighbors.
+ekg-intervals-019 | pass | Early repolarization vs STEMI scenario neighbors.
+ekg-intervals-020 | pass | LBBB morphology neighbors.
+ekg-intervals-021 | pass | Long QTc torsades neighbors.
+ekg-intervals-022 | pass | PR 0.14 normal scenario neighbors.
+ekg-intervals-023 | pass | Small-box QRS timing neighbors.
+ekg-intervals-024 | pass | Large-box rate 60 neighbors.
+ekg-intervals-025 | pass | QT interval definition neighbors.
+ekg-intervals-026 | pass | Hypocalcemia QT neighbors.
+ekg-intervals-027 | pass | Digoxin ST neighbors.
+ekg-intervals-028 | pass | QRS measurement error neighbors.
+ekg-intervals-029 | pass | PR 0.21 first-degree neighbors.
+ekg-intervals-030 | pass | Tachycardia QTc vs raw QT neighbors.
+ekg-intervals-031 | pass | AV dissociation PR neighbors.
+ekg-intervals-032 | pass | Chronic T inversion neighbors.
+ekg-intervals-033 | pass | PR measurement P onset neighbors.
+ekg-intervals-034 | pass | PR vs QRS confusion neighbors.
+ekg-intervals-035 | pass | **Pass 2:** QT/repolarization magnesium target length balanced.
+ekg-intervals-036 | pass | PR beat-to-beat variation neighbors.
+ekg-intervals-037 | pass | Nonspecific ST depression context neighbors.
+ekg-intervals-038 | pass | RBBB vs LBBB morphology neighbors.
+ekg-intervals-039 | pass | Paced beat native PR neighbors.
+ekg-intervals-040 | pass | Paper speed 50 mm/s QRS neighbors.
+ekg-intervals-041 | pass | PR and QRS 0.18 scenario neighbors.
+ekg-intervals-042 | pass | Pericarditis diffuse ST neighbors.
+
+ekg-artifacts-001 | pass | Respiratory sway vs loose lead vs arm swap neighbors verified.
+ekg-artifacts-002 | pass | Wire tension vs monitor settings neighbors.
+ekg-artifacts-003 | pass | 60 Hz vs arrhythmia mimic neighbors.
+ekg-artifacts-004 | pass | Shiver artifact vs AF/MAT/flutter neighbors.
+ekg-artifacts-005 | pass | Flat V3 local fix neighbors.
+ekg-artifacts-006 | pass | Diaphoresis pad prep neighbors.
+ekg-artifacts-007 | pass | Documentation adequacy parallel options.
+ekg-artifacts-008 | pass | Paced spikes capture neighbors.
+ekg-artifacts-009 | pass | Tooth-brushing motion scenario neighbors.
+ekg-artifacts-010 | pass | CPR pause rhythm check neighbors.
+ekg-artifacts-011 | pass | High V4 ST mimic neighbors.
+ekg-artifacts-012 | pass | All-leads-identical wiring neighbors.
+ekg-artifacts-013 | pass | Loose RL ground neighbors.
+ekg-artifacts-014 | pass | Hairy chest clip electrode neighbors.
+ekg-artifacts-015 | pass | Cable loop 60 Hz neighbors.
+ekg-artifacts-016 | pass | Failing wire vs block neighbors.
+ekg-artifacts-017 | pass | Wet alcohol prep neighbors.
+ekg-artifacts-018 | pass | Crying child motion neighbors.
+ekg-artifacts-019 | pass | Transport VF mimic neighbors.
+ekg-artifacts-020 | pass | Gauze under pad attenuation neighbors.
+ekg-artifacts-021 | pass | Athlete cable slack neighbors.
+ekg-artifacts-022 | pass | Arm swap lead I neighbors.
+ekg-artifacts-023 | pass | Loose lead vs asystole neighbors.
+ekg-artifacts-024 | pass | Pad burning stop neighbors.
+ekg-artifacts-025 | pass | Clenched fist muscle neighbors.
+ekg-artifacts-026 | pass | Cell phone RF neighbors.
+ekg-artifacts-027 | pass | MRI zone policy neighbors.
+ekg-artifacts-028 | pass | Cough transient shift neighbors.
+ekg-artifacts-029 | pass | Erythema rotate site neighbors.
+ekg-artifacts-030 | pass | Dried foam gel neighbors.
+ekg-artifacts-031 | pass | Leads-off V5 stat fix neighbors.
+ekg-artifacts-032 | pass | Bed scale spike neighbors.
+ekg-artifacts-033 | pass | Parkinson tremor support neighbors.
+ekg-artifacts-034 | pass | Defib pad overlap documentation neighbors.
+ekg-artifacts-035 | pass | V4 ST normalize after reposition neighbors.
+ekg-artifacts-036 | pass | Bedside quality review neighbors.
+ekg-artifacts-037 | pass | Nicotine patch under V2 neighbors.
+ekg-artifacts-038 | pass | Undried alcohol vs rhythm myth neighbors.
+ekg-artifacts-039 | pass | Mason-Likar motion vs ischemic ST neighbors.
+ekg-artifacts-040 | pass | Uninterpretable ST repeat neighbors.
+ekg-artifacts-041 | pass | Cold shiver field EKG neighbors.
+ekg-artifacts-042 | pass | Clone QRS wiring neighbors.
+ekg-artifacts-043 | pass | Limb lead motion on bed turn neighbors.
