@@ -48,6 +48,24 @@ SPDX-License-Identifier: MPL-2.0
 		joinError = joinErrorMessage(payload?.code);
 	};
 
+	const onSocketConnect = () => {
+		socketConnected = true;
+	};
+	const onSocketDisconnect = () => {
+		socketConnected = false;
+	};
+	const onGameNotFound = () => {
+		joining = false;
+		joinError = 'Game not found. Check the PIN with your host.';
+	};
+	const onUsernameAlreadyExists = () => {
+		onJoinError({ code: 'username_taken' });
+	};
+	const onJoinedGameJoinUi = () => {
+		joining = false;
+		joinError = '';
+	};
+
 	onMount(() => {
 		if (browser) {
 			prefetch_username();
@@ -60,24 +78,12 @@ SPDX-License-Identifier: MPL-2.0
 				});
 			}
 		}
-		socket.on('connect', () => {
-			socketConnected = true;
-		});
-		socket.on('disconnect', () => {
-			socketConnected = false;
-		});
+		socket.on('connect', onSocketConnect);
+		socket.on('disconnect', onSocketDisconnect);
 		socket.on('join_error', onJoinError);
-		socket.on('game_not_found', () => {
-			joining = false;
-			joinError = 'Game not found. Check the PIN with your host.';
-		});
-		socket.on('username_already_exists', () => {
-			onJoinError({ code: 'username_taken' });
-		});
-		socket.on('joined_game', () => {
-			joining = false;
-			joinError = '';
-		});
+		socket.on('game_not_found', onGameNotFound);
+		socket.on('username_already_exists', onUsernameAlreadyExists);
+		socket.on('joined_game', onJoinedGameJoinUi);
 		if (socket.connected) {
 			socketConnected = true;
 		}
@@ -89,12 +95,12 @@ SPDX-License-Identifier: MPL-2.0
 				execute: async () => ({ response: '' }),
 				render: () => {}
 			};
-			socket.off('connect');
-			socket.off('disconnect');
+			socket.off('connect', onSocketConnect);
+			socket.off('disconnect', onSocketDisconnect);
 			socket.off('join_error', onJoinError);
-			socket.off('game_not_found');
-			socket.off('username_already_exists');
-			socket.off('joined_game');
+			socket.off('game_not_found', onGameNotFound);
+			socket.off('username_already_exists', onUsernameAlreadyExists);
+			socket.off('joined_game', onJoinedGameJoinUi);
 		}
 	});
 
