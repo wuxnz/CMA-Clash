@@ -166,57 +166,147 @@ ekg-intervals-042 | pass | Advanced pericarditis diffuse ST vs territorial MI.
 
 ## EKG batch 07 (ekg-artifacts-001 to ekg-artifacts-025)
 
-ekg-artifacts-001 | pass | Baseline wander loose electrodes.
-ekg-artifacts-002 | pass | Diaphoresis skin management.
-ekg-artifacts-003 | pass | Document troubleshooting.
-ekg-artifacts-004 | pass | 60 Hz interference.
-ekg-artifacts-005 | pass | Muscle tremor artifact.
-ekg-artifacts-006 | pass | Single flat precordial lead check.
-ekg-artifacts-007 | pass | One abnormal chest lead local error.
-ekg-artifacts-008 | pass | Shiver mimics AF.
-ekg-artifacts-009 | pass | Dried gel replace electrodes.
-ekg-artifacts-010 | pass | Patient motion wire pull.
-ekg-artifacts-011 | pass | Paced spikes interpretation.
-ekg-artifacts-012 | pass | Brushing teeth somatic artifact.
-ekg-artifacts-013 | pass | Advanced VT alarm with pulse check.
-ekg-artifacts-014 | pass | Advanced CPR compression artifact pause.
-ekg-artifacts-015 | pass | Hairy chest clip electrodes.
-ekg-artifacts-016 | pass | AC device interference.
-ekg-artifacts-017 | pass | Failing wire wiggle test.
-ekg-artifacts-018 | pass | Wet alcohol under pad.
-ekg-artifacts-019 | pass | Advanced crying child repeat tracing.
-ekg-artifacts-020 | pass | Respiratory sway vs wander.
-ekg-artifacts-021 | pass | Advanced MRI zone acquisition.
-ekg-artifacts-022 | pass | Cough transient baseline shift.
-ekg-artifacts-023 | pass | Erythematous site rotation.
-ekg-artifacts-024 | pass | Cable loop power interference.
-ekg-artifacts-025 | pass | Advanced transport VF mimic awake.
+_Redo after rushed pass: neighbor distractors (artifact vs rhythm/ST), no joke options._
+
+ekg-artifacts-001 | fail | Respiratory sway vs loose lead vs arm swap vs pericarditis neighbors.
+ekg-artifacts-002 | fail | Wire tension vs paper speed / lead change distractors.
+ekg-artifacts-003 | fail | 60 Hz vs flutter / VF / sinus arrhythmia neighbors.
+ekg-artifacts-004 | fail | Shiver artifact vs AF / MAT / flutter neighbors.
+ekg-artifacts-005 | fail | Single flat V3 local fix vs STEMI / limb move distractors.
+ekg-artifacts-006 | fail | Diaphoresis: dry skin and new pads vs petroleum / posterior-only.
+ekg-artifacts-007 | fail | Documentation adequacy; removed cafeteria joke distractors.
+ekg-artifacts-008 | fail | Paced spikes capture vs VF / ignore spikes distractors.
+ekg-artifacts-009 | fail | Tooth-brushing motion artifact advanced scenario.
+ekg-artifacts-010 | fail | CPR pause rhythm check vs shock during compressions.
+ekg-artifacts-011 | fail | High V4 ST mimic vs territorial STEMI neighbors.
+ekg-artifacts-012 | fail | All-leads-identical wiring vs RBBB / sinus arrhythmia.
+ekg-artifacts-013 | fail | Loose RL ground vs PR / PSVT / flutter neighbors.
+ekg-artifacts-014 | fail | Hairy chest clip electrodes vs pad-on-hair distractors.
+ekg-artifacts-015 | fail | Cable loop 60 Hz vs lead switch / atropine neighbors.
+ekg-artifacts-016 | fail | Failing wire vs Mobitz II / sinus arrest / AF.
+ekg-artifacts-017 | fail | Wet alcohol prep vs gain / speed tricks.
+ekg-artifacts-018 | fail | Crying child motion vs AF / PSVT / VF neighbors.
+ekg-artifacts-019 | fail | Transport VF mimic awake with pulse scenario.
+ekg-artifacts-020 | fail | Gauze under pad attenuation vs MI / WPW neighbors.
+ekg-artifacts-021 | fail | Athlete cable slack vs overtight / fabric pads.
+ekg-artifacts-022 | fail | Arm swap lead I pattern neighbors.
+ekg-artifacts-023 | fail | Loose lead vs asystole multi-lead distinction.
+ekg-artifacts-024 | fail | Pad burning stop vs press harder distractors.
+ekg-artifacts-025 | fail | Clenched fist muscle vs junctional / first-degree / bigeminy.
 
 ## EKG batch 08 (ekg-artifacts-026 to ekg-artifacts-043)
 
-ekg-artifacts-026 | pass | Dressing under electrode attenuation.
-ekg-artifacts-027 | pass | Athlete diaphoresis adhesive strategy.
-ekg-artifacts-028 | pass | Advanced single-lead ST mimic confirm.
-ekg-artifacts-029 | pass | RL ground disconnected noise.
-ekg-artifacts-030 | pass | Mason-Likar motion reduction.
-ekg-artifacts-031 | pass | Advanced electrode burning stop.
-ekg-artifacts-032 | pass | Clenched fist forearm artifact.
-ekg-artifacts-033 | pass | Cell phone RF noise.
-ekg-artifacts-034 | pass | Advanced all leads identical wiring error.
-ekg-artifacts-035 | pass | Obscured ST repeat tracing.
-ekg-artifacts-036 | pass | Cold skin shiver artifact.
-ekg-artifacts-037 | pass | Advanced reversal vs loose lead distinction.
-ekg-artifacts-038 | pass | Bedside immediate review.
-ekg-artifacts-039 | pass | Advanced Parkinson tremor support.
-ekg-artifacts-040 | pass | Defibrillator pad overlap documentation.
-ekg-artifacts-041 | pass | Dried foam electrode drift fix.
-ekg-artifacts-042 | pass | Leads off alarm response.
-ekg-artifacts-043 | pass | Advanced bed scale electrical spike.
+ekg-artifacts-026 | fail | Cell phone RF vs alarm off / leg-only leads.
+ekg-artifacts-027 | fail | MRI zone policy vs gain / unreadable strip distractors.
+ekg-artifacts-028 | fail | Cough transient shift vs Wenckebach / STEMI neighbors.
+ekg-artifacts-029 | fail | Erythema rotate site vs glue on broken skin.
+ekg-artifacts-030 | fail | Dried foam gel vs AV block / rate change neighbors.
+ekg-artifacts-031 | fail | Leads-off V5 stat fix vs print flat channel.
+ekg-artifacts-032 | fail | Bed scale spike vs PVC / non-capture / WPW.
+ekg-artifacts-033 | fail | Parkinson support reduces tremor artifact neighbors.
+ekg-artifacts-034 | fail | Defib pad overlap documentation vs false normal ST.
+ekg-artifacts-035 | fail | V4 reposition ST normalize vs LAD STEMI neighbors.
+ekg-artifacts-036 | fail | Bedside immediate quality review scenario.
+ekg-artifacts-037 | fail | Nicotine patch under V2 vs on-patch placement.
+ekg-artifacts-038 | fail | Undried alcohol vs PR / delta / flutter neighbors.
+ekg-artifacts-039 | fail | Mason-Likar motion vs ischemic ST / AV block neighbors.
+ekg-artifacts-040 | fail | Uninterpretable ST repeat vs treat noise as STEMI.
+ekg-artifacts-041 | fail | Cold shiver field EKG vs defib / AC on noisy strip.
+ekg-artifacts-042 | fail | Clone QRS all leads wiring error neighbors.
+ekg-artifacts-043 | fail | Limb lead motion on bed turn vs AF / STEMI / CHB neighbors.
 
-## EKG batch 09–10 (ekg-cardiac-ap 43 items)
+## EKG batch 09–10 (ekg-cardiac-ap-001 to ekg-cardiac-ap-043)
 
-ekg-cardiac-ap-001..043 | pass | Full module rewrite (anatomy/physiology/EKG correlation); committed via agent bc-ecfde38e.
+ekg-cardiac-ap-001 | pass | P wave atrial depolarization neighbors.
+ekg-cardiac-ap-002 | pass | QRS ventricular depolarization neighbors.
+ekg-cardiac-ap-003 | pass | SA node location near-miss anatomy.
+ekg-cardiac-ap-004 | pass | SA rate 60–100 vs junctional / VT rates.
+ekg-cardiac-ap-005 | pass | AV node bridge vs valve / sinus structures.
+ekg-cardiac-ap-006 | pass | T wave repolarization neighbors.
+ekg-cardiac-ap-007 | pass | AV delay purpose vs afterload / respiration myths.
+ekg-cardiac-ap-008 | pass | RV pulmonary outflow vs left heart neighbors.
+ekg-cardiac-ap-009 | pass | RCA inferior territory vs LAD / circumflex.
+ekg-cardiac-ap-010 | pass | Preload vs afterload / oximetry neighbors.
+ekg-cardiac-ap-011 | pass | Ventricular myocardium contractility neighbors.
+ekg-cardiac-ap-012 | pass | Cardiac output definition neighbors.
+ekg-cardiac-ap-013 | pass | ST segment plateau neighbors.
+ekg-cardiac-ap-014 | pass | Sympathetic rate vs AV block / wide QRS myths.
+ekg-cardiac-ap-015 | pass | Axis I and aVF vs precordial leads.
+ekg-cardiac-ap-016 | pass | Afterload resistance neighbors.
+ekg-cardiac-ap-017 | pass | Anterior V3–V4 vs inferior / V1–V2 neighbors.
+ekg-cardiac-ap-018 | pass | Prolonged PR first-degree neighbors.
+ekg-cardiac-ap-019 | pass | LVH strain pattern neighbors.
+ekg-cardiac-ap-020 | pass | Coronary ostia aortic sinus neighbors.
+ekg-cardiac-ap-021 | pass | Purkinje rapid conduction vs AV delay.
+ekg-cardiac-ap-022 | pass | Ischemia ST-T territorial neighbors.
+ekg-cardiac-ap-023 | pass | Left atrium pulmonary veins neighbors.
+ekg-cardiac-ap-024 | pass | Right axis RV dominance neighbors.
+ekg-cardiac-ap-025 | pass | LAD septal supply neighbors.
+ekg-cardiac-ap-026 | pass | Refractory period filling neighbors.
+ekg-cardiac-ap-027 | pass | QRS duration definition neighbors.
+ekg-cardiac-ap-028 | pass | Lateral I aVL V5 V6 neighbors.
+ekg-cardiac-ap-029 | pass | Starling preload stroke volume neighbors.
+ekg-cardiac-ap-030 | pass | Slow AV nodal PR lengthening neighbors.
+ekg-cardiac-ap-031 | pass | Advanced inferior STE reciprocal scenario.
+ekg-cardiac-ap-032 | pass | Advanced LVH pressure overload scenario.
+ekg-cardiac-ap-033 | pass | Advanced third-degree dissociation scenario.
+ekg-cardiac-ap-034 | pass | Advanced inferior MI AV node ischemia scenario.
+ekg-cardiac-ap-035 | pass | Advanced P pulmonale RV strain scenario.
+ekg-cardiac-ap-036 | pass | Advanced VT capture fusion scenario.
+ekg-cardiac-ap-037 | pass | Advanced exercise ST depression ischemia scenario.
+ekg-cardiac-ap-038 | pass | Advanced AS LVH left axis scenario.
+ekg-cardiac-ap-039 | pass | Advanced RVH V1 R wave strain scenario.
+ekg-cardiac-ap-040 | pass | Advanced anterior STEMI reciprocal scenario.
+ekg-cardiac-ap-041 | pass | Advanced Wenckebach location scenario.
+ekg-cardiac-ap-042 | pass | Advanced pericarditis diffuse ST scenario.
+ekg-cardiac-ap-043 | pass | Advanced anterior QS syncope scenario.
 
-## EKG batch 11 (ekg-acls-basics 41 items)
+## EKG batch 11 (ekg-acls-basics-001 to ekg-acls-basics-041)
 
-ekg-acls-basics-001..041 | pass | ACLS/monitor focused rewrite; shockable vs non-shockable; artifact vs VF; post-ROSC 12-lead.
+_Redo: monitor/defibrillator and waveform ACLS; BLS/AED items removed or replaced._
+
+ekg-acls-basics-001 | pass | Shockable VF/pVT vs PEA / asystole / sinus neighbors.
+ekg-acls-basics-002 | fail | Replaced AED timing with VF rhythm classification on defibrillator.
+ekg-acls-basics-003 | pass | PEA organized QRS without pulse neighbors.
+ekg-acls-basics-004 | pass | Asystole confirm multi-lead vs fine VF neighbors.
+ekg-acls-basics-005 | pass | CPR pause rhythm analysis neighbors.
+ekg-acls-basics-006 | pass | Post-shock CPR priority neighbors.
+ekg-acls-basics-007 | pass | ETCO2 rising with compressions advanced scenario.
+ekg-acls-basics-008 | pass | Coarse VF pulseless advanced scenario.
+ekg-acls-basics-009 | pass | Pulseless wide QRS 160 VT neighbors.
+ekg-acls-basics-010 | fail | Sync cardioversion scenario unstable monomorphic VT with pulse.
+ekg-acls-basics-011 | fail | Shockable priority near-miss sync-before-shock / delay shock distractors.
+ekg-acls-basics-012 | pass | Fine vs coarse VF neighbors.
+ekg-acls-basics-013 | pass | Epinephrine arrest rhythm timing neighbors.
+ekg-acls-basics-014 | pass | Flat capnography esophageal intubation scenario.
+ekg-acls-basics-015 | pass | Post-ROSC 12-lead STEMI scenario.
+ekg-acls-basics-016 | fail | PEA vs VF / junctional with pulse / Mobitz II with pulse neighbors.
+ekg-acls-basics-017 | pass | Double sequential defibrillation neighbors.
+ekg-acls-basics-018 | pass | Pacing spikes capture neighbors.
+ekg-acls-basics-019 | pass | PEA narrow 40 organized scenario neighbors.
+ekg-acls-basics-020 | pass | Minimize pause coronary perfusion neighbors.
+ekg-acls-basics-021 | pass | Torsades polymorphic pattern neighbors.
+ekg-acls-basics-022 | pass | Amiodarone refractory VF/pVT neighbors.
+ekg-acls-basics-023 | fail | Replaced AED no-shock with manual PEA rhythm check scenario.
+ekg-acls-basics-024 | pass | CPR artifact vs VF advanced neighbors.
+ekg-acls-basics-025 | fail | Replaced 30:2 with ACLS rhythm pause duration neighbors.
+ekg-acls-basics-026 | pass | Post-airway ventilation rate during CPR neighbors.
+ekg-acls-basics-027 | fail | Post-shock PEA distractors tightened vs ROSC / persistent VF.
+ekg-acls-basics-028 | pass | Hyperkalemia peaked T H-type scenario.
+ekg-acls-basics-029 | fail | Replaced compressor switch with polymorphic VT sync cardioversion scenario.
+ekg-acls-basics-030 | pass | ROSC monitor perfusion neighbors.
+ekg-acls-basics-031 | pass | Lead II P wave visibility neighbors.
+ekg-acls-basics-032 | pass | Unstable bradycardia algorithm scenario.
+ekg-acls-basics-033 | pass | Pre-charge during compressions neighbors.
+ekg-acls-basics-034 | pass | Closed-loop rhythm communication neighbors.
+ekg-acls-basics-035 | pass | Compression artifact asystole alarm scenario.
+ekg-acls-basics-036 | pass | Tension pneumothorax H-type scenario.
+ekg-acls-basics-037 | pass | Post-ROSC MAP goal neighbors.
+ekg-acls-basics-038 | pass | ROSC STEMI cath lab monitoring scenario.
+ekg-acls-basics-039 | pass | Unstable narrow tach 190 sync pathway scenario.
+ekg-acls-basics-040 | pass | Fine VF vs asystole gain scenario.
+ekg-acls-basics-041 | pass | Shockable definition VF/pVT neighbors.
+
+## EKG rhythm sweep (batch 04 item tied to NSVT)
+
+ekg-rhythm-038 | fail | NSVT distractors: AIVR, SVT aberrancy, sustained VT neighbors.
