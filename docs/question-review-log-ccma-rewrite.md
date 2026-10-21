@@ -122,6 +122,69 @@ ccma-communication-035 | pass | Expanded blame/silence near-misses for length ba
 ccma-communication-041 | fail | Correct answer longest vs short device distractors.
 ccma-communication-041 | pass | Caregiver-only / interrupt device / remove device near-misses.
 
+## Clinical care (ccma-clinical-care-001 to 063) — distractor and stem fix
+
+ccma-clinical-care-008 | fail | Gripping-hair joke distractor.
+ccma-clinical-care-008 | pass | Upright-chair syncope near-miss; ABC priority retained.
+ccma-clinical-care-010 | fail | Financial-matters joke during pelvic exam.
+ccma-clinical-care-010 | pass | Draping/modesty near-miss distractors.
+ccma-clinical-care-012 | fail | Dental/hearing absurd posterior-lead distractors.
+ccma-clinical-care-012 | pass | RV strain / anterior STEMI / BBB near-misses.
+ccma-clinical-care-020 | fail | Carpet-color identity joke distractor.
+ccma-clinical-care-020 | pass | Room-board / insurance / appointment near-misses.
+ccma-clinical-care-022 | fail | Billing-documentation scope joke distractor.
+ccma-clinical-care-022 | pass | MA sterile-field role vs charting near-miss.
+ccma-clinical-care-026 | fail | Banned only qualifiers in fever-classification distractors.
+ccma-clinical-care-026 | pass | Threshold and baseline near-misses; balanced lengths.
+ccma-clinical-care-027 | fail | Banned Skip in insulin double-check distractor.
+ccma-clinical-care-027 | pass | Cap-color / memory-draw high-alert near-misses.
+ccma-clinical-care-028 | fail | Absurd Holter distractors (eye culture, telemetry replacement).
+ccma-clinical-care-028 | pass | ABPM / event monitor / echo near-misses.
+ccma-clinical-care-029 | fail | Break-room / hide-incident weak distractors; banned only.
+ccma-clinical-care-029 | pass | Silent correction / personal-note near-misses for safety reporting.
+ccma-clinical-care-030 | fail | Banned only in stroke triage distractor.
+ccma-clinical-care-030 | pass | Glucose-only / delayed MRI scheduling near-misses.
+ccma-clinical-care-031 | fail | Banned always in urine-protein distractor.
+ccma-clinical-care-031 | pass | False-positive / discard-strip near-misses.
+ccma-clinical-care-032 | fail | Banned only in cuff-width distractor.
+ccma-clinical-care-032 | pass | Wrist-sizing / thigh-length near-misses.
+ccma-clinical-care-033 | fail | Banned Only in spirometer coaching distractor.
+ccma-clinical-care-033 | pass | Sniffing-breath / panting near-misses.
+ccma-clinical-care-034 | fail | Banned Skip in LASA identifier distractor.
+ccma-clinical-care-034 | pass | Cap-color / unlabeled shelf near-misses.
+ccma-clinical-care-035 | fail | Banned only in orthostatic vitals distractor.
+ccma-clinical-care-035 | pass | Exercise RR / pain-score near-misses.
+ccma-clinical-care-036 | fail | Banned only in peak-flow technique distractor.
+ccma-clinical-care-036 | pass | Post-stair / breath-hold near-misses.
+ccma-clinical-care-037 | fail | Front-desk / filing admin joke distractors.
+ccma-clinical-care-037 | pass | Clean technique vs sterile-field clinical near-misses.
+ccma-clinical-care-039 | fail | Banned only in Snellen distance distractor.
+ccma-clinical-care-039 | pass | Bedside arm's-length / uncalibrated mirror near-misses.
+ccma-clinical-care-040 | fail | Banned Only in cuff-length distractor.
+ccma-clinical-care-040 | pass | Wrist-width / overlap near-misses.
+ccma-clinical-care-041 | fail | Compression-wrap action jokes; not assessment peers.
+ccma-clinical-care-041 | pass | Incomplete distal neurovascular check near-misses.
+ccma-clinical-care-044 | fail | Banned only/Skip in clean-catch distractors.
+ccma-clinical-care-044 | pass | First-stream / deferred cleansing near-misses.
+ccma-clinical-care-052 | fail | Shoe-size joke distractor; weak stem.
+ccma-clinical-care-052 | pass | Which-practice stem; height-percentile estimate near-miss.
+ccma-clinical-care-055 | fail | Blow-on-instruments joke sterile-field distractors.
+ccma-clinical-care-055 | pass | Fan-dry / wipe-contact near-misses.
+ccma-clinical-care-056 | fail | Unrelated-device distractors; purpose stem fragment.
+ccma-clinical-care-056 | pass | PEF monitoring stem; FeNO / PFT near-misses.
+ccma-clinical-care-057 | fail | Parking-lot / behind-patient joke vision distractors.
+ccma-clinical-care-057 | pass | Uncalibrated distance / doorway card near-misses.
+ccma-clinical-care-060 | fail | Prone-underwater / Trendelenburg-hour joke distractors.
+ccma-clinical-care-060 | pass | Single-standing / submerged / prolonged Trendelenburg near-misses.
+ccma-clinical-care-061 | fail | 180-degree bone joke intradermal distractor.
+ccma-clinical-care-061 | pass | IM / subcutaneous angle near-misses for Mantoux.
+ccma-clinical-care-062 | fail | Hot-coffee suture-removal joke distractor.
+ccma-clinical-care-062 | pass | Rapid pull / warm soak / unprocessed scissors near-misses.
+ccma-clinical-care-063 | fail | Glucose / sterilize-pack weak heat-barrier distractors.
+ccma-clinical-care-063 | pass | Bare-skin cold / glucose-through-cloth near-misses.
+ccma-clinical-care-053 | fail | Fragment-style “What patient position…” stem.
+ccma-clinical-care-053 | pass | Scenario stem aligned with standard technique wording.
+
 ## Diabetes batch 01 (ccma-diabetes-001 to 060) — banned-qualifier distractor pass
 
 ccma-diabetes-001 | fail | Banned "only" in UTI distractor.
