@@ -80,9 +80,9 @@ FACTS: list[dict] = [
         "how long?",
         "Feel the brachial pulse on the inside of the upper arm for no more than about 10 seconds",
         [
-            "Palpate only the radial pulse at the wrist for up to two minutes before starting CPR",
-            "Apply heavy pressure on the carotid artery as the standard infant pulse site",
-            "Auscultate the apical pulse only through multiple layers of clothing without exposure",
+            "Palpate the femoral pulse in the groin for up to about 10 seconds before starting CPR",
+            "Palpate the brachial pulse on the upper arm for about 15 to 20 seconds before deciding on CPR",
+            "Palpate the carotid pulse in the neck for about 5 to 10 seconds before starting CPR",
         ],
         "The brachial pulse is accessible and reliable in infants during BLS assessment. Radial "
         "pulses may be difficult to feel with poor perfusion. Brief checks limit harmful delays "
@@ -377,11 +377,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-infant",
         "When pediatric AED pads are available for an infant, how should rescuers attach them?",
-        "Follow the manufacturer diagram, often using anterior-posterior placement if pads would overlap on the chest",
+        "Place pediatric pads per the diagram, often anterior-posterior when front-chest pads would overlap",
         [
-            "Place both pads on the infant's back only without any anterior chest contact",
-            "Use adult pads on the thighs only without chest contact",
-            "Withhold the AED entirely until hospital arrival regardless of rhythm",
+            "Use adult pads on the anterior chest anterolateral even if the pads overlap on a small chest",
+            "Delay attaching the AED until five full cycles of CPR have been completed",
+            "Place one pediatric pad on the center of the chest and one on the right upper chest so the pads touch",
         ],
         "Pediatric systems and placement instructions prevent pad overlap on small chests. An "
         "effective current path usually requires appropriate anterior and posterior or lateral "

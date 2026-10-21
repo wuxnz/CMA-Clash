@@ -261,3 +261,12 @@ cpr-infant-047 | fail | AED no-shock resume compressions stem; parallel pause/re
 cpr-infant-048 | fail | PPE barrier and hand hygiene for infant ventilations; parallel delay/skip distractors.
 cpr-infant-049 | fail | Non-trauma head tilt-chin lift airway stem; parallel hyperextend/flex/jaw-thrust distractors.
 cpr-infant-050 | fail | Shallow fast compressions depth target scenario; parallel indent/6cm/rate-only distractors.
+
+## CPR sample fixes (infant AED / pulse)
+
+cpr-infant AED pads | fail | Near-miss distractors: overlapping adult anterior, delay five CPR cycles, touching pediatric pads on chest; balanced AP correct key.
+cpr-infant pulse check | fail | Close timing/site near-misses: femoral 10 s, brachial 15–20 s, carotid 5–10 s vs brachial 10 s key.
+
+## CPR rewrite batches 07–08 (cpr-aed-001 to cpr-aed-050)
+
+cpr-aed-001–050 | fail | Replaced duplicate legacy bank with 50 unique full-sentence AED items; parallel distractors; 15/20/15 difficulty mix (see commit 660b27ff).

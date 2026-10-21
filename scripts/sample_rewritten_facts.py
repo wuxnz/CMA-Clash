@@ -47,9 +47,9 @@ def main() -> None:
         t = f["topic"]
         if t == "cpr-adult":
             pool.append(f)
-        elif t in ("cpr-child", "cpr-infant"):
+        elif t in ("cpr-child", "cpr-infant", "cpr-aed"):
             pool.append(f)
-        elif t in ("phleb-order-draw", "phleb-additives"):
+        elif t in ("phleb-order-draw", "phleb-additives", "phleb-site", "phleb-handling"):
             pool.append(f)
     picks = random.sample(pool, min(n, len(pool)))
     for f in picks:

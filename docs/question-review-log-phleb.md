@@ -163,3 +163,19 @@ phleb-additives-025 | fail | Clot activator serum purpose stem; fixed double-wha
 phleb-order-draw-007 heparin sequence | fail | Replaced in-every-hospital-protocol distractor with parallel sequence near-miss.
 phleb-additives-026–042 polish | fail | Full-sentence ammonia and ESR stems; removed never/only giveaway distractors on EDTA inversion, BBP splash, heparin-hemolysis items.
 
+## Phleb sample fix (ammonia warm lavender)
+
+phleb-additives ammonia delay | fail | Full stem; parallel falsely low EDTA, acceptable if spun 4 h, elevated-only-if-hemolyzed near-misses.
+
+## Phleb rewrite batch 04 (phleb-additives-026 to 050)
+
+phleb-additives-043–050 | fail | New items: heparin salts, royal blue trace, CTAD, ACD vs EDTA, clot timing, K+ serum/plasma, citrate 3.2 vs 3.8%, gel interference recollect.
+
+## Phleb rewrite batches 05–06 (phleb-site-001 to 042)
+
+phleb-site-001–042 | fail | Full-sentence stems; parallel near-miss distractors; fixed fragment anchors/tourniquet/bevel items.
+
+## Phleb rewrite batch 07 (phleb-handling-001 to 025)
+
+phleb-handling-001–025 | fail | Full-sentence stems; parallel distractors; removed joke label/transport options.
+
