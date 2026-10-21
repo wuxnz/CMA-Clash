@@ -36,20 +36,9 @@ async def save_quiz_to_storage(game_pin: str):
         questions=json.dumps(q_return),
     )
     await data.save()
-    from classquiz.db.cma_models import XpSource
-    from classquiz.gamification.service import award_xp
-    from classquiz.db.models import Quiz as QuizModel
+    from classquiz.gamification.post_game import award_host_from_saved_game
 
-    quiz_row = await QuizModel.objects.get_or_none(id=game.quiz_id)
-    base_xp = 25 + min(player_count * 5, 50)
-    await award_xp(
-        game.user_id,
-        base_xp,
-        XpSource.QUIZ_PLAY,
-        certification_id=quiz_row.certification_id if quiz_row else None,
-        topic_id=quiz_row.topic_id if quiz_row else None,
-        note=f"hosted-game:{game.game_id}",
-    )
+    await award_host_from_saved_game(game_pin, game, player_count)
     if game.game_mode == "battle":
         from classquiz.socket_server.battle_hooks import finalize_battle
 
