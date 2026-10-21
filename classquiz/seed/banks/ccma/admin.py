@@ -419,11 +419,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-admin",
         "An attorney's office faxes a records request for a current patient. The cover sheet shows firm letterhead and a HIPAA authorization, but the printed patient name is one letter different from the chart while date of birth matches. What should staff do before releasing information?",
-        "Follow policy to verify patient identity and confirm the authorization matches the correct chart",
+        "Hold the request and verify patient identity per policy before matching the authorization to the chart",
         [
-            "Release the full chart because the date of birth matches even if the printed name differs",
-            "Release records because firm letterhead establishes legal authority without further checks",
-            "Release to any caller who can state the patient's last visit date without verifying authorization",
+            "Ask the attorney to resend the authorization with a corrected patient name, then release the full chart",
+            "Release the minimum necessary records because the date of birth on the form matches the chart",
+            "Call the patient to confirm the request and release records based on verbal approval alone",
         ],
         "Valid disclosure requires a correct authorization tied to the right individual. Similar names and partial identifiers are a common source of misdirected PHI.",
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
@@ -545,11 +545,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-admin",
         "The scanner queue shows two active charts for patients named Maria Lopez with the same date of birth but different medical record numbers. The medical assistant is indexing an outside referral PDF for the patient standing at the desk. Which step prevents a serious indexing error?",
-        "Confirm legal name, date of birth, and medical record number against the patient and wristband or photo ID before attaching the scan",
+        "Verify two patient identifiers against wristband or photo ID, then attach the scan to the matching chart",
         [
-            "Attach the PDF to the chart that appears first alphabetically in the queue",
-            "Attach to whichever chart was opened last during the previous shift",
-            "Attach using the scanner default filename when the first and last names match",
+            "Match patient name and date of birth on the referral to the chart header, then attach",
+            "Match the medical record number on the referral to the chart selected in the queue",
+            "Ask the patient to confirm date of birth, then attach the scan to the open encounter",
         ],
         "Same-name patients are a high-risk scenario for misfiled documents. Two identifiers alone are insufficient when names and birth dates collide.",
         [S.NHA_CCMA],

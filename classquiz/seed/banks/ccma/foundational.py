@@ -253,9 +253,9 @@ FACTS: list[dict] = [
         'Which three components are integrated in evidence-based practice?',
         'Best available research, clinical expertise, and patient values',
         [
-            'Tradition, anecdote, and personal habit',
-            'Payer reimbursement rates without clinical expertise or patient preferences',
-            'Laboratory reference ranges without clinical context',
+            'Best available research, clinical expertise, and cost containment goals',
+            'Best available research, clinical guidelines, and expert consensus opinion',
+            'Clinical expertise, patient values, and payer reimbursement policy',
         ],
         'Evidence-based practice weighs published evidence with clinician judgment and what matters to the patient. Reference ranges alone or informal habits do not replace that structured approach.',
         [S.NHA_CCMA],

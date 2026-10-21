@@ -782,3 +782,163 @@ ccma-foundational-009 | fail | Joke distractor, tier mismatch, or recall item la
 ccma-foundational-009 | pass | Near-miss distractors and/or scenario tier fix this run.
 ccma-foundational-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
 ccma-foundational-030 | pass | Near-miss distractors and/or scenario tier fix this run.
+## Near-miss pass 2026-10-21b (79 items; `docs/ccma-run-rewritten-ids-2026-10-21b.txt`)
+
+ccma-admin-030 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-admin-030 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-admin-039 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-admin-039 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-foundational-018 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-foundational-018 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-001 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-001 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-005 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-005 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-007 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-007 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-008 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-008 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-009 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-009 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-019 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-019 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-025 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-025 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-027 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-027 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-031 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-031 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-033 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-033 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-034 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-034 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-035 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-035 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-036 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-036 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-037 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-037 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-038 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-038 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-039 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-039 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-040 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-040 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-041 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-041 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-042 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-042 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-043 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-043 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-044 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-044 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-045 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-045 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-046 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-046 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-047 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-047 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-048 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-048 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-049 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-049 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-050 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-050 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-051 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-051 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-052 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-052 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-053 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-053 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-054 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-054 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-056 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-056 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-057 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-057 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-058 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-058 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-059 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-059 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-060 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-060 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-061 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-061 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-062 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-062 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-063 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-063 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-064 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-064 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-003 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-003 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-007 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-007 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-009 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-009 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-010 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-010 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-011 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-011 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-012 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-012 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-014 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-014 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-018 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-018 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-022 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-022 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-023 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-023 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-026 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-026 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-028 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-028 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-029 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-029 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-030 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-030 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-031 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-031 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-032 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-032 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-034 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-034 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-036 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-036 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-037 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-037 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-038 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-038 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-039 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-039 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-040 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-040 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-041 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-041 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-042 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-042 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-044 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-044 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-045 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-045 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-046 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-046 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-047 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-047 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-048 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-048 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-049 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-049 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-013 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-013 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-015 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-015 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-026 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-026 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-029 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-029 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-043 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-043 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-048 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-048 | pass | Balanced near-miss distractors and tier fix this run.

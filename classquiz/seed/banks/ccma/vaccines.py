@@ -505,7 +505,7 @@ FACTS: list[dict] = [
         'Where should clinically significant post-vaccination adverse events be reported when appropriate?',
         'The Vaccine Adverse Event Reporting System (VAERS)',
         [
-            'In the patient chart only, with no report to the immunization safety system',
+            'In the patient chart without reporting to the immunization safety system',
             'Nowhere because vaccine reactions are not tracked',
             'To the vaccine manufacturer sales representative who visited last month',
         ],
