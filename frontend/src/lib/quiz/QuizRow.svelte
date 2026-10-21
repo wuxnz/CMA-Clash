@@ -4,6 +4,15 @@
 	import Button from '$lib/ui/Button.svelte';
 	import { certDotClass, prettyDifficulty } from './labels';
 	import {
+		quizColActions,
+		quizColCert,
+		quizColCertDot,
+		quizColDifficulty,
+		quizColQs,
+		quizTableGrid,
+		quizTableRowShell
+	} from './quizTableLayout';
+	import {
 		Pencil,
 		Ellipsis,
 		Eye,
@@ -77,10 +86,7 @@
 	});
 </script>
 
-<li
-	class="grid grid-cols-[1fr_auto] md:grid-cols-[minmax(0,1.4fr)_6.5rem_3.5rem_7rem_auto] items-center gap-x-3 gap-y-1 py-3 border-b border-white/[0.07] min-w-0"
-	data-quiz-card
->
+<li class="{quizTableGrid} {quizTableRowShell}" data-quiz-card>
 	<div class="flex items-center gap-3 min-w-0">
 		{#if quiz.cover_image}
 			<div class="w-9 h-9 rounded-md overflow-hidden bg-elevated shrink-0 hidden sm:block">
@@ -107,20 +113,21 @@
 		</div>
 	</div>
 
-	<p class="hidden md:flex items-center gap-2 text-xs text-ink-muted min-w-0">
+	<p class={quizColCert}>
 		{#if quiz.certLabel}
-			<span class="inline-block w-1.5 h-1.5 rounded-full {certDotClass(quiz.certLabel)} shrink-0"></span>
+			<span class="{quizColCertDot} rounded-full {certDotClass(quiz.certLabel)}"></span>
 			<span class="truncate">{quiz.certLabel}</span>
 		{:else}
+			<span class="{quizColCertDot}" aria-hidden="true"></span>
 			<span class="text-ink-muted/60">—</span>
 		{/if}
 	</p>
-	<p class="hidden md:block text-xs text-ink-muted tabular-nums">{count || '—'}</p>
-	<p class="hidden md:block text-xs text-ink-muted truncate">
+	<p class={quizColQs}>{count || '—'}</p>
+	<p class={quizColDifficulty}>
 		{difficulty ?? '—'}
 	</p>
 
-	<div class="flex items-center justify-end gap-1">
+	<div class={quizColActions}>
 		{#if playHref}
 			<Button href={playHref} variant="secondary" size="sm" class="w-auto">Play</Button>
 		{:else if onHost}
