@@ -112,6 +112,11 @@ describe('isStaleQuestionResults', () => {
 		expect(isStaleQuestionResults(1, 0, 1)).toBe(true);
 		expect(isStaleQuestionResults(1, 1, 1)).toBe(false);
 	});
+
+	it('rejects unlabeled bare arrays after the client advanced past Q1', () => {
+		expect(isStaleQuestionResults(1, null, 1)).toBe(true);
+		expect(isStaleQuestionResults(0, null, 0)).toBe(false);
+	});
 });
 
 describe('initialLivePhaseForQuestion', () => {

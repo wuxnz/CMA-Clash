@@ -19,7 +19,7 @@ export default defineConfig({
 		baseURL
 	},
 	webServer: {
-		command: `BACKEND_URL=${apiBase} pnpm exec vite preview --host 127.0.0.1 --port ${port}`,
+		command: `BACKEND_URL=${apiBase} PUBLIC_SOCKET_URL=${apiBase} pnpm exec vite preview --host 127.0.0.1 --port ${port}`,
 		url: baseURL,
 		reuseExistingServer: !process.env.CI,
 		timeout: 120_000
