@@ -64,7 +64,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Through which structure does the atrial impulse travel immediately before reaching the ventricles?",
-        "AV node and bundle of His",
+        "Atrioventricular node and bundle of His pathway",
         [
             "Coronary sinus draining venous blood from myocardium",
             "Pulmonary valve cusps during ventricular systole",
@@ -103,7 +103,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Which chamber pumps deoxygenated blood into the pulmonary arteries?",
-        "The right ventricle",
+        "The right ventricle pumping to pulmonary arteries",
         [
             "The left atrium receiving pulmonary venous return",
             "The left ventricle ejecting into the aorta",
@@ -116,7 +116,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "In right-dominant coronary circulation, which artery most often supplies the inferior wall viewed in II, III, and aVF?",
-        "The right coronary artery",
+        "The right coronary artery in right-dominant circulation",
         [
             "The left anterior descending artery alone",
             "The circumflex artery without right coronary contribution",
@@ -142,7 +142,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Which myocardial layer provides the contractile force that generates the QRS-related pumping action?",
-        "The ventricular myocardium",
+        "The ventricular myocardium as contractile muscle",
         [
             "The fibrous pericardium surrounding the heart",
             "The endocardial lining of the atria without muscle",
@@ -298,7 +298,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Which chamber receives freshly oxygenated blood from the pulmonary veins?",
-        "The left atrium",
+        "The left atrium from pulmonary venous return",
         [
             "The right atrium from the superior vena cava",
             "The right ventricle from the tricuspid valve",
@@ -363,7 +363,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "Which leads best reflect lateral left ventricular electrical forces on a standard 12-lead study?",
-        "I, aVL, V5, and V6",
+        "I, aVL, V5, and V6 on the standard study",
         [
             "II, III, and aVF across the inferior wall",
             "V1 and V2 over the right precordium",
@@ -467,13 +467,13 @@ FACTS: list[dict] = [
     fact(
         "ekg-cardiac-ap",
         "A wide QRS tachycardia at 160 bpm shows occasional narrow capture beats and fusion complexes. What mechanism explains these findings?",
-        "Ventricular tachycardia with occasional supraventricular capture",
+        "Ventricular tachycardia with fusion and occasional narrow capture beats",
         [
-            "Sinus tachycardia with uniform PR 0.12 second in every captured beat",
-            "Typical atrial flutter with 2:1 conduction and sawtooth flutter waves",
-            "Junctional rhythm at 40 bpm with retrograde P waves before each QRS",
+            "Sinus tachycardia with uniform narrow QRS and no fusion complexes",
+            "Atrial flutter with fixed 2:1 conduction and sawtooth waves throughout",
+            "Antidromic atrioventricular reciprocating tachycardia without fusion beats",
         ],
-        "Capture and fusion imply a ventricular focus with some impulses conducting antegrade from above. Pure sinus tachycardia or slow junctional rhythm lack fusion during wide tachycardia.",
+        "Capture and fusion imply a ventricular focus with some impulses conducting antegrade from above. Pure sinus tach, flutter, and antidromic SVT lack VT-style fusion during wide tachycardia.",
         [S.NHA_CCMA],
         "advanced",
     ),

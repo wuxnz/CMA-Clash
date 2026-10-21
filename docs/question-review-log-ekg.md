@@ -309,6 +309,24 @@ ekg-acls-basics-039 | pass | Unstable narrow tach 190 sync pathway scenario.
 ekg-acls-basics-040 | pass | Fine VF vs asystole gain scenario.
 ekg-acls-basics-041 | pass | Shockable definition VF/pVT neighbors.
 
+## EKG length/parallelism pass 2 (cardiac+acls)
+
+**Count: 13** items rebalanced in source (`cardiac_ap.py` 7, `acls_basics.py` 6): correct no longer uniquely shortest vs distractors or uniquely longest; parallel near-miss wording preserved. Includes pulseless VT (ekg-acls-basics-009) stem answer and perfusing-VT/SVT neighbors.
+
+ekg-cardiac-ap-005 | pass | Lengthen AV node/His correct; distractors unchanged.
+ekg-cardiac-ap-008 | pass | RV pulmonary outflow wording balanced vs chamber neighbors.
+ekg-cardiac-ap-009 | pass | RCA right-dominant wording vs LAD/circumflex neighbors.
+ekg-cardiac-ap-011 | pass | Ventricular myocardium contractile wording vs layer neighbors.
+ekg-cardiac-ap-023 | pass | Left atrium pulmonary return vs right-heart neighbors.
+ekg-cardiac-ap-028 | pass | Lateral lead set wording vs territory neighbors.
+ekg-cardiac-ap-036 | pass | VT fusion/capture answer; sinus/flutter/AVRT near-miss distractors.
+ekg-acls-basics-009 | pass | Monomorphic pulseless VT near 160; perfusing VT/SVT/sinus neighbors.
+ekg-acls-basics-019 | pass | PEA without palpable pulse vs VF/junctional/Mobitz neighbors.
+ekg-acls-basics-022 | pass | Refractory VF/pVT amiodarone indication length balanced.
+ekg-acls-basics-023 | pass | Manual rhythm-check PEA scenario length balanced.
+ekg-acls-basics-028 | pass | Hyperkalemia H-type vs tension/hypothermia/PE neighbors.
+ekg-acls-basics-036 | pass | Tension pneumothorax H-type vs PE/hypovolemia/hyperkalemia neighbors.
+
 ## EKG rhythm sweep (batch 04 item tied to NSVT)
 
 ekg-rhythm-038 | fail | NSVT distractors: AIVR, SVT aberrancy, sustained VT neighbors.

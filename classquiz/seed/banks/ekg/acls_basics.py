@@ -116,13 +116,13 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "What rhythm should be suspected when the monitor shows regular wide QRS at 160 with no pulse?",
-        "Pulseless ventricular tachycardia",
+        "Monomorphic pulseless ventricular tachycardia near 160 per minute",
         [
-            "Stable supraventricular tachycardia with blood pressure 120/80",
-            "Sinus rhythm at 160 with palpable radial pulse",
-            "First-degree AV block with PR 0.22 second",
+            "Monomorphic ventricular tachycardia with palpable pulse and stable pressure",
+            "Supraventricular tachycardia with narrow QRS and palpable radial pulse",
+            "Sinus tachycardia with narrow QRS and palpable carotid pulse",
         ],
-        "Wide fast rhythm without pulse is shockable VT. Stable SVT and sinus tach retain perfusion, and first-degree block is not a tachycardic arrest rhythm.",
+        "Wide fast rhythm without pulse is shockable VT. VT with a pulse, narrow SVT, and sinus tach with perfusion are not pulseless arrest rhythms.",
         [S.NHA_CCMA],
         "intermediate",
     ),
@@ -246,7 +246,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "A rhythm check shows organized narrow QRS at 40 without pulse. What ACLS category applies?",
-        "Pulseless electrical activity",
+        "Pulseless electrical activity without a palpable pulse",
         [
             "Ventricular fibrillation requiring shock",
             "Junctional rhythm at 45 with palpable radial pulse 110/70",
@@ -285,7 +285,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "During ACLS, amiodarone is considered for which arrest rhythm after shocks?",
-        "Refractory VF or pulseless VT per ACLS",
+        "Refractory ventricular fibrillation or pulseless VT per ACLS",
         [
             "Asystole as first-line drug therapy before epinephrine is considered",
             "Stable atrial fibrillation at 90 beats per minute with controlled rate",
@@ -298,7 +298,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "After a manual rhythm check off compressions, the monitor shows organized narrow QRS at 40 without a palpable pulse. What ACLS rhythm category is most likely?",
-        "Pulseless electrical activity",
+        "Pulseless electrical activity without palpable perfusion",
         [
             "Ventricular fibrillation requiring immediate defibrillation",
             "Sinus bradycardia with strong carotid pulse",
@@ -363,7 +363,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "Which reversible cause might show peaked T waves on a rhythm strip before arrest?",
-        "Hyperkalemia",
+        "Hyperkalemia as a reversible H-type cause",
         [
             "Tension pneumothorax with narrow QRS only",
             "Hypothermia with short QT always",
@@ -467,7 +467,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "When VF persists after multiple shocks and epinephrine, what reversible H-type cause might show distended neck veins with clear lungs on exam?",
-        "Tension pneumothorax",
+        "Tension pneumothorax with distended neck veins",
         [
             "Massive pulmonary embolism with clear neck veins",
             "Hypovolemia with flat neck veins",
