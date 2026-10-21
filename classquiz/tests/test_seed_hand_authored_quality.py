@@ -45,6 +45,10 @@ _BANNED_EXPLANATION_PHRASES = [
         r"incorrect here because it would not provide effective BLS care in this scenario",
         re.I,
     ),
+    re.compile(
+        r"plausible near-miss that does not match the clinical fact tested in this question",
+        re.I,
+    ),
 ]
 
 _PRESENTS_FOR_CARE = re.compile(r"presents\s+for\s+care", re.I)
@@ -314,6 +318,20 @@ _PHLEB_BANNED_DISTRACTOR_PATTERNS = _GLOBAL_BANNED_DISTRACTOR_PATTERNS + [
     re.compile(r"\boverridden\s+by\s+security\b", re.I),
     re.compile(r"\bincompetence\s+without\s+discussion\b", re.I),
 ]
+
+
+def test_ccma_explanations_lack_banned_template_phrases():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("ccma-"):
+            continue
+        expl = (fact.get("explanation") or "").strip()
+        for pat in _BANNED_EXPLANATION_PHRASES:
+            if pat.search(expl):
+                hits.append(f"{fact['topic']}: {fact['stem'][:60]}")
+    assert not hits, f"CCMA templated explanations: {hits[:12]}"
 
 
 def test_phleb_distractors_lack_absurd_patterns():
