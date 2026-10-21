@@ -168,6 +168,11 @@ async def begin_battle_from_rest(sio, game_pin: str) -> None:
 
 async def battle_maybe_advance(sio, game_pin: str, game_data: PlayGame) -> None:
     _cancel_battle_timer(game_pin)
+    from classquiz.socket_server.question_lifecycle import broadcast_question_results
+
+    q_index = game_data.current_question
+    if q_index >= 0:
+        await broadcast_question_results(sio, game_pin, q_index)
     next_q = game_data.current_question + 1
     if next_q >= len(game_data.questions):
         from classquiz.socket_server import generate_final_results

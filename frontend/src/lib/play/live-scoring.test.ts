@@ -3,7 +3,11 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import { describe, expect, it } from 'vitest';
-import { applyQuestionResultScores, scoreDeltaForUser } from './live-scoring';
+import {
+	aggregateScoresFromFinalResults,
+	applyQuestionResultScores,
+	scoreDeltaForUser
+} from './live-scoring';
 
 describe('applyQuestionResultScores', () => {
 	it('adds each player score once per question index', () => {
@@ -32,6 +36,19 @@ describe('applyQuestionResultScores', () => {
 			last
 		));
 		expect(scores.Ada).toBe(350);
+	});
+});
+
+describe('aggregateScoresFromFinalResults', () => {
+	it('sums scores per username across question buckets', () => {
+		const payload = {
+			'0': [{ username: 'HostAlpha', score: 400 }, { username: 'GuestBeta', score: 200 }],
+			'1': [{ username: 'HostAlpha', score: 100 }, { username: 'GuestBeta', score: 350 }]
+		};
+		expect(aggregateScoresFromFinalResults(payload)).toEqual({
+			HostAlpha: 500,
+			GuestBeta: 550
+		});
 	});
 });
 

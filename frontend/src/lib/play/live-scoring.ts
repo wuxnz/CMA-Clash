@@ -42,3 +42,23 @@ export function scoreDeltaForUser(
 	const mine = rows.find((r) => r.username === username);
 	return Number(mine?.score ?? 0);
 }
+
+/** Sum per-question `score` fields from the live `final_results` socket payload. */
+export function aggregateScoresFromFinalResults(
+	finalResults: unknown
+): Record<string, number> {
+	if (finalResults == null || typeof finalResults !== 'object' || Array.isArray(finalResults)) {
+		return {};
+	}
+	const scores: Record<string, number> = {};
+	for (const answers of Object.values(finalResults as Record<string, unknown>)) {
+		if (!Array.isArray(answers)) continue;
+		for (const row of answers) {
+			if (row == null || typeof row !== 'object') continue;
+			const name = (row as QuestionResultRow).username;
+			if (!name) continue;
+			scores[name] = (Number(scores[name]) || 0) + (Number((row as QuestionResultRow).score) || 0);
+		}
+	}
+	return scores;
+}

@@ -20,6 +20,8 @@ SPDX-License-Identifier: MPL-2.0
 		show_final_results: boolean;
 		/** Host admin: fit phone viewport with scroll only on ranks 4+. */
 		hostLayout?: boolean;
+		/** Optional line under the Podium title (e.g. battle winner / tie). */
+		outcomeNote?: string;
 		actions?: import('svelte').Snippet;
 	}
 
@@ -28,6 +30,7 @@ SPDX-License-Identifier: MPL-2.0
 		username,
 		show_final_results,
 		hostLayout = false,
+		outcomeNote,
 		actions
 	}: Props = $props();
 
@@ -84,6 +87,14 @@ SPDX-License-Identifier: MPL-2.0
 				>
 					Podium
 				</h1>
+				{#if outcomeNote}
+					<p
+						class="mt-2 font-mono text-sm sm:text-base text-ink-muted"
+						data-testid="battle-final-outcome"
+					>
+						{outcomeNote}
+					</p>
+				{/if}
 			</header>
 
 			{#if player_names.length === 0}
