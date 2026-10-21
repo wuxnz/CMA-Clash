@@ -282,6 +282,19 @@ def test_hand_authored_correct_not_uniquely_longest_option():
     assert not bad, f"Correct answer uniquely longest ({len(bad)} items): {bad[:12]}"
 
 
+def test_hand_authored_correct_not_uniquely_short_by_wide_margin():
+    from classquiz.seed.banks import load_all_facts
+    from classquiz.seed.choice_quality import correct_is_uniquely_short_by_margin
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STRICT_QUALITY_CERT_PREFIXES):
+            continue
+        if correct_is_uniquely_short_by_margin(fact["correct"], fact["distractors"]):
+            bad.append(f"{fact['topic']}: {fact['stem'][:70]}")
+    assert not bad, f"Correct answer uniquely short vs distractors ({len(bad)} items): {bad[:12]}"
+
+
 def test_hand_authored_choices_lack_banned_balance_suffixes():
     from classquiz.seed.banks import load_all_facts
     from classquiz.seed.choice_quality import BANNED_BALANCE_SUFFIXES
