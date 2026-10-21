@@ -19,6 +19,7 @@ export type LeaderboardEntry = {
 	username: string;
 	xp: number;
 	level: number;
+	is_you?: boolean;
 };
 
 export type TopicStat = {

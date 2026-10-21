@@ -30,16 +30,16 @@ SPDX-License-Identifier: MPL-2.0
 	let streakDays = $state(0);
 	let weekly = $state<LeaderboardEntry[]>(data.weekly);
 	let allTime = $state<LeaderboardEntry[]>(data.allTime);
-	let boardLoading = $state(true);
-	let usingDemo = $derived(!boardLoading && weekly.length === 0 && allTime.length === 0);
+	let boardLoading = $state(false);
 
 	let entries = $derived(tab === 'weekly' ? weekly : allTime);
 
 	let rows = $derived.by((): LedgerRow[] => {
 		return entries.map((e) => ({
 			rank: e.rank,
-			name: e.username,
-			score: e.xp.toLocaleString()
+			name: e.level > 1 ? `${e.username} (Lv ${e.level})` : e.username,
+			score: e.xp.toLocaleString(),
+			isYou: e.is_you
 		}));
 	});
 
@@ -51,6 +51,7 @@ SPDX-License-Identifier: MPL-2.0
 	);
 
 	onMount(async () => {
+		boardLoading = true;
 		async function loadBoard(period: 'weekly' | 'all_time'): Promise<LeaderboardEntry[]> {
 			const res = await kitOrBackendFetch(
 				fetch,
@@ -80,10 +81,6 @@ SPDX-License-Identifier: MPL-2.0
 	<main class="flex-1 max-w-3xl mx-auto w-full px-4 py-10">
 		<h1 class="text-2xl font-semibold text-ink tracking-tight">Leaderboard</h1>
 		<p class="text-sm text-ink-muted mt-1 mb-8">Weekly XP and all-time standings.</p>
-
-		{#if usingDemo}
-			<p class="text-sm text-ink-muted mb-4">Leaderboard scores aren't available right now.</p>
-		{/if}
 
 		<RetentionBar {streakDays} dailyGoalPercent={0} />
 
@@ -119,7 +116,7 @@ SPDX-License-Identifier: MPL-2.0
 				{/each}
 			</div>
 		{:else if rows.length === 0}
-			<p class="text-sm text-ink-muted">No scores yet.</p>
+			<p class="text-sm text-ink-muted">No one has earned XP yet. Play a game or battle while logged in to appear here.</p>
 		{:else}
 			<Card class="mb-8">
 				<Podium entries={podium} />

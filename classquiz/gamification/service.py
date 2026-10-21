@@ -16,6 +16,7 @@ from classquiz.db.cma_models import (
     XpSource,
     BattleResult,
 )
+from classquiz.db.models import User
 
 
 def xp_for_level(level: int) -> int:
@@ -50,16 +51,22 @@ async def _bump_leaderboard(
     amount: int,
     certification_id: uuid.UUID | None,
 ) -> None:
+    if await User.objects.get_or_none(id=user_id) is None:
+        return
     period_key = _iso_week_key()
     for period in (LeaderboardPeriod.ALL_TIME.value, LeaderboardPeriod.WEEKLY.value):
         key = "global" if period == LeaderboardPeriod.ALL_TIME.value else period_key
         for cert_filter in (certification_id, None):
-            existing = await LeaderboardScore.objects.get_or_none(
+            qs = LeaderboardScore.objects.filter(
                 user_id=user_id,
                 period=period,
                 period_key=key,
-                certification_id=cert_filter,
             )
+            if cert_filter is None:
+                qs = qs.filter(certification_id__isnull=True)
+            else:
+                qs = qs.filter(certification_id=cert_filter)
+            existing = await qs.get_or_none()
             if existing is None:
                 await LeaderboardScore(
                     user_id=user_id,
@@ -165,11 +172,13 @@ async def record_battle_result(
         uid = user_ids.get(username)
         if uid is None:
             continue
+        if await User.objects.get_or_none(id=uid) is None:
+            continue
         profile = await get_or_create_profile(uid)
         profile.battles_played += 1
         await profile.update()
         await award_xp(uid, max(10, score // 10), XpSource.BATTLE_PLAY, note=f"battle:{game_id}")
-    if winner_id is not None:
+    if winner_id is not None and await User.objects.get_or_none(id=winner_id) is not None:
         profile = await get_or_create_profile(winner_id)
         profile.battles_won += 1
         await profile.update()
