@@ -276,3 +276,31 @@ cpr-aed-001–050 | fail | Replaced duplicate legacy bank with 50 unique full-se
 cpr-aed-001–050 | fail | Rebalanced one-clause options; removed exaggeration tells; no-shock interval uses 1/2/5 min and 5-compression re-analyze near-misses.
 cpr-infant depth/vent/choking/airway | fail | Depth bands 1/1.5/2 in and half AP; vent seal near-misses; choking CPR vs thrusts; airway tilt near-misses.
 cpr-child airway | fail | Parallel jaw thrust/towel/sweep near-misses without maximal/regardless tells.
+
+## CPR rewrite batch 09 (cpr-choking-001 to 025)
+
+cpr-choking-001 | fail | Full-sentence mild-adult stem; parallel encourage-cough vs thrust/CPR/sweep near-misses.
+cpr-choking-002 | fail | Severe responsive adult scenario; Red Cross 5+5 back-blow distractor vs AHA abdominal thrust key.
+cpr-choking-003 | fail | Unresponsive choking CPR sequence stem; balanced standing thrust/shake/sweep distractors.
+cpr-choking-004 | fail | Late-pregnancy chest-thrust modification; removed maximal/regardless legacy distractor.
+cpr-choking-005 | fail | Infant severe obstruction cycles; parallel abdominal thrust/CPR-first/shake near-misses.
+cpr-choking-006 | fail | Post-relief medical evaluation stem; parallel discharge/meal/wheeze distractors.
+cpr-choking-007 | fail | Mild vs severe pairing in full sentences; removed telegraphic correct option.
+cpr-choking-008 | fail | Limp during back blows leads to CPR; removed indefinitely/face-slap exaggeration distractors.
+cpr-choking-009 | fail | Conscious child severe choking thrusts; parallel sweep/delay/CPR-while-awake near-misses.
+cpr-choking-010 | fail | Blind sweep rationale stem; expanded correct answer; parallel required/preferred sweep distractors.
+cpr-choking-011 | fail | Partial obstruction findings; fixed every-patient exaggeration tell in distractor.
+cpr-choking-012 | fail | EMS activation criteria stem; parallel mild-cough vs unresolved obstruction near-misses.
+cpr-choking-013 | fail | Mild adult recognition stem; parallel silent-cough/unresponsive-first distractors.
+cpr-choking-014 | fail | Initial severe adult thrusts stem; removed water-flush implausible distractor wording.
+cpr-choking-015 | fail | Adult becomes unresponsive handoff to CPR; parallel standing thrust/seated family distractors.
+cpr-choking-016 | fail | Chest thrust indication stem; replaced every-infant/regardless distractor with clinical near-miss.
+cpr-choking-017 | fail | Responsive infant severe care cycles; parallel adult thrust/CPR-first/shake distractors.
+cpr-choking-018 | fail | Unresponsive infant CPR stem; parallel back-slap-only/wait-to-call/sweep distractors.
+cpr-choking-019 | fail | Post-severe medical evaluation why stem; parallel drive-home/no-follow-up near-misses.
+cpr-choking-020 | fail | Conscious child severe management; parallel one-thrust/delay/slap-cheek distractors.
+cpr-choking-021 | fail | Choking vs ACS bedside distinction; balanced identical-symptom near-miss distractors.
+cpr-choking-022 | fail | Clear speech effective cough monitoring stem; parallel thrust/CPR/fluids near-misses.
+cpr-choking-023 | fail | Universal choking sign stem; expanded hands-at-neck key with silent cough clause.
+cpr-choking-024 | fail | Lone rescuer EMS en route monitoring stem; parallel leave/exercise/cancel-EMS distractors.
+cpr-choking-025 | fail | Manikin skills emphasis stem; parallel live-force/skip-skills/AED-only distractors.
