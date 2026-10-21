@@ -353,7 +353,7 @@ FACTS: list[dict] = [
         [
             "Fasting glucose 118 mg/dL on routine screening with no acute symptoms",
             "Random glucose 280 mg/dL, thirsty and alert, without vomiting",
-            "Patient reports mild hunger before a scheduled lunch break",
+            "Capillary glucose 65 mg/dL, alert and oriented, eating crackers at the desk",
         ],
         "Severe hyperglycemia with altered mental status may signal DKA or hyperosmolar crisis and requires urgent clinical evaluation.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],

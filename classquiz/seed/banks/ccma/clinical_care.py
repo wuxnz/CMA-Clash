@@ -12,14 +12,14 @@ FACTS: list[dict] = [
     # ccma-clinical-care-001
     fact(
         'ccma-clinical-care',
-        'Before applying a topical antibiotic to an open wound in the clinic, what should the medical assistant do first?',
-        'Perform hand hygiene and use clean or aseptic technique per facility policy',
+        'Before applying a topical antibiotic to an open wound in the clinic, what is the first action the medical assistant should take?',
+        'Perform hand hygiene before touching the wound or medication supplies',
         [
-            'Perform hand hygiene, then don sterile gloves for all topical applications',
-            'Clean the wound with alcohol, then apply ointment without new gloves',
-            'Perform hand hygiene and new gloves, then apply ointment from the tube tip to the wound',
+            'Don clean gloves before hand hygiene when the gloves worn for dressing change appear intact',
+            'Remove the soiled dressing and cleanse the wound before performing hand hygiene',
+            'Apply topical antibiotic from the tube opening directly to the wound, then perform hand hygiene',
         ],
-        'Topical medications can introduce pathogens if hands or supplies are contaminated. Facility policy guides whether clean or sterile technique is required for the specific wound presentation.',
+        'Hand hygiene is the first step before wound contact or handling topical agents. Gloves, wound cleansing, and ointment application follow once hands and the field are prepared per policy.',
         [S.NHA_CCMA],
         'beginner',
     ),

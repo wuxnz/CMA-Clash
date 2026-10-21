@@ -13,13 +13,13 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'What is the medical assistant\'s typical responsibility when contributing to the diagnostic process?',
-        'Collect accurate data and report findings to the supervising provider',
+        'Gather subjective and objective data accurately and report findings to the supervising provider',
         [
-            'Complete delegated history and vitals, then implement standing orders within MA scope',
-            'Interpret abnormal laboratory values and adjust medication doses per clinic protocol',
-            'Triage the chief complaint and advise the patient on likely diagnosis before the provider enters',
+            'Gather patient data and document a working diagnosis in the chart before the provider evaluates the patient',
+            'Gather vital signs only and defer history documentation until the provider enters the examination room',
+            'Gather laboratory results and adjust medication doses using clinic standing orders without provider review',
         ],
-        'Medical assistants gather vitals, histories, and test results to support provider decision-making. Final diagnosis and prescribing remain within the licensed provider\'s scope, not the MA role.',
+        'Medical assistants collect histories, vitals, and test results to support provider decision-making. Assigning final diagnoses, independent prescribing, or unsupervised medication changes exceed typical MA scope.',
         [S.NHA_CCMA],
         'beginner',
     ),

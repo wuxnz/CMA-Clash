@@ -475,13 +475,13 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'When discharging a patient with limited health literacy, which communication pair is most effective?',
-        'Plain language plus teach-back of critical steps',
+        'Plain-language verbal instructions paired with teach-back of medications, follow-up, and warning signs',
         [
-            'Written handouts at a high reading level without checking understanding',
-            'Teach-back for medication names while skipping lifestyle and follow-up steps',
-            'Qualified interpreter for spoken language with no written after-visit summary',
+            'Written handouts at a high reading level with medical abbreviations and no teach-back check',
+            'Teach-back limited to medication names while lifestyle and follow-up teaching uses jargon only',
+            'Qualified interpreter for spoken instructions with no written after-visit summary for home use',
         ],
-        'Simple wording and patient restatement catch gaps in medication and follow-up instructions. Dense text without verification raises home safety errors.',
+        'Limited literacy calls for simple wording plus teach-back on the steps that keep the patient safe at home. High-reading-level handouts alone, partial teach-back, or interpreter-only visits leave gaps when no plain written backup exists.',
         [S.NHA_CCMA],
         'advanced',
     ),

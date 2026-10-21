@@ -1529,3 +1529,38 @@ ccma-law-ethics-055 | fail | Unlogged tail item; distractor review pending.
 ccma-law-ethics-055 | pass | Logged at bar after tail pass 2026-10-21d.
 ccma-law-ethics-056 | fail | Unlogged tail item; distractor review pending.
 ccma-law-ethics-056 | pass | Logged at bar after tail pass 2026-10-21d.
+
+## Pass 2026-10-21e — single-answer audit (multiple-correct + length/explanation)
+
+ccma-clinical-care-001 | fail | Multiple defensible answers; vague policy hedge in key.
+ccma-clinical-care-001 | pass | First action = hand hygiene only; distractors wrong sequence.
+ccma-communication-034 | fail | Key shortest; parallel structure skew.
+ccma-communication-034 | pass | Balanced four options; explanation matches pairs tested.
+ccma-foundational-001 | fail | Distractors overlapped MA scope; key shortest.
+ccma-foundational-001 | pass | Single scope key; parallel-length options.
+ccma-diabetes-025 | fail | Weak escalation distractor (mild hunger).
+ccma-diabetes-025 | pass | Hypoglycemia-with-treatment near-miss peer.
+ccma-law-ethics-001 | fail | Beneficence stem; distractors were other correct duties.
+ccma-law-ethics-001 | pass | Distractors = other principle definitions.
+ccma-law-ethics-002 | fail | Fidelity stem with breach examples as definitions.
+ccma-law-ethics-002 | pass | Distractors = other principle definitions.
+ccma-law-ethics-003 | fail | Nonmaleficence stem with harmful acts as definitions.
+ccma-law-ethics-003 | pass | Distractors = other principle definitions.
+ccma-law-ethics-023 | fail | Justice distractor read as equitable allocation.
+ccma-law-ethics-023 | pass | Distractors = other principle definitions.
+ccma-law-ethics-031 | fail | All four options described Stark violations.
+ccma-law-ethics-031 | pass | Scenario stem; one violation vs lawful peers.
+ccma-law-ethics-035 | fail | Distractors A–C were also boundary violations; explanation mismatch.
+ccma-law-ethics-035 | pass | Professional conduct distractors; explanation addresses romance vs appropriate care.
+ccma-law-ethics-051 | fail | Fidelity definition with breach-style distractors.
+ccma-law-ethics-051 | pass | Distractors = other principle definitions.
+ccma-law-ethics-053 | fail | Justice stem with injustice examples as definitions.
+ccma-law-ethics-053 | pass | Distractors = other principle definitions.
+ccma-law-ethics-056 | fail | Distractors named valid ethical issues for gift scenario.
+ccma-law-ethics-056 | pass | Mislabeled principle distractors; boundary/influence key.
+ccma-law-ethics-047 | fail | Explanation referenced sedation not listed in options.
+ccma-law-ethics-047 | pass | Consent elements explanation aligned; balanced lengths.
+ccma-law-ethics-050 | fail | Key shorter than peers.
+ccma-law-ethics-050 | pass | Parallel refusal-documentation options.
+ccma-law-ethics-055 | fail | Key shorter than peers.
+ccma-law-ethics-055 | pass | Parallel incident-report purpose options.
