@@ -22,6 +22,7 @@ SPDX-License-Identifier: MPL-2.0
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import HostProgress from '$lib/play/admin/host-progress.svelte';
+	import HostTopBar from '$lib/play/admin/host-top-bar.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import { isKahootStyleMode } from '$lib/play/live-game';
@@ -194,7 +195,14 @@ SPDX-License-Identifier: MPL-2.0
 	<Controls {bg_color} {socket_game_controls} {game_token} bind:game_state />
 {/if}
 
-<div class="w-full min-h-dvh bg-paper">
+<div class="w-full min-h-dvh bg-paper pb-28">
+	{#if game_state.selected_question >= 0 && game_state.quiz_data}
+		<HostTopBar
+			current={game_state.selected_question + 1}
+			total={game_state.quiz_data.questions.length}
+			gamePin={game_state.quiz_data.game_pin}
+		/>
+	{/if}
 	{#if game_state.timer_res !== undefined && !final_results_clicked && !game_state.question_results}
 		{#if game_state.quiz_data.questions[game_state.selected_question].type === QuizQuestionType.SLIDE}
 			{#await import('$lib/play/admin/slide.svelte')}
@@ -224,10 +232,10 @@ SPDX-License-Identifier: MPL-2.0
 				remainingSeconds={parseInt(game_state.timer_res) || 0}
 				totalSeconds={parseInt(activeQ.time) || 30}
 				answeredCount={game_state.answer_count}
+				showRing={false}
 			/>
 		{:else if activeQ}
 			<HostProgress
-				gamePin={game_state.quiz_data?.game_pin}
 				remainingSeconds={parseInt(game_state.timer_res) || 0}
 				totalSeconds={parseInt(activeQ.time) || 30}
 				answerCount={game_state.answer_count}
