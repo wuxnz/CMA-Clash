@@ -6,7 +6,8 @@
 	import AnswerTiles from '$lib/play/arena/AnswerTiles.svelte';
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
-	import Podium from '$lib/ui/Podium.svelte';
+	import FinalResults from '$lib/play/admin/final_results.svelte';
+	import GrayButton from '$lib/components/buttons/gray.svelte';
 	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
 	import MasteryHeatmap from '$lib/ui/MasteryHeatmap.svelte';
 	import RetentionBar from '$lib/ui/RetentionBar.svelte';
@@ -34,6 +35,17 @@
 
 	const phase = $derived(page.url.searchParams.get('phase') ?? 'all');
 	const show = (id: string) => phase === 'all' || phase === id;
+
+	const podiumScores = {
+		'A. Okafor': 9420,
+		'M. Chen': 9105,
+		'Jordan Lee': 8870,
+		'Sam Rivera': 8200,
+		'Priya N.': 7905,
+		'Chris M.': 7650,
+		'Emma T.': 7100,
+		'Noah K.': 6800
+	};
 </script>
 
 <div class="bg-paper">
@@ -64,25 +76,13 @@
 		</section>
 	{/if}
 	{#if show('host-podium')}
-		<section
-			id="host-podium"
-			class="h-dvh overflow-hidden flex flex-col items-center justify-center relative"
-		>
-			<div
-				class="pointer-events-none absolute inset-0"
-				style="background: radial-gradient(ellipse at 50% 55%, rgba(200,255,46,0.16), transparent 55%);"
-				aria-hidden="true"
-			></div>
-			<p class="font-display text-gold text-sm tracking-[0.3em] relative">Final</p>
-			<Podium
-				staged
-				celebrate
-				entries={[
-					{ name: 'A. Okafor', score: '9,420' },
-					{ name: 'M. Chen', score: '9,105' },
-					{ name: 'You', score: '8,870' }
-				]}
-			/>
+		<section id="host-podium" class="h-dvh max-h-dvh overflow-hidden">
+			<FinalResults data={podiumScores} show_final_results={true} hostLayout>
+				{#snippet actions()}
+					<GrayButton>Export results</GrayButton>
+					<GrayButton>Save results</GrayButton>
+				{/snippet}
+			</FinalResults>
 		</section>
 	{/if}
 	{#if show('player-join')}

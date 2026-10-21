@@ -17,9 +17,11 @@
 		celebrate?: boolean;
 		/** 3-2-1 countdown then reveal 3rd → 2nd → 1st. */
 		staged?: boolean;
+		/** Tighter layout for phone host / small viewports. */
+		compact?: boolean;
 	}
 
-	let { entries, celebrate = false, staged = false }: Props = $props();
+	let { entries, celebrate = false, staged = false, compact = false }: Props = $props();
 
 	let reduced = prefersReducedMotion();
 	let phase = $state<'countdown' | 'reveal' | 'done'>('reveal');
@@ -94,7 +96,12 @@
 	});
 </script>
 
-<div class="relative flex flex-col items-center gap-6 py-8 px-4" aria-label="Final standings">
+<div
+	class="relative flex flex-col items-center px-2 sm:px-4 {compact
+		? 'gap-2 py-1'
+		: 'gap-6 py-8'}"
+	aria-label="Final standings"
+>
 	<div
 		class="pointer-events-none absolute inset-0"
 		style="background: radial-gradient(ellipse at 50% 70%, rgba(200,255,46,0.18), transparent 55%);"
@@ -102,7 +109,9 @@
 	></div>
 	{#if phase === 'countdown' && !reduced}
 		<p
-			class="font-display text-6xl font-bold text-primary tabular-nums"
+			class="font-display font-bold text-primary tabular-nums {compact
+				? 'text-4xl'
+				: 'text-6xl'}"
 			in:fade={{ duration: 200 }}
 			aria-live="polite"
 		>
@@ -115,21 +124,31 @@
 		</div>
 	{/if}
 
-	<div class="flex items-end justify-center gap-3 sm:gap-6 w-full max-w-lg min-h-[10rem]">
+	<div
+		class="flex items-end justify-center w-full max-w-lg {compact
+			? 'gap-1.5 min-h-[4.75rem]'
+			: 'gap-3 sm:gap-6 min-h-[10rem]'}"
+	>
 		{#if second && showSecond}
 			<div
 				class="flex flex-col items-center flex-1 max-w-[8rem]"
 				in:fly={reduced ? { duration: 0 } : { y: 40, duration: 500 }}
 			>
 				<div
-					class="w-full rounded-t-xl bg-surface border border-ink/10 px-2 py-3 text-center shadow-sm h-20 sm:h-24 flex flex-col justify-end"
+					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {compact
+						? 'h-12 sm:h-20'
+						: 'h-20 sm:h-24'}"
 				>
-					<p class="font-mono text-2xl text-ink-muted">2</p>
+					<p class="font-mono text-ink-muted {compact ? 'text-lg sm:text-2xl' : 'text-2xl'}">2</p>
 				</div>
-				<p class="mt-2 font-display font-semibold text-ink text-sm truncate w-full text-center">
+				<p
+					class="mt-1 sm:mt-2 font-display font-semibold text-ink truncate w-full text-center {compact
+						? 'text-[11px] sm:text-sm'
+						: 'text-sm'}"
+				>
 					{second.name}
 				</p>
-				<p class="font-mono text-xs text-ink-muted tabular-nums">{second.score}</p>
+				<p class="font-mono text-[10px] sm:text-xs text-ink-muted tabular-nums">{second.score}</p>
 			</div>
 		{/if}
 		{#if first && showFirst}
@@ -138,15 +157,23 @@
 				in:fly={reduced ? { duration: 0 } : { y: 60, duration: 600 }}
 			>
 				<div
-					class="w-full rounded-t-xl bg-gold/20 border-2 border-gold px-2 py-4 text-center shadow-md h-28 sm:h-32 flex flex-col justify-end relative overflow-hidden"
+					class="w-full rounded-t-lg sm:rounded-t-xl bg-gold/20 border-2 border-gold px-1 py-2 sm:px-2 sm:py-4 text-center shadow-md flex flex-col justify-end relative overflow-hidden {compact
+						? 'h-[3.25rem] sm:h-28'
+						: 'h-28 sm:h-32'}"
 				>
-					<div class="absolute inset-x-0 top-0 h-1 bg-gold" aria-hidden="true"></div>
-					<p class="font-mono text-3xl text-gold font-bold">1</p>
+					<div class="absolute inset-x-0 top-0 h-0.5 sm:h-1 bg-gold" aria-hidden="true"></div>
+					<p class="font-mono text-gold font-bold {compact ? 'text-xl sm:text-3xl' : 'text-3xl'}">
+						1
+					</p>
 				</div>
-				<p class="mt-2 font-display font-bold text-ink truncate w-full text-center">
+				<p
+					class="mt-1 sm:mt-2 font-display font-bold text-ink truncate w-full text-center {compact
+						? 'text-xs sm:text-base'
+						: ''}"
+				>
 					{first.name}
 				</p>
-				<p class="font-mono text-sm text-ink tabular-nums">{first.score}</p>
+				<p class="font-mono text-[10px] sm:text-sm text-ink tabular-nums">{first.score}</p>
 				{#if first.subtitle}
 					<p class="text-xs text-ink-muted text-center">{first.subtitle}</p>
 				{/if}
@@ -158,14 +185,20 @@
 				in:fly={reduced ? { duration: 0 } : { y: 40, delay: 100, duration: 500 }}
 			>
 				<div
-					class="w-full rounded-t-xl bg-surface border border-ink/10 px-2 py-3 text-center shadow-sm h-20 sm:h-24 flex flex-col justify-end"
+					class="w-full rounded-t-lg sm:rounded-t-xl bg-surface border border-ink/10 px-1 py-1 sm:px-2 sm:py-3 text-center shadow-sm flex flex-col justify-end {compact
+						? 'h-12 sm:h-20'
+						: 'h-20 sm:h-24'}"
 				>
-					<p class="font-mono text-2xl text-ink-muted">3</p>
+					<p class="font-mono text-ink-muted {compact ? 'text-lg sm:text-2xl' : 'text-2xl'}">3</p>
 				</div>
-				<p class="mt-2 font-display font-semibold text-ink text-sm truncate w-full text-center">
+				<p
+					class="mt-1 sm:mt-2 font-display font-semibold text-ink truncate w-full text-center {compact
+						? 'text-[11px] sm:text-sm'
+						: 'text-sm'}"
+				>
 					{third.name}
 				</p>
-				<p class="font-mono text-xs text-ink-muted tabular-nums">{third.score}</p>
+				<p class="font-mono text-[10px] sm:text-xs text-ink-muted tabular-nums">{third.score}</p>
 			</div>
 		{/if}
 	</div>
