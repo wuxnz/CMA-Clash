@@ -129,3 +129,31 @@ phleb-who patient-education-venipuncture | pass | Replaced guaranteeing abnormal
 phleb-who pediatric-capillary | pass | Replaced skipping gloves for small volume with fingerstick without hand hygiene before gloves.
 phleb-who facility-audit | pass | Replaced wait-time-only / social media / parking with sharps disposal, dispenser-only, reorder-log-only near-misses.
 phleb-who outbreak-investigation | pass | Replaced cafeteria / TV / parking with transport-time-only, tourniquet-laundry-only, refrigerator-only near-misses.
+
+## Phleb rewrite batch 03 (phleb-additives-001 to phleb-additives-025)
+
+phleb-additives-001 | fail | Full lavender EDTA stem; parallel citrate, heparin, fluoride distractors; removed double-what fragment.
+phleb-additives-002 | fail | Light blue citrate PT stem; parallel EDTA, heparin, oxalate near-misses.
+phleb-additives-003 | fail | Green heparin plasma stem; fixed what/what fragment; parallel EDTA, citrate, fluoride distractors.
+phleb-additives-004 | fail | Gray fluoride-oxalate glucose stem; parallel citrate, SST, broth distractors.
+phleb-additives-005 | fail | Plain red-top no-anticoagulant contrast stem; parallel EDTA, citrate, heparin near-misses.
+phleb-additives-006 | fail | Gold SST clot activator and gel stem; parallel EDTA, citrate, fluoride distractors.
+phleb-additives-007 | fail | CBC tube choice stem; parallel citrate, heparin, red-top near-misses.
+phleb-additives-008 | fail | PT/INR citrate fill-line stem; parallel lavender, green, gray distractors.
+phleb-additives-009 | fail | Delayed transport glucose fluoride scenario; parallel citrate, red clot, culture broth.
+phleb-additives-010 | fail | Culture bottle vs vacuum tube purpose stem; parallel EDTA, fluoride, gel distractors.
+phleb-additives-011 | fail | Serum source red/SST stem; parallel lavender, citrate plasma, culture distractors.
+phleb-additives-012 | fail | Heparin plasma validation stem; removed interchangeable-every-test distractor tone; parallel PT-on-green, culture-in-green.
+phleb-additives-013 | fail | Pink-top blood bank EDTA stem; fixed what/what fragment; parallel citrate, heparin, fluoride.
+phleb-additives-014 | fail | Citrate calcium-binding mechanism stem; parallel hemolysis, platelet activation, enolase distractors.
+phleb-additives-015 | fail | EDTA hematology morphology stem; fixed broken eDTA/what-reason fragment; parallel clot, heparin neutralize, glucose distractors.
+phleb-additives-016 | fail | Heparin antithrombin mechanism stem; fixed double-what fragment; parallel citrate, thrombin activation, oxalate.
+phleb-additives-017 | fail | Fluoride enolase mechanism stem; fixed double-what fragment; parallel citrate, culture kill, gel distractors.
+phleb-additives-018 | fail | Oxalate calcium precipitation stem; fixed double-what fragment; parallel factor VII, iron CBC, EDTA neutralize.
+phleb-additives-019 | fail | SST gel barrier function stem; fixed trailing to? fragment; parallel EDTA chelate, culture, heparin-convert distractors.
+phleb-additives-020 | fail | ABG balanced heparin syringe stem; fixed what-coated-with-what fragment; parallel EDTA, fluoride-only, no-coat distractors.
+phleb-additives-021 | fail | Underfilled citrate ratio stem; removed always-EDTA banned distractor; parallel fluoride evaporation, gel mix near-misses.
+phleb-additives-022 | fail | Clotted lavender platelet scenario; fixed trailing may-show? fragment; parallel fluoride blame, refrigerate fix, label fix distractors.
+phleb-additives-023 | fail | EDTA carryover calcium chemistry stem; fixed double-what fragment; parallel INR-on-serum, glucose fluoride, culture distractors.
+phleb-additives-024 | fail | K2 vs K3 EDTA salt form stem; fixed double-what fragment; removed always-in-citrate banned distractor.
+phleb-additives-025 | fail | Clot activator serum purpose stem; fixed double-what fragment; parallel heparin permanent, CBC platelet, culture sterile distractors.
