@@ -20,6 +20,14 @@ export async function joinPlayer(
 	}
 	await context.clearCookies();
 	const page = await context.newPage();
+	if (process.env.CMA_PLAY_SOCKET_DEBUG === '1') {
+		page.on('console', (msg) => {
+			const text = msg.text();
+			if (text.includes('[cma-play-socket]')) {
+				console.log(`[play:${name}] ${text}`);
+			}
+		});
+	}
 	await page.setViewportSize(viewport);
 
 	const pinDigits = pin.replace(/\D/g, '');

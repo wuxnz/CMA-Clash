@@ -50,6 +50,11 @@ SPDX-License-Identifier: MPL-2.0
 		emitRejoinFromCookie,
 		persistJoinedGameCookie
 	} from '$lib/play/player-socket-session';
+	import {
+		bindPlayPageSocketHandlers,
+		unbindPlayPageSocketHandlers
+	} from '$lib/play/play-page-socket';
+	import { onDestroy, onMount } from 'svelte';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -175,19 +180,8 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	};
 
-	socket.on('time_sync', (data) => {
-		socket.emit('echo_time_sync', data);
-	});
-
-	socket.on('clock_sync', (data: { server_time_ms?: number }) => {
-		if (data?.server_time_ms != null) {
-			clockOffsetMs = applyClockSync(Number(data.server_time_ms));
-			syncPlayerClock();
-		}
-	});
-
 	function syncPlayerClock() {
-		if (!questionTiming) return;
+		if (!questionTiming || answer_results !== undefined) return;
 		const now = serverNowMs(clockOffsetMs);
 		livePhase = resolveLivePhase(questionTiming, game_mode, now);
 		remainingLive = Math.ceil(remainingAnswerSeconds(questionTiming, now));
@@ -202,46 +196,7 @@ SPDX-License-Identifier: MPL-2.0
 		syncPlayerClock();
 	}
 
-	// Socket-events (connect/rejoin handled once in player-socket-session)
-	socket.on('joined_game', (data) => {
-		gameData = normalizeGamePayload(data);
-		if (gameData?.started) {
-			gameMeta.started = true;
-		}
-		if (gameData?.game_mode != null) {
-			game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
-		}
-		// eslint-disable-next-line no-undef
-		plausible('Joined Game', { props: { game_id: gameData?.game_id } });
-		persistJoinedGameCookie(username, game_pin);
-	});
-	socket.on('rejoined_game', (data) => {
-		gameData = normalizeGamePayload(data);
-		if (gameData?.started) {
-			gameMeta.started = true;
-		}
-		if (gameData?.game_mode != null) {
-			game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
-		}
-		if (username && game_pin) {
-			persistJoinedGameCookie(username, game_pin);
-		}
-	});
-
-	socket.on('game_not_found', () => {
-		const cookie_data = Cookies.get('joined_game');
-		if (cookie_data) {
-			Cookies.remove('joined_game');
-			window.location.reload();
-			return;
-		}
-	});
-
-	socket.on('question_times_up', () => {
-		remainingLive = 0;
-	});
-
-	socket.on('set_question_number', (data) => {
+	function handleSetQuestionNumber(data: Record<string, unknown>) {
 		const nextIndex = Number(data.question_index);
 		if (Number.isFinite(nextIndex) && latestQuestionIndex > nextIndex) {
 			return;
@@ -251,7 +206,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		solution = undefined;
 		restart();
-		question = questionFromSocketPayload(data as Record<string, unknown>);
+		question = questionFromSocketPayload(data);
 		question_index = Number.isFinite(nextIndex) ? nextIndex : data.question_index;
 		answer_results = undefined;
 		selectedAnswer = undefined;
@@ -266,7 +221,7 @@ SPDX-License-Identifier: MPL-2.0
 				)
 				.map((name, idx) => [name, idx + 1])
 		);
-		applyQuestionSocketData(data as Record<string, unknown>);
+		applyQuestionSocketData(data);
 		syncPlayerClock();
 		const introLeft =
 			questionTiming != null
@@ -276,19 +231,9 @@ SPDX-License-Identifier: MPL-2.0
 		if (!gameMeta.started) {
 			gameMeta.started = true;
 		}
-	});
+	}
 
-	socket.on('start_game', () => {
-		gameMeta.started = true;
-	});
-
-	socket.on('join_error', (payload?: { code?: string }) => {
-		if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
-			window.alert(joinErrorMessage(payload.code));
-		}
-	});
-
-	socket.on('question_results', (data) => {
+	function handleQuestionResults(data: unknown) {
 		const { questionIndex: resultsIndex, rows } = parseQuestionResultsPayload(data);
 		if (
 			isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex) ||
@@ -318,27 +263,86 @@ SPDX-License-Identifier: MPL-2.0
 			livePhase = 'rankings';
 		}, 4500);
 		scheduleAdvanceResync(resultsIndex ?? (typeof question_index === 'number' ? question_index : null));
+	}
+
+	onMount(() => {
+		bindPlayPageSocketHandlers({
+			onTimeSync: (data) => {
+				socket.emit('echo_time_sync', data);
+			},
+			onClockSync: (data) => {
+				if (data?.server_time_ms != null) {
+					clockOffsetMs = applyClockSync(Number(data.server_time_ms));
+					syncPlayerClock();
+				}
+			},
+			onJoinedGame: (data) => {
+				gameData = normalizeGamePayload(data);
+				if (gameData?.started) {
+					gameMeta.started = true;
+				}
+				if (gameData?.game_mode != null) {
+					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
+				}
+				// eslint-disable-next-line no-undef
+				plausible('Joined Game', { props: { game_id: gameData?.game_id } });
+				persistJoinedGameCookie(username, game_pin);
+			},
+			onRejoinedGame: (data) => {
+				gameData = normalizeGamePayload(data);
+				if (gameData?.started) {
+					gameMeta.started = true;
+				}
+				if (gameData?.game_mode != null) {
+					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
+				}
+				if (username && game_pin) {
+					persistJoinedGameCookie(username, game_pin);
+				}
+			},
+			onGameNotFound: () => {
+				const cookie_data = Cookies.get('joined_game');
+				if (cookie_data) {
+					Cookies.remove('joined_game');
+					window.location.reload();
+				}
+			},
+			onQuestionTimesUp: () => {
+				remainingLive = 0;
+			},
+			onSetQuestionNumber: handleSetQuestionNumber,
+			onStartGame: () => {
+				gameMeta.started = true;
+			},
+			onJoinError: (payload) => {
+				if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
+					window.alert(joinErrorMessage(payload.code));
+				}
+			},
+			onQuestionResults: handleQuestionResults,
+			onUsernameAlreadyExists: () => {
+				window.alert('Username already exists!');
+			},
+			onKick: () => {
+				window.alert('You got kicked');
+				preventReload = false;
+				game_pin = '';
+				username = '';
+				Cookies.set('kicked', 'value', { expires: 1 });
+				window.location.reload();
+			},
+			onFinalResults: (data) => {
+				final_results = data;
+				Cookies.remove('joined_game');
+			},
+			onSolutions: (data) => {
+				solution = data;
+			}
+		});
 	});
 
-	socket.on('username_already_exists', () => {
-		window.alert('Username already exists!');
-	});
-
-	socket.on('kick', () => {
-		window.alert('You got kicked');
-		preventReload = false;
-		game_pin = '';
-		username = '';
-		Cookies.set('kicked', 'value', { expires: 1 });
-		window.location.reload();
-	});
-	socket.on('final_results', (data) => {
-		final_results = data;
-		Cookies.remove('joined_game');
-	});
-
-	socket.on('solutions', (data) => {
-		solution = data;
+	onDestroy(() => {
+		unbindPlayPageSocketHandlers();
 	});
 
 	let bg_color = $derived(gameData ? gameData.background_color : undefined);
