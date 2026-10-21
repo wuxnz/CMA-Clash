@@ -16,6 +16,26 @@ import {
 const ARTIFACT_DIR =
 	process.env.PLAYWRIGHT_ARTIFACT_DIR ?? '/opt/cursor/artifacts/live-ui';
 
+async function readRevealPoints(page: import('@playwright/test').Page): Promise<number> {
+	const byTestId = page.getByTestId('reveal-points-total');
+	if (await byTestId.count()) {
+		return Number((await byTestId.innerText()).replace(/[^\d]/g, ''));
+	}
+	const block = page.getByText('Correct', { exact: true }).locator('xpath=..');
+	return Number((await block.locator('p.font-display.text-3xl').innerText()).replace(/[^\d]/g, ''));
+}
+
+async function waitForRevealPoints(page: import('@playwright/test').Page, min = 500): Promise<number> {
+	let last = 0;
+	await expect
+		.poll(async () => {
+			last = await readRevealPoints(page);
+			return last;
+		}, { timeout: 20_000 })
+		.toBeGreaterThan(min);
+	return last;
+}
+
 test.describe('production live multi-question UI', () => {
 	test.describe.configure({ timeout: 300_000, mode: 'serial' });
 
@@ -51,12 +71,18 @@ test.describe('production live multi-question UI', () => {
 			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
 			await expect(p1.getByTestId('reveal-speed-rank')).toBeVisible();
 
-			const revealPointsText = await p1
-				.locator('.font-display.text-3xl.text-gold.tabular-nums')
-				.first()
-				.innerText();
-			const q1RevealDelta = Number(revealPointsText.replace(/[^\d]/g, ''));
-			expect(q1RevealDelta).toBeGreaterThan(500);
+			const q1RevealDelta = await expect
+				.poll(
+					async () =>
+						Number(
+							(await p1.getByTestId('reveal-points-total').innerText()).replace(/[^\d]/g, '')
+						),
+					{ timeout: 15_000 }
+				)
+				.toBeGreaterThan(500)
+				.then(() =>
+					Number((await p1.getByTestId('reveal-points-total').innerText()).replace(/[^\d]/g, ''))
+				);
 
 			await p1.screenshot({
 				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-reveal-q1.png`),
