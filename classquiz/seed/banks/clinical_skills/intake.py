@@ -222,14 +222,14 @@ FACTS: list[dict] = [
     # skill-intake-016
     fact(
         "skill-intake",
-        "Which tobacco social-history entry is complete and internally consistent?",
+        "A patient reports smoking one pack per day until quitting in March 2024. Which tobacco history entry is correct?",
         "Former smoker; cigarettes; one pack per day; quit date March 2024",
         [
             "Former smoker; cigarettes; one pack per day; quit date not recorded",
             "Former smoker; cigarettes; amount not recorded; quit date March 2024",
-            "Current smoker; cigarettes; one pack per day; quit date March 2024",
+            "Former smoker; cigarettes; one pack per week; quit date March 2024",
         ],
-        "Former use needs product, amount, and a quit date that match the status. Missing quit date or amount leaves risk unclear; listing a quit date under current use contradicts the status field.",
+        "Status, product, amount, and quit date should all be captured and match what the patient reports. Omitting the quit date or the amount leaves exposure history unclear, and a different amount misstates it.",
         [S.NHA_CCMA],
         "intermediate",
     ),

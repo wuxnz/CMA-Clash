@@ -574,13 +574,13 @@ FACTS: list[dict] = [
     fact(
         "skill-poct",
         "How should waived test results be relayed to the patient in clinic?",
-        "Review results privately in the exam room after charting",
+        "Relay results privately after the provider reviews and charts them",
         [
-            "Post results to the patient portal before the provider sees the value",
-            "Give the printed result to a family member at the front desk",
-            "Verbally tell the patient a normal rapid strep result before logging it",
+            "Relay results privately before the provider reviews and charts the value",
+            "Post results to the patient portal without any provider sign-off",
+            "Give the printed result to a family member waiting at the front desk",
         ],
-        "Private discussion after documentation protects confidentiality and allows clinical context. Early portal release, handing results to others, or verbal relay before charting breaks typical workflow and privacy safeguards.",
+        "A waived result is relayed privately once the provider has reviewed and documented it. Relaying before provider review, posting unreviewed results to the portal, and handing a printed result to someone else each break standard workflow and privacy safeguards.",
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
         "advanced",
     ),
