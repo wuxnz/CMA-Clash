@@ -40,18 +40,23 @@ export async function joinPlayer(
 		await expect(connecting).toBeHidden({ timeout: 120_000 });
 	}
 
-	const submit = page.getByRole('button', { name: /^submit$/i });
-	for (let attempt = 0; attempt < 8; attempt++) {
-		await submit.click();
+	const submit = page.locator('form button[type="submit"]');
+	for (let attempt = 0; attempt < 12; attempt++) {
 		if (await lobby.isVisible().catch(() => false)) {
 			break;
 		}
-		const notConnected = page.getByRole('alert', { name: /not connected/i });
+		if (await submit.isVisible().catch(() => false)) {
+			await submit.click();
+		}
+		if (await lobby.isVisible().catch(() => false)) {
+			break;
+		}
+		const notConnected = page.getByText(/not connected/i);
 		if (await notConnected.isVisible().catch(() => false)) {
 			await page.waitForTimeout(2000);
 			continue;
 		}
-		await page.waitForTimeout(1000);
+		await page.waitForTimeout(800);
 	}
 
 	await expect(lobby).toBeVisible({ timeout: 90_000 });
