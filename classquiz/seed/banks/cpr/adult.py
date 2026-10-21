@@ -13,149 +13,149 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "What compression-to-ventilation ratio should a single rescuer use during adult BLS CPR?",
- "30:2",
+ "30 compressions followed by 2 ventilations (30:2)",
  [
- "15:2, because pediatric two-rescuer ratios apply to all ages",
- "5:1, alternating heavy compressions with single breaths",
- "Continuous compressions with no ventilations in every arrest",
+ "15 compressions followed by 2 ventilations for every adult arrest",
+ "5 compressions followed by 1 ventilation to shorten pauses between breaths",
+ "Continuous compressions with no ventilations until advanced airway placement",
  ],
- "AHA adult BLS uses 30 compressions followed by 2 ventilations for a lone rescuer. "
- "15:2 is tempting because learners memorize it for two-rescuer child CPR, but adult "
- "BLS stays 30:2 regardless of rescuer number.",
+ "AHA adult BLS uses 30:2 for a lone rescuer on adults. Fifteen-to-two is the two-rescuer "
+ "pediatric ratio, and compression-only care is reserved for specific lay-rescuer situations, "
+ "not the default ventilated adult algorithm.",
  [S.AHA_ADULT_BLS],
  "beginner",
  ),
  fact(
  "cpr-adult",
- "What is the minimum recommended compression depth for adult BLS CPR?",
- "2 inches (5 cm) but not more than 2.4 inches (6 cm)",
+ "What is the recommended compression depth range for most adults during BLS CPR?",
+ "At least 2 inches (5 cm) but not more than 2.4 inches (6 cm)",
  [
- "About 1 inch (2.5 cm) to avoid rib injury",
- "At least 3 inches (7.5 cm) for every adult regardless of size",
- "Any visible sternal movement, with no minimum depth",
+ "About 1 inch (2.5 cm) to limit rib and sternal injury in all patients",
+ "At least 3 inches (7.5 cm) for every adult regardless of body size",
+ "Any visible chest movement without a specified minimum depth target",
  ],
- "AHA targets at least 2 inches (5 cm) with an upper limit near 2.4 inches (6 cm) to "
- "balance perfusion and injury risk. One inch is a common underestimate that fails to "
- "generate adequate coronary pressure during arrest.",
+ "AHA targets at least 2 inches (5 cm) with an upper limit near 2.4 inches (6 cm) to balance "
+ "perfusion and injury risk. Shallow one-inch compressions rarely generate adequate coronary "
+ "and cerebral pressure during arrest.",
  [S.AHA_ADULT_BLS, S.AHA_HQ_CPR],
  "beginner",
  ),
  fact(
  "cpr-adult",
- "What chest compression rate should rescuers use during adult CPR?",
- "100 to 120 per minute",
+ "Which chest compression rate should rescuers deliver during adult CPR?",
+ "100 to 120 compressions per minute",
  [
- "60 to 80 per minute for easier fatigue management",
- "140 to 160 per minute to maximize output",
- "Match the patient's resting pulse if known",
+ "60 to 80 compressions per minute to reduce rescuer fatigue over time",
+ "130 to 150 compressions per minute to maximize cardiac output",
+ "Match the patient's last known resting pulse rate when documented",
  ],
  "AHA specifies 100 to 120 compressions per minute for adults. Slower rates often follow "
- "from fatigue or hesitation, while very fast rates usually sacrifice depth, both reduce "
+ "fatigue or hesitation, while very fast rates usually sacrifice depth; both patterns reduce "
  "high-quality CPR.",
  [S.AHA_ADULT_BLS, S.AHA_HQ_CPR],
  "beginner",
  ),
  fact(
  "cpr-adult",
- "Where should rescuers place their hands for adult chest compressions?",
- "Center of chest on lower half of sternum",
+ "Where should rescuers place their hands when performing adult chest compressions?",
+ "On the lower half of the sternum in the center of the chest",
  [
- "Directly over the xiphoid process at the tip of the sternum",
- "Upper abdomen just below the rib cage",
- "Left side of the chest over the cardiac apex",
+ "Directly over the xiphoid process at the distal tip of the sternum",
+ "On the upper abdomen just below the costal margin",
+ "On the left lateral chest wall over the cardiac apex",
  ],
  "Hand placement on the lower half of the sternum directs force through the heart. "
- "Compressing the xiphoid or upper abdomen is a frequent placement error that reduces "
- "effectiveness and increases injury risk per AHA adult BLS guidance.",
+ "Compressing the xiphoid, epigastrium, or lateral chest is a frequent placement error that "
+ "reduces effectiveness and increases injury risk per AHA adult BLS guidance.",
  [S.AHA_ADULT_BLS],
  "beginner",
  ),
  fact(
  "cpr-adult",
- "After activating emergency response for an unresponsive adult, what should you assess before starting CPR?",
- "Breathing and pulse simultaneously if trained (no more than 10 seconds)",
+ "After you activate emergency response for an unresponsive adult, how should a trained rescuer assess circulation and breathing?",
+ "Check breathing and pulse together for no more than about 10 seconds",
  [
- "Blood glucose with a fingerstick before any chest contact",
- "Blood pressure with a cuff while the patient lies flat",
- "Core temperature to rule out hypothermic arrest",
+ "Measure blood glucose with a fingerstick before any chest compressions",
+ "Obtain a manual blood pressure reading while the patient remains supine",
+ "Assess core temperature first to exclude hypothermic arrest",
  ],
- "Trained rescuers check breathing and pulse together for no more than about 10 seconds "
- "to avoid harmful delays. Checking glucose or blood pressure first wastes critical time; "
- "AHA adult BLS prioritizes rapid arrest recognition.",
+ "Trained rescuers check breathing and pulse simultaneously for no more than about 10 seconds "
+ "to avoid harmful delays in starting CPR. Checking glucose, blood pressure, or temperature "
+ "first wastes critical time when arrest is likely.",
  [S.AHA_ADULT_BLS],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "What is required for proper chest recoil during adult CPR?",
- "Allowing full chest return without leaning",
+ "What does high-quality chest recoil require during adult CPR?",
+ "Allow the chest to return fully to its resting position without leaning on the sternum",
  [
- "Maintaining partial pressure on the chest between compressions",
- "Using shallow rapid pumps without full expansion",
- "Locking elbows and leaning body weight on the sternum continuously",
+ "Maintain light downward pressure on the chest between each compression",
+ "Use rapid shallow pumps that do not permit full chest expansion",
+ "Keep elbows locked while shifting body weight onto the sternum continuously",
  ],
- "Full recoil lets the heart refill during diastole so the next compression can perfuse "
- "the brain and myocardium. Leaning on the chest between compressions is a subtle error "
- "that AHA high-quality CPR metrics specifically discourage.",
+ "Full recoil lets the heart refill during diastole so the next compression can perfuse the "
+ "brain and myocardium. Leaning on the chest between compressions is a subtle error that AHA "
+ "high-quality CPR metrics specifically discourage.",
  [S.AHA_HQ_CPR, S.AHA_ADULT_BLS],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "How should rescue breaths be delivered during adult CPR?",
- "Make chest rise over about 1 second each",
+ "How should rescue breaths be delivered during adult CPR when ventilations are included?",
+ "Give each breath over about 1 second until visible chest rise is seen",
  [
- "Deliver forceful gusts under half a second each",
- "Give two quick breaths lasting about 5 seconds each",
- "Skip ventilations until EMS places an advanced airway",
+ "Deliver forceful gusts in under half a second to minimize compression pauses",
+ "Give two slow breaths lasting about 5 seconds each for maximal oxygen",
+ "Withhold all ventilations until EMS places an advanced airway device",
  ],
- "Each breath should produce visible chest rise over roughly one second, limiting "
- "ventilation volume and interruption time. Forceful rapid breaths risk gastric inflation "
- "and longer pauses in compressions, contrary to AHA adult BLS.",
+ "Each breath should produce visible chest rise over roughly one second, limiting ventilation "
+ "volume and interruption time. Forceful rapid breaths risk gastric inflation and longer pauses "
+ "in compressions, contrary to AHA adult BLS.",
  [S.AHA_ADULT_BLS],
  "intermediate",
  ),
  fact(
  "cpr-adult",
  "When should rescuers apply an AED during adult cardiac arrest?",
- "As soon as available for cardiac arrest",
+ "As soon as the device is available while minimizing pauses in compressions",
  [
- "Only after five minutes of uninterrupted compressions",
- "Only when the patient regains a cough or gag reflex",
- "Before confirming unresponsiveness and activating EMS",
+ "Only after at least five minutes of uninterrupted chest compressions",
+ "Only after the patient regains a cough or gag reflex spontaneously",
+ "Before confirming unresponsiveness and activating the emergency response system",
  ],
- "Early defibrillation is a core link in the Chain of Survival; attach the AED as soon as "
- "it arrives while minimizing compression pauses. Waiting several minutes or delaying until "
- "the patient speaks misses shockable rhythms that respond to prompt AED use.",
+ "Early defibrillation is a core link in the Chain of Survival; attach the AED as soon as it "
+ "arrives while limiting compression gaps. Waiting several minutes or delaying until reflexes "
+ "return misses shockable rhythms that respond to prompt defibrillation.",
  [S.AHA_ADULT_BLS, S.AHA_WHAT_IS_CPR],
  "beginner",
  ),
  fact(
  "cpr-adult",
- "How should rescuers manage interruptions in chest compressions during adult CPR?",
- "Minimized, especially for rhythm analysis and shocks",
+ "How should rescuers manage pauses in chest compressions during adult CPR?",
+ "Keep interruptions as brief as possible, especially for rhythm analysis and shocks",
  [
- "Scheduled for at least 30 seconds each minute for rescuer rest",
- "Extended during AED use to allow complete team discussion",
- "Avoided entirely even when the AED must analyze rhythm",
+ "Schedule at least 30 seconds off the chest each minute for rescuer recovery",
+ "Extend pauses during AED use to allow a full team briefing at the bedside",
+ "Avoid pausing compressions even when the AED must analyze rhythm or deliver a shock",
  ],
- "Coronary perfusion pressure drops quickly when compressions stop. AHA emphasizes "
- "limiting pauses, often under about 10 seconds when possible, even when integrating AED "
- "rhythm checks and shocks.",
+ "Coronary perfusion pressure drops quickly when compressions stop. AHA emphasizes limiting "
+ "pauses, often under about 10 seconds when possible, even when integrating AED rhythm checks "
+ "and shocks.",
  [S.AHA_HQ_CPR, S.AHA_ADULT_BLS],
  "intermediate",
  ),
  fact(
  "cpr-adult",
  "What compression-to-ventilation approach should two rescuers use during adult BLS CPR?",
- "30:2 with rescuers switching roles",
+ "30 compressions to 2 ventilations with periodic switching of compressor roles",
  [
- "15:2 because two rescuers always use the pediatric ratio",
- "5:1 with one rescuer compressing between every breath",
- "Compressions only with no ventilations for all team responses",
+ "15 compressions to 2 ventilations because two rescuers always use the pediatric ratio",
+ "5 compressions to 1 ventilation with one rescuer compressing between every breath",
+ "Continuous compressions with no ventilations for all multi-rescuer adult responses",
  ],
- "Adult two-rescuer CPR remains 30:2; rescuers switch compressor duty about every two "
- "minutes to fight fatigue. 15:2 applies to two-rescuer child CPR, not adult BLS, a common "
+ "Adult two-rescuer CPR remains 30:2; rescuers switch compressor duty about every two minutes "
+ "to fight fatigue. Fifteen-to-two applies to two-rescuer child CPR, not adult BLS, a common "
  "crossover mistake on exams.",
  [S.AHA_ADULT_BLS],
  "intermediate",
@@ -163,189 +163,161 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "How should rescuers interpret agonal gasps in an unresponsive adult?",
- "May be sign of cardiac arrest, not normal breathing",
+ "Agonal gasps are not normal breathing and may indicate cardiac arrest",
  [
- "Indicate adequate ventilation so CPR is not needed",
- "Require supplemental oxygen only without compressions",
- "Rule out cardiac arrest unless the patient can speak",
+ "Agonal gasps show adequate ventilation so chest compressions are not needed",
+ "Agonal gasps require supplemental oxygen only without starting compressions",
+ "Agonal gasps rule out cardiac arrest unless the patient can speak clearly",
  ],
- "Agonal respirations are ineffective gasps that may occur during arrest and are not "
- "normal breathing. Treating them as reassuring delays CPR; AHA adult BLS directs CPR "
- "when breathing is absent or not normal.",
+ "Agonal respirations are ineffective gasps that may occur during arrest and are not normal "
+ "breathing. Treating them as reassuring delays CPR; AHA adult BLS directs CPR when breathing "
+ "is absent or not normal.",
  [S.AHA_ADULT_BLS],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "Which elements best describe high-quality adult CPR?",
- "Hard fast compressions, full recoil, minimal interruptions",
+ "Which combination best describes high-quality adult CPR according to AHA guidance?",
+ "Hard and fast compressions, full chest recoil, and minimal interruptions",
  [
- "Slow shallow compressions with frequent long pauses",
- "Fast compressions while leaning on the chest between cycles",
- "Gentle compressions focused only on ventilation quality",
+ "Slow shallow compressions with frequent long pauses for pulse checks",
+ "Fast compressions while leaning on the chest between compression cycles",
+ "Gentle compressions with primary focus on rescue breath volume alone",
  ],
- "High-quality CPR combines adequate rate and depth, full recoil, and limited pauses. "
- "Slow shallow compressions feel easier but fail to maintain perfusion, AHA high-quality "
- "CPR standards require the harder, faster approach.",
+ "High-quality CPR combines adequate rate and depth, full recoil, and limited pauses. Slow "
+ "shallow compressions feel easier but fail to maintain perfusion; AHA high-quality CPR "
+ "standards require the harder, faster approach with full recoil.",
  [S.AHA_HQ_CPR, S.AHA_ADULT_BLS],
  "beginner",
  ),
  fact(
  "cpr-adult",
- "During adult BLS, which chest compression rate should rescuers deliver?",
- "100 to 120 compressions per minute",
+ "An adult is found unresponsive at work. After you confirm the scene is safe, what should you do next before starting compressions?",
+ "Check responsiveness, shout for help, and activate the emergency response system",
  [
- "80 to 90 compressions per minute for deeper strokes",
- "130 to 150 compressions per minute without regard to depth",
- "40 to 60 compressions per minute when two rescuers are present",
+ "Begin two minutes of chest compressions before anyone notifies emergency services",
+ "Search distant floors for an AED while leaving the patient unattended",
+ "Roll the patient prone to improve drainage before assessing breathing",
  ],
- "The adult rate window is 100 to 120 per minute whether one or two rescuers are present. "
- "Choosing 80 to 90 confuses a desired depth goal with rate; AHA keeps rate and depth "
- "targets separate but equally important.",
- [S.AHA_HQ_CPR],
+ "Recognition and activation are early links in the Chain of Survival. Delaying the emergency "
+ "call to compress first or leaving the patient to hunt remotely for an AED slows EMS and "
+ "defibrillator response.",
+ [S.AHA_ADULT_BLS, S.AHA_WHAT_IS_CPR],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "What compression-to-ventilation ratio should a single rescuer use for adult CPR?",
- "30:2",
+ "An unresponsive adult is not breathing normally after emergency response is activated. What should a trained lay rescuer do first in many AHA courses?",
+ "Start CPR with chest compressions before rescue breaths (CAB sequence)",
  [
- "15:2 for all patients when an AED is en route",
- "10:1 to emphasize ventilation in adult arrest",
- "50:2 to minimize interruption of compressions",
+ "Wait for EMS arrival on scene before any chest compressions are started",
+ "Provide two minutes of rescue breaths before any compressions are delivered",
+ "Place the patient in a recovery position and observe without compressions",
  ],
- "Single-rescuer adult CPR is consistently 30:2 in AHA guidelines. 15:2 is reserved for "
- "two-rescuer pediatric BLS, not lone adult rescuers.",
- [S.AHA_ADULT_BLS],
- "intermediate",
- ),
- fact(
- "cpr-adult",
- "What compression-to-ventilation ratio should two rescuers use during adult BLS CPR?",
- "30:2",
- [
- "15:2 because additional rescuers always change the ratio",
- "30:1 with breaths only after each minute of compressions",
- "Continuous compressions with asynchronous ventilations every 30 seconds",
- ],
- "Adding a second rescuer does not change the adult 30:2 ratio; it enables role switching "
- "and better ventilation technique. Assuming 15:2 whenever two people are present mixes "
- "pediatric and adult algorithms.",
- [S.AHA_ADULT_BLS],
- "intermediate",
- ),
- fact(
- "cpr-adult",
- "When checking for a pulse during adult CPR, how long should compressions be paused at most?",
- "As short as possible, under about 10 seconds for pulse checks",
- [
- "Up to 30 seconds to confirm absence of circulation",
- "Until a second rescuer agrees pulse is absent",
- "Only during AED charging, with no limit for manual checks",
- ],
- "Prolonged pulse checks erode coronary perfusion pressure built by compressions. AHA "
- "adult BLS limits pulse assessment to about 10 seconds; 30-second pauses are far too long.",
- [S.AHA_ADULT_BLS, S.AHA_HQ_CPR],
- "intermediate",
- ),
- fact(
- "cpr-adult",
- "An unresponsive adult is not breathing normally after you activate emergency response. What should you do first if you are trained in BLS?",
- "Start CPR beginning with compressions for trained lay rescuers in many programs",
- [
- "Wait for EMS arrival before any chest compressions",
- "Begin two minutes of rescue breaths before compressions",
- "Place the patient in a recovery position and observe",
- ],
- "For unresponsive adults without normal breathing, trained lay rescuers in many AHA "
- "courses start with compressions (CAB). Waiting for EMS or breaths-only care delays "
+ "For unresponsive adults without normal breathing, trained lay rescuers in many AHA courses "
+ "start with compressions (CAB). Waiting for EMS or providing breaths-only care delays "
  "circulatory support in likely cardiac arrest.",
  [S.AHA_ADULT_BLS, S.AHA_WHAT_IS_CPR],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "Where should the heel of the hand be placed for adult chest compressions?",
- "Heel of hand on lower half of sternum",
+ "A witnessed adult collapse is likely cardiac arrest. What should a trained lay rescuer do if unwilling or unable to give rescue breaths?",
+ "Start high-quality chest compressions immediately and use an AED when available",
  [
- "Heel of hand centered over the upper sternum near the clavicles",
- "Heel of hand on the epigastric region below the ribs",
- "Heel of hand on the left lateral chest wall",
+ "Wait at the bedside until another person agrees to provide rescue breaths",
+ "Provide rescue breaths only without compressions until EMS takes over care",
+ "Begin passive oxygen by nasal cannula without chest compressions",
  ],
- "The heel of one hand (plus the second hand interlocked) presses on the lower sternum. "
- "Upper sternum or epigastric placement is a near-miss error that reduces stroke volume "
- "during compressions.",
- [S.AHA_ADULT_BLS],
- "beginner",
- ),
- fact(
- "cpr-adult",
- "What does full chest recoil mean during high-quality CPR?",
- "Allow chest to return fully without leaning on chest",
- [
- "Keep hands in contact while applying downward pressure between compressions",
- "Release hands completely off the chest for two seconds each cycle",
- "Pause compressions for five seconds after every tenth compression",
- ],
- "Recoil means the sternum returns to its resting position without residual load from the "
- "rescuer. Maintaining pressure between compressions mimics leaning and is specifically "
- "discouraged in AHA high-quality CPR guidance.",
- [S.AHA_HQ_CPR],
+ "Compression-only CPR is acceptable for witnessed adult arrest when breaths cannot be given. "
+ "Breath-only care without compressions does not support circulation in primary cardiac arrest; "
+ "AHA emphasizes immediate hard, fast compressions plus early AED use.",
+ [S.AHA_ADULT_BLS, S.AHA_WHAT_IS_CPR],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "How long should each rescue breath last during adult CPR?",
- "1 second each making visible chest rise",
+ "When checking for a pulse during adult BLS, how long should compressions be paused at most?",
+ "No more than about 10 seconds for the pulse assessment",
  [
- "About 3 seconds each to maximize oxygen delivery",
- "Until the rescuer feels resistance from the airway",
- "Half a second with maximum force to reduce pause time",
+ "Up to 30 seconds to be certain circulation is absent before compressing",
+ "Until a second rescuer independently agrees that no pulse is present",
+ "Only during AED charging, with no time limit for manual pulse checks",
  ],
- "AHA specifies roughly one second per breath with visible chest rise. Three-second breaths "
- "extend interruption time; ultra-short forceful breaths risk insufflation injury and poor "
- "ventilation coordination.",
- [S.AHA_ADULT_BLS],
+ "Prolonged pulse checks erode coronary perfusion pressure built by compressions. AHA adult "
+ "BLS limits pulse assessment to about 10 seconds; 30-second pauses or open-ended checks are "
+ "far too long.",
+ [S.AHA_ADULT_BLS, S.AHA_HQ_CPR],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "How can rescuers reduce fatigue and maintain compression quality during prolonged CPR?",
- "Switch compressors every 2 minutes or sooner if quality drops",
+ "How should rescuers position their upper body when delivering adult chest compressions?",
+ "Shoulders directly over the hands with elbows extended, pushing straight down on the sternum",
  [
- "Have one rescuer compress continuously for at least 15 minutes",
- "Reduce depth to 1 inch after the first two minutes",
- "Stop compressions for two minutes of team rest every five minutes",
+ "Arms bent at 90 degrees with force directed at an angle toward the patient's feet",
+ "Torso angled away from the chest while compressing with minimal elbow extension",
+ "Hands on the lower sternum while compressing from a kneeling position far behind the head",
+ ],
+ "Vertical alignment over the sternum maximizes depth and minimizes rescuer fatigue. Angled or "
+ "flexed-elbow technique reduces effective depth and is inconsistent with AHA compression "
+ "mechanics teaching.",
+ [S.AHA_ADULT_BLS, S.AHA_HQ_CPR],
+ "intermediate",
+ ),
+ fact(
+ "cpr-adult",
+ "How can rescuers reduce fatigue and maintain compression quality during prolonged adult CPR?",
+ "Switch compressors about every 2 minutes or sooner if quality drops",
+ [
+ "Have one rescuer compress continuously for at least 15 minutes without switching",
+ "Reduce compression depth to about 1 inch after the first two minutes of CPR",
+ "Stop compressions for two minutes of team rest every five minutes of resuscitation",
  ],
  "Compressor switching about every two minutes preserves depth and rate as fatigue sets in. "
- "Letting one person compress for many minutes or scheduled long rests both degrade "
+ "Letting one person compress for many minutes or scheduling long rests both degrade "
  "compression fraction against AHA recommendations.",
  [S.AHA_HQ_CPR, S.AHA_ADULT_BLS],
  "intermediate",
  ),
  fact(
  "cpr-adult",
- "An unresponsive adult has only agonal gasps. How should you interpret this breathing pattern?",
- "Are not normal breathing; start CPR if no normal breathing",
+ "During adult CPR you notice the chest does not rise with a rescue breath. What is the best next step?",
+ "Reopen the airway with head tilt-chin lift and give another breath over about one second",
  [
- "Represent effective respiration requiring oxygen mask only",
- "Mean the patient is breathing adequately so pulse check can wait several minutes",
- "Require abdominal thrusts before any compressions",
+ "Increase breath force and duration to about 5 seconds for each ventilation",
+ "Skip all further ventilations and compress continuously for ten minutes",
+ "Perform blind finger sweeps in the mouth before every subsequent breath",
  ],
- "Agonal gasps are not adequate breathing and often signal arrest. Oxygen alone without "
- "compressions misses the circulation support AHA adult BLS requires when breathing is "
+ "Failed chest rise usually signals airway positioning or seal problems; reposition and retry "
+ "with a one-second breath. Forceful long breaths or blind finger sweeps risk gastric inflation "
+ "and airway trauma; AHA stresses repositioning first.",
+ [S.AHA_ADULT_BLS],
+ "intermediate",
+ ),
+ fact(
+ "cpr-adult",
+ "An unresponsive adult has only agonal gasps after you shout and tap. What is the appropriate BLS action?",
+ "Agonal gasps are not normal breathing; begin CPR when breathing is absent or not normal",
+ [
+ "Agonal gasps indicate effective respiration requiring a non-rebreather mask only",
+ "Agonal gasps mean breathing is adequate so a pulse check can wait several minutes",
+ "Agonal gasps require abdominal thrusts before any chest compressions are started",
+ ],
+ "Agonal gasps are not adequate breathing and often signal arrest. Oxygen or observation alone "
+ "without compressions misses the circulation support AHA adult BLS requires when breathing is "
  "not normal.",
  [S.AHA_ADULT_BLS],
  "advanced",
  ),
  fact(
  "cpr-adult",
- "When an AED arrives while you are performing adult CPR, what is the best sequence of actions?",
- "Apply pads and follow prompts with minimal compression pause",
+ "When an AED arrives while adult CPR is in progress, what sequence best follows AHA guidance?",
+ "Apply pads to bare skin and follow prompts while limiting pauses in compressions",
  [
- "Stop all CPR until the AED finishes three full analysis cycles",
- "Finish five minutes of compressions before opening the AED case",
- "Have one rescuer continue compressions while pads are placed on clothing",
+ "Stop all CPR until the AED completes three full rhythm analysis cycles",
+ "Finish five minutes of compressions before opening the AED and attaching pads",
+ "Continue compressions while AED pads remain placed over clothing and belts",
  ],
  "Integrate the AED promptly: power on, attach pads to bare skin, and follow voice prompts "
  "while limiting compression gaps. Continuing on clothing or delaying application several "
@@ -356,11 +328,11 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "If you suspect opioid overdose in an unresponsive adult, what BLS actions are appropriate while EMS is activated?",
- "Provide ventilation support and naloxone per protocol while activating EMS",
+ "Provide ventilations and naloxone per local protocol while awaiting advanced care",
  [
- "Withhold all ventilations until naloxone fully awakens the patient",
- "Perform abdominal thrusts before any breaths or compressions",
- "Delay EMS activation until family confirms substance use",
+ "Withhold all ventilations until naloxone fully restores normal spontaneous breathing",
+ "Perform abdominal thrusts before any rescue breaths or chest compressions",
+ "Delay EMS activation until family confirms the substance involved",
  ],
  "AHA opioid-associated emergencies still require airway support and CPR when indicated; "
  "naloxone may be given per local protocol while EMS is en route. Withholding ventilations "
@@ -370,16 +342,46 @@ FACTS: list[dict] = [
  ),
  fact(
  "cpr-adult",
- "After return of spontaneous circulation (ROSC) in an adult, what is the immediate priority?",
- "Monitored with airway and blood pressure support per post-arrest care",
+ "After return of spontaneous circulation (ROSC) in an adult, what is the immediate BLS priority?",
+ "Monitor breathing and perfusion and support the airway while awaiting advanced care",
  [
- "Discharge from the scene once a pulse returns",
- "Resume compressions at half depth to maintain circulation",
- "Place upright in a chair and offer oral fluids immediately",
+ "Discharge the patient from the scene once a palpable pulse returns",
+ "Resume chest compressions at half depth to maintain forward blood flow",
+ "Place the patient upright in a chair and offer oral fluids immediately",
  ],
  "ROSC begins post-arrest care: maintain airway, support breathing, and monitor perfusion. "
- "Stopping all care at the scene or restarting full CPR without re-arrest ignores AHA "
- "integrated post-cardiac arrest management.",
+ "Stopping all care at the scene or restarting full CPR without re-arrest ignores AHA integrated "
+ "post-cardiac arrest management.",
+ [S.AHA_ADULT_BLS],
+ "advanced",
+ ),
+ fact(
+ "cpr-adult",
+ "When should a lay rescuer stop CPR on an adult who was in cardiac arrest?",
+ "When the patient shows purposeful movement and begins breathing normally",
+ [
+ "After exactly two minutes of CPR regardless of any patient response",
+ "When a single cough is heard once during ongoing compressions",
+ "Only after EMS verbally orders cessation over the emergency radio",
+ ],
+ "Stop when there is clear evidence of circulation and normal breathing; continue otherwise "
+ "until EMS takes over. A lone cough or an arbitrary two-minute limit does not equal ROSC; "
+ "AHA directs reassessment for purposeful movement and adequate respirations.",
+ [S.AHA_ADULT_BLS],
+ "advanced",
+ ),
+ fact(
+ "cpr-adult",
+ "Where should AED electrode pads be placed on an adult chest during cardiac arrest?",
+ "Upper-right chest below the clavicle and lower-left lateral chest below the armpit",
+ [
+ "Both pads stacked vertically along the midline of the anterior chest",
+ "Upper-left chest and lower-right quadrant of the abdomen as a fixed pair",
+ "One pad on the posterior thorax and one pad on the anterior thigh",
+ ],
+ "Standard anterior placement routes current through the heart from upper right to lower left. "
+ "Stacked midline or non-diagram placements prevent an effective defibrillation path per "
+ "AHA AED instructions for adults.",
  [S.AHA_ADULT_BLS],
  "advanced",
  ),

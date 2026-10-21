@@ -30,6 +30,34 @@ cpr-adult-023 | pass | AED during CPR minimal pause; near-miss stop CPR three cy
 cpr-adult-024 | pass | Opioid overdose ventilate and naloxone; near-miss withhold vents, thrusts first, delay EMS.
 cpr-adult-025 | pass | Post-ROSC monitoring and support; near-miss discharge, half-depth compressions, upright fluids.
 
+## CPR rewrite batch 01 (cpr-adult-001 to 025)
+
+cpr-adult-001 | fail | Rewrote stem/options; prior 30:2 key was shortest answer string.
+cpr-adult-002 | fail | Rewrote depth item; balanced four parallel depth distractors.
+cpr-adult-003 | fail | Rewrote rate item; removed resting-pulse distractor contradicting arrest context.
+cpr-adult-004 | fail | Rewrote hand-placement stem; parallel landmark near-misses only.
+cpr-adult-005 | fail | Rewrote post-activation assessment; full-sentence stem and 10-second limit.
+cpr-adult-006 | fail | Rewrote recoil item; removed duplicate recoil fact later in batch.
+cpr-adult-007 | fail | Rewrote rescue-breath delivery; parallel timing distractors.
+cpr-adult-008 | fail | Rewrote AED timing; stem no longer fragment-style.
+cpr-adult-009 | fail | Rewrote compression-pause management; fixed impossible never-pause distractor.
+cpr-adult-010 | fail | Rewrote two-rescuer 30:2; deduped from items 014–015 in prior bank order.
+cpr-adult-011 | fail | Rewrote agonal gasps; correct option full sentence, not telegraphic clause.
+cpr-adult-012 | fail | Rewrote HQ CPR composite; parallel low-quality pattern distractors.
+cpr-adult-013 | fail | Replaced duplicate rate item with scene-safe activation Chain of Survival stem.
+cpr-adult-014 | fail | Replaced duplicate single-rescuer 30:2 with CAB compressions-first stem.
+cpr-adult-015 | fail | Replaced duplicate two-rescuer ratio with compression-only witnessed-arrest stem.
+cpr-adult-016 | fail | Rewrote pulse-check pause; balanced option lengths.
+cpr-adult-017 | fail | Replaced duplicate heel-placement with rescuer body mechanics stem.
+cpr-adult-018 | fail | Rewrote compressor switching; removed duplicate switch fact in batch.
+cpr-adult-019 | fail | Replaced duplicate breath-duration with no-chest-rise airway reposition stem.
+cpr-adult-020 | fail | Fixed agonal-gasp correct answer grammar (was leading with "Are not…").
+cpr-adult-021 | fail | Rewrote AED-during-CPR integration; pads-on-clothing near-miss retained clinically.
+cpr-adult-022 | fail | Rewrote opioid BLS; parallel protocol distractors without joke options.
+cpr-adult-023 | fail | Fixed post-ROSC correct answer (was fragment "Monitored with…").
+cpr-adult-024 | fail | Replaced duplicate ratio/ROSC slot with lay-rescuer stop-CPR criteria stem.
+cpr-adult-025 | fail | Replaced duplicate shallow-compression slot with AED pad-placement stem.
+
 ## CPR batch (cpr-red-cross spot fixes during mix audit)
 
 cpr-red-cross poison-control item | fail | Full stem; replaced joke distractors with parallel wrong-call-content options.
