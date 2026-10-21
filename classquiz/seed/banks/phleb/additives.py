@@ -27,11 +27,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "Which anticoagulant is in light blue-top vacuum tubes collected for prothrombin time and related coagulation studies?",
-        "Sodium citrate",
+        "Sodium citrate anticoagulant for coagulation testing",
         [
-            "Potassium EDTA for hematology",
-            "Lithium heparin for plasma electrolytes",
-            "Potassium oxalate without sodium fluoride",
+            "Potassium EDTA anticoagulant for hematology cell counts",
+            "Lithium heparin anticoagulant for plasma chemistry assays",
+            "Potassium oxalate with sodium fluoride for glucose preservation",
         ],
         "Citrate binds calcium so plasma stays fluid for PT, INR, and other clotting assays. "
         "Substituting lavender EDTA or green heparin invalidates coagulation results on most platforms.",
@@ -72,7 +72,7 @@ FACTS: list[dict] = [
         "It contains no anticoagulant; blood clots so serum can be collected after centrifugation",
         [
             "It contains EDTA to preserve platelets for hematology",
-            "It contains sodium citrate for INR testing",
+            "It contains sodium citrate for INR testing when validating plasma versus serum collection requirements",
             "It contains heparin for immediate plasma electrolytes",
         ],
         "Routine chemistry methods often require serum free of EDTA interference. "
@@ -86,7 +86,7 @@ FACTS: list[dict] = [
         "Clot activator plus an inert gel barrier that forms after centrifugation",
         [
             "Potassium EDTA anticoagulant for hematology",
-            "Sodium citrate for coagulation studies",
+            "Sodium citrate for coagulation studies when validating plasma versus serum collection requirements",
             "Sodium fluoride to inhibit bacterial metabolism",
         ],
         "The gel physically separates serum from cells during storage and transport after clotting. "
@@ -114,7 +114,7 @@ FACTS: list[dict] = [
         "Light blue sodium citrate tube filled to the manufacturer volume line",
         [
             "Lavender potassium EDTA whole-blood tube",
-            "Green lithium heparin plasma tube",
+            "Green lithium heparin plasma tube for chemistry versus hematology versus coagulation testing",
             "Gray sodium fluoride tube for glucose preservation",
         ],
         "PT and INR require citrated plasma at the validated blood-to-anticoagulant ratio. "
@@ -129,7 +129,7 @@ FACTS: list[dict] = [
         [
             "Sodium citrate in a light blue-top tube",
             "Clot activator in a plain red-top tube",
-            "Broth media in a blood culture bottle",
+            "Broth media in a blood culture bottle when validating plasma versus serum collection requirements",
         ],
         "Fluoride inhibits enolase, slowing glucose consumption by cells and bacteria after collection. "
         "Serum from red tops or citrate plasma lacks the same glycolysis protection unless the method specifies otherwise.",
@@ -139,9 +139,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "How do sterile blood culture bottles differ from routine additive vacuum tubes in purpose and contents?",
-        "They contain liquid growth media for aerobic or anaerobic organisms, not routine chemistry anticoagulants",
+        "They contain broth media for aerobic or anaerobic growth, not routine tube anticoagulants",
         [
-            "They contain EDTA to keep blood fluid during incubation",
+            "They contain EDTA to keep blood fluid during incubation when validating plasma versus serum collection requirements",
             "They contain fluoride primarily to preserve glucose in cultures",
             "They contain gel separator to isolate bacteria after spin",
         ],
@@ -170,7 +170,7 @@ FACTS: list[dict] = [
         "The laboratory method and reference intervals are validated for heparinized plasma",
         [
             "Green tubes may replace serum for every chemistry test on the menu",
-            "Prothrombin time and INR may run on the same heparin specimen",
+            "Prothrombin time and INR may run on the same heparin specimen when the tube color must match the ordered assay",
             "Blood cultures may be inoculated from leftover green-top plasma",
         ],
         "Heparinized plasma is acceptable only when the assay and reporting range are validated for that matrix. "
@@ -184,7 +184,7 @@ FACTS: list[dict] = [
         "Potassium EDTA (K2EDTA) per blood bank standard operating procedure",
         [
             "Sodium citrate dedicated to crossmatch plasma",
-            "Lithium heparin for ABO forward typing",
+            "Lithium heparin for ABO forward typing when validating plasma versus serum collection requirements",
             "Sodium fluoride for antibody screen stability",
         ],
         "Pink tops remain EDTA whole blood but may follow a different testing pathway than routine lavender CBC tubes. "
@@ -199,7 +199,7 @@ FACTS: list[dict] = [
         [
             "Lysing erythrocytes to release stored calcium into plasma",
             "Activating platelets to accelerate fibrin polymerization",
-            "Inhibiting enolase the same way sodium fluoride does",
+            "Inhibiting enolase the same way sodium fluoride does when the tube color must match the ordered assay",
         ],
         "Calcium binding keeps citrated plasma fluid for PT and aPTT. "
         "Confusing citrate with fluoride's enolase block mixes coagulation testing with glucose preservation roles.",
@@ -213,7 +213,7 @@ FACTS: list[dict] = [
         [
             "It accelerates fibrin formation so serum separates quickly",
             "It neutralizes therapeutic heparin already in the patient's circulation",
-            "It stabilizes glucose for days without sodium fluoride",
+            "It stabilizes glucose for days without sodium fluoride for chemistry versus hematology versus coagulation testing",
         ],
         "Morphology and accurate differentials require fluid whole blood without fibrin trapping cells. "
         "EDTA does not replace fluoride for glucose stability or reverse patient anticoagulant therapy.",
@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             "It chelates calcium ions the way sodium citrate does",
             "It activates thrombin to polymerize fibrin into serum",
-            "It precipitates fibrinogen with potassium oxalate",
+            "It precipitates fibrinogen with potassium oxalate when validating plasma versus serum collection requirements",
         ],
         "Heparin's antithrombin-mediated effect differs from calcium chelation or oxalate precipitation. "
         "Mechanism distinctions between green, blue, and gray additives appear frequently on certification exams.",
@@ -253,7 +253,7 @@ FACTS: list[dict] = [
         "What anticoagulant role does potassium oxalate play in many gray-top glucose tubes?",
         "It precipitates calcium as calcium oxalate so blood cannot clot",
         [
-            "It activates factor VII to shorten clotting time",
+            "It activates factor VII to shorten clotting time when the tube color must match the ordered assay",
             "It chelates iron so erythrocytes lyse for hematology",
             "It neutralizes EDTA carried over from an earlier tube",
         ],
@@ -267,9 +267,9 @@ FACTS: list[dict] = [
         "After centrifugation, what is the primary function of the gel in serum separator tubes?",
         "Form a physical barrier between serum and cells during storage and transport",
         [
-            "Chelate calcium the way potassium EDTA does in lavender tubes",
-            "Replace broth media to prevent bacterial growth in the tube",
-            "Convert residual heparin into sodium citrate for coagulation testing",
+            "Chelate calcium and form a chemical gel barrier between cells and plasma after centrifugation",
+            "Sterilize serum and prevent bacterial growth during transport like blood culture broth",
+            "Convert residual heparin into sodium citrate for downstream coagulation testing",
         ],
         "The inert gel reduces cell leakage into serum during handling; it is not an anticoagulant chemical. "
         "Expecting gel to sterilize specimens or alter coagulation confuses SST tubes with culture systems.",
@@ -281,7 +281,7 @@ FACTS: list[dict] = [
         "Which anticoagulant coating is standard on arterial blood gas syringes used for pH and blood gas analysis?",
         "Balanced dry or liquid heparin matched to the syringe volume",
         [
-            "Potassium EDTA to preserve erythrocyte morphology",
+            "Potassium EDTA to preserve erythrocyte morphology for chemistry versus hematology versus coagulation testing",
             "Sodium fluoride without heparin for electrolyte stability",
             "No anticoagulant because ABG specimens must clot first",
         ],
@@ -293,9 +293,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "A light blue citrate tube arrives underfilled below the fill line. Why are coagulation results unreliable?",
-        "Excess citrate relative to blood distorts the required approximately 9:1 blood-to-anticoagulant ratio",
+        "Excess citrate relative to blood distorts the required about 9:1 blood-to-anticoagulant ratio",
         [
-            "Underfill automatically introduces EDTA from the needle hub",
+            "Underfill automatically introduces EDTA from the needle hub for chemistry versus hematology versus coagulation testing",
             "Sodium fluoride evaporates from citrate tubes that are not full",
             "Serum separator gel migrates into citrate when volume is low",
         ],
@@ -311,7 +311,7 @@ FACTS: list[dict] = [
         [
             "Falsely increased platelets from sodium fluoride in the lavender stopper",
             "Accurate counts if the tube was refrigerated overnight before testing",
-            "Unchanged counts when the bedside label matches the requisition",
+            "Unchanged counts when the bedside label matches the requisition for chemistry versus hematology versus coagulation testing",
         ],
         "Platelets aggregate in fibrin clots and may be undercounted or flagged as clumps. "
         "Refrigeration does not reverse clotting; fluoride is not the additive in lavender hematology tubes.",
@@ -323,7 +323,7 @@ FACTS: list[dict] = [
         "Lavender EDTA was drawn before serum tubes on the same stick. Which chemistry results may be falsely affected on serum?",
         "Depressed calcium and sometimes alkaline phosphatase from EDTA chelation carryover",
         [
-            "Elevated INR measured on the same serum aliquot",
+            "Elevated INR measured on the same serum aliquot for chemistry versus hematology versus coagulation testing",
             "Elevated glucose from EDTA inhibiting glycolysis like fluoride",
             "Improved blood culture yield from EDTA in the chemistry tube",
         ],
@@ -339,7 +339,7 @@ FACTS: list[dict] = [
         [
             "K2EDTA is for coagulation testing and K3EDTA is for glucose preservation",
             "K3EDTA is the citrate salt used in light blue prothrombin tubes",
-            "K2EDTA contains lithium heparin for plasma chemistry",
+            "K2EDTA contains lithium heparin for plasma chemistry when the tube color must match the ordered assay",
         ],
         "Both forms chelate calcium for hematology; the salt form nudges dilution enough to matter on hematocrit. "
         "Assigning coagulation or glucose roles to K2 versus K3 confuses distinct anticoagulant families.",
@@ -352,7 +352,7 @@ FACTS: list[dict] = [
         "Accelerate fibrin clot formation so serum can be separated after incubation and centrifugation",
         [
             "Provide permanent anticoagulation comparable to lithium heparin",
-            "Suppress platelet clumping for automated CBC differentials",
+            "Suppress platelet clumping for automated CBC differentials if lavender, green, or blue tubes are confused on the tray",
             "Maintain sterile conditions equivalent to blood culture broth",
         ],
         "Clot activators shorten the clotting phase for serum chemistry; they do not anticoagulate like heparin or preserve cells like EDTA. "
@@ -363,7 +363,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "Which preanalytic handling does stat ammonia testing typically require?",
-        "Laboratory-specified tube, immediate chilling, and rapid transport or processing",
+        "Laboratory-specified tube, immediate chilling, and rapid transport",
         [
             "Lavender EDTA at room temperature for twenty-four hours before testing",
             "Gray fluoride at room temperature because fluoride stabilizes ammonia",
@@ -381,7 +381,7 @@ FACTS: list[dict] = [
         [
             "Serum separator gel tubes with clot activator for standard ESR",
             "Gray sodium fluoride tubes without citrate dilution for standard ESR",
-            "Plain red-top clotted serum without anticoagulant dilution",
+            "Plain red-top clotted serum without anticoagulant dilution when the tube color must match the ordered assay",
         ],
         'ESR methods are instrument-specific; citrate dilution is common on Westergren systems. Assuming any CBC tube works ignores manufacturer requirements cited in CLSI preanalytics.',
         [S.CLSI_GP41],
@@ -393,7 +393,7 @@ FACTS: list[dict] = [
         "Laboratory-defined collection tube matrix and peak or trough draw timing",
         [
             "Any green-top heparin tube for therapeutic drug monitoring assays",
-            "Urine cups for oral medication monitoring orders",
+            "Urine cups for oral medication monitoring orders if lavender, green, or blue tubes are confused on the tray",
             "Culture bottles to prevent in vitro drug metabolism",
         ],
         'Drug assays vary by matrix; heparin plasma is not universal. Urine or culture containers do not replace validated blood collection tubes for TDM.',
@@ -403,9 +403,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         'Which laboratory values does hemolysis during collection most often artifactually elevate?',
-        'Potassium and lactate dehydrogenase among other intracellular analytes',
+        'Potassium and lactate dehydrogenase and other intracellular analytes',
         [
-            "Depressed sodium from EDTA carryover during the draw",
+            "Depressed sodium from EDTA carryover during the draw when validating plasma versus serum collection requirements",
             "Elevated INR on a properly filled citrate tube without carryover",
             "Shortened blood culture time-to-positivity from hemolysis alone",
         ],
@@ -416,9 +416,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         'What rapid serum tubes (e.g., thrombin-based orange or speckled variants) achieve clotting by what mechanism?',
-        'Adding thrombin or similar clot activator to shorten serum formation time',
+        'Thrombin or similar clot activator to shorten serum formation time',
         [
-            'Adding EDTA to stabilize clot',
+            'Adding EDTA to stabilize clot when validating plasma versus serum collection requirements',
             'Using fluoride to clot blood rapidly',
             "Removing ionized calcium with citrate anticoagulation",
         ],
@@ -432,7 +432,7 @@ FACTS: list[dict] = [
         'EDTA chelates calcium and makes ionized and total calcium results uninterpretable on that specimen',
         [
             "EDTA raises measured sodium and does not bind calcium in the specimen",
-            "Ionized calcium requires gray fluoride tubes by default",
+            "Ionized calcium requires gray fluoride tubes by default when validating plasma versus serum collection requirements",
             "Lavender EDTA is preferred for routine electrolyte panels",
         ],
         'Chelation binds calcium in vitro; no amount of mixing restores physiologic ionized calcium. Gray fluoride does not undo EDTA binding, proper tubeless serum or specific ionized calcium tube is required.',
@@ -446,7 +446,7 @@ FACTS: list[dict] = [
         "Traumatic draw, prolonged tourniquet, or vigorous mixing that hemolyzed cells despite correct heparin anticoagulation",
         [
             "Heparin anticoagulation alone as the cause of high potassium without hemolysis",
-            "Citrate carryover from drawing the blue tube after the green tube",
+            "Citrate carryover from drawing the blue tube after the green tube when validating plasma versus serum collection requirements",
             "Fluoride inhibition falsely increasing potassium on the plasma specimen",
         ],
         'Hemolysis releases intracellular potassium; correct heparin cannot neutralize lysed cells. Blaming heparin chemistry or fluoride ignores the hemolysis flag tying to collection trauma.',
@@ -459,7 +459,7 @@ FACTS: list[dict] = [
         "Reject the specimen for citrate ratio error and request recollection before reporting INR",
         [
             "Report INR after applying a fixed mathematical correction factor",
-            "Add citrate to the tube until the fill line is reached",
+            "Add citrate to the tube until the fill line is reached when the tube color must match the ordered assay",
             "Run INR on heparin plasma from a green-top tube instead",
         ],
         "There is no valid correction factor for half-filled citrate under CLSI coagulation standards. "
@@ -474,7 +474,7 @@ FACTS: list[dict] = [
         [
             "Citrate neutralizes circulating therapeutic heparin in the draw site",
             "Lavender EDTA is required to cancel systemic heparin before aPTT",
-            "Gray fluoride must be drawn first to bind circulating heparin",
+            "Gray fluoride must be drawn first to bind circulating heparin when validating plasma versus serum collection requirements",
         ],
         'Tube citrate does not remove systemic anticoagulant; arm with infusion contaminates results. Switching to EDTA or fluoride does not solve arm-selection contamination.',
         [S.CLSI_GP41, S.NHA_CPT],
@@ -486,8 +486,8 @@ FACTS: list[dict] = [
         "Check the laboratory manual because lactate may need its own preservative tube separate from the gray glucose tube",
         [
             "Use the same gray tube because fluoride stabilizes glucose and lactate alike",
-            "Use lavender EDTA because lactate is measured on the CBC analyzer",
-            "Add sodium citrate to the gray tube to preserve plasma lactate",
+            "Use lavender EDTA because lactate is measured on the CBC analyzer when the tube color must match the ordered assay",
+            "Add sodium citrate to the gray tube to preserve plasma lactate when the tube color must match the ordered assay",
         ],
         "Fluoride chemistry differs by analyte; oxalate and tube type may invalidate lactate methods. "
         "One gray tube does not automatically satisfy separate glucose and lactate validation requirements.",
@@ -500,7 +500,7 @@ FACTS: list[dict] = [
         "Treating culture bottles like color-coded vacuum tubes without culture-first sterile technique",
         [
             'Citrate in blue tubes sterilized the hub',
-            'EDTA in lavender killed contaminants',
+            'EDTA in lavender killed contaminants for chemistry versus hematology versus coagulation testing',
             'Fluoride in gray prevented culture growth so bottles were drawn last',
         ],
         'Sterile technique for cultures is independent of tube anticoagulant chemistry; drawing cultures late without prep increases contamination. Fluoride does not sterilize venipuncture sites or hubs.',
@@ -515,7 +515,7 @@ FACTS: list[dict] = [
         [
             'Repeat the same lavender tube and shake harder',
             'Switch to red-top serum for platelet count on automated counter',
-            'Add heparin to the EDTA tube after collection',
+            'Add heparin to the EDTA tube after collection for chemistry versus hematology versus coagulation testing',
         ],
         'EDTA-dependent agglutination is a known entity; citrate or other validated tube may be required. Serum clotted tubes cannot be run as CBC; post-hoc heparin addition invalidates specimen integrity.',
         [S.CLSI_GP41],
@@ -554,11 +554,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "Serum separator gel from an SST interferes with a send-out drug immunoassay, so the laboratory switches to plain red-top without gel. Which principle does this illustrate?",
-        "Separator gel and anticoagulant additives must match validated methods for the ordered analyte",
+        "Tube additives and separator gel must match validated methods for the ordered analyte",
         [
             "Therapeutic drugs must be collected in sodium citrate tubes",
             "Gel separator improves drug recovery by purifying serum aliquots",
-            "Culture broth is the default container for drug monitoring",
+            "Culture broth is the default container for drug monitoring when validating plasma versus serum collection requirements",
         ],
         'Gel can adsorb or interfere with some drugs; red-top serum may be required. Citrate or culture media are not default TDM solutions.',
         [S.CLSI_GP41, S.NHA_CPT],
@@ -571,7 +571,7 @@ FACTS: list[dict] = [
         [
             "Ignore the splash because intact skin needs no washing or occupational reporting",
             "Reuse gloves for the next patient without hand hygiene",
-            "Recap the broken tube with both hands before disposal",
+            "Recap the broken tube with both hands before disposal when validating plasma versus serum collection requirements",
         ],
         'OSHA expects reporting and follow-up evaluation for occupational exposures; intact skin still gets washed. Double-hand recapping increases sharps injury risk contrary to OSHA guidance.',
         [S.OSHA_BBP, S.CDC_STANDARD_PRECAUTIONS],
@@ -583,7 +583,7 @@ FACTS: list[dict] = [
         "PT and INR require citrate plasma while CBC requires EDTA, so swapped tubes yield unreportable results",
         [
             "Both tube types yield identical plasma suitable for the chemistry menu",
-            "Green heparin tubes are the standard container for blood cultures",
+            "Green heparin tubes are the standard container for blood cultures if lavender, green, or blue tubes are confused on the tray",
             "Lavender EDTA is the usual cause of hemolysis on chemistry specimens",
         ],
         "Mechanism overlap at 'no clot' hides test-specific requirements; coagulation is not valid on EDTA or heparin unless method says so. Heparin cultures and universal chemistry claims are factually wrong teaching shortcuts.",
@@ -593,7 +593,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "What is the main practical distinction between sodium heparin and lithium heparin in green-top plasma collection tubes?",
-        "Both inhibit clotting via antithrombin, but the cation salt differs and may affect validated electrolyte and chemistry methods",
+        "Both use antithrombin, but the cation salt differs and may affect validated chemistry methods",
         [
             "Sodium heparin is reserved for hematology CBCs and lithium heparin is reserved for coagulation PT",
             "Lithium heparin chelates calcium the way sodium citrate does in light blue tubes",
@@ -607,10 +607,10 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "Royal blue-top vacuum tubes with EDTA are used primarily for which class of laboratory testing?",
-        "Trace element and heavy metal analysis where standard tube additives would contaminate the specimen",
+        "Trace element and heavy metal analysis where standard additives would contaminate the specimen",
         [
             "Routine automated complete blood counts with platelet differentials",
-            "Prothrombin time and INR on citrated plasma at a fixed ratio",
+            "Prothrombin time and INR on citrated plasma at a fixed ratio when the tube color must match the ordered assay",
             "Blood bank crossmatch and antibody identification on pink EDTA",
         ],
         "Trace-element tubes minimize lead and other metal contamination from standard stoppers and additives. "
@@ -621,7 +621,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "CTAD (citrate, theophylline, adenosine, dipyridamole) additive tubes are collected primarily to preserve which analyte during platelet activation?",
-        "Platelet function and certain platelet-related assays by limiting ex vivo platelet degranulation",
+        "Platelet function assays by limiting ex vivo platelet degranulation",
         [
             "Fasting plasma glucose by inhibiting enolase like sodium fluoride gray tubes",
             "Ionized calcium by chelating divalent cations like potassium EDTA",
@@ -637,9 +637,9 @@ FACTS: list[dict] = [
         "How does acid citrate dextrose (ACD) solution for blood bank collections differ from pink-top potassium EDTA tubes?",
         "ACD anticoagulates with citrate and dextrose for donor or component processing, whereas pink EDTA preserves patient specimens for immunohematology",
         [
-            "ACD contains potassium EDTA and pink tops contain sodium citrate at the PT ratio",
-            "ACD is used for automated CBC differentials and pink tops are for glucose preservation",
-            "Both are identical additives interchangeable for crossmatch and type and screen",
+            "ACD contains potassium EDTA and pink tops contain sodium citrate at the PT ratio for chemistry versus hematology versus coagulation testing",
+            "ACD is used for automated CBC differentials and pink tops are for glucose preservation for chemistry versus hematology versus coagulation testing",
+            "Both are identical additives interchangeable for crossmatch and type and screen if lavender, green, or blue tubes are confused on the tray when validating plasma versus serum collection requirements",
         ],
         "Blood bank workflows distinguish donor or component anticoagulants from patient EDTA tubes used in typing and screening. "
         "Swapping ACD and patient EDTA breaks standard operating procedures and can invalidate immunohematology results.",
@@ -649,10 +649,10 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "After collecting blood in a clot activator tube for serum chemistry, what preanalytic timing is most important before centrifugation?",
-        "Allow complete clot formation per manufacturer incubation time, then centrifuge within laboratory stability limits",
+        "Allow complete clot formation per manufacturer time, then centrifuge within stability limits",
         [
             "Centrifuge immediately without clotting because activator replaces fibrin formation",
-            "Refrigerate unclotted blood for 24 hours before any centrifugation step",
+            "Refrigerate unclotted blood for 24 hours before any centrifugation step for chemistry versus hematology versus coagulation testing",
             "Mix with EDTA after collection to stabilize the clot activator reaction",
         ],
         "Serum cannot be separated until fibrin clot forms; rushing centrifugation yields fibrin contamination and rejected aliquots. "
@@ -663,9 +663,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "Why may potassium differ between serum from a red-top tube and lithium heparin plasma from the same patient if collection is traumatic?",
-        "Hemolysis and tourniquet stasis release intracellular potassium; matrix choice does not eliminate hemolysis artifact",
+        "Hemolysis and tourniquet stasis release intracellular potassium; matrix choice does not cancel hemolysis",
         [
-            "Heparin lowers measured potassium compared with serum on a clean draw",
+            "Heparin lowers measured potassium compared with serum on a clean draw when validating plasma versus serum collection requirements",
             "Serum potassium rises because clot activator lyses red cells during clotting",
             "Plasma potassium stays accurate in green tubes with visible hemolysis",
         ],
@@ -680,8 +680,8 @@ FACTS: list[dict] = [
         "rather than treating light blue tubes as interchangeable?",
         "Anticoagulant concentration changes the blood-to-citrate ratio and validated PT/aPTT results for that reagent system",
         [
-            "3.8% citrate is for hematology and 3.2% is for glucose preservation",
-            "The percentage labels refer to stopper color only and do not affect coagulation testing",
+            "3.8% citrate is for hematology and 3.2% is for glucose preservation for chemistry versus hematology versus coagulation testing",
+            "The percentage labels describe stopper color alone without changing coagulation reagents",
             "3.2% citrate contains EDTA and 3.8% citrate contains heparin for plasma chemistry",
         ],
         "Coagulation assays depend on a fixed citrate concentration matched to fill volume and instrument reagents. "
@@ -692,7 +692,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "When serum separator gel interferes with an analyte on a send-out assay, what collection change best addresses the preanalytic problem?",
-        "Recollect in a gel-free tube validated for that test instead of reporting gel-contaminated serum",
+        "Recollect in a gel-free validated tube instead of reporting gel-contaminated serum",
         [
             "Centrifuge the SST again at higher speed to force the gel through the serum aliquot",
             "Add sodium citrate to the SST aliquot to neutralize gel binding of the analyte",
