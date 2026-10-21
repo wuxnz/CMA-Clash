@@ -14,7 +14,7 @@ from classquiz.seed.stem_normalize import normalize_stem
 
 def test_question_bank_coverage():
     facts = load_all_facts()
-    assert len(facts) >= 1336
+    assert len(facts) >= 1900
     counts = Counter(f["topic"] for f in facts)
     catalog_slugs = {slug for cert in CERTIFICATIONS for slug, _, _ in cert["topics"]}
     assert catalog_slugs.issubset(set(counts.keys()))
@@ -24,6 +24,12 @@ def test_question_bank_coverage():
         refs = fact.get("references") or []
         assert refs, f"Missing references on: {fact['stem'][:60]}"
         assert any("https://" in r for r in refs), fact["stem"][:80]
+
+
+def test_all_facts_have_nonempty_explanation():
+    facts = load_all_facts()
+    missing = [f["stem"][:80] for f in facts if not (f.get("explanation") or "").strip()]
+    assert not missing, f"Missing explanations: {missing[:5]}"
 
 
 def test_unique_question_stems_globally():

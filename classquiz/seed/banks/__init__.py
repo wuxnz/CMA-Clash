@@ -5,6 +5,7 @@
 """Question fact banks for CMA Clash seed data."""
 
 from classquiz.seed import sources as S
+from classquiz.seed.stem_normalize import normalize_stem
 
 from .ccma import FACTS as CCMA_FACTS
 from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
@@ -15,6 +16,8 @@ from .diabetes import FACTS as DIABETES_FACTS
 from .phleb_glucose import FACTS as PHLEB_GLUCOSE_FACTS
 from .supplement import FACTS as SUPPLEMENT_FACTS
 from .expansion_to_28 import FACTS as EXPANSION_TO_28_FACTS
+from .expansion_growth import FACTS as EXPANSION_GROWTH_FACTS
+from .expansion_audit_replacements import FACTS as EXPANSION_AUDIT_REPLACEMENTS
 from .supplement.diabetes_expansion import FACTS as DIABETES_EXPANSION_FACTS
 
 _DIABETES_ALL = DIABETES_FACTS + DIABETES_EXPANSION_FACTS
@@ -29,6 +32,8 @@ _ALL_MODULES = (
     PHLEB_GLUCOSE_FACTS,
     SUPPLEMENT_FACTS,
     EXPANSION_TO_28_FACTS,
+    EXPANSION_GROWTH_FACTS,
+    EXPANSION_AUDIT_REPLACEMENTS,
 )
 
 _LEGACY_REFERENCE_MAP: dict[str, list[str]] = {
@@ -58,9 +63,15 @@ def _normalize_references(fact: dict) -> dict:
 
 
 def load_all_facts() -> list[dict]:
-    """Return all seed question facts from every bank module."""
+    """Return all seed question facts from every bank module (no load-time rewriting)."""
     merged: list[dict] = []
+    seen_stems: set[str] = set()
     for facts in _ALL_MODULES:
         for fact in facts:
-            merged.append(_normalize_references(fact))
+            prepared = _normalize_references(dict(fact))
+            key = normalize_stem(prepared["stem"])
+            if key in seen_stems:
+                continue
+            seen_stems.add(key)
+            merged.append(prepared)
     return merged
