@@ -53,7 +53,11 @@ async def broadcast_question_results(sio, game_pin: str, question_index: int) ->
         game_data.question_show = False
         await game_data.save(game_pin)
     await sio.emit("question_times_up", {"question_index": question_index}, room=game_pin)
-    await sio.emit("question_results", answer_data_list.model_dump(), room=game_pin)
+    await sio.emit(
+        "question_results",
+        {"question_index": question_index, "results": answer_data_list.model_dump()},
+        room=game_pin,
+    )
     return answer_data_list
 
 

@@ -29,6 +29,8 @@ SPDX-License-Identifier: MPL-2.0
 		isKahootStyleMode,
 		normalizeGameMode,
 		normalizeGamePayload,
+		parseQuestionResultsPayload,
+		isStaleQuestionResults,
 		questionFromSocketPayload
 	} from '$lib/play/live-game';
 	import { applyQuestionResultScores, scoreDeltaForUser } from '$lib/play/live-scoring';
@@ -85,6 +87,7 @@ SPDX-License-Identifier: MPL-2.0
 	let streak = $state(0);
 	let prevRanks: Record<string, number> = {};
 	let lastScoreAppliedQuestionIndex: number | null = $state(null);
+	let latestQuestionIndex = $state(-1);
 	let pointsThisRound = $state(0);
 
 	let cert_label = $state<string | null>(null);
@@ -211,6 +214,13 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	socket.on('set_question_number', (data) => {
+		const nextIndex = Number(data.question_index);
+		if (Number.isFinite(nextIndex) && latestQuestionIndex > nextIndex) {
+			return;
+		}
+		if (Number.isFinite(nextIndex)) {
+			latestQuestionIndex = nextIndex;
+		}
 		solution = undefined;
 		restart();
 		question = questionFromSocketPayload(data as Record<string, unknown>);
@@ -218,6 +228,7 @@ SPDX-License-Identifier: MPL-2.0
 		answer_results = undefined;
 		selectedAnswer = undefined;
 		pointsThisRound = 0;
+		clearTimeout(revealTimer);
 		prevRanks = Object.fromEntries(
 			Object.keys(scores)
 				.sort(
@@ -226,8 +237,8 @@ SPDX-License-Identifier: MPL-2.0
 				)
 				.map((name, idx) => [name, idx + 1])
 		);
-		clearTimeout(revealTimer);
 		applyQuestionSocketData(data as Record<string, unknown>);
+		syncPlayerClock();
 		if (!gameMeta.started) {
 			gameMeta.started = true;
 		}
@@ -244,23 +255,29 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	socket.on('question_results', (data) => {
-		restart();
-		answer_results = data;
-		if (Array.isArray(data)) {
-			pointsThisRound = scoreDeltaForUser(data, username);
-			const applied = applyQuestionResultScores(
-				scores,
-				data,
-				question_index,
-				lastScoreAppliedQuestionIndex
-			);
-			scores = applied.scores;
-			lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
-			const mine = data.find((r) => r.username === username);
-			const right =
-				mine?.right === true || mine?.right === 'true' || mine?.right === 1;
-			streak = right ? streak + 1 : 0;
+		const { questionIndex: resultsIndex, rows } = parseQuestionResultsPayload(data);
+		if (
+			isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex) ||
+			rows.length === 0
+		) {
+			return;
 		}
+		restart();
+		answer_results = rows as PlayerAnswer[];
+		pointsThisRound = scoreDeltaForUser(rows, username);
+		const scoreIndex = resultsIndex ?? question_index;
+		const applied = applyQuestionResultScores(
+			scores,
+			rows,
+			scoreIndex,
+			lastScoreAppliedQuestionIndex
+		);
+		scores = applied.scores;
+		lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
+		const mine = rows.find((r) => r.username === username);
+		const right =
+			mine?.right === true || mine?.right === 'true' || mine?.right === 1;
+		streak = right ? streak + 1 : 0;
 		livePhase = 'reveal';
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {

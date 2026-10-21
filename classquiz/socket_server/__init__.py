@@ -274,7 +274,11 @@ async def get_question_results(sid: str, data: dict):
         game_data = await PlayGame.get_from_redis(game_pin)
         if not game_data.question_show and game_data.current_question == question_number:
             answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, question_number)
-            await sio.emit("question_results", answer_data_list.model_dump(), room=game_pin)
+            await sio.emit(
+                "question_results",
+                {"question_index": question_number, "results": answer_data_list.model_dump()},
+                room=game_pin,
+            )
 
 
 @sio.event

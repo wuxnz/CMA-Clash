@@ -82,6 +82,45 @@ async def test_early_complete_closes_question(test_client) -> None:
     await try_close_question_when_complete(mock_sio, game_pin, 0)
     events = [call.args[0] for call in mock_sio.emit.call_args_list]
     assert "question_results" in events
+    qr = next(c for c in mock_sio.emit.call_args_list if c.args[0] == "question_results")
+    assert qr.args[1]["question_index"] == 0
+    assert isinstance(qr.args[1]["results"], list)
+
+
+@pytest.mark.order("last")
+@pytest.mark.asyncio
+async def test_advance_after_reveal_emits_next_question_to_game_room(test_client) -> None:
+    from unittest.mock import AsyncMock, patch
+
+    from classquiz.socket_server import join_game, register_as_admin, start_game, submit_answer
+    from classquiz.socket_server.question_lifecycle import _advance_after_reveal, close_question_now
+
+    start = test_client.post(
+        f"/api/v1/quiz/start/{ValueStorage.quiz_id}?game_mode=kahoot&captcha_enabled=False",
+        cookies=ValueStorage.cookies,
+    )
+    body = start.json()
+    game_pin = body["game_pin"]
+    game_id = body["game_id"]
+
+    mock_sio = AsyncMock()
+    await register_as_admin("pytest-admin-adv", {"game_pin": game_pin, "game_id": game_id})
+    await join_game(
+        "pytest-player-adv",
+        {"game_pin": game_pin, "username": "AdvP1", "captcha": "", "custom_field": ""},
+    )
+    await start_game("pytest-admin-adv", {})
+    await submit_answer("pytest-player-adv", {"question_index": 0, "answer": "Yes"})
+    await close_question_now(mock_sio, game_pin, 0)
+
+    mock_sio.reset_mock()
+    with patch("classquiz.socket_server.question_lifecycle.REVEAL_SEC", 0):
+        await _advance_after_reveal(mock_sio, game_pin, 0)
+
+    set_calls = [c for c in mock_sio.emit.call_args_list if c.args[0] == "set_question_number"]
+    assert set_calls, "expected set_question_number after reveal"
+    assert set_calls[0].kwargs.get("room") == game_pin
+    assert set_calls[0].args[1]["question_index"] == 1
 
 
 @pytest.mark.order("last")
