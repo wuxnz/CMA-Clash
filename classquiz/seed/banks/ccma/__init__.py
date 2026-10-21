@@ -20,6 +20,7 @@ from .expansion_batch_01 import FACTS as EXPANSION_BATCH_01_FACTS
 from .expansion_batch_02 import FACTS as EXPANSION_BATCH_02_FACTS
 from .expansion_batch_03 import FACTS as EXPANSION_BATCH_03_FACTS
 from .expansion_batch_04 import FACTS as EXPANSION_BATCH_04_FACTS
+from .expansion_batch_05 import FACTS as EXPANSION_BATCH_05_FACTS
 
 FACTS: list[dict] = (
     ADMIN_FACTS
@@ -36,6 +37,8 @@ FACTS: list[dict] = (
     + EXPANSION_BATCH_01_FACTS
     + EXPANSION_BATCH_02_FACTS
     + EXPANSION_BATCH_03_FACTS
+    + EXPANSION_BATCH_04_FACTS
+    + EXPANSION_BATCH_05_FACTS
 )
 
 __all__ = [
@@ -54,5 +57,7 @@ __all__ = [
     "EXPANSION_BATCH_01_FACTS",
     "EXPANSION_BATCH_02_FACTS",
     "EXPANSION_BATCH_03_FACTS",
+    "EXPANSION_BATCH_04_FACTS",
+    "EXPANSION_BATCH_05_FACTS",
 ]
 
