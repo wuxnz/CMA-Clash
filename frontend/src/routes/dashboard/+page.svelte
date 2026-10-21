@@ -18,7 +18,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { isSiteAdmin } from '$lib/stores';
 	import { refreshSiteAdminFlag } from '$lib/site-admin';
 	import { page } from '$app/state';
-	import QuizListHeader from '$lib/quiz/QuizListHeader.svelte';
+	import QuizTableGrid from '$lib/quiz/QuizTableGrid.svelte';
 	import QuizRow from '$lib/quiz/QuizRow.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
@@ -255,20 +255,21 @@ SPDX-License-Identifier: MPL-2.0
 						</p>
 					</div>
 				{:else}
-					<QuizListHeader />
-					<ul>
-						{#each visibleItems as quiz (quiz.id)}
-							<QuizRow
-								mode="owner"
-								{quiz}
-								lastPlayed={lastPlayedFor(quiz)}
-								onHost={(id) => (start_game = id)}
-								onAnalytics={(q) => (analytics_quiz_selected = q)}
-								onDelete={deleteQuiz}
-								onDownload={(id) => (download_id = id)}
-							/>
-						{/each}
-					</ul>
+					<QuizTableGrid>
+						{#snippet rows()}
+							{#each visibleItems as quiz (quiz.id)}
+								<QuizRow
+									mode="owner"
+									{quiz}
+									lastPlayed={lastPlayedFor(quiz)}
+									onHost={(id) => (start_game = id)}
+									onAnalytics={(q) => (analytics_quiz_selected = q)}
+									onDelete={deleteQuiz}
+									onDownload={(id) => (download_id = id)}
+								/>
+							{/each}
+						{/snippet}
+					</QuizTableGrid>
 				{/if}
 			</section>
 

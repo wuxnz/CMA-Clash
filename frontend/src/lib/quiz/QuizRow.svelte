@@ -9,8 +9,7 @@
 		quizColCertDot,
 		quizColDifficulty,
 		quizColQs,
-		quizTableGrid,
-		quizTableRowShell
+		quizTableDataRow
 	} from './quizTableLayout';
 	import {
 		Pencil,
@@ -86,8 +85,8 @@
 	});
 </script>
 
-<li class="{quizTableGrid} {quizTableRowShell}" data-quiz-card>
-	<div class="flex items-center gap-3 min-w-0">
+<li class={quizTableDataRow} data-quiz-card>
+	<div class="flex min-w-0 items-center gap-3" data-quiz-col="title">
 		{#if quiz.cover_image}
 			<div class="w-9 h-9 rounded-md overflow-hidden bg-elevated shrink-0 hidden sm:block">
 				<MediaComponent src={quiz.cover_image} css_classes="w-full h-full object-cover" />
@@ -113,7 +112,7 @@
 		</div>
 	</div>
 
-	<p class={quizColCert}>
+	<p class={quizColCert} data-quiz-col="cert">
 		{#if quiz.certLabel}
 			<span class="{quizColCertDot} rounded-full {certDotClass(quiz.certLabel)}"></span>
 			<span class="truncate">{quiz.certLabel}</span>
@@ -122,12 +121,12 @@
 			<span class="text-ink-muted/60">—</span>
 		{/if}
 	</p>
-	<p class={quizColQs}>{count || '—'}</p>
-	<p class={quizColDifficulty}>
+	<p class={quizColQs} data-quiz-col="qs">{count || '—'}</p>
+	<p class={quizColDifficulty} data-quiz-col="difficulty">
 		{difficulty ?? '—'}
 	</p>
 
-	<div class={quizColActions}>
+	<div class={quizColActions} data-quiz-col="actions">
 		{#if playHref}
 			<Button href={playHref} variant="secondary" size="sm" class="w-auto">Play</Button>
 		{:else if onHost}
