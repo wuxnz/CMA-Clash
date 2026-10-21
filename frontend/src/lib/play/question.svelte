@@ -32,6 +32,8 @@ SPDX-License-Identifier: MPL-2.0
 		question_index: string | number;
 		solution: any;
 		topic_tag?: string;
+		/** When set, countdown follows server deadlines instead of restarting locally. */
+		serverRemainingSeconds?: number;
 	}
 
 	let {
@@ -39,7 +41,8 @@ SPDX-License-Identifier: MPL-2.0
 		game_mode = $bindable(),
 		question_index,
 		solution,
-		topic_tag = ''
+		topic_tag = '',
+		serverRemainingSeconds
 	}: Props = $props();
 
 	if (question.type === undefined) {
@@ -51,25 +54,27 @@ SPDX-License-Identifier: MPL-2.0
 	let timer_res = $state(question.time);
 	let selected_answer: string = $state();
 
-	// Stop the timer if the question is answered
-	const timer = (time: string) => {
-		let seconds = Number(time);
-		let timer_interval = setInterval(() => {
-			if (timer_res === '0') {
-				clearInterval(timer_interval);
-				return;
-			} else {
-				seconds--;
-			}
-
-			timer_res = seconds.toString();
-		}, 1000);
-	};
 	socket.on('everyone_answered', (_) => {
 		timer_res = '0';
 	});
 
-	timer(question.time);
+	$effect(() => {
+		if (serverRemainingSeconds != null) {
+			timer_res = String(Math.max(0, Math.ceil(serverRemainingSeconds)));
+			return;
+		}
+		let seconds = Number(question.time);
+		timer_res = seconds.toString();
+		const id = setInterval(() => {
+			if (timer_res === '0') {
+				clearInterval(id);
+				return;
+			}
+			seconds -= 1;
+			timer_res = seconds.toString();
+		}, 1000);
+		return () => clearInterval(id);
+	});
 
 	$effect(() => {
 		if (solution !== undefined) {

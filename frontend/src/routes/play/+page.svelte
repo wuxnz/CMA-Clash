@@ -25,10 +25,18 @@ SPDX-License-Identifier: MPL-2.0
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import {
 		hasActiveQuestion,
-		initialLivePhaseForQuestion,
 		isKahootStyleMode,
 		normalizeGamePayload
 	} from '$lib/play/live-game';
+	import {
+		applyClockSync,
+		parseQuestionTiming,
+		remainingAnswerSeconds,
+		resolveLivePhase,
+		serverNowMs,
+		totalAnswerSeconds,
+		type QuestionTiming
+	} from '$lib/play/live-timing';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -65,10 +73,11 @@ SPDX-License-Identifier: MPL-2.0
 	});
 	let question: QuestionType = $state();
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
-	let introTimer: ReturnType<typeof setTimeout> | undefined;
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let selectedAnswer = $state<string | undefined>(undefined);
 	let remainingLive = $state(30);
+	let questionTiming = $state<QuestionTiming | null>(null);
+	let clockOffsetMs = $state(0);
 	let streak = $state(0);
 	let prevRanks: Record<string, number> = {};
 
@@ -116,6 +125,29 @@ SPDX-License-Identifier: MPL-2.0
 	socket.on('time_sync', (data) => {
 		socket.emit('echo_time_sync', data);
 	});
+
+	socket.on('clock_sync', (data: { server_time_ms?: number }) => {
+		if (data?.server_time_ms != null) {
+			clockOffsetMs = applyClockSync(Number(data.server_time_ms));
+			syncPlayerClock();
+		}
+	});
+
+	function syncPlayerClock() {
+		if (!questionTiming) return;
+		const now = serverNowMs(clockOffsetMs);
+		livePhase = resolveLivePhase(questionTiming, game_mode, now);
+		remainingLive = Math.ceil(remainingAnswerSeconds(questionTiming, now));
+	}
+
+	function applyQuestionSocketData(data: Record<string, unknown>) {
+		const fallbackSec = parseInt(String((data.question as { time?: string })?.time ?? 30)) || 30;
+		questionTiming = parseQuestionTiming(data, game_mode, fallbackSec);
+		if (data.server_time_ms != null) {
+			clockOffsetMs = applyClockSync(Number(data.server_time_ms));
+		}
+		syncPlayerClock();
+	}
 
 	socket.on('connect', async () => {
 		console.log('Connected!');
@@ -168,22 +200,6 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	});
 
-	function syncRemainingFromServer(data: { question_started_at?: string; question?: { time?: unknown } }) {
-		const total = parseInt(String(data.question?.time ?? 30)) || 30;
-		if (data.question_started_at) {
-			const elapsed = (Date.now() - new Date(data.question_started_at).getTime()) / 1000;
-			const introLeft = Math.max(0, 3.5 - elapsed);
-			if (introLeft > 0) {
-				remainingLive = total;
-				return { introLeft };
-			}
-			remainingLive = Math.max(0, Math.ceil(total - (elapsed - 3.5)));
-			return { introLeft: 0 };
-		}
-		remainingLive = total;
-		return { introLeft: 3.5 };
-	}
-
 	socket.on('set_question_number', (data) => {
 		solution = undefined;
 		restart();
@@ -199,15 +215,8 @@ SPDX-License-Identifier: MPL-2.0
 				)
 				.map((name, idx) => [name, idx + 1])
 		);
-		clearTimeout(introTimer);
 		clearTimeout(revealTimer);
-		const { introLeft } = syncRemainingFromServer(data);
-		livePhase = initialLivePhaseForQuestion(game_mode, introLeft);
-		if (livePhase === 'intro' && introLeft > 0) {
-			introTimer = setTimeout(() => {
-				livePhase = 'answer';
-			}, introLeft * 1000);
-		}
+		applyQuestionSocketData(data as Record<string, unknown>);
 		if (!gameMeta.started) {
 			gameMeta.started = true;
 		}
@@ -308,10 +317,8 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	$effect(() => {
-		if (livePhase !== 'answer') return;
-		const id = setInterval(() => {
-			remainingLive = Math.max(0, remainingLive - 1);
-		}, 1000);
+		if (!questionTiming) return;
+		const id = setInterval(() => syncPlayerClock(), 250);
 		return () => clearInterval(id);
 	});
 
@@ -333,7 +340,11 @@ SPDX-License-Identifier: MPL-2.0
 		return Boolean(value);
 	}
 
-	let remainingTime = $derived(parseInt(String((question as any)?.time ?? 30)) || 30);
+	let remainingTime = $derived(
+		questionTiming
+			? Math.ceil(totalAnswerSeconds(questionTiming))
+			: parseInt(String((question as any)?.time ?? 30)) || 30
+	);
 </script>
 
 <svelte:window onbeforeunload={confirmUnload} />
@@ -362,7 +373,7 @@ SPDX-License-Identifier: MPL-2.0
 					question={question.question}
 					topic={topic_tag}
 					onComplete={() => {
-						livePhase = 'answer';
+						syncPlayerClock();
 					}}
 				/>
 			{:else if question?.answers && isKahootStyleMode(game_mode)}
@@ -372,7 +383,7 @@ SPDX-License-Identifier: MPL-2.0
 					remainingSeconds={remainingLive}
 					totalSeconds={remainingTime}
 					interactive={true}
-					hideQuestion={true}
+					hideQuestion={false}
 					selected={selectedAnswer}
 					onSelect={pickAnswer}
 				/>
@@ -385,6 +396,7 @@ SPDX-License-Identifier: MPL-2.0
 							{question_index}
 							{solution}
 							{topic_tag}
+							serverRemainingSeconds={remainingLive}
 						/>
 					</div>
 				{/key}

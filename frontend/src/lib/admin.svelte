@@ -25,6 +25,14 @@ SPDX-License-Identifier: MPL-2.0
 	import { normalizeQuizText } from '$lib/cma/text';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import { isKahootStyleMode } from '$lib/play/live-game';
+	import {
+		applyClockSync,
+		parseQuestionTiming,
+		remainingAnswerSeconds,
+		resolveLivePhase,
+		serverNowMs,
+		type QuestionTiming
+	} from '$lib/play/live-timing';
 
 	const default_colors = [...LEDGER_ANSWER_COLORS];
 	let cert_label = $state<string | null>(null);
@@ -42,9 +50,10 @@ SPDX-License-Identifier: MPL-2.0
 	let final_results_clicked = $state(false);
 	let timer_interval: NodeJS.Timeout;
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
-	let introTimer: ReturnType<typeof setTimeout> | undefined;
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let prevRanks: Record<string, number> = {};
+	let questionTiming = $state<QuestionTiming | null>(null);
+	let clockOffsetMs = $state(0);
 
 	interface Props {
 		game_token: string;
@@ -57,6 +66,22 @@ SPDX-License-Identifier: MPL-2.0
 	socket.on('get_question_results', () => {
 		console.log('get_question_results');
 	});
+
+	socket.on('clock_sync', (data: { server_time_ms?: number }) => {
+		if (data?.server_time_ms != null) {
+			clockOffsetMs = applyClockSync(Number(data.server_time_ms));
+			syncHostClock();
+		}
+	});
+
+	function syncHostClock() {
+		if (!questionTiming) return;
+		const now = serverNowMs(clockOffsetMs);
+		livePhase = resolveLivePhase(questionTiming, game_state.quiz_data?.game_mode, now);
+		const rem = Math.ceil(remainingAnswerSeconds(questionTiming, now));
+		game_state.timer_res = String(rem);
+	}
+
 	socket.on('set_question_number', (data) => {
 		game_state.timer_res = '0';
 		game_state.question_results = null;
@@ -73,15 +98,15 @@ SPDX-License-Identifier: MPL-2.0
 				)
 				.map((name, idx) => [name, idx + 1])
 		);
-		clearTimeout(introTimer);
 		clearTimeout(revealTimer);
-		livePhase = 'intro';
-		introTimer = setTimeout(() => {
-			livePhase = 'answer';
-		}, 3500);
-
+		const fallback = parseInt(game_state.quiz_data.questions[data.question_index].time) || 30;
+		questionTiming = parseQuestionTiming(data, game_state.quiz_data?.game_mode, fallback);
+		if (data?.server_time_ms != null) {
+			clockOffsetMs = applyClockSync(Number(data.server_time_ms));
+		}
+		syncHostClock();
 		clearInterval(timer_interval);
-		timer(game_state.timer_res);
+		timer_interval = setInterval(syncHostClock, 250);
 	});
 
 	socket.on('solutions', (_) => {
@@ -121,20 +146,6 @@ SPDX-License-Identifier: MPL-2.0
 	socket.on('player_answer', (_) => {
 		game_state.answer_count += 1;
 	});
-
-	const timer = (time: string) => {
-		let seconds = Number(time);
-		timer_interval = setInterval(() => {
-			if (game_state.timer_res === '0') {
-				clearInterval(timer_interval);
-				return;
-			} else {
-				seconds--;
-			}
-
-			game_state.timer_res = seconds.toString();
-		}, 1000);
-	};
 
 	const socket_game_controls: SocketGameControls = new SocketGameControls(socket);
 
@@ -203,7 +214,7 @@ SPDX-License-Identifier: MPL-2.0
 					game_state.quiz_data?.questions?.length
 				)}
 				onComplete={() => {
-					livePhase = 'answer';
+					syncHostClock();
 				}}
 			/>
 		{:else if hostKahootStyle && activeQ}

@@ -57,6 +57,15 @@ async def test_kahoot_start_emits_question_with_answers(test_client) -> None:
     assert payload.get("question"), "players need question payload to render answers"
     answers = payload["question"].get("answers")
     assert isinstance(answers, list) and len(answers) > 0
+    assert payload.get("answer_deadline_ms") > payload.get("answer_phase_start_ms")
+    assert payload.get("intro_deadline_ms") == payload.get("question_start_ms")
+    assert payload.get("server_time_ms") is not None
+
+    from classquiz.socket_server.timing import load_question_timing
+
+    stored_timing = await load_question_timing(game_pin)
+    assert stored_timing is not None
+    assert stored_timing["answer_deadline_ms"] == payload["answer_deadline_ms"]
 
     stored = await redis.get(f"game:{game_pin}")
     assert stored is not None
@@ -104,6 +113,59 @@ async def test_normal_start_waits_for_host_question(test_client) -> None:
     assert not any(e[0] == "set_question_number" for e in emitted), (
         "normal mode should not auto-show question 0 on start"
     )
+
+    sio.emit = real_emit
+
+
+@pytest.mark.order("last")
+@pytest.mark.asyncio
+async def test_rejoin_sync_keeps_deadlines(test_client) -> None:
+    from classquiz.db.models import PlayGame
+    from classquiz.socket_server import join_game, register_as_admin, sio, start_game
+    from classquiz.socket_server.game_sync import sync_player_to_live_game
+    from classquiz.socket_server.timing import load_question_timing
+
+    start = test_client.post(
+        f"/api/v1/quiz/start/{ValueStorage.quiz_id}?game_mode=kahoot&captcha_enabled=False",
+        cookies=ValueStorage.cookies,
+    )
+    assert start.status_code == 200, start.text
+    body = start.json()
+    game_pin = body["game_pin"]
+    game_id = body["game_id"]
+
+    await register_as_admin("pytest-admin-r", {"game_pin": game_pin, "game_id": game_id})
+    await join_game(
+        "pytest-player-r",
+        {
+            "game_pin": game_pin,
+            "username": "PlayerRejoin",
+            "captcha": "",
+            "custom_field": "",
+        },
+    )
+    await start_game("pytest-admin-r", {})
+
+    emitted: list[tuple] = []
+    real_emit = sio.emit
+
+    async def record_emit(event, data=None, room=None, **kwargs):
+        emitted.append((event, room, data))
+        return await real_emit(event, data=data, room=room, **kwargs)
+
+    sio.emit = record_emit
+
+    game_data = await PlayGame.get_from_redis(game_pin)
+    timing_before = await load_question_timing(game_pin)
+    assert timing_before is not None
+
+    await sync_player_to_live_game(sio, "pytest-rejoin-sid", game_pin, game_data)
+
+    sync_events = [e for e in emitted if e[0] == "set_question_number" and e[1] == "pytest-rejoin-sid"]
+    assert sync_events, emitted
+    payload = sync_events[0][2]
+    assert payload["answer_deadline_ms"] == timing_before["answer_deadline_ms"]
+    assert payload["intro_deadline_ms"] == timing_before["intro_deadline_ms"]
 
     sio.emit = real_emit
 
