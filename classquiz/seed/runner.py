@@ -4,8 +4,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import logging
 import os
+import random
 import uuid
 from collections import defaultdict
 from datetime import datetime
@@ -46,6 +48,8 @@ def _fact_to_question(fact: dict) -> QuizQuestion:
     answers = [ABCDQuizAnswer(right=True, answer=fact["correct"])]
     for d in fact["distractors"]:
         answers.append(ABCDQuizAnswer(right=False, answer=d))
+    rng = random.Random(int(hashlib.sha256(fact["stem"].encode("utf-8")).hexdigest()[:16], 16))
+    rng.shuffle(answers)
     difficulty = fact.get("difficulty", "intermediate")
     time_secs = "45" if difficulty == "advanced" else "30"
     return QuizQuestion(
