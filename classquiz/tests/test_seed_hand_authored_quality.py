@@ -5,12 +5,13 @@
 """Content-quality guards for hand-authored seed banks (no template artifacts)."""
 
 import re
+from collections import Counter
 
 import pytest
 
 pytestmark = pytest.mark.order("last")
 
-_BANNED_DISTRACTOR_PATTERNS = [
+_GLOBAL_BANNED_DISTRACTOR_PATTERNS = [
     re.compile(r"\bhiding\s+aed", re.I),
     re.compile(r"\bhide\s+the\s+aed\b", re.I),
     re.compile(r"\bremoving\s+911\b", re.I),
@@ -20,11 +21,30 @@ _BANNED_DISTRACTOR_PATTERNS = [
     re.compile(r"\bleave\s+to\s+find\s+food\b", re.I),
     re.compile(r"\bvision\s+acuity\b", re.I),
     re.compile(r"\bdental\s+health\b", re.I),
-    re.compile(r"\bdiscourag(e|ing)\s+.*\s*911\b", re.I),
     re.compile(r"^\s*posted\s+online\s*$", re.I),
     re.compile(r"social\s+media\s+posts\s+about\s+health", re.I),
     re.compile(r"\bwaving\s+hello\b", re.I),
     re.compile(r"\bfoot\s+stamping\b", re.I),
+]
+
+_CPR_BANNED_DISTRACTOR_PATTERNS = _GLOBAL_BANNED_DISTRACTOR_PATTERNS + [
+    re.compile(r"\bignore\s+until\s+blue\b", re.I),
+    re.compile(r"\bwait\s+for\s+physician\b", re.I),
+    re.compile(r"\bstanding\s+immediately\b", re.I),
+    re.compile(r"\bunmonitored\s+waiting\s+room\b", re.I),
+    re.compile(r"\bleft\s+nipple\s+only\b", re.I),
+    re.compile(r"\bhead\s+down\s+only\s+always\b", re.I),
+    re.compile(r"\bonly\s+back\s+slaps\s+forever\b", re.I),
+    re.compile(r"\bforever\b", re.I),
+    re.compile(r"\bonly\s+always\b", re.I),
+    re.compile(r"\bdiscourag(e|ing)\s+911\s+calls\b", re.I),
+]
+
+_BANNED_EXPLANATION_PHRASES = [
+    re.compile(
+        r"incorrect here because it would not provide effective BLS care in this scenario",
+        re.I,
+    ),
 ]
 
 _PRESENTS_FOR_CARE = re.compile(r"presents\s+for\s+care", re.I)
@@ -36,16 +56,35 @@ def _sentence_count(text: str) -> int:
     return len([p for p in re.split(r"[.!?]+", text) if p.strip()])
 
 
+def _expl_sentences(text: str) -> list[str]:
+    parts = [p.strip() for p in re.split(r"(?<=[.!?])\s+", text.strip()) if p.strip()]
+    return parts
+
+
 def test_no_banned_absurd_distractor_patterns():
     from classquiz.seed.banks import load_all_facts
 
     hits: list[str] = []
     for fact in load_all_facts():
         for choice in fact["distractors"]:
-            for pat in _BANNED_DISTRACTOR_PATTERNS:
+            for pat in _GLOBAL_BANNED_DISTRACTOR_PATTERNS:
                 if pat.search(choice):
                     hits.append(f"{pat.pattern} in {fact['topic']}: {choice[:70]}")
     assert not hits, f"Banned distractor patterns: {hits[:12]}"
+
+
+def test_cpr_distractors_lack_absurd_patterns():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("cpr-"):
+            continue
+        for choice in fact["distractors"]:
+            for pat in _CPR_BANNED_DISTRACTOR_PATTERNS:
+                if pat.search(choice):
+                    hits.append(f"{pat.pattern} in {fact['stem'][:50]}: {choice[:70]}")
+    assert not hits, f"CPR absurd distractors: {hits[:12]}"
 
 
 def test_no_generic_presents_for_care_stem_prefix():
@@ -89,4 +128,22 @@ def test_cpr_explanations_are_specific_two_sentence_minimum():
         expl = (fact.get("explanation") or "").strip()
         if len(expl) < 80 or _sentence_count(expl) < 2:
             bad.append(fact["stem"][:70])
-    assert not bad, f"CPR explanations too short or generic: {bad[:8]}"
+        for pat in _BANNED_EXPLANATION_PHRASES:
+            if pat.search(expl):
+                bad.append(fact["stem"][:70])
+    assert not bad, f"CPR explanations too short or templated: {bad[:8]}"
+
+
+def test_cpr_explanation_sentences_not_repeated_across_bank():
+    from classquiz.seed.banks import load_all_facts
+
+    cpr = [f for f in load_all_facts() if f["topic"].startswith("cpr-")]
+    sentence_counts: Counter[str] = Counter()
+    for fact in cpr:
+        for sent in _expl_sentences(fact.get("explanation") or ""):
+            norm = re.sub(r"\s+", " ", sent.strip().lower())
+            if len(norm) < 40:
+                continue
+            sentence_counts[norm] += 1
+    repeats = [(s, n) for s, n in sentence_counts.items() if n > 3]
+    assert not repeats, f"Repeated CPR explanation sentences (>3): {repeats[:5]}"
