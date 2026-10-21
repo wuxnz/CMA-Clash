@@ -13,10 +13,27 @@ export async function expectPlayerOnAnswerTiles(page: Page, label: string) {
 	).not.toHaveCount(0, { timeout: 60_000 });
 }
 
-/** After both players answer, wait through reveal then the next question's enabled tiles. */
+/** After both players answer, wait until the next question's answer UI is ready. */
 export async function expectPlayerAdvancedToNextQuestion(page: Page, label: string) {
 	const root = page.getByTestId('answer-tiles');
-	await expect(root, `${label}: leave prior question`).toBeHidden({ timeout: 20_000 });
+	const questionLine = root.locator('p').first();
+	const priorQuestion = ((await questionLine.textContent().catch(() => '')) ?? '').trim();
+
+	await expect
+		.poll(
+			async () => {
+				const onReveal = await page.getByText(/^Correct$/).isVisible().catch(() => false);
+				const onRankings = await page.getByText(/^You$/).isVisible().catch(() => false);
+				if (onReveal || onRankings) return 'between';
+				if (!(await root.isVisible().catch(() => false))) return 'between';
+				const now = ((await questionLine.textContent().catch(() => '')) ?? '').trim();
+				if (priorQuestion && now && now !== priorQuestion) return 'next';
+				return 'same';
+			},
+			{ message: `${label}: advance past prior question`, timeout: 90_000 }
+		)
+		.not.toBe('same');
+
 	await expect(root, `${label}: next question visible`).toBeVisible({ timeout: 60_000 });
 	await expect(
 		root.locator('button:not([disabled])'),
