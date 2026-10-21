@@ -14,7 +14,7 @@ from classquiz.tests import ValueStorage, test_client  # noqa: F401
 @pytest.mark.order("last")
 @pytest.mark.asyncio
 async def test_players_in_game_room_receive_second_question(test_client) -> None:
-    from unittest.mock import patch
+    from unittest.mock import AsyncMock, patch
 
     from classquiz.socket_server import join_game, register_as_admin, sio, start_game, submit_answer
     from classquiz.socket_server.question_lifecycle import _advance_after_reveal, close_question_now
@@ -46,8 +46,8 @@ async def test_players_in_game_room_receive_second_question(test_client) -> None
     await close_question_now(sio, game_pin, 0)
 
     emitted.clear()
-    with patch("classquiz.socket_server.question_lifecycle.live_post_question_hold_sec", lambda: 0):
-        await _advance_after_reveal(sio, game_pin, 0)
+    with patch("asyncio.sleep", new_callable=AsyncMock):
+        await _advance_after_reveal(sio, game_pin, 0, 0.0, 0.0)
 
     q1 = [
         e

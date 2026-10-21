@@ -20,6 +20,8 @@
 		streak?: number;
 		isPlayer?: boolean;
 		hostFit?: boolean;
+		correctAnswer?: string | null;
+		explanation?: string | null;
 	}
 
 	let {
@@ -34,10 +36,14 @@
 		speedRankText = null,
 		streak = 0,
 		isPlayer = false,
-		hostFit = false
+		hostFit = false,
+		correctAnswer = null,
+		explanation = null
 	}: Props = $props();
 
 	let max = $derived(Math.max(1, ...distribution.map((d) => d.count)));
+	let showAnswerBlock = $derived(Boolean(correctAnswer && correctAnswer.trim().length > 0));
+	let showExplanation = $derived(Boolean(explanation && explanation.trim().length > 0));
 </script>
 
 <div
@@ -54,7 +60,7 @@
 	</p>
 
 	{#if isPlayer && correct !== null}
-		<div class="text-center mb-8">
+		<div class="text-center mb-6">
 			{#if !correct && (points ?? 0) === 0}
 				<p class="text-sm font-semibold uppercase tracking-wide text-ink-muted mb-2">Time's up</p>
 			{/if}
@@ -80,6 +86,24 @@
 			{/if}
 			{#if streak > 0}
 				<p class="text-signal font-display text-xl mt-1">{streak}-streak</p>
+			{/if}
+		</div>
+	{/if}
+
+	{#if showAnswerBlock || showExplanation}
+		<div
+			class="max-w-2xl mx-auto w-full mb-6 rounded-xl border border-ink/10 bg-surface px-4 py-4 text-left shrink-0"
+			data-testid="reveal-explanation-panel"
+		>
+			{#if showAnswerBlock}
+				<p class="text-base text-ink font-semibold mb-2" data-testid="reveal-correct-answer">
+					Correct answer: {normalizeQuizText(correctAnswer ?? '')}
+				</p>
+			{/if}
+			{#if showExplanation}
+				<p class="text-base text-ink leading-relaxed" data-testid="reveal-explanation">
+					{normalizeQuizText(explanation ?? '')}
+				</p>
 			{/if}
 		</div>
 	{/if}

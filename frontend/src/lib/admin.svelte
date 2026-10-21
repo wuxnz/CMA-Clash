@@ -32,6 +32,7 @@ SPDX-License-Identifier: MPL-2.0
 		type StandingsRow
 	} from '$lib/play/live-game';
 	import { integrateLiveQuestionResults } from '$lib/play/live-scoring';
+	import { correctAnswerFromQuestion } from '$lib/play/reveal-copy';
 	import {
 		applyClockSync,
 		parseQuestionTiming,
@@ -59,6 +60,8 @@ SPDX-License-Identifier: MPL-2.0
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let standingsTop = $state<StandingsRow[]>([]);
+	let revealExplanation = $state<string | null>(null);
+	let revealCorrectAnswer = $state<string | null>(null);
 	let prevRanks: Record<string, number> = {};
 	let lastScoreAppliedQuestionIndex: number | null = $state(null);
 	let latestQuestionIndex = $state(-1);
@@ -147,7 +150,9 @@ SPDX-License-Identifier: MPL-2.0
 			questionIndex: resultsIndex,
 			rows,
 			revealHoldSec,
-			standingsTop: top
+			standingsTop: top,
+			explanation,
+			correctAnswer
 		} = parseQuestionResultsPayload(data);
 		if (
 			isStaleQuestionResults(
@@ -174,6 +179,9 @@ SPDX-License-Identifier: MPL-2.0
 		game_state.player_scores = integrated.scores;
 		lastScoreAppliedQuestionIndex = integrated.lastAppliedQuestionIndex;
 		standingsTop = integrated.standingsTop;
+		const revealQ = game_state.quiz_data?.questions?.[game_state.selected_question];
+		revealExplanation = explanation ?? revealQ?.explanation ?? null;
+		revealCorrectAnswer = correctAnswer ?? correctAnswerFromQuestion(revealQ);
 		livePhase = 'reveal';
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {
@@ -325,7 +333,13 @@ SPDX-License-Identifier: MPL-2.0
 				/>
 			{/await}
 		{:else if livePhase === 'reveal' && activeQ}
-			<RevealPhase hostFit question={activeQ.question} distribution={hostDistribution} />
+			<RevealPhase
+				hostFit
+				question={activeQ.question}
+				distribution={hostDistribution}
+				correctAnswer={revealCorrectAnswer}
+				explanation={revealExplanation}
+			/>
 		{:else if livePhase === 'rankings'}
 			<RankingsBoard hostFit rows={rankingRows} />
 		{:else}

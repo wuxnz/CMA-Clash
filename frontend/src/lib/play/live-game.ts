@@ -90,9 +90,11 @@ export type QuestionResultsPayload = {
 	revealHoldSec: number;
 	scoreboardHoldSec: number;
 	standingsTop: StandingsRow[];
+	explanation: string | null;
+	correctAnswer: string | null;
 };
 
-const DEFAULT_REVEAL_HOLD_SEC = 4;
+const DEFAULT_REVEAL_HOLD_SEC = 8;
 const DEFAULT_SCOREBOARD_HOLD_SEC = 9;
 
 /** Legacy bare arrays and wrapped `{ question_index, results }` payloads. */
@@ -103,7 +105,9 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 			rows: data as Array<Record<string, unknown>>,
 			revealHoldSec: DEFAULT_REVEAL_HOLD_SEC,
 			scoreboardHoldSec: DEFAULT_SCOREBOARD_HOLD_SEC,
-			standingsTop: []
+			standingsTop: [],
+			explanation: null,
+			correctAnswer: null
 		};
 	}
 	if (data && typeof data === 'object') {
@@ -120,6 +124,8 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 			const standingsTop = Array.isArray(obj.standings_top)
 				? (obj.standings_top as StandingsRow[])
 				: [];
+			const explanationRaw = obj.explanation;
+			const correctRaw = obj.correct_answer;
 			return {
 				questionIndex: Number.isFinite(questionIndex) ? questionIndex : null,
 				rows: rawRows as Array<Record<string, unknown>>,
@@ -127,7 +133,13 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 				scoreboardHoldSec: Number.isFinite(scoreboardHoldSec)
 					? scoreboardHoldSec
 					: DEFAULT_SCOREBOARD_HOLD_SEC,
-				standingsTop
+				standingsTop,
+				explanation:
+					explanationRaw == null || explanationRaw === ''
+						? null
+						: String(explanationRaw),
+				correctAnswer:
+					correctRaw == null || correctRaw === '' ? null : String(correctRaw)
 			};
 		}
 	}
@@ -136,7 +148,9 @@ export function parseQuestionResultsPayload(data: unknown): QuestionResultsPaylo
 		rows: [],
 		revealHoldSec: DEFAULT_REVEAL_HOLD_SEC,
 		scoreboardHoldSec: DEFAULT_SCOREBOARD_HOLD_SEC,
-		standingsTop: []
+		standingsTop: [],
+		explanation: null,
+		correctAnswer: null
 	};
 }
 

@@ -40,6 +40,7 @@ SPDX-License-Identifier: MPL-2.0
 		placeLine,
 		speedRankLine
 	} from '$lib/play/live-standings-copy';
+	import { correctAnswerFromQuestion } from '$lib/play/reveal-copy';
 	import {
 		aggregateScoresFromFinalResults,
 		integrateLiveQuestionResults,
@@ -169,7 +170,9 @@ SPDX-License-Identifier: MPL-2.0
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let standingsTop = $state<StandingsRow[]>([]);
-	let revealHoldMs = $state(4000);
+	let revealHoldMs = $state(8000);
+	let revealExplanation = $state<string | null>(null);
+	let revealCorrectAnswer = $state<string | null>(null);
 	let advanceSyncTimer: ReturnType<typeof setTimeout> | undefined;
 	const ADVANCE_RESYNC_MS = 7500;
 
@@ -302,6 +305,8 @@ SPDX-License-Identifier: MPL-2.0
 		standingsTop = [];
 		selectedAnswer = undefined;
 		pointsThisRound = 0;
+		revealExplanation = null;
+		revealCorrectAnswer = null;
 		clearTimeout(revealTimer);
 		clearAdvanceResyncTimer();
 		prevRanks = Object.fromEntries(
@@ -329,7 +334,9 @@ SPDX-License-Identifier: MPL-2.0
 			questionIndex: resultsIndex,
 			rows,
 			revealHoldSec,
-			standingsTop: top
+			standingsTop: top,
+			explanation,
+			correctAnswer
 		} = parseQuestionResultsPayload(data);
 		if (
 			isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex) ||
@@ -340,6 +347,8 @@ SPDX-License-Identifier: MPL-2.0
 		restart();
 		answer_results = rows as PlayerAnswer[];
 		revealHoldMs = Math.max(0, revealHoldSec * 1000);
+		revealExplanation = explanation ?? question?.explanation ?? null;
+		revealCorrectAnswer = correctAnswer ?? correctAnswerFromQuestion(question);
 		pointsThisRound = scoreDeltaForUser(rows, username);
 		const scoreIndex =
 			resultsIndex ?? (typeof question_index === 'number' ? question_index : null);
@@ -622,6 +631,8 @@ SPDX-License-Identifier: MPL-2.0
 					behindText={revealBehindText}
 					speedRankText={revealSpeedRankText}
 					{streak}
+					explanation={revealExplanation}
+					correctAnswer={revealCorrectAnswer}
 				/>
 			{:else if livePhase === 'rankings'}
 				<RankingsBoard rows={rankingRows} />
