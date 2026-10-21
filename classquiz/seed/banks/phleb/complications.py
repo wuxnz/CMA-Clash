@@ -14,7 +14,7 @@ _REF = [S.CLSI_GP41, S.NHA_CPT]
 FACTS: list[dict] = [
     fact(
         "phleb-complications",
-        "A hematoma after venipuncture is best prevented by?",
+        "How is A hematoma after venipuncture best prevented?",
         "Firm direct pressure after needle removal and careful needle technique",
         [
             "Massaging the puncture site vigorously right after needle withdrawal",
@@ -28,7 +28,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Blood pooling under the skin after venipuncture is called?",
+        "What is Blood pooling under the skin after venipuncture called?",
         "Hematoma",
         [
             "Syncope",
@@ -56,7 +56,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Infection at a venipuncture site is best prevented by?",
+        "How is Infection at a venipuncture site best prevented?",
         "Hand hygiene and aseptic skin preparation before the stick",
         [
             "Reusing a cloth tourniquet on every patient without cleaning",
@@ -70,7 +70,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Repeated venipuncture at the same antecubital site increases risk of?",
+        "What does Repeated venipuncture at the same antecubital site increase the risk of?",
         "Sclerosis, scarring, and harder future access",
         [
             "Permanent enlargement of the vein for easier draws",
@@ -84,7 +84,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "A thrombosed or sclerosed vein on palpation typically feels?",
+        "How does A thrombosed or sclerosed vein on palpation typically feel on palpation?",
         "Hard, cord-like, and non-compressible",
         [
             "Soft, bouncy, and easily refillable",
@@ -112,7 +112,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "When a patient begins to faint during phlebotomy, the first priority is?",
+        "When When a patient begins to faint during phlebotomy, occurs, what is the first priority?",
         "Stop the draw and lower the patient safely to prevent injury",
         [
             "Complete the last tube while the patient remains standing",
@@ -140,7 +140,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Most facilities limit the number of venipuncture attempts because?",
+        "Why do most facilities limit the number of venipuncture attempts?",
         "Repeated sticks raise pain, hematoma, and nerve injury risk",
         [
             "Unlimited attempts are always safer for the patient",
@@ -154,7 +154,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Visible spreading redness with warmth at a prior stick site should prompt?",
+        "What action should Visible spreading redness with warmth at a prior stick site prompt?",
         "Stopping reuse of that area and notifying the care team",
         [
             "Another stick in the same inflamed spot for speed",
@@ -182,7 +182,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Leaving a tourniquet on too long during venipuncture may cause?",
+        "What may Leaving a tourniquet on too long during venipuncture cause?",
         "Hemoconcentration and falsely altered analyte levels",
         [
             "Improved glucose accuracy in every patient",
@@ -196,7 +196,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Excessive needle probing at one site increases risk of?",
+        "What does Excessive needle probing at one site increase the risk of?",
         "Nerve injury, pain, and hematoma formation",
         [
             "Higher patient satisfaction scores automatically",
@@ -224,7 +224,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Hemolysis during a difficult draw may falsely elevate?",
+        "Which laboratory values may Hemolysis during a difficult draw falsely elevate?",
         "Potassium and some enzymes released from lysed red cells",
         [
             "Only sodium without any cellular release",
@@ -266,7 +266,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "A delayed faint several minutes after the draw should be managed by?",
+        "How should A delayed faint several minutes after the draw be managed?",
         "Assisting the patient supine, monitoring vitals, and documenting the event",
         [
             "Allowing the patient to drive home immediately if they insist",
@@ -280,7 +280,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Drawing from an arm with active IV infusion can cause?",
+        "What can Drawing from an arm with active IV infusion cause?",
         "Diluted or contaminated specimens and fluid interference",
         [
             "Always more accurate electrolytes below the IV site",
@@ -294,7 +294,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "If blood flow stops during tube fill with a butterfly set, a common cause is?",
+        "What is the correct practice regarding If blood flow stops during tube fill with a butterfly set, a common cause is?",
         "Clot formation in the line from slow flow or stasis",
         [
             "Correct order of draw with full tubes only",
@@ -308,7 +308,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Venipuncture through markedly edematous tissue should generally be?",
+        "When should Venipuncture through markedly edematous tissue generally be avoided?",
         "Avoided when another site is available",
         [
             "Preferred because veins are easier to see",
@@ -336,7 +336,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Failed venipuncture documentation should include?",
+        "What should Failed venipuncture documentation include?",
         "Number of attempts, patient response, and plan for recollection",
         [
             "Only successful collections with no mention of attempts",
@@ -392,7 +392,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Drawing above a hematoma from an earlier attempt may cause?",
+        "What may Drawing above a hematoma from an earlier attempt cause?",
         "Further tissue trauma and unreliable specimen quality",
         [
             "Faster healing through the same puncture track",
@@ -448,7 +448,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "After suspected arterial nick at the antecubital fossa, pressure should be?",
+        "How should pressure be applied after a suspected arterial nick at the antecubital fossa?",
         "Prolonged with clinician evaluation for continued bleeding",
         [
             "Skipped because arteries stop bleeding spontaneously",
@@ -462,7 +462,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Phlebotomy on the arm affected by mastectomy or lymph node removal should follow?",
+        "What policy should Phlebotomy on the arm affected by mastectomy or lymph node removal follow?",
         "Surgeon and facility policy because of lymphedema and trauma risk",
         [
             "Always using the surgical side first for convenience",
@@ -476,7 +476,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Collecting blood from a central venous catheter without policy training can cause?",
+        "What can Collecting blood from a central venous catheter without policy training cause?",
         "Line contamination, air embolism, or hemolysis from high draw rates",
         [
             "Guaranteed cleaner specimens than peripheral sticks",
@@ -490,7 +490,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Persisting numbness or weakness after venipuncture should be?",
+        "How should persisting numbness or weakness after venipuncture be managed?",
         "Documented and referred for clinical evaluation per policy",
         [
             "Treated as normal for every patient without report",
@@ -532,7 +532,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Rapid large-volume blood draw in a small pediatric patient increases risk of?",
+        "What does Rapid large-volume blood draw in a small pediatric patient increase the risk of?",
         "Hypovolemic symptoms such as dizziness or vasovagal collapse",
         [
             "Automatic hypernatremia in every infant",

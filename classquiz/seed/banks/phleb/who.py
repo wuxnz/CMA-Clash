@@ -82,7 +82,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Phlebotomy aligned with WHO clean care should include?',
+        'What should Phlebotomy aligned with WHO clean care include?',
         'Hand hygiene before patient contact and aseptic preparation of the puncture site',
         [
             'Blowing on the antiseptic site to speed drying',
@@ -128,7 +128,7 @@ FACTS: list[dict] = [
             'Discarding a syringe after one patient use',
             'Using a new sterile syringe per medication administration',
         ],
-        'Syringe reuse—even with a new needle—can transfer blood between patients. WHO One and Only principles apply wherever sharps are used near phlebotomy areas.',
+        'Syringe reuse, even with a new needle, can transfer blood between patients. WHO One and Only principles apply wherever sharps are used near phlebotomy areas.',
         [S.WHO_INJECTION_SAFETY, S.CDC_ONE_AND_ONLY],
         'advanced',
     ),
@@ -381,7 +381,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Post-exposure prophylaxis after a phlebotomy needlestick should follow?',
+        'What policy should Post-exposure prophylaxis after a phlebotomy needlestick follow?',
         'Facility protocol based on source patient risk and timely assessment',
         [
             'Never offering evaluation to part-time staff',

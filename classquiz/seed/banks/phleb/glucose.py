@@ -132,7 +132,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Fingerstick lancets for glucose monitoring must be?',
+        'How must Fingerstick lancets for glucose monitoring be handled?',
         'Single-patient use and discarded into a sharps container immediately',
         [
             'Rinsed and reused on family members',
@@ -171,7 +171,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Transporting glucose tubes to the laboratory should follow?',
+        'What policy should Transporting glucose tubes to the laboratory follow?',
         'Facility policy for temperature and maximum delay to limit glycolysis',
         [
             'Leaving tubes in direct sunlight for hours',
@@ -275,7 +275,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Reporting a critical low POC glucose to the provider should include?',
+        'What should Reporting a critical low POC glucose to the provider include?',
         'The value, time, symptoms, repeat check, and treatments already given',
         [
             "Only the patient's middle name",
@@ -314,7 +314,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'A POC glucose reading below 70 mg/dL with symptoms should prompt?',
+        'What action should A POC glucose reading below 70 mg/dL with symptoms prompt?',
         '15 grams fast-acting carbohydrate and a repeat check per protocol',
         [
             'No action if the patient is talking',
@@ -379,7 +379,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Expired glucose test strips should be?',
+        'How should expired glucose test strips be handled?',
         'Discarded and replaced; never used on patients',
         [
             'Used if the foil looks shiny',
@@ -405,7 +405,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Periodic comparison of meter results to the laboratory should occur?',
+        'When should Periodic comparison of meter results to the laboratory occur?',
         'On a schedule defined by the facility quality plan',
         [
             'Only when the on-screen battery icon is full',
