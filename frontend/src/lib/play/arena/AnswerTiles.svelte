@@ -17,6 +17,7 @@
 		onSelect?: (answer: string) => void;
 		showRing?: boolean;
 		compact?: boolean;
+		hideQuestion?: boolean;
 	}
 
 	let {
@@ -30,14 +31,17 @@
 		disabled = false,
 		onSelect,
 		showRing = true,
-		compact = false
+		compact = false,
+		hideQuestion = false
 	}: Props = $props();
 </script>
 
 <div class="w-full bg-paper flex flex-col px-3 sm:px-6 py-4 sm:py-6 {compact ? 'h-full' : 'h-full min-h-dvh'}">
-	<p class="font-sans text-lg sm:text-2xl md:text-3xl text-ink text-center font-semibold leading-snug max-w-4xl mx-auto">
-		{@html normalizeQuizText(question)}
-	</p>
+	{#if !hideQuestion && question}
+		<p class="font-sans text-lg sm:text-2xl md:text-3xl text-ink text-center font-semibold leading-snug max-w-4xl mx-auto">
+			{@html normalizeQuizText(question)}
+		</p>
+	{/if}
 
 	<div class="flex items-center justify-center gap-6 my-4">
 		{#if showRing}

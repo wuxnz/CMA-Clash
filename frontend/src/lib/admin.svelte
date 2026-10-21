@@ -21,8 +21,10 @@ SPDX-License-Identifier: MPL-2.0
 	import AnswerTiles from '$lib/play/arena/AnswerTiles.svelte';
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
+	import HostProgress from '$lib/play/admin/host-progress.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
+	import { isKahootStyleMode } from '$lib/play/live-game';
 
 	const default_colors = [...LEDGER_ANSWER_COLORS];
 	let cert_label = $state<string | null>(null);
@@ -60,7 +62,7 @@ SPDX-License-Identifier: MPL-2.0
 		game_state.question_results = null;
 		game_state.shown_question_now = data.question_index;
 		game_state.timer_res = game_state.quiz_data.questions[data.question_index].time;
-		game_state.selected_question = game_state.selected_question + 1;
+		game_state.selected_question = data.question_index;
 		game_state.answer_count = 0;
 		const current = game_state.player_scores ?? {};
 		prevRanks = Object.fromEntries(
@@ -158,6 +160,8 @@ SPDX-License-Identifier: MPL-2.0
 		}));
 	});
 
+	let hostKahootStyle = $derived(isKahootStyleMode(game_state.quiz_data?.game_mode));
+
 	let rankingRows = $derived.by((): LedgerRow[] => {
 		const scores = game_state.player_scores ?? {};
 		return Object.keys(scores)
@@ -189,7 +193,7 @@ SPDX-License-Identifier: MPL-2.0
 					question={game_state.quiz_data.questions[game_state.selected_question]}
 				/>
 			{/await}
-		{:else if livePhase === 'intro' && activeQ}
+		{:else if hostKahootStyle && livePhase === 'intro' && activeQ}
 			<QuestionIntro
 				question={activeQ.question}
 				topic={formatQuestionTopicTag(
@@ -198,14 +202,24 @@ SPDX-License-Identifier: MPL-2.0
 					game_state.selected_question,
 					game_state.quiz_data?.questions?.length
 				)}
+				onComplete={() => {
+					livePhase = 'answer';
+				}}
 			/>
-		{:else if activeQ}
+		{:else if hostKahootStyle && activeQ}
 			<AnswerTiles
 				question={activeQ.question}
 				answers={Array.isArray(activeQ.answers) ? activeQ.answers : []}
 				remainingSeconds={parseInt(game_state.timer_res) || 0}
 				totalSeconds={parseInt(activeQ.time) || 30}
 				answeredCount={game_state.answer_count}
+			/>
+		{:else if activeQ}
+			<HostProgress
+				gamePin={game_state.quiz_data?.game_pin}
+				remainingSeconds={parseInt(game_state.timer_res) || 0}
+				totalSeconds={parseInt(activeQ.time) || 30}
+				answerCount={game_state.answer_count}
 			/>
 		{:else}
 			<Question
