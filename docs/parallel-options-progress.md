@@ -6,7 +6,7 @@ Target: 546 items with plain parallel choices, no hedge tells on correct answers
 |-------|-------|---------|--------|
 | P01 | 84 | injection 001–042, vitals 001–042 | done |
 | P01b | 6 | specimen-033, specimen-023, wound-002, intake-016, poct-041, vitals-035 (sample fixes) | in commit |
-| P02 | 75 | infection 001–042, terminology 001–033 | pending |
+| P02 | 75 | infection 001–042, terminology 001–033 | terminology 001–033 done; infection pending |
 | P03 | 75 | terminology 034–042, pharm_dosage 001–033 | pending |
 | P04 | 75 | pharm_dosage 034–042, specimen_lab 001–033 | pending |
 | P05 | 75 | specimen_lab 034–042, intake 001–033 | pending |

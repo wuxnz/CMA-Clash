@@ -721,3 +721,39 @@ skill-wound-care-002 | fail | Parallel irrigation solutions without bleach or ta
 skill-intake-016 | fail | Parallel tobacco documentation near-misses; removed hedge on correct.
 skill-poct-041 | fail | Parallel waived-result workflows; private exam-room correct answer.
 skill-vitals-035 | fail | Parallel temperature sites: rectal, oral, tympanic, temporal artery (confirmed after vitals pass).
+
+## Parallel-options pass batch P02 (skill-terminology-001 to skill-terminology-033)
+
+skill-terminology-001 | fail | Parallel prefix degree distractors; dys- near-miss aligned to painful/difficult/abnormal phrasing.
+skill-terminology-002 | fail | Confirmed parallel hyper/tachy/poly near-miss prefix meanings; balanced X-or-Y structure.
+skill-terminology-003 | fail | Brady correct expanded; tachy/dys/megaly near-miss distractors parallel rate and size wording.
+skill-terminology-004 | fail | Stripped a-/hemi- padding tails; brady/a-/hemi- distractors parallel fast-or-rapid stem pattern.
+skill-terminology-005 | fail | Eu-/poly-/hyper- near-miss distractors parallel; removed amount/frequency padding on poly- option.
+skill-terminology-006 | fail | Mono-/a-/hypo- distractors parallel without mono-prefix padding clause.
+skill-terminology-007 | fail | Inter-/peri-/extra- spatial distractors parallel; removed as-with-prefix padding.
+skill-terminology-008 | fail | Supra-/intra-/trans- prefix meanings parallel; replaced vague short labels.
+skill-terminology-009 | fail | Peri- reframed with intra-/sub-/trans- near-misses instead of organ-specific joke sites.
+skill-terminology-010 | fail | Suffix distractors parallel inflammation/removal/enlargement/study phrasing.
+skill-terminology-011 | fail | -itis/-oma/-emia distractors parallel noun phrases; removed -oma suffix padding.
+skill-terminology-012 | fail | -plasty/-algia/-otomy distractors parallel study/repair/pain/incision structure.
+skill-terminology-013 | fail | Reduction near-miss parallel to enlargement; inflammation phrasing aligned with other suffix items.
+skill-terminology-014 | fail | Confirmed parallel organ-name distractors for cardi/o; no change to stem.
+skill-terminology-015 | fail | Confirmed parallel oste/my/neur near-miss organ distractors for dermat/o.
+skill-terminology-016 | fail | Confirmed parallel angi/pulmon/aden near-miss distractors for oste/o.
+skill-terminology-017 | fail | Confirmed parallel enter/cholecyst/pancreat near-miss distractors for gastr/o.
+skill-terminology-018 | fail | NPO distractors parallel plausible acronym expansions with matched phrase length.
+skill-terminology-019 | fail | PRN correct expanded; QAM/AC/HS schedule near-misses parallel full clauses.
+skill-terminology-020 | fail | BID frequency distractors parallel daily/hourly bands; q1h wording length balanced.
+skill-terminology-021 | fail | TID timing distractors shortened to parallel schedule near-misses without padding tails.
+skill-terminology-022 | fail | HS distractors parallel AC/half-strength/soak near-miss full phrases.
+skill-terminology-023 | fail | STAT urgency distractors reframed as parallel delayed-timing near-misses without joke phrasing.
+skill-terminology-024 | fail | SOB fake expansions parallel measured/application/positioning suffix structure.
+skill-terminology-025 | fail | Directional terms with parenthetical definitions parallel across superior/inferior/posterior/distal.
+skill-terminology-026 | fail | Anterior/posterior/medial/proximal parenthetical definitions parallel for front/back/midline/trunk.
+skill-terminology-027 | fail | Distal/proximal limb comparisons parallel same-limb and torso landmark phrasing.
+skill-terminology-028 | fail | Medial/lateral/caudal distractors parallel midline-plane wording; padding tail removed.
+skill-terminology-029 | fail | -algia/-itis/-megaly/-gram distractors parallel root-structure suffix phrasing.
+skill-terminology-030 | fail | -uria/-otomy/-gravida distractors parallel related-to-root-word structure; gravida padding removed.
+skill-terminology-031 | fail | Cholelithiasis scenario distractors parallel plain-language organ conditions.
+skill-terminology-032 | fail | CBC specimen-type distractors parallel blood/urine/stool/sputum collection phrasing.
+skill-terminology-033 | fail | BMP panel distractors parallel analyte-list structure; correct shortened for length balance.
