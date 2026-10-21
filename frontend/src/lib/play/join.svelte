@@ -54,6 +54,17 @@ SPDX-License-Identifier: MPL-2.0
 
 	const onSocketConnect = () => {
 		socketConnected = true;
+		joinError = '';
+		if (
+			normalizeGameMode(game_mode) === 'battle' &&
+			game_pin.length >= 6 &&
+			username.length > 3 &&
+			!battleAutoJoinStarted &&
+			!joining
+		) {
+			battleAutoJoinStarted = true;
+			void performJoin();
+		}
 	};
 	const onSocketDisconnect = () => {
 		socketConnected = false;
