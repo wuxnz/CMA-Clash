@@ -4,5 +4,5 @@ Batch size 25. Each item: full-sentence stem, four parallel near-miss options, 2
 
 | Batch | IDs | Status | Commit |
 |-------|-----|--------|--------|
-| 01 | cpr-adult-001–025 | done | d6ba2d61 |
+| 01 | cpr-adult-001–025 | done | 5c35a40e |
 | 02 | cpr-adult-026–050 | pending | |
