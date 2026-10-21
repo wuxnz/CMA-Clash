@@ -301,7 +301,7 @@ FACTS: list[dict] = [
         [
             "Device serial number recorded without operator, QC, or patient linkage",
             "Random numeric codes substituted for patient identifiers",
-            "Equipment serial number without operator, QC, or patient linkage",
+            "Batch lot number logged once per shift without per-patient operator or result entries",
         ],
         "CLIA-waived and moderate-complexity point-of-care programs require traceable documentation for every patient result. "
         "GP41-aligned POC workflows integrate device quality control with patient identification and recorded outcomes.",
@@ -366,12 +366,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What can delayed centrifugation of fluoride or oxalate glucose tubes still allow?",
-        "Continued in vitro glycolysis if processing waits too long",
+        "Even when gray-top fluoride or oxalate tubes are used, what can still occur if centrifugation or laboratory processing is delayed beyond stability limits?",
+        "Continued in vitro glycolysis that falsely lowers measured glucose",
         [
-            "Stable glucose for seventy-two hours at room temperature without timely processing",
-            "Stable glucose for twenty-four hours at room temperature in gray tubes",
-            "Elevation of INR in the same tube",
+            "Stable plasma glucose for seventy-two hours at room temperature without timely centrifugation",
+            "Complete inhibition of glycolysis the moment the gray tube is filled to the line",
+            "False elevation of serum potassium from fluoride binding in the same collection tube",
         ],
         "Fluoride inhibits enolase but does not instantly stop all metabolism. "
         "GP41 still recommends timely delivery and processing per glucose stability tables.",
@@ -380,12 +380,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "Why must blood not be poured or transferred between collection tubes?",
-        "Additive carryover contaminates tubes and invalidates results",
+        "Why does CLSI GP41 prohibit pouring or transferring blood between evacuated collection tubes after the draw?",
+        "Additive carryover contaminates the destination tube and invalidates ordered assays",
         [
-            "It is faster and therefore encouraged for stat orders",
-            "Only culture bottles are affected by transfer",
-            "Transfer improves coagulation studies in citrate",
+            "Pouring into an underfilled citrate tube restores the correct blood-to-anticoagulant ratio",
+            "Cross-transfer affects culture bottles but not chemistry or coagulation vacuum tubes",
+            "Transferring serum into a citrate tube shortens prothrombin time on underfilled specimens",
         ],
         "Each tube is filled directly from the patient with its intended additive load. "
         "GP41 order-of-draw and handling rules prohibit cross-transfer that would skew analyte concentrations.",
@@ -394,12 +394,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What underfilled citrate (light-blue) tubes most threaten what results?",
-        "Coagulation studies because the blood-to-anticoagulant ratio is wrong",
+        "What is the primary analytic risk when a light-blue sodium citrate tube is filled below the manufacturer fill line?",
+        "Invalid coagulation results because the blood-to-anticoagulant ratio is incorrect",
         [
-            "Complete blood count indices only",
-            "Urinalysis dipstick reading",
-            "ABG analysis in a heparin syringe",
+            "Falsely elevated hematology indices when the same underfilled tube is run on a CBC analyzer",
+            "Distorted chemistry electrolytes when citrate plasma is spun from a partially filled tube",
+            "Acceptable prothrombin time when the laboratory recentrifuges plasma from an underfilled tube",
         ],
         "Citrate tubes must meet the manufacturer fill line for valid PT and aPTT results. "
         "GP41 volume requirements are part of preanalytic quality for coagulation testing.",
@@ -408,12 +408,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "When a butterfly set is used for multiple tubes, maintaining flow helps?",
-        "Prevent clot formation in the tubing and ensure proper tube fill",
+        "When a butterfly infusion set is used to fill multiple vacuum tubes on one venipuncture, why should blood flow be kept continuous between tubes?",
+        "To limit clot formation in the tubing and deliver adequate volume to each additive tube",
         [
-            "Clamp the tubing between each tube until the line clears of blood",
-            "Stop flow between every tube for five minutes",
-            "Ignore underfilled tubes to save time",
+            "To clamp the tubing between each tube until the hub stops oozing before advancing",
+            "To pause flow for several minutes after each tube so air clears from the adapter",
+            "To accept underfilled citrate and EDTA tubes rather than restarting the line",
         ],
         "Stasis in the line can activate coagulation and reduce volume delivered to additive tubes. "
         "GP41 multi-tube technique keeps the assembly patent until the last required tube is filled.",
@@ -422,12 +422,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "Why time of collection on the label matters for what reason?",
-        "Reference ranges and stability calculations often depend on draw time",
+        "Why must collection date and time appear on the blood tube label according to GP41 preanalytic labeling standards?",
+        "Reference intervals, stability windows, and timed tests are interpreted relative to draw time",
         [
-            "Optional when the laboratory accessioning system scans barcodes at receipt",
-            "Required only for timed drug levels, not for routine chemistry panels",
-            "Omitted on stat orders when the draw time is documented on the requisition",
+            "Collection time is optional when accessioning scans a barcode at laboratory receipt",
+            "Draw time is required for therapeutic drug monitoring but not for routine chemistry panels",
+            "Stat specimens may omit tube draw time when the requisition lists the order time",
         ],
         "Therapeutic drug monitoring and timed tests interpret results relative to dose and fasting clocks. "
         "GP41 labeling standards include collection date and time for preanalytic traceability.",
@@ -436,12 +436,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "If the wrong tube type was collected for an ordered test, the collector should?",
-        "Notify the laboratory and follow policy for recollection or add-on testing",
+        "If the wrong tube type was collected for an ordered test, what should the phlebotomist do according to preanalytic error policy?",
+        "Notify the laboratory and follow facility policy for recollection or approved add-on testing",
         [
-            "Pour blood into the correct tube without documenting",
-            "Freeze the wrong tube and assume the lab will adapt",
-            "Discard the order without telling the patient or provider",
+            "Pour the specimen into the correct tube type without documenting the error",
+            "Send the mismatched tube frozen and expect the laboratory to validate the assay",
+            "Discard the tubes and cancel the order without notifying the patient or provider",
         ],
         "Incompatible additives cannot be corrected by transferring specimen after the fact. "
         "GP41 error management emphasizes disclosure and redraw when sample type invalidates the assay.",
@@ -450,12 +450,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What do STAT specimens still require despite urgency?",
-        "The same identification, labeling, and handling rules as routine collections",
+        "Which preanalytic requirements apply to STAT blood specimens despite the urgency of the order?",
+        "The same patient identification, complete labeling, and stability handling as routine collections",
         [
-            "Skipping labels to save minutes",
-            "Ignoring temperature limits because the test is urgent",
-            "Using another patient's prelabeled tubes to move faster",
+            "Abbreviated labeling with patient name only when the requisition carries a barcode",
+            "Relaxed transport temperature limits because the test is marked stat on the order",
+            "Use of prelabeled tubes prepared for the next scheduled patient to shorten draw time",
         ],
         "Urgency does not waive patient safety or preanalytic quality controls. "
         "GP41 prioritizes rapid transport while maintaining complete labels and stability requirements.",
@@ -464,12 +464,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "How should frozen aliquots for send-out testing be stored and handled?",
-        "Frozen per manual using appropriate containers and thaw protocols",
+        "How should serum or plasma aliquots destined for send-out testing be frozen, stored, and thawed?",
+        "Per the test procedure manual using validated containers, freezer conditions, and one-time thaw steps",
         [
-            "Frozen in the primary EDTA tube without centrifuging when policy forbids it",
-            "Thawed repeatedly at room temperature without limit",
-            "Stored at room temperature indefinitely without a validated freezer or thaw protocol",
+            "Frozen in the primary lavender EDTA tube without centrifuging when the manual requires separation",
+            "Thawed and refrozen at room temperature between reference-lab shipments without a limit",
+            "Held at room temperature until courier pickup when no on-site freezer is immediately available",
         ],
         "Incorrect freeze-thaw handling destroys labile analytes. "
         "Laboratory manuals aligned with GP41 define when to spin, separate, and freeze specific tests.",
@@ -478,12 +478,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "How should wet ice versus gel packs for transport be chosen?",
-        "Laboratory instructions for the specific test and carrier design",
+        "When packaging blood specimens for courier transport, how should staff choose between wet ice and insulated gel packs?",
+        "According to laboratory shipping instructions for the ordered tests and the approved carrier design",
         [
-            "Whichever cold pack is nearest the collection area that day",
-            "Never using ice because all tests are room temperature",
-            "Crushed dry ice for every outpatient chemistry panel regardless of the test list",
+            "Use whichever cold pack is stocked nearest the draw station that shift",
+            "Use gel packs for every specimen because wet ice is prohibited for all chemistry orders",
+            "Use crushed dry ice for routine outpatient chemistry panels regardless of analyte stability tables",
         ],
         "Some specimens need wet ice; others tolerate insulated cool packs without free water exposure. "
         "GP41 transport sections defer to validated laboratory shipping methods.",
@@ -492,12 +492,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "Why is hand hygiene required before handling filled collection tubes?",
-        "Reduces cross-contamination after patient contact",
+        "Why is hand hygiene required before handling filled collection tubes after venipuncture?",
+        "It reduces cross-contamination of tubes, forms, and transport carriers after patient contact",
         [
-            "Is unnecessary if gloves were worn during the draw",
-            "Replaces the need to label tubes",
-            "Should be skipped for stat specimens",
+            "It is unnecessary when clean examination gloves were worn throughout the venipuncture",
+            "It replaces bedside labeling when the collector will transport tubes immediately",
+            "It may be deferred on stat specimens until after the pneumatic tube launch",
         ],
         "Gloves protect during venipuncture but hands may contact contaminated surfaces afterward. "
         "GP41 infection prevention includes hand hygiene when moving from patient care to paperwork and transport.",
@@ -506,12 +506,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What can happen when EDTA hematology tubes are placed in direct contact with ice before CBC analysis?",
-        "May alter cell morphology unless the laboratory manual requires cold transport",
+        "What can happen when lavender EDTA tubes for hematology are transported on direct wet ice before CBC analysis?",
+        "Altered red-cell morphology and indices unless the test manual specifies cold transport",
         [
-            "Is standard practice for all complete blood counts before analysis",
-            "Prevents clot formation in serum separator tubes during transport",
-            "Replaces gentle end-over-end mixing after blood collection",
+            "Improved platelet clumping control on every complete blood count before analysis",
+            "Prevention of clot formation in serum separator tubes during the same courier bag",
+            "Elimination of the need for gentle inversion mixing immediately after collection",
         ],
         "Cold can affect MCV and other indices on some analyzers. "
         "Unless the test manual specifies cold transport, GP41 default is room temperature delivery within stability limits.",
@@ -520,12 +520,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "When batching multiple patients' specimens in one bag for courier pickup, what is required?",
-        "Requires each tube to remain individually labeled and segregated per policy",
+        "When multiple patients' specimens are batched in one courier bag, which packaging rules still apply?",
+        "Each container remains individually labeled with leak-proof secondary segregation per policy",
         [
-            "Allows removing labels to save space",
-            "Permits mixing serum and urine without secondary bags",
-            "Eliminates temperature requirements for all contents",
+            "Patient labels may be removed inside the shared bag when tube colors differ",
+            "Serum, plasma, and urine from different patients may share one open pouch",
+            "Temperature monitors and ice requirements do not apply once specimens are batched together",
         ],
         "Batch transport still demands patient-specific identification on every container. "
         "GP41 traceability extends through courier handoff with leak-proof secondary containment.",
@@ -534,12 +534,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "What rechecking the requisition against collected tubes before leaving the patient helps how?",
-        "Catch missing tubes or wrong tests before the patient departs",
+        "Why should staff reconcile the requisition against collected tubes before leaving the patient?",
+        "To catch missing tubes, wrong tests, or tube-type errors before the patient leaves the care area",
         [
-            "Replace two-identifier patient verification",
-            "Eliminate the need for laboratory accessioning",
-            "Allow unlabeled tubes if the count matches",
+            "To substitute for two-identifier verification when the patient confirms their name aloud",
+            "To bypass laboratory accessioning when every ordered tube color is present in the carrier",
+            "To permit unlabeled tubes when the number of tubes matches the requisition line count",
         ],
         "A brief reconciliation reduces callbacks and repeat venipunctures. "
         "GP41 quality practices combine identification, order match, and correct tube type at the bedside.",
@@ -548,12 +548,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "Why is delaying plasma separation from cells in a heparin tube problematic for ammonia-like assays?",
-        "Can falsely change results as cells metabolize analytes",
+        "Why is delaying plasma separation from cells in a heparin or green-top tube problematic for ammonia and similar unstable assays?",
+        "Cellular metabolism in whole blood falsely changes plasma analyte concentrations before analysis",
         [
-            "Only affects urine color without changing chemistry",
-            "Improves accuracy by concentrating cells",
-            "Is recommended for all routine electrolyte panels",
+            "Delay affects urine color on paired specimens but not plasma chemistry concentrations",
+            "Prolonged contact with cells improves ammonia accuracy by concentrating erythrocyte metabolites",
+            "Delayed spin is acceptable for routine electrolyte panels when the tube remains capped",
         ],
         "Cellular metabolism continues until centrifugation separates plasma. "
         "GP41 processing emphasizes prompt spin and aliquot for unstable plasma analytes.",

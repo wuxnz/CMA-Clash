@@ -66,3 +66,15 @@ Summaries of fact-check and distractor plausibility work on hand-authored seed b
 - **cpr-aed-050:** AED-replaces-compressions, hospital-only shock, and prolonged-CPR-first near-misses balanced to early shock plus CPR key.
 
 **Counts:** 29 items reviewed; **28** items received distractor and/or key wording edits; **1** item (022) unchanged. No factual key changes.
+
+## Phleb handling batch 08 (026–039)
+
+**Scope:** `classquiz/seed/banks/phleb/handling.py` items **phleb-handling-026** through **phleb-handling-039** (14 facts), plus a light distractor pass on **001–025**.
+
+**Stems:** Replaced fragment anchors (`maintaining flow helps?`, `time on the label matters for what reason?`, `rechecking … helps how?`, underfilled citrate double-what) with full GP41-aligned questions. STAT, wrong-tube, courier ice, and bedside reconciliation items now read as complete clinical stems.
+
+**1-in-5 / near-miss:** Distractors emphasize confusable preanalytic myths—gray-tube glucose stability, pour-over ratio “fixes,” acceptable underfill coagulation, butterfly clamp/pause habits, stat label shortcuts, primary-tube freezing, EDTA-on-ice CBC practice, batched courier delabeling, and delayed plasma spin for electrolytes. Removed joke or giveaway options (stat pour encouraged, skip labels, wrong-patient tubes, INR on gray, urinalysis/ABG on citrate underfill).
+
+**001–025 touch:** **phleb-handling-021** duplicate POC-log distractor replaced with shift lot batch logging near-miss; remainder unchanged after batch-07 second pass.
+
+**Counts:** 14 items rewritten; **1** additional distractor fix in 001–025. Keyed clinical answers preserved; glucose-delay key clarified as falsely lowered glucose from continued glycolysis.

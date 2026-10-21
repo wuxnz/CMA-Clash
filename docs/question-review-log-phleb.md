@@ -185,3 +185,21 @@ phleb-additives-026–050 | fail | Parallel options; ammonia warm lavender key f
 phleb-site-001–042 | fail | Removed every/regardless/maximal tells; one-clause near-miss distractors.
 phleb-handling-001–025 | fail | Parallel transport/centrifuge/label near-misses; removed regardless/every tells.
 
+## Phleb rewrite batch 08 (phleb-handling-026 to 039)
+
+phleb-handling-026 | fail | Gray glucose delay glycolysis stem; parallel stable-glucose and fluoride-K near-misses; removed INR-on-gray joke.
+phleb-handling-027 | fail | GP41 pour-transfer prohibition stem; parallel citrate top-off, culture-only, serum-into-citrate near-misses.
+phleb-handling-028 | fail | Underfilled citrate ratio stem; parallel CBC-on-citrate, chemistry-on-partial, lab-recentrifuge PT myths.
+phleb-handling-029 | fail | Butterfly continuous-flow stem; parallel clamp-between-tubes, pause-for-air, accept-underfill near-misses.
+phleb-handling-030 | fail | Label draw-time GP41 stem; parallel barcode-optional, TDM-only, stat-omit near-misses.
+phleb-handling-031 | fail | Wrong-tube error-policy stem; parallel pour-over, freeze-send, silent-cancel distractors.
+phleb-handling-032 | fail | STAT same-rules stem; parallel abbreviated label, relaxed temp, prelabeled-next-patient near-misses.
+phleb-handling-033 | fail | Send-out freeze-thaw stem; parallel primary-EDTA freeze, refreeze loop, room-hold near-misses.
+phleb-handling-034 | fail | Wet ice vs gel pack courier stem; parallel nearest-pack, no-ice-ever, dry-ice-all near-misses.
+phleb-handling-035 | fail | Hand hygiene post-draw stem; full-sentence options; parallel gloves-only, label-substitute, stat-defer.
+phleb-handling-036 | fail | EDTA on ice CBC stem; parallel platelet-clump, SST clot, skip-inversion near-misses.
+phleb-handling-037 | fail | Multi-patient courier batch stem; parallel delabel, mixed-fluid pouch, no-temp-monitor near-misses.
+phleb-handling-038 | fail | Bedside requisition reconciliation stem; fixed helps-how fragment; parallel ID-substitute, skip-accession, unlabeled-count.
+phleb-handling-039 | fail | Delayed heparin plasma separation stem; parallel urine-color, concentrate-cells, electrolyte-delay near-misses.
+phleb-handling-021 | pass | POC log distractor: replaced duplicate serial-number option with shift lot batch near-miss.
+
