@@ -201,6 +201,21 @@ def test_cpr_distractors_lack_absurd_patterns():
     assert not hits, f"CPR absurd distractors: {hits[:12]}"
 
 
+def test_cpr_phleb_distractors_lack_implausible_joke_patterns():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        topic = fact["topic"]
+        if not (topic.startswith("cpr-") or topic.startswith("phleb-")):
+            continue
+        for choice in fact["distractors"]:
+            for pat in _CPR_PHLEB_IMPLAUSIBLE_DISTRACTOR_PATTERNS:
+                if pat.search(choice):
+                    hits.append(f"{topic}: {choice[:72]}")
+    assert not hits, f"Implausible CPR/phleb distractors: {hits[:15]}"
+
+
 def test_cpr_phleb_distractors_lack_exaggeration_tells():
     from classquiz.seed.banks import load_all_facts
 

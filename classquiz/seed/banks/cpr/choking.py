@@ -277,7 +277,7 @@ FACTS: list[dict] = [
         "How can a responsive patient help you distinguish choking from an acute coronary syndrome at the bedside?",
         "Choking often begins suddenly while eating with throat clutching, whereas heart attack more often features chest pressure or discomfort",
         [
-            "Choking and myocardial infarction present with identical symptoms in every conscious patient",
+            "Choking and heart attack always present with the same throat and chest symptoms",
             "Choking cannot occur during meals or while chewing food in a seated adult",
             "Heart attack always causes isolated throat clutching without chest pressure or diaphoresis",
         ],

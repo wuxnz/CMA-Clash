@@ -201,7 +201,7 @@ FACTS: list[dict] = [
         [
             "Yes; palpate the femoral pulse for at least one full minute before compressions",
             "Yes; obtain a blood pressure cuff reading before restarting chest compressions",
-            "No; remove pads permanently because a single shock restores full circulation",
+            "No; remove the pads after one shock because circulation should be restored",
         ],
         "AHA BLS emphasizes immediate post-shock compressions because perfusion is often still inadequate. Pads remain for repeated analysis, and a single shock does not guarantee return of circulation.",
         _REF,

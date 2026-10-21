@@ -701,11 +701,11 @@ FACTS: list[dict] = [
  "cpr-infant",
  "A premature infant in the home develops unresponsiveness and apnea. Pulse is absent after a "
  "brief brachial check. What BLS care applies?",
- "Provide infant CPR with appropriate ratio for rescuer number, using gentle but effective compressions and ventilations",
+ "Start infant CPR with gentle compressions and ventilations at the ratio for rescuer number",
  [
- "Defer all CPR because prematurity makes resuscitation futile",
- "Ventilate only without compressions even when pulse is absent after the check",
- "Use adult 30:2 on the mother's chest instead of the infant",
+ "Delay CPR until EMS arrives because the infant was born prematurely",
+ "Provide ventilations without compressions when pulse is absent after the check",
+ "Use two-thumb compressions on the caregiver while the infant is held upright",
  ],
  "Premature infants receive standard infant BLS when arrest criteria are met; gentleness does "
  "not mean withholding CPR. Ventilation-only care fails when pulse is absent. CPR must be "
