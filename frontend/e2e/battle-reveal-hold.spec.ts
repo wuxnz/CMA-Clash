@@ -2,9 +2,39 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import path from 'node:path';
 import { installLiveApiProxy } from './helpers/liveApiProxy';
+
+async function joinBattleLobby(page: Page, code: string, nickname: string): Promise<void> {
+	await page.goto(`/battle/${code}`);
+	await page.getByPlaceholder(/nickname/i).fill(nickname);
+	await page.getByRole('button', { name: /join battle/i }).click();
+	await expect(page.getByTestId('battle-lobby-players').getByText(nickname)).toBeVisible({
+		timeout: 30_000
+	});
+}
+
+async function waitForBattleQuestions(page: Page, label: string): Promise<void> {
+	await page.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
+	await expect(
+		page.getByText(/not connected to the game server/i),
+		`${label}: no socket error`
+	).toHaveCount(0);
+	const connecting = page.getByText(/connecting to game server/i);
+	if (await connecting.isVisible().catch(() => false)) {
+		await expect(connecting).toBeHidden({ timeout: 120_000 });
+	}
+	const submit = page.getByRole('button', { name: /submit/i });
+	for (let i = 0; i < 45; i++) {
+		if (await page.getByTestId('answer-tiles').isVisible().catch(() => false)) break;
+		if (await submit.isEnabled().catch(() => false)) {
+			await submit.click();
+		}
+		await page.waitForTimeout(1500);
+	}
+	await expect(page.getByTestId('answer-tiles'), label).toBeVisible({ timeout: 120_000 });
+}
 
 const ARTIFACT_DIR =
 	process.env.PLAYWRIGHT_ARTIFACT_DIR ?? '/opt/cursor/artifacts/battle-reveal-hold';
@@ -22,23 +52,18 @@ test.describe('battle reveal hold', () => {
 		await expect(hostPage).toHaveURL(/\/battle\/\d+/, { timeout: 30_000 });
 		const code = new URL(hostPage.url()).pathname.split('/').pop()!;
 
-		await hostPage.goto(`/battle/${code}`);
-		await hostPage.getByPlaceholder(/nickname/i).fill('HoldHost');
-		await hostPage.getByRole('button', { name: /join battle/i }).click();
+		await joinBattleLobby(hostPage, code, 'HoldHost');
 
 		const guestContext = await browser.newContext({ viewport: { width: 390, height: 844 } });
 		await installLiveApiProxy(guestContext);
 		const guestPage = await guestContext.newPage();
-		await guestPage.goto(`/battle/${code}`);
-		await guestPage.getByPlaceholder(/nickname/i).fill('HoldGuest');
-		await guestPage.getByRole('button', { name: /join battle/i }).click();
+		await joinBattleLobby(guestPage, code, 'HoldGuest');
 
 		await hostPage.getByRole('button', { name: /start battle/i }).click();
-		await hostPage.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
-		await guestPage.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
+		await waitForBattleQuestions(hostPage, 'host Q1');
+		await waitForBattleQuestions(guestPage, 'guest Q1');
 
-		const answerTiles = (page: import('@playwright/test').Page) => page.getByTestId('answer-tiles');
-		await expect(answerTiles(hostPage)).toBeVisible({ timeout: 120_000 });
+		const answerTiles = (page: Page) => page.getByTestId('answer-tiles');
 		await answerTiles(hostPage).locator('button').first().click();
 		await answerTiles(guestPage).locator('button').first().click();
 
