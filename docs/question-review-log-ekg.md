@@ -18,7 +18,7 @@ Format: `id | pass | notes`
 
 **Batches 01–06 sweep:** Removed giveaway parentheticals on distractors; balanced option lengths where the keyed answer was longest; strengthened swapped-arm near-miss distractors (leads-023).
 
-**Length / position (all 253 EKG, hand-fixed):** Removed auto `normalize_abcd_choice_lengths` (banned). Rebalanced choice text in source files only: leads 34, rhythm 30, intervals 31, artifacts 29, cardiac-ap 28, acls-basics 26 (**178** items). Tests: uniquely-longest on authored text; no `BANNED_BALANCE_SUFFIXES`. ABCD shuffle at seed + live/battle start unchanged; audit via `scripts/random_tier_samples.py <seed> mix`.
+**Length / position (all 253 EKG, hand-fixed):** Removed auto `normalize_abcd_choice_lengths` (banned). Pass 1 rebalanced uniquely-longest (**178** items). Pass 2 fixed short-label giveaway and stem-contradicting padded distractors (**62** more items logged under pass-2 sections). Tests: uniquely-longest, uniquely-short (&lt;60% mean distractor length), no `BANNED_BALANCE_SUFFIXES`. ABCD shuffle unchanged; audit via `scripts/random_tier_samples.py <seed> mix`.
 
 **Every batch:** No parenthetical labels on distractors; parallel option length; correct answer does not restate the stem; stem clues must not make a distractor defensible.
 
