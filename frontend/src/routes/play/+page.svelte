@@ -25,9 +25,13 @@ SPDX-License-Identifier: MPL-2.0
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import {
 		hasActiveQuestion,
+		hasChoiceTileAnswers,
 		isKahootStyleMode,
-		normalizeGamePayload
+		normalizeGameMode,
+		normalizeGamePayload,
+		questionFromSocketPayload
 	} from '$lib/play/live-game';
+	import { applyQuestionResultScores, scoreDeltaForUser } from '$lib/play/live-scoring';
 	import {
 		applyClockSync,
 		parseQuestionTiming,
@@ -80,6 +84,8 @@ SPDX-License-Identifier: MPL-2.0
 	let clockOffsetMs = $state(0);
 	let streak = $state(0);
 	let prevRanks: Record<string, number> = {};
+	let lastScoreAppliedQuestionIndex: number | null = $state(null);
+	let pointsThisRound = $state(0);
 
 	let cert_label = $state<string | null>(null);
 	let topic_label = $state<string | null>(null);
@@ -163,7 +169,7 @@ SPDX-License-Identifier: MPL-2.0
 		});
 		const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
 		const json = await res.json();
-		game_mode = json.game_mode;
+		game_mode = normalizeGameMode(json.game_mode) ?? json.game_mode;
 	});
 
 	// Socket-events
@@ -173,7 +179,7 @@ SPDX-License-Identifier: MPL-2.0
 			gameMeta.started = true;
 		}
 		if (gameData?.game_mode != null) {
-			game_mode = gameData.game_mode;
+			game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 		}
 		// eslint-disable-next-line no-undef
 		plausible('Joined Game', { props: { game_id: gameData?.game_id } });
@@ -187,7 +193,7 @@ SPDX-License-Identifier: MPL-2.0
 			gameMeta.started = true;
 		}
 		if (gameData?.game_mode != null) {
-			game_mode = gameData.game_mode;
+			game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 		}
 	});
 
@@ -207,10 +213,11 @@ SPDX-License-Identifier: MPL-2.0
 	socket.on('set_question_number', (data) => {
 		solution = undefined;
 		restart();
-		question = data.question;
+		question = questionFromSocketPayload(data as Record<string, unknown>);
 		question_index = data.question_index;
 		answer_results = undefined;
 		selectedAnswer = undefined;
+		pointsThisRound = 0;
 		prevRanks = Object.fromEntries(
 			Object.keys(scores)
 				.sort(
@@ -240,13 +247,15 @@ SPDX-License-Identifier: MPL-2.0
 		restart();
 		answer_results = data;
 		if (Array.isArray(data)) {
-			const next = { ...scores };
-			for (const row of data) {
-				const name = row?.username;
-				if (!name) continue;
-				next[name] = (Number(next[name]) || 0) + (Number(row.score) || 0);
-			}
-			scores = next;
+			pointsThisRound = scoreDeltaForUser(data, username);
+			const applied = applyQuestionResultScores(
+				scores,
+				data,
+				question_index,
+				lastScoreAppliedQuestionIndex
+			);
+			scores = applied.scores;
+			lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
 			const mine = data.find((r) => r.username === username);
 			const right =
 				mine?.right === true || mine?.right === 'true' || mine?.right === 1;
@@ -380,14 +389,15 @@ SPDX-License-Identifier: MPL-2.0
 						syncPlayerClock();
 					}}
 				/>
-			{:else if question?.answers && isKahootStyleMode(game_mode)}
+			{:else if hasChoiceTileAnswers(question)}
 				<AnswerTiles
 					question={question.question}
 					answers={Array.isArray(question.answers) ? question.answers : []}
 					remainingSeconds={remainingLive}
 					totalSeconds={remainingTime}
 					interactive={true}
-					hideQuestion={false}
+					showRing={false}
+					hideQuestion={isKahootStyleMode(game_mode)}
 					selected={selectedAnswer}
 					onSelect={pickAnswer}
 				/>
@@ -416,7 +426,7 @@ SPDX-License-Identifier: MPL-2.0
 					distribution={playerDistribution}
 					isPlayer={true}
 					correct={isRightFlag(playerMine?.right)}
-					points={Number(playerMine?.score ?? 0)}
+					points={pointsThisRound}
 					{streak}
 				/>
 			{:else if livePhase === 'rankings'}

@@ -35,6 +35,11 @@ SPDX-License-Identifier: MPL-2.0
 	if (browser) {
 		pathname.set(window.location.pathname);
 		document.documentElement.classList.add('dark');
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.getRegistrations().then((regs) => {
+				for (const reg of regs) reg.unregister();
+			});
+		}
 		import('lenis').then(({ default: Lenis }) => {
 			if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 			const lenis = new Lenis({ smoothWheel: true });

@@ -49,11 +49,10 @@ test.describe('live host navbar flow', () => {
 		const p1 = await joinPlayer(await browser.newContext(), pin, 'PlayerA1');
 		const p2 = await joinPlayer(await browser.newContext(), pin, 'PlayerA2');
 
-		await hostPage.getByRole('button', { name: /start game/i }).click({ timeout: 90_000 });
+		await hostPage.getByTestId('lobby-start-game').click({ timeout: 90_000 });
 
-		await expect(p1.locator('button').filter({ hasText: /.+/ }).first()).toBeVisible({
-			timeout: 90_000
-		});
+		await expect(p1.getByTestId('answer-tiles')).toBeVisible({ timeout: 90_000 });
+		await expect(p1.locator('svg circle[r="18"]')).toHaveCount(0);
 
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'live-host-standard-mobile.png'),
@@ -80,8 +79,9 @@ test.describe('live host navbar flow', () => {
 		const pin = await startFromNavbarHost(hostPage, 'On player devices');
 		const playerPage = await joinPlayer(await browser.newContext(), pin, 'PlayerB1');
 
-		await hostPage.getByRole('button', { name: /start game/i }).click({ timeout: 90_000 });
+		await hostPage.getByTestId('lobby-start-game').click({ timeout: 90_000 });
 		await expect(hostPage.getByText(/Players see the question/i)).toBeVisible({ timeout: 90_000 });
+		await expect(playerPage.getByTestId('answer-tiles')).toBeVisible({ timeout: 90_000 });
 		await expect(playerPage.getByText(/Which|Is|Do/i).first()).toBeVisible({ timeout: 90_000 });
 
 		await hostPage.screenshot({

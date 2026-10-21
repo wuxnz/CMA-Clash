@@ -200,7 +200,7 @@ SPDX-License-Identifier: MPL-2.0
 						>
 							{@html normalizeQuizText(question.question)}
 						</h1>
-						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={true} />
+						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={false} />
 					</div>
 				{:else}
 					<div

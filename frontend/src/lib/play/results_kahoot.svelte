@@ -34,20 +34,7 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	let { scores = $bindable(), question_results, username, question }: Props = $props();
-	let score_by_username = $state({});
 
-	if (JSON.stringify(scores) === '{}') {
-		for (const i of question_results) {
-			scores[i.username] = 0;
-		}
-	}
-	for (const i of question_results) {
-		score_by_username[i.username] = i.score;
-	}
-	for (const u of Object.keys(score_by_username)) {
-		scores[u] = (score_by_username[u] ?? 0) + (scores[u] ?? 0);
-	}
-	scores = scores;
 	let sorted_scores = $derived(sortObjectbyValue(scores));
 
 	let answerDistribution = $derived.by(() => {

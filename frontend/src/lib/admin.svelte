@@ -26,6 +26,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { normalizeQuizText } from '$lib/cma/text';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import { isKahootStyleMode } from '$lib/play/live-game';
+	import { applyQuestionResultScores } from '$lib/play/live-scoring';
 	import {
 		applyClockSync,
 		parseQuestionTiming,
@@ -53,6 +54,7 @@ SPDX-License-Identifier: MPL-2.0
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let prevRanks: Record<string, number> = {};
+	let lastScoreAppliedQuestionIndex: number | null = $state(null);
 	let questionTiming = $state<QuestionTiming | null>(null);
 	let clockOffsetMs = $state(0);
 
@@ -129,13 +131,14 @@ SPDX-License-Identifier: MPL-2.0
 		game_state.question_results = data;
 		game_state.timer_res = '0';
 		if (Array.isArray(data)) {
-			const next = { ...(game_state.player_scores ?? {}) };
-			for (const row of data) {
-				const name = row?.username;
-				if (!name) continue;
-				next[name] = (Number(next[name]) || 0) + (Number(row.score) || 0);
-			}
-			game_state.player_scores = next;
+			const applied = applyQuestionResultScores(
+				game_state.player_scores ?? {},
+				data,
+				game_state.shown_question_now ?? game_state.selected_question,
+				lastScoreAppliedQuestionIndex
+			);
+			game_state.player_scores = applied.scores;
+			lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
 		}
 		livePhase = 'reveal';
 		clearTimeout(revealTimer);
