@@ -44,9 +44,9 @@ FACTS: list[dict] = [
         "What must be included in an exposure control plan for bloodborne pathogens?",
         "Exposure determination, engineering and work practice controls, PPE, and post-exposure procedures",
         [
-            "Marketing slogans for seasonal clinic promotion flyers in routine outpatient care during the same clinic visit",
-            "Menu plans for the staff cafeteria without safety content",
-            "Patient satisfaction survey questions about parking availability",
+            "Annual supply budget targets without task-specific hazard controls",
+            "Staff vacation rotation schedules with no exposure determination",
+            "General HIPAA brochure text copied without work-practice controls",
         ],
         "OSHA expects a written plan tying hazards to controls and follow-up care. Non-safety administrative content does not satisfy the standard.",
         [S.OSHA_BBP],
@@ -198,8 +198,8 @@ FACTS: list[dict] = [
         "What information should post-exposure evaluation include after a blood splash to nonintact skin?",
         "Source patient status when available, employee baseline labs, and follow-up testing schedule",
         [
-            "The employee's favorite antibiotic chosen without physician input",
-            "Parking validation for the follow-up visit without clinical labs in routine outpatient care during the same clinic visit",
+            "The employee's preferred antibiotic started before occupational health is contacted",
+            "Copayment balance and insurance authorization numbers for the employee account",
             "Hallway bulletin post describing the incident with patient identifiers",
         ],
         "Medical follow-up documents exposure route and guides prophylaxis decisions. Self-selected drugs and public posts are not substitutes for clinical evaluation.",
@@ -508,7 +508,7 @@ FACTS: list[dict] = [
         [
             "No training because waste is sealed in red bags",
             "Street clothes without gloves for all trash regardless of label",
-            "Self-teaching by reading signs posted in the parking lot",
+            "Relying on a one-page orientation handout without documented competency",
         ],
         "All workers with exposure risk need training and PPE, including environmental services. Sealed bags can still leak or puncture.",
         [S.OSHA_BBP],

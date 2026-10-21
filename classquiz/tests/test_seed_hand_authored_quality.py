@@ -108,6 +108,8 @@ _SKILL_ABSURD_DISTRACTOR_PATTERNS = _GLOBAL_BANNED_DISTRACTOR_PATTERNS + [
     re.compile(r"\bparking\s+spot\b", re.I),
     re.compile(r"\bplacebo\b", re.I),
     re.compile(r"\bwindowsill\b", re.I),
+    re.compile(r"\bfootwear\b", re.I),
+    re.compile(r"\bloudspeaker\b", re.I),
 ]
 _DASH_CHECK_CERT_PREFIXES = (
     "cpr-",

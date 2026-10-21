@@ -478,9 +478,9 @@ FACTS: list[dict] = [
         "What does patient teach-back after new medication counseling help confirm?",
         "Understanding of dose, route, timing, and side effects to report",
         [
-            "That the patient prefers generic over brand names",
-            "Staff break schedules for the week when the clinic is behind schedule and checks are abbreviated",
-            "Parking validation for the next visit",
+            "That the patient prefers generic over brand names on the prescription",
+            "That the patient brought all home medication bottles to the visit",
+            "The date and time of the next follow-up appointment at check-in",
         ],
         "Teach-back reveals misunderstandings before the patient leaves. It is a structured safety communication tool.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],

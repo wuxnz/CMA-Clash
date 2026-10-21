@@ -380,9 +380,9 @@ FACTS: list[dict] = [
         "What does a requisition form communicate to the laboratory?",
         "Ordered tests, clinical information, collection time, and patient identifiers",
         [
-            "Staff break schedules for the phlebotomy team that day",
-            "Parking validation codes for the patient's next visit in routine outpatient care",
-            "Color of the waiting room chairs for inventory tracking",
+            "Phlebotomy station phone extensions for the nursing unit that day",
+            "Patient appointment reminder scripts for front-desk scheduling",
+            "Waiting room chair inventory colors for facilities maintenance",
         ],
         "Requisitions link physical specimens to the correct test battery on the analyzer. Administrative trivia does not direct laboratory work.",
         [S.NHA_CPT, S.NHA_CCMA],

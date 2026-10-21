@@ -592,3 +592,16 @@ skill-emergency-aid-039 | fail | Near-miss distractors, full question stem, bala
 skill-emergency-aid-040 | fail | Near-miss distractors, full question stem, balanced option length, tier/explanation fix.
 skill-emergency-aid-041 | fail | Near-miss distractors, full question stem, balanced option length, tier/explanation fix.
 skill-emergency-aid-042 | fail | Near-miss distractors, full question stem, balanced option length, tier/explanation fix.
+
+## Rewrite batch 23 (quality stragglers and validator cleanup)
+
+skill-intake-021 | fail | Replaced vehicle or sports joke distractors with plausible incomplete family-history options; balanced correct-answer length.
+skill-intake-024 | fail | Replaced parking-lot distractor with screening and chronic-reflux near-misses; shortened stem answer text for length parity.
+skill-intake-042 | fail | Replaced footwear-brand distractor with deferring vitals and travel documentation near-miss.
+skill-injection-038 | fail | Reconstitution timing: near-miss prep and hold distractors; correct answer no longer uniquely longest.
+skill-injection-039 | fail | Epinephrine auto-injector stock: vault and pharmacy near-misses; balanced option lengths.
+skill-osha-bbp-003 | fail | Exposure control plan distractors now plausible administrative omissions instead of cafeteria or parking jokes.
+skill-osha-bbp-014 | fail | Post-exposure evaluation distractor replaced parking validation with billing near-miss; antibiotic choice reframed.
+skill-osha-bbp-036 | fail | Housekeeping training distractor replaced parking-lot signs with orientation-only near-miss.
+skill-specimen-lab-027 | fail | Requisition distractors replaced parking and chair-color jokes with scheduling and facilities near-misses.
+skill-med-safety-034 | fail | Teach-back distractors replaced parking and break-schedule jokes with appointment and med-bottle near-misses.
