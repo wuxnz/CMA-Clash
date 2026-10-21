@@ -229,7 +229,7 @@ FACTS: list[dict] = [
         [
             "They are always preferred over antecubital veins for comfort",
             "The patient has lymphedema precautions on that extremity",
-            "Large-volume blood cultures are ordered without exception",
+            "Hand veins are mandatory whenever blood culture bottles are ordered",
         ],
         "Distal veins may be more painful and have higher complication rates than antecubital sites. "
         "GP41 allows hand draws as a secondary option when primary sites cannot be used safely.",

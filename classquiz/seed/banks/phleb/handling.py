@@ -77,7 +77,7 @@ FACTS: list[dict] = [
         [
             "Direct sunlight exposure to prevent condensation",
             "Open caps to equalize temperature during transit",
-            "Room temperature for every analyte without exception",
+            "Ambient room temperature for all specimens regardless of analyte stability",
         ],
         "Stability windows differ for enzymes, gases, and cells. "
         "GP41 emphasizes delivering or storing specimens within defined preanalytic limits.",

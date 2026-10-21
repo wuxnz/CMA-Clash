@@ -408,7 +408,7 @@ FACTS: list[dict] = [
         'Periodic comparison of meter results to the laboratory should occur?',
         'On a schedule defined by the facility quality plan',
         [
-            'Never if the meter powers on',
+            'Only when the on-screen battery icon is full',
             'Only after patient discharge regardless of inpatient use',
             'Once per decade without documented rationale',
         ],

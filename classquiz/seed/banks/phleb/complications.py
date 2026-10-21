@@ -144,7 +144,7 @@ FACTS: list[dict] = [
         "Repeated sticks raise pain, hematoma, and nerve injury risk",
         [
             "Unlimited attempts are always safer for the patient",
-            "Only one attempt is allowed nationally without exception",
+            "A second qualified collector may never be involved regardless of patient distress",
             "Attempt limits apply only to pediatric patients",
         ],
         "CLSI and employer policies cap attempts before another qualified collector steps in. "
