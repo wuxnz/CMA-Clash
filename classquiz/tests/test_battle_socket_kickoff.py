@@ -47,12 +47,17 @@ async def test_battle_two_join_game_emits_start_and_question_zero(test_client) -
     quiz_id = quizzes[0]["id"]
     create = test_client.post(
         "/api/v1/clash/battles",
-        json={"quiz_id": quiz_id, "max_players": 2, "display_name": "HostGuest"},
+        json={"quiz_id": quiz_id, "max_players": 2},
     )
     assert create.status_code == 200, create.text
     lobby = create.json()
     code = lobby["battle_code"]
-    host_name = lobby["player_slots"][0]["username"]
+    host_join = test_client.post(
+        f"/api/v1/clash/battles/{code}/join",
+        json={"display_name": "HostGuest"},
+    )
+    assert host_join.status_code == 200, host_join.text
+    host_name = host_join.json()["player_slots"][0]["username"]
     join = test_client.post(
         f"/api/v1/clash/battles/{code}/join",
         json={"display_name": "GuestTwo"},

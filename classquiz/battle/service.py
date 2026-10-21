@@ -54,14 +54,11 @@ async def create_battle_lobby(
 
 
 async def create_battle_lobby_guest(
-    display_name: str,
     quiz_id: uuid.UUID,
     max_players: int = 4,
     certification_slug: str | None = None,
 ) -> BattleLobbyState:
-    name = display_name.strip()
-    if len(name) < 2:
-        raise ValueError("invalid_display_name")
+    """Guest host opens an empty lobby; they join once with a nickname on the lobby page."""
     guest_id = str(uuid.uuid4())
     host_secret = secrets.token_urlsafe(24)
     code = _generate_battle_code()
@@ -72,14 +69,7 @@ async def create_battle_lobby_guest(
         quiz_id=str(quiz_id),
         host_user_id=guest_id,
         max_players=max(2, min(max_players, 8)),
-        player_slots=[
-            {
-                "user_id": guest_id,
-                "username": name,
-                "ready": True,
-                "guest": True,
-            }
-        ],
+        player_slots=[],
         certification_slug=certification_slug,
         host_secret=host_secret,
         host_is_guest=True,

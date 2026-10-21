@@ -53,12 +53,18 @@ class TestAnonymousHost:
         quiz_id = quizzes[0]["id"]
         create = test_client.post(
             "/api/v1/clash/battles",
-            json={"quiz_id": quiz_id, "max_players": 2, "display_name": "HostGuest"},
+            json={"quiz_id": quiz_id, "max_players": 2},
         )
         assert create.status_code == 200, create.text
         lobby = create.json()
         code = lobby["battle_code"]
         assert lobby.get("host_secret")
+        assert lobby["player_slots"] == []
+        host_join = test_client.post(
+            f"/api/v1/clash/battles/{code}/join",
+            json={"display_name": "HostGuest"},
+        )
+        assert host_join.status_code == 200, host_join.text
         join = test_client.post(
             f"/api/v1/clash/battles/{code}/join",
             json={"display_name": "GuestTwo"},

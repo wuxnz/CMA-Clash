@@ -8,10 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Footer from '$lib/footer.svelte';
 	import { createBattle, type QuizBrowseItem } from '$lib/cma/client';
-	import {
-		setBattleGuestPlayerId,
-		setBattleHostSecret
-	} from '$lib/cma/battle-guest';
+	import { setBattleHostSecret } from '$lib/cma/battle-guest';
 	import { loadPublicQuizCatalogClient } from '$lib/cma/quiz-catalog';
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -27,7 +24,6 @@ SPDX-License-Identifier: MPL-2.0
 
 	let quizzes = $state<QuizBrowseItem[]>(data.quizzes ?? []);
 	let joinCode = $state('');
-	let hostName = $state('');
 	let loading = $state(false);
 	let error = $state('');
 	let catalogLoading = $state(true);
@@ -45,22 +41,13 @@ SPDX-License-Identifier: MPL-2.0
 	async function startBattle(quizId: string) {
 		loading = true;
 		error = '';
-		const name = hostName.trim();
-		if (name.length < 2) {
-			loading = false;
-			error = 'Enter your nickname (at least 2 characters) to host a battle.';
-			return;
-		}
-		const result = await createBattle(quizId, 4, name);
+		const result = await createBattle(quizId, 4);
 		loading = false;
 		if (!result.ok) {
 			error = result.detail ?? 'Could not create battle. Try again.';
 			return;
 		}
 		const lobby = result.data;
-		if (lobby.guest_player_id) {
-			setBattleGuestPlayerId(lobby.guest_player_id);
-		}
 		if (lobby.host_secret) {
 			setBattleHostSecret(lobby.battle_code, lobby.host_secret);
 		}
@@ -98,10 +85,7 @@ SPDX-License-Identifier: MPL-2.0
 		{/if}
 
 		<h2 class="text-sm font-semibold text-ink mb-2">Start a battle</h2>
-		<label class="block text-xs text-ink-muted mb-4">
-			Your nickname
-			<input class="ledger-input mt-1" bind:value={hostName} placeholder="Arena name" maxlength="32" />
-		</label>
+		<p class="text-xs text-ink-muted mb-4">Pick a quiz. You can set your nickname in the lobby if you are playing.</p>
 		<ul class="divide-y divide-white/[0.07]">
 			{#each quizzes as quiz (quiz.id)}
 				<li class="py-3 flex justify-between items-center gap-4 min-w-0">

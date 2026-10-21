@@ -28,11 +28,21 @@ SPDX-License-Identifier: MPL-2.0
 	let showCountdown = $state(false);
 	let error = $state('');
 	let joinName = $state('');
-	let joined = $state(false);
 	let isHost = $state(false);
+	let myUserId = $state<string | null>(null);
 	const reduced = prefersReducedMotion();
 
 	const code = $derived(page.params.code);
+
+	function amInLobby(l: BattleLobby | null): boolean {
+		if (!l?.player_slots?.length) return false;
+		const guestId = getBattleGuestPlayerId();
+		return l.player_slots.some(
+			(s) =>
+				(myUserId != null && s.user_id === myUserId) ||
+				(guestId != null && s.user_id === guestId)
+		);
+	}
 
 	function beginArenaCountdown() {
 		if (showCountdown) return;
@@ -55,20 +65,13 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	async function tryJoinLobby() {
-		const guestId = getBattleGuestPlayerId();
-		const result = await joinBattle(code, {
-			displayName: joinName.trim() || undefined,
-			guestPlayerId: guestId ?? undefined
-		});
+		if (myUserId == null) return;
+		const result = await joinBattle(code);
 		if (result.ok) {
-			joined = true;
 			if (result.data.guest_player_id) {
 				setBattleGuestPlayerId(result.data.guest_player_id);
 			}
 			lobby = result.data;
-			return;
-		}
-		if (result.status === 400 && result.detail?.includes('display_name')) {
 			return;
 		}
 		if (result.status !== 401) {
@@ -78,22 +81,22 @@ SPDX-License-Identifier: MPL-2.0
 
 	onMount(async () => {
 		isHost = Boolean(getBattleHostSecret(code));
-		if (!isHost) {
-			try {
-				const me = await fetch('/api/v1/users/me', { credentials: 'include' });
-				if (me.ok) {
-					const user = await me.json();
-					await refresh();
-					if (lobby && user?.id && lobby.host_user_id === user.id) {
-						isHost = true;
-					}
-				}
-			} catch {
-				/* guest */
+		try {
+			const me = await fetch('/api/v1/users/me', { credentials: 'include' });
+			if (me.ok) {
+				const user = await me.json();
+				myUserId = user?.id ?? null;
 			}
+		} catch {
+			/* guest */
 		}
 		await refresh();
-		await tryJoinLobby();
+		if (myUserId != null && lobby?.host_user_id === myUserId) {
+			isHost = true;
+		}
+		if (myUserId != null) {
+			await tryJoinLobby();
+		}
 		const id = setInterval(refresh, 2000);
 		return () => clearInterval(id);
 	});
@@ -106,12 +109,15 @@ SPDX-License-Identifier: MPL-2.0
 			error = 'Nickname must be at least 2 characters.';
 			return;
 		}
-		const result = await joinBattle(code, { displayName: name });
+		const guestId = getBattleGuestPlayerId();
+		const result = await joinBattle(code, {
+			displayName: name,
+			guestPlayerId: guestId ?? undefined
+		});
 		if (!result.ok) {
 			error = result.detail ?? 'Could not join. Check the code and try again.';
 			return;
 		}
-		joined = true;
 		if (result.data.guest_player_id) {
 			setBattleGuestPlayerId(result.data.guest_player_id);
 		}
@@ -145,7 +151,7 @@ SPDX-License-Identifier: MPL-2.0
 		lobby?.player_slots?.map((s) => s.username ?? 'Player').filter(Boolean) ?? []
 	);
 
-	let needsGuestJoin = $derived(!joined && playerNames.length < 2);
+	let needsJoinForm = $derived(lobby?.status === 'waiting' && !amInLobby(lobby));
 </script>
 
 <svelte:head>
@@ -174,16 +180,18 @@ SPDX-License-Identifier: MPL-2.0
 
 	<Card class="mt-12 max-w-md w-full relative z-10 !bg-surface text-ink" padding="md">
 		<p class="font-mono text-center text-lg tracking-widest mb-4">{code}</p>
-		<div class="flex flex-wrap gap-2 justify-center mb-6">
+		<div class="flex flex-wrap gap-2 justify-center mb-6" data-testid="battle-lobby-players">
 			{#each playerNames as name (name)}
 				<PlayerChip {name} />
 			{/each}
 		</div>
 		<p class="text-center text-sm text-ink-muted mb-4">Status: {lobby?.status ?? '…'}</p>
 
-		{#if needsGuestJoin && lobby?.status === 'waiting'}
+		{#if needsJoinForm}
 			<form class="mb-4 flex flex-col gap-2" onsubmit={handleJoinSubmit}>
-				<p class="text-sm text-ink-muted text-center">Enter a nickname to join this battle</p>
+				<p class="text-sm text-ink-muted text-center">
+					{isHost ? 'Enter a nickname to join as a player' : 'Enter a nickname to join this battle'}
+				</p>
 				<input
 					class="ledger-input text-center"
 					bind:value={joinName}

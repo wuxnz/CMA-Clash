@@ -276,16 +276,11 @@ async def api_create_battle(
         raise HTTPException(status_code=404, detail="quiz not found")
     if user is None:
         await rate_limit_request(request, "battle_create_anon", limit=20, window_sec=3600)
-        if not body.display_name or len(body.display_name.strip()) < 2:
-            raise HTTPException(status_code=400, detail="display_name required for guest battles")
         try:
-            lobby = await create_battle_lobby_guest(
-                body.display_name, quiz.id, body.max_players, body.certification_slug
-            )
+            lobby = await create_battle_lobby_guest(quiz.id, body.max_players, body.certification_slug)
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
-        guest_id = lobby.player_slots[0]["user_id"]
-        return _lobby_out(lobby, guest_player_id=guest_id, include_host_secret=True)
+        return _lobby_out(lobby, include_host_secret=True)
     lobby = await create_battle_lobby(user, quiz.id, body.max_players, body.certification_slug)
     return _lobby_out(lobby)
 
