@@ -47,7 +47,7 @@ const onJoinError = (payload?: { code?: string }) => activeHandlers?.onJoinError
 const onQuestionResults = guard((data: unknown) => activeHandlers?.onQuestionResults(data));
 const onUsernameAlreadyExists = () => activeHandlers?.onUsernameAlreadyExists();
 const onKick = () => activeHandlers?.onKick();
-const onFinalResults = guard((data: unknown) => activeHandlers?.onFinalResults(data));
+const onFinalResults = (data: unknown) => activeHandlers?.onFinalResults(data);
 const onSolutions = guard((data: unknown) => activeHandlers?.onSolutions(data));
 
 function installOnce(): void {

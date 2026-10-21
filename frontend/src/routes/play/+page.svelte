@@ -74,7 +74,7 @@ SPDX-License-Identifier: MPL-2.0
 		unbindPlayPageSocketHandlers
 	} from '$lib/play/play-page-socket';
 	import { browser } from '$app/environment';
-	import { onDestroy, onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -84,6 +84,13 @@ SPDX-License-Identifier: MPL-2.0
 	let { data }: Props = $props();
 	let game_pin = $state(data.game_pin ?? '');
 	let playSessionPin = $state('');
+
+	function playPayloadMatchesActivePin(data: unknown): boolean {
+		const payload = normalizeGamePayload(data) as { game_pin?: string } | undefined;
+		const payloadPin = normalizePlayPin(payload?.game_pin);
+		const active = normalizePlayPin(game_pin);
+		return payloadPin.length >= 6 && active.length >= 6 && payloadPin === active;
+	}
 
 	function resetPlayStateForPin(pin: string) {
 		game_pin = pin;
@@ -354,7 +361,8 @@ SPDX-License-Identifier: MPL-2.0
 		scheduleAdvanceResync(resultsIndex ?? (typeof question_index === 'number' ? question_index : null));
 	}
 
-	onMount(() => {
+	$effect.pre(() => {
+		if (!browser) return;
 		bindPlayPageSocketHandlers({
 			onTimeSync: (data) => {
 				socket.emit('echo_time_sync', data);
@@ -366,6 +374,7 @@ SPDX-License-Identifier: MPL-2.0
 				}
 			},
 			onJoinedGame: (data) => {
+				if (!playPayloadMatchesActivePin(data)) return;
 				gameData = normalizeGamePayload(data);
 				if (gameData?.started) {
 					gameMeta.started = true;
@@ -379,6 +388,7 @@ SPDX-License-Identifier: MPL-2.0
 				persistJoinedGameCookie(username, game_pin);
 			},
 			onRejoinedGame: (data) => {
+				if (!playPayloadMatchesActivePin(data)) return;
 				gameData = normalizeGamePayload(data);
 				if (gameData?.started) {
 					gameMeta.started = true;
@@ -423,6 +433,7 @@ SPDX-License-Identifier: MPL-2.0
 				window.location.reload();
 			},
 			onFinalResults: (data) => {
+				markPlaySocketBound(game_pin);
 				final_results = data;
 				const fromFinal = aggregateScoresFromFinalResults(data);
 				if (Object.keys(fromFinal).length > 0) {

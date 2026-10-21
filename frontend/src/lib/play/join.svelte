@@ -56,6 +56,8 @@ SPDX-License-Identifier: MPL-2.0
 	};
 	const onSocketDisconnect = () => {
 		socketConnected = false;
+		joining = false;
+		battleAutoJoinStarted = false;
 	};
 	const onGameNotFound = () => {
 		joining = false;
