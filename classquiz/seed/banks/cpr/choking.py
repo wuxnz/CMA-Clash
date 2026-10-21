@@ -93,7 +93,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-choking",
-        "Difference between mild and severe airway obstruction?",
+        "What is the difference between mild and severe airway obstruction?",
         "Effective cough vs poor air exchange and silent cough",
         [
             "Mild obstruction always causes immediate cyanosis and silence",

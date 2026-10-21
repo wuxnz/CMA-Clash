@@ -262,7 +262,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Order of draw still matters when glucose tubes are collected with other additives because?',
+        'Why does order of draw still matter when glucose tubes are collected with other additives?',
         'Carryover can corrupt coagulation, chemistry, or the glucose specimen itself',
         [
             'Tube sequence only affects urine cups',
@@ -457,7 +457,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Capillary glucose monitoring differs from venous laboratory plasma testing because?',
+        'How does capillary glucose monitoring differ from venous laboratory plasma testing?',
         'Sample type and pre-analytic factors may produce different numeric results',
         [
             'Meters internally standardize to arterial blood gas values',
