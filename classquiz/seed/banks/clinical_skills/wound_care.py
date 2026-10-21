@@ -26,14 +26,14 @@ FACTS: list[dict] = [
     # skill-wound-care-002
     fact(
         "skill-wound-care",
-        "Which solution is commonly ordered to irrigate a contaminated traumatic wound in clinic?",
-        "Sterile normal saline at appropriate pressure per training",
+        "Which irrigation solution is most often ordered for a contaminated traumatic wound in clinic?",
+        "Sterile normal saline",
         [
-            "Undiluted household bleach poured into the wound bed",
-            "Hydrogen peroxide instilled deep in tissue without an order",
-            "Unfiltered tap water as the routine agent for deep wounds",
+            "Hydrogen peroxide",
+            "Full-strength povidone-iodine",
+            "Sterile water",
         ],
-        "Saline removes debris with minimal tissue injury. Harsh agents can delay healing unless specifically directed by the provider.",
+        "Saline lavage clears debris with low tissue toxicity. Peroxide and full-strength iodine can irritate tissue, and water alone lacks the tonicity many protocols prefer for wound irrigation.",
         [S.NHA_CCMA, S.CDC_STANDARD_PRECAUTIONS],
         "beginner",
     ),

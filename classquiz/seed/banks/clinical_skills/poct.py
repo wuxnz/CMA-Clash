@@ -573,14 +573,14 @@ FACTS: list[dict] = [
     # skill-poct-041
     fact(
         "skill-poct",
-        "How should waived test results be shared with patients?",
-        "Per provider or protocol, with privacy safeguards and chart documentation",
+        "How should waived test results be relayed to the patient in clinic?",
+        "Review results privately in the exam room after charting per clinic workflow",
         [
-            "Left on the printer tray in the waiting area with the patient's name visible",
-            "Sent as plain text messages without verifying the recipient phone number",
-            "Released as abnormal values to the patient without provider review first",
+            "Post results to the patient portal before the provider sees the value",
+            "Give the printed result to a family member at the front desk",
+            "Verbally tell the patient a normal rapid strep result before logging it",
         ],
-        "Results need appropriate clinical context and HIPAA-conscious communication. Public announcement or unverified texting risks disclosure to the wrong person.",
+        "Private discussion after documentation protects confidentiality and allows clinical context. Early portal release, handing results to others, or verbal relay before charting breaks typical workflow and privacy safeguards.",
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
         "advanced",
     ),

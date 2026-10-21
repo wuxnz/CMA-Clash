@@ -321,14 +321,14 @@ FACTS: list[dict] = [
     # skill-specimen-lab-023
     fact(
         "skill-specimen-lab",
-        "When should a phlebotomist decline to draw from a site with an IV infusion running?",
-        "When blood below the IV may be diluted unless the provider orders a draw above the line",
+        "A peripheral IV is infusing in the patient's right forearm and venous blood is ordered. What is the best venipuncture plan?",
+        "Draw from the opposite arm or from a site proximal to the catheter per order",
         [
-            "Whenever any IV is present regardless of location, fluid type, or infusion status",
-            "When the patient prefers the opposite arm without medical reason or provider order",
-            "When a butterfly set is available but a standard vacutainer holder is not in the drawer",
+            "Draw from a vein distal to the IV on the same arm",
+            "Collect the sample through the IV hub without a separate venipuncture",
+            "Pause the infusion and use any visible hand vein on the same arm",
         ],
-        "Fluids infusing distal to the draw site dilute analytes. Above-the-IV draws or stopping infusion may be ordered when distal samples are invalid.",
+        "Blood drawn distal to a running IV is often diluted by infusate. The opposite extremity or a proximal site may be ordered when a distal stick would falsify results.",
         [S.CLSI_GP41, S.NHA_CPT],
         "advanced",
     ),
@@ -461,14 +461,14 @@ FACTS: list[dict] = [
     # skill-specimen-lab-033
     fact(
         "skill-specimen-lab",
-        "Which tube top color is associated with EDTA anticoagulant for hematology?",
-        "Lavender or purple stopper on the plastic tube",
+        "Which tube top color is used for EDTA anticoagulant in hematology collections?",
+        "Lavender or purple",
         [
-            "Royal blue stopper without EDTA for trace metal whole blood",
-            "Yellow stopper with acid citrate dextrose for blood banking",
-            "Orange stopper with thrombin for rapid serum in emergency panels",
+            "Light blue",
+            "Green",
+            "Gray",
         ],
-        "Lavender tops signal EDTA for CBC and many molecular whole blood tests. Other colors map to citrate, clot activator, or specialty additives.",
+        "Lavender or purple tops contain EDTA for CBC and many whole-blood hematology tests. Light blue is citrate for coagulation, green is heparin for plasma chemistry, and gray is fluoride for glucose preservation.",
         [S.CLSI_GP41, S.NHA_CPT],
         "beginner",
     ),

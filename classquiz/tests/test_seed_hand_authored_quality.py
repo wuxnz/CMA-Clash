@@ -111,6 +111,31 @@ _SKILL_ABSURD_DISTRACTOR_PATTERNS = _GLOBAL_BANNED_DISTRACTOR_PATTERNS + [
     re.compile(r"\bfootwear\b", re.I),
     re.compile(r"\bloudspeaker\b", re.I),
 ]
+# Correct answers that hedge with policy/training language telegraph the key.
+_SKILL_HEDGED_CORRECT_PATTERNS = [
+    re.compile(r"\bper\s+training\b", re.I),
+    re.compile(r"\bwhen\s+policy\s+requires\b", re.I),
+    re.compile(r"\bin\s+appropriate\s+patients\s+and\s+settings\b", re.I),
+    re.compile(r"\bper\s+provider\s+or\s+protocol\b", re.I),
+    re.compile(r"\bwhen\s+feasible\b", re.I),
+    re.compile(r"\bas\s+applicable\b", re.I),
+    re.compile(r"\bwhen\s+technique\s+is\s+correct\b", re.I),
+]
+# Distractors padded with obvious technique errors students would not pick.
+_SKILL_SELF_REFUTING_DISTRACTOR_PATTERNS = [
+    re.compile(r"\bhousehold\s+bleach\b", re.I),
+    re.compile(r"\bprinter\s+tray\b", re.I),
+    re.compile(r"\bwithout\s+asking\b", re.I),
+    re.compile(r"\bfavorite\s+brand\b", re.I),
+    re.compile(r"\brelative'?s\s+smoking\b", re.I),
+    re.compile(r"\bwithout\s+verifying\b", re.I),
+    re.compile(r"\bloosely\s+touching\b", re.I),
+    re.compile(r"\bwithout\s+hair\s+pulled\b", re.I),
+    re.compile(r"\bear\s+canal\s+wall\b", re.I),
+    re.compile(r"\bunfiltered\s+tap\s+water\b", re.I),
+    re.compile(r"\bpoured\s+into\b", re.I),
+    re.compile(r"\bwaiting\s+area\b.*\bname\s+visible\b", re.I),
+]
 _DASH_CHECK_CERT_PREFIXES = (
     "cpr-",
     "phleb-",
@@ -274,6 +299,34 @@ def test_skill_stems_no_trailing_colon_fragments():
         if _COLON_FRAGMENT_STEM.search(stem):
             bad.append(stem[:90])
     assert not bad, f"Skill colon-fragment stems: {bad[:12]}"
+
+
+def test_skill_correct_answers_lack_hedge_tells():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("skill-"):
+            continue
+        correct = fact["correct"]
+        for pat in _SKILL_HEDGED_CORRECT_PATTERNS:
+            if pat.search(correct):
+                hits.append(f"{fact['stem'][:55]}: {correct[:65]}")
+    assert not hits, f"Skill hedged correct answers: {hits[:12]}"
+
+
+def test_skill_distractors_not_self_refuting_padding():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("skill-"):
+            continue
+        for choice in fact["distractors"]:
+            for pat in _SKILL_SELF_REFUTING_DISTRACTOR_PATTERNS:
+                if pat.search(choice):
+                    hits.append(f"{fact['stem'][:50]}: {choice[:65]}")
+    assert not hits, f"Skill self-refuting distractors: {hits[:12]}"
 
 
 def test_skill_correct_answer_not_uniquely_longest():

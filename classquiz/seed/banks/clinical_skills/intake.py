@@ -222,14 +222,14 @@ FACTS: list[dict] = [
     # skill-intake-016
     fact(
         "skill-intake",
-        "What is appropriate documentation of tobacco use in social history?",
-        "Type, amount, quit date or current use, and pack-years when policy requires",
+        "Which tobacco documentation best supports clinical risk assessment?",
+        "Current, former, or never status with product, amount, and quit date if former",
         [
-            "Label every patient a nonsmoker without asking any tobacco screening questions",
-            "Record favorite brand names without documenting current use status",
-            "Copy a relative's smoking history into the patient's social history",
+            "Former smoker checked with no quit date or amount documented",
+            "Free-text note says occasional use with no product type listed",
+            "Tobacco field left blank because screening was skipped on a busy day",
         ],
-        "Quantified tobacco data guides cessation counseling and cardiovascular risk assessment. Assumed nonsmoking status misrepresents exposure and missed teachable moments.",
+        "Structured status, product, and exposure amount guide cessation counseling and cardiovascular risk. Incomplete checkboxes, vague occasional use, or skipped fields hide real exposure.",
         [S.NHA_CCMA],
         "intermediate",
     ),

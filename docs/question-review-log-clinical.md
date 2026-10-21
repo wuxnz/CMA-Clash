@@ -712,3 +712,12 @@ skill-vitals-039 | fail | MAP estimate distractors parallel incorrect formulas.
 skill-vitals-040 | fail | Hypertensive emergency BP pattern distractors parallel stable/normotensive near-misses.
 skill-vitals-041 | fail | Athlete bradycardia interpretation distractors parallel escalation myths; lab padding removed.
 skill-vitals-042 | fail | Abnormal vitals reporting timing distractors parallel delay/preferences; appointment padding removed.
+
+## Parallel-options pass P01b (sample audit fixes)
+
+skill-specimen-lab-033 | fail | Parallel tube colors: lavender correct; light blue, green, gray distractors.
+skill-specimen-lab-023 | fail | Stem aligned to IV venipuncture plan; parallel draw-site options.
+skill-wound-care-002 | fail | Parallel irrigation solutions without bleach or tap-water padding.
+skill-intake-016 | fail | Parallel tobacco documentation near-misses; removed hedge on correct.
+skill-poct-041 | fail | Parallel waived-result workflows; private exam-room correct answer.
+skill-vitals-035 | fail | Parallel temperature sites: rectal, oral, tympanic, temporal artery (confirmed after vitals pass).
