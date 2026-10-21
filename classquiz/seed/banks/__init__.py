@@ -5,7 +5,8 @@
 """Question fact banks for CMA Clash seed data."""
 
 from classquiz.seed import sources as S
-from classquiz.seed.fact_finalize import finalize_fact
+from classquiz.seed.fact_finalize import enrich_explanation, finalize_fact
+from classquiz.seed.fact_choice_hardening import apply_choice_hardening
 from classquiz.seed.stem_normalize import normalize_stem
 
 from .ccma import FACTS as CCMA_FACTS
@@ -75,4 +76,7 @@ def load_all_facts() -> list[dict]:
                 continue
             seen_stems.add(key)
             merged.append(finalized)
+    merged = apply_choice_hardening(merged)
+    for i, fact in enumerate(merged):
+        merged[i] = {**fact, "explanation": enrich_explanation(fact)}
     return merged

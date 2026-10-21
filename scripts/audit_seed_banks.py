@@ -32,6 +32,7 @@ def bootstrap():
     sys.modules["classquiz.seed"] = pkg
     _load("classquiz.seed.sources", SEED / "sources.py")
     _load("classquiz.seed.fact_finalize", SEED / "fact_finalize.py")
+    _load("classquiz.seed.fact_choice_hardening", SEED / "fact_choice_hardening.py")
     _load("classquiz.seed.stem_normalize", SEED / "stem_normalize.py")
     return _load("classquiz.seed.banks", SEED / "banks" / "__init__.py")
 

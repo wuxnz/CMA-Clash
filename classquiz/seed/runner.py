@@ -162,14 +162,15 @@ async def run_seed(force: bool = False) -> dict:
     titles_migrated = await migrate_seed_quiz_titles()
     topic_by_slug = await _ensure_certifications_and_topics()
     facts = load_all_facts()
-    by_topic: dict[str, list[dict]] = defaultdict(list)
+    by_topic_diff: dict[tuple[str, str], list[dict]] = defaultdict(list)
     for fact in facts:
-        by_topic[fact["topic"]].append(fact)
+        diff = fact.get("difficulty", "intermediate")
+        by_topic_diff[(fact["topic"], diff)].append(fact)
     quizzes_created = 0
     quizzes_updated = 0
     questions_seeded = 0
     expected_seed_slugs: set[str] = set()
-    for topic_slug, topic_facts in sorted(by_topic.items()):
+    for (topic_slug, difficulty), topic_facts in sorted(by_topic_diff.items()):
         topic = topic_by_slug.get(topic_slug)
         if topic is None:
             LOGGER.warning("Unknown topic slug in bank: %s", topic_slug)
@@ -178,10 +179,9 @@ async def run_seed(force: bool = False) -> dict:
         chunk_size = TOPIC_QUESTIONS_PER_QUIZ.get(topic_slug, QUIZ_BANK_SIZE)
         chunks = [topic_facts[i : i + chunk_size] for i in range(0, len(topic_facts), chunk_size)]
         for idx, chunk in enumerate(chunks):
-            seed_slug = f"quiz:{topic_slug}:{idx + 1}"
+            seed_slug = f"quiz:{topic_slug}:{difficulty}:{idx + 1}"
             expected_seed_slugs.add(seed_slug)
             questions = [_fact_to_question(f) for f in chunk]
-            difficulty = chunk[0].get("difficulty", "intermediate")
             title = f"{topic.name}: Set {idx + 1}"
             description = (
                 f"CMA Clash practice: {topic.name}. Exam-style multiple-choice questions with rationales."
