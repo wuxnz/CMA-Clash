@@ -66,6 +66,7 @@ _STEM_COMPLETE_CERT_PREFIXES = (
     "cpr-",
     "phleb-",
     "ekg-",
+    "ccma-",
 )
 _DASH_CHECK_CERT_PREFIXES = (
     "cpr-",
@@ -237,6 +238,13 @@ def test_phleb_distractors_lack_absurd_patterns():
                 if pat.search(choice):
                     hits.append(f"{pat.pattern} in {fact['stem'][:50]}: {choice[:70]}")
     assert not hits, f"Phlebotomy absurd distractors: {hits[:12]}"
+
+
+def test_ccma_cert_meets_minimum_hand_authored_floor():
+    from classquiz.seed.banks import load_all_facts
+
+    ccma = [f for f in load_all_facts() if f["topic"].startswith("ccma-")]
+    assert len(ccma) >= 479, f"CCMA cert has {len(ccma)} questions; floor is 479 hand-authored unique items"
 
 
 def test_ekg_cert_meets_minimum_hand_authored_floor():
