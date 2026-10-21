@@ -157,10 +157,10 @@ FACTS: list[dict] = [
         "Policies and behaviors such as no recapping and hand hygiene that reduce exposure",
         [
             "Devices and equipment that physically block contact with blood or other body fluids",
-            "Rules written into the exposure control plan and reviewed with staff at hire",
+            "Orientation sessions and training that teach staff about bloodborne pathogens",
             "Protective equipment worn on the hands and body during most patient procedures",
         ],
-        "Work practice controls are the behaviors and procedures that reduce exposure, such as not recapping and performing hand hygiene. Devices that block contact are engineering controls, and gloves or gowns are personal protective equipment.",
+        "Work practice controls are the behaviors and procedures that reduce exposure, such as not recapping and performing hand hygiene. Devices that block contact are engineering controls, gloves or gowns are personal protective equipment, and orientation sessions are administrative controls.",
         [S.OSHA_BBP],
         "beginner",
     ),

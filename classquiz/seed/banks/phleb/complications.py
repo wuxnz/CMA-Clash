@@ -14,25 +14,25 @@ _REF = [S.CLSI_GP41, S.NHA_CPT]
 FACTS: list[dict] = [
     fact(
         "phleb-complications",
-        "How is A hematoma after venipuncture best prevented?",
+        "How is a hematoma after venipuncture best prevented?",
         "Firm direct pressure after needle removal and careful needle technique",
         [
             "Massaging the puncture site vigorously right after needle withdrawal",
             "Bending the arm tightly without holding gauze over the site",
-            "Applying ice only while skipping any direct pressure on the vein",
+            "Applying ice briefly and releasing the arm without holding pressure",
         ],
         "CLSI emphasizes holding steady pressure on the site until bleeding stops so blood does not pool under the skin. "
-        "Massage or a tight bend without pressure can restart bleeding and enlarge the bruise.",
+        "Massaging the site, bending the arm tightly, and applying ice while releasing the arm can each restart bleeding and enlarge the bruise.",
         _REF,
         "beginner",
     ),
     fact(
         "phleb-complications",
-        "What is Blood pooling under the skin after venipuncture called?",
+        "What is blood pooling under the skin after venipuncture called?",
         "Hematoma",
         [
             "Syncope",
-            "Hemolysis in the collection tube only",
+            "Hemolysis of red cells inside the collection tube",
             "Arterial spasm without any bruising",
         ],
         "A hematoma is localized bleeding into tissues from vein wall trauma during or after the stick. "
@@ -47,7 +47,7 @@ FACTS: list[dict] = [
         [
             "About 5 seconds unless the patient requests more time",
             "No pressure if the needle was small gauge",
-            "Only until the gauze looks clean with no holding time",
+            "Until the gauze looks clean, with no set holding time",
         ],
         "Adequate pressure time lets the vein wall seal before the patient moves the arm. "
         "Anticoagulated or thrombocytopenic patients often need longer pressure per facility policy.",
@@ -56,11 +56,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "How is Infection at a venipuncture site best prevented?",
+        "How is infection at a venipuncture site best prevented?",
         "Hand hygiene and aseptic skin preparation before the stick",
         [
             "Reusing a cloth tourniquet on every patient without cleaning",
-            "Palpating veins with bare unwashed hands only",
+            "Palpating veins with bare hands that were not washed before the draw",
             "Blowing on the skin to dry disinfectant faster",
         ],
         "CLSI ties reliable results to proper skin antisepsis and clean technique that limits introduction of skin flora. "
@@ -70,7 +70,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "What does Repeated venipuncture at the same antecubital site increase the risk of?",
+        "What does repeated venipuncture at the same antecubital site increase the risk of?",
         "Sclerosis, scarring, and harder future access",
         [
             "Permanent enlargement of the vein for easier draws",
@@ -84,7 +84,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "How does A thrombosed or sclerosed vein on palpation typically feel on palpation?",
+        "How does a thrombosed or sclerosed vein feel on palpation?",
         "Hard, cord-like, and non-compressible",
         [
             "Soft, bouncy, and easily refillable",
@@ -98,25 +98,25 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "If the patient reports tingling or an electric shock sensation during the draw, you should?",
+        "If the patient reports tingling or an electric shock sensation during the draw, what should the collector do?",
         "Stop the procedure and assess for possible nerve contact",
         [
             "Advance the needle deeper to secure the vein",
-            "Ignore the symptom and finish all ordered tubes quickly",
+            "Continue the draw and finish the remaining tubes quickly",
             "Tighten the tourniquet until the sensation stops",
         ],
-        "Tingling or shooting pain may mean the needle is near a nerve; continuing increases injury risk. "
+        "Tingling or shooting pain may mean the needle is near a nerve, so advancing deeper, tightening the tourniquet, or rushing to fill the remaining tubes each raise injury risk. "
         "CLSI supports stopping, removing the needle, and selecting another site per policy.",
         _REF,
         "beginner",
     ),
     fact(
         "phleb-complications",
-        "When When a patient begins to faint during phlebotomy, occurs, what is the first priority?",
+        "When a patient begins to faint during phlebotomy, what is the first priority?",
         "Stop the draw and lower the patient safely to prevent injury",
         [
             "Complete the last tube while the patient remains standing",
-            "Leave the patient alone to sit on the floor unobserved",
+            "Leave the patient sitting on the floor without observation",
             "Continue holding the needle in the vein until tubes are full",
         ],
         "Vasovagal syncope can cause rapid loss of consciousness and fall injury. "
@@ -126,12 +126,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Petechiae appearing above the tourniquet often suggest?",
+        "What do petechiae appearing above the tourniquet often suggest?",
         "Prolonged or excessive tourniquet pressure",
         [
             "A successful draw with no technique concern",
-            "Hyperglycemia from the tourniquet alone",
-            "Normal finding that never requires assessment",
+            "Hyperglycemia caused by the tourniquet pressure",
+            "A normal finding that does not call for assessment",
         ],
         "Capillary rupture from stasis or high pressure can cause pinpoint hemorrhages. "
         "Release or reposition the tourniquet and document unexpected bleeding signs.",
@@ -143,11 +143,12 @@ FACTS: list[dict] = [
         "Why do most facilities limit the number of venipuncture attempts?",
         "Repeated sticks raise pain, hematoma, and nerve injury risk",
         [
-            "Unlimited attempts are always safer for the patient",
-            "A second qualified collector may never be involved regardless of patient distress",
-            "Attempt limits apply only to pediatric patients",
+            "Unlimited attempts are safer for the patient than a set limit",
+            "A second qualified collector is never brought in, whatever the patient's distress",
+            "Attempt limits apply to pediatric patients rather than to adults",
         ],
         "CLSI and employer policies cap attempts before another qualified collector steps in. "
+        "Unlimited attempts, withholding a second collector, and applying the cap to children alone each raise pain, hematoma, and nerve injury risk. "
         "Documentation of attempts guides safer recollection planning.",
         _REF,
         "beginner",

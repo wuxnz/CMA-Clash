@@ -349,11 +349,11 @@ FACTS: list[dict] = [
     fact(
         "skill-pharm-dosage",
         "A parent asks to measure children's acetaminophen with a dining spoon. What teaching aligns with safe outpatient dosing?",
-        "Provide or recommend an oral syringe marked in milliliters and show how to read the meniscus",
+        "Provide an oral syringe marked in milliliters and show how to read it",
         [
-            "Tell them any spoon from the drawer is exactly 5 mL",
-            "Convert milliliters to tablespoons without a measuring device",
-            "Estimate volume by how full the bottle feels when the package resembles another medication on the shelf",
+            "Tell them that any spoon from the kitchen drawer holds exactly 5 mL",
+            "Convert milliliters to tablespoons without using a measuring device",
+            "Estimate the volume by how full the bottle looks on the shelf",
         ],
         "Metric oral syringes improve accuracy for pediatric liquids. Household utensils are not standardized, so volume should be demonstrated on a labeled syringe.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],

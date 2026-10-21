@@ -84,10 +84,10 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "How many times should additive tubes be gently inverted after collection?",
-        "Five to ten gentle inversions per manufacturer and CLSI guidance",
+        "Five to ten gentle inversions of the tube after the draw",
         [
             "Vigorous shaking for thirty seconds to mix cells and clot",
-            "No inversion because gravity distributes additive within the hour",
+            "No inversion because gravity distributes the additive within the hour",
             "One inversion because excess mixing lyses all red cells",
         ],
         "Gentle inversion distributes anticoagulant without hemolyzing cells. Shaking can destroy samples and ruin analyte integrity.",
@@ -280,7 +280,7 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What should be done if blood stops flowing while drawing a light blue coagulation tube?",
-        "Adjust needle position gently or redraw at another site per facility policy",
+        "Adjust the needle position gently or redraw at another site",
         [
             "Fill the citrate tube halfway and dilute with saline from an IV flush syringe",
             "Switch to a lavender tube and send that tube for PT and INR testing instead",
@@ -350,7 +350,7 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What action reduces patient injury risk if venipuncture fails after one careful attempt?",
-        "Stop, apply pressure, and seek experienced help or another site per policy",
+        "Stop, apply pressure, and seek experienced help or another site",
         [
             "Probe deeply through muscle until blood returns in the syringe barrel",
             "Switch to a larger gauge needle in the same puncture hole without pressure",
@@ -448,13 +448,12 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What should staff document when a specimen cannot be collected as ordered?",
-        "Reason for cancellation, patient status, and notification per protocol",
+        "Reason for cancellation, patient status, and provider notification",
         [
-            "Silent failure so the lab assumes the draw is already in transit",
-            "A fabricated time stamp to match the scheduled collection window",
-            "The phlebotomist lunch order instead of the clinical cancellation reason",
-        ],
-        "Providers need accurate cancellation data to reorder or change care. False documentation delays diagnosis and treatment.",
+            "Nothing, since the lab assumes the draw is already in transit",
+            "A time stamp that matches the scheduled collection window",
+            "The specimen label with the draw time crossed out and no added note",
+        ],        "Providers need accurate cancellation data to reorder or change care. False documentation delays diagnosis and treatment.",
         [S.NHA_CPT, S.NHA_CCMA],
         "intermediate",
     ),
@@ -560,11 +559,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What should be done with a specimen that cannot be linked to a patient after labeling error?",
-        "Discard per policy and recollect after confirming identity",
+        "Discard the specimen and recollect after confirming identity",
         [
-            "Run the analyzer anyway and attach results to the busiest chart",
-            "Store indefinitely in the refrigerator without documentation",
-            "Ask coworkers to guess which patient was in the room earlier",
+            "Run the analyzer and attach the results to the busiest chart",
+            "Store the tube in the refrigerator until the correct patient is found",
+            "Ask the staff on shift to identify which patient was in that room",
         ],
         "Unlabeled or mismatched tubes are unsuitable for clinical decisions. Safe practice requires discard and redraw with verified identity.",
         [S.CLSI_GP41, S.NHA_CCMA],

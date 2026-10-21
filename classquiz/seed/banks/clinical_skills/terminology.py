@@ -299,7 +299,7 @@ FACTS: list[dict] = [
             "Once at bedtime each night",
             "As needed without a fixed schedule",
         ],
-        "TID is ter in die. BID is twice daily, HS is bedtime, and PRN is as needed.",
+        "TID is ter in die, meaning three times daily. BID is twice daily, HS is at bedtime, and PRN is as needed.",
         [S.NHA_CCMA],
         "intermediate",
     ),
