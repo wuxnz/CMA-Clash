@@ -82,7 +82,8 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	async function confirmDelete() {
-		if (!deleteTarget || deleteConfirm !== deleteTarget.username) {
+		const typed = deleteConfirm.trim();
+		if (!deleteTarget || typed !== deleteTarget.username) {
 			return;
 		}
 		deleteBusy = true;
@@ -96,10 +97,12 @@ SPDX-License-Identifier: MPL-2.0
 			);
 			if (!res.ok) {
 				const body = await res.json().catch(() => ({}));
-				banner = {
-					kind: 'error',
-					text: formatApiErrorDetail(body.detail, 'Delete failed.')
-				};
+				const detail = formatApiErrorDetail(body.detail, '');
+				const text =
+					detail ||
+					(body?.message && String(body.message)) ||
+					`Delete failed (${res.status}${res.statusText ? ` ${res.statusText}` : ''}).`;
+				banner = { kind: 'error', text };
 				return;
 			}
 			banner = { kind: 'success', text: `Deleted user ${deleteTarget.username}.` };
@@ -112,7 +115,8 @@ SPDX-License-Identifier: MPL-2.0
 					text: 'Delete timed out. The server may still be working; refresh and check the list.'
 				};
 			} else {
-				banner = { kind: 'error', text: 'Delete failed.' };
+				const msg = err instanceof Error ? err.message : String(err);
+				banner = { kind: 'error', text: msg || 'Delete failed.' };
 			}
 		} finally {
 			clearTimeout(timeoutId);
@@ -122,7 +126,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	const pageCount = $derived(Math.max(1, Math.ceil(total / pageSize)));
 	const canDelete = $derived(
-		deleteTarget !== null && deleteConfirm === deleteTarget?.username && !deleteBusy
+		deleteTarget !== null && deleteConfirm.trim() === deleteTarget?.username && !deleteBusy
 	);
 
 	onMount(() => {

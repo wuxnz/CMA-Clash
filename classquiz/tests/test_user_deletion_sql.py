@@ -2,10 +2,13 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 
-from classquiz.services.user_deletion import _BATTLE_RESULTS_BY_PLAYER_SQL
+import inspect
+
+from classquiz.services import user_deletion as ud
 
 
-def test_battle_results_sql_avoids_jsonb_question_mark_operator():
-    sql = str(_BATTLE_RESULTS_BY_PLAYER_SQL)
-    assert "jsonb_exists" in sql
-    assert " ? " not in sql
+def test_battle_cleanup_does_not_use_jsonb_exists_bulk_sql():
+    """Bulk jsonb_exists DELETE was removed: keys are usernames and bad JSON types abort transactions."""
+    source = inspect.getsource(ud._delete_battle_results_for_user)
+    assert "database.execute" not in source
+    assert "DELETE FROM battle_results WHERE" not in source
