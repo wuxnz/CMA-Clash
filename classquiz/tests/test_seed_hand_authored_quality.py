@@ -50,6 +50,41 @@ _BANNED_EXPLANATION_PHRASES = [
 _PRESENTS_FOR_CARE = re.compile(r"presents\s+for\s+care", re.I)
 _FRAGMENT_MUST_BE = re.compile(r"\bmust\s+be\s*\?\s*$", re.I)
 _COLON_FRAGMENT_STEM = re.compile(r":\s*\?\s*$")
+_DASH_CHARS = re.compile(r"[\u2013\u2014]")
+_INCOMPLETE_STEM_END = re.compile(
+    r"\b("
+    r"should be|must be|includes|requires|because|should prompt|should include|"
+    r"the first priority is|is best prevented by|is called|should usually be held"
+    r")\?\s*$",
+    re.I,
+)
+_AHA_ADULT_CHOKING_FIVE_FIVE = re.compile(
+    r"(alternate|alternating)\s+5\s+back|five\s+back\s+blows\s+and\s+five\s+abdominal",
+    re.I,
+)
+_STEM_COMPLETE_CERT_PREFIXES = (
+    "cpr-",
+    "phleb-",
+)
+_DASH_CHECK_CERT_PREFIXES = (
+    "cpr-",
+    "phleb-",
+    "ekg",
+    "ccma",
+    "skill-",
+    "clinical-",
+)
+
+
+def _topic_matches_prefixes(topic: str, prefixes: tuple[str, ...]) -> bool:
+    return any(
+        topic.startswith(p) if p.endswith("-") else topic.startswith(p)
+        for p in prefixes
+    )
+
+
+def _cert_fields(fact: dict) -> list[str]:
+    return [fact["stem"], fact["correct"], *fact["distractors"], fact.get("explanation") or ""]
 
 
 def _sentence_count(text: str) -> int:
@@ -99,6 +134,53 @@ def test_cpr_cert_meets_minimum_hand_authored_floor():
 
     cpr = [f for f in load_all_facts() if f["topic"].startswith("cpr-")]
     assert len(cpr) >= 295, f"CPR/BLS cert has {len(cpr)} questions; floor is 295 (+50% vs ~196 baseline)"
+
+
+def test_hand_authored_certs_have_no_em_or_en_dashes():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _DASH_CHECK_CERT_PREFIXES):
+            continue
+        for field in _cert_fields(fact):
+            if _DASH_CHARS.search(field):
+                hits.append(f"{fact['topic']}: {field[:70]}")
+    assert not hits, f"Em/en dashes in cert content: {hits[:10]}"
+
+
+def test_hand_authored_stems_are_complete_questions():
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not _topic_matches_prefixes(fact["topic"], _STEM_COMPLETE_CERT_PREFIXES):
+            continue
+        stem = fact["stem"].strip()
+        if stem.endswith(":"):
+            bad.append(stem[:90])
+        if _INCOMPLETE_STEM_END.search(stem):
+            bad.append(stem[:90])
+        if _COLON_FRAGMENT_STEM.search(stem) or _FRAGMENT_MUST_BE.search(stem):
+            bad.append(stem[:90])
+        if not stem.endswith("?") and not stem.endswith("."):
+            bad.append(stem[:90])
+    assert not bad, f"Incomplete stems in hand-authored certs: {bad[:12]}"
+
+
+def test_cpr_aha_choking_does_not_use_red_cross_adult_five_and_five_answer():
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if fact["topic"] != "cpr-choking":
+            continue
+        stem = fact["stem"].lower()
+        if "infant" in stem or "child" in stem:
+            continue
+        if _AHA_ADULT_CHOKING_FIVE_FIVE.search(fact["correct"]):
+            bad.append(fact["stem"][:80])
+    assert not bad, f"AHA choking items with Red Cross 5+5 answers: {bad[:6]}"
 
 
 def test_cpr_stems_are_complete_questions():

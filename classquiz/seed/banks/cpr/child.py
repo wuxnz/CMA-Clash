@@ -422,14 +422,14 @@ FACTS: list[dict] = [
         "cpr-child",
         "A conscious child with severe choking cannot speak and has a weak ineffective cough. What "
         "is appropriate BLS care?",
-        "Alternate five back blows and five abdominal thrusts appropriate to the child's size",
+        "Abdominal thrusts appropriate to the child's size until relief or unresponsiveness",
         [
             "Encourage coughing only because any cough means mild obstruction",
             "Begin CPR compressions immediately while the child is still standing",
             "Deliver back blows only until the child loses consciousness",
         ],
-        "Severe obstruction requires active maneuvers to clear the airway. A weak cough indicates "
-        "ineffective air exchange, not mild obstruction. CPR compressions are for unresponsive "
+        "Severe obstruction requires abdominal thrusts sized to the child per AHA BLS. A weak cough "
+        "indicates ineffective air exchange, not mild obstruction. CPR compressions are for unresponsive "
         "victims, not conscious severe choking.",
         _REF,
         "intermediate",

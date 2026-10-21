@@ -34,7 +34,8 @@ FACTS: list[dict] = [
             "Back blows only without any abdominal thrusts",
             "Wait until the patient loses consciousness",
         ],
-        "Severe choking in a responsive adult is treated with cycles of five back blows and five abdominal thrusts. Water may worsen blockage, and delaying care risks complete obstruction.",
+        "AHA adult BLS treats severe obstruction with abdominal thrusts (Heimlich), not sips of water or "
+        "waiting for unconsciousness. Back-blow cycles are taught in American Red Cross programs, not AHA adult BLS.",
         _REF,
         "intermediate",
     ),
@@ -125,13 +126,14 @@ FACTS: list[dict] = [
             "No intervention until the child turns blue",
             "Chest compressions while the child is still awake and clutching the throat",
         ],
-        "Conscious children with severe obstruction receive size-appropriate back blows and abdominal thrusts. CPR begins only if the child becomes unresponsive.",
+        "Conscious children with severe obstruction receive size-appropriate abdominal thrusts per AHA BLS. "
+        "CPR begins only if the child becomes unresponsive.",
         _REF,
         "advanced",
     ),
     fact(
         "cpr-choking",
-        "Do not perform blind finger sweeps because?",
+        "Why should blind finger sweeps not be performed during BLS airway care?",
         "May push object deeper",
         [
             "They reliably remove objects faster than back blows",
@@ -177,7 +179,8 @@ FACTS: list[dict] = [
             "Immediate unresponsiveness as the first sign",
             "Normal color with loud wheezing only",
         ],
-        "Mild choking features a strong cough and audible air movement. Silent or weak cough with poor air exchange suggests severe obstruction requiring back blows and thrusts.",
+        "Mild choking features a strong cough and audible air movement. Silent or weak cough with poor air "
+        "exchange suggests severe obstruction requiring abdominal thrusts per AHA adult BLS.",
         _REF,
         "beginner",
     ),
@@ -190,7 +193,8 @@ FACTS: list[dict] = [
             "Water flushes between each thrust",
             "Blind finger sweeps before any back blows",
         ],
-        "AHA BLS alternates five back blows and five abdominal thrusts until the object is expelled or the victim becomes unresponsive. Water and blind sweeps are not initial treatments.",
+        "AHA BLS uses abdominal thrusts until the object is expelled or the victim becomes unresponsive. "
+        "Water and blind sweeps are not initial treatments, and a single thrust is insufficient for severe obstruction.",
         _REF,
         "intermediate",
     ),
@@ -262,13 +266,14 @@ FACTS: list[dict] = [
     fact(
         "cpr-choking",
         "How should severe choking be managed in a conscious child?",
-        "Back blows and abdominal thrusts per size-appropriate BLS",
+        "Abdominal thrusts appropriate to the child's size per AHA BLS",
         [
-            "Abdominal thrusts only without back blows for all small children",
+            "Abdominal thrusts only without monitoring for worsening obstruction",
             "No intervention until the child loses consciousness",
             "Slapping the face to force coughing",
         ],
-        "Conscious children with severe obstruction receive back blows and abdominal thrusts sized to the child. Delaying care or using inappropriate force risks complete blockage or injury.",
+        "Conscious children with severe obstruction receive abdominal thrusts sized to the child per AHA BLS. "
+        "Delaying care or using inappropriate force risks complete blockage or injury.",
         _REF,
         "intermediate",
     ),
@@ -340,13 +345,14 @@ FACTS: list[dict] = [
     fact(
         "cpr-choking",
         "An adult dining in a restaurant clutches the throat and cannot speak but is conscious. What is the first BLS intervention?",
-        "Alternate 5 back blows and 5 abdominal thrusts until the object is expelled or the victim becomes unresponsive",
+        "Abdominal thrusts until the object is expelled or the victim becomes unresponsive",
         [
             "Encourage coughing because mild obstruction is present",
             "Give water to lubricate the airway",
             "Perform blind finger sweeps while the patient stands",
         ],
-        "Inability to speak with severe signs indicates complete or near-complete obstruction requiring five back blows and five abdominal thrusts. Cough encouragement applies only when cough is effective.",
+        "Inability to speak with severe signs indicates complete or near-complete obstruction requiring "
+        "abdominal thrusts per AHA adult BLS. Cough encouragement applies only when cough is effective.",
         _REF,
         "intermediate",
     ),
@@ -431,13 +437,14 @@ FACTS: list[dict] = [
     fact(
         "cpr-choking",
         "An obese adult with severe choking cannot receive effective abdominal thrusts. What alternative should you try?",
-        "Chest thrusts with the same 5 and 5 alternation pattern as other choking sequences",
+        "Chest thrusts in place of abdominal thrusts until relief or unresponsiveness",
         [
             "Continue abdominal thrusts with greater force only",
             "No further maneuvers until unconsciousness",
             "Finger sweeps while the patient remains standing",
         ],
-        "When abdominal thrusts are ineffective or difficult, chest thrusts alternate in the same five-and-five pattern. Waiting for unconsciousness or using blind sweeps delays effective relief.",
+        "When abdominal thrusts are ineffective or difficult in obesity, chest thrusts provide an AHA "
+        "alternative. Waiting for unconsciousness or using blind sweeps delays effective relief.",
         _REF,
         "advanced",
     ),
@@ -469,14 +476,15 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-choking",
-        "What is the correct ratio of back blows to abdominal thrusts when treating severe choking in a responsive adult per AHA BLS?",
-        "Alternate 5 back blows and 5 abdominal thrusts until the object is expelled or the victim becomes unresponsive",
+        "What initial maneuver does AHA adult BLS recommend for severe choking in a responsive adult?",
+        "Abdominal thrusts until the object is expelled or the victim becomes unresponsive",
         [
-            "Ten abdominal thrusts without back blows",
-            "Continuous back blows for five minutes only",
-            "One thrust then immediate standing CPR",
+            "Five back blows before any abdominal thrusts in every adult",
+            "Continuous back blows for five minutes without thrusts",
+            "One thrust then immediate standing CPR while still conscious",
         ],
-        "AHA teaches alternating five back blows and five abdominal thrusts for responsive adults with severe obstruction. CPR begins only if the victim becomes unresponsive.",
+        "AHA adult BLS uses abdominal thrusts for severe obstruction, not back-blow cycles. CPR begins "
+        "only if the victim becomes unresponsive.",
         _REF,
         "intermediate",
     ),
@@ -489,7 +497,8 @@ FACTS: list[dict] = [
             "A single back blow then stop all care",
             "CPR compressions while the patient is still conscious",
         ],
-        "Severe obstruction requires repeated back blows and abdominal thrusts until relief or unresponsiveness. Conscious patients do not receive CPR compressions.",
+        "Severe obstruction requires repeated abdominal thrusts until relief or unresponsiveness per AHA "
+        "adult BLS. Conscious patients do not receive CPR compressions.",
         _REF,
         "intermediate",
     ),

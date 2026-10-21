@@ -40,7 +40,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-chain",
-        'Rapid defibrillation is critical because?', 
+        'Why is rapid defibrillation critical in cardiac arrest care?', 
         'VF/pulseless VT may respond to early shock', 
         [
             'Asystole always converts with the first shock', 
