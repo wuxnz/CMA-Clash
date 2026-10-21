@@ -449,110 +449,19 @@ _RAW: tuple[
         (S.NHA_CET,),
     ),
     # Phlebotomy (13)
-    (
-        "phleb-order-draw",
-        "Blood culture collection requires:",
-        "Sterile technique with skin antisepsis per policy",
-        ("Reusing the same needle between sites", "Skipping disinfection to save time", "Drawing cultures after EDTA always"),
-        "Contamination causes false positives. Chlorhexidine or povidone-iodine prep follows institutional protocol.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-order-draw",
-        "When multiple tubes are needed, blood cultures are drawn:",
-        "First before other additives",
-        ("After lavender EDTA", "Last after all other tubes", "Only if the patient requests"),
-        "CLSI order of draw limits carryover of additives into cultures. Culture bottles precede citrate and serum tubes.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-safety",
-        "After a needlestick with patient blood exposure, the phlebotomist should:",
-        "Wash the area, report immediately, and seek medical evaluation per OSHA",
-        ("Ignore if the needle looked clean", "Wait until the end of the month", "Only document if infection develops"),
-        "OSHA bloodborne pathogen standard requires prompt reporting and source-patient testing when feasible.",
-        (S.OSHA_BBP, S.NHA_CPT),
-    ),
-    (
-        "phleb-site",
-        "The basilic vein is often avoided for routine venipuncture because it is:",
-        "Close to the median nerve and brachial artery",
-        ("Too superficial only on infants", "Always invisible", "Reserved for arterial draws"),
-        "Median cubital and cephalic veins are preferred when accessible. Deep basilic access risks nerve or artery injury.",
-        (S.NHA_CPT, S.CLSI_GP41),
-    ),
-    (
-        "phleb-site",
-        "A tourniquet left longer than about one minute can falsely:",
-        "Elevate potassium and protein concentrations",
-        ("Lower potassium always", "Improve glucose accuracy", "Prevent hemolysis"),
-        "Stasis concentrates analytes and may hemolyze cells. Release the tourniquet once blood flow starts.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-order-draw",
-        "A gold-top serum separator tube is used for:",
-        "Many chemistry and serology tests after clotting",
-        ("Routine CBC", "Coagulation PT/INR", "Blood culture"),
-        "SST gel separates serum after clot formation. Lavender EDTA is for hematology.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-site",
-        "Hemoconcentration from prolonged tourniquet use most affects:",
-        "Protein-bound and cellular analytes",
-        ("Only urine specific gravity", "INR on citrate", "Nothing measurable"),
-        "Prolonged stasis skews potassium, LDH, and protein levels. Minimize tourniquet time.",
-        (S.CLSI_GP41,),
-    ),
-    (
-        "phleb-safety",
-        "Transport of specimens requires:",
-        "Proper labeling, temperature control, and timely delivery per test requirements",
-        ("Leaving tubes in direct sunlight all day", "Unlabeled tubes in a pocket", "Delaying STAT chemistry for hours without cooler"),
-        "Some tests need ice or immediate processing. Mislabeled tubes are a leading preanalytic error.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-order-draw",
-        "Light-green plasma separator tubes contain:",
-        "Lithium heparin with gel for plasma chemistry",
-        ("EDTA for CBC", "Citrate for coagulation", "No anticoagulant for serum"),
-        "Heparin allows plasma separation for chemistry. Order of draw places heparin before EDTA when both are collected.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-site",
-        "Patient identification before phlebotomy requires:",
-        "Active identification using two unique identifiers",
-        ("Bed number alone", "Room color", "Asking only the visitor"),
-        "Joint Commission standards require two identifiers such as name and birth date. Wrong-patient draws are sentinel events.",
-        (S.NHA_CPT, S.CLSI_GP41),
-    ),
-    (
-        "phleb-safety",
-        "Needles must never be:",
-        "Recapped using a two-handed technique or bent after use",
-        ("Disposed in a sharps container", "Used once per patient", "Documented if injury occurs"),
-        "OSHA prohibits recapping except with a one-handed scoop or safety device. Recapping causes most needlesticks.",
-        (S.OSHA_NEEDLESTICK, S.NHA_CPT),
-    ),
-    (
-        "phleb-order-draw",
-        "Pink-top EDTA tubes in blood bank collections are used for:",
-        "Crossmatch and type and screen when required",
-        ("Routine glucose in fluoride", "PT/INR", "Blood culture"),
-        "Blood bank EDTA samples verify patient identity for transfusion. Coagulation uses citrate, not EDTA.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-site",
-        "If blood flow stops during a draw, the phlebotomist should:",
-        "Release the tourniquet and gently adjust needle position once",
-        ("Probe deeply without informing the patient", "Keep the tourniquet tight for ten minutes", "Withdraw without applying pressure"),
-        "Loss of flow may mean the bevel is against the vein wall. Forced probing risks hematoma and nerve injury.",
-        (S.NHA_CPT, S.CLSI_GP41),
-    ),
+
+
+
+
+
+
+
+
+
+
+
+
+
     (
         "ccma-admin",
         "Under CLIA, a waived laboratory test is one that:",
@@ -585,22 +494,8 @@ _RAW: tuple[
         "QC verifies meter accuracy. Infection control requires single-use lancets and hand hygiene.",
         (S.FDA_CLIA_WAIVED, S.CDC_DIABETES),
     ),
-    (
-        "cpr-infant",
-        "Infant CPR compressions use which hand technique for a single rescuer?",
-        "Two fingers in the center of the chest just below the nipple line",
-        ("Heel of one hand only as for adults", "No compressions for infants", "Compressions on the abdomen"),
-        "Two-finger technique delivers adequate depth for small infants. Two-thumb encircling is an option with two rescuers.",
-        (S.AHA_ADULT_BLS,),
-    ),
-    (
-        "cpr-aed",
-        "When an infant needs defibrillation, how should AED pads be placed if standard anterior placement would cause the pads to touch?",
-        "Follow pediatric pad instructions, often using anterior-posterior placement so pads do not overlap on the small chest",
-        ("Use adult pads touching on the chest without adjustment", "Skip AED use for all patients under 8 years", "Place one pad on each leg only"),
-        "Overlapping pads can cause arcing and ineffective energy delivery. Anterior-posterior placement separates the pads while still allowing current through the heart. Using adult pads without adjustment or skipping AED use delays defibrillation when it is indicated.",
-        (S.AHA_ADULT_BLS,),
-    ),
+
+
     (
         "ekg-intervals",
         "A prolonged PR interval greater than 0.20 second suggests:",
@@ -617,22 +512,8 @@ _RAW: tuple[
         "Myocardial ischemia results when coronary flow is inadequate. Collateral circulation may develop over time.",
         (S.NHA_CET,),
     ),
-    (
-        "phleb-handling",
-        "Centrifuging blood specimens before clot formation for serum tests can:",
-        "Trap fibrin and produce incorrect chemistry results",
-        ("Improve coagulation results on citrate", "Replace labeling", "Prevent hemolysis always"),
-        "Serum tubes need adequate clotting time unless rapid serum tubes are used. Premature spin yields gel fibrin problems.",
-        (S.CLSI_GP41, S.NHA_CPT),
-    ),
-    (
-        "phleb-complications",
-        "A hematoma after venipuncture is best prevented by:",
-        "Adequate pressure after needle removal and avoiding multiple deep probes",
-        ("Removing the tourniquet after needle withdrawal only", "Skipping pressure because veins seal instantly", "Vigorous massage of the puncture site"),
-        "Pressure allows vessel sealing. Continued probing increases leakage into tissue.",
-        (S.NHA_CPT, S.CLSI_GP41),
-    ),
+
+
     (
         "ccma-hipaa",
         "Minimum necessary under HIPAA means disclosing:",

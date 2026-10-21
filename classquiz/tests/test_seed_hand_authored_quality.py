@@ -134,6 +134,63 @@ def test_cpr_explanations_are_specific_two_sentence_minimum():
     assert not bad, f"CPR explanations too short or templated: {bad[:8]}"
 
 
+_PHLEB_BANNED_DISTRACTOR_PATTERNS = _GLOBAL_BANNED_DISTRACTOR_PATTERNS + [
+    re.compile(r"\bfavorite\s+(color|beverage)\b", re.I),
+    re.compile(r"\bshouted\s+in\s+the\s+waiting\s+room\b", re.I),
+    re.compile(r"\boverridden\s+by\s+security\b", re.I),
+    re.compile(r"\bincompetence\s+without\s+discussion\b", re.I),
+]
+
+
+def test_phleb_distractors_lack_absurd_patterns():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("phleb-"):
+            continue
+        for choice in fact["distractors"]:
+            for pat in _PHLEB_BANNED_DISTRACTOR_PATTERNS:
+                if pat.search(choice):
+                    hits.append(f"{pat.pattern} in {fact['stem'][:50]}: {choice[:70]}")
+    assert not hits, f"Phlebotomy absurd distractors: {hits[:12]}"
+
+
+def test_phleb_cert_meets_minimum_hand_authored_floor():
+    from classquiz.seed.banks import load_all_facts
+
+    phleb = [f for f in load_all_facts() if f["topic"].startswith("phleb-")]
+    assert len(phleb) >= 337, f"Phlebotomy cert has {len(phleb)} questions; floor is 337 (+50% vs ~224 baseline)"
+
+
+def test_phleb_explanations_are_specific_two_sentence_minimum():
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("phleb-"):
+            continue
+        expl = (fact.get("explanation") or "").strip()
+        if len(expl) < 80 or _sentence_count(expl) < 2:
+            bad.append(fact["stem"][:70])
+    assert not bad, f"Phlebotomy explanations too short: {bad[:8]}"
+
+
+def test_phleb_explanation_sentences_not_repeated_across_bank():
+    from classquiz.seed.banks import load_all_facts
+
+    phleb = [f for f in load_all_facts() if f["topic"].startswith("phleb-")]
+    sentence_counts: Counter[str] = Counter()
+    for fact in phleb:
+        for sent in _expl_sentences(fact.get("explanation") or ""):
+            norm = re.sub(r"\s+", " ", sent.strip().lower())
+            if len(norm) < 40:
+                continue
+            sentence_counts[norm] += 1
+    repeats = [(s, n) for s, n in sentence_counts.items() if n > 3]
+    assert not repeats, f"Repeated phleb explanation sentences (>3): {repeats[:5]}"
+
+
 def test_cpr_explanation_sentences_not_repeated_across_bank():
     from classquiz.seed.banks import load_all_facts
 

@@ -40,6 +40,8 @@ def main() -> None:
     facts = banks.load_all_facts()
     if cert_filter == "cpr":
         facts = [f for f in facts if f["topic"].startswith("cpr-")]
+    elif cert_filter == "phleb":
+        facts = [f for f in facts if f["topic"].startswith("phleb-")]
     for tier in ("beginner", "intermediate", "advanced"):
         pool = [f for f in facts if f.get("difficulty") == tier]
         picks = random.sample(pool, min(2, len(pool)))
