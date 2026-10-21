@@ -75,6 +75,9 @@ async def generate_final_results(game_data: PlayGame, game_pin: str) -> dict:
             continue
         else:
             results[str(i)] = [json.loads(a) for a in redis_res]
+    from classquiz.gamification.post_game import award_game_xp_once
+
+    await award_game_xp_once(game_pin, game_data, results)
     return results
 
 

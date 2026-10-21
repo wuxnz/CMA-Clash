@@ -21,8 +21,9 @@ from classquiz.battle.service import (
     start_battle_game,
 )
 from classquiz.rate_limit import rate_limit_request
-from classquiz.db.cma_models import Certification, LeaderboardScore, Topic, UserGamificationProfile, UserTopicStat
+from classquiz.db.cma_models import Certification, Topic, UserTopicStat
 from classquiz.db.models import Quiz, User
+from classquiz.gamification.leaderboard import build_leaderboard_entries
 from classquiz.gamification.service import accuracy_percent, get_or_create_profile, level_from_xp, xp_for_level
 
 router = APIRouter()
@@ -83,6 +84,7 @@ class LeaderboardEntryOut(BaseModel):
     username: str
     xp: int
     level: int
+    is_you: bool = False
 
 
 class CreateBattleBody(BaseModel):
@@ -217,41 +219,38 @@ async def get_leaderboard(
     period: Literal["all_time", "weekly"] = "all_time",
     certification_slug: str | None = None,
     limit: int = Query(50, ge=1, le=100),
+    user: User | None = Depends(get_current_user_optional),
 ):
-    from datetime import date
-
     cert_id = None
     if certification_slug:
         cert = await Certification.objects.get_or_none(slug=certification_slug)
         if cert is None:
             raise HTTPException(status_code=404, detail="certification not found")
         cert_id = cert.id
-    if period == "weekly":
-        year, week, _ = date.today().isocalendar()
-        period_key = f"{year}-W{week:02d}"
-    else:
-        period_key = "global"
-    scores = (
-        await LeaderboardScore.objects.filter(
-            period=period,
-            period_key=period_key,
-            certification_id=cert_id,
-        )
-        .order_by("-xp")
-        .limit(limit)
-        .all()
+    viewer_id = user.id if user is not None else None
+    raw = await build_leaderboard_entries(period, cert_id, limit, viewer_id=viewer_id)
+    return [LeaderboardEntryOut(**row) for row in raw]
+
+
+class PracticeXpBody(BaseModel):
+    quiz_id: uuid.UUID
+    correct: bool
+
+
+@router.post("/me/practice/answer")
+async def practice_answer_xp(body: PracticeXpBody, user: User = Depends(get_current_user)):
+    from classquiz.gamification.service import record_answer_stats
+
+    quiz = await Quiz.objects.get_or_none(id=body.quiz_id)
+    if quiz is None:
+        raise HTTPException(status_code=404, detail="quiz not found")
+    await record_answer_stats(
+        user.id,
+        quiz.topic_id,
+        body.correct,
+        certification_id=quiz.certification_id,
     )
-    entries: list[LeaderboardEntryOut] = []
-    for rank, row in enumerate(scores, start=1):
-        u = await User.objects.get_or_none(id=row.user_id)
-        if u is None:
-            continue
-        profile = await UserGamificationProfile.objects.get_or_none(user_id=row.user_id)
-        level = profile.level if profile else level_from_xp(row.xp)
-        entries.append(
-            LeaderboardEntryOut(rank=rank, user_id=row.user_id, username=u.username, xp=row.xp, level=level)
-        )
-    return entries
+    return {"ok": True}
 
 
 def _lobby_out(lobby, guest_player_id: str | None = None, include_host_secret: bool = False) -> BattleLobbyOut:
