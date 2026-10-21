@@ -48,18 +48,22 @@ export async function joinPlayer(
 		await expect(connecting).toBeHidden({ timeout: 120_000 });
 	}
 
+	const notConnected = page.getByText(/not connected to the game server/i);
 	const submit = page.locator('form button[type="submit"]');
-	for (let attempt = 0; attempt < 12; attempt++) {
+	for (let attempt = 0; attempt < 24; attempt++) {
 		if (await lobby.isVisible().catch(() => false)) {
 			break;
 		}
-		if (await submit.isVisible().catch(() => false)) {
+		if (await connecting.isVisible().catch(() => false)) {
+			await page.waitForTimeout(1000);
+			continue;
+		}
+		if (await submit.isEnabled().catch(() => false)) {
 			await submit.click();
 		}
 		if (await lobby.isVisible().catch(() => false)) {
 			break;
 		}
-		const notConnected = page.getByText(/not connected/i);
 		if (await notConnected.isVisible().catch(() => false)) {
 			await page.waitForTimeout(2000);
 			continue;
@@ -67,6 +71,7 @@ export async function joinPlayer(
 		await page.waitForTimeout(800);
 	}
 
+	await expect(notConnected).toHaveCount(0);
 	await expect(lobby).toBeVisible({ timeout: 90_000 });
 	return page;
 }

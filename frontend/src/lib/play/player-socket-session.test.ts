@@ -22,17 +22,32 @@ vi.mock('js-cookie', () => ({
 	}
 }));
 
-const { socketMock } = vi.hoisted(() => ({
-	socketMock: {
-		emit: vi.fn(),
-		id: 'sid-1',
-		on: vi.fn(),
-		off: vi.fn(),
-		connected: true,
-		connect: vi.fn(),
-		disconnect: vi.fn()
-	}
-}));
+const { socketMock } = vi.hoisted(() => {
+	const listeners: Record<string, Array<() => void>> = {};
+	return {
+		socketMock: {
+			emit: vi.fn(),
+			id: 'sid-1',
+			connected: false,
+			connect: vi.fn(() => {
+				socketMock.connected = true;
+				for (const fn of listeners.connect ?? []) fn();
+			}),
+			disconnect: vi.fn(),
+			on: vi.fn((event: string, fn: () => void) => {
+				(listeners[event] ??= []).push(fn);
+			}),
+			off: vi.fn((event: string, fn: () => void) => {
+				listeners[event] = (listeners[event] ?? []).filter((h) => h !== fn);
+			}),
+			_simulateConnect() {
+				socketMock.connected = true;
+				for (const fn of listeners.connect ?? []) fn();
+			}
+		},
+		listeners
+	};
+});
 
 vi.mock('$lib/socket', () => ({
 	socket: socketMock
@@ -43,12 +58,16 @@ import {
 	emitRejoinFromCookie,
 	normalizePlayPin,
 	preparePlaySessionForPin,
-	readJoinedGameCookie
+	readJoinedGameCookie,
+	waitForPlaySocketConnected,
+	warmPlaySocketConnection
 } from './player-socket-session';
 
 describe('player socket session cookies', () => {
 	beforeEach(() => {
 		for (const key of Object.keys(cookieStore)) delete cookieStore[key];
+		socketMock.connected = true;
+		vi.clearAllMocks();
 	});
 
 	it('normalizes pins to digits', () => {
@@ -76,6 +95,23 @@ describe('player socket session cookies', () => {
 		expect(readJoinedGameCookie()).toBeNull();
 	});
 
+	it('warmPlaySocketConnection dedupes concurrent waiters', async () => {
+		socketMock.connected = false;
+		const a = warmPlaySocketConnection(1000);
+		const b = warmPlaySocketConnection(1000);
+		socketMock._simulateConnect();
+		await expect(Promise.all([a, b])).resolves.toBeDefined();
+		expect(socketMock.connect).toHaveBeenCalledTimes(1);
+	});
+
+	it('waitForPlaySocketConnected resolves after connect event', async () => {
+		socketMock.connected = false;
+		const pending = waitForPlaySocketConnected(1000);
+		socketMock._simulateConnect();
+		await expect(pending).resolves.toBeUndefined();
+		expect(socketMock.connect).toHaveBeenCalled();
+	});
+
 	it('preparePlaySessionForPin clears stale cookie without forcing reconnect', () => {
 		cookieStore.joined_game = JSON.stringify({
 			sid: 'a',
@@ -85,5 +121,8 @@ describe('player socket session cookies', () => {
 		preparePlaySessionForPin('222222');
 		expect(readJoinedGameCookie()).toBeNull();
 		expect(socketMock.disconnect).not.toHaveBeenCalled();
+		socketMock.connected = false;
+		preparePlaySessionForPin('333333');
+		expect(socketMock.connect).toHaveBeenCalled();
 	});
 });

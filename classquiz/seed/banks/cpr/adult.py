@@ -118,15 +118,15 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "When should rescuers apply an AED during adult cardiac arrest?",
- "As soon as the device is available while minimizing pauses in compressions",
+ "As soon as the AED is available while minimizing pauses in chest compressions",
  [
- "Only after at least five minutes of uninterrupted chest compressions",
- "Only after the patient regains a cough or gag reflex spontaneously",
- "Before confirming unresponsiveness and activating the emergency response system",
+ "After two minutes of chest compressions even when an AED is already at the bedside",
+ "After five full cycles of 30 compressions and two ventilations without attaching pads",
+ "After the first two rescue breaths and before any chest compressions are started",
  ],
  "Early defibrillation is a core link in the Chain of Survival; attach the AED as soon as it "
- "arrives while limiting compression gaps. Waiting several minutes or delaying until reflexes "
- "return misses shockable rhythms that respond to prompt defibrillation.",
+ "arrives while limiting compression gaps. Fixed delays for cycles or breaths-first sequences "
+ "miss shockable rhythms that respond to prompt defibrillation during ongoing CPR.",
  [S.AHA_ADULT_BLS, S.AHA_WHAT_IS_CPR],
  "beginner",
  ),
@@ -197,7 +197,7 @@ FACTS: list[dict] = [
  [
  "Begin two minutes of chest compressions before anyone notifies emergency services",
  "Send a bystander to search other floors while you remain with the patient",
- "Roll the patient prone to improve drainage before assessing breathing",
+ "Roll the patient prone and wait for spontaneous breathing before assessing the airway",
  ],
  "Recognition and activation are early links in the Chain of Survival. Delaying the emergency "
  "call to compress first or leaving the patient to hunt remotely for an AED slows EMS and "

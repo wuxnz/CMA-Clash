@@ -135,7 +135,11 @@ _HAND_AUTHORED_BANK_PREFIXES = (
     "skill-",
 )
 # Certs that must pass fragment, duplicate-choice, qualifier, and near-duplicate stem checks.
-_STRICT_QUALITY_CERT_PREFIXES = ("ekg-", "ccma-")
+_STRICT_QUALITY_CERT_PREFIXES = (
+    "ekg-",
+    "cpr-",
+    "ccma-",
+)
 _AHA_ADULT_CHOKING_FIVE_FIVE = re.compile(
     r"(alternate|alternating)\s+5\s+back|five\s+back\s+blows\s+and\s+five\s+abdominal",
     re.I,

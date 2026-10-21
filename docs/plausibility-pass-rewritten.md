@@ -88,6 +88,16 @@ Summaries of fact-check and distractor plausibility work on hand-authored seed b
 
 **Counts:** **31** facts received distractor edits (**4** adult, **13** child, **14** infant).
 
+### Dual-answer audit (EKG-style, 2026-10-21 batch)
+
+Checked rewritten CPR/phleb items for a second defensible key (overlapping mechanisms, duplicate stems, true distractors).
+
+| Area | Fixes |
+|------|--------|
+| phleb-additives | Rapid serum key narrowed to **thrombin**; silica-only distractor; red-top stem scoped to **silica clot activator** with thrombin distractor |
+| phleb-complications | Butterfly line-stop distractors (were correct techniques); edematous-site key vs “avoid when another site” overlap |
+| cpr-chain | Deduped recognition/dispatcher/telephone stems; full-sentence keys; removed fragment stems |
+
 - **adult:** `What compression-to-ventilation ratio should a single r`
 - **adult:** `How should rescue breaths be delivered during adult CPR`
 - **adult:** `When an AED arrives while adult CPR is in progress, wha`

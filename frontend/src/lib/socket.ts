@@ -30,7 +30,16 @@ export function resolveSocketUrl(): string | undefined {
 	return undefined;
 }
 
+function resolveSocketTransports(): ('websocket' | 'polling')[] {
+	const configured = env.PUBLIC_SOCKET_URL?.trim();
+	// Local preview/dev hitting a remote API: websocket often fails (CORS/mixed context); polling works.
+	if (browser && isLocalHost(window.location.hostname) && configured) {
+		return ['polling', 'websocket'];
+	}
+	return ['websocket', 'polling'];
+}
+
 export const socket = io(resolveSocketUrl(), {
 	withCredentials: true,
-	transports: ['websocket', 'polling']
+	transports: resolveSocketTransports()
 });

@@ -47,15 +47,14 @@ FACTS: list[dict] = [
     fact(
         "cpr-infant",
         "Where should a single rescuer place two-finger chest compressions during infant BLS CPR?",
-        "On the lower half of the sternum in the center of the chest, just below the nipple line",
+        "In the center of the chest, just below the nipple line on the lower sternum",
         [
-            "On the upper abdomen over the stomach with the heel of one hand",
-            "Directly on the xiphoid process with firm downward pressure on the sternal tip",
-            "On the infant's back while the infant lies prone without sternal contact",
+            "On the sternum at the nipple line in the center of the chest",
+            "One finger-width below the xiphoid process on the mid sternum",
+            "On the upper third of the sternum between the nipple line and the clavicles",
         ],
-        "Sternal compressions on the lower half of the sternum direct force through the heart. "
-        "Abdominal compression does not compress the heart effectively. Prone back compressions "
-        "are not standard infant BLS on a firm surface.",
+        "AHA infant BLS targets the lower half of the sternum, just below the nipple line. "
+        "Compressing at the nipple line, on the xiphoid, or high on the sternum is ineffective or risks injury.",
         _REF,
         "beginner",
     ),
@@ -128,7 +127,7 @@ FACTS: list[dict] = [
         "Treat gasping as abnormal breathing and start CPR if no pulse is detected within 10 seconds",
         [
             "Consider gasping normal sleep breathing and withhold CPR until EMS confirms arrest",
-            "Observe weak gasps at the bedside without a pulse check or starting chest compressions",
+            "Monitor weak gasps for about two minutes before checking pulse or starting compressions",
             "Perform abdominal thrusts before any pulse check or chest compressions",
         ],
         "Agonal gasps are not effective ventilation and may occur during cardiac arrest. Treating "
@@ -206,7 +205,7 @@ FACTS: list[dict] = [
         [
             "Deliver each breath over at least 5 seconds to maximize oxygen delivery",
             "Give very short forceful puffs in under 0.1 second without checking chest rise",
-            "Deliver each breath over at least 5 seconds to maximize oxygen delivery",
+            "Deliver two quick puffs per second without pausing to look for chest rise",
         ],
         "Brief breaths that produce chest rise limit interruption time and gastric inflation. "
         "Five-second breaths excessively pause compressions. Forceful puffs without visible rise "
@@ -253,9 +252,9 @@ FACTS: list[dict] = [
         "of the bed?",
         "Two-thumb encircling hands technique on the lower half of the sternum",
         [
-            "Two-finger compressions on the upper sternum near the chin while ventilating",
-            "Two-finger technique with both rescuers stacking hands on the upper abdomen",
-            "Heel of one hand using adult compression depth on the upper sternum only",
+            "Two-thumb encircling hands on the upper third of the sternum near the clavicles",
+            "Two-finger compressions at the nipple line while the second rescuer ventilates",
+            "Heel of one hand at adult compression depth on the lower sternum below the nipple line",
         ],
         "Two-thumb encircling hands improve depth and recoil with two providers at the head of the "
         "bed. Upper-sternum two-finger placement and abdominal stacking do not provide effective "
@@ -530,9 +529,9 @@ FACTS: list[dict] = [
  "acceptable per AHA BLS?",
  "Use adult pads with anterior-posterior placement per manufacturer instructions while minimizing compression pause",
  [
- "Withhold defibrillation until the infant weighs at least 40 pounds",
- "Place both pads on the abdomen because the chest is too small",
- "Remove pads after the first shock and never resume CPR",
+ "Withhold defibrillation until the infant weighs at least 40 pounds on a scale",
+ "Place both adult pads on the anterior chest even when they overlap on a small infant",
+ "Remove pads after the first shock and pause compressions until EMS arrives",
  ],
  "Adult AEDs may be used on infants and children with appropriate pad placement when pediatric "
  "equipment is missing. Arbitrary weight limits delay shock. CPR must resume immediately after "
@@ -561,7 +560,7 @@ FACTS: list[dict] = [
  "priorities apply while awaiting EMS?",
  "Maintain airway patency, provide supplemental oxygen, keep the infant warm, and monitor breathing and pulse",
  [
- "Place the infant alone in a cold vehicle without supplemental oxygen or monitoring",
+ "Place the infant in recovery position alone in a separate room without oxygen or pulse checks",
  "Resume full CPR compressions for lethargy without reassessing pulse and breathing",
  "Provide supplemental oxygen but stop monitoring once color improves slightly",
  ],
@@ -593,9 +592,9 @@ FACTS: list[dict] = [
  "positioned how?",
  "At the infant's head with thumbs on the sternum and hands encircling the chest",
  [
- "At the infant's feet using stacked fists on the upper abdomen",
- "One rescuer at the side compressing the abdomen while the other ventilates",
- "Both rescuers kneeling on opposite sides of the chest to stabilize the infant",
+ "At the infant's feet with thumbs on the lower sternum and fingers supporting the back",
+ "At the infant's side with one thumb on the sternum and the other hand on the abdomen",
+ "At the head with thumbs on the upper third of the sternum near the clavicles",
  ],
  "Two-thumb technique is performed from the head with thumbs on the lower sternum. Abdominal "
  "fist compression and side abdominal compressions are incorrect for infant BLS.",
@@ -640,9 +639,9 @@ FACTS: list[dict] = [
  "finger technique. Two rescuers are present. What change improves quality?",
  "Switch to two-thumb encircling hands with the second rescuer managing ventilations at 15:2",
  [
- "Switch to heel-of-hand adult compressions on the sternum",
+ "Switch to heel-of-hand compressions at the nipple line with adult depth targets",
  "Stop compressions and ventilate only until depth improves",
- "Compress the infant's back while ventilating from the side without sternal compressions",
+ "Continue two-finger compressions on the upper third of the sternum near the clavicles",
  ],
  "Two-thumb technique generally provides better depth and recoil with two providers. Adult heel "
  "technique risks excessive depth. Ventilation-only care does not treat pulseless arrest.",

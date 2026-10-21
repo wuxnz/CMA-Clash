@@ -42,7 +42,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Why is Hand hygiene after removing gloves required?",
+        "Why is hand hygiene required after removing gloves during phlebotomy?",
         "Gloves may have microtears and hands can still be contaminated",
         [
             "Gloves sterilize hands so washing is never needed",
@@ -70,7 +70,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How must Sharps containers be handled?",
+        "How must sharps containers be handled in the phlebotomy area?",
         "Puncture-resistant, labeled, closable, and not overfilled",
         [
             "Left open on the counter for quick access",
@@ -84,7 +84,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "How should Eating or drinking in the phlebotomy work area be handled?",
+        "How should eating or drinking in the phlebotomy work area be handled?",
         "Prohibited to reduce contamination and exposure risk",
         [
             "Encouraged during active blood collection",
@@ -173,7 +173,7 @@ FACTS: list[dict] = [
         [
             "Carried uncapped in a coat pocket",
             "Mixed from different patients in one open tray",
-            "Left at nurses' station without biohazard labeling",
+            "Transported upright in an unlabeled open tray to the processing bench",
         ],
         "Leaks expose staff and couriers to bloodborne pathogens during transport. "
         "CLSI transport practices require secure upright carriage in approved bags.",
