@@ -1,9 +1,21 @@
-<div
-	class="hidden md:grid md:grid-cols-[minmax(0,1.4fr)_6.5rem_3.5rem_7rem_auto] gap-x-3 text-xs text-ink-muted pb-2 border-b border-white/[0.07]"
->
-	<span>Title</span>
-	<span>Cert</span>
-	<span>Qs</span>
-	<span>Difficulty</span>
-	<span class="text-right"> </span>
+<script lang="ts">
+	import {
+		quizColCert,
+		quizColCertDot,
+		quizColDifficulty,
+		quizColQs,
+		quizTableGrid,
+		quizTableHeaderShell
+	} from './quizTableLayout';
+</script>
+
+<div class="{quizTableGrid} {quizTableHeaderShell}">
+	<span class="min-w-0">Title</span>
+	<span class={quizColCert}>
+		<span class="{quizColCertDot}" aria-hidden="true"></span>
+		<span>Cert</span>
+	</span>
+	<span class={quizColQs}>Qs</span>
+	<span class={quizColDifficulty}>Difficulty</span>
+	<span class="text-right min-w-0" aria-hidden="true"> </span>
 </div>

@@ -5,6 +5,7 @@
 	import Button from '$lib/ui/Button.svelte';
 	import BrowseFilters from '$lib/quiz/BrowseFilters.svelte';
 	import QuizBrowseList from '$lib/quiz/QuizBrowseList.svelte';
+	import QuizBrowseSkeleton from '$lib/quiz/QuizBrowseSkeleton.svelte';
 	import {
 		fetchCerts,
 		fetchClashQuizzes,
@@ -122,14 +123,7 @@
 
 		<div class="mt-8 min-w-0">
 			{#if loading}
-				<ul class="animate-pulse" aria-busy="true" aria-label="Loading quizzes">
-					{#each [1, 2, 3, 4, 5] as n (n)}
-						<li class="border-b border-white/[0.07] py-3">
-							<div class="h-3 w-2/5 max-w-xs rounded bg-elevated"></div>
-							<div class="h-2 w-24 rounded bg-elevated mt-2 md:hidden"></div>
-						</li>
-					{/each}
-				</ul>
+				<QuizBrowseSkeleton ariaLabel="Loading quizzes" />
 			{:else if rows.length === 0}
 				<div data-empty-explore>
 					<p class="text-sm text-ink">No quizzes for this filter.</p>

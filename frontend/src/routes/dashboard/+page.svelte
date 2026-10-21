@@ -18,6 +18,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { isSiteAdmin } from '$lib/stores';
 	import { refreshSiteAdminFlag } from '$lib/site-admin';
 	import { page } from '$app/state';
+	import QuizListHeader from '$lib/quiz/QuizListHeader.svelte';
 	import QuizRow from '$lib/quiz/QuizRow.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
@@ -254,15 +255,7 @@ SPDX-License-Identifier: MPL-2.0
 						</p>
 					</div>
 				{:else}
-					<div
-						class="hidden md:grid md:grid-cols-[minmax(0,1.4fr)_6.5rem_3.5rem_7rem_auto] gap-x-3 text-xs text-ink-muted pb-2 border-b border-white/[0.07]"
-					>
-						<span>Title</span>
-						<span>Cert</span>
-						<span>Qs</span>
-						<span>Difficulty</span>
-						<span class="text-right"> </span>
-					</div>
+					<QuizListHeader />
 					<ul>
 						{#each visibleItems as quiz (quiz.id)}
 							<QuizRow
