@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         [
             "Scalp hair texture without palpation of the soft spot",
             "Earlobe shape as a proxy for intracranial pressure",
-            "Number of primary teeth visible in the mouth without reassessing vital signs afterward",
+            "Number of primary teeth visible without palpating the anterior fontanelle",
         ],
         "Fontanelle tension reflects hydration and intracranial pressure. Hair and dental findings do not assess the open suture the way direct palpation does.",
         [S.NHA_CCMA],
@@ -43,7 +43,7 @@ FACTS: list[dict] = [
         "How should confidentiality be explained to an adolescent at the start of a visit?",
         "Some topics stay private, but safety risks may require limited disclosure",
         [
-            "Guardians will hear every detail discussed in the room without reassessing vital signs afterward",
+            "Guardians will hear every confidential detail discussed in the examination room",
             "The teen has no right to ask questions without a parent present",
             "Sensitive results may be discussed in a public waiting area",
         ],
@@ -59,7 +59,7 @@ FACTS: list[dict] = [
         [
             "Fasting lipid panel results without mobility questions",
             "Vision screening deferred because the patient walks independently",
-            "Assistive device use omitted when falls are denied without reassessing vital signs afterward",
+            "Assistive device use omitted from intake when the patient denies prior falls",
         ],
         "Falls are multifactorial; drugs and clutter matter even when cholesterol is normal. Denying falls does not remove the need to note walkers or canes.",
         [S.NHA_CCMA, S.CDC_HBP],
@@ -72,7 +72,7 @@ FACTS: list[dict] = [
         "Blood pressure, weight gain, and fetal heart activity per protocol",
         [
             "Routine dental radiographs at every prenatal encounter",
-            "Complete bed rest ordered for all pregnant patients without reassessing vital signs afterward",
+            "Complete bed rest ordered for every pregnant patient regardless of individual risk",
             "Universal discontinuation of prescribed iron supplements",
         ],
         "Hypertension and excessive weight gain may signal preeclampsia or growth concerns. Activity and supplements follow individualized plans rather than blanket rules.",
@@ -87,7 +87,7 @@ FACTS: list[dict] = [
         [
             "To rank children for competitive sports placement",
             "To replace hearing and vision screening entirely",
-            "To determine school cafeteria menu choices without reassessing vital signs afterward",
+            "To determine school cafeteria menu choices instead of comparing developmental milestones",
         ],
         "Early referral improves outcomes for speech, motor, and social delays. Milestone tracking complements sensory screening rather than replacing it.",
         [S.NHA_CCMA],
@@ -100,7 +100,7 @@ FACTS: list[dict] = [
         "Use an infant or chair scale with caregiver assistance per policy",
         [
             "Record a parental guess without placing the child on a scale",
-            "Estimate weight from clothing size on the chart without reassessing vital signs afterward",
+            "Estimate weight from clothing size on the chart without placing the child on a scale",
             "Weigh the child while running across an adult platform scale",
         ],
         "Accurate measurements guide dosing and growth interpretation. Guesses and unstable readings produce unreliable trends that can delay intervention.",
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
         [
             "Intervals chosen by whichever vaccine lot expires first",
             "Adult influenza formulation for every infant visit",
-            "Personal blog posts instead of facility policy without reassessing vital signs afterward",
+            "Personal blog posts about vaccines instead of the facility immunization policy",
         ],
         "Evidence-based intervals and products prevent vaccine-preventable disease. Pediatric formulations and timing differ from adult vaccines.",
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -127,9 +127,9 @@ FACTS: list[dict] = [
         "What approach can reduce anxiety before procedures in a school-age child?",
         "Age-appropriate explanations, permission steps, and distraction when allowed",
         [
-            "Performing the procedure without any warning to save time",
+            "Performing the procedure without any prior warning or child-friendly explanation to save time",
             "Physical restraint applied before describing what will happen",
-            "Threatening punishment if the child cries during care without reassessing vital signs afterward",
+            "Threatening punishment if the child cries or resists during the procedure",
         ],
         "Preparation improves cooperation and reduces sudden movement. Surprise and coercion increase fear, which can make procedures less safe.",
         [S.NHA_CCMA],
@@ -142,7 +142,7 @@ FACTS: list[dict] = [
         "Contraception options, STI prevention, and stated confidentiality limits",
         [
             "Recommending permanent sterilization as the default first step",
-            "Refusing to document any reproductive health discussion without reassessing vital signs afterward",
+            "Refusing to document any reproductive health discussion in the medical record",
             "Withholding information about reversible methods when asked",
         ],
         "Patient education supports shared decisions under provider oversight. Permanent procedures and undocumented care fall outside safe MA practice.",
@@ -170,7 +170,7 @@ FACTS: list[dict] = [
         "Rear-facing car seat with snug harness per manufacturer instructions",
         [
             "Forward-facing installation to give the infant more leg room",
-            "Loose harness straps left slack for comfort without reassessing vital signs afterward",
+            "Loose harness straps left deliberately slack for infant comfort in the car seat",
             "Soft pillows placed behind the infant face in the seat",
         ],
         "Rear-facing restraint protects the neonatal spine in a crash. Loose straps and bulky bedding increase ejection and suffocation risk.",
@@ -184,7 +184,7 @@ FACTS: list[dict] = [
         "Blanch sternum or extremity skin and count seconds until pink returns",
         [
             "Time how long the infant cries after a heel stick",
-            "Judge perfusion by diaper wetness color alone without reassessing vital signs afterward",
+            "Judge perfusion by diaper wetness color alone without performing capillary refill",
             "Press cold nail beds without warming the limb first",
         ],
         "Delayed refill suggests poor peripheral perfusion. Crying duration and urine color do not measure capillary filling after blanching.",
@@ -197,7 +197,7 @@ FACTS: list[dict] = [
         "Why is head circumference plotted on a growth chart in infancy?",
         "To detect trends suggesting abnormal brain growth or fluid accumulation",
         [
-            "To predict adult hat retail inventory needs without reassessing vital signs afterward",
+            "To predict adult hat retail inventory needs rather than monitoring infant head growth",
             "To replace comparison with prior visit measurements",
             "To document maternal height without infant data",
         ],
@@ -213,7 +213,7 @@ FACTS: list[dict] = [
         [
             "Deferring all screening until kindergarten entry",
             "Using vision cards as a substitute for hearing protocols",
-            "Telling parents screening is unimportant gossip without reassessing vital signs afterward",
+            "Telling parents newborn screening is unimportant gossip without offering education",
         ],
         "Early detection of metabolic and hearing disorders improves long-term outcomes. Vision programs complement but do not replace hearing screening.",
         [S.NHA_CCMA],
@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             "Assume no symptoms exist after age forty without asking",
             "Mandate hormone therapy for every patient reporting flashes",
-            "Stop cancer prevention discussions at menopause without reassessing vital signs afterward",
+            "Stop cancer prevention discussions at menopause without updating screening plans",
         ],
         "Symptom clusters guide therapy conversations while preventive care continues across midlife. Blanket hormone orders exceed MA scope.",
         [S.NHA_CCMA],
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         "Heavy vaginal bleeding with severe abdominal or shoulder pain",
         [
             "Mild morning nausea without signs of dehydration",
-            "Food aversions to certain vegetables without reassessing vital signs afterward",
+            "Food aversions to certain vegetables during an otherwise uncomplicated first trimester",
             "Fatigue that improves with rest and adequate sleep",
         ],
         "Pain with bleeding may signal ectopic pregnancy or miscarriage. Common first-trimester nausea and fatigue differ from acute hemorrhage with pain.",
@@ -254,7 +254,7 @@ FACTS: list[dict] = [
         "Stay with the patient, notify the provider, and follow harm-risk protocol",
         [
             "Schedule a routine follow-up in six months without escalation",
-            "Advise more sunshine and leave the room unattended without reassessing vital signs afterward",
+            "Advise more sunshine alone and leave the room unattended without notifying the provider",
             "Chart symptoms without informing the clinician on duty",
         ],
         "Postpartum mood disorders with harm ideation are emergencies requiring immediate assessment. Delayed care risks injury to mother and baby.",
@@ -267,9 +267,9 @@ FACTS: list[dict] = [
         "A 16-year-old requests confidential STI testing where state law allows. What should the MA do?",
         "Room the patient privately, explain confidentiality limits, and facilitate ordered testing",
         [
-            "Refuse care until a parent signs every laboratory form",
-            "Discuss the request loudly at the front desk window without reassessing vital signs afterward",
-            "Decline testing because the patient is legally a minor",
+            "Refuse confidential STI testing until a parent signs every laboratory requisition form",
+            "Discuss the adolescent STI request loudly at the front desk window within earshot of others",
+            "Decline testing because the patient is a minor even when state law allows confidential care",
         ],
         "Confidential adolescent services encourage honest history within safety limits. Public disclosure or blanket refusal may violate law and deter care.",
         [S.NHA_CCMA],
@@ -282,7 +282,7 @@ FACTS: list[dict] = [
         "Weight loss, worsening confusion, and unpaid bills suggesting self-neglect",
         [
             "Stable mood with independent bathing and meal preparation",
-            "Weekly family visits without change in cognition without reassessing vital signs afterward",
+            "Weekly family visits reported without any change in cognition or daily function",
             "Well-controlled hypertension on the current medication list",
         ],
         "Functional decline and self-neglect may indicate abuse, depression, or need for support services. Stable independence is less urgent than acute decline.",
@@ -297,7 +297,7 @@ FACTS: list[dict] = [
         [
             "They list developmental toys appropriate for each age band",
             "They replace hands-on physical examination of the child",
-            "They document parental employment without growth data without reassessing vital signs afterward",
+            "They document parental employment and insurance data without plotting growth measurements",
         ],
         "Crossing percentiles may signal endocrine, nutritional, or genetic concerns. Charts do not substitute for examination or unrelated social fields.",
         [S.NHA_CCMA],
@@ -323,7 +323,7 @@ FACTS: list[dict] = [
         "When is newborn hearing screening typically performed in the United States?",
         "Before hospital discharge or at early follow-up per state program rules",
         [
-            "Routinely delayed until high school entry without reassessing vital signs afterward",
+            "Routinely delayed until high school entry without newborn follow-up hearing tests",
             "Replaced entirely by newborn vision photography",
             "Performed without informing parents of the process",
         ],
@@ -338,7 +338,7 @@ FACTS: list[dict] = [
         "Document the discussion, schedule follow-up, and support the provider plan",
         [
             "Administer adult vaccine product to use open inventory",
-            "Enter vaccines as given when they were declined without reassessing vital signs afterward",
+            "Enter vaccines as documented given in the chart when the family actually declined them",
             "Withhold vaccine information sheets from the parent",
         ],
         "Accurate records and education support shared decision-making. Wrong product, false documentation, or missing handouts create legal and safety risk.",
@@ -351,7 +351,7 @@ FACTS: list[dict] = [
         "What is the purpose of school-age vision screening in the medical home?",
         "Identify possible refractive error and refer for comprehensive exams when indicated",
         [
-            "Diagnose glaucoma definitively without specialist input without reassessing vital signs afterward",
+            "Diagnose glaucoma definitively during school screening without specialist examination or confirmatory testing",
             "Replace cycloplegic refraction for every child at school",
             "End vision checks after age three regardless of symptoms",
         ],
@@ -365,7 +365,7 @@ FACTS: list[dict] = [
         "How should confidentiality limits be stated during adolescent contraceptive counseling?",
         "Privacy applies unless there is risk of harm to self or others",
         [
-            "Guardians will receive a full transcript of the visit without reassessing vital signs afterward",
+            "Guardians will automatically receive a full transcript of every confidential adolescent visit",
             "The conversation may be broadcast on a clinic intercom",
             "Side-effect questions may be refused when the teen asks",
         ],
@@ -381,7 +381,7 @@ FACTS: list[dict] = [
         [
             "Selecting permanent sterilization without provider involvement",
             "Withholding emergency contraception information when requested",
-            "Promising hormones will treat all mood disorders without reassessing vital signs afterward",
+            "Promising hormonal contraception will treat all adolescent mood disorders without follow-up",
         ],
         "Education supports shared decisions under provider oversight. Permanent procedures and withheld options undermine informed choice.",
         [S.NHA_CCMA, S.CDC_STANDARD_PRECAUTIONS],
@@ -409,7 +409,7 @@ FACTS: list[dict] = [
         [
             "Attribute symptoms to sleep loss and end the visit",
             "Remove the blood pressure cuff to reduce anxiety",
-            "Delay any follow-up for twelve months without reassessing vital signs afterward",
+            "Delay any postpartum blood pressure follow-up for twelve months without provider contact",
         ],
         "Postpartum preeclampsia can occur after delivery. Visual changes with hypertension need prompt medical assessment.",
         [S.NHA_CCMA],
@@ -422,7 +422,7 @@ FACTS: list[dict] = [
         "Medication review, home hazards, vision, and gait stability",
         [
             "Lipid values without mobility or balance assessment",
-            "Removal of walkers to force muscle strengthening without reassessing vital signs afterward",
+            "Removal of walkers at home to force muscle strengthening without a safety assessment",
             "Deferring home safety questions to the next annual visit",
         ],
         "Sedatives and poor lighting increase fall risk. Assistive devices should be optimized with therapy, not discarded without assessment.",
@@ -436,7 +436,7 @@ FACTS: list[dict] = [
         "New confusion or functional decline even when fever is absent",
         [
             "High fever required in every case before treating infection",
-            "Rash limited to palms without any systemic signs without reassessing vital signs afterward",
+            "Rash limited to palms without fever, confusion, or other systemic infection signs",
             "Unchanged mental status during urinary tract infection",
         ],
         "Atypical presentations delay treatment in elders. Baseline cognition changes warrant infection workup even without classic fever.",
@@ -449,7 +449,7 @@ FACTS: list[dict] = [
         "A six-month-old is due for immunizations and becomes distressed. Which pain-reduction strategy is evidence based?",
         "Sucrose pacifier or breastfeeding plus distraction per protocol",
         [
-            "Assuming infants do not perceive injection pain without reassessing vital signs afterward",
+            "Assuming infants do not perceive injection pain during routine immunization visits",
             "Withholding comfort measures to discourage crying",
             "Using adult ventrogluteal landmarks for all infant doses",
         ],
@@ -465,7 +465,7 @@ FACTS: list[dict] = [
         [
             "Advise stopping breastfeeding at forty-eight hours for all families",
             "Withhold maternal hydration counseling during the visit",
-            "Dismiss cracked nipples as normal without referral without reassessing vital signs afterward",
+            "Dismiss cracked nipples as normal lactation changes without lactation referral or teaching",
         ],
         "Early specialist support improves feeding success and infant growth. Universal weaning advice and untreated nipple trauma worsen outcomes.",
         [S.NHA_CCMA],
@@ -478,7 +478,7 @@ FACTS: list[dict] = [
         "Teach self-management and ensure medical summary transfer before the handoff date",
         [
             "Wait until age thirty to mention adult clinic options",
-            "Delete medical records on the eighteenth birthday without reassessing vital signs afterward",
+            "Delete the entire medical record automatically on the patient eighteenth birthday",
             "Exclude the patient from understanding the diagnosis",
         ],
         "Gradual transition improves adherence and safety across care teams. Sudden handoffs without records or skills teaching increase hospitalizations.",
@@ -492,8 +492,8 @@ FACTS: list[dict] = [
         "Hot flashes, sleep disruption, mood changes, and bone health",
         [
             "Discontinuing all preventive cancer screening at midlife",
-            "Mandating hormone therapy for every visitor",
-            "Dismissing cardiovascular risk discussion without reassessing vital signs afterward",
+            "Mandating hormone replacement therapy for every patient at the menopause counseling visit",
+            "Dismissing cardiovascular risk discussion",
         ],
         "Therapy choices are individualized while preventive care continues. Blanket treatment orders exceed MA scope.",
         [S.NHA_CCMA],
@@ -505,8 +505,8 @@ FACTS: list[dict] = [
         "At a twelve-month well visit, which skills fall within broad normal developmental variation?",
         "Babbling, gesturing, and possibly first steps with wide ranges",
         [
-            "Reading chapter books independently without reassessing vital signs afterward",
-            "Solving multi-step algebra problems",
+            "Reading full chapter books independently at the twelve-month well-child visit",
+            "Solving multi-step algebra problems during routine twelve-month developmental screening",
             "Operating a motor vehicle legally on public roads",
         ],
         "Milestones have ranges; persistent delays need referral. Advanced literacy, algebra, and driving are not expected at one year of age.",
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
         "How should elder abuse screening questions be asked when protocol allows?",
         "Privately when it is safe to speak without the alleged abuser present",
         [
-            "With the alleged abuser in the room to save time without reassessing vital signs afterward",
+            "With the alleged abuser remaining in the examination room to save documentation time",
             "At the front desk while other patients wait nearby",
             "Without documentation to protect the clinic from reports",
         ],
@@ -533,8 +533,8 @@ FACTS: list[dict] = [
         "Which documents support end-of-life planning in the medical record?",
         "Advance directives and identified surrogate decision makers",
         [
-            "Staff opinions recorded without patient input",
-            "Social security numbers posted in the lobby without reassessing vital signs afterward",
+            "Staff opinions about code status recorded without any patient input or advance directive",
+            "Social security numbers posted in the lobby",
             "Billing codes without goals-of-care discussion",
         ],
         "Recorded wishes align treatment with patient values during incapacity. Administrative codes alone do not capture care preferences.",
@@ -561,7 +561,7 @@ FACTS: list[dict] = [
         "How is fetal heart rate auscultated during routine prenatal care?",
         "With Doppler or fetoscope per protocol after the expected audible gestational age",
         [
-            "By counting the maternal radial pulse at the wrist without reassessing vital signs afterward",
+            "By counting the maternal radial pulse at the wrist and documenting it as fetal heart rate",
             "With an adult stethoscope on the maternal carotid artery",
             "By ordering ultrasound at every urine dip without indication",
         ],
@@ -575,9 +575,9 @@ FACTS: list[dict] = [
         "A family brings a newborn for the first outpatient visit. Which car seat teaching point is highest priority?",
         "Rear-facing seat with chest clip at armpit level and snug straps",
         [
-            "Forward-facing seat for better visibility of the infant",
+            "Forward-facing infant car seat installed for better parent visibility during the first ride",
             "Thick blankets behind the infant face inside the harness",
-            "Chest clip positioned on the abdomen for comfort without reassessing vital signs afterward",
+            "Chest clip positioned on the abdomen for comfort",
         ],
         "Rear-facing restraint protects the neonatal spine in crashes. Bulky bedding and low clips increase injury and ejection risk.",
         [S.NHA_CCMA, S.RED_CROSS_FIRST_AID],
@@ -590,7 +590,7 @@ FACTS: list[dict] = [
         "To identify potentially inappropriate drugs and interaction risks",
         [
             "To add duplicate sedatives without clinical indication",
-            "To stop chronic medications without provider input without reassessing vital signs afterward",
+            "To stop chronic maintenance medications without provider input during reconciliation visits",
             "To omit over-the-counter herbs from the medication list",
         ],
         "Polypharmacy raises adverse drug events in elders. Complete lists include supplements and OTC products the patient actually takes.",
