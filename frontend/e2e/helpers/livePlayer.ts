@@ -22,17 +22,14 @@ export async function expectPlayerAdvancedToNextQuestion(page: Page, label: stri
 	await expect
 		.poll(
 			async () => {
-				const onReveal = await page.getByText(/^Correct$/).isVisible().catch(() => false);
-				const onRankings = await page.getByText(/^You$/).isVisible().catch(() => false);
-				if (onReveal || onRankings) return 'between';
-				if (!(await root.isVisible().catch(() => false))) return 'between';
+				if (!(await root.isVisible().catch(() => false))) return '';
 				const now = ((await questionLine.textContent().catch(() => '')) ?? '').trim();
-				if (priorQuestion && now && now !== priorQuestion) return 'next';
-				return 'same';
+				if (priorQuestion && now && now !== priorQuestion) return now;
+				return '';
 			},
-			{ message: `${label}: advance past prior question`, timeout: 90_000 }
+			{ message: `${label}: next question prompt visible`, timeout: 90_000 }
 		)
-		.not.toBe('same');
+		.not.toBe('');
 
 	await expect(root, `${label}: next question visible`).toBeVisible({ timeout: 60_000 });
 	await expect(
