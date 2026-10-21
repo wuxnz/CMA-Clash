@@ -211,6 +211,9 @@ SPDX-License-Identifier: MPL-2.0
 			: ''
 	);
 
+	let isBattleMode = $derived(normalizeGameMode(game_mode) === 'battle');
+	let hideTileQuestion = $derived(normalizeGameMode(game_mode) === 'kahoot');
+
 	let preventReload = true;
 
 	// Functions
@@ -526,7 +529,10 @@ SPDX-License-Identifier: MPL-2.0
 					totalSeconds={remainingTime}
 					interactive={true}
 					showRing={false}
-					hideQuestion={isKahootStyleMode(game_mode)}
+					hideQuestion={hideTileQuestion}
+					questionLabel={isBattleMode ? topic_tag : ''}
+					questionImage={isBattleMode ? (question.image ?? null) : null}
+					battlePlayerLayout={isBattleMode}
 					selected={selectedAnswer}
 					onSelect={pickAnswer}
 				/>

@@ -82,6 +82,14 @@ async function waitForBattleQuestions(page: Page, label: string): Promise<void> 
 	await expectPlayerOnAnswerTiles(page, label);
 }
 
+async function expectBattleQuestionText(page: Page, label: string): Promise<string> {
+	const q = page.getByTestId('battle-question-text');
+	await expect(q, label).toBeVisible({ timeout: 60_000 });
+	const text = (await q.textContent())?.replace(/\s+/g, ' ').trim() ?? '';
+	expect(text.length, `${label} question text`).toBeGreaterThan(8);
+	return text;
+}
+
 test.describe('battle after live game in same browser', () => {
 	test.beforeAll(() => {
 		fs.mkdirSync(artifactDir, { recursive: true });
@@ -114,6 +122,11 @@ test.describe('battle after live game in same browser', () => {
 		expect(hostUrlPin).toBeTruthy();
 		expect(hostUrlPin).toBe(guestUrlPin);
 		await expect(hostPage.getByText(STALE_LIVE_PIN)).toHaveCount(0);
+
+		const hostQ1 = await expectBattleQuestionText(hostPage, 'host Q1 text');
+		const guestQ1 = await expectBattleQuestionText(guestPage, 'guest Q1 text');
+		expect(hostQ1).toBe(guestQ1);
+
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q1-host.png'),
 			fullPage: true
@@ -122,12 +135,27 @@ test.describe('battle after live game in same browser', () => {
 			path: path.join(artifactDir, 'battle-after-live-q1-guest.png'),
 			fullPage: true
 		});
+		await hostPage.setViewportSize({ width: 1280, height: 800 });
+		await hostPage.screenshot({
+			path: path.join(artifactDir, 'battle-question-desktop.png'),
+			fullPage: true
+		});
+		await guestPage.setViewportSize({ width: 390, height: 844 });
+		await guestPage.screenshot({
+			path: path.join(artifactDir, 'battle-question-mobile.png'),
+			fullPage: true
+		});
 
 		await answerFirstTile(hostPage);
 		await answerFirstTile(guestPage);
 
 		await expectPlayerAdvancedToNextQuestion(hostPage, 'host Q2');
 		await expectPlayerAdvancedToNextQuestion(guestPage, 'guest Q2');
+
+		const hostQ2 = await expectBattleQuestionText(hostPage, 'host Q2 text');
+		const guestQ2 = await expectBattleQuestionText(guestPage, 'guest Q2 text');
+		expect(hostQ2).toBe(guestQ2);
+		expect(hostQ2).not.toBe(hostQ1);
 
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q2-host.png'),
