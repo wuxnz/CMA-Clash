@@ -33,3 +33,15 @@ phleb-order-draw-025 | pass | _(next line in file reviewed with batch 02 start)_
 ## Phleb WHO module (spot)
 
 phleb-who hand-hygiene moments | fail | Five Moments pair before touch and before aseptic skin prep; replaced joke distractors with parallel wrong-moment options.
+
+## Phleb WHO module pass
+
+phleb-who multimodal-hand-hygiene | pass | Replaced punishing staff / removing sinks with alcohol-rub replenishment and glove-as-substitute near-misses.
+phleb-who infection-prevention-bundle | pass | Replaced bedside-table needles / skip-gloves-quick with antiseptic dry time, one-handed recapping, gloves without prior hand hygiene.
+phleb-who training-curriculum | pass | Replaced billing codes / social media with order-of-draw-only and online-module-only near-misses.
+phleb-who patient-communication | pass | Replaced silent draw / mock anxiety / restraint jokes with explain-before-stick, continue despite faintness, minimize fear near-misses.
+phleb-who quality-indicators | pass | Replaced hair color / parking / pens with draws-without-hemolysis-ID, stock-only, wait-time-only near-misses.
+phleb-who patient-education-venipuncture | pass | Replaced guaranteeing abnormal results with promising no discomfort movement near-miss.
+phleb-who pediatric-capillary | pass | Replaced skipping gloves for small volume with fingerstick without hand hygiene before gloves.
+phleb-who facility-audit | pass | Replaced wait-time-only / social media / parking with sharps disposal, dispenser-only, reorder-log-only near-misses.
+phleb-who outbreak-investigation | pass | Replaced cafeteria / TV / parking with transport-time-only, tourniquet-laundry-only, refrigerator-only near-misses.
