@@ -722,6 +722,51 @@ skill-intake-016 | fail | Parallel tobacco documentation near-misses; removed he
 skill-poct-041 | fail | Parallel waived-result workflows; private exam-room correct answer.
 skill-vitals-035 | fail | Parallel temperature sites: rectal, oral, tympanic, temporal artery (confirmed after vitals pass).
 
+## Parallel-options pass batch P02 (skill-infection-001 to skill-infection-042)
+
+skill-infection-001 | fail | Parallel patient-coverage distractors; Standard Precautions scope for all encounters.
+skill-infection-002 | fail | Hand-hygiene purpose distractors as parallel workflow myths; length balanced.
+skill-infection-003 | fail | Alcohol-rub indication distractors parallel soil, C. difficile, and soap-and-water near-misses.
+skill-infection-004 | fail | WHO-moment distractors parallel glove-only and room-exit hygiene near-misses.
+skill-infection-005 | fail | Glove disposal distractors parallel reuse, regular waste, and double-gloving near-misses.
+skill-infection-006 | fail | PPE donning order distractors parallel wrong sequences; correct shortened for length tie.
+skill-infection-007 | fail | PPE doffing distractors parallel gown-first and pocket-laundering near-misses; length balanced.
+skill-infection-008 | fail | Transmission-Based add-on distractors parallel injection and hygiene rollback near-misses.
+skill-infection-009 | fail | Droplet-precaution patient distractors parallel afebrile and post-antibiotic near-misses.
+skill-infection-010 | fail | Airborne engineering distractors parallel positive pressure, fan, and spacing-only near-misses.
+skill-infection-011 | fail | Medical asepsis distractors parallel autoclave-everything and sterile-vitals myths; length balanced.
+skill-infection-012 | fail | Sterile-field handling distractors parallel margin breach and dropped-item near-misses.
+skill-infection-013 | fail | Between-patient cleaning distractors parallel glove substitution and PPE-skip near-misses.
+skill-infection-014 | fail | EPA label distractors parallel polish, lotion, and window-cleaner near-misses (unchanged parallel set).
+skill-infection-015 | fail | Regulated waste distractors parallel home trash, sink rinse, and open storage near-misses.
+skill-infection-016 | fail | One-and-Only distractors parallel vial sharing, syringe reuse, and shared flush near-misses.
+skill-infection-017 | fail | Single-dose re-entry distractors parallel same-hour sharing and stopper-appearance near-misses; correct trimmed.
+skill-infection-018 | fail | Multi-dose dating distractors parallel birthday label, no date, and visual-empty near-misses.
+skill-infection-019 | fail | Compromised sterile pack distractors parallel tape, alcohol wipe, and rush-use near-misses.
+skill-infection-020 | fail | Post-glove hygiene rationale distractors parallel sterilize-hands myths; length balanced.
+skill-infection-021 | fail | Respiratory hygiene waiting-area distractors parallel crowding and alcohol-removal near-misses.
+skill-infection-022 | fail | Contact-precaution purpose distractors parallel shared equipment and all-day gloves near-misses.
+skill-infection-023 | fail | BP cuff between-patient distractors parallel weekly rotation and sweater cover near-misses.
+skill-infection-024 | fail | Hand hygiene after intact-skin touch distractors parallel mid-exam keyboard and end-of-week myths.
+skill-infection-025 | fail | Blood-spill cleanup distractors parallel water-only, no-PPE wipe, and spray-without-contain near-misses.
+skill-infection-026 | fail | Varicella placement distractors parallel waiting-room, roommate, and transit exposure near-misses.
+skill-infection-027 | fail | Jewelry and nails distractors parallel rub-penetration and glove-replacement myths.
+skill-infection-028 | fail | Entrance alcohol dispenser distractors parallel spill disinfectant and isolation-replacement myths.
+skill-infection-029 | fail | Soiled linen distractors parallel hallway shake, home wash, and open hamper near-misses.
+skill-infection-030 | fail | Torn sterile glove distractors parallel one-hand continue, tape, and alcohol dip near-misses.
+skill-infection-031 | fail | Sharp handling distractors parallel hand pass, two-hand recap, and table staging near-misses.
+skill-infection-032 | fail | Vaccine storage separation distractors parallel warm fridge, room vials, and vaccine pooling near-misses.
+skill-infection-033 | fail | Contact-room entry distractors parallel street clothes, gown reuse, and mask-only near-misses.
+skill-infection-034 | fail | Surgical hand antisepsis distractors parallel water rinse, bare field, and monthly scrub myths.
+skill-infection-035 | fail | Sharps vs red-bag waste distractors parallel gauze dot, empty box, and saturated dressing near-misses.
+skill-infection-036 | fail | Negative airflow purpose distractors parallel blow-to-waiting, open-door, and heat myths.
+skill-infection-037 | fail | Clinic refrigerator food distractors parallel shared shelf, tube sandwich bin, and no-thermometer near-misses.
+skill-infection-038 | fail | Influenza waiting-area distractors parallel group triage, mask removal, and clinic-close near-misses.
+skill-infection-039 | fail | Terminal cleaning distractors parallel door-only, window-only, and ceiling-only near-misses.
+skill-infection-040 | fail | Gown-sleeve personal item distractors parallel sterility and hygiene-replacement myths.
+skill-infection-041 | fail | C. difficile hand hygiene distractors parallel alcohol-only, glove-only, and air-dry near-misses.
+skill-infection-042 | fail | Uncertain isolation distractors parallel unprotected entry and hallway wait; removed self-refuting without-asking phrasing.
+
 ## Parallel-options pass batch P02 (skill-terminology-001 to skill-terminology-033)
 
 skill-terminology-001 | fail | Parallel prefix degree distractors; dys- near-miss aligned to painful/difficult/abnormal phrasing.
