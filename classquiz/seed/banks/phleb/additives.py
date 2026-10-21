@@ -348,15 +348,15 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-additives",
-        "What is the purpose of clot activator beads or powder in plain red-top and SST tubes?",
-        "Accelerate fibrin clot formation so serum can be separated after incubation and centrifugation",
+        "What is the purpose of silica clot activator coating in plain red-top serum tubes?",
+        "Promote fibrin clot formation so serum separates after incubation and centrifugation",
         [
-            "Provide permanent anticoagulation comparable to lithium heparin",
-            "Suppress platelet clumping for automated CBC differentials if lavender, green, or blue tubes are confused on the tray",
-            "Maintain sterile conditions equivalent to blood culture broth",
+            "Provide thrombin-based rapid clotting like orange rapid serum tubes",
+            "Chelate calcium permanently like lavender EDTA for hematology testing",
+            "Inhibit glycolysis like gray sodium fluoride tubes for glucose preservation",
         ],
-        "Clot activators shorten the clotting phase for serum chemistry; they do not anticoagulate like heparin or preserve cells like EDTA. "
-        "Culture sterility requires dedicated sterile bottle systems, not chemistry tube additives.",
+        "Red-top tubes use silica clot activator on the wall, not thrombin rapid serum additive. "
+        "They do not anticoagulate like heparin or EDTA, and fluoride tubes serve different chemistry orders.",
         [S.CLSI_GP41],
         "intermediate",
     ),
@@ -416,13 +416,13 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         "How do orange or speckled rapid serum tubes shorten clot formation compared with plain red-top tubes?",
-        "Thrombin or another clot activator added to shorten serum formation time",
+        "Thrombin additive in the tube to accelerate clotting for rapid serum chemistry",
         [
-            "Silica particles or clot activator coating on the tube interior wall",
+            "Silica particles alone, the same activator used in standard red-top tubes",
             "Gel separator catalyst that clots blood before the first centrifugation spin",
             "Glass surface contact alone without clot activator or thrombin in the tube",
         ],
-        "Rapid serum tubes use thrombin or similar activators to clot quickly for stat chemistry. Silica and gel are confused with SST or plain clot tubes but are not the rapid-thrombin mechanism.",
+        "Rapid serum (thrombin) tubes clot faster than plain red tops, which rely on silica clot activator on the wall. Gel separator and glass-only mechanisms describe SST or uncoated tubes, not thrombin rapid serum products.",
         [S.CLSI_GP41],
         "intermediate",
     ),
