@@ -16,20 +16,21 @@ export async function expectPlayerOnAnswerTiles(page: Page, label: string) {
 /** After both players answer, wait until the next question's answer UI is ready. */
 export async function expectPlayerAdvancedToNextQuestion(page: Page, label: string) {
 	const root = page.getByTestId('answer-tiles');
-	const questionLine = root.locator('p').first();
-	const priorQuestion = ((await questionLine.textContent().catch(() => '')) ?? '').trim();
+	const firstTile = root.locator('button').first();
+	const priorTile = ((await firstTile.textContent().catch(() => '')) ?? '').trim();
 
 	await expect
 		.poll(
 			async () => {
-				if (!(await root.isVisible().catch(() => false))) return '';
-				const now = ((await questionLine.textContent().catch(() => '')) ?? '').trim();
-				if (priorQuestion && now && now !== priorQuestion) return now;
-				return '';
+				if (!(await root.isVisible().catch(() => false))) return false;
+				const enabled = await root.locator('button:not([disabled])').count();
+				if (enabled === 0) return false;
+				const now = ((await firstTile.textContent().catch(() => '')) ?? '').trim();
+				return Boolean(priorTile && now && now !== priorTile);
 			},
-			{ message: `${label}: next question prompt visible`, timeout: 90_000 }
+			{ message: `${label}: next question answer tiles`, timeout: 90_000 }
 		)
-		.not.toBe('');
+		.toBe(true);
 
 	await expect(root, `${label}: next question visible`).toBeVisible({ timeout: 60_000 });
 	await expect(
