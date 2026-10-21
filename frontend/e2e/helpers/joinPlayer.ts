@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import { expect, type BrowserContext, type Page } from '@playwright/test';
-import { installLiveApiProxy } from './liveApiProxy';
+import { maybeInstallLiveApiProxy } from './productionBase';
 
 /** Join a live game on /play (production or preview). */
 export async function joinPlayer(
@@ -12,7 +12,7 @@ export async function joinPlayer(
 	name: string,
 	viewport = { width: 390, height: 844 }
 ): Promise<Page> {
-	await installLiveApiProxy(context);
+	await maybeInstallLiveApiProxy(context);
 	if (process.env.CMA_PLAY_SOCKET_DEBUG === '1') {
 		await context.addInitScript(() => {
 			window.localStorage.setItem('cma_play_socket_debug', '1');

@@ -8,6 +8,7 @@ const API_BASE = process.env.PLAYWRIGHT_API_BASE ?? 'https://cmaclash-api.onrend
 
 export type HostedLobby = {
 	pin: string;
+	gameId: string;
 	socket: Socket;
 	startGame: () => void;
 	close: () => void;
@@ -56,12 +57,15 @@ export async function hostLiveGame(gameMode: 'kahoot' | 'normal'): Promise<Hoste
 
 	return {
 		pin,
+		gameId,
 		socket,
 		startGame: () => {
 			socket.emit('start_game', {});
 			// "On player devices" (normal) does not auto-push Q1; host must show it.
 			if (gameMode === 'normal') {
-				socket.emit('set_question_number', '0');
+				const showQ1 = () => socket.emit('set_question_number', '0');
+				showQ1();
+				setTimeout(showQ1, 1500);
 			}
 		},
 		close: () => socket.disconnect()
