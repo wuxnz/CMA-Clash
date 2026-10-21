@@ -444,3 +444,41 @@ ekg-artifacts-040 | pass | Uninterpretable ST repeat neighbors.
 ekg-artifacts-041 | pass | Cold shiver field EKG neighbors.
 ekg-artifacts-042 | pass | Clone QRS wiring neighbors.
 ekg-artifacts-043 | pass | Limb lead motion on bed turn neighbors.
+
+## EKG length/parallelism pass 2 (remainder)
+
+Pass 2 rules: parallel option length/structure; no stem-contradicting distractors. Verified `correct_is_uniquely_short_by_margin` and `correct_is_uniquely_longest` for all **253** EKG items (`ekg-*` topics): **0 short-margin, 0 uniquely-longest** after this pass.
+
+**Count: 26** items edited in source this pass (`artifacts.py` 8, `rhythm.py` 8, `acls_basics.py` 7, `intervals.py` 1, `cardiac_ap.py` 1, `leads.py` 1).
+
+ekg-artifacts-004 | fail | Shivering irregular deflections: flutter distractor dropped “regular” vs irregular stem.
+ekg-artifacts-028 | fail | Cough baseline shift: parallel motion vs Wenckebach/hyperkalemia/STEMI option lengths.
+ekg-artifacts-034 | fail | Defib pad overlap documentation: trimmed keyed answer length vs balanced distractors.
+ekg-artifacts-036 | fail | Bedside quality review: lengthened short distractors to match correct clause.
+ekg-artifacts-037 | fail | Nicotine patch under V2: parallel policy/cancel/back-placement distractor lengths.
+ekg-artifacts-040 | fail | Uninterpretable ST: lengthened treat/assume/pleth distractors for parallel form.
+ekg-artifacts-041 | fail | Cold shiver field EKG: balanced VF/AF/defib distractor lengths vs warm-repeat correct.
+ekg-artifacts-043 | fail | Bed-turn limb noise: expanded correct and rhythm-mimic distractor clauses.
+
+ekg-leads-024 | fail | Cable tension wander: tightened distractor wording parallel to relieve-secure correct.
+
+ekg-rhythm-015 | fail | PEA no-pulse stem: removed palpable-pulse and redundant pulse wording on distractors.
+ekg-rhythm-018 | fail | PSVT pattern: trimmed over-long VT/sinus distractors for parallel one-line form.
+ekg-rhythm-023 | fail | Narrow 200 no P: replaced wide-QRS VT neighbor with sinus-tach upright-P distractor.
+ekg-rhythm-025 | fail | AF RVR irregular narrow: removed wide regular VT; flutter wording without stem clash.
+ekg-rhythm-028 | fail | Junctional inverted P narrow: swapped wide-QRS VT for AF irregular narrow neighbor.
+ekg-rhythm-036 | fail | Complete block wide escape: distractors avoid narrow-QRS labels excluded by wide stem.
+ekg-rhythm-039 | fail | Retrograde P narrow: replaced wide AIVR with flutter at ~75 bpm neighbor.
+ekg-rhythm-040 | fail | Trigeminy count: parallel wide-PVC clause options; removed narrow-PAC stem clash.
+
+ekg-intervals-020 | fail | LBBB wide QRS 0.16: replaced narrow-QRS PR distractor with STEMI ST neighbor.
+
+ekg-cardiac-ap-036 | fail | VT fusion/capture wide: distractors avoid narrow-QRS sinus; parallel flutter/VT/SVT lines.
+
+ekg-acls-basics-002 | fail | Pulseless VF check: distractors drop palpable pulse; lengthened VF correct vs neighbors.
+ekg-acls-basics-003 | fail | PEA definition: sinus neighbor without carotid pulse vs pulseless stem.
+ekg-acls-basics-008 | fail | Coarse VF no pulse: expanded treat-as-VF correct for length parity.
+ekg-acls-basics-009 | fail | Regular wide QRS no pulse: perfusing/narrow neighbors replaced with rhythm-only near-misses.
+ekg-acls-basics-019 | fail | PEA narrow 40 no pulse: removed palpable-pulse junctional/Mobitz distractors.
+ekg-acls-basics-027 | fail | Post-shock organized no pulse: ROSC pulse distractors replaced; lengthened PEA correct.
+ekg-acls-basics-041 | fail | Shockable definition: trimmed correct length; sinus neighbor without palpable pulse.

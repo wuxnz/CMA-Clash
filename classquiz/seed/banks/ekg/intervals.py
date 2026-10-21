@@ -263,9 +263,9 @@ FACTS: list[dict] = [
         [
             "Short PR interval with delta wave slur in lead II suggesting pre-excitation",
             "Irregularly irregular rhythm without discrete P waves suggesting atrial fibrillation",
-            "PR interval of 0.14 second with narrow QRS complexes in sinus rhythm",
+            "Convex ST elevation in contiguous precordial leads suggesting acute anterior STEMI",
         ],
-        "LBBB shows wide QRS with characteristic ST-T discordance. Short PR with delta suggests WPW, AF lacks regular P waves, and narrow QRS with normal PR does not fit LBBB.",
+        "LBBB shows wide QRS with characteristic ST-T discordance. Short PR with delta suggests WPW, AF lacks regular P waves, and territorial ST elevation suggests ischemia rather than bundle branch morphology.",
         [S.NHA_CCMA],
         "advanced",
     ),

@@ -337,9 +337,9 @@ FACTS: list[dict] = [
         "During acquisition, pulling on EKG cable wires causes the baseline to wander on the monitor. What is the best immediate action?",
         "Relieve cable tension and secure electrodes without lifting pads from the skin",
         [
-            "Increase cable tension to stabilize the wires against the patient's torso during breathing",
+            "Increase cable tension to stabilize wires against the torso during quiet breathing",
             "Remove the right-leg ground electrode to reduce noise on the monitor display",
-            "Continue the tracing without adjusting wires, electrodes, slack, or patient position",
+            "Continue tracing without adjusting wires, electrode slack, or patient position",
         ],
         "Motion and tension create somatic artifact that mimics arrhythmia or ischemia. Securing leads addresses the source rather than masking it by removing reference electrodes.",
         [S.NHA_CCMA],
