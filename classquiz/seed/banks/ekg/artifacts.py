@@ -12,10 +12,10 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A resting 12-lead shows slow undulating baseline drift with sharp QRS complexes when the patient breathes quietly. What is the most likely cause?",
-        "Respiratory motion moving the chest wall while electrodes remain adhered",
+        "Respiratory motion shifting the chest wall with adhered electrodes",
         [
             "Loose precordial snap causing intermittent flat segments in one lead",
-            "Left and right arm electrodes reversed inverting lead I",
+            "Left and right arm electrodes reversed, inverting lead I morphology",
             "Acute pericarditis with diffuse ST elevation in limb and chest leads",
         ],
         "Gentle chest motion with secure pads produces sway without losing QRS detail. A loose lead drops one channel, arm reversal changes limb morphology globally, and pericarditis alters ST rather than rhythm alone.",
@@ -29,7 +29,7 @@ FACTS: list[dict] = [
         [
             "Paper speed changed from 25 mm/s to 50 mm/s",
             "Monitor switched from lead II to lead III display",
-            "Calibration gain reduced from 10 mm/mV to 5 mm/mV",
+            "Calibration gain reduced from 10 mm/mV to 5 mm/mV on the strip",
         ],
         "Wire pull disturbs electrode contact and mimics wander. Paper speed, monitor lead selection, and gain change amplitude scaling but do not explain motion-linked baseline drift.",
         [S.NHA_CCMA],
@@ -38,10 +38,10 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "Fine regular oscillations at about 60 per minute overlay the tracing in all leads while the patient lies still in a plugged-in machine. Underlying QRS remain visible. What is the likely source?",
-        "Alternating-current interference from grounding or nearby electrical equipment",
+        "AC interference from grounding or nearby electrical equipment",
         [
             "Atrial flutter with 2:1 ventricular conduction at 150 beats per minute",
-            "Ventricular fibrillation with chaotic coarse waves",
+            "Ventricular fibrillation with chaotic coarse waves across all leads",
             "Sinus arrhythmia with respiratory variation in R-R interval",
         ],
         "60 Hz noise rides on the baseline while cardiac cycles continue. Flutter keeps sawteeth and patterned ventricular response, VF lacks organized QRS, and sinus arrhythmia varies R-R without a fixed 60 Hz vibration.",
@@ -64,11 +64,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "Lead V3 is nearly isoelectric while V2 and V4 show normal QRS amplitude on the same acquisition. What is the best first troubleshooting step?",
-        "Re-seat or replace the V3 electrode and inspect its wire connection",
+        "Re-seat the V3 electrode and inspect its wire connection",
         [
             "Reposition all limb electrodes to the abdomen for stability",
             "Diagnose anterior STEMI because one precordial lead is flat",
-            "Increase heart rate alarm limits on the monitor",
+            "Increase heart rate alarm limits on the monitor display panel only",
         ],
         "Single-lead loss is usually local contact or cable fault. Moving all limbs, labeling STEMI from one flat lead, or alarm changes do not fix an isolated V3 circuit problem.",
         [S.NHA_CCMA],
@@ -79,7 +79,7 @@ FACTS: list[dict] = [
         "After heavy sweating during a fever, the monitor shows intermittent dropout in several chest leads. Skin under the pads glistens. What intervention is most appropriate?",
         "Dry the skin and apply fresh adhesive electrodes at the same landmarks",
         [
-            "Apply petroleum jelly under each pad to seal moisture",
+            "Apply petroleum jelly under each pad to seal moisture and sweat buildup",
             "Increase monitor gain until dropout no longer appears on screen",
             "Switch to lead aVR only and omit the affected chest leads",
         ],
@@ -103,9 +103,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "Pacing spikes appear immediately before some but not all QRS complexes on a telemetry strip. How should the team interpret the rhythm?",
-        "Assess capture: spikes followed by wide or paced QRS versus native beats without spikes",
+        "Assess capture: spikes before paced QRS versus native beats without spikes",
         [
-            "Call the rhythm ventricular fibrillation because spikes are present",
+            "Call the rhythm ventricular fibrillation because spikes are present on strip",
             "Ignore spikes and report pure sinus rhythm without review",
             "Delete spikes electronically and treat as normal sinus only",
         ],
@@ -116,10 +116,10 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "During tooth brushing at the bedside, the monitor shows tall irregular deflections synchronized with arm motion. Pulse is regular when felt at the wrist. What is the best action?",
-        "Pause the activity and repeat the tracing when the arms are supported and still",
+        "Pause the activity and repeat the tracing with arms supported and still",
         [
-            "Start anticoagulation for presumed atrial fibrillation",
-            "Deliver defibrillation because the baseline is chaotic",
+            "Start anticoagulation for presumed atrial fibrillation immediately",
+            "Deliver defibrillation because the baseline is chaotic on the monitor strip",
             "Label the strip as STEMI based on tall deflections",
         ],
         "Motion artifact tracks arm use and clears with rest while pulse stays regular. AF, VF, and STEMI would not resolve simply by stopping brushing.",
@@ -129,11 +129,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A defibrillator monitor alarms for possible ventricular tachycardia during active chest compressions. The compressor confirms good depth and the patient has no pulse. What should happen at the planned pause?",
-        "Analyze the rhythm off compressions and distinguish VF from compression artifact",
+        "Analyze rhythm off compressions; distinguish VF from compression artifact",
         [
             "Shock immediately while compressions continue without pausing",
             "Assume artifact and cancel all further rhythm checks",
-            "Treat as sinus tachycardia and withhold defibrillation permanently",
+            "Treat as sinus tachycardia and withhold defibrillation permanently on scene",
         ],
         "Artifact tracks compression rate; brief pause clarifies VF versus mechanical noise. Shocking during compressions or skipping analysis risks wrong therapy.",
         [S.NHA_CCMA],
@@ -170,7 +170,7 @@ FACTS: list[dict] = [
         "Wandering baseline improves when the right leg ground electrode is reattached. What problem did the loose ground cause?",
         "Unstable reference increasing noise on limb and chest leads",
         [
-            "Fixed PR prolongation to 0.24 second on every beat",
+            "Fixed PR prolongation to 0.24 second on every beat on the strip",
             "Narrow QRS tachycardia at 200 with hidden P waves",
             "Sawtooth flutter waves at 300 per minute in lead II",
         ],
@@ -181,9 +181,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A hairy chest prevents pad adhesion after clipping is not permitted. Which alternative best preserves signal quality?",
-        "Stress or clip-style electrodes designed for hairy skin per manufacturer guidance",
+        "Clip-style electrodes for hairy skin per manufacturer guidance",
         [
-            "Pads pressed onto chest hair without skin contact",
+            "Pads pressed onto chest hair without skin contact at the landmark",
             "Limb leads only with omission of the entire precordial set",
             "Lotion rubbed into hair to hold standard pads",
         ],
@@ -196,7 +196,7 @@ FACTS: list[dict] = [
         "Cable loops rest on a power cord under the bed. The tracing develops 60 Hz ripple. What is the best fix?",
         "Separate EKG cables from power cords and verify ground connection",
         [
-            "Enable the monitor notch filter and accept baseline distortion",
+            "Enable the monitor notch filter and accept baseline distortion on screen",
             "Re-seat a loose limb electrode and repeat the tracing",
             "Ask the patient to stop shivering and hold extremities still",
         ],
@@ -272,10 +272,10 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A diaphoretic runner needs a tracing. Fresh pads on dried skin with wire slack loops still show brief spikes when cables bounce. Next step?",
-        "Secure cables to skin or gown with slack relief while keeping landmarks",
+        "Secure cables to skin or gown with slack relief at landmarks",
         [
-            "Tighten wires until electrodes lift off the chest",
-            "Switch to blood pressure waveform as the only rhythm source",
+            "Tighten wires until electrodes lift off the chest wall",
+            "Switch to blood pressure waveform as the only rhythm source on monitor",
             "Place electrodes on the jersey fabric over the chest",
         ],
         "Slack relief reduces bounce artifact while preserving contact. Overtightening lifts pads, pressure waves are not 12-lead EKG, and fabric blocks signal.",
@@ -287,9 +287,9 @@ FACTS: list[dict] = [
         "Left arm and right arm electrodes were reversed on a conscious patient. Which limb lead pattern is expected?",
         "Inverted P, QRS, and T in lead I with switched aVR and aVL appearances",
         [
-            "Inverted P in lead II with normal lead I throughout",
-            "ST elevation in V1 through V3 with upright T in V4",
-            "Irregular R-R without P waves in all limb leads",
+            "Inverted P in lead II with normal lead I throughout the strip",
+            "ST elevation in V1 through V3 with upright T in V4 on the full tracing",
+            "Irregular R-R without P waves in all limb leads on the tracing",
         ],
         "Arm swap flips lead I and swaps augmented limb appearances. Lead II inversion alone suggests different error; anterior ST pattern is ischemic; irregular no-P is AF.",
         [S.NHA_CCMA],
@@ -298,10 +298,10 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "How does loose electrode artifact differ from true asystole on the monitor?",
-        "Loose leads often show flat line in some channels while others retain QRS; asystole is flat with confirmed no pulse in multiple leads",
+        "Loose: some channels flat, others QRS; asystole: all leads flat, no pulse",
         [
-            "Loose leads always show tachycardia above 150 in every lead",
-            "Asystole always shows tall peaked T waves before flat line",
+            "Loose leads always show tachycardia above 150 in every lead on the strip always",
+            "Asystole always shows tall peaked T waves before flat line in all leads",
             "Loose leads produce sawtooth waves at 300 per minute",
         ],
         "Selective flat channels suggest technical failure; global asystole with no pulse is arrest. Tachycardia, peaked T, and flutter are organized patterns unlike simple dropout.",
@@ -313,8 +313,8 @@ FACTS: list[dict] = [
         "A patient reports burning under one pad during acquisition. What is the appropriate response?",
         "Stop the study, remove the pad, inspect skin, and relocate after prep",
         [
-            "Press harder until burning stops and finish quickly",
-            "Soak the pad with alcohol to cool the skin",
+            "Press harder until burning stops and finish quickly without stopping the study",
+            "Soak the pad with alcohol to cool the skin under the electrode",
             "Continue because mild heat is expected from all electrodes",
         ],
         "Burning signals skin injury or incompatible gel; stopping protects tissue. Pressure, alcohol soak, or ignoring pain worsens injury and data quality.",
@@ -341,7 +341,7 @@ FACTS: list[dict] = [
         [
             "Disable all monitor alarms for the rest of the shift",
             "Move every electrode to the lower extremities",
-            "Record only lead I for the entire 12-lead order",
+            "Record only lead I for the entire 12-lead order without any chest leads",
         ],
         "RF pickup decreases with distance and proper grounding. Alarm changes, leg-only placement, and single-lead recording do not address RF coupling.",
         [S.NHA_CCMA],
@@ -354,7 +354,7 @@ FACTS: list[dict] = [
         [
             "Increase calibration to 20 mm/mV to overpower interference",
             "Use MRI-safe pads that remove need for standard landmarks",
-            "Interpret the unreadable strip as diagnostic for research",
+            "Interpret the unreadable strip as diagnostic for research purposes anyway",
         ],
         "Strong fields disrupt biopotential amplifiers outside approved zones. Extreme gain, fictional pad shortcuts, and accepting unreadable data are unsafe.",
         [S.NHA_CCMA],
@@ -380,7 +380,7 @@ FACTS: list[dict] = [
         [
             "Reuse the same irritated skin to keep lead positions identical",
             "Apply cyanoacrylate glue before standard pads on broken skin",
-            "Skip skin inspection because redness cannot affect tracings",
+            "Skip skin inspection because redness cannot affect tracings or contact",
         ],
         "Rotating sites protects skin and contact quality. Reusing damaged skin, glue on injury, or ignoring dermatitis risks artifact and harm.",
         [S.NHA_CCMA],
@@ -393,7 +393,7 @@ FACTS: list[dict] = [
         [
             "Patient developed first-degree AV block during the study",
             "Heart rate slowed from 80 to 50 between pad changes",
-            "Paper speed automatically changed mid-tracing",
+            "Paper speed automatically changed mid-tracing without user input",
         ],
         "Fresh gel restores contact instantly. AV block, rate change, and paper speed do not correct solely by swapping foam pads.",
         [S.NHA_CCMA],
@@ -404,7 +404,7 @@ FACTS: list[dict] = [
         "The monitor displays leads off on V5 during a stat EKG. Other leads look acceptable. What must occur before leaving the bedside?",
         "Reconnect V5, confirm waveform, and save a diagnostic tracing",
         [
-            "Print the flat V5 channel as the final record",
+            "Print the flat V5 channel as the final record for the chart anyway",
             "Cancel the order because one lead failed",
             "Mark the EKG normal without repeating V5",
         ],
@@ -417,9 +417,9 @@ FACTS: list[dict] = [
         "In-bed scale activation creates a tall spike on the strip while the patient remains in sinus rhythm on other leads. Cause?",
         "Electrical equipment interference conducted through the cable loop",
         [
-            "Premature ventricular complex with compensatory pause",
-            "Paced beat with failure to capture",
-            "Delta wave with short PR in lead II",
+            "Premature ventricular complex with compensatory pause on the strip",
+            "Paced beat with failure to capture on the monitor strip",
+            "Delta wave with short PR in lead II and widened QRS",
         ],
         "Equipment spikes are brief and external; PVCs have wide QRS, non-capture shows spikes without QRS, WPW alters conduction pattern.",
         [S.NHA_CCMA],
@@ -431,7 +431,7 @@ FACTS: list[dict] = [
         "Reduced muscle tremor transmission to limb electrodes",
         [
             "Pads chemically slow the heart rate on the monitor",
-            "Support converts atrial fibrillation to sinus rhythm",
+            "Support converts atrial fibrillation to sinus rhythm on strip",
             "Fresh pads widen QRS to bundle branch duration",
         ],
         "Support lowers somatic noise. Pads do not change rhythm or QRS width by themselves.",
@@ -443,8 +443,8 @@ FACTS: list[dict] = [
         "Defibrillator pads cover V2 and V3 during resuscitation. The team still needs anterior ST assessment later. Best documentation now?",
         "Note pad overlap and obtain a full 12-lead after pads are repositioned when safe",
         [
-            "State anterior ST segments are normal under pads without repeat",
-            "Omit mention of pads on the resuscitation record",
+            "State anterior ST segments are normal under pads without repeat study later when safe",
+            "Omit mention of pads on the resuscitation record entirely",
             "Use limb leads alone as permanent anterior replacement",
         ],
         "Overlap obscures precordial views; later full study is needed. False normals, missing documentation, and limb-only data omit anterior territory.",
@@ -467,9 +467,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "When should the technician review the tracing at the bedside immediately after acquisition?",
-        "Whenever quality might affect interpretation so artifact can be corrected before the patient leaves",
+        "Review at bedside when quality may affect interpretation before the patient leaves",
         [
-            "Only when the ordering provider is present in the room",
+            "Only when the ordering provider is physically present in the room at acquisition time",
             "Never, because storage systems auto-correct all artifact",
             "Only for pediatric patients under 12 years",
         ],
@@ -480,9 +480,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A nicotine patch lies under planned V2 placement. What is the appropriate action?",
-        "Remove patch if policy allows, clean adhesive residue, and place electrode on skin at landmark",
+        "Remove patch if allowed, clean residue, and place electrode on skin at landmark",
         [
-            "Place V2 directly on the patch for consistent position",
+            "Place V2 directly on the patch for consistent position every time regardless of policy",
             "Cancel all future EKG orders for patients with patches",
             "Move V2 to the back without noting the change",
         ],
@@ -495,9 +495,9 @@ FACTS: list[dict] = [
         "Wet alcohol prep was not allowed to dry before pad application. How does this differ from proper prep with dry alcohol technique?",
         "Undried alcohol increases impedance and baseline drift until skin is dry",
         [
-            "Undried alcohol shortens PR interval to below 0.12 second",
+            "Undried alcohol shortens PR interval to below 0.12 second on every beat always",
             "Undried alcohol produces delta waves in limb leads",
-            "Undried alcohol converts rhythm to atrial flutter",
+            "Undried alcohol converts rhythm to atrial flutter on the strip",
         ],
         "Moisture under pads causes wander; it does not change AV conduction, pre-excitation, or create flutter waves.",
         [S.NHA_CCMA],
@@ -510,7 +510,7 @@ FACTS: list[dict] = [
         [
             "Drug-induced QT prolongation on the post-exercise strip",
             "Ischemic ST depression from coronary insufficiency",
-            "Fixed first-degree AV block from enhanced vagal tone",
+            "Fixed first-degree AV block from enhanced vagal tone on the strip",
         ],
         "Torso placement stabilizes cables during exercise. QT drugs, ischemic ST, and AV block are physiological, not wire-motion issues.",
         [S.NHA_CCMA],
@@ -523,7 +523,7 @@ FACTS: list[dict] = [
         [
             "Treat as STEMI using the unreadable ST segments",
             "Assume ST is normal in all future studies",
-            "Use pulse oximetry plethysmograph as ST substitute",
+            "Use pulse oximetry plethysmograph waveform as ST segment substitute always",
         ],
         "Therapy needs readable ST or reliable comparison. Treating noise, assuming normals, or substituting plethysmography misguides care.",
         [S.NHA_CCMA],
@@ -535,8 +535,8 @@ FACTS: list[dict] = [
         "Warm the patient, reduce shivering, and repeat the tracing when motion decreases",
         [
             "Interpret the noisy strip as ventricular fibrillation",
-            "Start anticoagulation for atrial fibrillation on the noisy strip",
-            "Defibrillate because baseline oscillates",
+            "Start anticoagulation for atrial fibrillation on the noisy strip immediately without repeat",
+            "Defibrillate because baseline oscillates on the monitor strip during shiver",
         ],
         "Hypothermic shiver adds noise; warming permits clearer rhythm analysis. VF therapy and AF anticoagulation require clearer diagnosis.",
         [S.NHA_CCMA],
