@@ -52,6 +52,14 @@ describe('hasChoiceTileAnswers', () => {
 	it('accepts ABCD and voting arrays', () => {
 		expect(
 			hasChoiceTileAnswers({
+				type: 'abcd',
+				question: 'Q?',
+				answers: [{ answer: 'A', right: true }],
+				time: '30'
+			})
+		).toBe(true);
+		expect(
+			hasChoiceTileAnswers({
 				type: 'ABCD',
 				question: 'Q?',
 				answers: [{ answer: 'A', right: true }],
