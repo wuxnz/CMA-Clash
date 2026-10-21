@@ -20,5 +20,11 @@ export function formatApiErrorDetail(detail: unknown, fallback = 'Request failed
 			return parts.join(' ');
 		}
 	}
+	if (detail && typeof detail === 'object' && 'message' in detail) {
+		const message = (detail as { message: unknown }).message;
+		if (typeof message === 'string' && message.trim()) {
+			return message;
+		}
+	}
 	return fallback;
 }
