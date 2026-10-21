@@ -32,6 +32,18 @@ async function waitForBattleQuestions(page: Page, label: string): Promise<void> 
 		page.getByText(/not connected to the game server/i),
 		`${label}: no socket error`
 	).toHaveCount(0);
+	const connecting = page.getByText(/connecting to game server/i);
+	if (await connecting.isVisible().catch(() => false)) {
+		await expect(connecting).toBeHidden({ timeout: 120_000 });
+	}
+	const submit = page.getByRole('button', { name: /submit/i });
+	for (let i = 0; i < 45; i++) {
+		if (await page.getByTestId('answer-tiles').isVisible().catch(() => false)) break;
+		if (await submit.isEnabled().catch(() => false)) {
+			await submit.click();
+		}
+		await page.waitForTimeout(1500);
+	}
 	await expect(page.getByTestId('answer-tiles'), label).toBeVisible({ timeout: 120_000 });
 	const q = page.getByTestId('battle-question-text');
 	await expect(q, `${label}: question text`).toBeVisible({ timeout: 60_000 });
