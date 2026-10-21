@@ -30,11 +30,9 @@ SPDX-License-Identifier: MPL-2.0
 	let hostName = $state('');
 	let loading = $state(false);
 	let error = $state('');
-	let catalogLoading = $state(data.ssrQuizLoadFailed && quizzes.length === 0);
+	let catalogLoading = $state(true);
 
 	onMount(async () => {
-		if (quizzes.length > 0) return;
-		catalogLoading = true;
 		error = '';
 		const list = await loadPublicQuizCatalogClient();
 		catalogLoading = false;

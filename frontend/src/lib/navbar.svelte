@@ -9,7 +9,9 @@ SPDX-License-Identifier: MPL-2.0
 	import { signedIn, pathname, isSiteAdmin } from '$lib/stores';
 	import { createTippy } from 'svelte-tippy';
 	import { beforeNavigate } from '$app/navigation';
+	import { page } from '$app/state';
 	import { onMount } from 'svelte';
+	import { isNavLinkActive } from '$lib/navActive';
 	import { refreshSiteAdminFlag } from '$lib/site-admin';
 	import { draw, slide } from 'svelte/transition';
 	import { registration_disabled } from './config';
@@ -34,6 +36,22 @@ SPDX-License-Identifier: MPL-2.0
 	onMount(() => {
 		void refreshSiteAdminFlag();
 	});
+
+	function navLinkClass(href: string, play = false): string {
+		const active = isNavLinkActive(page.url.pathname, href);
+		const parts = ['btn-nav'];
+		if (play) {
+			parts.push('border border-gold/50 rounded-md text-gold');
+			if (active) parts.push('ring-1 ring-gold/70');
+		} else if (active) {
+			parts.push('btn-nav-active');
+		}
+		return parts.join(' ');
+	}
+
+	function navAriaCurrent(href: string): 'page' | undefined {
+		return isNavLinkActive(page.url.pathname, href) ? 'page' : undefined;
+	}
 </script>
 
 <nav
@@ -45,24 +63,44 @@ SPDX-License-Identifier: MPL-2.0
 		<div class="lg:flex lg:items-center lg:flex-row gap-1">
 			<a
 				href="/"
-				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5"
+				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5 {isNavLinkActive(
+					page.url.pathname,
+					'/'
+				)
+					? 'text-primary'
+					: ''}"
+				aria-current={navAriaCurrent('/')}
 				>CMA Clash</a
 			>
-			<a class="btn-nav border border-gold/50 rounded-md text-gold" href="/play"
+			<a class={navLinkClass('/play', true)} href="/play" aria-current={navAriaCurrent('/play')}
 				>{$t('words.play')}</a
 			>
-			<a class="btn-nav" href="/host">Host</a>
-			<a class="btn-nav" href="/leaderboard">Leaderboard</a>
-			<a class="btn-nav" href="/battle">Battle</a>
-			<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
-			<a class="btn-nav" href="/search">{$t('words.search')}</a>
+			<a class={navLinkClass('/host')} href="/host" aria-current={navAriaCurrent('/host')}>Host</a>
+			<a class={navLinkClass('/leaderboard')} href="/leaderboard" aria-current={navAriaCurrent('/leaderboard')}
+				>Leaderboard</a
+			>
+			<a class={navLinkClass('/battle')} href="/battle" aria-current={navAriaCurrent('/battle')}>Battle</a>
+			<a class={navLinkClass('/explore')} href="/explore" aria-current={navAriaCurrent('/explore')}
+				>{$t('words.explore')}</a
+			>
+			<a class={navLinkClass('/search')} href="/search" aria-current={navAriaCurrent('/search')}
+				>{$t('words.search')}</a
+			>
 			{#if $signedIn}
-				<a class="btn-nav" href="/dashboard">{$t('words.dashboard')}</a>
+				<a class={navLinkClass('/dashboard')} href="/dashboard" aria-current={navAriaCurrent('/dashboard')}
+					>{$t('words.dashboard')}</a
+				>
 				{#if $isSiteAdmin}
-					<a class="btn-nav" href="/site-admin/users">Site admin</a>
+					<a
+						class={navLinkClass('/site-admin/users')}
+						href="/site-admin/users"
+						aria-current={navAriaCurrent('/site-admin/users')}>Site admin</a
+					>
 				{/if}
 			{:else}
-				<a class="btn-nav" href="/docs">{$t('words.docs')}</a>
+				<a class={navLinkClass('/docs')} href="/docs" aria-current={navAriaCurrent('/docs')}
+					>{$t('words.docs')}</a
+				>
 				<a
 					target="_blank"
 					class="btn-nav flex items-center gap-1"
@@ -112,11 +150,19 @@ SPDX-License-Identifier: MPL-2.0
 		<div class="flex items-center justify-between">
 			<a
 				href="/"
-				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5"
+				class="font-display font-bold tracking-tight text-xl lg:text-2xl text-ink link-hover px-3 lg:px-5 {isNavLinkActive(
+					page.url.pathname,
+					'/'
+				)
+					? 'text-primary'
+					: ''}"
+				aria-current={navAriaCurrent('/')}
 				>CMA Clash</a
 			>
-			<a class="btn-nav flex" href="/play">{$t('words.play')}</a>
-			<a class="btn-nav flex" href="/host">Host</a>
+			<a class="{navLinkClass('/play', true)} flex" href="/play" aria-current={navAriaCurrent('/play')}
+				>{$t('words.play')}</a
+			>
+			<a class="{navLinkClass('/host')} flex" href="/host" aria-current={navAriaCurrent('/host')}>Host</a>
 
 			<div class="flex items-center">
 				{#if menuIsClosed}
@@ -172,18 +218,32 @@ SPDX-License-Identifier: MPL-2.0
 		<!-- Navbar content -->
 		{#if !menuIsClosed}
 			<div class="flex flex-col" transition:slide|global={{ duration: 400 }}>
-				<a class="btn-nav" href="/host">Host</a>
-				<a class="btn-nav" href="/leaderboard">Leaderboard</a>
-				<a class="btn-nav" href="/battle">Battle</a>
-				<a class="btn-nav" href="/explore">{$t('words.explore')}</a>
-				<a class="btn-nav" href="/search">{$t('words.search')}</a>
+				<a class={navLinkClass('/host')} href="/host" aria-current={navAriaCurrent('/host')}>Host</a>
+				<a class={navLinkClass('/leaderboard')} href="/leaderboard" aria-current={navAriaCurrent('/leaderboard')}
+					>Leaderboard</a
+				>
+				<a class={navLinkClass('/battle')} href="/battle" aria-current={navAriaCurrent('/battle')}>Battle</a>
+				<a class={navLinkClass('/explore')} href="/explore" aria-current={navAriaCurrent('/explore')}
+					>{$t('words.explore')}</a
+				>
+				<a class={navLinkClass('/search')} href="/search" aria-current={navAriaCurrent('/search')}
+					>{$t('words.search')}</a
+				>
 				{#if $signedIn}
-					<a class="btn-nav" href="/dashboard">{$t('words.dashboard')}</a>
+					<a class={navLinkClass('/dashboard')} href="/dashboard" aria-current={navAriaCurrent('/dashboard')}
+						>{$t('words.dashboard')}</a
+					>
 					{#if $isSiteAdmin}
-						<a class="btn-nav" href="/site-admin/users">Site admin</a>
+						<a
+							class={navLinkClass('/site-admin/users')}
+							href="/site-admin/users"
+							aria-current={navAriaCurrent('/site-admin/users')}>Site admin</a
+						>
 					{/if}
 				{:else}
-					<a class="btn-nav" href="/docs">{$t('words.docs')}</a>
+					<a class={navLinkClass('/docs')} href="/docs" aria-current={navAriaCurrent('/docs')}
+						>{$t('words.docs')}</a
+					>
 					<a
 						target="_blank"
 						class="btn-nav flex items-center gap-1"

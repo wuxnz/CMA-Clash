@@ -8,8 +8,10 @@ import { kitOrBackendFetch } from '$lib/server-api';
 
 export const load: PageServerLoad = async ({ params, parent, fetch }) => {
 	const { quiz_id } = params;
-	const res = await kitOrBackendFetch(fetch, `/api/v1/quiz/get/public/${quiz_id}`);
-	const { email } = await parent();
+	const [res, { email }] = await Promise.all([
+		kitOrBackendFetch(fetch, `/api/v1/quiz/get/public/${quiz_id}`),
+		parent()
+	]);
 	if (!res) {
 		error(503, 'Could not reach the quiz service. Please try again in a moment.');
 	}

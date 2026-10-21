@@ -13,7 +13,9 @@ SPDX-License-Identifier: MPL-2.0
 	import RetentionBar from '$lib/ui/RetentionBar.svelte';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import type { PageData } from './$types';
+	import type { LeaderboardEntry } from '$lib/cma/client';
 	import { fetchGamification } from '$lib/cma/client';
+	import { kitOrBackendFetch } from '$lib/server-api';
 	import { onMount } from 'svelte';
 
 	interface Props {
@@ -26,9 +28,12 @@ SPDX-License-Identifier: MPL-2.0
 
 	let tab: 'weekly' | 'alltime' = $state('weekly');
 	let streakDays = $state(0);
-	let usingDemo = $derived(!data.apiAvailable);
+	let weekly = $state<LeaderboardEntry[]>(data.weekly);
+	let allTime = $state<LeaderboardEntry[]>(data.allTime);
+	let boardLoading = $state(true);
+	let usingDemo = $derived(!boardLoading && weekly.length === 0 && allTime.length === 0);
 
-	let entries = $derived(tab === 'weekly' ? data.weekly : data.allTime);
+	let entries = $derived(tab === 'weekly' ? weekly : allTime);
 
 	let rows = $derived.by((): LedgerRow[] => {
 		return entries.map((e) => ({
@@ -46,6 +51,22 @@ SPDX-License-Identifier: MPL-2.0
 	);
 
 	onMount(async () => {
+		async function loadBoard(period: 'weekly' | 'all_time'): Promise<LeaderboardEntry[]> {
+			const res = await kitOrBackendFetch(
+				fetch,
+				`/api/v1/clash/leaderboards?period=${period}&limit=50`,
+				{ credentials: 'include' }
+			);
+			if (!res?.ok) return [];
+			return res.json();
+		}
+		try {
+			const [w, a] = await Promise.all([loadBoard('weekly'), loadBoard('all_time')]);
+			weekly = w;
+			allTime = a;
+		} finally {
+			boardLoading = false;
+		}
 		const profile = await fetchGamification();
 		if (profile) streakDays = profile.current_streak_days;
 	});
@@ -91,7 +112,13 @@ SPDX-License-Identifier: MPL-2.0
 			</button>
 		</div>
 
-		{#if rows.length === 0}
+		{#if boardLoading}
+			<div class="animate-pulse space-y-3 mt-4" aria-busy="true" aria-label="Loading leaderboard">
+				{#each [1, 2, 3, 4, 5] as n (n)}
+					<div class="h-10 rounded-lg bg-elevated"></div>
+				{/each}
+			</div>
+		{:else if rows.length === 0}
 			<p class="text-sm text-ink-muted">No scores yet.</p>
 		{:else}
 			<Card class="mb-8">

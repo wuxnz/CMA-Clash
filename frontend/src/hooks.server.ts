@@ -6,6 +6,7 @@ import type { Handle } from '@sveltejs/kit';
 import * as jose from 'jose';
 import { fetchWithRetry } from '$lib/api/http';
 import { getBackendOrigin, ssrBackendFetch } from '$lib/server-api';
+import { routeNeedsSessionRefresh } from '$lib/server/protectedRoutes';
 
 const PRIVATE_ROBOTS = 'noindex, nofollow';
 
@@ -128,7 +129,11 @@ export const handle: Handle = async ({ event, resolve }) => {
 		event.locals.email = null;
 		return withRobotsTag(await resolve(event));
 	}
-	// if token expires, do a request to get a new one and set the response-cookies on the response
+	// Refresh expired tokens only on routes that need SSR auth; public pages must not block on cold API.
+	if (Date.now() >= jwt.exp * 1000 && !routeNeedsSessionRefresh(event.url.pathname)) {
+		event.locals.email = typeof jwt.sub === 'string' ? jwt.sub : null;
+		return withRobotsTag(await resolve(event));
+	}
 	if (Date.now() >= jwt.exp * 1000) {
 		const res = await ssrBackendFetch('/api/v1/users/check', {
 			method: 'GET',

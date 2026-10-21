@@ -34,7 +34,7 @@
 	let hasMore = $state(data.hasMore);
 	let offset = $state(data.offset);
 	let page = $state(data.page);
-	let loading = $state(false);
+	let loading = $state(true);
 	let loadingMore = $state(false);
 	let searchError = $state('');
 	let start_game = $state<string | null>(null);
@@ -130,7 +130,11 @@
 	});
 
 	onMount(() => {
-		if (rows.length === 0 && !tooShort) runSearch(true);
+		if (tooShort) {
+			loading = false;
+			return;
+		}
+		void runSearch(true);
 	});
 
 	function onSlash(event: KeyboardEvent) {

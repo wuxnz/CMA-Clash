@@ -10,6 +10,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import { onMount } from 'svelte';
 
 	navbarVisible.visible = true;
 	const { t } = getLocalization();
@@ -19,6 +20,19 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	let { data }: Props = $props();
+	let results = $state(data.results);
+	let resultsLoading = $state(true);
+
+	onMount(async () => {
+		try {
+			const res = await fetch('/api/v1/results/list?include_quiz=true');
+			if (res.ok) {
+				results = await res.json();
+			}
+		} finally {
+			resultsLoading = false;
+		}
+	});
 </script>
 
 <svelte:head>
@@ -29,7 +43,9 @@ SPDX-License-Identifier: MPL-2.0
 	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
 		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Results</h1>
 
-		{#if data.results.length === 0}
+		{#if resultsLoading}
+			<p class="text-sm text-ink-muted mt-6" aria-busy="true">Loading results…</p>
+		{:else if results.length === 0}
 			<p class="text-sm text-ink-muted mt-6">Host a game to see scores here.</p>
 			<Button href="/host" class="w-auto mt-4">Host a Clash</Button>
 		{:else}
@@ -44,7 +60,7 @@ SPDX-License-Identifier: MPL-2.0
 						</tr>
 					</thead>
 					<tbody>
-						{#each data.results as result}
+						{#each results as result}
 							<tr class="border-b border-white/[0.07]">
 								<td class="py-3 pr-3 min-w-0">
 									<a href="/results/{result.id}" class="text-ink link-hover visited:text-ink">
