@@ -29,19 +29,37 @@ test.describe('production live multi-question UI', () => {
 
 			const p1Ctx = await browser.newContext();
 			const p2Ctx = await browser.newContext();
+			const p3Ctx = await browser.newContext();
 			const p1 = await joinPlayer(p1Ctx, pin, `P1${suffix}`);
 			const p2 = await joinPlayer(p2Ctx, pin, `P2${suffix}`);
+			const p3 = await joinPlayer(p3Ctx, pin, `P3${suffix}`);
 
 			lobby.startGame();
 			await new Promise((r) => setTimeout(r, gameMode === 'normal' ? 5500 : 2000));
 
 			await expectPlayerOnAnswerTiles(p1, 'P1 Q1');
 			await expectPlayerOnAnswerTiles(p2, 'P2 Q1');
+			await expectPlayerOnAnswerTiles(p3, 'P3 Q1');
 
-			// Q1 — answer early
+			// Q1 — staggered answers for speed ranks
 			await answerFirstTile(p1);
+			await new Promise((r) => setTimeout(r, 300));
 			await answerFirstTile(p2);
-			await new Promise((r) => setTimeout(r, 8000));
+			await new Promise((r) => setTimeout(r, 300));
+			await answerFirstTile(p3);
+
+			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
+			await expect(p1.getByTestId('reveal-speed-rank')).toBeVisible();
+			await p1.screenshot({
+				path: path.join(ARTIFACT_DIR, `${slug}-player-reveal-q1.png`),
+				fullPage: true
+			});
+
+			const rankingsStart = Date.now();
+			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
+			expect(await p1.getByTestId('scoreboard-row').count()).toBeLessThanOrEqual(5);
+			await new Promise((r) => setTimeout(r, 14_000));
+			expect(Date.now() - rankingsStart).toBeGreaterThanOrEqual(8000);
 
 			// Q2 — after server reveal + auto-advance
 			await expectPlayerAdvancedToNextQuestion(p1, 'P1 Q2');
@@ -58,7 +76,8 @@ test.describe('production live multi-question UI', () => {
 
 			await answerFirstTile(p1);
 			await answerFirstTile(p2);
-			await new Promise((r) => setTimeout(r, 8000));
+			await answerFirstTile(p3);
+			await new Promise((r) => setTimeout(r, 14_000));
 
 			// Q3
 			await expectPlayerAdvancedToNextQuestion(p1, 'P1 Q3');
@@ -67,6 +86,7 @@ test.describe('production live multi-question UI', () => {
 			lobby.close();
 			await p1Ctx.close();
 			await p2Ctx.close();
+			await p3Ctx.close();
 		});
 	}
 });

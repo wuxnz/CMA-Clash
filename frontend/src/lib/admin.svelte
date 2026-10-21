@@ -28,7 +28,8 @@ SPDX-License-Identifier: MPL-2.0
 	import {
 		isKahootStyleMode,
 		isStaleQuestionResults,
-		parseQuestionResultsPayload
+		parseQuestionResultsPayload,
+		type StandingsRow
 	} from '$lib/play/live-game';
 	import { applyQuestionResultScores } from '$lib/play/live-scoring';
 	import {
@@ -57,6 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 	let timer_interval: NodeJS.Timeout;
 	let livePhase = $state<'intro' | 'answer' | 'reveal' | 'rankings'>('answer');
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
+	let standingsTop = $state<StandingsRow[]>([]);
 	let prevRanks: Record<string, number> = {};
 	let lastScoreAppliedQuestionIndex: number | null = $state(null);
 	let latestQuestionIndex = $state(-1);
@@ -100,6 +102,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		game_state.timer_res = '0';
 		game_state.question_results = null;
+		standingsTop = [];
 		game_state.shown_question_now = data.question_index;
 		game_state.timer_res = game_state.quiz_data.questions[data.question_index].time;
 		game_state.selected_question = data.question_index;
@@ -140,7 +143,12 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	socket.on('question_results', (data) => {
-		const { questionIndex: resultsIndex, rows } = parseQuestionResultsPayload(data);
+		const {
+			questionIndex: resultsIndex,
+			rows,
+			revealHoldSec,
+			standingsTop: top
+		} = parseQuestionResultsPayload(data);
 		if (
 			isStaleQuestionResults(
 				game_state.selected_question,
@@ -152,6 +160,7 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		game_state.question_results = rows;
+		standingsTop = top;
 		game_state.timer_res = '0';
 		const applied = applyQuestionResultScores(
 			game_state.player_scores ?? {},
@@ -165,7 +174,7 @@ SPDX-License-Identifier: MPL-2.0
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {
 			livePhase = 'rankings';
-		}, 4500);
+		}, Math.max(0, revealHoldSec * 1000));
 	});
 
 	socket.on('player_answer', (_) => {
@@ -199,9 +208,23 @@ SPDX-License-Identifier: MPL-2.0
 	let hostKahootStyle = $derived(isKahootStyleMode(game_state.quiz_data?.game_mode));
 
 	let rankingRows = $derived.by((): LedgerRow[] => {
+		if (standingsTop.length > 0) {
+			return standingsTop.slice(0, 5).map((row) => {
+				const name = row.username;
+				const rank = row.overall_rank;
+				const prev = prevRanks[name];
+				return {
+					rank,
+					name,
+					score: row.score,
+					delta: prev != null ? prev - rank : 0
+				};
+			});
+		}
 		const scores = game_state.player_scores ?? {};
 		return Object.keys(scores)
 			.sort((a, b) => (parseFloat(String(scores[b])) || 0) - (parseFloat(String(scores[a])) || 0))
+			.slice(0, 5)
 			.map((name, idx) => {
 				const rank = idx + 1;
 				const prev = prevRanks[name];

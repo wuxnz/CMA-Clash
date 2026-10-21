@@ -12,6 +12,11 @@
 		distribution: DistRow[];
 		correct?: boolean | null;
 		points?: number;
+		baseScore?: number;
+		speedBonus?: number;
+		placeText?: string | null;
+		behindText?: string | null;
+		speedRankText?: string | null;
 		streak?: number;
 		isPlayer?: boolean;
 		hostFit?: boolean;
@@ -22,6 +27,11 @@
 		distribution,
 		correct = null,
 		points = 0,
+		baseScore = 0,
+		speedBonus = 0,
+		placeText = null,
+		behindText = null,
+		speedRankText = null,
 		streak = 0,
 		isPlayer = false,
 		hostFit = false
@@ -54,6 +64,20 @@
 			<p class="font-display text-3xl text-gold tabular-nums mt-2">
 				+<AnimatedCounter value={points} duration={0.8} />
 			</p>
+			{#if correct && (baseScore > 0 || speedBonus > 0)}
+				<p class="text-sm text-ink-muted mt-2 tabular-nums">
+					{baseScore} base{#if speedBonus > 0}, {speedBonus} speed bonus{/if}
+				</p>
+			{/if}
+			{#if placeText}
+				<p class="text-base text-ink font-semibold mt-3" data-testid="reveal-place-line">{placeText}</p>
+			{/if}
+			{#if behindText}
+				<p class="text-sm text-ink-muted" data-testid="reveal-behind-line">{behindText}</p>
+			{/if}
+			{#if speedRankText}
+				<p class="text-sm text-ink-muted mt-1" data-testid="reveal-speed-rank">{speedRankText}</p>
+			{/if}
 			{#if streak > 0}
 				<p class="text-signal font-display text-xl mt-1">{streak}-streak</p>
 			{/if}

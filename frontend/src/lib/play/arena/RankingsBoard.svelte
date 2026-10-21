@@ -24,7 +24,7 @@
 	>
 		Rankings
 	</h1>
-	<div class="w-full max-w-xl flex-1 min-h-0 overflow-y-auto">
+	<div class="w-full max-w-xl flex-1 min-h-0 overflow-y-auto" data-testid="live-scoreboard">
 		<LedgerTable {rows} {caption} flip={true} />
 	</div>
 </div>
