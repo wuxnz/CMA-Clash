@@ -89,6 +89,20 @@ export async function ssrBackendFetch(
 	return fetchWithRetry(backendApiUrl(path), init ?? {}, SSR_FETCH_OPTS);
 }
 
+/** SSR loaders: call the API origin with the browser's session cookies. */
+export async function ssrBackendFetchWithRequest(
+	request: Request,
+	path: string,
+	init?: RequestInit
+): Promise<Response | null> {
+	const headers = new Headers(init?.headers);
+	const cookie = request.headers.get('cookie');
+	if (cookie) {
+		headers.set('cookie', cookie);
+	}
+	return ssrBackendFetch(path, { ...init, headers });
+}
+
 /** SSR: call Render directly (validated origin, timeout, retry). Browser: same-origin `/api` via SvelteKit `fetch`. */
 export async function kitOrBackendFetch(
 	kitFetch: typeof fetch,
