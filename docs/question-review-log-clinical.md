@@ -892,3 +892,57 @@ skill-specimen-lab-039 | fail | Parallel tourniquet hygiene rationale near-misse
 skill-specimen-lab-040 | fail | Parallel unlabeled specimen response near-misses; run-anyway and guess-patient errors.
 skill-specimen-lab-041 | fail | Parallel fasting capillary glucose interpretation near-misses; meal and tube-type myths.
 skill-specimen-lab-042 | fail | Parallel post-draw mixing rationale near-misses; warming and underfill distractors aligned.
+
+## Parallel-options pass batch P04 (skill-pharm-dosage-034 to skill-pharm-dosage-042, skill-intake-001 to skill-intake-042)
+
+skill-pharm-dosage-034 | fail | Parallel unit-versus-milligram safety distractors; correct shortened for length balance.
+skill-pharm-dosage-035 | fail | Confirmed parallel oral liquid tenths rounding near-miss volumes; stem unchanged.
+skill-pharm-dosage-036 | fail | Confirmed parallel suspension mL near-miss calculations; stem unchanged.
+skill-pharm-dosage-037 | fail | Parallel U-500 concentration distractors; schedule-padding and tuberculin joke removed.
+skill-pharm-dosage-038 | fail | Confirmed parallel 1% w/v milligram near-miss amounts; stem unchanged.
+skill-pharm-dosage-039 | fail | Parallel pediatric weight-conversion volume near-misses with matched mg-per-kg phrasing; correct length balanced.
+skill-pharm-dosage-040 | fail | Parallel max-dose escalation distractors; unrelated-patient padding removed; dual-defensible halve-dose near-miss retained.
+skill-pharm-dosage-041 | fail | Parallel MAR-order discrepancy actions; barcode-noise padding removed; give-8-from-order near-miss vs hold-and-reconcile.
+skill-pharm-dosage-042 | fail | Confirmed parallel 1:100 ratio milligram near-miss amounts; stem unchanged.
+skill-intake-001 | fail | Removed per-policy hedge on correct; parallel sole-identifier near-miss distractors aligned.
+skill-intake-002 | fail | Parallel chief-complaint documentation near-misses; without-asking self-refute removed.
+skill-intake-003 | fail | Parallel ROS-versus-exam near-misses; without-asking self-refute removed.
+skill-intake-004 | fail | Confirmed parallel allergy-documentation element near-misses; stem unchanged.
+skill-intake-005 | fail | Confirmed parallel NKDA timing near-misses; stem unchanged.
+skill-intake-006 | fail | Confirmed parallel social-history element near-misses; stem unchanged.
+skill-intake-007 | fail | Confirmed parallel pharmacy-documentation purpose near-misses; stem unchanged.
+skill-intake-008 | fail | Confirmed parallel urgent-care triage purpose near-misses; stem unchanged.
+skill-intake-009 | fail | Confirmed parallel triage escalation finding near-misses; stem unchanged.
+skill-intake-010 | fail | Removed per-policy hedge on correct; parallel LEP communication near-misses aligned.
+skill-intake-011 | fail | Confirmed parallel medication-reconciliation near-misses; stem unchanged.
+skill-intake-012 | fail | Confirmed parallel HPI-versus-ROS near-misses; stem unchanged.
+skill-intake-013 | fail | Confirmed parallel contact-information purpose near-misses; stem unchanged.
+skill-intake-014 | fail | Removed when-required-by-policy hedge on correct; stem pins notice at start of care vs post-disclosure distractors.
+skill-intake-015 | fail | Confirmed parallel hearing-loss accommodation near-misses; stem unchanged.
+skill-intake-016 | fail | Preserved parallel tobacco semicolon near-miss entries; status-field contradiction distractor retained.
+skill-intake-017 | fail | Confirmed parallel alcohol social-history purpose near-misses; stem unchanged.
+skill-intake-018 | fail | Parallel chief-complaint summarization near-misses; without-asking self-refute removed.
+skill-intake-019 | fail | Parallel uncertain-penicillin allergy documentation near-misses; skip banned qualifier removed from NKDA distractor.
+skill-intake-020 | fail | Parallel no-photo-ID response near-misses; correct shortened; refuse-all vs alternate-ID dual-defensible tightened.
+skill-intake-021 | fail | Confirmed parallel family-history content near-misses; stem unchanged.
+skill-intake-022 | fail | Removed per-policy hedge on correct; parallel social-history refusal near-misses aligned.
+skill-intake-023 | fail | Confirmed parallel occupation social-history purpose near-misses; stem unchanged.
+skill-intake-024 | fail | Confirmed parallel emergent abdominal pain screen near-misses; stem unchanged.
+skill-intake-025 | fail | Removed per-policy hedge on correct; activate-interpreter vs wait-for-bilingual near-miss clarified.
+skill-intake-026 | fail | Confirmed parallel supplement-documentation near-misses; stem unchanged.
+skill-intake-027 | fail | Stem de-hedged; parallel language-reconfirmation purpose near-misses aligned.
+skill-intake-028 | fail | Confirmed parallel ROS denies meaning near-misses; stem unchanged.
+skill-intake-029 | fail | Confirmed parallel multiple-concern prioritization near-misses; stem unchanged.
+skill-intake-030 | fail | Confirmed parallel pharmacy routing detail near-misses; stem unchanged.
+skill-intake-031 | fail | Parallel NKDA-override allergy update near-misses; portal-only update vs structured allergy key distinguished.
+skill-intake-032 | fail | Removed per-protocol hedge on correct; parallel PHQ-2 role near-misses aligned.
+skill-intake-033 | fail | Confirmed parallel living-situation social-history near-misses; stem unchanged.
+skill-intake-034 | fail | Confirmed parallel emergent chest pain versus paperwork near-misses; stem unchanged.
+skill-intake-035 | fail | Confirmed parallel employer PHI disclosure near-misses; stem unchanged.
+skill-intake-036 | fail | Parallel limited-time ROS approach near-misses; without-asking self-refute removed.
+skill-intake-037 | fail | Confirmed parallel interpreter-wait accommodation near-misses; stem unchanged.
+skill-intake-038 | fail | Confirmed parallel nonprescribed opioid documentation near-misses; stem unchanged.
+skill-intake-039 | fail | Confirmed parallel emergency-contact purpose near-misses; stem unchanged.
+skill-intake-040 | fail | Removed per-policy hedge on correct; parallel legal name change near-misses aligned.
+skill-intake-041 | fail | Confirmed parallel intake-closing element near-misses; stem unchanged.
+skill-intake-042 | fail | Removed per-protocol hedge and only qualifier on distractor; vital-signs-only vs travel HPI dual-defensible tightened.

@@ -9,8 +9,8 @@ Target: 546 items — plain parallel choices, plausible near-miss distractors, n
 | P02 | 75 | infection 001–042, terminology 001–033 | done |
 | P03 | 42 | terminology 034–042, pharm_dosage 001–033 | done |
 | P03b | 42 | specimen_lab 001–042 | done |
-| P04 | 75 | pharm_dosage 034–042, intake 001–033 | pending |
-| P05 | 75 | intake 034–042, osha_bbp 001–033 | pending |
+| P04 | 51 | pharm_dosage 034–042, intake 001–042 | done |
+| P05 | 75 | osha_bbp 001–033 (+ intake 034–042 covered in P04) | pending |
 | P06 | 75 | osha_bbp 034–042, med_safety 001–033 | pending |
 | P07 | 75 | med_safety 034–042, poct 001–033 | pending |
 | P08 | 75 | poct 034–042, wound_care 001–033 | pending |
@@ -18,8 +18,8 @@ Target: 546 items — plain parallel choices, plausible near-miss distractors, n
 | P10 | 75 | life_stages 034–042, emergency_aid 001–033 | pending |
 | P11 | 75 | emergency_aid 034–042 (+ overflow) | pending |
 
-**Completed at parallel-options standard:** 243 items (full modules: injection, vitals, infection, terminology, specimen_lab; partial: pharm_dosage 33/42; plus intake 1/42, poct 1/42, wound 1/42 from P01b).
+**Completed at parallel-options standard:** 293 items (full modules: injection, vitals, infection, terminology, specimen_lab, pharm_dosage, intake; plus poct 1/42, wound 1/42 from P01b).
 
-**Remaining:** 303 items (not yet through parallel-options pass).
+**Remaining:** 253 items (not yet through parallel-options pass).
 
-Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass P01, P01b, P02, P03, P03b).
+Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass P01, P01b, P02, P03, P03b, P04).

@@ -13,11 +13,11 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "Before beginning clinical intake tasks, how should the medical assistant verify patient identity?",
-        "Match two identifiers per policy, such as legal name and date of birth",
+        "Match two identifiers such as legal name and date of birth",
         [
             "Use the exam room number on the door as the sole patient identifier",
             "Call the first name aloud in the waiting room to confirm identity",
-            "Rely on a visitor's report of clothing color as sufficient verification",
+            "Rely on a visitor's clothing description as sufficient verification",
         ],
         "Two-identifier matching reduces wrong-patient errors that affect orders and allergies. Room numbers change and public name calls do not uniquely identify the person receiving care.",
         [S.NHA_CCMA],
@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         [
             "The billing diagnosis code selected at registration before the interview",
             "The insurance plan name and group number from the membership card",
-            "A staff guess about the problem without asking the patient directly",
+            "A staff guess about the problem recorded from waiting room appearance alone",
         ],
         "Chief complaint focuses the visit and guides history of present illness. Payer data and preselected codes are administrative and may not reflect the patient's concern today.",
         [S.NHA_CCMA],
@@ -45,7 +45,7 @@ FACTS: list[dict] = [
         [
             "ROS lists objective findings the clinician palpates during the exam",
             "ROS replaces medication reconciliation when the list was updated last year",
-            "ROS documents prior surgical scars without asking about current symptoms",
+            "ROS lists prior surgical scars as history with no current symptom review",
         ],
         "ROS is a structured symptom inventory gathered from the patient. Examination findings and medication lists belong in separate parts of the record.",
         [S.NHA_CCMA],
@@ -139,7 +139,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "When a patient has limited English proficiency, what is the appropriate communication approach?",
-        "Use a qualified interpreter per policy instead of untrained family by default",
+        "Use a qualified interpreter instead of untrained family members by default",
         [
             "Speak louder in English until the patient appears to understand questions",
             "Use a young child in the family as the default interpreter for consent",
@@ -195,7 +195,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "When should the Notice of Privacy Practices be addressed during intake?",
-        "Offer the notice and document acknowledgment when required by policy",
+        "Offer the notice and document acknowledgment at the start of care",
         [
             "After staff disclose the diagnosis to a friend waiting in the lobby",
             "By displaying another patient's open chart at the front desk",
@@ -222,14 +222,14 @@ FACTS: list[dict] = [
     # skill-intake-016
     fact(
         "skill-intake",
-        "Which tobacco documentation best supports clinical risk assessment?",
-        "Current, former, or never status with product, amount, and quit date if former",
+        "Which tobacco social-history entry is complete and internally consistent?",
+        "Former smoker; cigarettes; one pack per day; quit date March 2024",
         [
-            "Former smoker checked with no quit date or amount documented",
-            "Free-text note says occasional use with no product type listed",
-            "Tobacco field left blank because screening was skipped on a busy day",
+            "Former smoker; cigarettes; one pack per day; quit date not recorded",
+            "Former smoker; cigarettes; amount not recorded; quit date March 2024",
+            "Current smoker; cigarettes; one pack per day; quit date March 2024",
         ],
-        "Structured status, product, and exposure amount guide cessation counseling and cardiovascular risk. Incomplete checkboxes, vague occasional use, or skipped fields hide real exposure.",
+        "Former use needs product, amount, and a quit date that match the status. Missing quit date or amount leaves risk unclear; listing a quit date under current use contradicts the status field.",
         [S.NHA_CCMA],
         "intermediate",
     ),
@@ -254,7 +254,7 @@ FACTS: list[dict] = [
         "Summarize the primary concern briefly and confirm accuracy with the patient",
         [
             "Record unrelated childhood anecdotes as the sole chief complaint entry",
-            "Select a random diagnosis code without asking what troubles them today",
+            "Select a diagnosis code at random instead of the patient's stated concern",
             "Leave chief complaint blank because the patient's story exceeded a word limit",
         ],
         "Brief, confirmed summaries keep the record usable while respecting the patient's words. Empty fields or unrelated anecdotes break continuity for the evaluating clinician.",
@@ -268,7 +268,7 @@ FACTS: list[dict] = [
         "Record penicillin, the reported reaction, and uncertainty for provider review",
         [
             "Remove the allergy from the chart because many years have passed since the event",
-            "Document NKDA without asking about reactions to other medication classes",
+            "Document NKDA and omit questions about reactions to other drug classes",
             "Add all antibiotic classes as anaphylaxis without symptom details",
         ],
         "Uncertain history still warrants caution until the provider clarifies tolerance. Removing entries or labeling all classes as anaphylaxis without data is unsafe.",
@@ -279,11 +279,11 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "What should intake do when a walk-in patient has no photo identification?",
-        "Follow policy for alternate verification and supervisor guidance as needed",
+        "Use alternate identifiers and involve a supervisor when ID is missing",
         [
             "Assign care to another patient in the waiting room with the same first name",
             "Create a chart using a fabricated date of birth to speed registration",
-            "Refuse all clinical services without attempting policy-approved steps",
+            "Refuse all clinical services before trying approved alternate verification steps",
         ],
         "Policies balance access with safety through approved alternate identifiers. Fabricated demographics create permanent record errors and downstream treatment risk.",
         [S.NHA_CCMA, S.HHS_HIPAA_PRIVACY],
@@ -307,7 +307,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "How should staff handle a patient who refuses to answer social history questions?",
-        "Document the refusal and complete other required intake steps per policy",
+        "Document the refusal and complete other required intake steps",
         [
             "Enter assumed tobacco and alcohol data so the form appears complete",
             "Dismiss the patient from the clinic for declining nonclinical questions",
@@ -349,7 +349,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "A Spanish-speaking patient arrives while the bilingual medical assistant is busy. What is the best next step?",
-        "Activate phone or video interpreter services per policy during the wait",
+        "Activate phone or video interpreter services while waiting for staff",
         [
             "Proceed with consent using improvised hand gestures for complex medical terms",
             "Ask another patient to translate private medical and social history",
@@ -376,7 +376,7 @@ FACTS: list[dict] = [
     # skill-intake-027
     fact(
         "skill-intake",
-        "Why confirm preferred language and interpreter needs at each new visit when policy requires?",
+        "Why confirm preferred language and interpreter needs at each new visit?",
         "Language needs can change and affect consent and instruction comprehension",
         [
             "Charge an interpreter surcharge to the patient without prior written notice",
@@ -447,9 +447,9 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "What is the role of a brief screening tool such as PHQ-2 at intake?",
-        "Detect behavioral symptoms that may need scored follow-up per protocol",
+        "Detect behavioral symptoms that may need scored follow-up assessment",
         [
-            "Replace a full mental health evaluation by the licensed clinician entirely",
+            "Replace a full mental health evaluation by the licensed clinician",
             "Post screening scores on a monitor in the waiting room for patient education",
             "Determine blood pressure cuff size based on the numeric screening result",
         ],
@@ -507,7 +507,7 @@ FACTS: list[dict] = [
         [
             "Copy ROS text from a different patient's chart with a similar age and sex",
             "Mark every body system positive to reduce screening questions during intake",
-            "Leave ROS blank because the physician can infer symptoms without asking",
+            "Leave ROS blank because the physician can infer symptoms from the chart",
         ],
         "Focused ROS must remain truthful and relevant to the presenting problem. Template copying or fabricated positives create legal risk and mislead treatment decisions.",
         [S.NHA_CCMA],
@@ -559,7 +559,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "A returning patient has a new legal last name after marriage with matching photo ID and date of birth. What is essential?",
-        "Verify identity with ID, update legal name, and link prior records per policy",
+        "Verify identity with ID, update legal name, and link prior records",
         [
             "Create a duplicate chart with a new medical record number for the new name",
             "Refuse service until the patient uses the previous legal name on all paperwork",
@@ -587,9 +587,9 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "An MA is told to room a patient with fever, rash, and recent international travel. What documentation priority applies?",
-        "Document travel, exposure, and onset in HPI and flag isolation per protocol",
+        "Document travel, exposure, and onset in HPI and flag isolation precautions",
         [
-            "Document only vital signs and defer fever, rash, and travel until checkout",
+            "Record vital signs alone and defer fever, rash, and travel until checkout",
             "Defer clinical documentation until the patient completes checkout at discharge",
             "Place travel history in billing comments without a clinical intake entry",
         ],
