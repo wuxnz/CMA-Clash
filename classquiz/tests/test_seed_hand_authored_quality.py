@@ -93,7 +93,22 @@ _STEM_COMPLETE_CERT_PREFIXES = (
     "phleb-",
     "ekg-",
     "ccma-",
+    "skill-",
 )
+_SKILL_ABSURD_DISTRACTOR_PATTERNS = _GLOBAL_BANNED_DISTRACTOR_PATTERNS + [
+    re.compile(r"\bsocial\s+media\b", re.I),
+    re.compile(r"\bshoe\s+size\b", re.I),
+    re.compile(r"\bcosmetic\b", re.I),
+    re.compile(r"\birrelevant\b", re.I),
+    re.compile(r"\bignore\b", re.I),
+    re.compile(r"\bhide\b", re.I),
+    re.compile(r"\bjob\s+title\b", re.I),
+    re.compile(r"\btutorials\b", re.I),
+    re.compile(r"\bpharmacists\b", re.I),
+    re.compile(r"\bparking\s+spot\b", re.I),
+    re.compile(r"\bplacebo\b", re.I),
+    re.compile(r"\bwindowsill\b", re.I),
+]
 _DASH_CHECK_CERT_PREFIXES = (
     "cpr-",
     "phleb-",
@@ -228,6 +243,50 @@ def test_hand_authored_distractors_lack_banned_qualifiers():
             if _BANNED_DISTRACTOR_QUALIFIER.search(choice):
                 hits.append(f"{fact['stem'][:50]}: {choice[:60]}")
     assert not hits, f"Banned distractor qualifiers: {hits[:12]}"
+
+
+def test_skill_distractors_lack_absurd_joke_patterns():
+    from classquiz.seed.banks import load_all_facts
+
+    hits: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("skill-"):
+            continue
+        for choice in fact["distractors"]:
+            for pat in _SKILL_ABSURD_DISTRACTOR_PATTERNS:
+                if pat.search(choice):
+                    hits.append(f"{fact['stem'][:55]}: {choice[:65]}")
+    assert not hits, f"Skill absurd distractors: {hits[:12]}"
+
+
+def test_skill_stems_no_trailing_colon_fragments():
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("skill-"):
+            continue
+        stem = fact["stem"].strip()
+        if stem.endswith(":"):
+            bad.append(stem[:90])
+        if _COLON_FRAGMENT_STEM.search(stem):
+            bad.append(stem[:90])
+    assert not bad, f"Skill colon-fragment stems: {bad[:12]}"
+
+
+def test_skill_correct_answer_not_uniquely_longest():
+    from classquiz.seed.banks import load_all_facts
+
+    bad: list[str] = []
+    for fact in load_all_facts():
+        if not fact["topic"].startswith("skill-"):
+            continue
+        choices = [fact["correct"], *fact["distractors"]]
+        lengths = [len(c.strip()) for c in choices]
+        max_len = max(lengths)
+        if lengths[0] == max_len and sum(1 for n in lengths if n == max_len) == 1:
+            bad.append(fact["stem"][:75])
+    assert not bad, f"Skill items with uniquely longest correct answer: {bad[:12]}"
 
 
 def test_hand_authored_no_near_duplicate_stems():
