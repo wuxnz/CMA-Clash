@@ -362,12 +362,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-additives",
-        'What ammonia testing often requires what?',
-        'A laboratory-specified tube, immediate chilling, and rapid transport/processing',
+        "Which preanalytic handling does stat ammonia testing typically require?",
+        "A laboratory-specified tube, immediate chilling, and rapid transport or processing",
         [
-            'Any lavender tube stored at room temperature for 24 hours',
-            'Fluoride gray tube without ice because fluoride fixes ammonia',
-            'Culture media to prevent ammonia loss',
+            "Any lavender EDTA tube held at room temperature for 24 hours before testing",
+            "A gray fluoride tube at room temperature because fluoride stabilizes ammonia",
+            "Blood culture broth in the collection container to prevent ammonia loss",
         ],
         'Ammonia is volatile and labile; arbitrary EDTA room-temperature storage yields falsely low or high results. Fluoride gray is for glucose, not a universal ammonia substitute without lab validation.',
         [S.CLSI_GP41],
@@ -375,12 +375,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-additives",
-        'What erythrocyte sedimentation rate (ESR) kits may use what anticoagulant?',
-        'Citrate-diluted blood per manufacturer rather than a standard lavender EDTA tube',
+        "Which anticoagulant system do many Westergren-style erythrocyte sedimentation rate kits use?",
+        "Citrate-diluted blood per manufacturer instructions rather than standard lavender EDTA",
         [
-            'Serum separator gel tubes exclusively',
-            'Fluoride gray tubes for all ESR methods',
-            'Plain red-top serum without dilution',
+            "Serum separator gel tubes with clot activator for all ESR methods",
+            "Gray sodium fluoride tubes without citrate dilution for all ESR methods",
+            "Plain red-top clotted serum without anticoagulant dilution",
         ],
         'ESR methods are instrument-specific; citrate dilution is common on Westergren systems. Assuming any CBC tube works ignores manufacturer requirements cited in CLSI preanalytics.',
         [S.CLSI_GP41],
@@ -430,7 +430,7 @@ FACTS: list[dict] = [
         'A provider orders ionized calcium, but the only tube on the tray is lavender EDTA. Why must the phlebotomist obtain a different tube before sticking the patient?',
         'EDTA chelates calcium and makes ionized and total calcium results uninterpretable on that specimen',
         [
-            'EDTA only affects sodium levels',
+            "EDTA raises measured sodium and does not bind calcium in the specimen",
             'Ionized calcium requires fluoride gray tubes exclusively',
             'Lavender is preferred for all electrolytes',
         ],
@@ -443,7 +443,7 @@ FACTS: list[dict] = [
         'The laboratory validates electrolytes on lithium heparin plasma but potassium returns markedly elevated with a hemolysis index. Which preanalytic issue is most likely despite the correct tube additive?',
         'Traumatic draw, prolonged tourniquet, or vigorous mixing hemolyzed cells even though heparin anticoagulation was correct',
         [
-            'Wrong anticoagulant, heparin always raises potassium without hemolysis',
+            "Wrong anticoagulant: heparin plasma alone explains high potassium without hemolysis",
             'Citrate carryover from drawing blue after green',
             'Fluoride inhibition falsely increasing potassium',
         ],
@@ -534,7 +534,7 @@ FACTS: list[dict] = [
         'A phlebotomist inverts an EDTA tube only twice, and the hematology lab reports microclots and rejected specimen. Best educational point?',
         'Insufficient mixing left fibrin formation despite EDTA; full gentle inversion per manufacturer prevents clots that trap cells and platelets',
         [
-            'EDTA tubes should never be inverted',
+            "EDTA tubes need no inversion because the additive mixes itself during draw",
             'More fluoride should be added to prevent clotting',
             'Citrate ratio was wrong in the lavender tube',
         ],
@@ -544,7 +544,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-additives",
-        'What serum separator gel from an SST interferes with a particular drug immunoassay on a send-out test. Laboratory policy switches to red-top without gel. This illustrates what principle?',
+        "Serum separator gel from an SST interferes with a send-out drug immunoassay, so the laboratory switches to plain red-top without gel. Which principle does this illustrate?",
         'Additive and separator materials, not just anticoagulants, must match validated methods for analytes such as therapeutic drugs',
         [
             'All drugs must be collected in citrate',
@@ -557,10 +557,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-additives",
-        'What while capping tubes, a phlebotomist drops a filled lavender tube; blood aerosols onto intact skin with no cuts. According to OSHA BBP practice, the employee should be done how?',
+        "While capping tubes, a phlebotomist drops a filled lavender tube and blood aerosols onto intact skin with no cuts. Per OSHA bloodborne pathogen practice, what should the employee do?",
         'Wash the exposure site promptly and report per facility bloodborne pathogen exposure policy even if skin appears intact',
         [
-            'Ignore because intact skin never requires action',
+            "Ignore the splash because intact skin needs no washing or occupational reporting",
             'Reuse gloves for the next patient without hand hygiene',
             'Recap the broken tube with both hands before disposal',
         ],
@@ -575,7 +575,7 @@ FACTS: list[dict] = [
         [
             'Both tubes produce identical plasma for all chemistry',
             'Heparin tubes are used for blood cultures',
-            'EDTA is the only additive that causes hemolysis',
+            "EDTA in lavender tubes is the usual cause of hemolysis on chemistry specimens",
         ],
         "Mechanism overlap at 'no clot' hides test-specific requirements; coagulation is not valid on EDTA or heparin unless method says so. Heparin cultures and universal chemistry claims are factually wrong teaching shortcuts.",
         [S.CLSI_GP41, S.NHA_CPT],

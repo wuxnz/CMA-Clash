@@ -73,7 +73,7 @@ FACTS: list[dict] = [
         [
             "Before light blue citrate to keep blood from clotting in the needle",
             "Before sterile blood cultures to stabilize electrolytes in the line",
-            "After gray-top fluoride tubes in every hospital protocol",
+            "After gray-top fluoride tubes before serum or heparin tubes",
         ],
         "Heparin is positioned after citrate so coagulation studies in the citrate tube are not contaminated. "
         "Placing green before blue reflects a common misconception that heparin must enter the line first to prevent clots.",

@@ -34,9 +34,9 @@ FACTS: list[dict] = [
         "Which chest compression rate should rescuers deliver during high-quality child CPR?",
         "100 to 120 compressions per minute",
         [
-            "60 to 80 compressions per minute to reduce rib injury in smaller patients",
-            "140 to 160 compressions per minute to maximize cardiac output",
-            "As slow as the rescuer can manage without using a metronome or feedback device",
+            "90 to 100 compressions per minute",
+            "120 to 140 compressions per minute",
+            "140 to 160 compressions per minute",
         ],
         "Pediatric compressions follow the same rate target as adult BLS. Rates below 100 often fail "
         "to maintain coronary and cerebral perfusion. Very fast rates usually sacrifice depth and "
@@ -51,7 +51,7 @@ FACTS: list[dict] = [
         [
             "Directly over the xiphoid process at the distal tip of the sternum",
             "On the upper abdomen just below the costal margin",
-            "On the left lateral chest wall over the cardiac apex only",
+            "On the left lateral chest wall over the cardiac apex",
         ],
         "Hand placement on the lower half of the sternum directs force through the heart. Compressing "
         "the xiphoid, epigastrium, or lateral chest is a frequent error that reduces effectiveness "
@@ -427,8 +427,8 @@ FACTS: list[dict] = [
         "airway obstruction. What is the best immediate BLS action?",
         "Give abdominal thrusts sized to the child and repeat until relief or unresponsiveness",
         [
-            "Encourage forceful coughing only because any cough always means mild obstruction",
-            "Begin CPR chest compressions immediately while the child is still standing upright",
+            "Encourage forceful coughing and observe at the bedside without abdominal thrusts",
+            "Begin chest compressions while the child remains conscious and upright",
             "Deliver back blows alone until the child loses consciousness, then start compressions",
         ],
         "Severe obstruction with ineffective cough requires active relief maneuvers, not observation "
@@ -492,7 +492,7 @@ FACTS: list[dict] = [
         "Switch compressors at the two-minute mark or sooner if rate, depth, or recoil is falling",
         [
             "Keep the same compressor until EMS arrives even if compression quality is clearly declining",
-            "Never switch compressor roles during pediatric arrest to avoid team confusion",
+            "Keep one compressor for the entire arrest without rotating roles",
             "Rotate compressors every 30 seconds regardless of fatigue or measured quality",
         ],
         "Timely compressor switching limits fatigue-related shallow or slow compressions. Waiting only "
@@ -505,7 +505,7 @@ FACTS: list[dict] = [
         "cpr-child",
         "A rescuer finds an unresponsive victim and is unsure whether to use infant or child "
         "compressions on a small school-age patient. Which factor should drive the algorithm choice?",
-        "Victim size and developmental stage per local protocol and training, not guesswork alone",
+        "Victim size and developmental stage using AHA age and size landmarks, not guesswork alone",
         [
             "Always use infant compressions for any victim under 10 years of age without assessment",
             "Always use adult compressions for any victim who can walk independently",
@@ -635,11 +635,11 @@ FACTS: list[dict] = [
         "cpr-child",
         "After ROSC, a 10-year-old is breathing spontaneously but remains very lethargic and "
         "difficult to arouse while EMS is en route. What BLS priority applies?",
-        "Maintain airway patency, give oxygen if trained and available, and monitor breathing and pulse",
+        "Maintain airway patency, provide supplemental oxygen, and monitor breathing and pulse",
         [
-            "Discharge the child to parents at the scene without EMS transport or further monitoring",
-            "Resume CPR compressions immediately because lethargy always means recurrent cardiac arrest",
-            "Withhold supplemental oxygen even when the child appears cyanotic or hypoxic",
+            "Discharge the child to parents at the scene without EMS transport or supplemental oxygen",
+            "Resume CPR compressions immediately for lethargy without reassessing pulse and breathing",
+            "Provide supplemental oxygen but stop monitoring breathing and pulse until EMS arrives",
         ],
         "Post-ROSC patients require close monitoring for recurrent arrest and support of oxygenation. "
         "Automatic return to compressions without reassessment of pulse and breathing is inappropriate. "
@@ -716,10 +716,10 @@ FACTS: list[dict] = [
         "cpr-child",
         "A child with suspected opioid exposure is unresponsive with agonal breathing and no pulse "
         "after a brief check; EMS has been activated. What care should a trained lay rescuer provide?",
-        "Perform high-quality CPR with ventilations if able and give naloxone per local protocol when available",
+        "Perform high-quality CPR with ventilations and give naloxone when available",
         [
-            "Administer naloxone only and withhold compressions until the child becomes fully responsive",
-            "Provide rescue breaths only because opioids never cause pulseless cardiac arrest in children",
+            "Give naloxone and withhold compressions until the child is fully responsive",
+            "Provide rescue breaths without compressions until toxicology confirms opioids",
             "Delay CPR until hospital toxicology confirms which substance was ingested or injected",
         ],
         "Opioids can cause respiratory depression progressing to pulseless arrest requiring CPR and "

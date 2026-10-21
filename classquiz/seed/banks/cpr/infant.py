@@ -34,9 +34,9 @@ FACTS: list[dict] = [
         "Which chest compression rate should rescuers deliver during high-quality infant CPR?",
         "100 to 120 compressions per minute",
         [
-            "60 to 80 compressions per minute to reduce rib injury in smaller patients",
-            "150 to 180 compressions per minute to maximize cardiac output",
-            "As slow as possible to protect the infant rib cage regardless of perfusion",
+            "90 to 100 compressions per minute",
+            "120 to 140 compressions per minute",
+            "140 to 160 compressions per minute",
         ],
         "Infant compressions follow the same rate target as other BLS victims. Rates below 100 "
         "often fail to maintain coronary and cerebral perfusion. Very fast rates usually sacrifice "
@@ -81,7 +81,7 @@ FACTS: list[dict] = [
         "Feel the brachial pulse on the inside of the upper arm for no more than about 10 seconds",
         [
             "Palpate only the radial pulse at the wrist for up to two minutes before starting CPR",
-            "Apply heavy pressure on the carotid artery as the only acceptable infant pulse site",
+            "Apply heavy pressure on the carotid artery as the standard infant pulse site",
             "Auscultate the apical pulse only through multiple layers of clothing without exposure",
         ],
         "The brachial pulse is accessible and reliable in infants during BLS assessment. Radial "
@@ -410,7 +410,7 @@ FACTS: list[dict] = [
  "mouth?",
  "Before giving rescue breaths if you suspect obstruction or after compressions as trained",
  [
- "Never look in the mouth during infant CPR",
+ "Skip mouth inspection until several minutes of CPR have been completed",
  "Perform blind finger sweeps after every compression",
  "Only after 30 minutes of compressions",
  ],
@@ -559,11 +559,11 @@ FACTS: list[dict] = [
  "cpr-infant",
  "After ROSC, a 6-month-old infant is breathing but remains pale and lethargic. What BLS "
  "priorities apply while awaiting EMS?",
- "Maintain airway, provide oxygen if trained, keep the infant warm, and monitor breathing and pulse",
+ "Maintain airway patency, provide supplemental oxygen, keep the infant warm, and monitor breathing and pulse",
  [
- "Place the infant alone in a cold vehicle without monitoring",
- "Resume full CPR compressions because lethargy always means arrest",
- "Withhold all monitoring once color improves slightly",
+ "Place the infant alone in a cold vehicle without supplemental oxygen or monitoring",
+ "Resume full CPR compressions for lethargy without reassessing pulse and breathing",
+ "Provide supplemental oxygen but stop monitoring once color improves slightly",
  ],
  "Post-ROSC infants need close observation for recurrence and thermoregulation. Unmonitored "
  "placement risks deterioration. Automatic return to compressions without reassessment is "
@@ -672,7 +672,7 @@ FACTS: list[dict] = [
  "Support the head and neck and alternate five back slaps and five chest thrusts",
  [
  "Encourage coughing because cyanosis always means mild obstruction",
- "Begin CPR compressions while the infant remains conscious and standing",
+ "Begin chest compressions while the infant remains conscious and upright in your arms",
  "Deliver abdominal thrusts identical to adult technique",
  ],
  "Silent cough and cyanosis indicate severe obstruction requiring back slaps and chest thrusts. "
@@ -713,4 +713,84 @@ FACTS: list[dict] = [
  _REF,
  "advanced",
  ),
+    fact(
+        "cpr-infant",
+        "A second rescuer joins while a lone provider is performing 30:2 infant CPR. What ratio "
+        "should the team use once roles are assigned?",
+        "15 compressions followed by 2 ventilations (15:2) with one rescuer compressing and one ventilating",
+        [
+            "Continue 30:2 with both rescuers alternating compressions on every cycle",
+            "5 compressions followed by 1 ventilation to minimize pause time between breaths",
+            "Continuous compressions with ventilations withheld until EMS places an advanced airway",
+        ],
+        "Two-rescuer infant BLS uses 15:2 so ventilations can be given more often while compressions "
+        "continue with minimal interruption. Lone-rescuer 30:2 is not the two-provider ratio. "
+        "Compression-only care omits ventilations needed in many hypoxic infant arrests.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "cpr-infant",
+        "During infant CPR, an AED completes rhythm analysis and advises no shock. What should "
+        "rescuers do immediately?",
+        "Resume chest compressions without delay and follow subsequent AED prompts",
+        [
+            "Stop CPR for two minutes to let the heart recover spontaneously",
+            "Remove the AED pads and discontinue defibrillation attempts for the arrest",
+            "Deliver a manual shock anyway because analysis can miss treatable rhythms",
+        ],
+        "Non-shockable rhythms still require high-quality CPR and continued AED monitoring per "
+        "prompts. Prolonged pauses or abandoning the AED reduces compression fraction and rhythm "
+        "reassessment. Manual shocks against device advice are unsafe and ineffective.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "cpr-infant",
+        "You are about to start infant BLS on a stranger's child in a public setting. What PPE "
+        "practice aligns with standard precautions during ventilations?",
+        "Use a barrier device or face shield when available and perform hand hygiene before and after care",
+        [
+            "Skip all barriers and ventilate mouth-to-mouth without hand hygiene to save time",
+            "Wear only exam gloves and skip airway barriers even when a mask is on the AED kit",
+            "Delay all ventilations until full hospital isolation garb can be obtained",
+        ],
+        "Barrier devices reduce body-fluid exposure during rescue breaths when available. Hand "
+        "hygiene limits cross-contamination after care. Delaying ventilations for full isolation "
+        "equipment sacrifices oxygenation in arrest.",
+        _REF,
+        "beginner",
+    ),
+    fact(
+        "cpr-infant",
+        "An infant has no trauma history and needs rescue breaths during CPR. How should the "
+        "airway most often be opened?",
+        "Head tilt-chin lift to align the airway while supporting the head and neck",
+        [
+            "Maximal head extension with the neck hyperextended before every ventilation",
+            "Forward neck flexion with a rolled towel under the shoulders for all infants",
+            "Jaw thrust as the routine maneuver even when spine injury is not suspected",
+        ],
+        "Head tilt-chin lift is the standard airway maneuver for infants without suspected spine "
+        "injury. Excessive extension or routine jaw thrust when trauma is not suspected reflects "
+        "common training errors in infant BLS airway opening.",
+        _REF,
+        "intermediate",
+    ),
+    fact(
+        "cpr-infant",
+        "Real-time feedback shows infant compressions are fast but shallow during two-rescuer CPR. "
+        "What depth target should the team prioritize?",
+        "At least one third of the anterior-posterior chest diameter, about 1.5 inches (4 cm)",
+        [
+            "Barely visible sternal indentation without measurable depression on each push",
+            "At least 2.5 inches (6 cm) for every infant regardless of chest size",
+            "Depth is optional when compression rate stays above 120 per minute",
+        ],
+        "Adequate depth generates perfusion in infant arrest; shallow fast compressions are a "
+        "common quality problem. A fixed deep target may be excessive for small infants. Rate "
+        "alone does not replace depth and full recoil in high-quality infant CPR.",
+        _HQ,
+        "intermediate",
+    ),
 ]

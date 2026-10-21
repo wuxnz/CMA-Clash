@@ -45,9 +45,9 @@ FACTS: list[dict] = [
  "Which chest compression rate should rescuers deliver during adult CPR?",
  "100 to 120 compressions per minute",
  [
- "60 to 80 compressions per minute to reduce rescuer fatigue over time",
- "130 to 150 compressions per minute to maximize cardiac output",
- "Match the patient's last known resting pulse rate when documented",
+ "90 to 100 compressions per minute",
+ "120 to 140 compressions per minute",
+ "140 to 160 compressions per minute",
  ],
  "AHA specifies 100 to 120 compressions per minute for adults. Slower rates often follow "
  "fatigue or hesitation, while very fast rates usually sacrifice depth; both patterns reduce "
@@ -207,16 +207,17 @@ FACTS: list[dict] = [
  ),
  fact(
  "cpr-adult",
- "An unresponsive adult is not breathing normally after emergency response is activated. What should a trained lay rescuer do first in many AHA courses?",
- "Start CPR with chest compressions before rescue breaths (CAB sequence)",
+ "An unresponsive adult is not breathing normally after emergency response is activated. "
+ "What should a trained lay rescuer do first?",
+ "Begin chest compressions before rescue breaths (CAB sequence)",
  [
- "Wait for EMS arrival on scene before any chest compressions are started",
- "Provide two minutes of rescue breaths before any compressions are delivered",
- "Place the patient in a recovery position and observe without compressions",
+ "Wait for EMS on scene before starting any chest compressions",
+ "Give two minutes of rescue breaths before delivering any compressions",
+ "Place the patient in recovery position and observe without compressions",
  ],
- "For unresponsive adults without normal breathing, trained lay rescuers in many AHA courses "
- "start with compressions (CAB). Waiting for EMS or providing breaths-only care delays "
- "circulatory support in likely cardiac arrest.",
+ "For unresponsive adults without normal breathing, AHA adult BLS starts with compressions "
+ "(CAB). Waiting for EMS or providing breaths-only care delays circulatory support in likely "
+ "cardiac arrest.",
  [S.AHA_ADULT_BLS, S.AHA_WHAT_IS_CPR],
  "intermediate",
  ),
@@ -328,15 +329,15 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "If you suspect opioid overdose in an unresponsive adult, what BLS actions are appropriate while EMS is activated?",
- "Provide ventilations and naloxone per local protocol while awaiting advanced care",
+ "Support breathing with ventilations, perform CPR if pulseless, and give naloxone when available",
  [
- "Withhold all ventilations until naloxone fully restores normal spontaneous breathing",
- "Perform abdominal thrusts before any rescue breaths or chest compressions",
- "Delay EMS activation until family confirms the substance involved",
+ "Give naloxone and wait for spontaneous breathing before providing any ventilations",
+ "Perform abdominal thrusts before rescue breaths or chest compressions",
+ "Delay EMS activation until the substance involved is confirmed",
  ],
  "AHA opioid-associated emergencies still require airway support and CPR when indicated; "
- "naloxone may be given per local protocol while EMS is en route. Withholding ventilations "
- "until the patient wakes leaves them apneic without support.",
+ "naloxone may be given while EMS is en route but does not replace ventilations or "
+ "compressions when arrest criteria are met.",
  [S.AHA_ADULT_BLS],
  "advanced",
  ),

@@ -247,3 +247,17 @@ cpr-infant-022 | fail | Replaced duplicate recoil definition with leaning/incomp
 cpr-infant-023 | fail | Expanded lone-rescuer EMS/AED retrieval stem and correct option to full sentence.
 cpr-infant-024 | fail | Expanded pediatric AED pad placement key; balanced overlap/placement distractors.
 cpr-infant-025 | fail | Polished compressor-switch interval stem; parallel ROSC/never-switch distractors.
+
+## CPR quality sweep (rewritten pool)
+
+cpr-adult rate/CAB/naloxone | fail | Parallel 90–160/min distractors; direct CAB stem; balanced opioid BLS key without per-local-protocol hedge.
+cpr-child rate/choking/ROSC/opioid | fail | Parallel rate bands; plain choking near-misses; balanced post-ROSC O2 options; opioid distractors without never-cause giveaway.
+cpr-infant rate/ROSC/pulse | fail | Parallel rate bands; balanced post-ROSC distractors; carotid distractor without only-acceptable tell.
+
+## CPR rewrite batch 06 (cpr-infant-046 to cpr-infant-050)
+
+cpr-infant-046 | fail | Two-rescuer join mid-CPR switches to 15:2; parallel ratio near-misses.
+cpr-infant-047 | fail | AED no-shock resume compressions stem; parallel pause/remove/manual-shock distractors.
+cpr-infant-048 | fail | PPE barrier and hand hygiene for infant ventilations; parallel delay/skip distractors.
+cpr-infant-049 | fail | Non-trauma head tilt-chin lift airway stem; parallel hyperextend/flex/jaw-thrust distractors.
+cpr-infant-050 | fail | Shallow fast compressions depth target scenario; parallel indent/6cm/rate-only distractors.

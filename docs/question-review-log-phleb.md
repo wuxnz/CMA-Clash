@@ -157,3 +157,9 @@ phleb-additives-022 | fail | Clotted lavender platelet scenario; fixed trailing 
 phleb-additives-023 | fail | EDTA carryover calcium chemistry stem; fixed double-what fragment; parallel INR-on-serum, glucose fluoride, culture distractors.
 phleb-additives-024 | fail | K2 vs K3 EDTA salt form stem; fixed double-what fragment; removed always-in-citrate banned distractor.
 phleb-additives-025 | fail | Clot activator serum purpose stem; fixed double-what fragment; parallel heparin permanent, CBC platelet, culture sterile distractors.
+
+## Phleb quality sweep (rewritten pool)
+
+phleb-order-draw-007 heparin sequence | fail | Replaced in-every-hospital-protocol distractor with parallel sequence near-miss.
+phleb-additives-026–042 polish | fail | Full-sentence ammonia and ESR stems; removed never/only giveaway distractors on EDTA inversion, BBP splash, heparin-hemolysis items.
+
