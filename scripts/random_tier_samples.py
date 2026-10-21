@@ -42,6 +42,12 @@ def main() -> None:
         facts = [f for f in facts if f["topic"].startswith("cpr-")]
     elif cert_filter == "phleb":
         facts = [f for f in facts if f["topic"].startswith("phleb-")]
+    elif cert_filter == "ekg":
+        facts = [f for f in facts if f["topic"].startswith("ekg-")]
+    elif cert_filter == "ccma":
+        facts = [f for f in facts if f["topic"].startswith("ccma-")]
+    elif cert_filter in ("clinical", "skill"):
+        facts = [f for f in facts if f["topic"].startswith("skill-")]
     for tier in ("beginner", "intermediate", "advanced"):
         pool = [f for f in facts if f.get("difficulty") == tier]
         picks = random.sample(pool, min(2, len(pool)))
