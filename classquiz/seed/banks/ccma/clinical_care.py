@@ -335,13 +335,13 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When irrigating a wound under provider direction, which supply choice supports aseptic technique?',
-        'Sterile saline or another solution specified in the order, poured without contaminating the bottle tip',
+        'Sterile irrigant from a new container, poured without touching the pour spout to the field',
         [
-            'Unsterile tap water dipped from a utility sink without label review',
-            'A communal scrub brush carried between multiple treatment rooms',
-            'Full-strength alcohol instilled into deep wound cavities as routine practice',
+            '0.9% saline drawn into a syringe from a multi-dose vial opened earlier the same day',
+            'Antiseptic wound cleanser used as the irrigating fluid per label',
+            'Sterile water remaining in a bowl that sat open on the mayo stand for an hour',
         ],
-        'Irrigation fluid and delivery equipment must stay free of environmental contaminants. Alcohol is not a routine deep-cavity irrigant and can damage healing tissue.',
+        'Irrigation requires fluid and delivery that stay uncontaminated. Multi-dose vials and open bowls increase bioburden; antiseptics clean skin but are not routine primary irrigants for deep tissue flushing.',
         [S.NHA_CCMA],
         'intermediate',
     ),

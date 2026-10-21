@@ -558,16 +558,16 @@ FACTS: list[dict] = [
     # ccma-anatomy-040
     fact(
         'ccma-anatomy',
-        'Where is the thyroid gland situated in the neck?',
-        'Anterior neck, inferior to the larynx and anterior to the trachea',
+        'Where is the thyroid gland located in the neck?',
+        'Anterior neck, draping the trachea below the larynx',
         [
-            'Posterior mediastinum behind the heart',
-            'Left upper quadrant deep to the stomach',
-            'Retroperitoneal space beside the kidneys',
+            'Posterior to the trachea at the level of the hyoid bone',
+            'Superior to the thyroid cartilage in the submandibular space',
+            'Lateral to the carotid sheath in the posterior triangle',
         ],
-        'The thyroid straddles the trachea and produces T3 and T4. Mediastinal structures include the esophagus and great vessels, the LUQ houses the spleen and gastric tail, and retroperitoneal organs such as kidneys lie behind the peritoneum.',
+        'The thyroid isthmus crosses the trachea anteriorly. Posterior tracheal and carotid triangle positions are common landmarks confused on neck diagrams; the submandibular space lies above the thyroid cartilage.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-anatomy-041
     fact(
