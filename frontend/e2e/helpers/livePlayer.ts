@@ -17,16 +17,25 @@ export async function expectPlayerOnAnswerTiles(page: Page, label: string) {
 export async function expectPlayerAdvancedToNextQuestion(page: Page, label: string) {
 	const root = page.getByTestId('answer-tiles');
 	const firstTile = root.locator('button').first();
-	const priorTile = ((await firstTile.textContent().catch(() => '')) ?? '').trim();
+	const priorTile = (await root.isVisible().catch(() => false))
+		? ((await firstTile.textContent().catch(() => '')) ?? '').trim()
+		: '';
+	let sawTilesHidden = !(await root.isVisible().catch(() => false));
 
 	await expect
 		.poll(
 			async () => {
-				if (!(await root.isVisible().catch(() => false))) return false;
+				const visible = await root.isVisible().catch(() => false);
+				if (!visible) {
+					sawTilesHidden = true;
+					return false;
+				}
 				const enabled = await root.locator('button:not([disabled])').count();
 				if (enabled === 0) return false;
 				const now = ((await firstTile.textContent().catch(() => '')) ?? '').trim();
-				return Boolean(priorTile && now && now !== priorTile);
+				if (priorTile && now && now !== priorTile) return true;
+				if (!priorTile && sawTilesHidden) return true;
+				return false;
 			},
 			{ message: `${label}: next question answer tiles`, timeout: 90_000 }
 		)
