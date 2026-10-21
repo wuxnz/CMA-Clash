@@ -1564,3 +1564,32 @@ ccma-law-ethics-050 | fail | Key shorter than peers.
 ccma-law-ethics-050 | pass | Parallel refusal-documentation options.
 ccma-law-ethics-055 | fail | Key shorter than peers.
 ccma-law-ethics-055 | pass | Parallel incident-report purpose options.
+
+## Pass 2026-10-21f — boundary gray-area + 40-item audit + strict CCMA
+
+ccma-law-ethics-035 | fail | Trivial model-behavior distractors after 2026-10-21e fix.
+ccma-law-ethics-035 | pass | Gray-area acceptable peers; social media key; explanation fit.
+ccma-communication-034 | fail | Key longest option after 2026-10-21e balance pass.
+ccma-communication-034 | pass | Even option lengths (~48–60 chars).
+ccma-law-ethics-031 | fail | Stark distractors too obviously lawful.
+ccma-law-ethics-031 | pass | Compliant gray-area Stark near-miss peers.
+ccma-law-ethics-013 | fail | Banned qualifier "only" in distractor.
+ccma-law-ethics-013 | pass | Rephrased distractor without banned qualifier.
+ccma-law-ethics-019 | fail | Banned qualifier "only" in distractor.
+ccma-law-ethics-019 | pass | Rephrased conflict-of-interest distractor.
+ccma-law-ethics-050 | fail | Banned qualifier "Only" in distractor.
+ccma-law-ethics-050 | pass | Rephrased refusal-documentation distractor.
+ccma-law-ethics-055 | fail | Banned qualifier "only" in distractors (strict CCMA).
+ccma-law-ethics-055 | pass | Rephrased incident-report distractors.
+ccma-foundational-032 | fail | Banned qualifier "only" in body-fluid distractors.
+ccma-foundational-032 | pass | Rephrased Standard Precautions distractors.
+ccma-foundational-050 | fail | Banned qualifier "only" in SDS distractor.
+ccma-foundational-050 | pass | Rephrased SDS distractor.
+ccma-admin-022 | fail | Banned qualifier "only" in nickname distractor.
+ccma-admin-022 | pass | Rephrased demographic verification distractor.
+ccma-law-ethics-035 | fail | Trivial model-behavior distractors (interpreter/teach-back).
+ccma-law-ethics-035 | pass | Gray-area acceptable peers; social media violation key.
+ccma-communication-034 | fail | Key still longest after prior balance.
+ccma-communication-034 | pass | Evened option lengths post-2026-10-21f.
+ccma-law-ethics-031 | fail | Stark distractors too obviously lawful.
+ccma-law-ethics-031 | pass | Compliant gray-area Stark near-miss peers (re-2026-10-21f).

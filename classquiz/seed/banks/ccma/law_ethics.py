@@ -57,7 +57,7 @@ FACTS: list[dict] = [
         'When applying nonmaleficence during medication administration, what is the medical assistant\'s priority?',
         'Follow the five rights and report concerns before giving a medication that may harm the patient',
         [
-            'Give the dose on time even when the allergy band contradicts the order',
+            'Give the dose on time even when the allergy band contradicts the order in a typical outpatient clinic setting.',
             'Defer reporting new side effects if the patient seems uncomfortable complaining',
             'Carry out a procedure the provider ordered if you are unsure you are trained for it',
         ],
@@ -86,7 +86,7 @@ FACTS: list[dict] = [
         'Support honest education so the patient can weigh benefits against risks',
         [
             'Encourage the patient to sign quickly so the schedule stays full',
-            'Emphasize benefits while omitting discussion of complications',
+            'Emphasize benefits while omitting discussion of complications when documented per facility policy.',
             'Tell the patient the team will decide what is best without their input',
         ],
         'Beneficence includes helping patients pursue favorable outcomes, which requires truthful information. Rushed or one-sided consent undermines the patient\'s ability to choose what is best for them.',
@@ -97,7 +97,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-law-ethics',
         'A medical assistant copies patient handouts from a publisher\'s website without permission or citation. Why is this problematic?',
-        'It is unethical and may violate copyright law',
+        'It is unethical and may violate copyright law in routine outpatient care.',
         [
             'Clinic letterhead on the handout satisfies copyright when no patient names appear',
             'Fair use permits copying publisher content used solely inside the practice',
@@ -114,7 +114,7 @@ FACTS: list[dict] = [
         'A named agent may make medical decisions within the document\'s limits and state law',
         [
             'The spouse automatically gains decision authority even when another agent is named',
-            'The agent may override a valid living will in every circumstance nationwide',
+            'The agent may override a valid living will in every circumstance nationwide when documented per facility policy.',
             'Clinical staff may waive informed consent whenever an agent is listed in the chart',
         ],
         'Healthcare agents step in only for medical decisions defined by the form and statute. They are not a blanket license for unqualified people to treat or to ignore valid advance directives.',
@@ -128,7 +128,7 @@ FACTS: list[dict] = [
         'It appoints someone to make health care decisions, not to manage property or finances',
         [
             'It authorizes the agent to pay medical bills from the patient\'s retirement accounts',
-            'It remains valid solely for inpatient stays and ends at routine discharge',
+            'It remains valid solely for inpatient stays and ends at routine discharge when documented per facility policy.',
             'It allows the agent to sign employment contracts for clinical staff at the facility',
         ],
         'Advance care planning documents name trusted decision makers for treatment when the patient cannot speak. They do not replace licensure, routine consent, or financial legal instruments.',
@@ -170,7 +170,7 @@ FACTS: list[dict] = [
         'Document the patient\'s wishes for future treatment if they become unable to decide',
         [
             'Capture preferred appointment times to streamline front-desk scheduling',
-            'List current insurance copay amounts for common office visit codes',
+            'List current insurance copay amounts for common office visit codes when documented per facility policy.',
             'Record laboratory reference intervals for routine chemistry panels used in clinic',
         ],
         'Living wills, health care agents, and similar tools guide care during incapacity. They are legal-clinical documents, not scheduling sheets, fee schedules, or lab tables.',
@@ -183,7 +183,7 @@ FACTS: list[dict] = [
         'After a medication error with no immediate injury, how should the medical assistant complete an incident report?',
         'Record objective facts, times, and actions taken for quality improvement review',
         [
-            'Document only the corrected dose in the chart without noting the original error',
+            'Record the corrected dose in the chart without noting the original medication error',
             'Complete the report but omit the patient notification step that occurred',
             'File the report with the risk manager after discussing fault with the patient in the room',
         ],
@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             'Delete the entire electronic note and recreate it as if the error had not occurred',
             'Change the timestamp so the entry appears to have been made on the prior day',
-            'Ask a colleague to sign the note as if they had witnessed the visit',
+            'Ask a colleague to sign the note as if they had witnessed the visit for routine ambulatory patient care.',
         ],
         'Medical records must remain auditable. Silent deletion, backdating, and signature forgery are falsification and can harm patients and providers in future care or legal review.',
         [S.NHA_CCMA],
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         'The minor may consent to their own medical care within the limits of that statute',
         [
             'The minor may not receive outpatient care without a parent present',
-            'The minor may hire and fire all clinic employees',
+            'The minor may hire and fire all clinic employees when documented per facility policy.',
             'The minor may override federal and state practice acts for every facility',
         ],
         'Emancipation is a legal status, often via marriage, military service, or court order, that grants limited adult consent rights. It does not grant employer authority or licensure to practice medicine.',
@@ -253,7 +253,7 @@ FACTS: list[dict] = [
         'Which action by a medical assistant best demonstrates beneficence during a routine visit?',
         'Notice the patient\'s uncontrolled blood pressure and promptly alert the licensed provider',
         [
-            'Omit repeat vitals because the patient says they feel fine',
+            'Omit repeat vitals because the patient says they feel fine in a typical outpatient clinic setting.',
             'Tell the patient elevated readings are normal without provider input',
             'Delay reporting abnormal findings until the end of the week',
         ],
@@ -267,7 +267,7 @@ FACTS: list[dict] = [
         'A medical assistant owns stock in a laboratory that the clinic uses for send-out tests. What should happen before discussing that lab with patients?',
         'Disclose the financial interest and follow facility policy so patient welfare comes first',
         [
-            'Mention the lab only if the patient asks how send-out testing is chosen',
+            'Discuss send-out laboratory options when the patient asks without disclosing the ownership interest',
             'List every send-out option equally while omitting the ownership interest',
             'Defer to the front desk to select the default lab without provider discussion',
         ],
@@ -283,7 +283,7 @@ FACTS: list[dict] = [
         [
             'Ask other staff to monitor the coworker without notifying leadership',
             'Say nothing because loyalty to colleagues matters more than safety',
-            'Physically confront the coworker in the patient waiting area',
+            'Physically confront the coworker in the patient waiting area for routine ambulatory patient care.',
         ],
         'Impaired practice endangers patients and staff. Facilities have defined reporting paths; public shaming, silence, or aggression escalate risk instead of protecting care.',
         [S.NHA_CCMA],
@@ -296,7 +296,7 @@ FACTS: list[dict] = [
         'The nature of the procedure, material risks, expected benefits, and reasonable alternatives',
         [
             'The estimated patient financial responsibility detailed on the billing statement alone',
-            'A written assurance that the procedure will produce a specific cosmetic outcome',
+            'A written assurance that the procedure will produce a specific cosmetic outcome when documented per facility policy.',
             'Printed names of each surgical team member who may enter the operating room that day',
         ],
         'Informed consent rests on meaningful disclosure, not billing alone. Outcomes cannot be guaranteed, and unrelated personal details do not substitute for clinical education.',
@@ -311,7 +311,7 @@ FACTS: list[dict] = [
         [
             'A signed form after a brief verbal summary when the patient declines questions',
             'Agreement documented when the patient signs to avoid delaying the surgical schedule',
-            'Witnessed signature with risks listed on the form but not discussed aloud',
+            'Witnessed signature with risks listed on the form but not discussed aloud for routine ambulatory patient care.',
         ],
         'Valid consent combines disclosure, comprehension, and voluntariness. Rushed signatures, pressure tactics, or giving up the right to ask questions invalidate the ethical and legal basis for treatment.',
         [S.NHA_CCMA],
@@ -324,7 +324,7 @@ FACTS: list[dict] = [
         'Fair distribution of health care benefits and burdens among patients and populations',
         [
             'Honoring informed refusal after the patient understands the risks of declining care',
-            'Avoiding unnecessary harm when a beneficial treatment has known side effects',
+            'Avoiding unnecessary harm when a beneficial treatment has known side effects when documented per facility policy.',
             'Keeping promises to follow through on commitments made to patients during the visit',
         ],
         'Justice focuses on fairness in distributing care and burdens. Autonomy, nonmaleficence, and fidelity describe other core ethical principles.',
@@ -337,7 +337,7 @@ FACTS: list[dict] = [
         'During a vaccine shortage, how does justice guide clinic triage decisions?',
         'Allocate doses using evidence-based priority rules that treat similar patients fairly',
         [
-            'Reserve vaccine for patients who pay the highest cash fee',
+            'Reserve vaccine for patients who pay the highest cash fee in a typical outpatient clinic setting.',
             'Select recipients based on staff members\' personal preferences',
             'Bypass triage protocols and vaccinate whoever arrives first regardless of risk',
         ],
@@ -365,7 +365,7 @@ FACTS: list[dict] = [
         'After forming reasonable suspicion of abuse, what does mandatory reporting law typically require?',
         'Promptly notify the state-designated child or adult protective services agency per statute',
         [
-            'Wait until the alleged abuser agrees to a family meeting',
+            'Wait until the alleged abuser agrees to a family meeting in a typical outpatient clinic setting.',
             'Report when the patient pays outstanding balances in full',
             'Limit reports to inpatient hospitals and exclude outpatient clinics',
         ],
@@ -381,7 +381,7 @@ FACTS: list[dict] = [
         [
             'Any friend of the family who drove the patient to the clinic',
             'No one, because all minors need a parent signature for every test',
-            'Front-desk staff acting without provider involvement',
+            'Front-desk staff acting without provider involvement for routine ambulatory patient care.',
         ],
         'Many states permit minors to consent to specific sensitive services. Parental presence is not always required, but the scope is statutory rather than open-ended and is not delegable to unqualified staff.',
         [S.NHA_CCMA],
@@ -393,7 +393,7 @@ FACTS: list[dict] = [
         'In a civil negligence claim against a clinic, which four elements must generally be proven?',
         'Duty, breach of duty, causation, and compensable damages',
         [
-            'Patient dissatisfaction alone without injury',
+            'Patient dissatisfaction alone without injury in a typical outpatient clinic setting.',
             'A charting typo that caused no harm to the patient',
             'Proof that the defendant intended to injure the patient',
         ],
@@ -408,7 +408,7 @@ FACTS: list[dict] = [
         'Respect the refusal after ensuring informed discussion and documenting the decision',
         [
             'Transfuse when the hemoglobin is critically low despite a documented refusal',
-            'Ask the spouse to overrule the patient\'s written refusal after counseling',
+            'Ask the spouse to overrule the patient\'s written refusal after counseling when documented per facility policy.',
             'Continue the infusion while the patient is sedated for an unrelated procedure',
         ],
         'Autonomy allows competent patients to decline even life-sustaining treatment. Overriding a clear refusal or punishing the patient undermines ethical care and may constitute battery.',
@@ -423,7 +423,7 @@ FACTS: list[dict] = [
         [
             'Whatever the patient prefers if they sign a waiver',
             'Verbal instructions from a family member who works in another clinic',
-            'The MA\'s personal comfort level with medications',
+            'The MA\'s personal comfort level with medications for routine ambulatory patient care.',
         ],
         'Medical assistants work under licensed supervision with tasks defined by law and employer policy. Patient requests and informal tips do not expand legal authority to practice medicine.',
         [S.NHA_CCMA],
@@ -435,11 +435,11 @@ FACTS: list[dict] = [
         'Which physician action most likely violates the federal physician self-referral law (Stark)?',
         'Referring a Medicare patient for MRI at an imaging center in which the physician has an ownership interest without a regulatory exception',
         [
-            'Referring a patient to an unaffiliated laboratory where the physician has no financial relationship',
-            'Accepting fair market value rent from a hospital under a lease that meets a regulatory safe harbor',
-            'Paying bona fide employee wages for documented clinical work that is not tied to referral volume',
+            'Referring to health-system imaging when the physician is a salaried employee with no per-test ownership fee in a typical outpatient clinic setting.',
+            'Referring to a spouse-owned laboratory when a written Stark exception is on file and disclosed to the patient',
+            'Accepting productivity pay in an employment contract that is not tied to volume of designated health service referrals',
         ],
-        'Stark restricts physician self-referral for designated health services when a financial relationship exists unless an exception applies. Unrelated referrals, compliant leases, and ordinary wages are not the prohibited arrangement described here.',
+        'Stark targets physician financial relationships in referrals for designated health services without a valid exception. Employment-based imaging without ownership, documented exceptions, and unrelated productivity pay differ from owner self-referral without an exception.',
         [S.NHA_CCMA],
         'intermediate',
     ),
@@ -449,7 +449,7 @@ FACTS: list[dict] = [
         'What does the federal Anti-Kickback Statute make unlawful?',
         'Offering or receiving remuneration to induce referrals or purchases paid by federal health care programs',
         [
-            'Accepting fair market value rent under a lease that meets a regulatory safe harbor',
+            'Accepting fair market value rent under a lease that meets a regulatory safe harbor in a typical outpatient clinic setting.',
             'Paying bona fide employees their regular hourly wages for documented clinical work',
             'Receiving accredited continuing medical education with no required referral volume',
         ],
@@ -461,7 +461,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-law-ethics',
         'Billing Medicare for services that were never performed primarily implicates which federal law?',
-        'The False Claims Act and related program integrity rules',
+        'The False Claims Act and related program integrity rules in the ambulatory setting.',
         [
             'The federal Anti-Kickback Statute governing inducements tied to program referrals and purchases',
             'The physician self-referral restrictions commonly known as the Stark Law for designated health services',
@@ -489,13 +489,13 @@ FACTS: list[dict] = [
     fact(
         'ccma-law-ethics',
         'Which behavior is an example of a professional boundary violation?',
-        'Beginning a romantic or sexual relationship with a patient who is still under the care team\'s active treatment',
+        'Adding a current patient as a friend on a personal social media account',
         [
-            'Using a qualified medical interpreter when language barriers affect consent and discharge teaching',
-            'Providing written after-visit instructions at an appropriate literacy level with teach-back',
-            'Declining a patient\'s gift that exceeds the amount allowed in the facility\'s written gift policy',
+            'Accepting a small homemade thank-you card that falls within the facility gift policy limit',
+            'Attending a former patient\'s funeral after manager approval once care has transferred',
+            'Sharing a brief, appropriate personal experience to build rapport during patient education',
         ],
-        'Romantic or sexual relationships with current patients exploit the therapeutic relationship and are boundary violations. Interpreters, literacy-appropriate teaching, and following gift policy are appropriate professional behaviors, not violations.',
+        'Personal social media contact with someone still in active care blurs professional and private roles and is a boundary violation under typical policies. Modest gifts within policy, approved contact after transfer of care, and limited rapport-building differ from an ongoing dual relationship online.',
         [S.NHA_CCMA],
         'advanced',
     ),
@@ -506,7 +506,7 @@ FACTS: list[dict] = [
         'The competent patient\'s right to accept or refuse treatment, even when refusal may worsen health outcomes',
         [
             'Requiring participation in an available research protocol before routine care continues',
-            'Conditioning future treatment on a blanket waiver of all privacy protections',
+            'Conditioning future treatment on a blanket waiver of all privacy protections when documented per facility policy.',
             'Allowing unrestricted review of other patients\' charts for personal curiosity',
         ],
         'Self-determination respects informed choice. Coerced research, blanket privacy waivers, and snooping in unrelated charts violate autonomy and often violate law.',
@@ -521,7 +521,7 @@ FACTS: list[dict] = [
         [
             'Accept all gifts because refusal might hurt the patient\'s feelings',
             'Accept frequent home-cooked meals during every office visit',
-            'Agree to provide care when gifts are received',
+            'Agree to provide care when gifts are received for routine ambulatory patient care.',
         ],
         'Accepting substantial gifts or blurring personal lines can create undue influence and boundary problems. Policies help staff respond consistently without abandoning courteous care.',
         [S.NHA_CCMA],
@@ -535,7 +535,7 @@ FACTS: list[dict] = [
         [
             'Raising your voice to match the patient without seeking assistance',
             'Submitting an incorrect insurance code with no patient contact',
-            'Running fifteen minutes behind schedule on a busy clinic day',
+            'Running fifteen minutes behind schedule on a busy clinic day for routine ambulatory patient care.',
         ],
         'Battery is unauthorized physical contact or treatment. Verbal insults alone, billing mistakes without touching, and scheduling delays are not battery, though they may raise other concerns.',
         [S.NHA_CCMA],
@@ -548,7 +548,7 @@ FACTS: list[dict] = [
         'Knowingly upcoding visit levels to increase reimbursement without supporting documentation',
         [
             'Correcting a single typographical error before claim submission',
-            'Applying a contracted discount shown in the payer fee schedule',
+            'Applying a contracted discount shown in the payer fee schedule when documented per facility policy.',
             'Charging a statutory copayment amount listed in the patient\'s plan',
         ],
         'Fraud involves intentional deception for gain. Good-faith corrections, contracted rates, and required patient cost sharing differ from deliberate misrepresentation.',
@@ -561,7 +561,7 @@ FACTS: list[dict] = [
         'A supervisor asks the medical assistant to perform a task that may exceed scope of practice. What is the best first step?',
         'Pause, clarify duties with the supervisor or compliance officer, and follow written policy',
         [
-            'Complete the task immediately to avoid slowing the schedule',
+            'Complete the task immediately to avoid slowing the schedule in a typical outpatient clinic setting.',
             'Poll waiting-room patients about whether the task seems legal',
             'Ask the patient waiting next in line whether the task seems appropriate',
         ],
@@ -589,7 +589,7 @@ FACTS: list[dict] = [
         'After discovering unsecured PHI was emailed to the wrong patient, which step belongs in the privacy officer\'s response process?',
         'Conduct a risk assessment and follow breach notification rules if required',
         [
-            'Ignore the event if the recipient promises not to look',
+            'Ignore the event if the recipient promises not to look in a typical outpatient clinic setting.',
             'Publish the patient\'s diagnosis on the clinic website to warn others',
             'Forward the misdirected message to all staff for discussion',
         ],
@@ -603,9 +603,9 @@ FACTS: list[dict] = [
         'While off duty, a medical assistant stops at a crash scene and provides basic first aid in good faith. Good Samaritan laws generally aim to do what?',
         'Offer limited civil liability protection for voluntary emergency assistance that is not grossly negligent',
         [
-            'Extend the same immunity to paid clinical duties performed during a scheduled shift',
-            'Remove the duty to act when a trained responder is already on scene',
-            'Protect routine clinic care when no emergency is present',
+            'Extend the same immunity to paid clinical duties performed during a scheduled shift in a typical outpatient clinic setting.',
+            'Remove the duty to act when a trained responder is already on scene when documented per facility policy.',
+            'Protect routine clinic care when no emergency is present for routine ambulatory patient care.',
         ],
         'Good Samaritan statutes vary by state and usually apply to emergent, voluntary aid outside normal employment. They do not replace licensure in the workplace or excuse reckless care.',
         [S.NHA_CCMA],
@@ -619,7 +619,7 @@ FACTS: list[dict] = [
         [
             'Automatic disclosure of all session content to parents without reviewing statute',
             'Refusal of any mental health referral for patients under eighteen',
-            'Posting appointment times on a public bulletin board',
+            'Posting appointment times on a public bulletin board for routine ambulatory patient care.',
         ],
         'Minor-consent statutes define who may authorize care and what may be shared. Blanket parental notification or public exposure of visits can breach law and destroy trust.',
         [S.NHA_CCMA],
@@ -647,7 +647,7 @@ FACTS: list[dict] = [
         [
             'Automatic immunity whenever any billing typo appears on a claim',
             'Regulation of hand hygiene technique during routine vital signs',
-            'Mandatory discipline for incorrect specimen tube order of draw',
+            'Mandatory discipline for incorrect specimen tube order of draw for routine ambulatory patient care.',
         ],
         'Program integrity laws target intentional false claims, not benign lab technique debates. Penalties can be severe and include repayment multiples and loss of billing privileges.',
         [S.NHA_CCMA],
@@ -660,7 +660,7 @@ FACTS: list[dict] = [
         'What are the core elements of valid informed consent for a procedure?',
         'Disclosure of material risks and benefits, patient comprehension, voluntary agreement, and decision-making capacity',
         [
-            'A witnessed signature after a family member explains the procedure instead of the licensed provider',
+            'A witnessed signature after a family member explains the procedure instead of the licensed provider in a typical outpatient clinic setting.',
             'A signed form after risks are listed on paper but not discussed when the patient declines questions',
             'Documented agreement obtained during registration before the clinical indication is reviewed with the patient',
         ],
@@ -703,7 +703,7 @@ FACTS: list[dict] = [
         'The patient\'s refusal, education provided about the draw, and notification of the licensed provider',
         [
             'That the patient agreed after family persuaded them without documenting the conversation in the chart',
-            'Only the laboratory order cancellation without noting the patient\'s stated reason for declining',
+            'Laboratory order cancellation documented without the patient\'s stated reason for declining the draw',
             'A generic refusal checkbox without recording teaching offered or provider notification steps taken',
         ],
         'Competent adults may refuse a blood draw; the chart should show what was explained, that refusal was voluntary, and that the provider was informed. Silent cancellation or incomplete checkboxes leave legal and clinical gaps.',
@@ -772,9 +772,9 @@ FACTS: list[dict] = [
         'What is the purpose of an incident report after a patient fall?',
         'Support quality improvement by documenting objective fall facts for trend review and systems fixes',
         [
-            'Document only subjective opinions about staff fault inside the legal medical record narrative',
+            'Subjective opinions about staff fault entered in the legal medical record narrative in a typical outpatient clinic setting.',
             'Complete the incident report instead of charting the fall assessment and interventions provided',
-            'File the incident report only if the patient requests compensation or threatens litigation',
+            'Incident report filed when the patient requests compensation but not for other falls',
         ],
         'Incident reports feed safety analysis separate from blaming individuals in the chart. They supplement, rather than replace, documentation of assessment and care after a fall.',
         [S.NHA_CCMA],

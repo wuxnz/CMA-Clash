@@ -30,7 +30,7 @@ FACTS: list[dict] = [
         'Acknowledge the inconvenience and give a realistic update on timing',
         [
             'Tell the patient the delay is their fault for arriving early',
-            'Guarantee an exact rooming time you cannot control',
+            'Guarantee an exact rooming time you cannot control when documented per facility policy.',
             'Avoid mentioning the wait until the patient complains loudly',
         ],
         'Validating frustration shows respect without making promises the team cannot keep. Blaming the patient or staying silent usually increases conflict in the waiting area.',
@@ -86,7 +86,7 @@ FACTS: list[dict] = [
         'Attend fully, ask clarifying questions, and reflect key points without interrupting',
         [
             'Rehearse your next reply while the patient is speaking',
-            'Use complex jargon without checking comprehension',
+            'Use complex jargon without checking comprehension when documented per facility policy.',
             'Turn away from the patient to finish computer entries',
         ],
         'Active listening confirms the patient\'s story and builds rapport. Divided attention or interrupting sends a message that the patient\'s concerns are not important.',
@@ -114,7 +114,7 @@ FACTS: list[dict] = [
         'Appropriate eye contact and open posture at the patient\'s eye level when possible',
         [
             'Turn your back while the patient is describing symptoms',
-            'Stand close above the seated patient with arms crossed',
+            'Stand close above the seated patient with arms crossed when documented per facility policy.',
             'Read text messages while the patient discloses sensitive information',
         ],
         'Open, attentive body language signals that you are present for the conversation. Dismissive posture or divided attention can make patients withhold important details.',
@@ -127,7 +127,7 @@ FACTS: list[dict] = [
         'During a therapeutic conversation, what does active listening require from the medical assistant?',
         "Reflect and clarify the patient's message before responding with instructions",
         [
-            'Interrupt frequently to shorten the visit',
+            'Interrupt frequently to shorten the visit in a typical outpatient clinic setting.',
             'Form your answer while the patient is still talking',
             'Face the computer screen instead of the patient',
         ],
@@ -142,7 +142,7 @@ FACTS: list[dict] = [
         'Acknowledge the patient\'s feelings and speak in a calm, steady tone',
         [
             'Label the patient\'s worries as unreasonable and move on',
-            'Speak louder to assert control over the room',
+            'Speak louder to assert control over the room when documented per facility policy.',
             'Leave the room without telling the patient what will happen next',
         ],
         'Calm validation reduces physiologic arousal and improves cooperation with procedures. Dismissal or abrupt exits increase fear and may trigger escalation.',
@@ -183,7 +183,7 @@ FACTS: list[dict] = [
         'Under OSHA bloodborne pathogen standards, how must an Exposure Control Plan be maintained?',
         'In writing, reviewed at least annually and when job duties change',
         [
-            'As an informal verbal agreement among staff',
+            'As an informal verbal agreement among staff in a typical outpatient clinic setting.',
             'Waived for small practices with few employees',
             'Written after the first needlestick event occurs',
         ],
@@ -199,7 +199,7 @@ FACTS: list[dict] = [
         [
             'Attribute the problem entirely to the patient\'s behavior',
             'Promise compensation or discounts you are not authorized to give',
-            'Change the subject without acknowledging the wait',
+            'Change the subject without acknowledging the wait for routine ambulatory patient care.',
         ],
         'Empathetic language preserves trust when processes break down. Overpromising or deflecting blame can create legal and service expectations the clinic cannot meet.',
         [S.NHA_CCMA],
@@ -225,8 +225,8 @@ FACTS: list[dict] = [
         'Which statement best describes cultural humility in patient care?',
         "Recognizing that your own cultural lens may limit your understanding of the patient's experience",
         [
-            'Treating stereotyped beliefs about a group as clinical facts',
-            'Declining reasonable requests tied to culture or religion',
+            'Treating stereotyped beliefs about a group as clinical facts in a typical outpatient clinic setting.',
+            'Declining reasonable requests tied to culture or religion when documented per facility policy.',
             'Joking about a patient\'s food or dress preferences with coworkers',
         ],
         'Humility invites questions and partnership rather than assumptions about beliefs or practices. Stereotyping or ridicule erodes trust and can lead to missed needs.',
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         'Objectively, using factual wording without biased or insulting language',
         [
             'Recording personal insults when the patient was upset',
-            'Leaving out direct quotes the patient provided',
+            'Leaving out direct quotes the patient provided when documented per facility policy.',
             'Entering rumors heard in the break room as facts',
         ],
         'Neutral documentation supports continuity of care and legal review. Subjective attacks or omitted patient statements weaken the record\'s credibility.',
@@ -255,7 +255,7 @@ FACTS: list[dict] = [
         [
             'A checkbox marked education without listing what was taught',
             'The educator\'s personal opinion of the patient\'s motivation',
-            'Procedure codes billed that day without teaching content',
+            'Procedure codes billed that day without teaching content for routine ambulatory patient care.',
         ],
         'Specific notes show what the patient was told and whether they understood. Vague entries cannot support adherence counseling or discharge planning if questions arise later.',
         [S.NHA_CCMA],
@@ -281,7 +281,7 @@ FACTS: list[dict] = [
         'Two team members disagree loudly about workflow in a patient care area. What is the appropriate response?',
         'Address the issue privately with respectful discussion and involve a supervisor if needed',
         [
-            'Continue arguing in front of patients in the waiting room',
+            'Continue arguing in front of patients in the waiting room in a typical outpatient clinic setting.',
             'Give each other silent treatment while patients wait for help',
             'Ask the practice manager to settle the dispute during peak patient check-in',
         ],
@@ -295,7 +295,7 @@ FACTS: list[dict] = [
         'When a patient files a complaint about care or service, what should the medical assistant do?',
         'Document the concern objectively and route it according to facility policy',
         [
-            'File the complaint with no record in the chart',
+            'File the complaint with no record in the chart in a typical outpatient clinic setting.',
             'Respond by raising your voice to defend the clinic',
             'Share the complaint narrative on a public review site from work',
         ],
@@ -310,7 +310,7 @@ FACTS: list[dict] = [
         'Identify trends to improve processes while de-identifying individual responses',
         [
             'Post individual comments with patient initials on the staff board',
-            'Ignore repeated themes because one score looks acceptable',
+            'Ignore repeated themes because one score looks acceptable when documented per facility policy.',
             'Use survey data to choose which patients receive longer visits',
         ],
         'Aggregate data guides quality improvement without exposing PHI. Misusing survey content or ignoring patterns wastes a tool meant to strengthen service.',
@@ -325,7 +325,7 @@ FACTS: list[dict] = [
         [
             'Rushed and dismissive to finish calls quickly',
             'Whispered or muffled so words are hard to understand',
-            'Sarcastic when the caller repeats a question',
+            'Sarcastic when the caller repeats a question for routine ambulatory patient care.',
         ],
         'Callers often cannot see nonverbal cues, so vocal tone carries empathy and authority. Harsh or unclear speech leads to missed instructions and repeat calls.',
         [S.NHA_CCMA],
@@ -353,7 +353,7 @@ FACTS: list[dict] = [
         [
             'Resuscitation',
             'Regulation',
-            'Referral',
+            'Referral for routine ambulatory patient care.',
         ],
         'SBAR ends with a clear recommendation so the receiver knows what action or decision is needed. The full acronym is Situation, Background, Assessment, Recommendation, not scheduling or billing terms.',
         [S.NHA_CCMA],
@@ -475,13 +475,13 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'When discharging a patient with limited health literacy, which communication pair is most effective?',
-        'Plain-language verbal instructions paired with teach-back of medications, follow-up, and warning signs',
+        'Plain-language teaching with teach-back on medications, follow-up, and warning signs',
         [
-            'Written handouts at a high reading level with medical abbreviations and no teach-back check',
-            'Teach-back limited to medication names while lifestyle and follow-up teaching uses jargon only',
-            'Qualified interpreter for spoken instructions with no written after-visit summary for home use',
+            'Written handouts at a high reading level with abbreviations and no understanding check',
+            'Teach-back on medication names while follow-up and lifestyle steps are taught with jargon',
+            'Spoken-language interpreter during the visit without a written home summary in plain text',
         ],
-        'Limited literacy calls for simple wording plus teach-back on the steps that keep the patient safe at home. High-reading-level handouts alone, partial teach-back, or interpreter-only visits leave gaps when no plain written backup exists.',
+        'Limited literacy calls for simple wording plus teach-back on the steps that keep the patient safe at home. Dense handouts without verification, partial teach-back, or interpreter-only visits leave home-care gaps.',
         [S.NHA_CCMA],
         'advanced',
     ),
@@ -521,7 +521,7 @@ FACTS: list[dict] = [
         [
             'Apply antiseptic to the wound without washing with soap and water first',
             'Finish remaining patient care tasks before notifying your supervisor',
-            'Delay the exposure report until the source patient is identified',
+            'Delay the exposure report until the source patient is identified for routine ambulatory patient care.',
         ],
         'Prompt cleansing lowers viral load on the skin and documents the event while details are fresh. Delayed reporting or incomplete first aid can worsen outcomes and violate OSHA requirements.',
         [S.NHA_CCMA],
@@ -603,7 +603,7 @@ FACTS: list[dict] = [
         'An angry caller yells about a billing mistake. What is the most effective first response?',
         'Stay calm, listen, and acknowledge the concern before gathering facts',
         [
-            'Transfer to billing immediately without hearing the concern',
+            'Transfer to billing immediately without hearing the concern in a typical outpatient clinic setting.',
             'State that refunds are against policy before gathering facts',
             'Place the caller on extended hold without explaining the next step',
         ],

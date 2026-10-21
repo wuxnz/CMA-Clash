@@ -27,7 +27,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "When a procedure may splash blood or body fluids into the face, eye protection belongs to?",
-        "Standard Precautions",
+        "Standard Precautions in the ambulatory setting.",
         [
             "Airborne Precautions without eye protection when splashes are anticipated",
             "Droplet Precautions instead of gloves",
@@ -41,7 +41,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "What is the primary infection-control goal of respiratory hygiene posters in waiting areas?",
-        "Source control of respiratory secretions",
+        "Source control of respiratory secretions per common clinical practice.",
         [
             "Replacing alcohol-based hand rub stations with posters alone at entrances",
             "Using Droplet Precautions for every patient with a skin rash",
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
         [
             "Droplet Precautions with a surgical mask at the bedside without airborne isolation",
             "Contact Precautions with gown and gloves but no respiratory protection",
-            "Standard Precautions unless the patient is actively coughing blood",
+            "Standard Precautions unless the patient is actively coughing blood for routine ambulatory patient care.",
         ],
         "TB spreads via airborne droplet nuclei that can travel beyond conversational distance. Surgical masks and contact barriers alone do not replace respirators and airborne room placement.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -183,7 +183,7 @@ FACTS: list[dict] = [
         "Contact Precautions are indicated for which clinical example?",
         "MRSA colonization or infection with risk of contact spread",
         [
-            "Measles in a febrile child with cough",
+            "Measles in a febrile child with cough in a typical outpatient clinic setting.",
             "Influenza in the first 48 hours of symptoms",
             "Suspected pulmonary tuberculosis with productive cough",
         ],
@@ -209,7 +209,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "Droplet Precautions apply to illnesses spread by large respiratory droplets, such as?",
-        "Influenza and pertussis",
+        "Influenza and pertussis in the ambulatory setting.",
         [
             "Draining MRSA wound on the extremity",
             "Varicella (chickenpox) with diffuse rash",
@@ -223,7 +223,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "Under Droplet Precautions, a surgical mask is worn when within about?",
-        "3 feet (1 meter) of the patient",
+        "3 feet (1 meter) of the patient per common clinical practice.",
         [
             "20 feet while using a fit-tested N95 for all room air",
             "In the hallway outside the closed door without entering the patient room",
@@ -241,7 +241,7 @@ FACTS: list[dict] = [
         [
             "The patient's request to end precautions the same day symptoms improve",
             "A fixed 24-hour rule for every respiratory illness regardless of organism",
-            "Discontinue when symptoms improve one day before cultures finalize",
+            "Discontinue when symptoms improve one day before cultures finalize for routine ambulatory patient care.",
         ],
         "Discontinuation depends on the pathogen, immune status, and culture or antigen results where applicable. Symptom improvement alone may not be sufficient for diseases with prolonged shedding.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -269,7 +269,7 @@ FACTS: list[dict] = [
         [
             "Measuring oral temperature at the bedside without anticipated splashes",
             "Documenting in the EHR at the nurses station without patient contact",
-            "Every conversation with a patient regardless of procedure risk",
+            "Every conversation with a patient regardless of procedure risk for routine ambulatory patient care.",
         ],
         "Eye protection is selected for tasks with splash risk, such as suctioning or handling bloody linens. Routine conversation without anticipated splashes does not require a face shield.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
@@ -293,9 +293,9 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "Per OSHA guidance, a sharps container in patient care areas should be replaced when it is?",
-        "No more than three-quarters full",
+        "No more than three-quarters full in the ambulatory setting.",
         [
-            "Completely packed until items spill over the opening",
+            "Completely packed until items spill over the opening in a typical outpatient clinic setting.",
             "Emptied once per calendar year regardless of fill level",
             "Filled with general office waste to save disposal trips",
         ],
@@ -323,7 +323,7 @@ FACTS: list[dict] = [
         "The decision to discontinue isolation precautions should reflect?",
         "Clinical improvement, diagnostic results, and infection prevention policy",
         [
-            "Patient preference alone without nurse or provider input",
+            "Patient preference alone without nurse or provider input in a typical outpatient clinic setting.",
             "Unit rotation that assigns isolation rooms by bed number each week",
             "Whichever precaution type is least expensive for the unit",
         ],
@@ -337,7 +337,7 @@ FACTS: list[dict] = [
         "Which precaution bundle is typical for a patient colonized with a multidrug-resistant organism (MDRO)?",
         "Contact Precautions plus communication with the care team about stewardship",
         [
-            "Droplet Precautions with surgical mask instead of gowns",
+            "Droplet Precautions with surgical mask instead of gowns in a typical outpatient clinic setting.",
             "Airborne Precautions for all MDROs regardless of site of colonization",
             "Shared unwiped stethoscopes between colonized and noncolonized patients",
         ],
@@ -367,7 +367,7 @@ FACTS: list[dict] = [
         [
             "Use Contact Precautions in place of reverse-isolation room placement",
             "Allow fresh produce at the bedside when visitors bring it from home",
-            "Rely on the patient mask alone without staff hand hygiene at entry",
+            "Rely on the patient mask alone without staff hand hygiene at entry for routine ambulatory patient care.",
         ],
         "Reverse isolation protects the host from environmental and visitor-borne organisms. It adds measures such as filtered air and restricted items; it does not eliminate baseline hand hygiene or Standard Precautions for staff.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -394,7 +394,7 @@ FACTS: list[dict] = [
         "Before gown removal to keep contaminated glove surfaces off skin and clothing",
         [
             "After leaving the unit hallway so gloves protect the elevator buttons",
-            "At the end of the shift regardless of recent patient contact",
+            "At the end of the shift regardless of recent patient contact when documented per facility policy.",
             "Before entering the room while the gown remains in the corridor",
         ],
         "CDC sequences doffing to minimize self-contamination. Gloves are often removed first or early so hands can clean before touching the face or ungloved surfaces.",
@@ -409,7 +409,7 @@ FACTS: list[dict] = [
         [
             "In the corridor immediately outside the patient room door",
             "At the nurses' station while finishing documentation",
-            "In the clean supply room before discarding used PPE",
+            "In the clean supply room before discarding used PPE for routine ambulatory patient care.",
         ],
         "Doffing in a controlled space limits spread of pathogens to public corridors and clean supply areas. Hand hygiene between steps remains required.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -423,7 +423,7 @@ FACTS: list[dict] = [
         [
             "Gloves first so bare hands avoid contact with the gown neckline",
             "Respirator after gloves to avoid fit-test documentation",
-            "Don eye protection after exiting the isolation room",
+            "Don eye protection after exiting the isolation room for routine ambulatory patient care.",
         ],
         "Donning order keeps ungloved hands from contaminating the face and final barriers. Gloves go on last so earlier steps can be adjusted without tearing gloves.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
@@ -435,7 +435,7 @@ FACTS: list[dict] = [
         "Before moving a patient on Contact Precautions to radiology, which step should the medical assistant take?",
         "Notify the receiving area and cover or contain draining wounds and equipment",
         [
-            "Remove gown and gloves in the elevator to save PPE",
+            "Remove gown and gloves in the elevator to save PPE in a typical outpatient clinic setting.",
             "Assume transport staff need no precaution information if the trip is short",
             "Cancel the test without telling the provider or infection prevention",
         ],
@@ -450,8 +450,8 @@ FACTS: list[dict] = [
         "Contact Precautions with emphasis on environmental cleaning and staff protection per policy",
         [
             "Droplet Precautions with surgical mask without gown, gloves, or environmental cleaning",
-            "No linen precautions because mites die instantly on dry fabric",
-            "Airborne Precautions in place of gown and glove use",
+            "No linen precautions because mites die instantly on dry fabric when documented per facility policy.",
+            "Airborne Precautions in place of gown and glove use for routine ambulatory patient care.",
         ],
         "Scabies spreads through prolonged skin contact and heavily infested skin and bedding. Heavy infestation increases environmental load; contact barriers and laundry handling differ from respiratory isolation.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -465,7 +465,7 @@ FACTS: list[dict] = [
         [
             "Reuse the same surgical mask between patients without discarding",
             "Require symptomatic staff to staff the front desk throughout the shift",
-            "Rely on recirculated unfiltered air as the sole control measure",
+            "Rely on recirculated unfiltered air as the sole control measure for routine ambulatory patient care.",
         ],
         "Influenza spreads by droplets and contaminated hands. Vaccination, source control, and spatial separation complement Droplet Precautions when patients are known or suspected to be infected.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
@@ -505,9 +505,9 @@ FACTS: list[dict] = [
         "When a multidrug-resistant organism is newly identified, Transmission-Based Precautions should begin?",
         "When clinical or laboratory evidence and facility policy indicate contact, droplet, or airborne needs",
         [
-            "After every roommate has developed the same infection",
-            "Delay precautions in outpatient clinics despite draining wounds",
-            "Based on bed availability rather than organism, syndrome, and drainage risk",
+            "After every roommate has developed the same infection in a typical outpatient clinic setting.",
+            "Delay precautions in outpatient clinics despite draining wounds when documented per facility policy.",
+            "Based on bed availability rather than organism, syndrome, and drainage risk for routine ambulatory patient care.",
         ],
         "Precaution category follows the pathogen and body site involved. Policy and infection prevention guide timing; delaying contact precautions for draining MRSA wounds increases spread risk.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
         "During intrahospital transport of a patient on Droplet Precautions, which measure should be used for the patient?",
         "Wear a surgical mask if tolerated and follow facility transport protocols",
         [
-            "Remove the mask in the elevator to improve oxygen saturation",
+            "Remove the mask in the elevator to improve oxygen saturation in a typical outpatient clinic setting.",
             "Walk through the cafeteria without notifying staff in public areas",
             "Use a fit-tested N95 instead of a surgical mask for all droplet diseases",
         ],
@@ -563,7 +563,7 @@ FACTS: list[dict] = [
         [
             "Annual floor waxing as the primary disinfection for high-touch surfaces",
             "One reusable cloth for all patient rooms without changing solution",
-            "Deferring spill cleanup until the patient is discharged",
+            "Deferring spill cleanup until the patient is discharged for routine ambulatory patient care.",
         ],
         "MDROs and enteric pathogens persist on bed rails, call buttons, and monitors. EPA-registered disinfectants and increased cleaning frequency lower indirect contact transmission.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -575,9 +575,9 @@ FACTS: list[dict] = [
         "Preferred room placement for a patient on Droplet Precautions when a private room is unavailable is?",
         "Cohort with another patient with the same infection if policy allows, maintaining mask use near the bedside",
         [
-            "Place next to a neutropenic patient in protective environment",
-            "Seat in an open bay without masks because droplets fall within inches",
-            "Room with a patient on Airborne Precautions for tuberculosis",
+            "Place next to a neutropenic patient in protective environment in a typical outpatient clinic setting.",
+            "Seat in an open bay without masks because droplets fall within inches when documented per facility policy.",
+            "Room with a patient on Airborne Precautions for tuberculosis for routine ambulatory patient care for routine ambulatory patient care.",
         ],
         "Droplet precautions use spatial separation and masks within about 3 feet. Cohorting requires matching infection type; mixing precaution categories increases risk.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -647,7 +647,7 @@ FACTS: list[dict] = [
         [
             "Alcohol-based hand rub alone without contact precautions",
             "No cleaning if gloves appeared intact during the encounter",
-            "Airborne Precautions with N95 instead of washing",
+            "Airborne Precautions with N95 instead of washing for routine ambulatory patient care.",
         ],
         "C. difficile spores resist alcohol and survive on surfaces. Contact Precautions plus mechanical washing when indicated complement environmental disinfection with sporicidal agents.",
         [S.CDC_HAND_HYGIENE, S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -675,7 +675,7 @@ FACTS: list[dict] = [
         [
             "Allow one visitor with a mild cough if they wear a surgical mask",
             "Permit dried floral arrangements without infection prevention review",
-            "Reduce surface cleaning frequency to limit room disturbances",
+            "Reduce surface cleaning frequency to limit room disturbances for routine ambulatory patient care.",
         ],
         "Protective environments limit exogenous infection in patients who cannot mount a normal immune response. Policies may restrict plants, food, and ill contacts while maintaining cleaning and hand hygiene.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -688,8 +688,8 @@ FACTS: list[dict] = [
         "A fit-tested N95 or higher respirator plus eye protection and other PPE per policy",
         [
             "A surgical mask because the aerosol-generating procedure is brief",
-            "Gloves without eye protection when suctioning is performed",
-            "Street clothes with a paper mask at the door",
+            "Gloves without eye protection when suctioning is performed when documented per facility policy.",
+            "Street clothes with a paper mask at the door for routine ambulatory patient care.",
         ],
         "Procedures such as intubation, suctioning, and bronchoscopy can aerosolize pathogens. Airborne Precautions and procedure-specific PPE reduce inhalation and splash exposure.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -728,7 +728,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "Which PPE is added for Contact Precautions when entering the room?",
-        "Gown and gloves for all room entry",
+        "Gown and gloves for all room entry per common clinical practice.",
         [
             "Fit-tested N95 respirator for every room entry regardless of diagnosis",
             "Routine room entry in street clothes without performing hand hygiene",

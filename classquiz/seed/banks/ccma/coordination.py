@@ -15,7 +15,7 @@ FACTS: list[dict] = [
         'After reviewing discharge instructions with a patient, which step best confirms they understood the plan?',
         'Ask the patient to explain the key steps back in their own words',
         [
-            'Read the handout silently while the patient waits',
+            'Read the handout silently while the patient waits under typical outpatient policy.',
             'Assume the patient can read because they signed the form',
             'Provide a printed pamphlet without discussion or teach-back',
         ],
@@ -24,7 +24,7 @@ FACTS: list[dict] = [
         'beginner',
     ),
     # ccma-coordination-002
-        fact('ccma-coordination', 'Which statement best describes the typical supervisory relationship for a certified clinical medical assistant?', 'Work under licensed provider supervision within state scope and employer policy', ['Perform invasive surgery independently without provider oversight', 'Prescribe schedule II controlled substances without a delegating provider', 'Interpret and sign off on imaging studies without radiologist involvement'], 'Medical assistants coordinate care and perform delegated tasks; they do not practice medicine independently. Scope limits protect patients and define what tasks may be assigned.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-coordination', 'Which statement best describes the typical supervisory relationship for a certified clinical medical assistant?', 'Work under licensed provider supervision within state scope and employer policy', ['Perform invasive surgery independently without provider oversight under typical outpatient policy.', 'Prescribe schedule II controlled substances without a delegating provider', 'Interpret and sign off on imaging studies without radiologist involvement'], 'Medical assistants coordinate care and perform delegated tasks; they do not practice medicine independently. Scope limits protect patients and define what tasks may be assigned.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-coordination-003
     fact(
@@ -33,7 +33,7 @@ FACTS: list[dict] = [
         'Secure messaging limits and when to call 911 instead of using the portal',
         [
             'Encourage sharing login credentials with family members by default',
-            'Use portal messages for chest pain or other emergencies',
+            'Use portal messages for chest pain or other emergencies under typical outpatient policy.',
             'Share portal login credentials with adult children by default',
         ],
         'Portals improve access to results and messaging but are not a substitute for emergency services. Credential sharing and public posting violate privacy expectations.',
@@ -50,7 +50,7 @@ FACTS: list[dict] = [
         'Hospital- or clinic-linked diabetes education classes and peer support groups',
         [
             'Unverified online products marketed as guaranteed cures',
-            'Retail sales seminars unrelated to medical care',
+            'Retail sales seminars unrelated to medical care under typical outpatient policy.',
             'Coupon programs for unrelated retail merchandise',
         ],
         'Evidence-based self-management programs reinforce monitoring, nutrition, and follow-up. Unvalidated cures and unrelated promotions do not meet care coordination standards.',
@@ -64,8 +64,8 @@ FACTS: list[dict] = [
         'Clinical reason, urgency, and confirmation that the consultation request was sent',
         [
             'The patient\'s chronological age without clinical indication',
-            'Internal staff meal preferences for the week',
-            'Unrelated procedure codes with no clinical narrative',
+            'Internal staff meal preferences for the week under typical outpatient policy.',
+            'Unrelated procedure codes with no clinical narrative under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
         ],
         'Specialists need context and urgency to triage appointments. Demographics alone or billing codes without indication delay appropriate specialty care.',
         [S.NHA_CCMA],
@@ -86,7 +86,7 @@ FACTS: list[dict] = [
         'beginner',
     ),
     # ccma-coordination-008
-        fact('ccma-coordination', 'A patient sends a portal message asking about a flagged abnormal laboratory result. What is the appropriate medical assistant response per typical workflow?', 'Follow facility policy and route the message to the provider when clinical action may be needed', ['State a definitive diagnosis in the reply without provider review', 'Ignore privacy rules because the patient initiated portal contact', "Attach another patient's results to illustrate a comparison"], 'Secure messaging must stay within scope and privacy rules. Abnormal values often require licensed review before the patient receives clinical interpretation.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-coordination', 'A patient sends a portal message asking about a flagged abnormal laboratory result. What is the appropriate medical assistant response per typical workflow?', 'Follow facility policy and route the message to the provider when clinical action may be needed', ['State a definitive diagnosis in the reply without provider review under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.', 'Ignore privacy rules because the patient initiated portal contact', "Attach another patient's results to illustrate a comparison under typical outpatient policy."], 'Secure messaging must stay within scope and privacy rules. Abnormal values often require licensed review before the patient receives clinical interpretation.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-coordination-009
     fact(
@@ -112,8 +112,8 @@ FACTS: list[dict] = [
         'Every medication the patient actually takes against the clinic medication list',
         [
             'Vitamins the patient enjoys taking without prescription medications',
-            'Prescriptions filled on a single arbitrary day',
-            'Herbal products the patient denies using',
+            'Prescriptions filled on a single arbitrary day under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'Herbal products the patient denies using under typical outpatient policy.',
         ],
         'Reconciliation catches omissions, duplications, and interactions at handoffs. Partial lists that ignore OTC or denied supplements leave dangerous gaps.',
         [S.NHA_CCMA],
@@ -127,26 +127,26 @@ FACTS: list[dict] = [
         [
             'Unsubstantiated personal judgments about the patient',
             'Notes kept on unsecured sticky notes at the desk',
-            'Progress entries with no date or time stamp',
+            'Progress entries with no date or time stamp under typical outpatient policy.',
         ],
         'Shared electronic or paper records support safe transitions. Opinionated, undated, or hidden notes break continuity when other clinicians pick up the case.',
         [S.NHA_CCMA],
         'beginner',
     ),
     # ccma-coordination-013
-        fact('ccma-coordination', 'What is the central goal of care coordination in an ambulatory practice?', 'Connect patients with appropriate services across settings and time', ['Replace physician diagnosis with front-desk triage alone', 'Eliminate all specialty referrals to reduce paperwork volume', 'Avoid telephone follow-up to save staff time on transitions'], 'Coordination improves adherence, transitions, and access to resources. It complements rather than substitutes for licensed diagnosis and necessary referrals.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'What is the central goal of care coordination in an ambulatory practice?', 'Connect patients with appropriate services across settings and time', ['Replace physician diagnosis with front-desk triage alone under typical outpatient policy.', 'Eliminate all specialty referrals to reduce paperwork volume', 'Avoid telephone follow-up to save staff time on transitions'], 'Coordination improves adherence, transitions, and access to resources. It complements rather than substitutes for licensed diagnosis and necessary referrals.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-014
-        fact('ccma-coordination', 'A practice tracks referrals in a closed-loop system. What does successful loop closure require?', 'Verification that the specialist visit occurred and results returned to the primary care provider', ['Faxing the referral once with no further contact or tracking', 'Assuming attendance without confirming appointment or consultant report', 'Discarding the referral form immediately after scheduling'], 'Closed-loop tracking prevents lost consult notes and imaging recommendations. One-way sends without follow-up leave patients and PCPs unaware of specialty findings.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'A practice tracks referrals in a closed-loop system. What does successful loop closure require?', 'Verification that the specialist visit occurred and results returned to the primary care provider', ['Faxing the referral once with no further contact or tracking under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.', 'Assuming attendance without confirming appointment or consultant report', 'Discarding the referral form immediately after scheduling under typical outpatient policy.'], 'Closed-loop tracking prevents lost consult notes and imaging recommendations. One-way sends without follow-up leave patients and PCPs unaware of specialty findings.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-015
-        fact('ccma-coordination', 'The referral coordinator notes an open loop on a six-week-old consult. What action best closes the referral loop?', 'Confirm specialty results reached the primary care team and are filed in the chart', ['Mark the consult complete because enough calendar time has passed', 'Delete the referral record to clear the coordinator work queue', 'Close the loop when billing posts without reading the consultant report'], 'Loop closure is about information flow, not elapsed time or payment. Missing consult reports can delay cancer treatment or medication changes ordered by the specialist.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'The referral coordinator notes an open loop on a six-week-old consult. What action best closes the referral loop?', 'Confirm specialty results reached the primary care team and are filed in the chart', ['Mark the consult complete because enough calendar time has passed', 'Delete the referral record to clear the coordinator work queue under typical outpatient policy.', 'Close the loop when billing posts without reading the consultant report'], 'Loop closure is about information flow, not elapsed time or payment. Missing consult reports can delay cancer treatment or medication changes ordered by the specialist.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-016
         fact('ccma-coordination', 'A screen identifies food insecurity and the patient agrees to a food bank referral. What must occur before sharing information?', 'Obtain patient consent and document the referral per clinic workflow', ["Notify local media automatically about the patient's social situation", 'Make the referral with no plan to confirm the patient used services', 'Post referral details on a public community bulletin board'], 'Social needs referrals involve sensitive information. Consent and confidential documentation align with HIPAA and respect patient autonomy.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-017
-        fact('ccma-coordination', 'Which approach reflects cultural competence when coordinating care for a diverse panel?', 'Respect health beliefs while delivering safe, evidence-based recommendations', ['Dismiss preferences that differ from staff habits without discussion', 'Apply an identical plan without assessing individual values', 'Refuse interpreter services to shorten visit length'], 'Culturally responsive coordination builds trust and adherence. Stereotyping or language barriers increase misunderstanding and disparities in outcomes.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'Which approach reflects cultural competence when coordinating care for a diverse panel?', 'Respect health beliefs while delivering safe, evidence-based recommendations', ['Dismiss preferences that differ from staff habits without discussion', 'Apply an identical plan without assessing individual values', 'Refuse interpreter services to shorten visit length under typical outpatient policy.'], 'Culturally responsive coordination builds trust and adherence. Stereotyping or language barriers increase misunderstanding and disparities in outcomes.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-018
     fact(
@@ -154,7 +154,7 @@ FACTS: list[dict] = [
         'A clinic offers shared medical appointments for stable chronic conditions. What is a valid benefit of the group visit model?',
         'Combine structured education with brief individual assessment in one session',
         [
-            'Waive all HIPAA privacy protections for participants',
+            'Waive all HIPAA privacy protections for participants under typical outpatient policy.',
             'Eliminate individual consent for every sensitive topic',
             'Defer documentation because the visit is held in a group room',
         ],
@@ -163,13 +163,13 @@ FACTS: list[dict] = [
         'intermediate',
     ),
     # ccma-coordination-019
-        fact('ccma-coordination', 'A patient with heart failure has new symptoms and changed personal goals. How should the written care plan be managed?', 'Revise the plan to reflect current condition, targets, and follow-up intervals', ['Leave the original plan unchanged when symptoms and goals shift', 'Keep the plan hidden from the patient and authorized caregivers', 'Base updates on informal staff gossip rather than assessment'], 'Living care plans align the team and patient on measurable goals. Static or secret plans fail when clinical status or priorities shift.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'A patient with heart failure has new symptoms and changed personal goals. How should the written care plan be managed?', 'Revise the plan to reflect current condition, targets, and follow-up intervals', ['Leave the original plan unchanged when symptoms and goals shift', 'Keep the plan hidden from the patient and authorized caregivers', 'Base updates on informal staff gossip rather than assessment under typical outpatient policy.'], 'Living care plans align the team and patient on measurable goals. Static or secret plans fail when clinical status or priorities shift.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-020
-        fact('ccma-coordination', 'You are selecting take-home education for a patient with low health literacy. Which choice is most appropriate?', "Materials written at an appropriate reading level in the patient's preferred language", ['Peer-reviewed journal articles with no plain-language summary', 'Identical handouts for every diagnosis regardless of patient need', 'Handouts distributed without teach-back or opportunity for questions'], 'Readable, language-concordant materials plus teach-back improve self-management. Dense text or one-size-fits-all packets often fail in real-world use.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'You are selecting take-home education for a patient with low health literacy. Which choice is most appropriate?', "Materials written at an appropriate reading level in the patient's preferred language", ['Peer-reviewed journal articles with no plain-language summary under typical outpatient policy.', 'Identical handouts for every diagnosis regardless of patient need', 'Handouts distributed without teach-back or opportunity for questions'], 'Readable, language-concordant materials plus teach-back improve self-management. Dense text or one-size-fits-all packets often fail in real-world use.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-021
-        fact('ccma-coordination', 'Under HIPAA, what does the minimum necessary standard require when disclosing protected health information?', 'Limit disclosure to the PHI reasonably needed for the specific purpose', ['Release the entire medical record whenever any request arrives', 'Deny patients access to their own information by default', 'Send full charts to marketing vendors for convenience'], 'Minimum necessary limits incidental over-disclosure during treatment, payment, and operations. Patients retain access rights separate from workforce disclosure rules.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', 'Under HIPAA, what does the minimum necessary standard require when disclosing protected health information?', 'Limit disclosure to the PHI reasonably needed for the specific purpose', ['Release the entire medical record whenever any request arrives', 'Deny patients access to their own information by default', 'Send full charts to marketing vendors for convenience under typical outpatient policy.'], 'Minimum necessary limits incidental over-disclosure during treatment, payment, and operations. Patients retain access rights separate from workforce disclosure rules.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-022
     fact(
@@ -222,7 +222,7 @@ FACTS: list[dict] = [
         'When running preventive-care recall outreach, which practice best supports ethical and effective contact?',
         'Follow the clinic protocol for patients due for screening, including documented refusals',
         [
-            'Contact brand-new patients while omitting established panel members',
+            'Contact brand-new patients while omitting established panel members under typical outpatient policy.',
             'Remove patients from the list after refusal without charting the discussion',
             'Export the recall list to a shared drive folder without access controls',
         ],
@@ -237,7 +237,7 @@ FACTS: list[dict] = [
         'A nonclinical barrier that can interfere with treatment adherence and follow-up',
         [
             'A request for elective cosmetic surgery unrelated to housing insecurity',
-            'A retail loyalty program enrollment opportunity',
+            'A retail loyalty program enrollment opportunity under typical outpatient policy.',
             'A reason to delete the electronic health record',
         ],
         'Housing insecurity affects appointment attendance, medication storage, and safety. Coordinators connect patients to appropriate resources rather than treating SDOH as billing trivia.',
@@ -245,13 +245,13 @@ FACTS: list[dict] = [
         'intermediate',
     ),
     # ccma-coordination-028
-        fact('ccma-coordination', "After a positive SDOH screen, what is the medical assistant's typical coordination role?", 'Warm handoff or referral to social work, case management, or community partners per policy', ['Prescribe housing or food directly without provider involvement', 'Document the screen but take no further action when the patient agrees to help', 'Share the screen results on a public community bulletin board'], 'Screening without linkage leaves needs unaddressed. MAs facilitate referrals and documentation within scope while licensed staff manage clinical orders.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-coordination', "After a positive SDOH screen, what is the medical assistant's typical coordination role?", 'Warm handoff or referral to social work, case management, or community partners per policy', ['Prescribe housing or food directly without provider involvement', 'Document the screen but take no further action when the patient agrees to help', 'Share the screen results on a public community bulletin board under typical outpatient policy.'], 'Screening without linkage leaves needs unaddressed. MAs facilitate referrals and documentation within scope while licensed staff manage clinical orders.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-029
-        fact('ccma-coordination', 'During a post-discharge transition-of-care phone call, what should be verified first?', 'Whether the patient understands new medications and has a plan to obtain them', ['That the patient will delay pharmacy pickup until the next scheduled visit', 'That discharge paperwork was discarded to reduce home clutter', 'That primary care follow-up is unnecessary if symptoms improve briefly'], 'Medication errors drive many readmissions after hospitalization. Calls that confirm understanding and access catch problems before they become emergencies.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-coordination', 'During a post-discharge transition-of-care phone call, what should be verified first?', 'Whether the patient understands new medications and has a plan to obtain them', ['That the patient will delay pharmacy pickup until the next scheduled visit', 'That discharge paperwork was discarded to reduce home clutter under typical outpatient policy.', 'That primary care follow-up is unnecessary if symptoms improve briefly'], 'Medication errors drive many readmissions after hospitalization. Calls that confirm understanding and access catch problems before they become emergencies.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-030
-        fact('ccma-coordination', 'Which elements belong in a transition-of-care summary sent to the primary care provider?', 'Active medications, allergies, principal diagnoses, and pending test results', ['An empty medication list to protect privacy during the handoff', 'Front-desk staff vacation schedules for the coming month', 'Marketing flyers for unrelated retail products'], 'Structured summaries give the receiving clinician a usable snapshot at handoff. Missing meds or results recreate the information gaps that transitions are meant to close.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-coordination', 'Which elements belong in a transition-of-care summary sent to the primary care provider?', 'Active medications, allergies, principal diagnoses, and pending test results', ['An empty medication list to protect privacy during the handoff', 'Front-desk staff vacation schedules for the coming month', 'Marketing flyers for unrelated retail products under typical outpatient policy.'], 'Structured summaries give the receiving clinician a usable snapshot at handoff. Missing meds or results recreate the information gaps that transitions are meant to close.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-031
     fact(
@@ -259,7 +259,7 @@ FACTS: list[dict] = [
         'A collaborative chronic disease care plan should routinely include which components?',
         'Measurable self-management goals and scheduled follow-up intervals',
         [
-            'Procedure codes with no patient-facing targets',
+            'Procedure codes with no patient-facing targets under typical outpatient policy.',
             'A static plan that remains unchanged when status worsens',
             'A blanket rule to exclude caregivers from all discussions',
         ],
@@ -271,7 +271,7 @@ FACTS: list[dict] = [
         fact('ccma-coordination', 'When scheduling for a patient with limited English proficiency, which action reflects culturally competent coordination?', 'Offer qualified interpreter services for the appointment per facility policy', ['Rely on young children in the family to interpret confidential medical details', 'Refuse all alternate appointment times without assessing patient need', 'Record ethnicity in the chart solely for informal staff discussion'], 'Professional interpreters reduce errors in consent, instructions, and scheduling. Family members may omit sensitive topics; qualified services protect accuracy and privacy.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-033
-        fact('ccma-coordination', 'Which topics belong in diabetes self-management education coordinated by the ambulatory team?', 'Blood glucose monitoring, hypoglycemia recognition, and daily foot inspection', ['Stopping prescribed insulin whenever glucose readings are high', 'Avoiding all follow-up visits after the first education class', 'Ignoring shakiness and sweating as unrelated to glucose levels'], 'Self-management education reinforces safe monitoring and early complication detection. Unauthorized insulin changes and missed follow-up increase acute and long-term harm.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-coordination', 'Which topics belong in diabetes self-management education coordinated by the ambulatory team?', 'Blood glucose monitoring, hypoglycemia recognition, and daily foot inspection', ['Stopping prescribed insulin whenever glucose readings are high', 'Avoiding all follow-up visits after the first education class under typical outpatient policy.', 'Ignoring shakiness and sweating as unrelated to glucose levels'], 'Self-management education reinforces safe monitoring and early complication detection. Unauthorized insulin changes and missed follow-up increase acute and long-term harm.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-034
     fact(
@@ -280,7 +280,7 @@ FACTS: list[dict] = [
         'Clinical reason, referral date, specialist, and current follow-up status',
         [
             'The patient\'s favorite color for filing purposes',
-            'Catering orders from the last staff meeting',
+            'Catering orders from the last staff meeting under typical outpatient policy.',
             'Unrelated diagnosis codes with no narrative indication',
         ],
         'Complete logs let coordinators chase open loops and confirm reports returned. Trivial or nonclinical fields do not support safe closure of the referral cycle.',
@@ -288,7 +288,7 @@ FACTS: list[dict] = [
         'advanced',
     ),
     # ccma-coordination-035
-        fact('ccma-coordination', "After a patient is discharged from the hospital, which tasks fit the medical assistant's care coordination role?", 'Schedule timely primary care follow-up and review new medications with the patient', ['Discard hospital discharge instructions to simplify the ambulatory chart', 'Assume the inpatient team will call the patient about all medication changes', 'Remove active problems from the problem list without provider review'], 'Ambulatory follow-up bridges inpatient recommendations to daily self-care. Discarding instructions or deferring all contact invites readmission and medication mistakes.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-coordination', "After a patient is discharged from the hospital, which tasks fit the medical assistant's care coordination role?", 'Schedule timely primary care follow-up and review new medications with the patient', ['Discard hospital discharge instructions to simplify the ambulatory chart', 'Assume the inpatient team will call the patient about all medication changes', 'Remove active problems from the problem list without provider review under typical outpatient policy.'], 'Ambulatory follow-up bridges inpatient recommendations to daily self-care. Discarding instructions or deferring all contact invites readmission and medication mistakes.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-036
     fact(
@@ -297,7 +297,7 @@ FACTS: list[dict] = [
         'Within the timeframe recommended by transition-of-care guidelines and the discharging team',
         [
             'Defer follow-up until the patient develops new symptoms months later',
-            'Whenever front desk has an opening with no clinical urgency review',
+            'Whenever front desk has an opening with no clinical urgency review under typical outpatient policy.',
             'Decline scheduling because hospital care is considered complete at discharge',
         ],
         'Early post-discharge visits catch fluid overload, medication errors, and misunderstanding of diet or activity limits. Delayed access is linked to higher readmission rates.',
@@ -305,7 +305,7 @@ FACTS: list[dict] = [
         'advanced',
     ),
     # ccma-coordination-037
-        fact('ccma-coordination', 'When sharing protected health information with another provider for active patient treatment, HIPAA generally requires what?', 'No separate patient authorization when disclosure is for treatment purposes', ['A complete ban on any PHI exchange between treating clinicians', 'A court order for every routine consult note sent to a specialist', 'Notarized patient consent for each fax to a specialist involved in care'], 'Treatment is a permitted use under HIPAA when minimum necessary and policy are followed. Routine care coordination does not require a new authorization for each treating clinician.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-coordination', 'When sharing protected health information with another provider for active patient treatment, HIPAA generally requires what?', 'No separate patient authorization when disclosure is for treatment purposes', ['A complete ban on any PHI exchange between treating clinicians under typical outpatient policy.', 'A court order for every routine consult note sent to a specialist', 'Notarized patient consent for each fax to a specialist involved in care'], 'Treatment is a permitted use under HIPAA when minimum necessary and policy are followed. Routine care coordination does not require a new authorization for each treating clinician.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-038
     fact(
@@ -315,7 +315,7 @@ FACTS: list[dict] = [
         [
             'Automatically discharge the patient from the practice without contact',
             'Document no-show letters without attempting barrier assessment or outreach',
-            'Ignore the pattern because reminders were sent once',
+            'Ignore the pattern because reminders were sent once under typical outpatient policy.',
         ],
         'No-shows often reflect access, literacy, or social barriers rather than disinterest. Structured outreach and documentation support engagement and medicolegal clarity.',
         [S.NHA_CCMA],
@@ -327,8 +327,8 @@ FACTS: list[dict] = [
         'When arranging home health services, what should the medical assistant document in the chart?',
         'That the referral was sent, ordered services are listed, and consent followed policy',
         [
-            'Nonclinical trivia unrelated to the visit',
-            'Unrelated procedure codes with no home health context',
+            'Nonclinical trivia unrelated to the visit under typical outpatient policy.',
+            'Unrelated procedure codes with no home health context under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
             'Staff personal schedules instead of patient-specific actions',
         ],
         'Clear documentation supports continuity for nurses, therapists, and billing reviewers. Vague or nonclinical notes do not prove the handoff occurred.',
@@ -341,7 +341,7 @@ FACTS: list[dict] = [
         'Before home health begins visits, which items must the coordinator typically confirm?',
         'Signed orders, payer authorization when required, and patient agreement to services',
         [
-            'Confirmation that the mailing address on the ID is current',
+            'Confirmation that the mailing address on the ID is current under typical outpatient policy.',
             'That durable medical equipment is decorative rather than functional',
             'Nothing further if a family member verbally insists on care',
         ],
@@ -356,7 +356,7 @@ FACTS: list[dict] = [
         'Preparation instructions and prior authorization when the payer requires it',
         [
             'Preferred appointment day without bowel prep or authorization details',
-            'Footwear size for unrelated orthopedic billing',
+            'Footwear size for unrelated orthopedic billing under typical outpatient policy.',
             'Vaccine lot numbers with no connection to the ordered test',
         ],
         'Incorrect prep or missing authorization commonly leads to cancelled procedures and delayed diagnosis. Schedulers reinforce instructions that protect specimen quality and coverage.',
@@ -369,8 +369,8 @@ FACTS: list[dict] = [
         'After a needlestick in the clinic, why must sharps injury logs be maintained per OSHA?',
         'To document exposure incidents and support required follow-up and program evaluation',
         [
-            'When a federal inspector is already on site',
-            'In inpatient hospitals but not in ambulatory outpatient offices',
+            'When a federal inspector is already on site under typical outpatient policy.',
+            'In inpatient hospitals but not in ambulatory outpatient offices under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
             'Withhold logs because medical offices are exempt from bloodborne pathogen rules',
         ],
         'The bloodborne pathogens standard applies to many ambulatory settings and requires a sharps injury log for needlestick tracking. Records guide post-exposure care and device safety reviews.',
@@ -383,7 +383,7 @@ FACTS: list[dict] = [
         'ccma-coordination',
         'When scheduling a follow-up visit, what information helps the care team prioritize timing?',
         'Clinical urgency, provider instructions, and patient availability',
-        ['The color of the patient\'s clothing',
+        ['The color of the patient\'s clothing under typical outpatient policy..',
         'Whether the front desk prefers morning breaks',
         'Insurance member ID without clinical context'],
         'Scheduling should reflect medical need and ordered follow-up intervals. Cosmetic or staff convenience factors do not determine safe return intervals.',
@@ -394,7 +394,7 @@ FACTS: list[dict] = [
         fact('ccma-coordination', 'Why is closing the referral loop important after a specialist visit?', 'It ensures consultation findings reach the primary team for ongoing care', ['It eliminates the need for future appointments with the primary provider', "It replaces the specialist's medical license with primary care authority", 'It guarantees insurance payment without documentation of the consult'], 'Loop closure prevents lost results and medication changes from falling through. It does not remove follow-up needs or legal documentation requirements.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-coordination-045
-        fact('ccma-coordination', 'A patient with limited English proficiency needs education about a new inhaler. What resource should be used?', 'A qualified medical interpreter and translated materials when available', ['A bilingual receptionist with no medical interpretation training', 'Hand gestures without involving the provider or qualified interpreter', 'Written instructions in a language the patient does not read fluently'], 'Qualified interpretation supports informed use of devices. Untrained staff or mismatched language materials increase error risk.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-coordination', 'A patient with limited English proficiency needs education about a new inhaler. What resource should be used?', 'A qualified medical interpreter and translated materials when available', ['A bilingual receptionist with no medical interpretation training under typical outpatient policy.', 'Hand gestures without involving the provider or qualified interpreter', 'Written instructions in a language the patient does not read fluently'], 'Qualified interpretation supports informed use of devices. Untrained staff or mismatched language materials increase error risk.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-coordination-046
         fact('ccma-coordination', 'What should a transition-of-care document include for safe handoffs?', 'Medication list, allergies, pending tests, and follow-up plan', ['Staff lunch orders for the unit on the day of discharge', 'Marketing flyers for unrelated retail products', 'Social security numbers of visitors who accompanied the patient'], 'Accurate med and allergy data prevent errors after discharge. Nonclinical identifiers do not support continuity.', [S.NHA_CCMA], 'beginner'),
@@ -410,7 +410,7 @@ FACTS: list[dict] = [
         'ccma-coordination',
         'When coordinating home health services, which document must align with payer rules?',
         'Signed orders describing skilled needs and frequency',
-        ['A handwritten grocery list',
+        ['A handwritten grocery list under typical outpatient policy.',
         'Unrelated school transcripts',
         'Insurance card copy without skilled orders'],
         'Payers require authorized plans of care. Nonclinical documents do not establish medical necessity for home visits.',

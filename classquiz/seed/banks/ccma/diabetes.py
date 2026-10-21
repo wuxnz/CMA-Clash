@@ -141,7 +141,7 @@ FACTS: list[dict] = [
         "Metformin is commonly withheld or dose-limited when which patient situation is present?",
         "Significant renal impairment or an acute illness that raises lactic acidosis risk",
         [
-            "Mild dietary counseling without laboratory abnormalities",
+            "Mild dietary counseling without laboratory abnormalities in a typical outpatient clinic setting.",
             "Well-controlled hypertension on a single antihypertensive",
             "Routine self-monitoring of blood glucose with a glucometer",
         ],
@@ -153,7 +153,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "According to ADA categories, which A1C range most often defines prediabetes?",
-        "5.7% to 6.4%",
+        "5.7% to 6.4% in routine outpatient care.",
         [
             "Below 5.0% in adults without other risk factors",
             "8.0% or higher, meeting diabetes diagnostic threshold",
@@ -211,7 +211,7 @@ FACTS: list[dict] = [
         "For an insulin-treated patient following sick-day instructions during a febrile illness, which actions are typically emphasized?",
         "Continue basal insulin, monitor glucose and ketones, and maintain hydration",
         [
-            "Stop all insulin until oral intake returns and omit ketone checks",
+            "Stop all insulin until oral intake returns and omit ketone checks in a typical outpatient clinic setting.",
             "Ignore moderate or large urine ketones when nausea and vomiting occur",
             "Restrict oral fluids to limit hyperglycemia despite fever and vomiting",
         ],
@@ -254,7 +254,7 @@ FACTS: list[dict] = [
         "Hyperglycemia first detected during pregnancy that was not overt diabetes before conception",
         [
             "Glucose intolerance that first appears during postpartum lactation",
-            "Diagnosis based on a random fingerstick below 70 mg/dL",
+            "Diagnosis based on a random fingerstick below 70 mg/dL when documented per facility policy.",
             "Hyperglycemia during pregnancy assumed resolved after delivery without postpartum testing",
         ],
         "Obstetric screening between 24 and 28 weeks (or earlier with risk factors) identifies GDM; postpartum glucose testing is recommended.",
@@ -293,7 +293,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "A standardized A1C result of 6.5% or higher on confirmatory testing indicates which diagnosis?",
-        "Diabetes mellitus",
+        "Diabetes mellitus in the ambulatory setting.",
         [
             "Normal glucose metabolism",
             "Prediabetes without progression risk",
@@ -307,7 +307,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "Which A1C range is classified as prediabetes under ADA diagnostic categories?",
-        "5.7% to 6.4%",
+        "5.7% to 6.4% in routine outpatient care.",
         [
             "Below 4.0%, below typical laboratory reference intervals",
             "6.5% or higher, which meets diabetes criteria",
@@ -367,7 +367,7 @@ FACTS: list[dict] = [
         [
             "Positive islet autoantibodies typical of type 1 disease",
             "Daily use of rapid-acting insulin from childhood",
-            "Age under 2 years as the sole risk factor",
+            "Age under 2 years as the sole risk factor for routine ambulatory patient care.",
         ],
         "Modifiable risks include weight, activity, and cardiometabolic control; screening follows ADA recommendations for at-risk adults.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -391,7 +391,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "Per ADA guidance, at which blood glucose level is treatment for hypoglycemia generally initiated?",
-        "70 mg/dL (3.9 mmol/L)",
+        "70 mg/dL (3.9 mmol/L) in routine outpatient care.",
         [
             "200 mg/dL, which is above typical postmeal targets",
             "126 mg/dL, the diabetes diagnostic FPG threshold",
@@ -408,7 +408,7 @@ FACTS: list[dict] = [
         "Administer about 15 grams of carbohydrate and recheck glucose in roughly 15 minutes",
         [
             "Wait 15 minutes before giving carbohydrate so symptoms can fully develop",
-            "Give 15 grams of protein alone without rechecking glucose afterward",
+            "Give 15 grams of protein alone without rechecking glucose afterward when documented per facility policy.",
             "Recheck glucose in 15 minutes without administering carbohydrate first",
         ],
         "If glucose remains low, repeat carbohydrate and notify the provider per facility policy; once stable, add a snack with protein if the next meal is delayed.",
@@ -435,7 +435,7 @@ FACTS: list[dict] = [
         "A conscious patient with hypoglycemia is vomiting and cannot swallow oral carbohydrate safely. What is the appropriate medical assistant action?",
         "Summon help immediately and follow facility emergency protocol without forcing oral glucose",
         [
-            "Attempt oral glucose gel while the patient is actively vomiting",
+            "Attempt oral glucose gel while the patient is actively vomiting in a typical outpatient clinic setting.",
             "Leave the patient alone to retrieve glucagon from the medication room",
             "Document the low reading and defer treatment until the next scheduled visit",
         ],
@@ -451,7 +451,7 @@ FACTS: list[dict] = [
         [
             "Normoglycemia with absent ketones and normal pH",
             "Isolated hypoglycemia without acid-base disturbance",
-            "Hypertension as the sole metabolic abnormality",
+            "Hypertension as the sole metabolic abnormality for routine ambulatory patient care.",
         ],
         "Insulin deficiency drives lipolysis and ketone production; DKA is most common in type 1 diabetes but can occur in type 2 under stress or illness.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -505,7 +505,7 @@ FACTS: list[dict] = [
         "Which steps are required before performing a fingerstick glucose test in the clinic?",
         "Confirm patient identity, perform hand hygiene, don gloves, and prepare the puncture site per protocol",
         [
-            "Puncture the thumb pad without site prep because capillary flow is faster",
+            "Puncture the thumb pad without site prep because capillary flow is faster in a typical outpatient clinic setting.",
             "Use the same lancet for repeat checks on one patient during the same visit",
             "Confirm identity verbally but omit hand hygiene when gloves are already worn",
         ],
@@ -521,7 +521,7 @@ FACTS: list[dict] = [
         [
             "The center of the palm as the routine first choice for capillary sampling",
             "The earlobe as the preferred site for routine adult glucose monitoring",
-            "The heel as the primary puncture site for ambulatory adults in clinic",
+            "The heel as the primary puncture site for ambulatory adults in clinic for routine ambulatory patient care.",
         ],
         "Rotating fingers and matching lancet depth to skin thickness improve comfort and sample quality while limiting callus formation.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -534,7 +534,7 @@ FACTS: list[dict] = [
         "Run control solution on the schedule in policy and document each result",
         [
             "Defer control solution runs when clinic patient volume is high",
-            "Use expired test strips if the vial seal looks intact",
+            "Use expired test strips if the vial seal looks intact when documented per facility policy.",
             "Adjust calibration by estimating rather than following the manual",
         ],
         "Failed controls should halt patient testing until the device is troubleshooted or serviced according to manufacturer and laboratory director guidance.",
@@ -547,7 +547,7 @@ FACTS: list[dict] = [
         "A fingerstick glucose reading conflicts with the patient's symptoms and appearance. What should the medical assistant do?",
         "Repeat the test, confirm strip lot and technique, and report discrepancies to the provider",
         [
-            "Chart the first value without rechecking to save time",
+            "Chart the first value without rechecking to save time in a typical outpatient clinic setting.",
             "Omit the result from the record when it seems inconvenient",
             "Give insulin immediately based on a single unverified reading",
         ],
@@ -573,7 +573,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "When is regular (short-acting) human insulin expected to reach peak activity after subcutaneous injection?",
-        "About 2 to 3 hours post-injection",
+        "About 2 to 3 hours post-injection in routine outpatient care.",
         [
             "Within 15 minutes, similar to rapid-acting insulin analogs given before meals",
             "Between 4 and 12 hours, overlapping the typical peak window for NPH insulin",
@@ -618,7 +618,7 @@ FACTS: list[dict] = [
         "Refrigerate unopened insulin; after opening, keep at room temperature per label until in-use days expire",
         [
             "Store unopened and in-use insulin in direct sunlight to maintain potency between doses",
-            "Freeze unopened vials and thaw weekly to extend potency beyond the expiration date",
+            "Freeze unopened vials and thaw weekly to extend potency beyond the expiration date when documented per facility policy.",
             "Combine leftover insulin from several patients into one shared vial to reduce waste",
         ],
         "Heat, freezing, and prolonged room-temperature exposure degrade insulin; discard preparations that are expired, frosted, or discolored.",
@@ -631,7 +631,7 @@ FACTS: list[dict] = [
         "When assisting with insulin administration within scope, what must the medical assistant verify?",
         "Written order, patient identity, drug name, concentration, dose, route, site, and technique per protocol",
         [
-            "An estimated dose based on prior visits when the syringe scale is difficult to read",
+            "An estimated dose based on prior visits when the syringe scale is difficult to read in a typical outpatient clinic setting.",
             "That one insulin syringe may be used for multiple patients after wiping the needle with alcohol",
             "That small air bubbles in the syringe may be injected without attempting to remove them",
         ],
@@ -661,7 +661,7 @@ FACTS: list[dict] = [
         [
             "Blocking renal sodium-glucose cotransport in the proximal tubule",
             "Serving as the sole inpatient treatment for diabetic ketoacidosis",
-            "Eliminating hypoglycemia risk when taken without food",
+            "Eliminating hypoglycemia risk when taken without food for routine ambulatory patient care.",
         ],
         "Because secretion continues even when glucose is low, patients need education on recognizing and treating hypoglycemia, especially the elderly.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -702,7 +702,7 @@ FACTS: list[dict] = [
         "Prolonging active incretin hormones that stimulate insulin in a glucose-dependent manner",
         [
             "Mimicking GLP-1 agonist effects on gastric emptying without injectable dosing",
-            "Blocking SGLT2 transporters to increase urinary glucose excretion",
+            "Blocking SGLT2 transporters to increase urinary glucose excretion when documented per facility policy.",
             "Stimulating insulin secretion independent of glucose like a sulfonylurea",
         ],
         "These oral agents are generally weight-neutral and carry lower intrinsic hypoglycemia risk when not combined with secretagogues.",
@@ -716,8 +716,8 @@ FACTS: list[dict] = [
         "Documented allergies, relevant renal or hepatic notes, and whether food is required with the dose",
         [
             "Footwear size for durable medical equipment inventory without allergy or renal review",
-            "Patient preference for tablets over injections regardless of the order",
-            "Unverified dosing suggestions from nonclinical sources",
+            "Patient preference for tablets over injections regardless of the order when documented per facility policy.",
+            "Unverified dosing suggestions from nonclinical sources for routine ambulatory patient care.",
         ],
         "Several classes need renal dose adjustment or are contraindicated with contrast, surgery, or acute illness per provider and pharmacy guidance.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -729,7 +729,7 @@ FACTS: list[dict] = [
         "Why is periodic diabetic retinopathy screening emphasized in chronic diabetes care?",
         "Microvascular eye disease may progress silently until vision is threatened",
         [
-            "Dilated eye exams eliminate the need for foot surveillance",
+            "Dilated eye exams eliminate the need for foot surveillance in a typical outpatient clinic setting.",
             "Retinal screening cures hyperglycemia without other therapy",
             "A single childhood eye visit replaces all future diabetic eye care",
         ],
@@ -771,9 +771,9 @@ FACTS: list[dict] = [
         "What should daily self foot-care education stress for patients with diabetes?",
         "Inspect skin and nails, wear appropriate footwear, and report redness, breaks, or drainage promptly",
         [
-            "Soak feet in very hot water daily without drying between toes",
-            "Trim toenails into the corners to prevent ingrown nails",
-            "Walk barefoot on hot or uneven surfaces to toughen skin",
+            "Soak feet in very hot water daily without drying between toes in a typical outpatient clinic setting.",
+            "Trim toenails into the corners to prevent ingrown nails when documented per facility policy.",
+            "Walk barefoot on hot or uneven surfaces to toughen skin for routine ambulatory patient care.",
         ],
         "Early referral for nonhealing wounds reduces progression to deep infection and lower-extremity amputation.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -785,7 +785,7 @@ FACTS: list[dict] = [
         "How does carbohydrate counting support insulin or meal planning education?",
         "It aligns prandial insulin doses or oral regimens with anticipated carbohydrate intake",
         [
-            "It matches prandial insulin units to counted carbohydrate grams at each meal",
+            "It matches prandial insulin units to counted carbohydrate grams at each meal in a typical outpatient clinic setting.",
             "It eliminates dietary protein to reduce gluconeogenesis without dietitian input",
             "It replaces self-monitoring of blood glucose without provider or educator input",
         ],
@@ -813,9 +813,9 @@ FACTS: list[dict] = [
         "How is independent adjustment of a patient's insulin doses by a medical assistant classified under typical scope rules?",
         "Outside standard scope unless explicitly delegated by law and supervising clinician protocol",
         [
-            "Expected at every visit without a provider order",
-            "Permitted based on informal advice from nonclinical contacts",
-            "Allowed without charting when the change seems minor",
+            "Expected at every visit without a provider order in a typical outpatient clinic setting.",
+            "Permitted based on informal advice from nonclinical contacts when documented per facility policy.",
+            "Allowed without charting when the change seems minor for routine ambulatory patient care.",
         ],
         "Medication titration remains a licensed prescriber function unless state regulations and written delegation authorize otherwise.",
         [S.NHA_CCMA, "American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1"],
@@ -827,9 +827,9 @@ FACTS: list[dict] = [
         "Sick-day teaching for insulin-treated patients typically emphasizes which actions?",
         "Continue basal insulin unless directed otherwise, check glucose frequently, test ketones if ordered, and maintain hydration",
         [
-            "Hold all insulin, including basal doses, until the patient has been afebrile for 24 hours",
-            "Restrict oral and intravenous fluids to lower glucose when the patient is thirsty",
-            "Ignore repeated vomiting or inability to tolerate fluids while waiting for follow-up",
+            "Hold all insulin, including basal doses, until the patient has been afebrile for 24 hours in a typical outpatient clinic setting.",
+            "Restrict oral and intravenous fluids to lower glucose when the patient is thirsty when documented per facility policy.",
+            "Ignore repeated vomiting or inability to tolerate fluids while waiting for follow-up for routine ambulatory patient care.",
         ],
         "Counter-regulatory hormones during illness raise glucose and ketone risk; withholding insulin can worsen ketoacidosis while dehydration impairs perfusion.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -841,9 +841,9 @@ FACTS: list[dict] = [
         "Why should many people with diabetes wear medical identification such as a bracelet or necklace?",
         "It informs emergency personnel of diabetes and need for glucose monitoring or treatment",
         [
-            "It eliminates the need for daily glucose checks at home",
+            "It eliminates the need for daily glucose checks at home in a typical outpatient clinic setting.",
             "Decorative jewelry worn for fashion without emergency medical information engraved",
-            "It guarantees euglycemia during any acute illness",
+            "It guarantees euglycemia during any acute illness for routine ambulatory patient care.",
         ],
         "Combined with patient education on when to seek urgent care, medical ID supports safer management when the patient cannot speak for themselves.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -855,9 +855,9 @@ FACTS: list[dict] = [
         "Why is treating hypertension a priority in a patient who already has diabetes mellitus?",
         "Elevated blood pressure multiplies cardiovascular and chronic kidney disease risk beyond glycemia alone",
         [
-            "Normal blood pressure removes the need for dilated eye examinations",
+            "Normal blood pressure removes the need for dilated eye examinations in a typical outpatient clinic setting.",
             "Antihypertensive therapy prevents all diabetic peripheral neuropathy",
-            "Once blood pressure is controlled, A1C targets no longer apply",
+            "Once blood pressure is controlled, A1C targets no longer apply for routine ambulatory patient care.",
         ],
         "Diabetes and hypertension share vascular injury pathways; combined control reduces stroke, heart disease, and nephropathy progression.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -895,7 +895,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "An adult with gradual hyperglycemia, positive islet autoantibodies, and eventual insulin requirement most likely has which condition?",
-        "Latent autoimmune diabetes in adults (LADA)",
+        "Latent autoimmune diabetes in adults (LADA) per common clinical practice.",
         [
             "Classic type 2 diabetes with dominant insulin resistance and absent islet autoantibodies",
             "Gestational diabetes that resolves after delivery",
@@ -913,7 +913,7 @@ FACTS: list[dict] = [
         [
             "Obesity-induced hyperglycemia with no genetic component",
             "Autoimmune beta-cell destruction identical to classic type 1 in every case",
-            "A diagnosis made solely from urine color or odor",
+            "A diagnosis made solely from urine color or odor for routine ambulatory patient care.",
         ],
         "MODY can be mislabeled as type 1 or type 2; family history and genetic testing guide correct management.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -954,8 +954,8 @@ FACTS: list[dict] = [
         "It arises in the setting of cystic fibrosis with distinct screening and treatment considerations",
         [
             "It is identical to gestational diabetes that remits immediately after delivery",
-            "It presents as acute autoimmune ketoacidosis during the first year of life",
-            "It does not involve pancreatic endocrine function",
+            "It presents as acute autoimmune ketoacidosis during the first year of life when documented per facility policy.",
+            "It does not involve pancreatic endocrine function for routine ambulatory patient care.",
         ],
         "CFRD reflects progressive insulin deficiency in cystic fibrosis and is managed with specialized protocols.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1024,7 +1024,7 @@ FACTS: list[dict] = [
         "Metformin as first-line pharmacotherapy when renal function and other contraindications are absent",
         [
             "Scheduled sliding-scale insulin as routine monotherapy for each newly diagnosed adult",
-            "Systemic glucocorticoids to blunt postmeal glucose spikes in stable outpatient care",
+            "Systemic glucocorticoids to blunt postmeal glucose spikes in stable outpatient care when documented per facility policy.",
             "Withholding pharmacotherapy until A1C reaches 10% despite symptomatic hyperglycemia",
         ],
         "Metformin remains first-line for many patients because of efficacy, safety profile, and cardiovascular data when not contraindicated.",
@@ -1037,9 +1037,9 @@ FACTS: list[dict] = [
         "Which situation most commonly requires holding or not initiating metformin?",
         "Estimated glomerular filtration rate below guideline thresholds or acute illness with lactic acidosis risk",
         [
-            "Well-controlled hypertension on a single antihypertensive agent",
-            "Age older than 65 years in every patient regardless of renal function",
-            "Body mass index above 25 kg/m² without other abnormalities",
+            "Well-controlled hypertension on a single antihypertensive agent in a typical outpatient clinic setting.",
+            "Age older than 65 years in every patient regardless of renal function when documented per facility policy.",
+            "Body mass index above 25 kg/m² without other abnormalities for routine ambulatory patient care.",
         ],
         "Renal function, contrast procedures, and hemodynamic instability influence metformin safety per labeling and ADA guidance.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1091,7 +1091,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "In a basal-bolus insulin plan, what role does once-daily glargine most often serve?",
-        "Background insulin between meals and overnight",
+        "Background insulin between meals and overnight per common clinical practice.",
         [
             "A once-daily injection intended to cover mealtime spikes without separate bolus insulin",
             "Automatic discontinuation during febrile illness without provider or protocol guidance",
@@ -1135,7 +1135,7 @@ FACTS: list[dict] = [
         "After an insulin vial or pen is opened for patient use, what storage practice is usually acceptable?",
         "Room temperature storage for the in-use period allowed on the product label",
         [
-            "Return to freezer storage after each injection",
+            "Return to freezer storage after each injection in a typical outpatient clinic setting.",
             "Heat the vial in boiling water before drawing up each dose",
             "Share one pen device among household members to reduce waste",
         ],
@@ -1177,7 +1177,7 @@ FACTS: list[dict] = [
         "Which laboratory pattern is most consistent with diabetic ketoacidosis (DKA)?",
         "Elevated glucose, positive serum or urine ketones, and metabolic acidosis",
         [
-            "Normoglycemia with absent ketones and normal pH",
+            "Normoglycemia with absent ketones and normal pH in a typical outpatient clinic setting.",
             "Isolated hypernatremia without glucose elevation",
             "Primary respiratory alkalosis without an anion gap",
         ],
@@ -1192,8 +1192,8 @@ FACTS: list[dict] = [
         "Older adults with type 2 diabetes, extreme hyperglycemia, and profound dehydration",
         [
             "Otherwise healthy children with new-onset autoimmune type 1 diabetes",
-            "Euglycemic patients without fluid losses",
-            "Athletes immediately after moderate exercise with normal hydration",
+            "Euglycemic patients without fluid losses when documented per facility policy.",
+            "Athletes immediately after moderate exercise with normal hydration for routine ambulatory patient care.",
         ],
         "HHS carries high mortality; slow careful rehydration and insulin therapy occur in a monitored setting.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1205,9 +1205,9 @@ FACTS: list[dict] = [
         "Which sick-day instructions are appropriate for a patient on basal-bolus insulin who has fever and vomiting?",
         "Continue basal insulin, check glucose frequently, maintain hydration, and call the team for persistent ketones or inability to keep fluids down",
         [
-            "Stop all insulin until oral intake returns to normal",
-            "Restrict fluids to prevent worsening hyperglycemia",
-            "Ignore moderate or large urine ketones because intercurrent illness predictably lowers glucose",
+            "Stop all insulin until oral intake returns to normal in a typical outpatient clinic setting for routine ambulatory patient care.",
+            "Restrict fluids to prevent worsening hyperglycemia when documented per facility policy in a typical outpatient clinic setting for routine ambulatory patient care.",
+            "Ignore moderate or large urine ketones because intercurrent illness predictably lowers glucose when documented per facility policy.",
         ],
         "Counter-regulatory hormones during illness raise glucose; withholding insulin increases ketosis and dehydration risk.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1233,7 +1233,7 @@ FACTS: list[dict] = [
         "For whom is a glucagon emergency kit primarily intended?",
         "Caregivers treating severe hypoglycemia when the patient cannot safely swallow carbohydrate",
         [
-            "Alert patients with glucose 55 mg/dL who can drink juice or glucose gel",
+            "Alert patients with glucose 55 mg/dL who can drink juice or glucose gel in a typical outpatient clinic setting.",
             "Patients with persistent hyperglycemia above 300 mg/dL without acute symptoms",
             "Individuals starting metformin who need education on gastrointestinal side effects",
         ],
@@ -1263,7 +1263,7 @@ FACTS: list[dict] = [
         [
             "It removes the need for pre- and postmeal glucose checks entirely",
             "It requires eliminating all starch and fruit from the diet permanently",
-            "It replaces medical supervision and laboratory A1C monitoring",
+            "It replaces medical supervision and laboratory A1C monitoring for routine ambulatory patient care.",
         ],
         "Accurate carb estimates improve postprandial control and reduce mismatch between insulin peaks and glucose absorption.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1291,7 +1291,7 @@ FACTS: list[dict] = [
         [
             "Alcohol permanently raises fasting glucose without later lows",
             "Alcohol has no interaction with diabetes medications or monitoring",
-            "Alcohol replaces the need for bedtime glucose checks",
+            "Alcohol replaces the need for bedtime glucose checks for routine ambulatory patient care.",
         ],
         "Hepatic gluconeogenesis is impaired while alcohol is metabolized, which can drop glucose hours after drinking. Patients should eat if drinking, monitor glucose, and know when to seek help.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1303,7 +1303,7 @@ FACTS: list[dict] = [
         "Why is smoking cessation counseling emphasized for patients with diabetes mellitus?",
         "It lowers cardiovascular and microvascular complication risk beyond lung cancer alone",
         [
-            "It removes the need for annual diabetic foot examinations",
+            "It removes the need for annual diabetic foot examinations in a typical outpatient clinic setting.",
             "It guarantees normalization of kidney function without other therapy",
             "It affects lung cancer risk but not glucose-related vascular disease",
         ],
@@ -1315,7 +1315,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "What condition is the main target of an annual dilated eye examination in a patient with diabetes?",
-        "Diabetic retinopathy",
+        "Diabetic retinopathy in the ambulatory setting.",
         [
             "Sensorineural hearing loss detected by audiometry",
             "Plantar foot ulceration without retinal evaluation",
@@ -1346,7 +1346,7 @@ FACTS: list[dict] = [
         "Hypertension or albuminuria is present and not contraindicated",
         [
             "Mild musculoskeletal pain without blood pressure elevation",
-            "As a direct substitute for all glucose-lowering agents",
+            "As a direct substitute for all glucose-lowering agents when documented per facility policy.",
             "Isolated hypoglycemia without renal or vascular disease",
         ],
         "These agents lower blood pressure and may slow progression of albuminuric kidney disease. Therapy is individualized for pregnancy status, potassium, and renal function.",
@@ -1361,7 +1361,7 @@ FACTS: list[dict] = [
         [
             "To intentionally raise LDL cholesterol for energy metabolism",
             "To replace antihypertensive therapy when A1C is at goal",
-            "To reverse established painful peripheral neuropathy",
+            "To reverse established painful peripheral neuropathy for routine ambulatory patient care.",
         ],
         "Diabetes confers substantial ASCVD risk; statins are added when age, LDL, and comorbidities warrant. They complement, rather than replace, glycemic and blood pressure control.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1371,7 +1371,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-diabetes",
         "For many adults with diabetes and hypertension, what blood pressure target is commonly used unless a lower goal is individualized?",
-        "Below 140/90 mmHg",
+        "Below 140/90 mmHg in the ambulatory setting.",
         [
             "Above 180/110 mmHg to maintain renal perfusion in every patient",
             "No routine measurement when the A1C is within goal",
@@ -1388,7 +1388,7 @@ FACTS: list[dict] = [
         "Gastroparesis, orthostatic hypotension, or silent myocardial ischemia",
         [
             "Isolated loss of foot sensation without autonomic involvement",
-            "Improved heart rate variability during standing",
+            "Improved heart rate variability during standing when documented per facility policy.",
             "Permanent cure of hyperglycemia without medication",
         ],
         "Autonomic fibers regulate GI motility, cardiovascular reflexes, and symptom perception. Recognition prompts targeted evaluation and therapy beyond foot sensory testing alone.",
@@ -1416,7 +1416,7 @@ FACTS: list[dict] = [
         "Loss of protective sensation that increases ulcer risk",
         [
             "Central visual acuity for reading a Snellen chart",
-            "Peripheral oxygen saturation at the great toe",
+            "Peripheral oxygen saturation at the great toe when documented per facility policy.",
             "Hearing thresholds in a quiet examination room",
         ],
         "Inability to feel the filament at standard sites suggests neuropathy. Combined with pulse checks and skin inspection, it guides ulcer prevention education and referrals.",
@@ -1430,7 +1430,7 @@ FACTS: list[dict] = [
         "Well-fitting shoes, daily foot inspection, and prompt care for skin breaks",
         [
             "Walking barefoot on hot pavement to toughen the soles",
-            "Ignoring redness between toes until drainage appears",
+            "Ignoring redness between toes until drainage appears when documented per facility policy.",
             "Aggressive self-trimming of thickened nails when sensation is reduced",
         ],
         "Neuropathy and poor perfusion make minor trauma serious. Patients should report nonhealing lesions early to reduce amputation risk.",
@@ -1445,7 +1445,7 @@ FACTS: list[dict] = [
         [
             "An uncomplicated ankle sprain without structural change",
             "Superficial cellulitis treated with topical antibiotic alone",
-            "Normal age-related joint stiffness without neuropathy",
+            "Normal age-related joint stiffness without neuropathy for routine ambulatory patient care.",
         ],
         "Repeated microtrauma in an insensate foot can collapse arch structure. Early immobilization, offloading, and specialist care help prevent severe deformity.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1457,7 +1457,7 @@ FACTS: list[dict] = [
         "How are periodontal disease and diabetes related in outpatient care?",
         "They worsen each other through bidirectional effects on inflammation and glycemic control",
         [
-            "They are unrelated conditions managed in separate silos",
+            "They are unrelated conditions managed in separate silos in a typical outpatient clinic setting.",
             "Periodontal disease affects tooth appearance without metabolic impact",
             "Mouthwash alone reverses both gingivitis and insulin resistance",
         ],
@@ -1471,9 +1471,9 @@ FACTS: list[dict] = [
         "What is a key message of preconception counseling for a woman with preexisting diabetes?",
         "Achieve tight glycemic control before conception to lower congenital malformation risk",
         [
-            "Defer all medical visits until after delivery",
+            "Defer all medical visits until after delivery in a typical outpatient clinic setting.",
             "Focus on folic acid while ignoring pre-pregnancy A1C",
-            "Stop glucose monitoring once pregnancy is confirmed",
+            "Stop glucose monitoring once pregnancy is confirmed for routine ambulatory patient care.",
         ],
         "Hyperglycemia during organogenesis raises teratogenic risk. Multidisciplinary planning includes medication review, A1C targets, and contraception until ready for pregnancy.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1501,7 +1501,7 @@ FACTS: list[dict] = [
         [
             "No further glucose assessment because risk ends at delivery",
             "Neonatal weight measurement without maternal metabolic testing",
-            "Discontinuation of all nutrition and activity counseling",
+            "Discontinuation of all nutrition and activity counseling for routine ambulatory patient care.",
         ],
         "GDM predicts later type 2 diabetes. Early lifestyle intervention and periodic screening support long-term health.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1514,7 +1514,7 @@ FACTS: list[dict] = [
         "Breastfeeding is encouraged with insulin or medication adjustments and glucose monitoring",
         [
             "Breastfeeding is contraindicated for every insulin-treated mother",
-            "Insulin must be discontinued for the entire lactation period",
+            "Insulin must be discontinued for the entire lactation period when documented per facility policy.",
             "Lactation eliminates the need to monitor for maternal hypoglycemia",
         ],
         "Lactation increases caloric needs and can lower glucose. Coordinating with the obstetric and diabetes teams helps balance infant nutrition and maternal safety.",
@@ -1557,7 +1557,7 @@ FACTS: list[dict] = [
         [
             "Newly diagnosed type 1 disease in a healthy adolescent athlete",
             "Pregnancy complicated by preexisting diabetes requiring tight control",
-            "Asymptomatic prediabetes identified on routine screening",
+            "Asymptomatic prediabetes identified on routine screening for routine ambulatory patient care.",
         ],
         "Individualization balances microvascular benefit against fall and hypoglycemia harm. Shared decision-making documents the chosen target.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1584,7 +1584,7 @@ FACTS: list[dict] = [
         "Temporary suspension or reduction of insulin delivery when hypoglycemia is predicted",
         [
             "Elimination of all capillary glucose monitoring without clinician oversight",
-            "Operation without user training or site rotation",
+            "Operation without user training or site rotation when documented per facility policy.",
             "A guarantee that postmeal glucose will remain below 70 mg/dL",
         ],
         "Automated features supplement, not replace, self-management skills. Patients still need infusion set care, alarm responses, and periodic A1C review.",
@@ -1641,7 +1641,7 @@ FACTS: list[dict] = [
         [
             "Withholding all glucose monitoring until full oral diet resumes",
             "Maintaining glucose near 400 mg/dL to ensure adequate calories",
-            "Restricting intravenous fluids to treat hyperglycemia",
+            "Restricting intravenous fluids to treat hyperglycemia for routine ambulatory patient care.",
         ],
         "Surgery, fasting, and stress hormones alter insulin needs. Anesthesia, surgery, and medicine teams coordinate timing of medications, fluids, and glucose checks.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1655,7 +1655,7 @@ FACTS: list[dict] = [
         [
             "Doubling the metformin dose the morning of the scan",
             "Proceeding without reviewing estimated glomerular filtration rate",
-            "Discontinuing intravenous hydration after contrast",
+            "Discontinuing intravenous hydration after contrast for routine ambulatory patient care.",
         ],
         "Contrast-associated acute kidney injury raises lactic acidosis risk with metformin in vulnerable patients. Protocols define when to restart the drug safely.",
         ["American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1", "American Diabetes Association: Classification and Diagnosis of Diabetes — https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553", S.CDC_DIABETES, S.NHA_CCMA],
@@ -1668,7 +1668,7 @@ FACTS: list[dict] = [
         "They reduce risk of severe infection that can destabilize glycemic control",
         [
             "They are contraindicated because vaccines raise A1C permanently",
-            "They replace the need for annual foot and eye screening",
+            "They replace the need for annual foot and eye screening when documented per facility policy.",
             "They are indicated for pediatric patients but not adults with diabetes",
         ],
         "Infections provoke stress hyperglycemia and dehydration. Immunization schedules follow CDC guidance adapted to age and comorbidity.",
@@ -1696,7 +1696,7 @@ FACTS: list[dict] = [
         "At diagnosis and again when treatment, comorbidities, or life circumstances change",
         [
             "Once at age 65 without follow-up when insulin is started",
-            "For type 1 diabetes but not for type 2 diabetes",
+            "For type 1 diabetes but not for type 2 diabetes when documented per facility policy.",
             "After the patient reads informal online forums instead of structured teaching",
         ],
         "DSMES covers monitoring, medications, sick days, and prevention of complications. Revisiting skills improves safety when therapy intensifies.",
@@ -1710,7 +1710,7 @@ FACTS: list[dict] = [
         "More frequent glucose monitoring with insulin adjustments per provider orders",
         [
             "Stopping capillary glucose checks because steroids are short term",
-            "Assuming glucocorticoids will lower blood glucose",
+            "Assuming glucocorticoids will lower blood glucose when documented per facility policy.",
             "Documenting the dose change without notifying the diabetes team",
         ],
         "Glucocorticoids increase hepatic glucose output and insulin resistance. Hyperglycemia may persist until the taper ends.",
@@ -1723,7 +1723,7 @@ FACTS: list[dict] = [
         "Why is metabolic dysfunction-associated steatotic liver disease (MASLD) clinically important in type 2 diabetes?",
         "It may progress to fibrosis and cirrhosis, so weight and lifestyle management matter",
         [
-            "It cannot occur in patients with elevated BMI and diabetes",
+            "It cannot occur in patients with elevated BMI and diabetes in a typical outpatient clinic setting.",
             "It is diagnosed exclusively with a monofilament foot examination",
             "It is cured by skipping breakfast without other intervention",
         ],
@@ -1751,8 +1751,8 @@ FACTS: list[dict] = [
         "Why might celiac disease screening be considered in a patient with type 1 diabetes mellitus?",
         "Autoimmune disorders cluster, and untreated celiac disease affects nutrition and glucose",
         [
-            "Celiac disease occurs exclusively in type 2 diabetes",
-            "A negative screen replaces ongoing A1C monitoring",
+            "Celiac disease occurs exclusively in type 2 diabetes in a typical outpatient clinic setting.",
+            "A negative screen replaces ongoing A1C monitoring when documented per facility policy.",
             "Gluten exposure has no impact on growth or glycemic variability",
         ],
         "Malabsorption can cause erratic carbohydrates and hypoglycemia. Positive serology prompts gastroenterology evaluation.",
@@ -1766,7 +1766,7 @@ FACTS: list[dict] = [
         "Dose timing adjustments worked out with the diabetes care team before departure",
         [
             "Stopping basal insulin for the flight duration to prevent lows",
-            "Storing all insulin in checked luggage exposed to cargo heat",
+            "Storing all insulin in checked luggage exposed to cargo heat when documented per facility policy.",
             "Ignoring meal timing because jet lag has no metabolic effect",
         ],
         "Eastward and westward travel shifts circadian insulin needs. Patients should carry supplies in hand luggage and know sick-day rules abroad.",
@@ -1779,7 +1779,7 @@ FACTS: list[dict] = [
         "The medical assistant finds expired blood glucose test strips in a clinic drawer. What is the appropriate action?",
         "Discard them because expired strips may give inaccurate results",
         [
-            "Use them if the vial color appears unchanged",
+            "Use them if the vial color appears unchanged in a typical outpatient clinic setting.",
             "Transfer them to another patient's home kit to avoid waste",
             "Store future strips in a steamy bathroom for convenience",
         ],
@@ -1793,7 +1793,7 @@ FACTS: list[dict] = [
         "Why should a patient with diabetes inspect feet daily?",
         "Neuropathy can hide injury until infection develops",
         [
-            "Foot exams replace HbA1c testing",
+            "Foot exams replace HbA1c testing in a typical outpatient clinic setting.",
             "Shoes are unnecessary if vision is normal",
             "Glucose monitoring becomes optional",
         ],
@@ -1809,7 +1809,7 @@ FACTS: list[dict] = [
         [
             "Trimmed toenails from last week",
             "Normal skin temperature symmetry",
-            "Presence of socks",
+            "Presence of socks for routine ambulatory patient care.",
         ],
         "Open lesions with inflammation suggest infection risk in diabetes. Routine grooming or symmetric warmth are not acute warning signs.",
         [S.NHA_CCMA],
@@ -1821,9 +1821,9 @@ FACTS: list[dict] = [
         "A patient brings a personal blood glucose log to clinic. How should the team use it?",
         "Review patterns with the patient and share relevant trends with the provider",
         [
-            "Discard it without reading",
-            "Post values on a public board",
-            "Use it to bill without clinical review",
+            "Discard it without reading in a typical outpatient clinic setting under standard outpatient documentation rules.",
+            "Post values on a public board when documented per facility policy.",
+            "Use it to bill without clinical review for routine ambulatory patient care.",
         ],
         "Home logs inform medication and lifestyle adjustments. Public display violates privacy; billing requires clinical relevance.",
         [S.NHA_CCMA],

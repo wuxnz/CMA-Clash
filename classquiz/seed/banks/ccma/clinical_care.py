@@ -57,7 +57,7 @@ FACTS: list[dict] = [
         'Dense hair covers the skin where ECG electrodes will be placed. How should the medical assistant prepare the sites?',
         'Clip the hair close to the skin; shave with a razor only when the provider orders shaving',
         [
-            'Shave every electrode site with a razor before each routine 12-lead tracing',
+            'Shave every electrode site with a razor before each routine 12-lead tracing in a typical outpatient clinic setting.',
             'Press electrodes through uncut hair when clipping would add extra setup time',
             'Apply conductive gel over thick hair instead of clipping or shaving the sites',
         ],
@@ -167,7 +167,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Compared with a standard 12-lead electrocardiogram, adding posterior leads in a 15-lead study may improve detection of what?',
-        'Posterior wall myocardial ischemia',
+        'Posterior wall myocardial ischemia per common clinical practice.',
         [
             'Right ventricular strain pattern from acute pulmonary embolism',
             'Anterior ST-segment elevation from left anterior descending occlusion',
@@ -212,7 +212,7 @@ FACTS: list[dict] = [
         'Keep the field in view and prevent contact with non-sterile surfaces or items',
         [
             'Cover unused instruments with a nonsterile towel until the provider returns',
-            'Reach across the field with gloved hands to reposition the overhead light',
+            'Reach across the field with gloved hands to reposition the overhead light when documented per facility policy.',
             'Leave remaining sterile supplies on the open field for the next case today',
         ],
         'Sterility is broken the moment a non-sterile object crosses above or touches the field. Fields are opened for one patient and one procedure episode.',
@@ -253,7 +253,7 @@ FACTS: list[dict] = [
         'When assisting a provider with suture removal, which practice aligns with safe clinical care?',
         'Use hand hygiene and sterile or clean technique according to order and policy',
         [
-            'Remove knots with the same gloves worn during the prior patient rooming',
+            'Remove knots with the same gloves worn during the prior patient rooming in a typical outpatient clinic setting.',
             'Use nonsterile shears on purulent drainage without notifying the provider',
             'Clip every suture when one segment is erythematous without reporting it',
         ],
@@ -268,7 +268,7 @@ FACTS: list[dict] = [
         'Identity with two identifiers and informed consent when required by policy',
         [
             'Printed full name on the schedule without verifying date of birth',
-            'Wristband match to the room number posted on the hallway board',
+            'Wristband match to the room number posted on the hallway board when documented per facility policy.',
             'Verbal consent from the patient\'s companion without reviewing the chart',
         ],
         'Wrong-patient procedures are preventable with two-identifier checks and documented consent. Room numbers and glove preferences do not verify who is receiving invasive care.',
@@ -338,7 +338,7 @@ FACTS: list[dict] = [
         'Sterile irrigant from a new container, poured without touching the pour spout to the field',
         [
             '0.9% saline drawn into a syringe from a multi-dose vial opened earlier the same day',
-            'Antiseptic wound cleanser used as the irrigating fluid per label',
+            'Antiseptic wound cleanser used as the irrigating fluid per label when documented per facility policy.',
             'Sterile water remaining in a bowl that sat open on the mayo stand for an hour',
         ],
         'Irrigation requires fluid and delivery that stay uncontaminated. Multi-dose vials and open bowls increase bioburden; antiseptics clean skin but are not routine primary irrigants for deep tissue flushing.',
@@ -379,7 +379,7 @@ FACTS: list[dict] = [
         'The provider orders subcutaneous insulin from a high-alert medication drawer. Which practice aligns with medication safety policy?',
         'An independent double check of the order, label, dose, and syringe marking before administration',
         [
-            'Draw the dose from memory while moving quickly between rooms',
+            'Draw the dose from memory while moving quickly between rooms in a typical outpatient clinic setting.',
             'Store insulin vials unlabeled beside saline flushes in the same bin',
             'Verify cap color against the prior patient without reading the vial label',
         ],
@@ -393,7 +393,7 @@ FACTS: list[dict] = [
         'A patient wears a Holter monitor at home for intermittent palpitations. What does this device primarily record?',
         'Continuous ambulatory electrocardiogram activity over 24 to 48 hours',
         [
-            'Continuous ambulatory blood pressure trends over 24 hours',
+            'Continuous ambulatory blood pressure trends over 24 hours in a typical outpatient clinic setting.',
             'Symptom-triggered event recorder rhythm during palpitations',
             'Resting transthoracic echocardiography wall motion assessment',
         ],
@@ -463,7 +463,7 @@ FACTS: list[dict] = [
         'While coaching a postoperative patient to use an incentive spirometer, which breathing pattern should the medical assistant encourage?',
         'Slow, deep inhalation through the mouthpiece followed by a brief hold if ordered',
         [
-            'Indefinite breath holding without exhaling',
+            'Indefinite breath holding without exhaling in a typical outpatient clinic setting.',
             'Rapid shallow panting until the patient feels dizzy',
             'Quick sniffing breaths through the nose without deep lung expansion',
         ],
@@ -477,7 +477,7 @@ FACTS: list[dict] = [
         'Two medication vials look alike and have similar names on the shelf. Which strategy reduces look-alike sound-alike (LASA) errors?',
         'Use tall-man lettering on labels and perform extra verification against the order',
         [
-            'Store all vials without labels to speed retrieval',
+            'Store all vials without labels to speed retrieval in a typical outpatient clinic setting.',
             'Identify drugs by cap color alone without reading the label',
             'Omit the second patient identifier when the drug names sound similar',
         ],
@@ -492,8 +492,8 @@ FACTS: list[dict] = [
         'Blood pressure and heart rate measured lying, sitting, and standing with position documented',
         [
             'Temperature alone in each position without pulse or pressure',
-            'Respiratory rate after vigorous exercise in the hallway',
-            'Pain score recorded without changing position',
+            'Respiratory rate after vigorous exercise in the hallway when documented per facility policy.',
+            'Pain score recorded without changing position for routine ambulatory patient care.',
         ],
         'Orthostatic hypotension or tachycardia may signal hypovolemia or autonomic dysfunction. Comparing pressure and pulse across positions with documented timing supports accurate interpretation.',
         [S.NHA_CCMA],
@@ -505,9 +505,9 @@ FACTS: list[dict] = [
         'A patient with asthma uses a peak flow meter at home. Which technique yields the most reliable expiratory airflow reading?',
         'Sit or stand upright, inhale fully, seal the lips around the mouthpiece, and blow out as hard and fast as possible',
         [
-            'Lie flat and exhale gently without coaching',
-            'Hold breath for one minute before a weak puff into the meter',
-            'Record a single weak puff without a full inhalation or tight lip seal',
+            'Lie flat and exhale gently without coaching in a typical outpatient clinic setting in a typical outpatient clinic setting.',
+            'Hold breath for one minute before a weak puff into the meter when documented per facility policy.',
+            'Record a single weak puff without a full inhalation or tight lip seal for routine ambulatory patient care.',
         ],
         'Peak expiratory flow reflects bronchospasm and supports asthma action plans. Maximal effort after full inspiration with a tight seal avoids falsely low values.',
         [S.NHA_CCMA],
@@ -520,7 +520,7 @@ FACTS: list[dict] = [
         'Whenever hands or instruments contact the sterile field or invasive device pathways',
         [
             'While documenting vital signs on a patient with intact skin',
-            'While applying an adhesive bandage to a closed abrasion',
+            'While applying an adhesive bandage to a closed abrasion when documented per facility policy.',
             'While preparing a clean injection site for an intramuscular vaccine',
         ],
         'Sterile technique prevents introduction of pathogens into tissue or equipment that enters the body. Nonclinical tasks do not require maintenance of a sterile field.',
@@ -533,7 +533,7 @@ FACTS: list[dict] = [
         'The provider asks the medical assistant to remove sutures from a well-healed linear incision with intact skin. Which approach is typical?',
         'Clean technique with hand hygiene and gloves per policy, assessing the site before removal',
         [
-            'Remove knots with bare hands because the epidermis appears fully closed',
+            'Remove knots with bare hands because the epidermis appears fully closed in a typical outpatient clinic setting.',
             'Don a full sterile gown and gloves for every superficial suture removal',
             'Use the same scissors from another tray after wiping the blades with dry gauze',
         ],
@@ -547,7 +547,7 @@ FACTS: list[dict] = [
         'When screening distance visual acuity with a Snellen chart, at what testing distance should the chart be placed?',
         '20 feet, or an optically equivalent setup per facility protocol',
         [
-            'Five inches from the patient’s face for all ages',
+            'Five inches from the patient’s face for all ages in a typical outpatient clinic setting.',
             'One hundred meters regardless of chart calibration',
             "At bedside arm's length without a calibrated mirror system",
         ],
@@ -561,7 +561,7 @@ FACTS: list[dict] = [
         'Before inflating a blood pressure cuff on an adult upper arm, how should the bladder length relate to arm circumference?',
         'The bladder should encircle at least about 80% of the arm circumference',
         [
-            'About 40% encirclement is sufficient for all adults',
+            'About 40% encirclement is sufficient for all adults in a typical outpatient clinic setting.',
             'Coverage based on wrist width for typical adult arms',
             'The bladder must overlap itself completely around the arm',
         ],
@@ -589,7 +589,7 @@ FACTS: list[dict] = [
         'While scrubbed in to assist with a sterile procedure, how should the medical assistant move supplies to the provider?',
         'Stay within the sterile zone and never reach over or lean on the sterile field',
         [
-            'Rest both forearms on the sterile drape while handing instruments',
+            'Rest both forearms on the sterile drape while handing instruments in a typical outpatient clinic setting.',
             'Pass nonsterile outer packaging directly over open sterile instruments',
             'Adjust a loose mask with bare scrubbed hands without regloving afterward',
         ],
@@ -617,9 +617,9 @@ FACTS: list[dict] = [
         'When teaching clean-catch midstream urine collection, what patient steps reduce contamination of the specimen?',
         'Perform hand hygiene, cleanse the urinary meatus, void the first portion into the toilet, then collect midstream in the container',
         [
-            'Collect the first voided stream in the cup without perineal cleansing',
-            'Store urine in the same container at home for several days before delivery',
-            'Defer perineal cleansing to shorten the collection teaching',
+            'Collect the first voided stream in the cup without perineal cleansing in a typical outpatient clinic setting.',
+            'Store urine in the same container at home for several days before delivery when documented per facility policy.',
+            'Defer perineal cleansing to shorten the collection teaching for routine ambulatory patient care when documented per facility policy.',
         ],
         'Discarding the initial stream and using midstream urine lowers bacterial contamination from the urethra. Proper labeling and timely delivery to the laboratory follow facility protocol.',
         [S.NHA_CCMA],
@@ -632,7 +632,7 @@ FACTS: list[dict] = [
         'Before measuring an adult\'s blood pressure, what should the medical assistant confirm?',
         'The patient has rested with the back supported and feet flat for several minutes',
         [
-            'The patient is seated with legs crossed and the back unsupported',
+            'The patient is seated with legs crossed and the back unsupported in a typical outpatient clinic setting.',
             'The cuff is placed over a thin shirt sleeve to keep the arm warm',
             'The arm hangs below heart level while the patient talks during inflation',
         ],
@@ -644,7 +644,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Which site is commonly used for an intramuscular injection in an adult with adequate deltoid mass?',
-        'Upper outer third of the deltoid muscle',
+        'Upper outer third of the deltoid muscle in routine outpatient care.',
         [
             'Middle third of the deltoid along the acromion edge in thin adults',
             'Vastus lateralis of the anterior thigh for routine adult influenza vaccine',
@@ -673,7 +673,7 @@ FACTS: list[dict] = [
         'ccma-clinical-care',
         'During a sterile dressing change, the assistant accidentally touches the inner sterile pad. What should happen next?',
         'Discard the contaminated item and replace it using sterile technique',
-        ['Continue if the outer wrapper still looks clean',
+        ['Continue if the outer wrapper still looks clean in a typical outpatient clinic setting.',
         'Fold the pad so the touched side faces the wound',
         'Wipe the pad with alcohol and reuse it on the wound'],
         'Sterility is event-based; contact with nonsterile surfaces requires replacement. Rinsing does not restore sterility for invasive wound care.',
@@ -688,7 +688,7 @@ FACTS: list[dict] = [
         [
             'Razor shaving every electrode site improves ST-segment accuracy on all patients',
             'Hair may be left intact when tracing quality looks acceptable without preparation',
-            'Conductive lotion should be applied under each pad instead of trimming hair',
+            'Conductive lotion should be applied under each pad instead of trimming hair for routine ambulatory patient care.',
         ],
         'Gentle clipping improves contact without micro-cuts that sting or weep. Razors are reserved for orders because they can irritate skin and affect tracing quality.',
         [S.NHA_CCMA],
@@ -728,8 +728,8 @@ FACTS: list[dict] = [
         'When weighing a child in outpatient clinic, which practice supports the most accurate measurement?',
         'Use a calibrated scale appropriate for the child\'s age and remove heavy outer clothing',
         ['Weigh the child while holding them without subtracting adult weight',
-        'Place the scale on a thick carpet pad',
-        'Estimate weight from height percentile on the growth chart'],
+        'Place the scale on a thick carpet pad when documented per facility policy.',
+        'Estimate weight from height percentile on the growth chart for routine ambulatory patient care.'],
         'Pediatric dosing and growth charts depend on accurate weight. Holding the child without taring adds adult mass; carpet throws off load cells.',
         [S.NHA_CCMA],
         'beginner',
@@ -740,7 +740,7 @@ FACTS: list[dict] = [
         'For adult upper-arm blood pressure measurement, which patient position aligns with standard technique?',
         'Seated with back supported, feet flat, and arm at heart level',
         ['Standing on one foot with arm raised overhead',
-        'Prone with cuff on the ankle',
+        'Prone with cuff on the ankle when documented per facility policy.',
         'Supine with legs dangling off the exam table'],
         'Heart-level arm placement and supported seating align with guideline technique. Ankle cuffs in prone adults are not the routine upper-arm method.',
         [S.NHA_CCMA],
@@ -828,7 +828,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When obtaining orthostatic vital signs, how many positions are typically compared?',
-        'Supine, sitting, and standing',
+        'Supine, sitting, and standing in the ambulatory setting.',
         ['Supine and standing measurements without a sitting set',
         'Sitting and standing measurements without a supine baseline',
         'Supine, sitting, standing, then supine again in one continuous series'],
@@ -840,7 +840,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'What is the correct angle for an intradermal injection such as a tuberculin skin test?',
-        '5 to 15 degrees with bevel up',
+        '5 to 15 degrees with bevel up in the ambulatory setting.',
         ['90 degrees into deltoid muscle for Mantoux testing',
         '45 degrees into abdominal subcutaneous fat for tuberculin',
         'Intradermal injection pressed flat parallel to the skin surface'],
@@ -864,7 +864,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When applying a heat pack, why is a cloth barrier placed between the pack and skin?',
-        'To reduce risk of thermal burns',
+        'To reduce risk of thermal burns per common clinical practice.',
         ['To keep the pack colder against bare skin for longer intervals',
         'To monitor blood glucose through the insulating cloth layer',
         'To sterilize the reusable gel pack between patients without cleaning'],

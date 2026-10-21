@@ -13,7 +13,7 @@ FACTS: list[dict] = [
         fact('ccma-admin', 'When should a medical office collect a patient copayment?', 'Collect the contracted copayment at the time of service', ["Bill the copayment after the plan's annual deductible is fully met for the year", 'Collect the copayment after the payer sends an explanation of benefits', 'Defer copayment collection until the patient submits a tax return'], 'Copayments are fixed cost-sharing amounts defined in the benefit plan. Collecting at the visit matches most payer contracts and reduces accounts receivable follow-up.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-002
-        fact('ccma-admin', 'Under which circumstance may a managed care plan require a referral?', 'The member selected a primary care gatekeeper plan that mandates specialist authorization', ['The member enrolled in a plan that requires primary care referral for specialists', 'The patient pays cash at check-in for a covered preventive visit', 'The visit includes a routine blood pressure screening in primary care'], 'Gatekeeper models tie specialist access to PCP referral rules. Cash payment or preventive nursing measures do not by themselves trigger referral requirements.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-admin', 'Under which circumstance may a managed care plan require a referral?', 'The member selected a primary care gatekeeper plan that mandates specialist authorization', ['The member enrolled in a plan that requires primary care referral for specialists', 'The patient pays cash at check-in for a covered preventive visit under typical outpatient policy.', 'The visit includes a routine blood pressure screening in primary care'], 'Gatekeeper models tie specialist access to PCP referral rules. Cash payment or preventive nursing measures do not by themselves trigger referral requirements.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-003
     fact(
@@ -22,7 +22,7 @@ FACTS: list[dict] = [
         "Diagnoses, procedures performed, and charges for the visit",
         [
             "Procedure codes without linked diagnosis pointers",
-            "Charges posted without units or service dates",
+            "Charges posted without units or service dates under typical outpatient policy.",
             "Patient demographic updates without encounter diagnoses",
         ],
         "Superbills translate the clinical encounter into codable data for claims. Supply and parking details are operational, not claim drivers.",
@@ -38,7 +38,7 @@ FACTS: list[dict] = [
         "How are ICD-10-CM codes used on an insurance claim?",
         "They report the patient's diagnoses and reasons for the encounter",
         [
-            "They list surgical instrument sterilization times",
+            "They list surgical instrument sterilization times under typical outpatient policy.",
             "They document nursing shift handoffs as the primary diagnosis",
             "They report supply par levels for exam room stock",
         ],
@@ -47,13 +47,13 @@ FACTS: list[dict] = [
         "beginner",
     ),
     # ccma-admin-006
-        fact('ccma-admin', 'How should no-show appointments be handled in the electronic health record?', 'Document the missed visit per policy so scheduling and outreach can follow up', ['Reschedule the slot silently without documenting the missed visit', 'Convert the missed appointment into a completed visit for billing', 'Leave the schedule entry blank without a no-show note or status update'], 'No-show tracking supports access management and may trigger outreach. Deleting charts or fabricating visits creates legal and revenue integrity problems.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-admin', 'How should no-show appointments be handled in the electronic health record?', 'Document the missed visit per policy so scheduling and outreach can follow up', ['Reschedule the slot silently without documenting the missed visit under typical outpatient policy.', 'Convert the missed appointment into a completed visit for billing', 'Leave the schedule entry blank without a no-show note or status update'], 'No-show tracking supports access management and may trigger outreach. Deleting charts or fabricating visits creates legal and revenue integrity problems.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-007
-        fact('ccma-admin', 'What is the primary legal role of the medical record?', 'It documents the care provided and supports continuity, billing, and legal review', ['It serves as an informal staff journal for opinions unrelated to patient care', 'It may be discarded after each outpatient visit when storage is limited', 'It replaces informed consent forms in every clinical setting'], 'The record is the formal account of patient care. It is retained per law and policy, and it complements rather than replaces consent documentation.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-admin', 'What is the primary legal role of the medical record?', 'It documents the care provided and supports continuity, billing, and legal review', ['It serves as an informal staff journal for opinions unrelated to patient care', 'It may be discarded after each outpatient visit when storage is limited', 'It replaces informed consent forms in every clinical setting under typical outpatient policy.'], 'The record is the formal account of patient care. It is retained per law and policy, and it complements rather than replaces consent documentation.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-008
-        fact('ccma-admin', 'How is a copayment defined in most commercial insurance plans?', 'A fixed dollar amount the member pays for a covered service at the time of care', ['The full billed charge before contractual adjustments are applied', "A payment made by the clinic to the member's employer each quarter", 'A penalty assessed when the member uses an in-network contracted provider'], 'Copays are predetermined member responsibility for covered services. They differ from total charges and are not paid by the clinic to others.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-admin', 'How is a copayment defined in most commercial insurance plans?', 'A fixed dollar amount the member pays for a covered service at the time of care', ['The full billed charge before contractual adjustments are applied under typical outpatient policy.', "A payment made by the clinic to the member's employer each quarter", 'A penalty assessed when the member uses an in-network contracted provider'], 'Copays are predetermined member responsibility for covered services. They differ from total charges and are not paid by the clinic to others.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-009
     fact(
@@ -61,7 +61,7 @@ FACTS: list[dict] = [
         "Which insurance card details should be verified when scanning into the EHR?",
         "Member identifier, group number, and coverage effective dates",
         [
-            "Card background color and font style",
+            "Card background color and font style under typical outpatient policy.",
             "Payer phone number without member or group identifiers",
             "Prior plan name without updating effective dates",
         ],
@@ -82,7 +82,7 @@ FACTS: list[dict] = [
         "It maps services rendered to diagnosis and procedure codes for charge entry",
         [
             "It matches patient hobbies to payroll deductions",
-            "It ties parking citations to laboratory orders",
+            "It ties parking citations to laboratory orders under typical outpatient policy.",
             "It links nursing vital signs to payroll tax withholdings",
         ],
         "Charge capture depends on accurate code linkage from the encounter. Nonclinical data do not generate insurable claims.",
@@ -96,10 +96,10 @@ FACTS: list[dict] = [
         fact('ccma-admin', 'Why are audit trails in billing modules important?', 'They show who changed charges, payments, or adjustments', ['They hide user activity from compliance officers during internal audits', 'They replace clinical progress notes in the legal medical record', 'They remove the need for unique login credentials on shared workstations'], 'Audit logs support internal monitoring and payer audits. They supplement, not replace, clinical documentation and authentication controls.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-015
-        fact('ccma-admin', 'What do Current Procedural Terminology (CPT) codes describe?', 'Physician and other qualified health care professional services and procedures', ['Vacutainer tube additive colors used during outpatient phlebotomy', 'Reference ranges for adult vital signs documented in triage', 'Recommended injection angles for intramuscular vaccines in the deltoid'], 'CPT codes report billable procedures and visits. Specimen handling colors and vital norms are reference data, not CPT descriptors.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-admin', 'What do Current Procedural Terminology (CPT) codes describe?', 'Physician and other qualified health care professional services and procedures', ['Vacutainer tube additive colors used during outpatient phlebotomy', 'Reference ranges for adult vital signs documented in triage under typical outpatient policy.', 'Recommended injection angles for intramuscular vaccines in the deltoid'], 'CPT codes report billable procedures and visits. Specimen handling colors and vital norms are reference data, not CPT descriptors.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-016
-        fact('ccma-admin', 'When does coordination of benefits apply?', 'A patient has more than one active health plan that may share payment responsibility', ['The patient is uninsured and pays cash at the time of service', 'The visit is limited to vision hardware fitting without medical services', 'The clinic closes for a weather emergency before the visit occurs'], 'Secondary and primary payers are identified when multiple policies exist. Uninsured cash visits do not trigger coordination rules.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-admin', 'When does coordination of benefits apply?', 'A patient has more than one active health plan that may share payment responsibility', ['The patient is uninsured and pays cash at the time of service under typical outpatient policy.', 'The visit is limited to vision hardware fitting without medical services', 'The clinic closes for a weather emergency before the visit occurs'], 'Secondary and primary payers are identified when multiple policies exist. Uninsured cash visits do not trigger coordination rules.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-admin-017
     fact(
@@ -121,9 +121,9 @@ FACTS: list[dict] = [
         "What does a daily day sheet report typically summarize?",
         "Charges posted, payments received, and adjustments for that business day",
         [
-            "Patient birth dates for the calendar year",
+            "Patient birth dates for the calendar year under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.",
             "Year-to-date revenue without daily payment detail",
-            "Personal staff vacation requests",
+            "Personal staff vacation requests under typical outpatient policy.",
         ],
         "Day sheets reconcile cash drawers and posting batches. Demographic lists and weather are unrelated to daily financial totals.",
         [S.NHA_CCMA],
@@ -146,7 +146,7 @@ FACTS: list[dict] = [
         [
             "Whichever staff member prefers the shortest period",
             "The same interval used for general office supply invoices",
-            "Text messages from patients without documentation",
+            "Text messages from patients without documentation under typical outpatient policy.",
         ],
         "Retention schedules are governed by legal and accreditation rules. Individual preference or informal polls do not set retention.",
         [S.NHA_CCMA],
@@ -219,7 +219,7 @@ FACTS: list[dict] = [
         "It is simple and low risk of an erroneous result per FDA waiver criteria",
         [
             "It requires the same daily quality control as high-complexity chemistry",
-            "It is exempt from quality checks and training",
+            "It is exempt from quality checks and training under typical outpatient policy.",
             "It may be run without following manufacturer instructions",
         ],
         "Waived tests still require controlled procedures, personnel competency, and manufacturer directions. Waived status is not the same as unregulated testing.",
@@ -247,8 +247,8 @@ FACTS: list[dict] = [
         "Set par levels, monitor expiration dates, and store items securely",
         [
             "Reorder supplies when shelves are empty without par levels",
-            "Ignore lot numbers on vaccines",
-            "Store personal medications with clinic stock",
+            "Ignore lot numbers on vaccines under typical outpatient policy.",
+            "Store personal medications with clinic stock under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.",
         ],
         "Inventory control prevents waste and safety events. Sharps and commingled personal drugs create exposure and error risk.",
         [S.NHA_CCMA],
@@ -260,9 +260,9 @@ FACTS: list[dict] = [
         "What is prior authorization in the revenue cycle?",
         "Payer review and approval before selected services or medications are covered",
         [
-            "A vital sign measurement taken at check-in",
+            "A vital sign measurement taken at check-in under typical outpatient policy.",
             "A requirement to bandage every minor abrasion",
-            "An optional step that payers do not enforce",
+            "An optional step that payers do not enforce under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.",
         ],
         "Many plans mandate authorization for high-cost imaging or specialty drugs. Skipping required auth commonly results in denial.",
         [S.NHA_CCMA],
@@ -274,9 +274,9 @@ FACTS: list[dict] = [
         "Which demographic updates should be confirmed at registration?",
         "Legal name, address, contacts, insurance, and communication preferences",
         [
-            "Nickname only without confirming legal name for the health record",
+            "Preferred nickname recorded without verifying legal name on the chart",
             "Mailing address copied from a prior patient with the same last name",
-            "Removal of documented allergy entries without clinician review",
+            "Removal of documented allergy entries without clinician review under typical outpatient policy.",
         ],
         "Accurate demographics keep claims and messages routed correctly. Allergy deletion requires clinical oversight, not front desk discretion alone.",
         [S.NHA_CCMA],
@@ -288,7 +288,7 @@ FACTS: list[dict] = [
         "What should telephone triage documentation record?",
         "Caller identity, symptoms, advice given, and follow-up instructions",
         [
-            "Symptoms described without documenting advice given",
+            "Symptoms described without documenting advice given under typical outpatient policy.",
             "Callback number missing when the caller is not the patient",
             "Full credit card numbers in unencrypted progress text",
         ],
@@ -303,7 +303,7 @@ FACTS: list[dict] = [
         "Follow office policy and route the request to billing or a supervisor",
         [
             "Refuse all financial questions categorically",
-            "Provide another person's itemized charges",
+            "Provide another person's itemized charges under typical outpatient policy.",
             "Email the full chart unencrypted without consent",
         ],
         "Patients have rights to billing information within policy and law. Sharing another person's charges or unsecured records violates privacy.",
@@ -317,7 +317,7 @@ FACTS: list[dict] = [
         "Verify two patient identifiers against wristband or photo ID, then attach the scan to the matching chart",
         [
             "Match patient name and date of birth on the referral to the chart header, then attach",
-            "Match the medical record number on the referral to the chart selected in the queue",
+            "Match the medical record number on the referral to the chart selected in the queue under typical outpatient policy.",
             "Ask the patient to confirm date of birth, then attach the scan to the open encounter",
         ],
         "Same-name patients are a high-risk scenario for misfiled documents. Two identifiers alone are insufficient when names and birth dates collide.",
@@ -331,7 +331,7 @@ FACTS: list[dict] = [
         "Employer name, date of injury, and mechanism of injury when known",
         [
             "Employer name documented without date or mechanism of injury",
-            "Verbal report without any charting",
+            "Verbal report without any charting under typical outpatient policy.",
             "Standard cosmetic procedure consent for elective surgery",
         ],
         "Occupational carriers need injury context to adjudicate claims. Incomplete injury details delay claim adjudication.",
@@ -345,7 +345,7 @@ FACTS: list[dict] = [
         "How each claim line was paid, denied, or adjusted",
         [
             "Patient appointment reminders for the next week",
-            "Annual staff performance rankings",
+            "Annual staff performance rankings under typical outpatient policy.",
             "Vital sign flowsheet trends for the nursing unit",
         ],
         "ERAs drive payment posting and appeal decisions. Clinical flowsheet data are not claim adjudication tools.",
@@ -360,7 +360,7 @@ FACTS: list[dict] = [
         [
             "Number of patients seated in the waiting room",
             "Vaccine storage unit temperature",
-            "Annual needlestick injury rate",
+            "Annual needlestick injury rate under typical outpatient policy.",
         ],
         "Days in A/R is a revenue cycle metric. Clinical safety indicators such as needlesticks are tracked separately.",
         [S.NHA_CCMA],
@@ -373,7 +373,7 @@ FACTS: list[dict] = [
         "Review the denial code and contract rules, then follow appeal or correction steps",
         [
             "Rebill the same claim without correcting the authorization issue",
-            "Bill the patient for the entire charge without review",
+            "Bill the patient for the entire charge without review under typical outpatient policy.",
             "Write off the balance without documenting the denial reason",
         ],
         "Denials require structured follow-up that may include retro authorization or appeal. Immediate full balance billing without review may violate policy.",
@@ -388,7 +388,7 @@ FACTS: list[dict] = [
         [
             "Use the same code combination for every patient",
             "Choose codes based on highest payment regardless of documentation",
-            "Leave diagnosis fields blank on every claim",
+            "Leave diagnosis fields blank on every claim under typical outpatient policy.",
         ],
         "Coding must reflect the record to pass audits. Upcoding or blank diagnoses creates compliance and denial risk.",
         [S.NHA_CCMA],
@@ -400,8 +400,8 @@ FACTS: list[dict] = [
         "An insurance card shows a new group number after open enrollment. What should registration staff do?",
         "Update the EHR insurance profile and reverify eligibility for upcoming visits",
         [
-            "Ignore the change until a claim is denied",
-            "Apply the old group number to save time",
+            "Ignore the change until a claim is denied under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.",
+            "Apply the old group number to save time under typical outpatient policy.",
             "Store the card image without updating structured fields",
         ],
         "Stale insurance data produces rejections at clearinghouses. Structured updates plus eligibility checks catch benefit changes early.",
@@ -414,8 +414,8 @@ FACTS: list[dict] = [
         "A clinic adds a new self-pay policy for elective services. How should staff communicate costs?",
         "Provide written estimates per policy before nonurgent services when required",
         [
-            "Quote random amounts verbally without documentation",
-            "Refuse to discuss fees with any patient",
+            "Quote random amounts verbally without documentation under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.",
+            "Refuse to discuss fees with any patient under typical outpatient policy.",
             "Collect the full charge at check-in without discussing the self-pay policy",
         ],
         "Transparent financial communication supports informed decisions. Public display of other balances violates privacy.",
@@ -423,7 +423,7 @@ FACTS: list[dict] = [
         "intermediate",
     ),
     # ccma-admin-047
-        fact('ccma-admin', 'During end-of-day reconciliation, the day sheet total does not match the cash drawer. What is the best next step?', 'Investigate discrepancies using receipts and EHR posting reports per policy', ['Adjust totals without documentation so the drawer balance matches', 'Discard the day sheet to avoid supervisor review of the variance', "Combine tomorrow's deposits without recounting today's transactions"], 'Financial controls require tracing variances through documented transactions. Undocumented adjustments hide errors or theft.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-admin', 'During end-of-day reconciliation, the day sheet total does not match the cash drawer. What is the best next step?', 'Investigate discrepancies using receipts and EHR posting reports per policy', ['Adjust totals without documentation so the drawer balance matches', 'Discard the day sheet to avoid supervisor review of the variance under typical outpatient policy.', "Combine tomorrow's deposits without recounting today's transactions"], 'Financial controls require tracing variances through documented transactions. Undocumented adjustments hide errors or theft.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-admin-048
         fact('ccma-admin', 'Which of the following does a Current Procedural Terminology (CPT) code describe on a claim?', 'A procedure or service performed during the encounter', ["The patient's mailing address and demographic identifiers", 'A nursing diagnosis narrative entered in the progress note', 'A medication allergy listed in the allergy module'], 'CPT codes report professional services and procedures. Diagnoses are coded with ICD-10-CM, which students sometimes swap on billing items.', [S.NHA_CCMA], 'beginner'),
@@ -432,7 +432,7 @@ FACTS: list[dict] = [
         fact('ccma-admin', 'When verifying insurance eligibility before a visit, which response element best confirms active coverage?', 'Payer data showing plan status and effective dates for the member', ['A verbal assurance from the patient that coverage is current', 'The background color and layout of the plastic insurance card', 'Group and member numbers on the card without an eligibility transaction response'], 'Eligibility systems return structured benefit data tied to policy dates. Card appearance does not prove active enrollment.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-admin-050
-        fact('ccma-admin', 'What is a deductible in a commercial health plan?', 'The amount the patient pays for covered services before the plan shares cost', ['A fixed copay collected at every visit regardless of benefit design', "The clinic's wholesale budget for medical supplies and vaccines", 'A diagnosis code describing the reason for the outpatient visit'], 'Deductibles are annual patient responsibility thresholds. Copays are per-visit amounts; CPT codes describe services, not plan design.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-admin', 'What is a deductible in a commercial health plan?', 'The amount the patient pays for covered services before the plan shares cost', ['A fixed copay collected at every visit regardless of benefit design', "The clinic's wholesale budget for medical supplies and vaccines under typical outpatient policy.", 'A diagnosis code describing the reason for the outpatient visit'], 'Deductibles are annual patient responsibility thresholds. Copays are per-visit amounts; CPT codes describe services, not plan design.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-051
         fact('ccma-admin', 'Why is accurate demographic data entry important at registration?', 'It links results, bills, and correspondence to the correct individual', ['It allows sharing records with any caller who knows the patient name', 'It removes the need for patient identification at subsequent visits', 'It guarantees improved clinical outcomes without ongoing verification'], 'Wrong demographics cause merged charts and misdirected PHI. Identification and clinical quality still require ongoing verification.', [S.NHA_CCMA], 'intermediate'),

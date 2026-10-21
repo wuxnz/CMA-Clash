@@ -13,7 +13,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Where in the respiratory tract does oxygen from inhaled air cross into the bloodstream?',
-        'Alveoli in the lungs',
+        'Alveoli in the lungs in the ambulatory setting.',
         [
             'Terminal bronchioles in the conducting zone',
             'Pulmonary capillaries without alveolar contact',
@@ -45,7 +45,7 @@ FACTS: list[dict] = [
         [
             'Produce antibodies against pathogens',
             'Form the first line of platelet plugs',
-            'Engulf bacteria by phagocytosis',
+            'Engulf bacteria by phagocytosis for routine ambulatory patient care.',
         ],
         'Hemoglobin in erythrocytes binds oxygen in the lungs and releases it where it is needed in tissues. Antibody production, clotting, and phagocytosis are roles of lymphocytes, platelets, and certain white cells.',
         [S.NHA_CCMA],
@@ -83,10 +83,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which artery is the largest in the human body?',
-        'Aorta',
+        'Aorta in the ambulatory setting.',
         [
             'Pulmonary artery',
-            'Femoral artery',
+            'Femoral artery when documented per facility policy.',
             'Common carotid artery',
         ],
         'The aorta leaves the left ventricle and branches to supply the systemic circulation. Regional arteries such as the pulmonary, femoral, and carotid vessels are smaller conduits downstream of the aorta.',
@@ -111,7 +111,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which skeletal muscle is the principal driver of quiet (resting) inspiration?',
-        'Diaphragm',
+        'Diaphragm in routine outpatient care.',
         [
             'External intercostal muscles between the ribs',
             'Sternocleidomastoid during quiet tidal breathing',
@@ -128,7 +128,7 @@ FACTS: list[dict] = [
         'The longest and strongest bone in the body',
         [
             'The humerus of the upper arm',
-            'The tibia of the lower leg',
+            'The tibia of the lower leg when documented per facility policy.',
             'The fibula lateral to the tibia',
         ],
         'The femur bears body weight during standing and walking. The humerus, tibia, and fibula are other long bones but the femur is the longest and strongest in the body.',
@@ -185,7 +185,7 @@ FACTS: list[dict] = [
         [
             'Gray matter of the spinal cord',
             'Dura mater of the meninges',
-            'Cerebellar cortex',
+            'Cerebellar cortex for routine ambulatory patient care.',
         ],
         'The choroid plexus secretes CSF into the ventricular system, which then circulates around the brain and spinal cord. Spinal gray matter, the dura, and cerebellar tissue are not the primary CSF factories.',
         [S.NHA_CCMA],
@@ -198,7 +198,7 @@ FACTS: list[dict] = [
         'Superior and inferior vena cava',
         [
             'Pulmonary veins',
-            'Aorta',
+            'Aorta when documented per facility policy.',
             'Coronary sinus',
         ],
         'The superior and inferior venae cavae return deoxygenated blood from the upper and lower body to the right atrium. Pulmonary veins bring oxygenated blood from the lungs to the left atrium, and the aorta leaves the left ventricle.',
@@ -209,10 +209,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'During a resting breath in, which muscle contraction most increases thoracic volume?',
-        'Diaphragm',
+        'Diaphragm in routine outpatient care.',
         [
             'External intercostal muscles',
-            'Rectus abdominis',
+            'Rectus abdominis when documented per facility policy.',
             'Genioglossus of the tongue',
         ],
         'Diaphragm descent is the dominant mechanism for quiet inspiration. Intercostals can assist with deeper breathing, abdominal muscles aid forced exhalation, and tongue muscles move the tongue rather than expand the chest.',
@@ -309,7 +309,7 @@ FACTS: list[dict] = [
         'What process occurs chiefly in red bone marrow?',
         'Hematopoiesis (formation of blood cells)',
         [
-            'Bile synthesis',
+            'Bile synthesis in a typical outpatient clinic setting.',
             'Cerebrospinal fluid production',
             'Pulmonary surfactant secretion',
         ],
@@ -337,7 +337,7 @@ FACTS: list[dict] = [
         'Which functions are coordinated mainly by the cerebellum?',
         'Balance, posture, and fine motor control',
         [
-            'Sharp central vision',
+            'Sharp central vision in a typical outpatient clinic setting.',
             'Sound localization in the ear',
             'Detection of airborne odors',
         ],
@@ -391,9 +391,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which layer of the heart wall contains the contractile cardiac muscle that generates pump force?',
-        'Myocardium',
+        'Myocardium per common clinical practice.',
         [
-            'Endocardium',
+            'Endocardium in a typical outpatient clinic setting.',
             'Epicardium (visceral pericardium)',
             'Pericardial fluid',
         ],
@@ -436,7 +436,7 @@ FACTS: list[dict] = [
         'Fluid balance, electrolyte regulation, and waste excretion',
         [
             'Primary regulation of blood glucose via insulin release',
-            'Initiation of each heartbeat at the sinoatrial node',
+            'Initiation of each heartbeat at the sinoatrial node when documented per facility policy.',
             'Production of bile for emulsification of dietary fat',
         ],
         'Nephrons filter plasma, reabsorb needed solutes and water, and excrete nitrogenous wastes while helping stabilize pH. Glucose, cardiac rhythm, and bile production involve the pancreas, SA node, and liver respectively.',
@@ -447,11 +447,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Into which great vessel does the left ventricle eject oxygenated blood?',
-        'Aorta',
+        'Aorta in the ambulatory setting.',
         [
             'Pulmonary artery',
             'Superior vena cava',
-            'Right atrium',
+            'Right atrium for routine ambulatory patient care.',
         ],
         'The aortic valve guards the outflow from the left ventricle into the systemic circulation. The pulmonary artery leaves the right ventricle, and the superior vena cava delivers venous blood to the right atrium.',
         [S.NHA_CCMA],
@@ -492,7 +492,7 @@ FACTS: list[dict] = [
         'Mitral (bicuspid) valve between the left atrium and left ventricle',
         [
             'Tricuspid valve between the right atrium and right ventricle',
-            'Aortic semilunar valve at the left ventricular outflow',
+            'Aortic semilunar valve at the left ventricular outflow when documented per facility policy.',
             'Pulmonary semilunar valve at the right ventricular outflow',
         ],
         'Bicuspid refers to two leaflets on the left AV valve. The tricuspid valve has three cusps on the right, and semilunar valves lack chordae tendineae because they guard arterial outlets rather than atrioventricular openings.',
@@ -517,7 +517,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'The visceral and parietal pleura envelop which organ pair?',
-        'Lungs',
+        'Lungs in the ambulatory setting.',
         [
             'Heart within the pericardium',
             'Liver in the right upper abdomen',
@@ -535,7 +535,7 @@ FACTS: list[dict] = [
         [
             'Oxygenated pulmonary veins from the lungs',
             'Renal pelvis draining urine toward the ureter',
-            'Cerebral venous sinuses of the brain',
+            'Cerebral venous sinuses of the brain for routine ambulatory patient care.',
         ],
         'Portal blood is rich in absorbed nutrients and must be processed by hepatocytes before entering systemic circulation via hepatic veins. Pulmonary veins carry oxygenated blood to the left atrium, and urine and cerebral venous drainage use separate pathways.',
         [S.NHA_CCMA],
@@ -545,10 +545,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which structure normally initiates each heartbeat and sets intrinsic sinus rhythm?',
-        'Sinoatrial (SA) node',
+        'Sinoatrial (SA) node in the ambulatory setting.',
         [
             'Atrioventricular (AV) node in isolation',
-            'Bundle of His without upstream input',
+            'Bundle of His without upstream input when documented per facility policy.',
             'Purkinje fibers without prior depolarization',
         ],
         'The SA node fires first and spreads depolarization through atrial muscle; the AV node delays the impulse before it reaches the bundle branches and Purkinje network. Those downstream structures conduct rather than spontaneously pace under normal conditions.',
@@ -605,7 +605,7 @@ FACTS: list[dict] = [
         [
             'Frontal lobe',
             'Temporal lobe',
-            'Cerebellum',
+            'Cerebellum for routine ambulatory patient care.',
         ],
         'The primary visual cortex lies along the calcarine sulcus in the occipital region. The frontal lobe plans movement and executive function, the temporal lobe handles audition and memory, and the cerebellum coordinates motor precision and balance.',
         [S.NHA_CCMA],
@@ -617,7 +617,7 @@ FACTS: list[dict] = [
         'In which spaces does cerebrospinal fluid (CSF) circulate after leaving the ventricular system?',
         'Subarachnoid space around the brain and spinal cord (and within ventricles)',
         [
-            'Epidural space between skull and dura',
+            'Epidural space between skull and dura in a typical outpatient clinic setting.',
             'Synovial cavities of diarthrodial joints',
             'Pericardial sac surrounding the heart',
         ],
@@ -631,7 +631,7 @@ FACTS: list[dict] = [
         'What effect does pancreatic glucagon have on blood glucose concentration?',
         'Raises blood glucose by promoting glycogen breakdown and gluconeogenesis',
         [
-            'Lowers blood glucose by increasing cellular uptake',
+            'Lowers blood glucose by increasing cellular uptake in a typical outpatient clinic setting.',
             'Increases urine volume by acting on renal tubules directly',
             'Slows heart rate through direct SA node inhibition',
         ],
@@ -644,7 +644,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which chamber of the heart receives oxygenated blood from the pulmonary veins?',
-        'Left atrium',
+        'Left atrium in the ambulatory setting.',
         [
             'Right atrium receiving systemic venous blood',
             'Right ventricle pumping blood to the lungs',
@@ -658,7 +658,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Where does gas exchange between air and blood occur in the respiratory system?',
-        'Alveoli of the lungs',
+        'Alveoli of the lungs in the ambulatory setting.',
         [
             'Larynx and vocal folds in the upper airway',
             'Mainstem bronchi in the conducting airways',
@@ -672,7 +672,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'A patient with right-sided heart failure may develop dependent edema because fluid backs up in which circulation?',
-        'Systemic venous circulation',
+        'Systemic venous circulation in routine outpatient care.',
         [
             'Pulmonary arterial circulation backing up into the lungs',
             'Coronary arterial circulation reducing myocardial perfusion',
@@ -686,7 +686,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which blood vessel carries deoxygenated blood from the right ventricle to the lungs?',
-        'Pulmonary artery',
+        'Pulmonary artery per common clinical practice.',
         [
             'Pulmonary vein returning oxygenated blood to the left atrium',
             'Aorta carrying oxygenated blood to the systemic circulation',
@@ -714,7 +714,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which structure prevents food from entering the trachea during swallowing?',
-        'Epiglottis',
+        'Epiglottis per common clinical practice.',
         [
             'Cricoid cartilage forming the lower laryngeal ring',
             'Arytenoid cartilages pivoting the vocal folds',
@@ -742,7 +742,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which organ produces bile that is stored in the gallbladder?',
-        'Liver',
+        'Liver in the ambulatory setting.',
         [
             'Pancreas secreting digestive enzymes and bicarbonate',
             'Gallbladder concentrating bile between meals',
@@ -756,11 +756,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'What is the main function of hemoglobin in red blood cells?',
-        'Bind and transport oxygen',
+        'Bind and transport oxygen per common clinical practice.',
         [
             'Produce antibodies against specific antigens',
             'Aggregate at injury sites to initiate clotting',
-            'Engulf bacteria by phagocytosis in tissues',
+            'Engulf bacteria by phagocytosis in tissues for routine ambulatory patient care.',
         ],
         'Hemoglobin carries oxygen from lungs to tissues. Platelets and white cells perform clotting and immune roles respectively.',
         [S.NHA_CCMA],
@@ -770,7 +770,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which valve separates the left atrium and left ventricle?',
-        'Mitral (bicuspid) valve',
+        'Mitral (bicuspid) valve in the ambulatory setting.',
         [
             'Tricuspid valve between the right atrium and ventricle',
             'Pulmonic semilunar valve at the right ventricular outflow',
@@ -788,7 +788,7 @@ FACTS: list[dict] = [
         [
             'Peripheral vasodilation from excess circulating volume',
             'Compensatory bradycardia to conserve myocardial oxygen',
-            'Hypertension from fluid overload in hypovolemia',
+            'Hypertension from fluid overload in hypovolemia for routine ambulatory patient care.',
         ],
         'Hypovolemia decreases preload, triggering compensatory tachycardia while pressure falls. Vasodilation with volume excess, bradycardia, and hypertensive overload describe different hemodynamic states.',
         [S.NHA_CCMA],
@@ -798,7 +798,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which structure connects the pharynx to the stomach?',
-        'Esophagus',
+        'Esophagus in routine outpatient care.',
         [
             'Trachea conducting air to the bronchi',
             'Ureter transporting urine to the bladder',
@@ -843,7 +843,7 @@ FACTS: list[dict] = [
         'Accessory muscles of respiration including sternocleidomastoid and scalenes',
         [
             'Diaphragm as the recruited muscle in forward-leaning tripod posture',
-            'External intercostals raising ribs with no neck muscle effort',
+            'External intercostals raising ribs with no neck muscle effort when documented per facility policy.',
             'Pectoralis major protraction as the main driver of tidal volume',
         ],
         'Tripod positioning recruits neck and chest accessory muscles when diaphragm effort is insufficient. In severe COPD exacerbation, sternocleidomastoid and scalenes augment a fatiguing diaphragm.',
@@ -868,7 +868,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'Which blood cell type is primarily responsible for hemostasis through plug formation?',
-        'Platelets',
+        'Platelets in routine outpatient care.',
         [
             'Erythrocytes carrying oxygen via hemoglobin',
             'Lymphocytes mediating adaptive immune responses',
@@ -882,7 +882,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'What do hormones such as cortisol from the adrenal cortex help regulate?',
-        'Metabolism and stress response',
+        'Metabolism and stress response in routine outpatient care.',
         [
             'Mineralocorticoid-mediated sodium retention in the nephron',
             'Parathyroid hormone regulation of serum calcium',
@@ -896,7 +896,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-anatomy',
         'A patient with left-sided weakness and slurred speech is suspected of acute stroke. Which anatomic system is primarily affected?',
-        'Central nervous system',
+        'Central nervous system per common clinical practice.',
         [
             'Peripheral nervous system with nerve root compression',
             'Neuromuscular junction failure at the motor end plate',
