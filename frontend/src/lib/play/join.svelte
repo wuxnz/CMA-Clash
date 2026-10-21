@@ -11,7 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import { normalizeGameMode } from '$lib/play/live-game';
-	import { waitForPlaySocketConnected } from '$lib/play/player-socket-session';
+	import { warmPlaySocketConnection } from '$lib/play/player-socket-session';
 	import * as Sentry from '@sentry/browser';
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
@@ -186,6 +186,18 @@ SPDX-License-Identifier: MPL-2.0
 		if (game_pin.length > 5) set_game_pin();
 	});
 
+	$effect(() => {
+		if (!browser || game_pin.length < 6) return;
+		void warmPlaySocketConnection(30_000)
+			.then(() => {
+				socketConnected = true;
+				joinError = '';
+			})
+			.catch(() => {
+				socketConnected = socket.connected;
+			});
+	});
+
 	const emitJoin = (captcha_resp?: string) => {
 		socket.emit('join_game', {
 			username,
@@ -203,7 +215,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		if (Cookies.get('kicked')) return;
 		try {
-			await waitForPlaySocketConnected(25_000);
+			await warmPlaySocketConnection(30_000);
 			socketConnected = true;
 		} catch {
 			joinError = joinErrorMessage('not_connected');

@@ -59,7 +59,8 @@ import {
 	normalizePlayPin,
 	preparePlaySessionForPin,
 	readJoinedGameCookie,
-	waitForPlaySocketConnected
+	waitForPlaySocketConnected,
+	warmPlaySocketConnection
 } from './player-socket-session';
 
 describe('player socket session cookies', () => {
@@ -92,6 +93,15 @@ describe('player socket session cookies', () => {
 		expect(emitRejoinFromCookie('222222')).toBe(false);
 		expect(socketMock.emit).not.toHaveBeenCalled();
 		expect(readJoinedGameCookie()).toBeNull();
+	});
+
+	it('warmPlaySocketConnection dedupes concurrent waiters', async () => {
+		socketMock.connected = false;
+		const a = warmPlaySocketConnection(1000);
+		const b = warmPlaySocketConnection(1000);
+		socketMock._simulateConnect();
+		await expect(Promise.all([a, b])).resolves.toBeDefined();
+		expect(socketMock.connect).toHaveBeenCalledTimes(1);
 	});
 
 	it('waitForPlaySocketConnected resolves after connect event', async () => {
