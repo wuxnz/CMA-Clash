@@ -5,7 +5,7 @@
 import Cookies from 'js-cookie';
 import { socket } from '$lib/socket';
 import { attachPlaySocketDebug } from '$lib/play/play-socket-debug';
-import { resetPlaySocketBinding } from '$lib/play/play-socket-pin';
+import { markPlaySocketBound, resetPlaySocketBinding } from '$lib/play/play-socket-pin';
 
 export interface JoinedGameCookie {
 	sid: string;
@@ -121,10 +121,12 @@ export function emitRejoinFromCookie(gamePinFallback?: string): boolean {
 		clearJoinedGameCookie();
 		return false;
 	}
+	const pin = payload.game_pin || gamePinFallback || '';
+	markPlaySocketBound(pin);
 	socket.emit('rejoin_game', {
 		old_sid: payload.sid,
 		username: payload.username,
-		game_pin: payload.game_pin || gamePinFallback || ''
+		game_pin: pin
 	});
 	return true;
 }
