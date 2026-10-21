@@ -1787,4 +1787,46 @@ FACTS: list[dict] = [
         ["FDA: CLIA Waived Tests — https://www.fda.gov/medical-devices/ivd-regulatory-assistance/clia-waived-tests", "American Diabetes Association: Standards of Care in Diabetes — https://diabetesjournals.org/care/issue/48/Supplement_1"],
         "beginner",
     ),
+    # ccma-diabetes-128
+    fact(
+        "ccma-diabetes",
+        "Why should a patient with diabetes inspect feet daily?",
+        "Neuropathy can hide injury until infection develops",
+        [
+            "Foot exams replace HbA1c testing",
+            "Shoes are unnecessary if vision is normal",
+            "Glucose monitoring becomes optional",
+        ],
+        "Peripheral neuropathy reduces sensation, delaying wound care. Foot checks complement, not replace, glycemic monitoring and eye care.",
+        [S.NHA_CCMA],
+        "intermediate",
+    ),
+    # ccma-diabetes-129
+    fact(
+        "ccma-diabetes",
+        "Which finding during a foot exam should be reported promptly to the provider?",
+        "A new open ulcer with surrounding erythema",
+        [
+            "Trimmed toenails from last week",
+            "Normal skin temperature symmetry",
+            "Presence of socks",
+        ],
+        "Open lesions with inflammation suggest infection risk in diabetes. Routine grooming or symmetric warmth are not acute warning signs.",
+        [S.NHA_CCMA],
+        "advanced",
+    ),
+    # ccma-diabetes-130
+    fact(
+        "ccma-diabetes",
+        "A patient brings a personal blood glucose log to clinic. How should the team use it?",
+        "Review patterns with the patient and share relevant trends with the provider",
+        [
+            "Discard it without reading",
+            "Post values on a public board",
+            "Use it to bill without clinical review",
+        ],
+        "Home logs inform medication and lifestyle adjustments. Public display violates privacy; billing requires clinical relevance.",
+        [S.NHA_CCMA],
+        "beginner",
+    ),
 ]

@@ -611,4 +611,77 @@ FACTS: list[dict] = [
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
         'advanced',
     ),
+
+    # ccma-vaccines-044
+    fact(
+        'ccma-vaccines',
+        'Where should most refrigerated vaccines be stored in the clinic?',
+        'In a dedicated medical refrigerator with continuous temperature monitoring',
+        ['In the staff lunch refrigerator next to food',
+        'On a windowsill with direct sunlight',
+        'In a freezer compartment for all products'],
+        'CDC storage guidance requires monitored, dedicated units to maintain the cold chain. Food refrigerators and freezing inappropriate products ruin potency.',
+        [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-vaccines-045
+    fact(
+        'ccma-vaccines',
+        'Before giving an injectable vaccine, which "right" confirms the correct patient?',
+        'Verify identity with at least two identifiers per facility policy',
+        ['Use room number alone',
+        'Ask the waiting room who wants a shot',
+        'Rely on clothing color'],
+        'Two-identifier checks prevent wrong-patient immunization errors. Room numbers change and clothing is not unique.',
+        [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-vaccines-046
+    fact(
+        'ccma-vaccines',
+        'A vaccine refrigerator alarm shows a temperature of 46°F (8°C) overnight. What is the first step?',
+        'Document the event, relocate vaccines per protocol, and contact the immunization coordinator',
+        ['Administer all vials immediately to avoid waste',
+        'Silence the alarm and take no action',
+        'Move vaccines to the freezer to cool faster'],
+        'Excursions require assessment before use; administering potentially compromised vaccine risks ineffective immunity. Freezing can destroy many products.',
+        [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-vaccines-047
+    fact(
+        'ccma-vaccines',
+        'Which documentation is required after administering a vaccine?',
+        'Vaccine name, lot number, site, route, and administrator per policy',
+        ['Patient favorite meal',
+        'Parking spot number',
+        'Unrelated vital signs from last year'],
+        'Immunization records support recall and adverse event investigation. Nonclinical trivia does not meet registry or legal documentation needs.',
+        [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-vaccines-048
+    fact(
+        'ccma-vaccines',
+        'What should be done with a multidose vial after the beyond-use date on the label?',
+        'Discard per policy even if liquid remains',
+        ['Pool remaining doses for multiple patients',
+        'Store at room temperature indefinitely',
+        'Transfer to a food refrigerator'],
+        'Opened vials have limited stability to prevent bacterial growth and potency loss. Pooling doses between patients violates injection safety.',
+        [S.CDC_INJECTION_SAFETY, S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
+        'intermediate',
+    ),
+    # ccma-vaccines-049
+    fact(
+        'ccma-vaccines',
+        'Why is aspiration generally not recommended during routine vaccine injections?',
+        'Vaccines are given intramuscularly where blood vessels are not routinely entered',
+        ['Aspiration improves vaccine potency',
+        'Aspiration is required for every deltoid injection',
+        'Aspiration replaces the need for site rotation'],
+        'Current CDC administration guidance does not recommend aspiration for standard IM vaccines. Aspiration does not address site rotation or potency.',
+        [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
+        'intermediate',
+    ),
 ]

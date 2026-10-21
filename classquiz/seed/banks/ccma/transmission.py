@@ -695,5 +695,101 @@ FACTS: list[dict] = [
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
         "advanced",
     ),
-]
 
+    # ccma-transmission-050
+    fact(
+        "ccma-transmission",
+        "For which patient would Droplet Precautions be appropriate when infection is suspected?",
+        "A patient with suspected pertussis with productive cough",
+        ["A patient with C. difficile diarrhea",
+        "A patient with airborne tuberculosis in a negative-pressure room",
+        "A patient with intact skin and no infection"],
+        "Large-droplet illnesses such as pertussis require mask and spatial separation. C. difficile uses Contact Precautions; tuberculosis uses Airborne Precautions.",
+        [S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "intermediate",
+    ),
+    # ccma-transmission-051
+    fact(
+        "ccma-transmission",
+        "An outpatient clinic triages a patient with fever and vesicular rash consistent with varicella. What precaution set is needed in addition to Standard Precautions?",
+        "Airborne and Contact Precautions per policy, including isolation and PPE",
+        ["Droplet Precautions with no mask",
+        "No precautions because rash is visible",
+        "Remove PPE before entering the room"],
+        "Varicella spreads by airborne and contact routes; combined precautions protect staff and other patients. Droplet alone is insufficient for varicella.",
+        [S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "advanced",
+    ),
+    # ccma-transmission-052
+    fact(
+        "ccma-transmission",
+        "Which PPE is added for Contact Precautions when entering the room?",
+        "Gown and gloves for all room entry",
+        ["N95 respirator for every patient",
+        "Street clothes with no hand hygiene",
+        "Double gloves without gown"],
+        "Contact isolation stops touch transmission of pathogens such as MRSA or C. difficile spores. N95 is for airborne precautions, not routine contact.",
+        [S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "beginner",
+    ),
+    # ccma-transmission-053
+    fact(
+        "ccma-transmission",
+        "Why is hand hygiene with soap and water emphasized for C. difficile prevention?",
+        "Alcohol-based rubs do not reliably remove spores from hands",
+        ["Soap increases spore production",
+        "Gloves replace the need to clean hands after removal",
+        "Spores are killed by air drying alone"],
+        "C. difficile spores resist alcohol rubs; mechanical washing helps remove them. Gloves do not replace hand hygiene after doffing.",
+        [S.CDC_HAND_HYGIENE, S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "intermediate",
+    ),
+    # ccma-transmission-054
+    fact(
+        "ccma-transmission",
+        "When should an N95 respirator be used in addition to Standard Precautions?",
+        "When Airborne Precautions are required and the user is fit tested",
+        ["For every routine blood glucose check",
+        "When entering the break room",
+        "Instead of hand hygiene after glove removal"],
+        "Fit-tested N95 filters small airborne particles for diseases such as tuberculosis. Routine point-of-care testing does not require respirators.",
+        [S.CDC_ISOLATION_2007, S.OSHA_BBP, S.NHA_CCMA],
+        "intermediate",
+    ),
+    # ccma-transmission-055
+    fact(
+        "ccma-transmission",
+        "What distance guideline helps limit droplet transmission in clinic policy?",
+        "Maintain spatial separation of about 3 to 6 feet when feasible",
+        ["Stand within one inch without a mask",
+        "Place infectious patients in the hallway",
+        "Remove masks to improve hearing"],
+        "Large droplets fall quickly; distance and masks reduce exposure. Hallway placement and unmasked close contact increase spread.",
+        [S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "intermediate",
+    ),
+    # ccma-transmission-056
+    fact(
+        "ccma-transmission",
+        "A patient with suspected influenza is placed on Droplet Precautions. Which mask is appropriate for staff entering the room?",
+        "Surgical or medical mask covering nose and mouth",
+        ["No mask if vaccinated against unrelated diseases",
+        "Oxygen mask on the staff member",
+        "Cloth face covering worn under the chin"],
+        "Droplet precautions block large particles from coughs. Vaccination against other diseases does not remove mask need during infectious periods.",
+        [S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "intermediate",
+    ),
+    # ccma-transmission-057
+    fact(
+        "ccma-transmission",
+        "When transporting a patient on Airborne Precautions, what additional step is required?",
+        "Have the patient wear a mask if tolerated and notify receiving staff",
+        ["Remove all PPE in the elevator",
+        "Discontinue precautions in the hallway",
+        "Share a wheelchair without cleaning between patients"],
+        "Transport plans maintain precautions along the route. Hallway travel without masks spreads particles.",
+        [S.CDC_ISOLATION_2007, S.NHA_CCMA],
+        "intermediate",
+    ),
+]
