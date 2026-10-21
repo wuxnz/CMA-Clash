@@ -47,9 +47,9 @@ FACTS: list[dict] = [
         "What processing step do serum separator tubes for routine chemistry often require before centrifugation?",
         "Upright clotting for the laboratory-defined interval",
         [
-            "Immediate freezing before clot formation completes",
-            "Microwave heating until the sample reaches body temperature",
-            "Saline dilution to the manufacturer fill line before centrifugation",
+            "Immediate centrifugation without allowing clot formation to complete",
+            "Eight to ten inversions followed by refrigeration before centrifugation",
+            "Horizontal storage on ice while the clot forms inside the tube",
         ],
         "Complete clot formation allows fibrin to contract so serum separates cleanly during centrifugation. "
         "GP41-aligned processing follows the test manual for clot time, temperature, and validated spin settings.",
@@ -75,7 +75,7 @@ FACTS: list[dict] = [
         "Which conditions must be maintained when transporting blood specimens from the collection site to the laboratory?",
         "Transport temperature and timing per the requisition or procedure manual",
         [
-            "Direct sunlight exposure to limit condensation on tube exteriors",
+            "Transport in an uncooled vehicle trunk without documenting elapsed time",
             "Open caps to equalize ambient temperature during transit",
             "Ambient room temperature for all specimens without checking stability limits",
         ],
@@ -89,7 +89,7 @@ FACTS: list[dict] = [
         "What additional protection may be required when collecting or transporting specimens for light-sensitive analytes such as bilirubin?",
         "Amber wrap or light-blocking transport per the test manual",
         [
-            "Deliberate UV light exposure to stabilize pigment concentration",
+            "Routine fluorescent light exposure with no amber wrap when bilirubin is ordered",
             "Clear plastic bags so tube contents stay visible during transit",
             "One hour of room-light exposure before the specimen is analyzed",
         ],
@@ -118,7 +118,7 @@ FACTS: list[dict] = [
         "Specimen recollection per laboratory and provider policy",
         [
             "Reporting the numeric potassium result without a hemolysis comment",
-            "Saline dilution of the sample to lower the hemolysis index",
+            "Reporting the potassium with a hemolysis note while skipping laboratory recollect policy",
             "Citrate anticoagulant added from another tube to correct electrolytes",
         ],
         "Laboratories define hemolysis indices and reject rules so clinically misleading potassium values are not released silently. "
@@ -217,7 +217,7 @@ FACTS: list[dict] = [
         [
             "Routine complete blood counts collected in outpatient clinics",
             "Urine dipstick screenings for routine outpatient wellness visits",
-            "Internal laboratory staff scheduling and shift assignment records",
+            "Outpatient chemistry panels sent to reference labs without custody seals",
         ],
         "Each transfer of a legal specimen is logged with seals, signatures, and continuity of possession. "
         "Routine clinical chemistry does not use chain-of-custody forms unless the order specifies forensic or legal analysis.",
@@ -299,7 +299,7 @@ FACTS: list[dict] = [
         "Which elements should point-of-care testing logs record for each patient test?",
         "Operator, QC, patient identifiers, and result for each patient test",
         [
-            "Ambient outdoor temperature at the time of testing",
+            "Device serial number recorded without operator, QC, or patient linkage",
             "Random numeric codes substituted for patient identifiers",
             "Equipment serial number without operator, QC, or patient linkage",
         ],
@@ -355,7 +355,7 @@ FACTS: list[dict] = [
         "What preanalytic damage can occur when blood tubes are exposed to extreme heat during summer transport?",
         "Red cell lysis and degradation of temperature-labile analytes",
         [
-            "Automatic internal cooling within the evacuated collection tube",
+            "Stable analyte concentrations when capped tubes sit in direct summer sun",
             "Improved enzymatic stability for temperature-sensitive chemistry analytes",
             "Unchanged specimen quality when tube labels remain complete",
         ],
@@ -369,7 +369,7 @@ FACTS: list[dict] = [
         "What can delayed centrifugation of fluoride or oxalate glucose tubes still allow?",
         "Continued in vitro glycolysis if processing waits too long",
         [
-            "Permanent freezing of glucose at room temperature",
+            "Stable glucose for seventy-two hours at room temperature without timely processing",
             "Stable glucose for twenty-four hours at room temperature in gray tubes",
             "Elevation of INR in the same tube",
         ],
@@ -411,7 +411,7 @@ FACTS: list[dict] = [
         "When a butterfly set is used for multiple tubes, maintaining flow helps?",
         "Prevent clot formation in the tubing and ensure proper tube fill",
         [
-            "Allow air bubbles to replace blood in each tube",
+            "Clamp the tubing between each tube until the line clears of blood",
             "Stop flow between every tube for five minutes",
             "Ignore underfilled tubes to save time",
         ],
@@ -425,9 +425,9 @@ FACTS: list[dict] = [
         "Why time of collection on the label matters for what reason?",
         "Reference ranges and stability calculations often depend on draw time",
         [
-            "It is decorative information for the courier only",
-            "It replaces the need for patient identification",
-            "It determines the phlebotomist shift bonus",
+            "Optional when the laboratory accessioning system scans barcodes at receipt",
+            "Required only for timed drug levels, not for routine chemistry panels",
+            "Omitted on stat orders when the draw time is documented on the requisition",
         ],
         "Therapeutic drug monitoring and timed tests interpret results relative to dose and fasting clocks. "
         "GP41 labeling standards include collection date and time for preanalytic traceability.",
@@ -469,7 +469,7 @@ FACTS: list[dict] = [
         [
             "Frozen in the primary EDTA tube without centrifuging when policy forbids it",
             "Thawed repeatedly at room temperature without limit",
-            "Stored in formalin for long-term chemistry",
+            "Stored at room temperature indefinitely without a validated freezer or thaw protocol",
         ],
         "Incorrect freeze-thaw handling destroys labile analytes. "
         "Laboratory manuals aligned with GP41 define when to spin, separate, and freeze specific tests.",
@@ -483,7 +483,7 @@ FACTS: list[dict] = [
         [
             "Whichever cold pack is nearest the collection area that day",
             "Never using ice because all tests are room temperature",
-            "Patient preference between wet and dry cooling",
+            "Crushed dry ice for every outpatient chemistry panel regardless of the test list",
         ],
         "Some specimens need wet ice; others tolerate insulated cool packs without free water exposure. "
         "GP41 transport sections defer to validated laboratory shipping methods.",

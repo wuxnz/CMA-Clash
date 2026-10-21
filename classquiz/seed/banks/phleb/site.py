@@ -60,7 +60,7 @@ FACTS: list[dict] = [
         "Three to four inches (about 8–10 cm) proximal to the intended puncture site",
         [
             "Distal to the puncture site below the antecubital crease on the forearm",
-            "Around the neck when antecubital veins appear flat or difficult to palpate",
+            "Doubled on the upper arm overlapping the antecubital crease for extra pressure",
             "Directly over the selected vein to hold the vessel stationary during entry",
         ],
         "Proximal placement distends the vein without compressing the puncture field. "
@@ -154,15 +154,15 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "Venipuncture should be avoided on an arm with which of the following conditions?",
-        "An active IV infusion, dialysis vascular access, or mastectomy-side restrictions per policy",
+        "Which finding on an arm is a reason to choose the other arm for venipuncture when possible?",
+        "A running IV infusion with fluids entering that arm",
         [
-            "A bandage on an unrelated finger on the same hand without arm precautions",
-            "Short fingernails on the hand used to stabilize the venipuncture site",
-            "A blood pressure measurement on the opposite arm earlier the same day",
+            "A blood pressure cuff on that arm within the past hour",
+            "Patient preference to use the dominant arm for laboratory draws",
+            "A healed intravenous catheter site on that arm from a prior admission",
         ],
-        "Drawing distal to running IV fluids dilutes specimens, and fistula or lymphedema precautions protect vulnerable arms. "
-        "GP41 site-selection guidance directs collectors away from compromised circulation or lymphatic risk.",
+        "Specimens drawn below a running IV line are diluted by infusate. A recent cuff, dominant-arm preference, or old healed site "
+        "are common misconceptions; GP41 prioritizes avoiding active infusion and protected access arms.",
         _REF,
         "intermediate",
     ),
@@ -424,7 +424,7 @@ FACTS: list[dict] = [
         "Obtain help from another qualified collector or a supervisor per policy",
         [
             "Continue attempts with the same collector until blood is obtained",
-            "Discharge the patient without notifying the ordering provider",
+            "Send the patient home and schedule a return draw without supervisor involvement",
             "Re-puncture the identical site with the next larger needle gauge",
         ],
         "Limiting attempts reduces hematoma, nerve injury, and patient distress from repeated trauma. "
@@ -466,7 +466,7 @@ FACTS: list[dict] = [
         "Avoided because extravasation is likely and veins are hard to palpate",
         [
             "Preferred because pooled blood outlines the vessel for entry",
-            "Performed through the center of the bruise to evacuate trapped blood",
+            "Attempted at the bruise edge where discoloration marks the vein course",
             "Completed with minimal post-stick pressure to observe oozing",
         ],
         "An existing hematoma signals prior vessel injury and unreliable access at that location. "

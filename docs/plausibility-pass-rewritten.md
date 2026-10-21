@@ -63,7 +63,7 @@ Scope: `classquiz/seed/banks/cpr/aed.py` (50 items, AHA BLS AED/defibrillation).
 
 ## CPR adult/child/infant
 
-**Facts touched:** 37
+**Facts touched:** 36
 
 - What is the recommended compression depth range for most adults
 - An unresponsive adult is on a soft mattress during CPR and comp
@@ -101,3 +101,94 @@ Scope: `classquiz/seed/banks/cpr/aed.py` (50 items, AHA BLS AED/defibrillation).
 - During CPR on an infant with suspected foreign body obstructio
 - During two-rescuer infant CPR, the compressor using two-thumb 
 - A premature infant in the home develops unresponsiveness and a
+
+## Phleb site and handling
+
+Scope: `classquiz/seed/banks/phleb/site.py` (43 items, topic phleb-site) and `classquiz/seed/banks/phleb/handling.py` (39 items, topic phleb-handling). Stems, keys, and explanations unchanged unless noted.
+
+| ID | Result | Notes |
+|----|--------|-------|
+| phleb-site-001 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-002 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-003 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-004 | fail | Replaced neck tourniquet with upper-arm overlap pressure near-miss. |
+| phleb-site-005 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-006 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-007 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-008 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-009 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-010 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-011 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-012 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-013 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-014 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-015 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-016 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-017 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-018 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-019 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-020 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-021 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-022 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-023 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-024 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-025 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-026 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-027 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-028 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-029 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-030 | fail | Replaced discharge-without-notify with send-home reschedule without supervisor near-miss. |
+| phleb-site-031 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-032 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-033 | fail | Replaced center-of-bruise evacuation with bruise-edge vein-course near-miss. |
+| phleb-site-034 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-035 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-036 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-037 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-038 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-039 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-040 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-041 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-042 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-site-043 | pass | Parallel CLSI-aligned near-miss distractors; no edit. |
+| phleb-handling-001 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-002 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-003 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-004 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-005 | fail | Replaced sunlight-condensation joke with uncooled trunk transport near-miss. |
+| phleb-handling-006 | fail | Replaced deliberate UV with routine fluorescent/no-amber bilirubin near-miss. |
+| phleb-handling-007 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-008 | fail | Replaced saline dilution with report-with-note skipping recollect near-miss. |
+| phleb-handling-009 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-010 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-011 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-012 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-013 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-014 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-015 | fail | Replaced staff scheduling joke with reference-lab chemistry without custody near-miss. |
+| phleb-handling-016 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-017 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-018 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-019 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-020 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-021 | fail | Replaced outdoor temperature with device serial without patient/QC linkage near-miss. |
+| phleb-handling-022 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-023 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-024 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-025 | fail | Replaced automatic internal cooling with capped tubes in direct sun stability myth. |
+| phleb-handling-026 | fail | Replaced permanent room-temperature freezing with 72-hour gray-tube stability near-miss. |
+| phleb-handling-027 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-028 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-029 | fail | Replaced air-bubble cartoon with line-clamp-between-tubes near-miss. |
+| phleb-handling-030 | fail | Replaced decorative/shift-bonus jokes with barcode-only, TDM-only, stat-omit near-misses. |
+| phleb-handling-031 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-032 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-033 | fail | Replaced formalin storage with indefinite room-temperature hold near-miss. |
+| phleb-handling-034 | fail | Replaced patient ice preference with dry-ice-for-all-chemistry near-miss. |
+| phleb-handling-035 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-036 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-037 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-038 | pass | Parallel preanalytic near-miss distractors; no edit. |
+| phleb-handling-039 | pass | Parallel preanalytic near-miss distractors; no edit. |
+
+**Batch summary:** 82 items reviewed (3 site edits, 11 handling edits). 68 items passed without changes. Distractors use near-miss phlebotomy errors (wrong site, timing, transport, or documentation) rather than joke or self-refuting options.
