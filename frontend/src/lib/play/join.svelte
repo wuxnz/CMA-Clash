@@ -56,6 +56,8 @@ SPDX-License-Identifier: MPL-2.0
 	};
 	const onSocketDisconnect = () => {
 		socketConnected = false;
+		joining = false;
+		battleAutoJoinStarted = false;
 	};
 	const onGameNotFound = () => {
 		joining = false;
@@ -67,6 +69,9 @@ SPDX-License-Identifier: MPL-2.0
 	const onJoinedGameJoinUi = () => {
 		joining = false;
 		joinError = '';
+	};
+	const onRejoinRejected = () => {
+		joining = false;
 	};
 
 	onMount(() => {
@@ -90,6 +95,7 @@ SPDX-License-Identifier: MPL-2.0
 		socket.on('game_not_found', onGameNotFound);
 		socket.on('username_already_exists', onUsernameAlreadyExists);
 		socket.on('joined_game', onJoinedGameJoinUi);
+		socket.on('rejoin_rejected', onRejoinRejected);
 		if (socket.connected) {
 			socketConnected = true;
 		}
@@ -107,6 +113,7 @@ SPDX-License-Identifier: MPL-2.0
 			socket.off('game_not_found', onGameNotFound);
 			socket.off('username_already_exists', onUsernameAlreadyExists);
 			socket.off('joined_game', onJoinedGameJoinUi);
+			socket.off('rejoin_rejected', onRejoinRejected);
 		}
 	});
 
@@ -189,6 +196,16 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		joining = true;
+		const joinAck = setTimeout(() => {
+			if (joining) {
+				joining = false;
+				joinError = joinErrorMessage('not_connected');
+			}
+		}, 45_000);
+		const clearJoinAck = () => clearTimeout(joinAck);
+		socket.once('joined_game', clearJoinAck);
+		socket.once('join_error', clearJoinAck);
+		socket.once('rejoin_rejected', clearJoinAck);
 		if (captcha_enabled) {
 			if (hcaptchaSitekey) {
 				try {

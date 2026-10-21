@@ -4,6 +4,7 @@
 
 import { browser } from '$app/environment';
 import { socket } from '$lib/socket';
+import { isPlaySocketBoundToExpectedPin } from '$lib/play/play-socket-pin';
 
 export type PlayPageSocketHandlers = {
 	onTimeSync: (data: unknown) => void;
@@ -25,21 +26,29 @@ export type PlayPageSocketHandlers = {
 let activeHandlers: PlayPageSocketHandlers | null = null;
 let installed = false;
 
+function guard<T extends (...args: never[]) => void>(fn: T): T {
+	return ((...args: Parameters<T>) => {
+		if (!isPlaySocketBoundToExpectedPin()) return;
+		fn(...args);
+	}) as T;
+}
+
 const onTimeSync = (data: unknown) => activeHandlers?.onTimeSync(data);
 const onClockSync = (data: { server_time_ms?: number }) => activeHandlers?.onClockSync(data);
 const onJoinedGame = (data: unknown) => activeHandlers?.onJoinedGame(data);
 const onRejoinedGame = (data: unknown) => activeHandlers?.onRejoinedGame(data);
 const onGameNotFound = () => activeHandlers?.onGameNotFound();
-const onQuestionTimesUp = () => activeHandlers?.onQuestionTimesUp();
-const onSetQuestionNumber = (data: Record<string, unknown>) =>
-	activeHandlers?.onSetQuestionNumber(data);
-const onStartGame = () => activeHandlers?.onStartGame();
+const onQuestionTimesUp = guard(() => activeHandlers?.onQuestionTimesUp());
+const onSetQuestionNumber = guard((data: Record<string, unknown>) =>
+	activeHandlers?.onSetQuestionNumber(data)
+);
+const onStartGame = guard(() => activeHandlers?.onStartGame());
 const onJoinError = (payload?: { code?: string }) => activeHandlers?.onJoinError(payload);
-const onQuestionResults = (data: unknown) => activeHandlers?.onQuestionResults(data);
+const onQuestionResults = guard((data: unknown) => activeHandlers?.onQuestionResults(data));
 const onUsernameAlreadyExists = () => activeHandlers?.onUsernameAlreadyExists();
 const onKick = () => activeHandlers?.onKick();
 const onFinalResults = (data: unknown) => activeHandlers?.onFinalResults(data);
-const onSolutions = (data: unknown) => activeHandlers?.onSolutions(data);
+const onSolutions = guard((data: unknown) => activeHandlers?.onSolutions(data));
 
 function installOnce(): void {
 	if (!browser || installed) return;

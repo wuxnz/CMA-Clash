@@ -31,7 +31,7 @@ SPDX-License-Identifier: MPL-2.0
 		parseQuestionResultsPayload,
 		type StandingsRow
 	} from '$lib/play/live-game';
-	import { applyQuestionResultScores } from '$lib/play/live-scoring';
+	import { integrateLiveQuestionResults } from '$lib/play/live-scoring';
 	import {
 		applyClockSync,
 		parseQuestionTiming,
@@ -160,16 +160,20 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		game_state.question_results = rows;
-		standingsTop = top;
 		game_state.timer_res = '0';
-		const applied = applyQuestionResultScores(
-			game_state.player_scores ?? {},
-			rows,
-			resultsIndex ?? game_state.shown_question_now ?? game_state.selected_question,
-			lastScoreAppliedQuestionIndex
+		const scoreIndex =
+			resultsIndex ?? game_state.shown_question_now ?? game_state.selected_question;
+		const integrated = integrateLiveQuestionResults(
+			{
+				scores: game_state.player_scores ?? {},
+				lastAppliedQuestionIndex: lastScoreAppliedQuestionIndex,
+				standingsTop
+			},
+			{ questionIndex: scoreIndex, rows, standingsTop: top }
 		);
-		game_state.player_scores = applied.scores;
-		lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
+		game_state.player_scores = integrated.scores;
+		lastScoreAppliedQuestionIndex = integrated.lastAppliedQuestionIndex;
+		standingsTop = integrated.standingsTop;
 		livePhase = 'reveal';
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {

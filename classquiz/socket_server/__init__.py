@@ -46,7 +46,7 @@ from classquiz.socket_server.game_sync import (
     sync_player_to_live_game,
 )
 from classquiz.socket_server.timing import server_now_ms
-from classquiz.socket_server.session import get_session, save_session
+from classquiz.socket_server.session import detach_socket_from_prior_game, get_session, save_session
 
 _settings = settings()
 _socket_cors = _settings.parsed_cors_origins() or "*"
@@ -109,7 +109,16 @@ async def rejoin_game(sid: str, data: dict):
     redis_sid_key = f"game_session:{data.game_pin}:players:{data.username}"
     old_sid = await redis.get(redis_sid_key)
     if old_sid != data.old_sid:
+        await sio.emit("rejoin_rejected", {"code": "stale_sid"}, room=sid)
         return
+    try:
+        prior = await get_session(sid, sio, disconnect_on_error=False)
+        prior_pin = prior.get("game_pin")
+        if prior_pin and prior_pin != data.game_pin:
+            await sio.emit("rejoin_rejected", {"code": "pin_mismatch"}, room=sid)
+            return
+    except ConnectionRefusedError:
+        pass
     encrypted_datetime = fernet.encrypt(datetime.now().isoformat().encode("utf-8")).decode("utf-8")
     await sio.emit("time_sync", encrypted_datetime, room=sid)
     await _emit_clock_sync(sid)
@@ -181,6 +190,8 @@ async def join_game(sid: str, data: dict):
         await sio.emit("join_error", {"code": "username_taken"}, room=sid)
         await sio.emit("username_already_exists", room=sid)
         return
+
+    await detach_socket_from_prior_game(sio, sid)
 
     session = {
         "game_pin": data.game_pin,
@@ -274,14 +285,12 @@ async def get_question_results(sid: str, data: dict):
     if not closed:
         # Question already closed (auto-advance or prior show_results). Re-emit only for
         # late admin sync — clients must treat question_results idempotently per index.
+        from classquiz.socket_server.question_lifecycle import build_question_results_payload
+
         game_data = await PlayGame.get_from_redis(game_pin)
         if not game_data.question_show and game_data.current_question == question_number:
-            answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, question_number)
-            await sio.emit(
-                "question_results",
-                {"question_index": question_number, "results": answer_data_list.model_dump()},
-                room=game_pin,
-            )
+            payload, _ = await build_question_results_payload(game_pin, question_number)
+            await sio.emit("question_results", payload, room=game_pin)
 
 
 @sio.event

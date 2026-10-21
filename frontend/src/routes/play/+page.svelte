@@ -42,7 +42,7 @@ SPDX-License-Identifier: MPL-2.0
 	} from '$lib/play/live-standings-copy';
 	import {
 		aggregateScoresFromFinalResults,
-		applyQuestionResultScores,
+		integrateLiveQuestionResults,
 		scoreDeltaForUser
 	} from '$lib/play/live-scoring';
 	import {
@@ -60,15 +60,21 @@ SPDX-License-Identifier: MPL-2.0
 		ensurePlaySocketSession,
 		emitRejoinFromCookie,
 		normalizePlayPin,
-		persistJoinedGameCookie
+		persistJoinedGameCookie,
+		preparePlaySessionForPin,
+		readJoinedGameCookie
 	} from '$lib/play/player-socket-session';
+	import {
+		markPlaySocketBound,
+		setExpectedPlayPin
+	} from '$lib/play/play-socket-pin';
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import {
 		bindPlayPageSocketHandlers,
 		unbindPlayPageSocketHandlers
 	} from '$lib/play/play-page-socket';
 	import { browser } from '$app/environment';
-	import { onDestroy, onMount } from 'svelte';
+	import { onDestroy } from 'svelte';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -78,6 +84,13 @@ SPDX-License-Identifier: MPL-2.0
 	let { data }: Props = $props();
 	let game_pin = $state(data.game_pin ?? '');
 	let playSessionPin = $state('');
+
+	function playPayloadMatchesActivePin(data: unknown): boolean {
+		const payload = normalizeGamePayload(data) as { game_pin?: string } | undefined;
+		const payloadPin = normalizePlayPin(payload?.game_pin);
+		const active = normalizePlayPin(game_pin);
+		return payloadPin.length >= 6 && active.length >= 6 && payloadPin === active;
+	}
 
 	function resetPlayStateForPin(pin: string) {
 		game_pin = pin;
@@ -99,9 +112,13 @@ SPDX-License-Identifier: MPL-2.0
 		if (!browser) return;
 		const urlPin = normalizePlayPin(data.game_pin);
 		if (urlPin.length < 6) return;
-		clearJoinedGameCookieIfPinMismatch(urlPin);
 		if (urlPin !== normalizePlayPin(playSessionPin)) {
+			setExpectedPlayPin(urlPin);
+			preparePlaySessionForPin(urlPin);
 			resetPlayStateForPin(urlPin);
+		} else {
+			setExpectedPlayPin(urlPin);
+			clearJoinedGameCookieIfPinMismatch(urlPin);
 		}
 	});
 
@@ -173,8 +190,11 @@ SPDX-License-Identifier: MPL-2.0
 			if (latestQuestionIndex > closedQuestionIndex) {
 				return;
 			}
-			const cookie_data = Cookies.get('joined_game');
-			if (!cookie_data || !socket.connected) {
+			const cookie = readJoinedGameCookie();
+			if (!cookie || !socket.connected) {
+				return;
+			}
+			if (normalizePlayPin(cookie.game_pin) !== normalizePlayPin(game_pin)) {
 				return;
 			}
 			emitRejoinFromCookie(game_pin);
@@ -317,18 +337,17 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		restart();
 		answer_results = rows as PlayerAnswer[];
-		standingsTop = top;
 		revealHoldMs = Math.max(0, revealHoldSec * 1000);
 		pointsThisRound = scoreDeltaForUser(rows, username);
-		const scoreIndex = resultsIndex ?? question_index;
-		const applied = applyQuestionResultScores(
-			scores,
-			rows,
-			scoreIndex,
-			lastScoreAppliedQuestionIndex
+		const scoreIndex =
+			resultsIndex ?? (typeof question_index === 'number' ? question_index : null);
+		const integrated = integrateLiveQuestionResults(
+			{ scores, lastAppliedQuestionIndex: lastScoreAppliedQuestionIndex, standingsTop },
+			{ questionIndex: scoreIndex, rows, standingsTop: top }
 		);
-		scores = applied.scores;
-		lastScoreAppliedQuestionIndex = applied.lastAppliedQuestionIndex;
+		scores = integrated.scores;
+		lastScoreAppliedQuestionIndex = integrated.lastAppliedQuestionIndex;
+		standingsTop = integrated.standingsTop;
 		const mine = rows.find((r) => r.username === username);
 		const right =
 			mine?.right === true || mine?.right === 'true' || mine?.right === 1;
@@ -341,7 +360,8 @@ SPDX-License-Identifier: MPL-2.0
 		scheduleAdvanceResync(resultsIndex ?? (typeof question_index === 'number' ? question_index : null));
 	}
 
-	onMount(() => {
+	$effect.pre(() => {
+		if (!browser) return;
 		bindPlayPageSocketHandlers({
 			onTimeSync: (data) => {
 				socket.emit('echo_time_sync', data);
@@ -353,6 +373,7 @@ SPDX-License-Identifier: MPL-2.0
 				}
 			},
 			onJoinedGame: (data) => {
+				if (!playPayloadMatchesActivePin(data)) return;
 				gameData = normalizeGamePayload(data);
 				if (gameData?.started) {
 					gameMeta.started = true;
@@ -360,11 +381,13 @@ SPDX-License-Identifier: MPL-2.0
 				if (gameData?.game_mode != null) {
 					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 				}
+				markPlaySocketBound(game_pin);
 				// eslint-disable-next-line no-undef
 				plausible('Joined Game', { props: { game_id: gameData?.game_id } });
 				persistJoinedGameCookie(username, game_pin);
 			},
 			onRejoinedGame: (data) => {
+				if (!playPayloadMatchesActivePin(data)) return;
 				gameData = normalizeGamePayload(data);
 				if (gameData?.started) {
 					gameMeta.started = true;
@@ -372,6 +395,7 @@ SPDX-License-Identifier: MPL-2.0
 				if (gameData?.game_mode != null) {
 					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 				}
+				markPlaySocketBound(game_pin);
 				if (username && game_pin) {
 					persistJoinedGameCookie(username, game_pin);
 				}
@@ -408,6 +432,7 @@ SPDX-License-Identifier: MPL-2.0
 				window.location.reload();
 			},
 			onFinalResults: (data) => {
+				markPlaySocketBound(game_pin);
 				final_results = data;
 				const fromFinal = aggregateScoresFromFinalResults(data);
 				if (Object.keys(fromFinal).length > 0) {

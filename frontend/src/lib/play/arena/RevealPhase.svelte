@@ -61,7 +61,7 @@
 			<p class="font-display text-5xl sm:text-7xl {correct ? 'text-gold' : 'text-danger'}">
 				{correct ? 'Correct' : 'Incorrect'}
 			</p>
-			<p class="font-display text-3xl text-gold tabular-nums mt-2">
+			<p class="font-display text-3xl text-gold tabular-nums mt-2" data-testid="reveal-points-total">
 				+<AnimatedCounter value={points} duration={0.8} />
 			</p>
 			{#if correct && (baseScore > 0 || speedBonus > 0)}

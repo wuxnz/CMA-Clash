@@ -16,7 +16,38 @@ import {
 const ARTIFACT_DIR =
 	process.env.PLAYWRIGHT_ARTIFACT_DIR ?? '/opt/cursor/artifacts/live-ui';
 
-async function expectRevealStats(page: import('@playwright/test').Page, revealTimeoutMs = 45_000) {
+async function readRevealPoints(page: import('@playwright/test').Page): Promise<number> {
+	const byTestId = page.getByTestId('reveal-points-total');
+	if (await byTestId.count()) {
+		return Number((await byTestId.innerText()).replace(/[^\d]/g, ''));
+	}
+	const block = page.getByText('Correct', { exact: true }).locator('xpath=..');
+	const breakdown = block.getByText(/\d+ base/);
+	if (await breakdown.count()) {
+		const text = await breakdown.innerText();
+		const m = text.match(/(\d+)\s+base(?:,\s*(\d+)\s+speed bonus)?/);
+		if (m) {
+			return Number(m[1]) + Number(m[2] ?? 0);
+		}
+	}
+	return Number((await block.locator('p.font-display.text-3xl').innerText()).replace(/[^\d]/g, ''));
+}
+
+async function waitForRevealPoints(page: import('@playwright/test').Page, min = 500): Promise<number> {
+	let last = 0;
+	await expect
+		.poll(async () => {
+			last = await readRevealPoints(page);
+			return last;
+		}, { timeout: 20_000 })
+		.toBeGreaterThan(min);
+	return last;
+}
+
+async function expectRevealStats(
+	page: import('@playwright/test').Page,
+	revealTimeoutMs = 45_000
+): Promise<number> {
 	await expect(page.getByTestId('reveal-place-line')).toBeVisible({ timeout: revealTimeoutMs });
 	await expect(page.getByTestId('reveal-speed-rank')).toBeVisible();
 	await expect(page.getByText(/speed bonus/i)).toBeVisible();
@@ -24,27 +55,7 @@ async function expectRevealStats(page: import('@playwright/test').Page, revealTi
 	if (await behind.isVisible().catch(() => false)) {
 		await expect(behind).toContainText(/behind|ahead of/i);
 	}
-	const bonusLine = await page.getByText(/\d+ base.*\d+ speed bonus/i).textContent();
-	const match = bonusLine?.match(/(\d+) base.*?(\d+) speed bonus/);
-	expect(match).toBeTruthy();
-	const base = Number(match![1]);
-	const bonus = Number(match![2]);
-	const expectedTotal = base + bonus;
-	await expect
-		.poll(
-			async () => {
-				const nodes = page.locator('.text-gold.tabular-nums');
-				const count = await nodes.count();
-				for (let i = 0; i < count; i++) {
-					const text = await nodes.nth(i).textContent();
-					const n = Number((text ?? '').replace(/\D/g, ''));
-					if (n === expectedTotal) return n;
-				}
-				return 0;
-			},
-			{ timeout: 5000 }
-		)
-		.toBe(expectedTotal);
+	return waitForRevealPoints(page);
 }
 
 test.describe('production live multi-question UI', () => {
@@ -85,17 +96,28 @@ test.describe('production live multi-question UI', () => {
 			await expect(p1.getByText(/Correct|Incorrect|Time's up/i)).toBeVisible({
 				timeout: gameMode === 'normal' ? 120_000 : 60_000
 			});
-			await expectRevealStats(p1, gameMode === 'normal' ? 90_000 : 45_000);
+			const q1RevealDelta = await expectRevealStats(
+				p1,
+				gameMode === 'normal' ? 90_000 : 45_000
+			);
+
 			await p1.screenshot({
-				path: path.join(ARTIFACT_DIR, `${slug}-player-reveal-q1.png`),
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-reveal-q1.png`),
 				fullPage: true
 			});
 
 			const rankingsStart = Date.now();
 			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 12_000 });
+			const q1BoardTotal = Number(
+				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
+					/[^\d]/g,
+					''
+				)
+			);
+			expect(q1BoardTotal).toBe(q1RevealDelta);
 			expect(await p1.getByTestId('scoreboard-row').count()).toBeLessThanOrEqual(5);
 			await p1.screenshot({
-				path: path.join(ARTIFACT_DIR, `${slug}-host-scoreboard.png`),
+				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-scoreboard-q1.png`),
 				fullPage: true
 			});
 
@@ -108,6 +130,18 @@ test.describe('production live multi-question UI', () => {
 			await answerFirstTile(p1);
 			await answerFirstTile(p2);
 			await answerFirstTile(p3);
+
+			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
+			const q2RevealDelta = await waitForRevealPoints(p1);
+			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
+			const q2BoardTotal = Number(
+				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
+					/[^\d]/g,
+					''
+				)
+			);
+			expect(q2BoardTotal).toBe(q1BoardTotal + q2RevealDelta);
+
 			await new Promise((r) => setTimeout(r, 14_000));
 
 			await expectPlayerAdvancedToNextQuestion(p1, 'P1 Q3');
