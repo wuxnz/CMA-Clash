@@ -107,6 +107,13 @@ async def startup() -> None:
         from classquiz.seed.runner import run_seed
 
         await run_seed()
+    try:
+        from classquiz.gamification.backfill import backfill_profiles_from_xp_events
+
+        await backfill_profiles_from_xp_events()
+    except Exception as exc:
+        LOGGER = logging.getLogger("uvicorn.error")
+        LOGGER.warning("Gamification profile backfill skipped (%s).", exc)
 
 
 @app.on_event("shutdown")
