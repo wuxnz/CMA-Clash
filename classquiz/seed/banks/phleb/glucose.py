@@ -197,7 +197,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'Recommended heelstick site for neonatal capillary specimens is?',
+        'Which site is recommended for neonatal capillary heelstick specimens?',
         'Lateral plantar surface of the heel using depth-limited devices per policy',
         [
             'Center of the foot arch where bone is superficial',
@@ -366,7 +366,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'When manufacturer instructions require wiping away the first blood drop, the purpose is?',
+        'Why do some manufacturer instructions require wiping away the first capillary blood drop?',
         'Remove tissue fluid that can dilute or alter the glucose measurement',
         [
             'Speed up clotting in a citrate tube',

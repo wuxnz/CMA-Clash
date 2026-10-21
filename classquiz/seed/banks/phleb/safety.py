@@ -14,7 +14,7 @@ _REF = [S.OSHA_BBP, S.CDC_STANDARD_PRECAUTIONS, S.CLSI_GP41]
 FACTS: list[dict] = [
     fact(
         "phleb-safety",
-        "Minimum PPE for routine venipuncture includes?",
+        "What minimum PPE is required for routine venipuncture?",
         "Clean gloves; add gown or eye protection if splash risk exists",
         [
             "No gloves when the patient appears healthy",
@@ -224,7 +224,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "If blood splashes into the eyes, first aid includes?",
+        "What first aid should be provided if blood splashes into the eyes?",
         "Flush with water or saline and report per the exposure control plan",
         [
             "Rubbing the eyes until tearing stops",
@@ -238,7 +238,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Hand recapping needles by hand is?",
+        "Why is hand recapping used needles prohibited?",
         "Discouraged; use one-hand scoop or safety devices when recapping is unavoidable",
         [
             "Required before every disposal in sharps boxes",
@@ -392,7 +392,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Hepatitis B vaccination for phlebotomy staff is?",
+        "What is the recommended approach to hepatitis B vaccination for phlebotomy staff?",
         "Offered by employers at no cost to employees with occupational exposure risk",
         [
             "Forbidden under OSHA rules",
@@ -560,7 +560,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-safety",
-        "Ergonomic injury prevention for full-time phlebotomists includes?",
+        "Which ergonomic practices help prevent injury for full-time phlebotomists?",
         "Adjustable chairs, neutral wrist position, and rotating high-volume tasks",
         [
             "Bending the wrist sharply during every insertion",

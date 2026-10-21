@@ -77,7 +77,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-additives",
-        'What gold speckled serum separator tubes (SST) are required?',
+        'What additives are present in gold speckled serum separator (SST) tubes?',
         'Clot activator plus an inert gel barrier after centrifugation',
         [
             'EDTA anticoagulant',

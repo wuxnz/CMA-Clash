@@ -287,7 +287,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-order-draw",
-        'If the phlebotomist is unsure of institutional tube color sequence during a stat draw, the best immediate action is?',
+        'If the phlebotomist is unsure of institutional tube color sequence during a stat draw, what is the best immediate action?',
         'Follow the laboratory manual or supervisor guidance and document any deviation',
         [
             "Guess based on last week's memory to avoid delay",
@@ -365,7 +365,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-order-draw",
-        'When a prothrombin time is the only laboratory test ordered, drawing a single properly filled citrate tube without earlier additive tubes is?',
+        'When prothrombin time is the only test ordered, is drawing a single properly filled citrate tube without earlier additive tubes acceptable?',
         'Acceptable because order-of-draw concerns mainly apply to multiple additive tubes in one stick',
         [
             'Never acceptable, lavender must always precede citrate',

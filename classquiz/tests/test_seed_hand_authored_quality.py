@@ -65,6 +65,7 @@ _AHA_ADULT_CHOKING_FIVE_FIVE = re.compile(
 _STEM_COMPLETE_CERT_PREFIXES = (
     "cpr-",
     "phleb-",
+    "ekg-",
 )
 _DASH_CHECK_CERT_PREFIXES = (
     "cpr-",
@@ -236,6 +237,13 @@ def test_phleb_distractors_lack_absurd_patterns():
                 if pat.search(choice):
                     hits.append(f"{pat.pattern} in {fact['stem'][:50]}: {choice[:70]}")
     assert not hits, f"Phlebotomy absurd distractors: {hits[:12]}"
+
+
+def test_ekg_cert_meets_minimum_hand_authored_floor():
+    from classquiz.seed.banks import load_all_facts
+
+    ekg = [f for f in load_all_facts() if f["topic"].startswith("ekg-")]
+    assert len(ekg) >= 253, f"EKG cert has {len(ekg)} questions; floor is 253"
 
 
 def test_phleb_cert_meets_minimum_hand_authored_floor():

@@ -294,7 +294,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "What is the correct practice regarding If blood flow stops during tube fill with a butterfly set, a common cause is?",
+        "If blood flow stops during tube fill with a butterfly set, what is a common cause?",
         "Clot formation in the line from slow flow or stasis",
         [
             "Correct order of draw with full tubes only",
@@ -364,7 +364,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-complications",
-        "Bilirubin specimens may be falsely lowered if tubes are?",
+        "When may bilirubin specimens be falsely lowered because of tube handling?",
         "Exposed to bright light without protection per lab policy",
         [
             "Labeled immediately at the bedside",

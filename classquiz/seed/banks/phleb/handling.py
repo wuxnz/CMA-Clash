@@ -114,7 +114,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "When hemolysis invalidates a potassium result, the usual response is?",
+        "What is the usual response when hemolysis invalidates a potassium result?",
         "Recollection if the degree of hemolysis exceeds laboratory reject criteria",
         [
             "Reporting the value without comment to save time",
@@ -226,7 +226,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "If a tube shatters inside a centrifuge, the response includes?",
+        "What steps should be included in the response when a tube shatters inside a centrifuge?",
         "Stopping the spin, using PPE, and following biohazard spill cleanup protocol",
         [
             "Reaching into the rotor while it is still moving",

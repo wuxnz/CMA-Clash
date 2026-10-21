@@ -43,7 +43,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'The WHO multimodal hand hygiene strategy for specimen collectors includes?',
+        'What does the WHO multimodal hand hygiene strategy for specimen collectors include?',
         'System change, training, evaluation, reminders, and institutional safety culture',
         [
             'A single poster without soap or alcohol rub at the draw station',
@@ -134,7 +134,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'An infection prevention bundle for WHO-aligned blood collection includes?',
+        'What does an infection prevention bundle for WHO-aligned blood collection include?',
         'Hand hygiene, appropriate PPE, skin antisepsis, and safe sharps disposal',
         [
             'Reusing unwashed tourniquets on every patient without policy',
@@ -277,7 +277,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Reuse of single-use vacuum collection tubes is?',
+        'Why is reuse of single-use vacuum collection tubes prohibited?',
         'Prohibited because tubes and stoppers are not validated for reprocessing',
         [
             'Allowed if the outside is wiped with a dry cloth',
@@ -472,7 +472,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-who',
-        'Leadership support for WHO injection safety in phlebotomy includes?',
+        'What should leadership support for WHO injection safety in phlebotomy include?',
         'Budgeting for safety needles, containers, and time for training',
         [
             'Pressuring staff to skip disposal to see more patients',
