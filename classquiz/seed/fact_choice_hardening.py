@@ -326,7 +326,11 @@ def _compact_choice(text: str, limit: int = 58) -> str:
                 text = candidate
                 break
     if len(text) > limit:
-        text = text[: limit - 1].rstrip()
+        trimmed = text[: limit].rsplit(" ", 1)[0].rstrip(" ,;")
+        if len(trimmed) >= 12:
+            text = trimmed
+        else:
+            text = text[: limit].rstrip()
     return text
 
 
