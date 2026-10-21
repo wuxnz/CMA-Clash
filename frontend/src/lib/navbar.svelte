@@ -86,6 +86,7 @@ SPDX-License-Identifier: MPL-2.0
 			<a class={navLinkClass('/search')} href="/search" aria-current={navAriaCurrent('/search')}
 				>{$t('words.search')}</a
 			>
+			<a class={navLinkClass('/study')} href="/study" aria-current={navAriaCurrent('/study')}>Study</a>
 			{#if $signedIn}
 				<a class={navLinkClass('/dashboard')} href="/dashboard" aria-current={navAriaCurrent('/dashboard')}
 					>{$t('words.dashboard')}</a
@@ -229,6 +230,7 @@ SPDX-License-Identifier: MPL-2.0
 				<a class={navLinkClass('/search')} href="/search" aria-current={navAriaCurrent('/search')}
 					>{$t('words.search')}</a
 				>
+				<a class={navLinkClass('/study')} href="/study" aria-current={navAriaCurrent('/study')}>Study</a>
 				{#if $signedIn}
 					<a class={navLinkClass('/dashboard')} href="/dashboard" aria-current={navAriaCurrent('/dashboard')}
 						>{$t('words.dashboard')}</a

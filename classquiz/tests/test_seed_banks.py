@@ -14,11 +14,11 @@ from classquiz.seed.stem_normalize import normalize_stem
 
 def test_question_bank_coverage():
     facts = load_all_facts()
-    assert len(facts) >= 860
+    assert len(facts) >= 920
     counts = Counter(f["topic"] for f in facts)
     catalog_slugs = {slug for cert in CERTIFICATIONS for slug, _, _ in cert["topics"]}
     assert catalog_slugs.issubset(set(counts.keys()))
-    assert len(counts) == 43
+    assert len(counts) == 45
     assert min(counts.values()) >= 20
     for fact in facts:
         refs = fact.get("references") or []
@@ -47,6 +47,8 @@ def test_supplement_uses_authoritative_urls():
         "fda.gov",
         "medlineplus.gov",
         "redcross.org",
+        "diabetesjournals.org",
+        "fda.gov",
     )
     with_url = [f for f in facts if any("https://" in r for r in f.get("references", []))]
     assert len(with_url) == len(facts)

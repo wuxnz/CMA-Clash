@@ -124,3 +124,27 @@ CDC_HBP = cite(
     "CDC: Measuring Blood Pressure",
     "https://www.cdc.gov/high-blood-pressure/measure/index.html",
 )
+CDC_DIABETES = cite(
+    "CDC: About Diabetes",
+    "https://www.cdc.gov/diabetes/about/index.html",
+)
+CDC_DIABETES_BASICS = cite(
+    "CDC: Diabetes Basics",
+    "https://www.cdc.gov/diabetes/basics/index.html",
+)
+ADA_STANDARDS = cite(
+    "American Diabetes Association: Standards of Care in Diabetes",
+    "https://diabetesjournals.org/care/issue/48/Supplement_1",
+)
+ADA_DIAGNOSIS = cite(
+    "American Diabetes Association: Classification and Diagnosis of Diabetes",
+    "https://diabetesjournals.org/care/article/48/Supplement_1/S27/157553",
+)
+FDA_CLIA_WAIVED = cite(
+    "FDA: CLIA Waived Tests",
+    "https://www.fda.gov/medical-devices/ivd-regulatory-assistance/clia-waived-tests",
+)
+MEDLINEPLUS_DIABETES = cite(
+    "MedlinePlus: Diabetes",
+    "https://medlineplus.gov/diabetes.html",
+)
