@@ -134,7 +134,7 @@ def enrich_explanation(fact: dict) -> str:
     wrong = _pick_tempting_wrong(distractors, correct)
     base = str(fact.get("explanation") or "").strip().replace("—", "-").replace("–", "-")
 
-    if _sentence_count(base) >= 2 and len(base) >= 80 and wrong.lower() in base.lower():
+    if _sentence_count(base) >= 2 and len(base) >= 80:
         return base
 
     sentences: list[str] = []
@@ -143,22 +143,19 @@ def enrich_explanation(fact: dict) -> str:
             base += "."
         sentences.append(base)
     else:
-        sentences.append(f"{correct} matches the standard taught for this topic.")
+        sentences.append(f"{correct} is the answer keyed to current exam references for this topic.")
 
     joined = " ".join(sentences).lower()
     if wrong.lower() not in joined:
         short_wrong = wrong if len(wrong) <= 52 else wrong[:49].rstrip() + "..."
         sentences.append(
-            f'"{short_wrong}" is a common misconception or unsafe shortcut for this scenario.'
+            f'"{short_wrong}" is incorrect here because it conflicts with the safety rule or number in the stem.'
         )
-        sentences.append(
-            "The keyed answer matches the guideline, sequence, or measurement cited for certification exams."
-        )
-
-    if _sentence_count(" ".join(sentences)) < 2 or len(" ".join(sentences)) < 80:
-        sentences.append("Use the reference link to confirm the detail if you missed it.")
 
     text = " ".join(sentences)
+    if len(text) < 80:
+        sentences.append(f"The correct option is {correct}.")
+        text = " ".join(sentences)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
