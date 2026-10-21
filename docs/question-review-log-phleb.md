@@ -28,7 +28,35 @@ phleb-order-draw-021 | pass | Citrate/EDTA inversion count; near-miss one invers
 phleb-order-draw-022 | pass | Unsure tube sequence stat draw; near-miss guess memory, one tube only, skip ID.
 phleb-order-draw-023 | pass | Pediatric microtainer order of draw; near-miss no order, culture last myth, EDTA before citrate.
 phleb-order-draw-024 | pass | Reverse fill notify lab recollect; near-miss relabel, saline dilute, freeze tubes.
-phleb-order-draw-025 | pass | _(next line in file reviewed with batch 02 start)_
+phleb-order-draw-025 | pass | Routine tubes before cultures contamination; near-miss vacuum, broth-kills, arterial-only distractors.
+
+## Phleb batch 02 (phleb-order-draw-026 to phleb-order-draw-050)
+
+phleb-order-draw-026 | pass | EDTA vigorous shake hemolysis; near-miss platelet clump, clot activator myth, no-inversion.
+phleb-order-draw-027 | pass | SST after citrate before heparin/lavender; near-miss culture-first SST, citrate-first chemistry, gray-before-SST.
+phleb-order-draw-028 | pass | Lone citrate PT acceptable; near-miss lavender-first every draw, gray-first, outpatient ban.
+phleb-order-draw-029 | pass | Pink blood bank per facility chart; near-miss culture-first typing, arterial-only, gray-fluoride ABO.
+phleb-order-draw-030 | pass | Prolonged tourniquet hemoconcentration; near-miss PT accuracy, labels fix stasis, urine-only effect.
+phleb-order-draw-031 | pass | Hub clot stop and recollect; near-miss flush to lavender, extra tubes, continue if citrate full.
+phleb-order-draw-032 | pass | Single-patient transfer device; near-miss reuse with glove change, glass-only, alcohol rinse.
+phleb-order-draw-033 | pass | ED lavender-before-citrate PT suspect; near-miss inversion OK, no anticoag OK, SST between.
+phleb-order-draw-034 | pass | 70% citrate recollect; near-miss send with note, saline top-off, vigorous invert fix.
+phleb-order-draw-035 | pass | Composite fasting culture-PT-CMP-CBC-gray sequence; near-miss gray-first, lavender-first, SST before cultures.
+phleb-order-draw-036 | pass | Butterfly fibrin strand restart set; near-miss saline flush, citrate anyway, same tubing bigger needle.
+phleb-order-draw-037 | pass | Syringe transfer citrate fill ratio paramount; near-miss pre-label, heparin syringe, no cultures myth.
+phleb-order-draw-038 | pass | Needlestick wash report OSHA follow-up; near-miss finish draw first, bandage if visible, wait 24h.
+phleb-order-draw-039 | pass | Missed cultures after SST/lavender sterile recollect; near-miss same needle bottles, cancel cultures, SST substitute.
+phleb-order-draw-040 | pass | LA panel discard then two citrate; near-miss split one tube, lavender discard, skip same color.
+phleb-order-draw-041 | pass | Long draw tourniquet hemolysis K/phos; near-miss order prevents all hemolysis, heparin spikes K, gray backflush.
+phleb-order-draw-042 | pass | Wrong-first lavender BMP restart; near-miss continue SST OK, lavender BMP calcium, save stick submit lavender.
+phleb-order-draw-043 | pass | NICU microtainer lab chart order; near-miss EDTA-first neonate, capillary exempt, gray-first all newborns.
+phleb-order-draw-044 | pass | Home health underfill citrate/SST recollect; near-miss submit partial, combine tubes, capillary top-off.
+phleb-order-draw-045 | pass | Ionized calcium wrong tube defer; near-miss all calcium same tube, math correct EDTA, gray fixes calcium.
+phleb-order-draw-046 | pass | Outage deviation documentation for lab; near-miss allergy-only, CLSI void outage, tourniquet color only.
+phleb-order-draw-047 | pass | Patient pull-away partial citrate discard recollect; near-miss send partial, top-off second stick, split sticks pair.
+phleb-order-draw-048 | pass | Royal blue trace element early dedicated sequence; near-miss lavender-first, SST-first, royal blue last.
+phleb-order-draw-049 | pass | Fist pumping tourniquet K hemolysis; near-miss ABO unaffected, PT OK if citrate first, gray glucose spared.
+phleb-order-draw-050 | pass | Syringe delay before citrate transfer clot factors; near-miss citrate air potency, delay helps mixing, EDTA-only delay rule.
 
 ## Phleb rewrite batch 01 (phleb-order-draw-001 to phleb-order-draw-025)
 
@@ -57,6 +85,34 @@ phleb-order-draw-022 | pass | Unsure sequence consult manual; parallel memory gu
 phleb-order-draw-023 | pass | Microtainer order of draw; fixed grammar; parallel no-order, culture-last, EDTA-before-citrate pediatrics.
 phleb-order-draw-024 | pass | Reverse-order notify lab recollect; parallel relabel, saline dilute, freeze tubes.
 phleb-order-draw-025 | pass | Routine tubes before cultures contamination; parallel vacuum, broth-kills, arterial-only distractors.
+
+## Phleb rewrite batch 02 (phleb-order-draw-026 to phleb-order-draw-050)
+
+phleb-order-draw-026 | fail | Full stem on EDTA shaking hemolysis; removed double-question fragment; parallel clot-activator and no-inversion near-misses.
+phleb-order-draw-027 | fail | Scenario stem for multi-tube SST placement; parallel culture-first, citrate-first, gray-before-SST distractors.
+phleb-order-draw-028 | fail | Lone citrate PT yes/no stem; removed never/always/only banned distractors; parallel lavender-first and gray-first myths.
+phleb-order-draw-029 | fail | Pink-top blood bank timing; removed always/never/only distractors; parallel culture-first and arterial-only near-misses.
+phleb-order-draw-030 | fail | Prolonged tourniquet chemistry effect; fixed broken double-what stem; parallel PT-improves and urine-only distractors.
+phleb-order-draw-031 | fail | Hub clot stop-recollect stem; removed trailing should? fragment; parallel flush lavender and continue-if-citrate-full.
+phleb-order-draw-032 | fail | Transfer device single-patient rule; removed what/what fragment stem; parallel reuse, glass-only, alcohol rinse.
+phleb-order-draw-033 | fail | ED reverse-order PT interpretation; fixed What-in-ED stem; parallel inversion-valid and SST-between distractors.
+phleb-order-draw-034 | fail | 70% citrate recollect; balanced parallel send-note, saline top-off, invert-compress distractors.
+phleb-order-draw-035 | fail | Expanded composite stat draw sequence stem; parallel gray-first, lavender-first, SST-before-cultures.
+phleb-order-draw-036 | fail | Butterfly fibrin strand scenario; parallel saline flush, longer invert, same tubing distractors.
+phleb-order-draw-037 | fail | Syringe transfer fill-ratio verification; full-sentence correct option; parallel pre-label and heparin-syringe distractors.
+phleb-order-draw-038 | fail | Needlestick OSHA reporting; parallel finish-draw-first, visible-blood bandage, 24h wait distractors.
+phleb-order-draw-039 | fail | Cultures ordered late after SST/lavender; parallel same-needle bottles, cancel cultures, SST substitute.
+phleb-order-draw-040 | fail | LA two-citrate discard protocol; fixed should-be-done-how stem; parallel split tube, lavender discard, skip discard.
+phleb-order-draw-041 | fail | Tourniquet hemolysis on heparin plasma; removed always/auto prevents banned phrasing in distractors.
+phleb-order-draw-042 | fail | Wrong-first lavender BMP restart; parallel continue SST, lavender BMP calcium, submit lavender chemistry.
+phleb-order-draw-043 | fail | NICU microtainer order chart; fixed should-be-guided-by fragment; removed always/random/gray-first distractors.
+phleb-order-draw-044 | fail | Home health underfill recollect; parallel partial submit, combine tubes, capillary top-off.
+phleb-order-draw-045 | fail | Ionized calcium tube defer; fixed broken only-lavender stem; parallel same-tube, math correct, gray fluoride distractors.
+phleb-order-draw-046 | fail | Power-outage deviation documentation; removed should-include? fragment; parallel allergy-only and CLSI-void outage distractors.
+phleb-order-draw-047 | fail | New patient pull-away partial citrate scenario; parallel send partial, top-off, split-stick pair distractors.
+phleb-order-draw-048 | fail | New royal blue trace-element sequence item; parallel lavender-first, SST-first, royal-blue-last distractors.
+phleb-order-draw-049 | fail | New fist-pumping preanalytic hemolysis item; parallel ABO/PT/glucose unaffected distractors.
+phleb-order-draw-050 | fail | New syringe-to-citrate delay clot-factor item; parallel air potency, delay helps PT, EDTA-only rule distractors.
 
 ## Phleb WHO module (spot)
 
