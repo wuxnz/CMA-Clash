@@ -2,15 +2,37 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type BrowserContext, type Page } from '@playwright/test';
 import { installLiveApiProxy } from './helpers/liveApiProxy';
+import {
+	answerFirstTile,
+	expectPlayerAdvancedToNextQuestion,
+	expectPlayerOnAnswerTiles
+} from './helpers/livePlayer';
 import fs from 'node:fs';
 import path from 'node:path';
+
 const artifactDir = '/opt/cursor/artifacts/screenshots';
+const baseURL = process.env.PLAYWRIGHT_TEST_BASE_URL ?? 'https://cmaclash.com';
 
 const STALE_LIVE_PIN = '111111';
 
-async function seedStaleLiveGameCookie(context: import('@playwright/test').BrowserContext) {
+function baseHostname(): string {
+	return new URL(baseURL).hostname;
+}
+
+function isLocalPreview(): boolean {
+	const host = baseHostname();
+	return host === '127.0.0.1' || host === 'localhost';
+}
+
+async function maybeInstallApiProxy(context: BrowserContext): Promise<void> {
+	if (isLocalPreview()) {
+		await installLiveApiProxy(context);
+	}
+}
+
+async function seedStaleLiveGameCookie(context: BrowserContext) {
 	await context.addCookies([
 		{
 			name: 'joined_game',
@@ -19,18 +41,19 @@ async function seedStaleLiveGameCookie(context: import('@playwright/test').Brows
 				username: 'OldLiveHost',
 				game_pin: STALE_LIVE_PIN
 			}),
-			domain: '127.0.0.1',
+			domain: baseHostname(),
 			path: '/'
 		}
 	]);
 }
 
-async function hostBattle(page: Page): Promise<string> {
+async function hostBattle(page: Page): Promise<{ code: string; quizTitle: string }> {
 	await page.goto('/battle');
+	const quizTitle = (await page.locator('li .font-medium').first().textContent())?.trim() ?? '';
 	await page.locator('button.action-button', { hasText: 'Host' }).first().click({ timeout: 60_000 });
 	await expect(page).toHaveURL(/\/battle\/\d+/, { timeout: 30_000 });
 	const segments = new URL(page.url()).pathname.split('/');
-	return segments[segments.length - 1]!;
+	return { code: segments[segments.length - 1]!, quizTitle };
 }
 
 async function joinBattleLobby(page: Page, code: string, nickname: string): Promise<void> {
@@ -42,23 +65,21 @@ async function joinBattleLobby(page: Page, code: string, nickname: string): Prom
 	});
 }
 
-async function waitForBattleQuestions(page: Page): Promise<void> {
+async function waitForBattleQuestions(page: Page, label: string): Promise<void> {
 	await page.waitForURL(/\/play\?pin=/, { timeout: 120_000 });
+	const connecting = page.getByText(/connecting to game server/i);
+	if (await connecting.isVisible().catch(() => false)) {
+		await expect(connecting).toBeHidden({ timeout: 120_000 });
+	}
 	const submit = page.getByRole('button', { name: /submit/i });
-	for (let i = 0; i < 30; i++) {
+	for (let i = 0; i < 45; i++) {
 		if (await page.getByTestId('answer-tiles').isVisible().catch(() => false)) break;
 		if (await submit.isEnabled().catch(() => false)) {
 			await submit.click();
 		}
-		await page.waitForTimeout(2000);
+		await page.waitForTimeout(1500);
 	}
-	await expect(page.getByTestId('answer-tiles')).toBeVisible({ timeout: 120_000 });
-}
-
-async function answerFirstTile(page: Page): Promise<void> {
-	const tiles = page.getByTestId('answer-tiles');
-	await expect(tiles).toBeVisible({ timeout: 120_000 });
-	await tiles.locator('button').first().click();
+	await expectPlayerOnAnswerTiles(page, label);
 }
 
 test.describe('battle after live game in same browser', () => {
@@ -68,31 +89,31 @@ test.describe('battle after live game in same browser', () => {
 
 	test('no stale live pin; host starts battle; both see Q1 and Q2', async ({ browser }) => {
 		const hostContext = await browser.newContext();
-		await installLiveApiProxy(hostContext);
+		await maybeInstallApiProxy(hostContext);
 		await seedStaleLiveGameCookie(hostContext);
 		const hostPage = await hostContext.newPage();
 		await hostPage.goto(`/play?pin=${STALE_LIVE_PIN}`);
 		await expect(hostPage.getByText(STALE_LIVE_PIN)).toBeVisible({ timeout: 30_000 });
 
-		const code = await hostBattle(hostPage);
+		const { code, quizTitle: battleQuizTitle } = await hostBattle(hostPage);
+		expect(battleQuizTitle.length).toBeGreaterThan(0);
 		await joinBattleLobby(hostPage, code, 'HostAlpha');
 
 		const guestContext = await browser.newContext();
-		await installLiveApiProxy(guestContext);
+		await maybeInstallApiProxy(guestContext);
 		const guestPage = await guestContext.newPage();
 		await joinBattleLobby(guestPage, code, 'GuestBeta');
 
 		await hostPage.getByRole('button', { name: /start battle/i }).click();
 
-		await waitForBattleQuestions(hostPage);
-		await waitForBattleQuestions(guestPage);
+		await waitForBattleQuestions(hostPage, 'host Q1');
+		await waitForBattleQuestions(guestPage, 'guest Q1');
 
 		const hostUrlPin = new URL(hostPage.url()).searchParams.get('pin');
 		const guestUrlPin = new URL(guestPage.url()).searchParams.get('pin');
 		expect(hostUrlPin).toBeTruthy();
 		expect(hostUrlPin).toBe(guestUrlPin);
 		await expect(hostPage.getByText(STALE_LIVE_PIN)).toHaveCount(0);
-
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q1-host.png'),
 			fullPage: true
@@ -105,8 +126,8 @@ test.describe('battle after live game in same browser', () => {
 		await answerFirstTile(hostPage);
 		await answerFirstTile(guestPage);
 
-		await expect(hostPage.getByTestId('answer-tiles')).toBeVisible({ timeout: 120_000 });
-		await expect(guestPage.getByTestId('answer-tiles')).toBeVisible({ timeout: 120_000 });
+		await expectPlayerAdvancedToNextQuestion(hostPage, 'host Q2');
+		await expectPlayerAdvancedToNextQuestion(guestPage, 'guest Q2');
 
 		await hostPage.screenshot({
 			path: path.join(artifactDir, 'battle-after-live-q2-host.png'),
