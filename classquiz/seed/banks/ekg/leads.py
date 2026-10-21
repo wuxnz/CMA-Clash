@@ -321,11 +321,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-leads",
         "After a 12-lead EKG is acquired, the tracing shows unexpected axis and morphology. The technician realizes the left and right arm electrodes were swapped. What is the most likely effect?",
-        "Lead I shows inverted P, QRS, and T waves, and the appearances of aVR and aVL are switched compared with correct placement",
+        "Inverted P, QRS, and T in lead I with aVR and aVL appearances reversed from expected",
         [
-            "The tracing will be identical to a correctly wired study",
-            "The printed paper speed setting will change the QRS axis",
-            "The heart rate numeric will change while QRS morphology stays identical",
+            "Lead II and lead III wires reversed with subtle frontal plane axis shift",
+            "Right and left leg electrodes reversed while lead I remains upright in all beats",
+            "Precordial leads misplaced with normal limb lead morphology throughout",
         ],
         "With LA and RA reversed, lead I voltage flips so P, QRS, and T deflect opposite to normal. aVR and aVL also trade expected patterns, which can mimic axis shift or ischemia until leads are fixed.",
         [S.NHA_CCMA],

@@ -38,11 +38,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "What is the normal range for the PR interval on a standard EKG at 25 mm/s?",
-        "0.12 to 0.20 second (about 3 to 5 small boxes)",
+        "0.12 to 0.20 second",
         [
-            "0.06 to 0.10 second (normal QRS duration range)",
-            "0.32 to 0.40 second (high-grade AV delay range)",
-            "1.0 second (complete heart block range)",
+            "0.06 to 0.10 second",
+            "0.32 to 0.40 second",
+            "1.0 second",
         ],
         "PR measures AV conduction time from P onset to QRS onset. QRS duration is much shorter, and 0.32 to 0.40 second or 1.0 second PR values indicate marked AV delay or block, not normal PR.",
         [S.NHA_CCMA],
@@ -51,11 +51,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-intervals",
         "What is the usual upper limit for a normal QRS duration on the EKG?",
-        "Less than 0.12 second (fewer than 3 small boxes at 25 mm/s)",
+        "Less than 0.12 second",
         [
-            "0.12 to 0.20 second (typical PR interval range)",
-            "0.20 to 0.32 second (bundle branch range)",
-            "0.40 second (complete AV block pause)",
+            "0.12 to 0.20 second",
+            "0.20 to 0.32 second",
+            "0.40 second",
         ],
         "Narrow QRS is under 0.12 second. The 0.12 to 0.20 second range describes PR, not QRS, and sustained QRS at 0.20 second or more suggests bundle branch block or ventricular origin.",
         [S.NHA_CCMA],

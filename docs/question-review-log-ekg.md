@@ -16,6 +16,10 @@ One line per item after self-review.
 
 Format: `id | pass | notes`
 
+**Batches 01–06 sweep:** Removed giveaway parentheticals on distractors; balanced option lengths where the keyed answer was longest; strengthened swapped-arm near-miss distractors (leads-023).
+
+**Every batch:** No parenthetical labels on distractors; parallel option length; correct answer does not restate the stem; stem clues must not make a distractor defensible.
+
 ## EKG batch 01 (ekg-leads-001 to ekg-leads-025)
 
 ekg-leads-001 | pass | Skin prep full question; near-miss saline, lotion, wet alcohol.
@@ -159,3 +163,60 @@ ekg-intervals-039 | pass | Advanced paced beat no native PR.
 ekg-intervals-040 | pass | Advanced paper speed 50 mm/s QRS time.
 ekg-intervals-041 | pass | Advanced PR and QRS both 0.18 unlikely QRS.
 ekg-intervals-042 | pass | Advanced pericarditis diffuse ST vs territorial MI.
+
+## EKG batch 07 (ekg-artifacts-001 to ekg-artifacts-025)
+
+ekg-artifacts-001 | pass | Baseline wander loose electrodes.
+ekg-artifacts-002 | pass | Diaphoresis skin management.
+ekg-artifacts-003 | pass | Document troubleshooting.
+ekg-artifacts-004 | pass | 60 Hz interference.
+ekg-artifacts-005 | pass | Muscle tremor artifact.
+ekg-artifacts-006 | pass | Single flat precordial lead check.
+ekg-artifacts-007 | pass | One abnormal chest lead local error.
+ekg-artifacts-008 | pass | Shiver mimics AF.
+ekg-artifacts-009 | pass | Dried gel replace electrodes.
+ekg-artifacts-010 | pass | Patient motion wire pull.
+ekg-artifacts-011 | pass | Paced spikes interpretation.
+ekg-artifacts-012 | pass | Brushing teeth somatic artifact.
+ekg-artifacts-013 | pass | Advanced VT alarm with pulse check.
+ekg-artifacts-014 | pass | Advanced CPR compression artifact pause.
+ekg-artifacts-015 | pass | Hairy chest clip electrodes.
+ekg-artifacts-016 | pass | AC device interference.
+ekg-artifacts-017 | pass | Failing wire wiggle test.
+ekg-artifacts-018 | pass | Wet alcohol under pad.
+ekg-artifacts-019 | pass | Advanced crying child repeat tracing.
+ekg-artifacts-020 | pass | Respiratory sway vs wander.
+ekg-artifacts-021 | pass | Advanced MRI zone acquisition.
+ekg-artifacts-022 | pass | Cough transient baseline shift.
+ekg-artifacts-023 | pass | Erythematous site rotation.
+ekg-artifacts-024 | pass | Cable loop power interference.
+ekg-artifacts-025 | pass | Advanced transport VF mimic awake.
+
+## EKG batch 08 (ekg-artifacts-026 to ekg-artifacts-043)
+
+ekg-artifacts-026 | pass | Dressing under electrode attenuation.
+ekg-artifacts-027 | pass | Athlete diaphoresis adhesive strategy.
+ekg-artifacts-028 | pass | Advanced single-lead ST mimic confirm.
+ekg-artifacts-029 | pass | RL ground disconnected noise.
+ekg-artifacts-030 | pass | Mason-Likar motion reduction.
+ekg-artifacts-031 | pass | Advanced electrode burning stop.
+ekg-artifacts-032 | pass | Clenched fist forearm artifact.
+ekg-artifacts-033 | pass | Cell phone RF noise.
+ekg-artifacts-034 | pass | Advanced all leads identical wiring error.
+ekg-artifacts-035 | pass | Obscured ST repeat tracing.
+ekg-artifacts-036 | pass | Cold skin shiver artifact.
+ekg-artifacts-037 | pass | Advanced reversal vs loose lead distinction.
+ekg-artifacts-038 | pass | Bedside immediate review.
+ekg-artifacts-039 | pass | Advanced Parkinson tremor support.
+ekg-artifacts-040 | pass | Defibrillator pad overlap documentation.
+ekg-artifacts-041 | pass | Dried foam electrode drift fix.
+ekg-artifacts-042 | pass | Leads off alarm response.
+ekg-artifacts-043 | pass | Advanced bed scale electrical spike.
+
+## EKG batch 09–10 (ekg-cardiac-ap 43 items)
+
+ekg-cardiac-ap-001..043 | pass | Full module rewrite (anatomy/physiology/EKG correlation); committed via agent bc-ecfde38e.
+
+## EKG batch 11 (ekg-acls-basics 41 items)
+
+ekg-acls-basics-001..041 | pass | ACLS/monitor focused rewrite; shockable vs non-shockable; artifact vs VF; post-ROSC 12-lead.

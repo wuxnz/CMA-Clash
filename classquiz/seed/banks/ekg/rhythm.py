@@ -13,7 +13,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-rhythm",
         "Which findings on a 12-lead EKG best support normal sinus rhythm in an adult at rest?",
-        "Upright P wave before each QRS, constant PR interval, and ventricular rate about 60 to 100 beats per minute",
+        "Upright P before each QRS, stable PR, rate about 60 to 100 beats per minute",
         [
             "Absent P waves with an irregularly irregular ventricular rhythm",
             "Wide QRS complexes without preceding P waves at a rate of 150",
@@ -55,11 +55,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-rhythm",
         "Which EKG pattern is most characteristic of atrial fibrillation?",
-        "Irregularly irregular R-R intervals with no distinct, uniform P waves before each QRS",
+        "Irregular R-R intervals without a repeating P wave before each QRS",
         [
-            "Regular atrial sawtooth waves with a fixed conduction ratio to the ventricles",
-            "Upright P before every QRS with a constant PR interval",
-            "Wide QRS complexes marching out at a regular rate of 40 beats per minute",
+            "Regular sawtooth atrial activity with patterned ventricular conduction throughout the strip",
+            "Upright P before every QRS with PR interval stable from beat to beat",
+            "Regular wide QRS complexes at about 40 beats per minute with 1:1 P to QRS",
         ],
         "Atrial fibrillation produces chaotic atrial activity and variable ventricular response. Sawtooth flutter waves with regular conduction suggest atrial flutter instead.",
         [S.NHA_CCMA],
@@ -69,7 +69,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-rhythm",
         "Which EKG finding is most suggestive of atrial flutter?",
-        "Regular sawtooth flutter waves, often best seen in the inferior leads, with a regular or patterned ventricular response",
+        "Sawtooth flutter waves in inferior leads with regular or patterned ventricular response",
         [
             "Fine undulating baseline without organized atrial activity and irregular R-R intervals",
             "Progressive PR prolongation until a QRS is dropped",
@@ -335,11 +335,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-rhythm",
         "A monitor shows a regular wide QRS tachycardia at 170 beats per minute. The patient is diaphoretic but has a blood pressure of 88/60 mmHg. Which interpretation is most appropriate?",
-        "Treat as ventricular tachycardia until proven otherwise and follow ACLS unstable tachycardia protocol",
+        "Manage as ventricular tachycardia using unstable wide-complex tachycardia protocol",
         [
-            "Label the rhythm as sinus tachycardia and observe without treatment",
-            "Assume artifact from loose leads and disconnect the monitor",
-            "Diagnose atrial fibrillation and start anticoagulation immediately",
+            "Document sinus tachycardia, withhold treatment, and recheck blood pressure in one hour",
+            "Remove all limb electrodes to eliminate artifact without obtaining another tracing",
+            "Start long-term anticoagulation for atrial fibrillation before reviewing the rhythm strip",
         ],
         "Wide regular tachycardia with hypotension is VT until proven otherwise and needs urgent ACLS care. Sinus tachycardia would be narrow at this rate, and AF would be irregular.",
         [S.NHA_CCMA],
