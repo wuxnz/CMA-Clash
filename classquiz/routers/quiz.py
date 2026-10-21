@@ -127,6 +127,10 @@ async def start_quiz(
         getattr(quiz, "questions_per_game", None),
     )
 
+    from classquiz.helpers.game_questions import shuffle_abcd_answer_positions
+
+    shuffle_abcd_answer_positions(game_questions)
+
     if randomize_answers:
         for question in game_questions:
             if question["type"] == QuizQuestionType.RANGE:

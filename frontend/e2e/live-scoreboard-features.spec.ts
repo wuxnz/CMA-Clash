@@ -12,7 +12,7 @@ import { answerFirstTile } from './helpers/livePlayer';
 const ARTIFACT_DIR =
 	process.env.PLAYWRIGHT_ARTIFACT_DIR ?? '/opt/cursor/artifacts/live-ui';
 const SCOREBOARD_HOLD_MS = 9000;
-const REVEAL_HOLD_MS = 4000;
+const REVEAL_HOLD_MS = 8000;
 
 test.describe('live scoreboard and reveal stats', () => {
 	test.describe.configure({ timeout: 240_000 });

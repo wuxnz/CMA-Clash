@@ -317,7 +317,7 @@ FACTS: list[dict] = [
         'What action should a POC glucose reading below 70 mg/dL with symptoms prompt?',
         '15 grams fast-acting carbohydrate and a repeat check per protocol',
         [
-            'No action when the patient is still talking',
+            'No action while the patient is still talking',
             'Strenuous exercise to raise glucose',
             'A high-fat meal without a repeat check',
         ],

@@ -13,13 +13,12 @@ from classquiz.db.models import AnswerData, AnswerDataList, GamePlayer, PlayGame
 from classquiz.socket_server.helpers import has_already_answered
 from classquiz.socket_server.timing import load_question_timing, server_now_ms
 
-LIVE_REVEAL_HOLD_SEC = 4.0
 LIVE_SCOREBOARD_HOLD_SEC = 9.0
 
 
-def live_post_question_hold_sec() -> float:
+def live_post_question_hold_sec(reveal_hold_sec: float) -> float:
     """Server sleep after question_results before auto-advance (reveal + scoreboard)."""
-    return LIVE_REVEAL_HOLD_SEC + LIVE_SCOREBOARD_HOLD_SEC
+    return reveal_hold_sec + LIVE_SCOREBOARD_HOLD_SEC
 
 _lifecycle_tasks: dict[str, asyncio.Task] = {}
 _advance_tasks: dict[str, asyncio.Task] = {}
@@ -61,6 +60,14 @@ async def build_question_results_payload(game_pin: str, question_index: int) -> 
         standings_top_n,
     )
 
+    game_data = await PlayGame.get_from_redis(game_pin)
+    question = game_data.questions[question_index]
+    from classquiz.helpers.reveal_phase import compute_reveal_hold_sec, correct_answer_label
+
+    explanation = question.explanation
+    reveal_hold_sec = compute_reveal_hold_sec(explanation)
+    correct_answer = correct_answer_label(question)
+
     answer_data_list = await AnswerDataList.get_redis_or_empty(game_pin, question_index)
     raw_scores = await redis.hgetall(f"game_session:{game_pin}:player_scores")
     player_scores = {k: int(v) for k, v in raw_scores.items()}
@@ -76,15 +83,17 @@ async def build_question_results_payload(game_pin: str, question_index: int) -> 
         model.points_ahead_of_next = row.get("points_ahead_of_next")
     payload = {
         "question_index": question_index,
-        "reveal_hold_sec": LIVE_REVEAL_HOLD_SEC,
+        "reveal_hold_sec": reveal_hold_sec,
         "scoreboard_hold_sec": LIVE_SCOREBOARD_HOLD_SEC,
         "standings_top": standings_top_n(standings, 5),
         "results": enriched,
+        "explanation": explanation,
+        "correct_answer": correct_answer,
     }
     return payload, answer_data_list
 
 
-async def broadcast_question_results(sio, game_pin: str, question_index: int) -> AnswerDataList:
+async def broadcast_question_results(sio, game_pin: str, question_index: int) -> tuple[AnswerDataList, dict]:
     payload, answer_data_list = await build_question_results_payload(game_pin, question_index)
     game_data = await PlayGame.get_from_redis(game_pin)
     if game_data.question_show:
@@ -92,19 +101,36 @@ async def broadcast_question_results(sio, game_pin: str, question_index: int) ->
         await game_data.save(game_pin)
     await sio.emit("question_times_up", {"question_index": question_index}, room=game_pin)
     await sio.emit("question_results", payload, room=game_pin)
-    return answer_data_list
+    return answer_data_list, payload
 
 
-async def _advance_after_reveal(sio, game_pin: str, question_index: int) -> None:
+async def _advance_after_reveal(
+    sio,
+    game_pin: str,
+    question_index: int,
+    reveal_hold_sec: float,
+    scoreboard_hold_sec: float,
+) -> None:
     try:
-        await asyncio.sleep(live_post_question_hold_sec())
+        await asyncio.sleep(reveal_hold_sec + scoreboard_hold_sec)
         game_data = await PlayGame.get_from_redis(game_pin)
         if game_data.current_question != question_index:
             return
         if game_data.game_mode == "battle":
-            from classquiz.socket_server.game_sync import battle_maybe_advance
+            next_q = question_index + 1
+            if next_q >= len(game_data.questions):
+                from classquiz.socket_server import generate_final_results
+                from classquiz.socket_server.battle_hooks import finalize_battle
 
-            await battle_maybe_advance(sio, game_pin, game_data)
+                results = await generate_final_results(game_data, game_pin)
+                await sio.emit("final_results", results, room=game_pin)
+                await sio.emit("battle_finished", room=game_pin)
+                await finalize_battle(game_pin, game_data)
+                return
+            from classquiz.socket_server.game_sync import emit_show_question
+
+            refreshed = await PlayGame.get_from_redis(game_pin)
+            await emit_show_question(sio, game_pin, refreshed, next_q)
             return
         next_q = question_index + 1
         if next_q >= len(game_data.questions):
@@ -121,11 +147,19 @@ async def _advance_after_reveal(sio, game_pin: str, question_index: int) -> None
         return
 
 
-def _schedule_advance(sio, game_pin: str, question_index: int) -> None:
+def _schedule_advance(
+    sio,
+    game_pin: str,
+    question_index: int,
+    reveal_hold_sec: float,
+    scoreboard_hold_sec: float = LIVE_SCOREBOARD_HOLD_SEC,
+) -> None:
     prev = _advance_tasks.pop(game_pin, None)
     if prev is not None and not prev.done():
         prev.cancel()
-    _advance_tasks[game_pin] = asyncio.create_task(_advance_after_reveal(sio, game_pin, question_index))
+    _advance_tasks[game_pin] = asyncio.create_task(
+        _advance_after_reveal(sio, game_pin, question_index, reveal_hold_sec, scoreboard_hold_sec)
+    )
 
 
 async def close_question_now(sio, game_pin: str, question_index: int) -> bool:
@@ -137,8 +171,14 @@ async def close_question_now(sio, game_pin: str, question_index: int) -> bool:
         return False
     cancel_question_lifecycle(game_pin)
     await record_non_answers_as_wrong(game_pin, question_index)
-    await broadcast_question_results(sio, game_pin, question_index)
-    _schedule_advance(sio, game_pin, question_index)
+    _, payload = await broadcast_question_results(sio, game_pin, question_index)
+    _schedule_advance(
+        sio,
+        game_pin,
+        question_index,
+        float(payload["reveal_hold_sec"]),
+        float(payload["scoreboard_hold_sec"]),
+    )
     return True
 
 

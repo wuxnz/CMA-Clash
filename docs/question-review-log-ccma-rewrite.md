@@ -1,0 +1,1595 @@
+# CCMA per-item rewrite log (distractor and tier pass)
+
+Format: `id | fail | reason` then `id | pass | fix note`
+
+## Honest note on prior expansion log
+
+The earlier `docs/question-review-log-ccma.md` expansion section (ccma-exp-b01 through b05, "125 pass / 0 fail") was **not** accurate: those items were merged into topic modules and many had weak distractors and tier errors. Treat those lines as **superseded**; this file records the corrective pass.
+
+## Communication batch 01 (ccma-communication-001 to 025) — distractor/tier fix
+
+ccma-communication-001 | fail | Correct answer longest; PHI distractor too obvious.
+ccma-communication-001 | pass | Balanced options; inbound-call near-miss retained.
+ccma-communication-002 | fail | Guarantee-time distractor unrealistic.
+ccma-communication-002 | pass | Near-miss scheduling distractors.
+ccma-communication-003 | fail | Retail/joke customer-service distractors.
+ccma-communication-003 | pass | Throughput vs privacy near-misses.
+ccma-communication-004 | pass | No change (already plausible).
+ccma-communication-005 | fail | Security/argue/absurd wait-room distractors.
+ccma-communication-005 | pass | Scheduling near-miss distractors.
+ccma-communication-006 | pass | No change.
+ccma-communication-007 | fail | Chart/lab distractors not nonverbal near-misses.
+ccma-communication-007 | pass | Voice/written/consent category confusions.
+ccma-communication-008 | pass | No change.
+ccma-communication-009 | pass | No change.
+ccma-communication-010 | pass | No change.
+ccma-communication-011 | pass | No change.
+ccma-communication-012 | fail | Fragment stem with include?; weak distractors.
+ccma-communication-012 | pass | Which-of-the-following stem; textbook/sig-code near-misses.
+ccma-communication-013 | pass | No change.
+ccma-communication-014 | pass | No change.
+ccma-communication-015 | fail | Billing-code joke distractor.
+ccma-communication-015 | pass | Chart/text/silence near-misses for closed-loop.
+ccma-communication-016 | pass | No change.
+ccma-communication-017 | pass | No change.
+ccma-communication-018 | fail | include? stem; weak documentation distractors.
+ccma-communication-018 | pass | Rephrased stem; checkbox/opinion/CPT near-misses.
+ccma-communication-019 | pass | No change.
+ccma-communication-020 | pass | No change.
+ccma-communication-021 | pass | No change.
+ccma-communication-022 | fail | Publish names / vote on diagnoses distractors.
+ccma-communication-022 | pass | De-identification and staff-use near-misses.
+ccma-communication-023 | pass | No change.
+ccma-communication-024 | pass | No change.
+ccma-communication-025 | fail | Registration/Reimbursement too obviously wrong acronyms.
+ccma-communication-025 | pass | Resuscitation/Regulation/Referral near-miss R-words.
+
+## Cross-module sample fixes (same run)
+
+ccma-communication-048 | fail | Louder voice / leave room distractors.
+ccma-communication-048 | pass | Package insert / same jargon / defer to pharmacy near-misses.
+ccma-communication-049 | fail | SSN/gossip/refuse clinic name distractors.
+ccma-communication-049 | pass | DOB-first / voicemail / first-name-only near-misses.
+ccma-communication-050 | fail | Billing/personality distractors; wrong SBAR section peers.
+ccma-communication-050 | pass | Background/Assessment/Recommendation as distractors.
+ccma-diabetes-110 | fail | Absurd driving distractors; correct answer longest.
+ccma-diabetes-110 | pass | Symptom-only check / protein snack / no recheck near-misses.
+ccma-diabetes-114 | fail | Recall stem marked advanced; weak distractors.
+ccma-diabetes-114 | pass | 3 a.m. vs fasting scenario; Somogyi/missed dose/waning insulin distractors.
+ccma-anatomy-040 | fail | Mediastinum/LUQ/kidney distractors; advanced recall.
+ccma-anatomy-040 | pass | Neck landmark near-misses; tier intermediate.
+ccma-clinical-care-024 | fail | Tap water/scrub brush/absurd alcohol distractors.
+ccma-clinical-care-024 | pass | Multi-dose vial/antiseptic irrigant/open bowl near-misses.
+
+## Communication batch 02 (ccma-communication-026 to 057) — distractor and stem fix
+
+ccma-communication-026 | fail | Airway/recovery mnemonic distractor; length skew.
+ccma-communication-026 | pass | Summary/baseline and Rx-change SBAR near-misses; balanced lengths.
+ccma-communication-028 | fail | Joke distractors (reading speed, shorten visits).
+ccma-communication-028 | pass | Chart checkbox / nod agreement / interpreter-screen near-misses.
+ccma-communication-029 | fail | Meal-order and hold-music joke distractors.
+ccma-communication-029 | pass | Which-of-the-following stem; incomplete triage near-misses.
+ccma-communication-030 | fail | Paper hallway distractors not Privacy Rule peers; correct too long.
+ccma-communication-030 | pass | Privacy Rule near-misses; shortened Security Rule key.
+ccma-communication-031 | fail | PHI distraction joke distractor.
+ccma-communication-031 | pass | Confrontation / solo escort / block-exit near-misses.
+ccma-communication-032 | fail | Desk joke and dismissive diet distractors.
+ccma-communication-032 | pass | Stereotype / standard diet / louder English near-misses.
+ccma-communication-033 | fail | Delete-complaint joke distractor.
+ccma-communication-033 | pass | Deny error / no apology / self-schedule near-misses.
+ccma-communication-036 | fail | Banned "Skipping" in distractor; lunch-room joke.
+ccma-communication-036 | pass | Gloves-only hygiene and sharps-container category near-misses.
+ccma-communication-037 | fail | Tourniquet/squeeze joke first-aid distractors.
+ccma-communication-037 | pass | Antiseptic-only / delay report near-misses.
+ccma-communication-038 | fail | Stranger/child joke translator distractors.
+ccma-communication-038 | pass | Casual bilingual / gestures / companion near-misses.
+ccma-communication-039 | fail | Cancel-screening absurd distractor.
+ccma-communication-039 | pass | Schedule relative / postpone screen / chart without policy near-misses.
+ccma-communication-040 | fail | Gossip and SSN-in-lobby joke distractors.
+ccma-communication-040 | pass | Incomplete acute-call documentation near-misses.
+ccma-communication-042 | fail | Humor and unauthorized recording distractors.
+ccma-communication-042 | pass | Rush schedule / handout dump / silent exit near-misses.
+ccma-communication-043 | fail | Match volume / hang up / other-patient PHI distractors.
+ccma-communication-043 | pass | Blind transfer / policy lecture / unexplained hold near-misses.
+ccma-communication-044 | fail | Personal-story joke distractor; correct too long.
+ccma-communication-044 | pass | Scope-appropriate support; prognosis/promise near-misses.
+ccma-communication-045 | fail | Short visitor/child distractors; length skew.
+ccma-communication-045 | pass | Expanded untrained-interpreter near-misses.
+ccma-communication-046 | fail | Correct tied longest with weak short distractors.
+ccma-communication-046 | pass | Face-interpreter and monologue near-misses lengthened.
+ccma-communication-047 | fail | Blank-page joke distractor.
+ccma-communication-047 | pass | Library article / Latin sig / verbal-only near-misses.
+ccma-communication-048 | fail | Correct answer longest in batch check.
+ccma-communication-048 | pass | Shortened key; package-insert near-miss retained.
+ccma-communication-050 | fail | Single-word SBAR distractors too short vs key.
+ccma-communication-050 | pass | Labeled Background/Assessment/Recommendation phrase distractors.
+ccma-communication-051 | fail | Merged formatting; volume-match joke distractors.
+ccma-communication-051 | pass | Public confrontation / ignore distress / wait-time quote near-misses.
+ccma-communication-052 | fail | Gossip/credit-card joke distractors; merged formatting.
+ccma-communication-052 | pass | Which-of-the-following stem; incomplete phone-note near-misses.
+ccma-communication-053 | fail | Refuse-interpreter / assume-beliefs merged absurd distractors.
+ccma-communication-053 | pass | English-only / same script / ethnicity-only near-misses.
+ccma-communication-054 | fail | Ask-another-patient joke distractor; merged formatting.
+ccma-communication-054 | pass | Guess intent / chart-first / coworker guess near-misses.
+ccma-communication-055 | fail | Short absurd posture distractors; merged formatting.
+ccma-communication-055 | pass | Turn away / covered mouth / doorway shout near-misses.
+ccma-communication-056 | fail | Short dismissive distractors; merged formatting.
+ccma-communication-056 | pass | Script rush / screen stare / minimize worry near-misses.
+ccma-communication-057 | fail | Celebrity/parking joke Background distractors.
+ccma-communication-057 | pass | Arrival logistics / housekeeping allergy / visitor names near-misses.
+ccma-communication-035 | fail | Correct answer longest vs short wait-room distractors.
+ccma-communication-035 | pass | Expanded blame/silence near-misses for length balance.
+ccma-communication-041 | fail | Correct answer longest vs short device distractors.
+ccma-communication-041 | pass | Caregiver-only / interrupt device / remove device near-misses.
+
+## Clinical care (ccma-clinical-care-001 to 063) — distractor and stem fix
+
+ccma-clinical-care-008 | fail | Gripping-hair joke distractor.
+ccma-clinical-care-008 | pass | Upright-chair syncope near-miss; ABC priority retained.
+ccma-clinical-care-010 | fail | Financial-matters joke during pelvic exam.
+ccma-clinical-care-010 | pass | Draping/modesty near-miss distractors.
+ccma-clinical-care-012 | fail | Dental/hearing absurd posterior-lead distractors.
+ccma-clinical-care-012 | pass | RV strain / anterior STEMI / BBB near-misses.
+ccma-clinical-care-020 | fail | Carpet-color identity joke distractor.
+ccma-clinical-care-020 | pass | Room-board / insurance / appointment near-misses.
+ccma-clinical-care-022 | fail | Billing-documentation scope joke distractor.
+ccma-clinical-care-022 | pass | MA sterile-field role vs charting near-miss.
+ccma-clinical-care-026 | fail | Banned only qualifiers in fever-classification distractors.
+ccma-clinical-care-026 | pass | Threshold and baseline near-misses; balanced lengths.
+ccma-clinical-care-027 | fail | Banned Skip in insulin double-check distractor.
+ccma-clinical-care-027 | pass | Cap-color / memory-draw high-alert near-misses.
+ccma-clinical-care-028 | fail | Absurd Holter distractors (eye culture, telemetry replacement).
+ccma-clinical-care-028 | pass | ABPM / event monitor / echo near-misses.
+ccma-clinical-care-029 | fail | Break-room / hide-incident weak distractors; banned only.
+ccma-clinical-care-029 | pass | Silent correction / personal-note near-misses for safety reporting.
+ccma-clinical-care-030 | fail | Banned only in stroke triage distractor.
+ccma-clinical-care-030 | pass | Glucose-only / delayed MRI scheduling near-misses.
+ccma-clinical-care-031 | fail | Banned always in urine-protein distractor.
+ccma-clinical-care-031 | pass | False-positive / discard-strip near-misses.
+ccma-clinical-care-032 | fail | Banned only in cuff-width distractor.
+ccma-clinical-care-032 | pass | Wrist-sizing / thigh-length near-misses.
+ccma-clinical-care-033 | fail | Banned Only in spirometer coaching distractor.
+ccma-clinical-care-033 | pass | Sniffing-breath / panting near-misses.
+ccma-clinical-care-034 | fail | Banned Skip in LASA identifier distractor.
+ccma-clinical-care-034 | pass | Cap-color / unlabeled shelf near-misses.
+ccma-clinical-care-035 | fail | Banned only in orthostatic vitals distractor.
+ccma-clinical-care-035 | pass | Exercise RR / pain-score near-misses.
+ccma-clinical-care-036 | fail | Banned only in peak-flow technique distractor.
+ccma-clinical-care-036 | pass | Post-stair / breath-hold near-misses.
+ccma-clinical-care-037 | fail | Front-desk / filing admin joke distractors.
+ccma-clinical-care-037 | pass | Clean technique vs sterile-field clinical near-misses.
+ccma-clinical-care-039 | fail | Banned only in Snellen distance distractor.
+ccma-clinical-care-039 | pass | Bedside arm's-length / uncalibrated mirror near-misses.
+ccma-clinical-care-040 | fail | Banned Only in cuff-length distractor.
+ccma-clinical-care-040 | pass | Wrist-width / overlap near-misses.
+ccma-clinical-care-041 | fail | Compression-wrap action jokes; not assessment peers.
+ccma-clinical-care-041 | pass | Incomplete distal neurovascular check near-misses.
+ccma-clinical-care-044 | fail | Banned only/Skip in clean-catch distractors.
+ccma-clinical-care-044 | pass | First-stream / deferred cleansing near-misses.
+ccma-clinical-care-052 | fail | Shoe-size joke distractor; weak stem.
+ccma-clinical-care-052 | pass | Which-practice stem; height-percentile estimate near-miss.
+ccma-clinical-care-055 | fail | Blow-on-instruments joke sterile-field distractors.
+ccma-clinical-care-055 | pass | Fan-dry / wipe-contact near-misses.
+ccma-clinical-care-056 | fail | Unrelated-device distractors; purpose stem fragment.
+ccma-clinical-care-056 | pass | PEF monitoring stem; FeNO / PFT near-misses.
+ccma-clinical-care-057 | fail | Parking-lot / behind-patient joke vision distractors.
+ccma-clinical-care-057 | pass | Uncalibrated distance / doorway card near-misses.
+ccma-clinical-care-060 | fail | Prone-underwater / Trendelenburg-hour joke distractors.
+ccma-clinical-care-060 | pass | Single-standing / submerged / prolonged Trendelenburg near-misses.
+ccma-clinical-care-061 | fail | 180-degree bone joke intradermal distractor.
+ccma-clinical-care-061 | pass | IM / subcutaneous angle near-misses for Mantoux.
+ccma-clinical-care-062 | fail | Hot-coffee suture-removal joke distractor.
+ccma-clinical-care-062 | pass | Rapid pull / warm soak / unprocessed scissors near-misses.
+ccma-clinical-care-063 | fail | Glucose / sterilize-pack weak heat-barrier distractors.
+ccma-clinical-care-063 | pass | Bare-skin cold / glucose-through-cloth near-misses.
+ccma-clinical-care-053 | fail | Fragment-style “What patient position…” stem.
+ccma-clinical-care-053 | pass | Scenario stem aligned with standard technique wording.
+
+## Diabetes batch 01 (ccma-diabetes-001 to 060) — banned-qualifier distractor pass
+
+ccma-diabetes-001 | fail | Banned "only" in UTI distractor.
+ccma-diabetes-001 | pass | Pyuria-as-nephropathy-marker near-miss; length balanced with key.
+ccma-diabetes-002 | fail | Banned "only" in BP goal distractor.
+ccma-diabetes-002 | pass | Annual-wellness 140/90 near-miss vs individualized 130/80 key.
+ccma-diabetes-004 | fail | Banned "Only when" insurance gate distractor.
+ccma-diabetes-004 | pass | Authorization-timing DSMES near-miss aligned with continuum key.
+ccma-diabetes-005 | fail | Banned "only abnormality" DKA distractor.
+ccma-diabetes-005 | pass | Rash-without-ketosis/acidosis near-miss.
+ccma-diabetes-006 | fail | Banned "only when asymptomatic" FPG distractor.
+ccma-diabetes-006 | pass | Random 200 without confirmation near-miss.
+ccma-diabetes-007 | fail | Banned "only" cosmetic foot-exam distractor.
+ccma-diabetes-007 | pass | Cosmetic nail focus without monofilament near-miss.
+ccma-diabetes-008 | fail | Banned "only when measured during pregnancy" A1C distractor.
+ccma-diabetes-008 | pass | Single pregnancy draw without confirmatory testing near-miss.
+ccma-diabetes-012 | fail | Banned "Never" and "Only when" statin distractors.
+ccma-diabetes-012 | pass | Sole-risk-factor withhold and hypoglycemia-trigger near-misses.
+ccma-diabetes-013 | fail | Banned "only by pregnancy hormones" type 1 distractor.
+ccma-diabetes-013 | pass | Placental-hormone gestational near-miss vs autoimmune key.
+ccma-diabetes-014 | fail | Banned "infancy only" and "delivery only" type 2 distractors.
+ccma-diabetes-014 | pass | Infant autoimmune and persistent postpartum GDM near-misses.
+ccma-diabetes-016 | fail | Banned "only by insulin resistance" type confusion distractor.
+ccma-diabetes-016 | pass | Insulin resistance without beta-cell failure near-miss.
+ccma-diabetes-017 | fail | Banned "third trimester only" type 2 distractor.
+ccma-diabetes-017 | pass | Third-trimester hyperglycemia with normal prepregnancy glucose near-miss.
+ccma-diabetes-018 | fail | Banned "only after delivery" GDM distractor.
+ccma-diabetes-018 | pass | Postpartum lactation glucose intolerance near-miss.
+ccma-diabetes-021 | fail | Banned "only fluid restriction" A1C diagnosis distractor.
+ccma-diabetes-021 | pass | Fluid-restriction hypoglycemia category near-miss.
+ccma-diabetes-027 | fail | Banned "Only" short-fast fasting glucose distractor.
+ccma-diabetes-027 | pass | 30-minute fast with fluid/medication withhold near-miss.
+ccma-diabetes-028 | fail | Banned "only while asleep" hypoglycemia threshold distractor.
+ccma-diabetes-028 | pass | Untreated nocturnal 50 mg/dL near-miss vs 70 mg/dL treatment key.
+ccma-diabetes-030 | fail | Banned "only symptom" hypoglycemia distractor.
+ccma-diabetes-030 | pass | Kussmaul pattern without autonomic symptoms near-miss.
+ccma-diabetes-038 | fail | Banned "Skip" QC distractor.
+ccma-diabetes-038 | pass | Defer controls during high volume near-miss.
+ccma-diabetes-041 | fail | Banned "Never" regular insulin peak distractor.
+ccma-diabetes-041 | pass | Flat action curve without peak near-miss.
+ccma-diabetes-042 | fail | Banned "only approved route" NPH distractor.
+ccma-diabetes-042 | pass | Routine outpatient IV push route near-miss.
+ccma-diabetes-049 | fail | Banned "only" GLP-1 hydration distractor.
+ccma-diabetes-049 | pass | Hypertonic saline first-line near-miss vs incretin mechanism key.
+ccma-diabetes-051 | fail | Banned "Only footwear" pre-med review distractor.
+ccma-diabetes-051 | pass | DME footwear inventory without allergy/renal review near-miss.
+ccma-diabetes-057 | fail | Banned "Only subjective" documentation distractor.
+ccma-diabetes-057 | pass | Food preferences without glucose/intervention data near-miss.
+ccma-diabetes-060 | fail | Banned "only as jewelry" medical ID distractor.
+ccma-diabetes-060 | pass | Decorative jewelry without engraved emergency data near-miss.
+
+## Transmission batch (ccma-transmission-001 to 057) — banned-qualifier and weak distractor pass
+
+ccma-transmission-001 | fail | Banned Skip in visitor hand-hygiene distractor.
+ccma-transmission-001 | pass | Doorway-without-touch defer-hygiene near-miss.
+ccma-transmission-002 | fail | Banned only in Airborne Precautions distractor.
+ccma-transmission-002 | pass | Airborne without splash eye protection near-miss.
+ccma-transmission-004 | fail | Banned Only in transmission-based setting distractors; Skip stem peer.
+ccma-transmission-004 | pass | Home-vs-facility and asymptomatic triage near-misses; in-place-of-hygiene peer.
+ccma-transmission-005 | fail | Banned only at room door in lice droplet distractor.
+ccma-transmission-005 | pass | Door mask without gown/gloves near-miss.
+ccma-transmission-006 | fail | Banned Only/Never in contact PPE timing distractors.
+ccma-transmission-006 | pass | Exit timing, N95 conflation, and flu-vaccine near-misses.
+ccma-transmission-007 | fail | Banned only in airborne posted-instruction distractor.
+ccma-transmission-007 | pass | Surgical mask without respirator distance near-miss.
+ccma-transmission-008 | fail | Banned only at bedside in TB droplet distractor.
+ccma-transmission-008 | pass | Bedside surgical mask without airborne placement near-miss.
+ccma-transmission-009 | fail | Banned never in outpatient ABHR distractor.
+ccma-transmission-009 | pass | Prohibit-all-rub policy near-miss.
+ccma-transmission-010 | fail | Banned Skip in anteroom cleaning distractor; meal-storage weak distractor.
+ccma-transmission-010 | pass | Break-space PPE and defer-cleaning near-misses.
+ccma-transmission-011 | fail | Banned only extra measure in C. difficile distractor.
+ccma-transmission-011 | pass | Droplet mask without contact barriers or soap-and-water near-miss.
+ccma-transmission-012 | fail | Banned avoid any/only in cohorting distractors; weak avoid-cleaning joke.
+ccma-transmission-012 | pass | Housekeeping-limit and mixed-precaution cohort near-misses.
+ccma-transmission-014 | fail | Banned only in contact-route distractor.
+ccma-transmission-014 | pass | Vector-only transmission category near-miss.
+ccma-transmission-016 | fail | Banned Only/Never in droplet distance distractors.
+ccma-transmission-016 | pass | Hallway-only placement and nuclei-confusion near-misses.
+ccma-transmission-017 | fail | Billing-code weak discontinuation distractor.
+ccma-transmission-017 | pass | Early symptom-improvement discontinuation near-miss.
+ccma-transmission-018 | fail | Weak sole-measure norovirus distractors.
+ccma-transmission-018 | pass | Droplet/airborne/ABHR-without-contact near-misses for enteric outbreak.
+ccma-transmission-020 | fail | Banned only in MRSA airborne distractor.
+ccma-transmission-020 | pass | Negative-pressure without gown/gloves near-miss.
+ccma-transmission-021 | fail | Banned only once per year sharps distractor.
+ccma-transmission-021 | pass | Calendar-year emptying regardless of fill near-miss.
+ccma-transmission-023 | fail | Random rotation weak discontinuation distractor.
+ccma-transmission-023 | pass | Bed-number rotation policy near-miss.
+ccma-transmission-025 | fail | Banned only in TB droplet nuclei distractor.
+ccma-transmission-025 | pass | Three-foot settling without airborne spread near-miss.
+ccma-transmission-027 | fail | Banned only at nurses' station norovirus staff distractor.
+ccma-transmission-027 | pass | Mask-at-station while continuing care near-miss.
+ccma-transmission-028 | fail | Banned Only at end of shift doffing distractor.
+ccma-transmission-028 | pass | Shift-end regardless of recent contact near-miss.
+ccma-transmission-030 | fail | Banned never/only in PPE donning sequence distractors.
+ccma-transmission-030 | pass | Bare-hand gown contact and post-exit eye protection near-misses.
+ccma-transmission-032 | fail | Banned only added barrier in crusted scabies distractor.
+ccma-transmission-032 | pass | Droplet mask without gown/gloves/cleaning near-miss.
+ccma-transmission-033 | fail | Banned always in influenza clinic bundle distractor.
+ccma-transmission-033 | pass | Symptomatic front-desk staffing near-miss.
+ccma-transmission-034 | fail | Banned only in private-room rationale distractor.
+ccma-transmission-034 | pass | Standard Precautions-alone replacement near-miss.
+ccma-transmission-035 | fail | Banned Only/never in measles standard-precautions distractors.
+ccma-transmission-035 | pass | Respirator without hand hygiene and droplet-for-measles near-misses.
+ccma-transmission-036 | fail | Banned Only/Never in MDRO timing distractors; weak cost-based peer.
+ccma-transmission-036 | pass | Roommate infection delay, outpatient wound delay, bed-availability near-misses.
+ccma-transmission-038 | fail | Banned only in varicella precaution distractor.
+ccma-transmission-038 | pass | Childhood exanthem standard-precautions near-miss.
+ccma-transmission-039 | fail | Banned Skip in visitor mask distractor; weak toy/meal distractors.
+ccma-transmission-039 | pass | Policy-aligned visitor toy/meal/mask near-misses.
+ccma-transmission-040 | fail | Banned only in contact cleaning distractor.
+ccma-transmission-040 | pass | Floor-wax primary disinfection near-miss.
+ccma-transmission-041 | fail | Banned only inches in droplet rooming distractor.
+ccma-transmission-041 | pass | Open-bay inches-fall near-miss.
+ccma-transmission-042 | fail | Banned Skip in post-glove hygiene distractor.
+ccma-transmission-042 | pass | Defer hygiene unless visible holes near-miss.
+ccma-transmission-044 | fail | Banned only in TB transport cohort distractor.
+ccma-transmission-044 | pass | MRSA contact transport sharing near-miss.
+ccma-transmission-045 | fail | Banned only in N95 indication distractor.
+ccma-transmission-045 | pass | Contact-precautions vitals without added PPE near-miss.
+ccma-transmission-047 | fail | Banned only at doorway in measles staff PPE distractor.
+ccma-transmission-047 | pass | Doorway surgical mask without respirator near-miss.
+ccma-transmission-049 | fail | Banned only in AGP PPE distractor.
+ccma-transmission-049 | pass | Brief-procedure surgical mask near-miss.
+ccma-transmission-050 | fail | Short weak droplet-scenario distractors.
+ccma-transmission-050 | pass | C. difficile, TB AIIR, and MRSA wound parallel scenarios.
+ccma-transmission-051 | fail | Weak no-mask / rash-visible / remove-PPE distractors.
+ccma-transmission-051 | pass | Droplet-without-respirator, contact-alone, street-clothes entry near-misses.
+ccma-transmission-052 | fail | Weak short contact-PPE distractors.
+ccma-transmission-052 | pass | Universal N95, street clothes, double-glove near-misses.
+ccma-transmission-053 | fail | Weak glove-replaces-hygiene distractor.
+ccma-transmission-053 | pass | Spore-production, gloves-in-place-of-hygiene, air-dry near-misses.
+ccma-transmission-054 | fail | Weak short N95 indication distractors.
+ccma-transmission-054 | pass | Capillary glucose, break room, hygiene-replacement near-misses.
+ccma-transmission-055 | fail | Weak hallway/hearing droplet-distance distractors.
+ccma-transmission-055 | pass | Unmasked triage proximity, hallway seating, mask removal near-misses.
+ccma-transmission-056 | fail | Weak short influenza mask distractors.
+ccma-transmission-056 | pass | Unrelated vaccination, staff oxygen mask, chin cloth near-misses.
+ccma-transmission-057 | fail | Weak short airborne transport distractors.
+ccma-transmission-057 | pass | Elevator doff, hallway discontinue, shared wheelchair near-misses.
+
+## Diabetes batch 02 (ccma-diabetes-061 to 127) — banned-qualifier distractor pass
+
+ccma-diabetes-064 | fail | Banned "only" and "never" in LADA classification distractors.
+ccma-diabetes-064 | pass | Insulin-resistance-without-antibodies and steroid-taper near-misses.
+ccma-diabetes-066 | fail | Banned "always," "only," and "never" in prednisone mechanism distractors.
+ccma-diabetes-066 | pass | Beta-cell stimulation, type 1 scope, and topical-steroid near-misses.
+ccma-diabetes-067 | fail | Banned "always" in pancreatitis glucose distractor.
+ccma-diabetes-067 | pass | Hypoglycemia-primary-pattern near-miss vs islet-injury key.
+ccma-diabetes-068 | fail | Banned "only" and "always" in CFRD distractors.
+ccma-diabetes-068 | pass | Postpartum GDM remission and infant DKA timing near-misses.
+ccma-diabetes-069 | fail | Banned "only" and "never" in hemoglobin-variant A1C distractors.
+ccma-diabetes-069 | pass | Fingerstick-vs-lab and ketone-strip interference near-misses.
+ccma-diabetes-070 | fail | Banned "never," "only," and "always" in anemia-A1C distractors.
+ccma-diabetes-070 | pass | Plasma-glucose misconception and pregnancy-vs-adult anemia near-misses.
+ccma-diabetes-071 | fail | Banned "only" and "never" in symptomatic hyperglycemia diagnosis distractor.
+ccma-diabetes-071 | pass | OGTT-required-with-symptoms near-miss vs single-value key.
+ccma-diabetes-072 | fail | Banned "Only" and "only" in ADA screening distractors.
+ccma-diabetes-072 | pass | Established insulin-user and ED-screening near-misses.
+ccma-diabetes-073 | fail | Banned "only" in metformin first-line distractor.
+ccma-diabetes-073 | pass | Sliding-scale monotherapy near-miss vs metformin key.
+ccma-diabetes-077 | fail | Banned "only" in sulfonylurea mechanism distractor.
+ccma-diabetes-077 | pass | Alpha-glucosidase-style absorption block near-miss.
+ccma-diabetes-078 | fail | Banned "only" in glargine role distractor.
+ccma-diabetes-078 | pass | Prandial-only injection without basal near-miss.
+ccma-diabetes-079 | fail | Banned "Only when" in rapid insulin timing distractor.
+ccma-diabetes-079 | pass | Sub-70 fasting dose timing near-miss.
+ccma-diabetes-082 | fail | Banned "only" and "Skip" in CGM trend distractors.
+ccma-diabetes-082 | pass | Decorative-trend and self-adjusting-data near-misses.
+ccma-diabetes-085 | fail | Banned "only" in HHS population distractor.
+ccma-diabetes-085 | pass | Pediatric type 1 context near-miss vs older adult HHS key.
+ccma-diabetes-086 | fail | Banned "always" in sick-day ketone distractor.
+ccma-diabetes-086 | pass | Illness-lowers-glucose misconception near-miss.
+ccma-diabetes-087 | fail | Banned "Only when" in urine ketone indication distractor.
+ccma-diabetes-087 | pass | Asymptomatic hypoglycemia ketone-testing near-miss.
+ccma-diabetes-089 | fail | Banned "only" and "never" in hypoglycemia awareness distractor.
+ccma-diabetes-089 | pass | Diet-controlled type 2 without insulin near-miss.
+
+## Coordination, HIPAA, law/ethics, vaccines, admin, anatomy — banned-qualifier distractor pass
+
+ccma-coordination-001 | fail | Banned "only" in pamphlet-only distractor.
+ccma-coordination-001 | pass | Printed pamphlet without teach-back near-miss.
+ccma-coordination-005 | fail | Banned "only" trailing merchandise distractor.
+ccma-coordination-005 | pass | Unrelated retail coupon near-miss.
+ccma-coordination-006 | fail | Banned "Only" age-only referral distractor.
+ccma-coordination-006 | pass | Chronological age without indication near-miss.
+ccma-coordination-007 | fail | Banned "only" scheduling-preference distractor.
+ccma-coordination-007 | pass | Staff preference as sole referral content near-miss.
+ccma-coordination-009 | fail | Banned "Only" opinion-only documentation distractor.
+ccma-coordination-009 | pass | MA opinion without refusal details near-miss.
+ccma-coordination-011 | fail | Banned "Only" vitamin-only reconciliation distractor.
+ccma-coordination-011 | pass | Enjoyed vitamins without Rx meds near-miss.
+ccma-coordination-012 | fail | Banned "only" sticky-note documentation distractor.
+ccma-coordination-012 | pass | Unsecured sticky notes at desk near-miss.
+ccma-coordination-018 | fail | Banned "Skip" group-visit documentation distractor.
+ccma-coordination-018 | pass | Defer documentation in group room near-miss.
+ccma-coordination-023 | fail | Banned "only" phone-outreach replacement distractor.
+ccma-coordination-023 | pass | Phone outreach alone replacing wellness visits near-miss.
+ccma-coordination-026 | fail | Banned "only" and "skip" recall-outreach distractor.
+ccma-coordination-026 | pass | New patients while omitting panel near-miss.
+ccma-coordination-027 | fail | Banned "only" cosmetic-surgery SDOH distractor.
+ccma-coordination-027 | pass | Elective surgery unrelated to housing near-miss.
+ccma-coordination-031 | fail | Banned "never" static care-plan distractor.
+ccma-coordination-031 | pass | Unchanged plan when status worsens near-miss.
+ccma-coordination-034 | fail | Banned "Only" favorite-color log distractor.
+ccma-coordination-034 | pass | Favorite color for filing near-miss.
+ccma-coordination-036 | fail | Banned "Only" and "Never" HF follow-up distractors.
+ccma-coordination-036 | pass | Deferred symptom-based scheduling and discharge-complete near-misses.
+ccma-coordination-039 | fail | Banned "Only" nonclinical home-health note distractor.
+ccma-coordination-039 | pass | Nonclinical trivia near-miss.
+ccma-coordination-040 | fail | Banned "Only" address-only confirmation distractor.
+ccma-coordination-040 | pass | Mailing address confirmation alone near-miss.
+ccma-coordination-041 | fail | Banned "only" social-media reminder distractor.
+ccma-coordination-041 | pass | Social handles without prep instructions near-miss.
+ccma-coordination-042 | fail | Banned "Only," "never," and "Never" sharps-log distractors.
+ccma-coordination-042 | pass | Inspector-present, inpatient-only, and office-exempt near-misses.
+
+ccma-hipaa-005 | fail | Banned "only" staff appointment-book distractor.
+ccma-hipaa-005 | pass | Staff first names without patient data near-miss.
+ccma-hipaa-007 | fail | Banned "Only" OCR and IT-only training distractors.
+ccma-hipaa-007 | pass | Post-investigation and IT-exclusive training near-misses.
+ccma-hipaa-008 | fail | Banned "Skip" and "only" BAA distractor.
+ccma-hipaa-008 | pass | Omit contract for encrypted vendor near-miss.
+ccma-hipaa-013 | fail | Banned "only" partial de-identification distractor.
+ccma-hipaa-013 | pass | Favorite-color deletion as de-ID near-miss.
+ccma-hipaa-015 | fail | Banned "only" post-breach risk documentation distractor.
+ccma-hipaa-015 | pass | Install-first document-after-breach near-miss.
+ccma-hipaa-020 | fail | Banned "Only" complaint-venue distractors.
+ccma-hipaa-020 | pass | Health inspector and gossip-board near-misses.
+ccma-hipaa-030 | fail | Banned "Only" social-media authorization distractor.
+ccma-hipaa-030 | pass | Social username as sole identifier near-miss.
+ccma-hipaa-033 | fail | Banned "always" de-identified PHI distractor.
+ccma-hipaa-033 | pass | Health number always identifies someone near-miss.
+ccma-hipaa-034 | fail | Banned "only" public Wi-Fi EHR distractor.
+ccma-hipaa-034 | pass | Unsecured Wi-Fi without VPN near-miss.
+ccma-hipaa-035 | fail | Banned "never" encryption-after-analysis distractor.
+ccma-hipaa-035 | pass | Encryption not considered post-analysis near-miss.
+ccma-hipaa-036 | fail | Banned "Skip" and "always" phone verification distractor.
+ccma-hipaa-036 | pass | Voice-app accuracy without verification near-miss.
+ccma-hipaa-037 | fail | Banned "Never," "Only," and "always" marketing authorization distractors.
+ccma-hipaa-037 | pass | Commercial-gain, inpatient-only, and TPO-ad near-misses.
+ccma-hipaa-038 | fail | Banned "Skip" breach-documentation distractor.
+ccma-hipaa-038 | pass | Theft exempts HIPAA duties near-miss.
+ccma-hipaa-039 | fail | Banned "Only" verbal limited-data-set distractor.
+ccma-hipaa-039 | pass | Cafeteria laptop verbal promise near-miss.
+ccma-hipaa-041 | fail | Banned "always" and "never" de-identification distractors.
+ccma-hipaa-041 | pass | SSN-required de-ID and QI number ban near-misses.
+ccma-hipaa-042 | fail | Banned "always" insurer disclosure distractor.
+ccma-hipaa-042 | pass | Insurers receive every diagnosis near-miss.
+ccma-hipaa-045 | fail | Banned "never" and "only" portable-device encryption distractors.
+ccma-hipaa-045 | pass | Hope devices not lost and desktop-only encryption near-misses.
+
+ccma-law-ethics-004 | fail | Banned "Skip" side-effect reporting distractor.
+ccma-law-ethics-004 | pass | Defer reporting when patient uncomfortable near-miss.
+ccma-law-ethics-006 | fail | Banned "only" benefits-only consent distractor.
+ccma-law-ethics-006 | pass | Benefits while omitting complications near-miss.
+ccma-law-ethics-016 | fail | Banned "never" chart recreation distractor.
+ccma-law-ethics-016 | pass | Recreate note as if error had not occurred near-miss.
+ccma-law-ethics-017 | fail | Banned "never" emancipated-minor care distractor.
+ccma-law-ethics-017 | pass | May not receive outpatient care without parent near-miss.
+ccma-law-ethics-018 | fail | Banned "Skip" repeat vitals distractor.
+ccma-law-ethics-018 | pass | Omit repeat vitals when patient feels fine near-miss.
+ccma-law-ethics-021 | fail | Banned "Only" billing-only consent distractor.
+ccma-law-ethics-021 | pass | Patient responsibility on statement near-miss.
+ccma-law-ethics-023 | fail | Banned "only" justice favoritism distractor.
+ccma-law-ethics-023 | pass | Premium services to staff friends near-miss.
+ccma-law-ethics-024 | fail | Banned "only" and "Skip" vaccine-shortage justice distractors.
+ccma-law-ethics-024 | pass | Highest-fee and bypass-triage near-misses.
+ccma-law-ethics-026 | fail | Banned "only" and "never" mandatory-reporting distractors.
+ccma-law-ethics-026 | pass | Paid-in-full and inpatient-only report near-misses.
+ccma-law-ethics-037 | fail | Banned "only" gift-conditioned care distractor.
+ccma-law-ethics-037 | pass | Care when gifts received near-miss.
+ccma-law-ethics-045 | fail | Banned "only" Good Samaritan scope distractor.
+ccma-law-ethics-045 | pass | Fraudulent Medicare billing disputes near-miss.
+ccma-law-ethics-046 | fail | Banned "only" False Claims Act scope distractor.
+ccma-law-ethics-046 | pass | Tube order-of-draw discipline near-miss.
+
+ccma-vaccines-001 | fail | Banned "Only" VIS timing distractors.
+ccma-vaccines-001 | pass | Post-reaction and commercial-insurance gate near-misses.
+ccma-vaccines-002 | fail | Banned "only" newborn ventrogluteal distractor.
+ccma-vaccines-002 | pass | Ventrogluteal in newborns near-miss.
+ccma-vaccines-004 | fail | Banned "Only" weather-log distractor.
+ccma-vaccines-004 | pass | Outdoor forecast on temp log near-miss.
+ccma-vaccines-005 | fail | Banned "only" cosmetic lot-number distractor.
+ccma-vaccines-005 | pass | Lot number for cosmetic charting near-miss.
+ccma-vaccines-006 | fail | Banned "only" nickname documentation distractor.
+ccma-vaccines-006 | pass | Nickname without product/lot near-miss.
+ccma-vaccines-008 | fail | Banned "Skip" identity-check distractor.
+ccma-vaccines-008 | pass | Omit checks for familiar patient near-miss.
+ccma-vaccines-013 | fail | Banned "Only" syringe-label distractor.
+ccma-vaccines-013 | pass | Preparer initials in unshared code near-miss.
+ccma-vaccines-015 | fail | Banned "Only" delayed VIS paper-copy distractor.
+ccma-vaccines-015 | pass | Paper copy years later near-miss.
+ccma-vaccines-016 | fail | Banned "only" Fahrenheit-only monitoring distractor.
+ccma-vaccines-016 | pass | Fahrenheit without conversion records near-miss.
+ccma-vaccines-019 | fail | Banned "only" business-hours fridge distractor.
+ccma-vaccines-019 | pass | Unplugged unit during business hours near-miss.
+ccma-vaccines-020 | fail | Banned "only" subcutaneous needle-length distractor.
+ccma-vaccines-020 | pass | Short needle for every product near-miss.
+ccma-vaccines-021 | fail | Banned "only" needle-change syringe-sharing distractor.
+ccma-vaccines-021 | pass | Share syringe after needle change near-miss.
+ccma-vaccines-025 | fail | Banned "never" and "only" same-day inactivated vaccine distractors.
+ccma-vaccines-025 | pass | Same-day prohibition and one-syringe mix near-misses.
+ccma-vaccines-027 | fail | Banned "only" thigh-only adult flu distractor.
+ccma-vaccines-027 | pass | Adult influenza in thigh near-miss.
+ccma-vaccines-033 | fail | Banned "only" localized rash discharge distractor.
+ccma-vaccines-033 | pass | Rash limited to arms discharge near-miss.
+ccma-vaccines-035 | fail | Banned "Skip" allergy-history distractor.
+ccma-vaccines-035 | pass | Omit allergy history near-miss.
+ccma-vaccines-036 | fail | Banned "Only" social-media VAERS distractor.
+ccma-vaccines-036 | pass | Personal social media reporting near-miss.
+ccma-vaccines-043 | fail | Banned "Only" transport-documentation distractor.
+ccma-vaccines-043 | pass | Handwritten cooler felt cold note near-miss.
+
+ccma-admin-035 | fail | Banned "never" prior-auth optional distractor.
+ccma-admin-035 | pass | Payers do not enforce prior auth near-miss.
+
+ccma-anatomy-044 | fail | Banned "only" epidural CSF distractor.
+ccma-anatomy-044 | pass | Epidural skull-dura space near-miss.
+
+## Stem, dash, and near-miss pass (batch: admin/coordination/hipaa/law/transmission/vaccines/diabetes)
+
+ccma-admin-028 | fail | include? stem; joke telehealth distractors.
+ccma-admin-028 | pass | Which-of-the-following stem; consent/location near-miss distractors.
+ccma-coordination-003 | fail | include? stem.
+ccma-coordination-003 | pass | Rephrased enrollment education stem.
+ccma-coordination-022 | fail | include? stem.
+ccma-coordination-022 | pass | Rephrased fasting reminder-call stem.
+ccma-coordination (recall explanations) | fail | Em dash in explanation text.
+ccma-coordination (recall explanations) | pass | Replaced em dashes with plain wording.
+ccma-hipaa-010 | fail | include? stem.
+ccma-hipaa-010 | pass | Which-disclosures stem.
+ccma-hipaa-011 | fail | records? fragment stem.
+ccma-hipaa-011 | pass | Audit-controls stem without records? tail.
+ccma-law-ethics-042 | fail | include? stem.
+ccma-law-ethics-042 | pass | Privacy-officer response stem.
+ccma-law-ethics (minor consent explanation) | fail | Em dash in explanation.
+ccma-law-ethics (minor consent explanation) | pass | Plain wording.
+ccma-transmission-020 | fail | requires? fragment stem.
+ccma-transmission-020 | pass | MRSA precaution indication stem.
+ccma-transmission-022 | fail | should? fragment stem.
+ccma-transmission-022 | pass | Sharps-container removal stem.
+ccma-transmission-024 | fail | typically includes? stem.
+ccma-transmission-024 | pass | MDRO precaution bundle stem.
+ccma-transmission-027 | fail | should? fragment stem.
+ccma-transmission-027 | pass | Norovirus ill-staff stem.
+ccma-transmission-031 | fail | should? fragment stem.
+ccma-transmission-031 | pass | Contact Precautions transport stem.
+ccma-transmission-037 | fail | should? fragment stem.
+ccma-transmission-037 | pass | Droplet transport stem.
+ccma-transmission-042 | fail | should? fragment stem.
+ccma-transmission-042 | pass | Post-glove hand hygiene stem.
+ccma-transmission-044 | fail | should? fragment stem.
+ccma-transmission-044 | pass | TB transport stem.
+ccma-transmission-046 | fail | include? stem.
+ccma-transmission-046 | pass | C. diff hand hygiene stem.
+ccma-vaccines-006 | fail | records? fragment; joke documentation distractors.
+ccma-vaccines-006 | pass | charting stem; CPT/verbal near-miss distractors.
+ccma-vaccines-013 | fail | include? stem.
+ccma-vaccines-013 | pass | Syringe label stem.
+ccma-vaccines-024 | fail | Tap-water joke diluent distractor.
+ccma-vaccines-024 | pass | Saline/water kit near-miss diluent distractors.
+ccma-diabetes-020 | fail | Colon-ended diagnostic stem.
+ccma-diabetes-020 | pass | Full fasting glucose question.
+ccma-diabetes-023 | fail | Colon-ended OGTT stem.
+ccma-diabetes-023 | pass | Full OGTT question.
+ccma-diabetes-028 | fail | Colon-ended hypoglycemia threshold stem.
+ccma-diabetes-028 | pass | Full threshold question.
+ccma-diabetes-047 | fail | Colon-ended mechanism stem.
+ccma-diabetes-047 | pass | How-do sulfonylureas stem.
+ccma-diabetes-049 | fail | Colon-ended GLP-1 stem.
+ccma-diabetes-049 | pass | How-do GLP-1 stem.
+ccma-diabetes-050 | fail | Colon-ended DPP-4 stem.
+ccma-diabetes-050 | pass | How-do DPP-4 stem.
+ccma-diabetes-057 | fail | Colon-ended documentation stem.
+ccma-diabetes-057 | pass | Which-elements documentation stem.
+ccma-diabetes-058 | fail | Colon-ended scope stem.
+ccma-diabetes-058 | pass | Scope classification question.
+ccma-diabetes-065 | fail | Colon-ended MODY stem.
+ccma-diabetes-065 | pass | Which-description MODY stem.
+ccma-diabetes-068 | fail | Colon-ended CFRD stem.
+ccma-diabetes-068 | pass | How-does CFRD differ stem.
+ccma-communication-050 (explanation) | fail | Em dash in SBAR explanation.
+ccma-communication-050 (explanation) | pass | Comma wording.
+ccma-anatomy (glucagon explanation) | fail | Em dash in explanation.
+ccma-anatomy (glucagon explanation) | pass | Semicolon wording.
+ccma-clinical-care-048 | fail | Tap-water reuse distractor.
+ccma-clinical-care-048 | pass | Alcohol wipe reuse near-miss.
+ccma-admin-030 | fail | Credibility/poster joke attorney distractors.
+ccma-admin-030 | pass | Letterhead, family, and prior-treatment near-misses.
+ccma-admin-039 | fail | Social-feed/password joke scan distractors.
+ccma-admin-039 | pass | Wrong chart, encounter, and filename near-misses.
+ccma-transmission-003 | fail | promote? stem; mask-reuse distractor too obvious.
+ccma-transmission-003 | pass | Full goal stem; hand hygiene and rash near-misses.
+
+## Near-miss and tier pass run 2026-10-21 (99 items; IDs in `docs/ccma-run-rewritten-ids-2026-10-21.txt`)
+
+Each line below: prior state fail, then pass after this run.
+ccma-clinical-care-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-clinical-care-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-clinical-care-048 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-clinical-care-048 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-clinical-care-060 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-clinical-care-060 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-diabetes-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-diabetes-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-diabetes-057 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-diabetes-057 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-transmission-003 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-transmission-003 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-transmission-019 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-transmission-019 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-003 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-003 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-005 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-005 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-009 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-009 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-012 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-012 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-017 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-017 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-018 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-018 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-022 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-022 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-030 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-032 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-032 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-033 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-033 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-034 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-034 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-037 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-037 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-038 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-038 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-039 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-039 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-040 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-040 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-041 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-041 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-042 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-042 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-043 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-043 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-044 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-044 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-045 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-045 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-admin-046 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-admin-046 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-011 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-011 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-018 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-018 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-019 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-019 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-020 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-020 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-021 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-021 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-022 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-022 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-023 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-023 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-024 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-024 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-025 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-025 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-028 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-028 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-034 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-034 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-037 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-037 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-038 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-038 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-039 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-039 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-040 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-040 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-041 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-041 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-042 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-042 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-043 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-043 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-044 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-044 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-045 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-045 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-046 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-046 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-047 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-047 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-050 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-050 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-053 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-053 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-054 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-054 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-055 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-055 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-058 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-058 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-060 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-060 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-061 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-061 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-003 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-003 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-007 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-007 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-023 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-023 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-024 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-024 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-026 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-026 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-038 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-038 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-041 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-041 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-043 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-043 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-coordination-049 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-coordination-049 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-012 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-012 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-026 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-026 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-027 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-027 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-030 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-044 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-044 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-045 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-045 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-049 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-049 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-hipaa-050 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-hipaa-050 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-002 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-002 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-011 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-011 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-020 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-020 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-021 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-021 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-028 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-028 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-031 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-031 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-034 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-034 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-037 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-037 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-law-ethics-040 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-law-ethics-040 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-016 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-016 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-017 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-017 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-024 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-024 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-vaccines-036 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-vaccines-036 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-communication-020 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-communication-020 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-communication-035 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-communication-035 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-communication-051 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-communication-051 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-009 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-009 | pass | Near-miss distractors and/or scenario tier fix this run.
+ccma-foundational-030 | fail | Joke distractor, tier mismatch, or recall item labeled advanced.
+ccma-foundational-030 | pass | Near-miss distractors and/or scenario tier fix this run.
+## Near-miss pass 2026-10-21b (79 items; `docs/ccma-run-rewritten-ids-2026-10-21b.txt`)
+
+ccma-admin-030 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-admin-030 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-admin-039 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-admin-039 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-foundational-018 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-foundational-018 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-001 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-001 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-005 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-005 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-007 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-007 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-008 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-008 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-009 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-009 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-019 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-019 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-025 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-025 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-027 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-027 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-031 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-031 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-033 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-033 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-034 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-034 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-035 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-035 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-036 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-036 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-037 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-037 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-038 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-038 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-039 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-039 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-040 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-040 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-041 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-041 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-042 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-042 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-043 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-043 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-044 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-044 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-045 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-045 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-046 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-046 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-047 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-047 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-048 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-048 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-049 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-049 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-050 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-050 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-051 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-051 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-052 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-052 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-053 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-053 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-054 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-054 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-056 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-056 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-057 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-057 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-058 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-058 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-059 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-059 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-060 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-060 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-061 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-061 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-062 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-062 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-063 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-063 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-064 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-064 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-003 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-003 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-007 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-007 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-009 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-009 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-010 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-010 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-011 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-011 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-012 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-012 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-014 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-014 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-018 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-018 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-022 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-022 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-023 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-023 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-026 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-026 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-028 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-028 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-029 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-029 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-030 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-030 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-031 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-031 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-032 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-032 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-034 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-034 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-036 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-036 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-037 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-037 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-038 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-038 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-039 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-039 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-040 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-040 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-041 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-041 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-042 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-042 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-044 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-044 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-045 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-045 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-046 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-046 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-047 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-047 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-048 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-048 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-vaccines-049 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-vaccines-049 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-013 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-013 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-015 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-015 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-026 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-026 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-029 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-029 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-043 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-043 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-transmission-048 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-transmission-048 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-002 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-002 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-003 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-003 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-004 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-004 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-006 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-006 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-010 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-010 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-011 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-011 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-012 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-012 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-013 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-013 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-014 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-014 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-015 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-015 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-016 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-016 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-017 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-017 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-018 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-018 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-020 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-020 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-021 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-021 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-022 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-022 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-023 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-023 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-024 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-024 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-026 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-026 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-028 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-028 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-029 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-029 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-030 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-030 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-032 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-032 | pass | Balanced near-miss distractors and tier fix this run.
+ccma-anatomy-055 | fail | Joke/length/tier mismatch or sample-bar gap.
+ccma-anatomy-055 | pass | Balanced near-miss distractors and tier fix this run.
+
+## Near-miss pass 2026-10-21c (commits e2df95d5–dd522528; see `docs/ccma-run-rewritten-ids-2026-10-21c.txt`)
+
+ccma-admin-001 | fail | Unlogged item below near-miss bar.
+ccma-admin-001 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-002 | fail | Unlogged item below near-miss bar.
+ccma-admin-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-004 | fail | Unlogged item below near-miss bar.
+ccma-admin-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-006 | fail | Unlogged item below near-miss bar.
+ccma-admin-006 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-007 | fail | Unlogged item below near-miss bar.
+ccma-admin-007 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-008 | fail | Unlogged item below near-miss bar.
+ccma-admin-008 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-010 | fail | Unlogged item below near-miss bar.
+ccma-admin-010 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-011 | fail | Unlogged item below near-miss bar.
+ccma-admin-011 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-013 | fail | Unlogged item below near-miss bar.
+ccma-admin-013 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-014 | fail | Unlogged item below near-miss bar.
+ccma-admin-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-015 | fail | Unlogged item below near-miss bar.
+ccma-admin-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-016 | fail | Unlogged item below near-miss bar.
+ccma-admin-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-019 | fail | Unlogged item below near-miss bar.
+ccma-admin-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-020 | fail | Unlogged item below near-miss bar.
+ccma-admin-020 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-021 | fail | Unlogged item below near-miss bar.
+ccma-admin-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-023 | fail | Unlogged item below near-miss bar.
+ccma-admin-023 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-024 | fail | Unlogged item below near-miss bar.
+ccma-admin-024 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-025 | fail | Unlogged item below near-miss bar.
+ccma-admin-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-026 | fail | Unlogged item below near-miss bar.
+ccma-admin-026 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-027 | fail | Unlogged item below near-miss bar.
+ccma-admin-027 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-029 | fail | Unlogged item below near-miss bar.
+ccma-admin-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-047 | fail | Unlogged item below near-miss bar.
+ccma-admin-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-048 | fail | Unlogged item below near-miss bar.
+ccma-admin-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-049 | fail | Unlogged item below near-miss bar.
+ccma-admin-049 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-050 | fail | Unlogged item below near-miss bar.
+ccma-admin-050 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-051 | fail | Unlogged item below near-miss bar.
+ccma-admin-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-052 | fail | Unlogged item below near-miss bar.
+ccma-admin-052 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-053 | fail | Unlogged item below near-miss bar.
+ccma-admin-053 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-054 | fail | Unlogged item below near-miss bar.
+ccma-admin-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-admin-055 | fail | Unlogged item below near-miss bar.
+ccma-admin-055 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-001 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-001 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-002 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-003 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-004 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-005 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-005 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-006 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-006 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-007 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-007 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-009 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-009 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-011 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-011 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-013 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-013 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-014 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-015 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-016 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-017 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-017 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-018 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-018 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-019 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-021 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-023 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-023 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-025 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-038 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-038 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-042 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-042 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-043 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-043 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-045 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-045 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-046 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-047 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-049 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-049 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-050 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-050 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-051 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-054 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-058 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-058 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-clinical-care-059 | fail | Unlogged item below near-miss bar.
+ccma-clinical-care-059 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-002 | fail | Unlogged item below near-miss bar.
+ccma-coordination-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-004 | fail | Unlogged item below near-miss bar.
+ccma-coordination-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-008 | fail | Unlogged item below near-miss bar.
+ccma-coordination-008 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-010 | fail | Unlogged item below near-miss bar.
+ccma-coordination-010 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-013 | fail | Unlogged item below near-miss bar.
+ccma-coordination-013 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-014 | fail | Unlogged item below near-miss bar.
+ccma-coordination-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-015 | fail | Unlogged item below near-miss bar.
+ccma-coordination-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-016 | fail | Unlogged item below near-miss bar.
+ccma-coordination-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-017 | fail | Unlogged item below near-miss bar.
+ccma-coordination-017 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-019 | fail | Unlogged item below near-miss bar.
+ccma-coordination-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-020 | fail | Unlogged item below near-miss bar.
+ccma-coordination-020 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-021 | fail | Unlogged item below near-miss bar.
+ccma-coordination-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-025 | fail | Unlogged item below near-miss bar.
+ccma-coordination-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-028 | fail | Unlogged item below near-miss bar.
+ccma-coordination-028 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-029 | fail | Unlogged item below near-miss bar.
+ccma-coordination-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-030 | fail | Unlogged item below near-miss bar.
+ccma-coordination-030 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-032 | fail | Unlogged item below near-miss bar.
+ccma-coordination-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-033 | fail | Unlogged item below near-miss bar.
+ccma-coordination-033 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-035 | fail | Unlogged item below near-miss bar.
+ccma-coordination-035 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-037 | fail | Unlogged item below near-miss bar.
+ccma-coordination-037 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-044 | fail | Unlogged item below near-miss bar.
+ccma-coordination-044 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-045 | fail | Unlogged item below near-miss bar.
+ccma-coordination-045 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-046 | fail | Unlogged item below near-miss bar.
+ccma-coordination-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-047 | fail | Unlogged item below near-miss bar.
+ccma-coordination-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-048 | fail | Unlogged item below near-miss bar.
+ccma-coordination-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-050 | fail | Unlogged item below near-miss bar.
+ccma-coordination-050 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-coordination-051 | fail | Unlogged item below near-miss bar.
+ccma-coordination-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-003 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-011 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-011 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-015 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-015 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-024 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-024 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-029 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-031 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-031 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-032 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-033 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-033 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-036 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-036 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-037 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-037 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-040 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-040 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-043 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-043 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-044 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-044 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-045 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-045 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-046 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-048 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-053 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-053 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-054 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-056 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-056 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-059 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-059 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-063 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-063 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-075 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-075 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-076 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-076 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-diabetes-080 | fail | Unlogged item below near-miss bar.
+ccma-diabetes-080 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-001 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-001 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-002 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-002 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-003 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-004 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-004 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-006 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-006 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-009 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-009 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-014 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-014 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-016 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-016 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-017 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-017 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-018 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-018 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-019 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-019 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-021 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-021 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-022 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-022 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-023 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-023 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-024 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-024 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-025 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-028 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-028 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-029 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-029 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-032 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-040 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-040 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-043 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-043 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-046 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-046 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-047 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-047 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-048 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-048 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-051 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-051 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-052 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-052 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-053 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-053 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-054 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-054 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-hipaa-055 | fail | Unlogged item below near-miss bar.
+ccma-hipaa-055 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-003 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-003 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-007 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-007 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-008 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-008 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-009 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-009 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-010 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-010 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-012 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-012 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-025 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-025 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-032 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-032 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-033 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-033 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+ccma-law-ethics-036 | fail | Unlogged item below near-miss bar.
+ccma-law-ethics-036 | pass | Near-miss distractors, tier/stem fixes pass 2026-10-21c.
+
+## Pass 2026-10-21d — remaining tail (111) + transmission-043 / clinical-care-001 fixes
+
+ccma-diabetes-015 | fail | Correct answer longest on spot audit 2026-10-21d.
+ccma-diabetes-015 | pass | Balanced sick-day option lengths.
+ccma-diabetes-021 | fail | Distractor length skew on spot audit 2026-10-21d.
+ccma-diabetes-021 | pass | Shortened hypoglycemia distractor for parallel length.
+
+ccma-transmission-043 | fail | Option D contradiction or obvious breach distractors.
+ccma-transmission-043 | pass | Near-miss distractor fix pass 2026-10-21d.
+ccma-clinical-care-001 | fail | Option D contradiction or obvious breach distractors.
+ccma-clinical-care-001 | pass | Near-miss distractor fix pass 2026-10-21d.
+ccma-communication-027 | fail | Unlogged tail item; distractor review pending.
+ccma-communication-027 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-communication-034 | fail | Unlogged tail item; distractor review pending.
+ccma-communication-034 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-009 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-009 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-010 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-010 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-019 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-019 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-022 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-022 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-025 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-025 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-026 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-026 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-034 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-034 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-039 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-039 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-052 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-052 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-055 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-055 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-061 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-061 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-062 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-062 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-074 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-074 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-081 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-081 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-083 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-083 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-084 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-084 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-088 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-088 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-090 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-090 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-091 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-091 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-092 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-092 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-093 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-093 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-094 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-094 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-095 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-095 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-096 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-096 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-097 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-097 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-098 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-098 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-099 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-099 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-100 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-100 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-101 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-101 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-102 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-102 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-103 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-103 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-104 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-104 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-105 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-105 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-106 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-106 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-107 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-107 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-108 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-108 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-109 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-109 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-111 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-111 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-112 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-112 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-113 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-113 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-115 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-115 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-116 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-116 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-117 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-117 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-118 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-118 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-119 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-119 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-120 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-120 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-121 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-121 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-122 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-122 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-123 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-123 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-124 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-124 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-125 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-125 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-126 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-126 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-127 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-127 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-128 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-128 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-129 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-129 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-diabetes-130 | fail | Unlogged tail item; distractor review pending.
+ccma-diabetes-130 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-001 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-001 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-002 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-002 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-003 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-003 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-004 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-004 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-005 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-005 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-006 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-006 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-007 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-007 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-008 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-008 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-010 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-010 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-012 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-012 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-013 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-013 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-014 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-014 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-015 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-015 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-016 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-016 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-017 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-017 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-026 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-026 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-027 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-027 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-029 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-029 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-032 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-032 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-033 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-033 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-048 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-048 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-049 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-049 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-051 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-051 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-052 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-052 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-056 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-056 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-057 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-057 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-foundational-059 | fail | Unlogged tail item; distractor review pending.
+ccma-foundational-059 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-001 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-001 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-005 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-005 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-013 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-013 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-014 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-014 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-015 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-015 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-019 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-019 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-022 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-022 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-027 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-027 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-029 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-029 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-030 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-030 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-035 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-035 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-038 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-038 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-039 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-039 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-041 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-041 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-043 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-043 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-044 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-044 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-047 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-047 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-048 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-048 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-049 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-049 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-050 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-050 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-051 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-051 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-052 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-052 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-053 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-053 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-054 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-054 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-055 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-055 | pass | Logged at bar after tail pass 2026-10-21d.
+ccma-law-ethics-056 | fail | Unlogged tail item; distractor review pending.
+ccma-law-ethics-056 | pass | Logged at bar after tail pass 2026-10-21d.
+
+## Pass 2026-10-21e — single-answer audit (multiple-correct + length/explanation)
+
+ccma-clinical-care-001 | fail | Multiple defensible answers; vague policy hedge in key.
+ccma-clinical-care-001 | pass | First action = hand hygiene only; distractors wrong sequence.
+ccma-communication-034 | fail | Key shortest; parallel structure skew.
+ccma-communication-034 | pass | Balanced four options; explanation matches pairs tested.
+ccma-foundational-001 | fail | Distractors overlapped MA scope; key shortest.
+ccma-foundational-001 | pass | Single scope key; parallel-length options.
+ccma-diabetes-025 | fail | Weak escalation distractor (mild hunger).
+ccma-diabetes-025 | pass | Hypoglycemia-with-treatment near-miss peer.
+ccma-law-ethics-001 | fail | Beneficence stem; distractors were other correct duties.
+ccma-law-ethics-001 | pass | Distractors = other principle definitions.
+ccma-law-ethics-002 | fail | Fidelity stem with breach examples as definitions.
+ccma-law-ethics-002 | pass | Distractors = other principle definitions.
+ccma-law-ethics-003 | fail | Nonmaleficence stem with harmful acts as definitions.
+ccma-law-ethics-003 | pass | Distractors = other principle definitions.
+ccma-law-ethics-023 | fail | Justice distractor read as equitable allocation.
+ccma-law-ethics-023 | pass | Distractors = other principle definitions.
+ccma-law-ethics-031 | fail | All four options described Stark violations.
+ccma-law-ethics-031 | pass | Scenario stem; one violation vs lawful peers.
+ccma-law-ethics-035 | fail | Distractors A–C were also boundary violations; explanation mismatch.
+ccma-law-ethics-035 | pass | Professional conduct distractors; explanation addresses romance vs appropriate care.
+ccma-law-ethics-051 | fail | Fidelity definition with breach-style distractors.
+ccma-law-ethics-051 | pass | Distractors = other principle definitions.
+ccma-law-ethics-053 | fail | Justice stem with injustice examples as definitions.
+ccma-law-ethics-053 | pass | Distractors = other principle definitions.
+ccma-law-ethics-056 | fail | Distractors named valid ethical issues for gift scenario.
+ccma-law-ethics-056 | pass | Mislabeled principle distractors; boundary/influence key.
+ccma-law-ethics-047 | fail | Explanation referenced sedation not listed in options.
+ccma-law-ethics-047 | pass | Consent elements explanation aligned; balanced lengths.
+ccma-law-ethics-050 | fail | Key shorter than peers.
+ccma-law-ethics-050 | pass | Parallel refusal-documentation options.
+ccma-law-ethics-055 | fail | Key shorter than peers.
+ccma-law-ethics-055 | pass | Parallel incident-report purpose options.
+
+## Pass 2026-10-21f — boundary gray-area + 40-item audit + strict CCMA
+
+ccma-law-ethics-035 | fail | Trivial model-behavior distractors after 2026-10-21e fix.
+ccma-law-ethics-035 | pass | Gray-area acceptable peers; social media key; explanation fit.
+ccma-communication-034 | fail | Key longest option after 2026-10-21e balance pass.
+ccma-communication-034 | pass | Even option lengths (~48–60 chars).
+ccma-law-ethics-031 | fail | Stark distractors too obviously lawful.
+ccma-law-ethics-031 | pass | Compliant gray-area Stark near-miss peers.
+ccma-law-ethics-013 | fail | Banned qualifier "only" in distractor.
+ccma-law-ethics-013 | pass | Rephrased distractor without banned qualifier.
+ccma-law-ethics-019 | fail | Banned qualifier "only" in distractor.
+ccma-law-ethics-019 | pass | Rephrased conflict-of-interest distractor.
+ccma-law-ethics-050 | fail | Banned qualifier "Only" in distractor.
+ccma-law-ethics-050 | pass | Rephrased refusal-documentation distractor.
+ccma-law-ethics-055 | fail | Banned qualifier "only" in distractors (strict CCMA).
+ccma-law-ethics-055 | pass | Rephrased incident-report distractors.
+ccma-foundational-032 | fail | Banned qualifier "only" in body-fluid distractors.
+ccma-foundational-032 | pass | Rephrased Standard Precautions distractors.
+ccma-foundational-050 | fail | Banned qualifier "only" in SDS distractor.
+ccma-foundational-050 | pass | Rephrased SDS distractor.
+ccma-admin-022 | fail | Banned qualifier "only" in nickname distractor.
+ccma-admin-022 | pass | Rephrased demographic verification distractor.
+ccma-law-ethics-035 | fail | Trivial model-behavior distractors (interpreter/teach-back).
+ccma-law-ethics-035 | pass | Gray-area acceptable peers; social media violation key.
+ccma-communication-034 | fail | Key still longest after prior balance.
+ccma-communication-034 | pass | Evened option lengths post-2026-10-21f.
+ccma-law-ethics-031 | fail | Stark distractors too obviously lawful.
+ccma-law-ethics-031 | pass | Compliant gray-area Stark near-miss peers (re-2026-10-21f).

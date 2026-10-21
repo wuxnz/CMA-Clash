@@ -556,4 +556,118 @@ FACTS: list[dict] = [
         [S.CLSI_GP41, S.NHA_CPT],
         "advanced",
     ),
+fact(
+        "phleb-additives",
+        "What is the main practical distinction between sodium heparin and lithium heparin in green-top plasma collection tubes?",
+        "Both use antithrombin, but the cation salt differs and may affect validated chemistry methods",
+        [
+            "Sodium heparin is reserved for hematology CBCs and lithium heparin is reserved for coagulation PT",
+            "Lithium heparin chelates calcium the way sodium citrate does in light blue tubes",
+            "Sodium heparin tubes contain clot activator and lithium heparin tubes contain EDTA",
+        ],
+        "Green tubes may specify lithium or sodium heparin depending on manufacturer and assay validation. "
+        "The anticoagulant mechanism is similar, but laboratories treat the plasma matrix as method-specific, not interchangeable by cation alone.",
+        [S.CLSI_GP41, S.NHA_CPT],
+        "intermediate",
+    ),
+    fact(
+        "phleb-additives",
+        "Royal blue-top vacuum tubes with EDTA are used primarily for which class of laboratory testing?",
+        "Trace element and heavy metal analysis where standard additives would contaminate the specimen",
+        [
+            "Routine automated complete blood counts with platelet differentials",
+            "Prothrombin time and INR on citrated plasma at a fixed ratio when the tube color must match the ordered assay",
+            "Blood bank crossmatch and antibody identification on pink EDTA",
+        ],
+        "Trace-element tubes minimize lead and other metal contamination from standard stoppers and additives. "
+        "They are not substitutes for lavender hematology, light blue coagulation, or pink blood bank EDTA workflows.",
+        [S.CLSI_GP41],
+        "intermediate",
+    ),
+    fact(
+        "phleb-additives",
+        "CTAD (citrate, theophylline, adenosine, dipyridamole) additive tubes are collected primarily to preserve which analyte during platelet activation?",
+        "Platelet function assays by limiting ex vivo platelet degranulation",
+        [
+            "Fasting plasma glucose by inhibiting enolase like sodium fluoride gray tubes",
+            "Ionized calcium by chelating divalent cations like potassium EDTA",
+            "Arterial pH and pCO2 on plain syringes without CTAD additives",
+        ],
+        "CTAD stabilizes platelet activity for specialized testing rather than serving routine chemistry or hematology. "
+        "Confusing CTAD with fluoride glucose preservation or EDTA calcium binding misassigns tube roles on certification items.",
+        [S.CLSI_GP41],
+        "advanced",
+    ),
+    fact(
+        "phleb-additives",
+        "How does acid citrate dextrose (ACD) solution for blood bank collections differ from pink-top potassium EDTA tubes?",
+        "ACD anticoagulates with citrate and dextrose for donor or component processing, whereas pink EDTA preserves patient specimens for immunohematology",
+        [
+            "ACD contains potassium EDTA and pink tops contain sodium citrate at the PT ratio for chemistry versus hematology versus coagulation testing",
+            "ACD is used for automated CBC differentials and pink tops are for glucose preservation for chemistry versus hematology versus coagulation testing",
+            "Both are identical additives interchangeable for crossmatch and type and screen if lavender, green, or blue tubes are confused on the tray when validating plasma versus serum collection requirements",
+        ],
+        "Blood bank workflows distinguish donor or component anticoagulants from patient EDTA tubes used in typing and screening. "
+        "Swapping ACD and patient EDTA breaks standard operating procedures and can invalidate immunohematology results.",
+        [S.CLSI_GP41, S.NHA_CPT],
+        "intermediate",
+    ),
+    fact(
+        "phleb-additives",
+        "After collecting blood in a clot activator tube for serum chemistry, what preanalytic timing is most important before centrifugation?",
+        "Allow complete clot formation per manufacturer time, then centrifuge within stability limits",
+        [
+            "Centrifuge immediately without clotting because activator replaces fibrin formation",
+            "Refrigerate unclotted blood for 24 hours before any centrifugation step for chemistry versus hematology versus coagulation testing",
+            "Mix with EDTA after collection to stabilize the clot activator reaction",
+        ],
+        "Serum cannot be separated until fibrin clot forms; rushing centrifugation yields fibrin contamination and rejected aliquots. "
+        "Cold storage of unclotted specimens or post-hoc EDTA addition violates validated serum processing pathways.",
+        [S.CLSI_GP41, S.NHA_CPT],
+        "intermediate",
+    ),
+    fact(
+        "phleb-additives",
+        "Why may potassium differ between serum from a red-top tube and lithium heparin plasma from the same patient if collection is traumatic?",
+        "Hemolysis and tourniquet stasis release intracellular potassium; matrix choice does not cancel hemolysis",
+        [
+            "Heparin lowers measured potassium compared with serum on a clean draw when validating plasma versus serum collection requirements",
+            "Serum potassium rises because clot activator lyses red cells during clotting",
+            "Plasma potassium stays accurate in green tubes with visible hemolysis",
+        ],
+        "Potassium is a classic hemolysis and stasis marker in both serum and plasma. "
+        "Correct tube additive does not cancel lysed red cells; preanalytic technique and hemolysis index review remain essential.",
+        [S.CLSI_GP41, S.NHA_CPT],
+        "intermediate",
+    ),
+    fact(
+        "phleb-additives",
+        "What is the primary reason coagulation laboratories specify 3.2% versus 3.8% sodium citrate concentration "
+        "rather than treating light blue tubes as interchangeable?",
+        "Anticoagulant concentration changes the blood-to-citrate ratio and validated PT/aPTT results for that reagent system",
+        [
+            "3.8% citrate is for hematology and 3.2% is for glucose preservation for chemistry versus hematology versus coagulation testing",
+            "The percentage labels describe stopper color alone without changing coagulation reagents",
+            "3.2% citrate contains EDTA and 3.8% citrate contains heparin for plasma chemistry",
+        ],
+        "Coagulation assays depend on a fixed citrate concentration matched to fill volume and instrument reagents. "
+        "Mixing 3.2% and 3.8% tubes or assuming concentration is cosmetic distorts clotting times and INR reporting.",
+        [S.CLSI_GP41],
+        "advanced",
+    ),
+    fact(
+        "phleb-additives",
+        "When serum separator gel interferes with an analyte on a send-out assay, what collection change best addresses the preanalytic problem?",
+        "Recollect in a gel-free validated tube instead of reporting gel-contaminated serum",
+        [
+            "Centrifuge the SST again at higher speed to force the gel through the serum aliquot",
+            "Add sodium citrate to the SST aliquot to neutralize gel binding of the analyte",
+            "Switch to lavender EDTA whole blood because EDTA removes gel interference",
+        ],
+        "Gel may adsorb drugs, hormones, or other analytes; laboratories specify gel-free serum when methods require it. "
+        "Re-spinning, citrate addition, or EDTA substitution does not restore a validated matrix after gel exposure.",
+        [S.CLSI_GP41, S.NHA_CPT],
+        "advanced",
+    ),
+
 ]

@@ -157,8 +157,8 @@ FACTS: list[dict] = [
         "What venipuncture should be avoided on an arm that has what conditions?",
         "An active IV infusion, dialysis access, or mastectomy-side restrictions per policy",
         [
-            "A band-aid on an unrelated finger on the same hand",
-            "Short fingernails on the draw hand",
+            "A small adhesive bandage on another digit of the same hand",
+            "Short-trimmed nails on the hand used for the draw",
             "A blood pressure cuff on the opposite arm earlier that day",
         ],
         "Drawing distal to running IV fluids dilutes specimens, and fistula or lymphedema precautions protect vulnerable arms. "

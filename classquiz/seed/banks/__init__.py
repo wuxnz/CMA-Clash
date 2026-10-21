@@ -12,23 +12,17 @@ from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
 from .cpr_bls import FACTS as CPR_BLS_FACTS
 from .ekg import FACTS as EKG_FACTS
 from .phlebotomy import FACTS as PHLEBOTOMY_FACTS
-from .diabetes import FACTS as DIABETES_FACTS
 from .phleb_glucose import FACTS as PHLEB_GLUCOSE_FACTS
 from .supplement import FACTS as SUPPLEMENT_FACTS
 from .expansion_to_28 import FACTS as EXPANSION_TO_28_FACTS
 from .expansion_growth import FACTS as EXPANSION_GROWTH_FACTS
 from .expansion_audit_replacements import FACTS as EXPANSION_AUDIT_REPLACEMENTS
-from .supplement.diabetes_expansion import FACTS as DIABETES_EXPANSION_FACTS
-
-_DIABETES_ALL = DIABETES_FACTS + DIABETES_EXPANSION_FACTS
-
 _ALL_MODULES = (
     CCMA_FACTS,
     CLINICAL_SKILLS_FACTS,
     CPR_BLS_FACTS,
     EKG_FACTS,
     PHLEBOTOMY_FACTS,
-    _DIABETES_ALL,
     PHLEB_GLUCOSE_FACTS,
     SUPPLEMENT_FACTS,
     EXPANSION_TO_28_FACTS,

@@ -48,7 +48,7 @@ FACTS: list[dict] = [
         "Upright clotting for the laboratory-defined time before centrifugation",
         [
             "Immediate freezing while still completely liquid",
-            "Heating to body temperature in a microwave",
+            "Heating the tube to body temperature to accelerate clotting",
             "Dilution with saline to the fill line",
         ],
         "Complete clot formation lets fibrin separate cleanly during spin. "
@@ -560,4 +560,19 @@ FACTS: list[dict] = [
         _REF,
         "advanced",
     ),
+fact(
+        "phleb-handling",
+        "After filling a lavender EDTA tube at the bedside, how many gentle inversions does CLSI typically recommend?",
+        "8 to 10 gentle end-over-end inversions",
+        [
+            "3 to 4 gentle end-over-end inversions",
+            "5 gentle end-over-end inversions",
+            "No inversion before the tube reaches the laboratory",
+        ],
+        "Lavender EDTA tubes need thorough gentle mixing, typically about eight to ten inversions. "
+        "Citrate or SST mixing counts are common confusions that leave hematology specimens under-mixed.",
+        _REF,
+        "beginner",
+    ),
+
 ]

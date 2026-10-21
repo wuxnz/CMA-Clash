@@ -9,590 +9,452 @@ from classquiz.seed import sources as S
 from classquiz.seed.banks._builder import fact
 
 FACTS: list[dict] = [
-    fact(
-        'ccma-hipaa',
-        'Discussing a patient in a public elevator?',
-        'May violate privacy if identifiable information is shared',
-        [
-            'Is always encouraged',
-            'Is HIPAA-compliant if whispered',
-            'Replaces need for consent',
-        ],
-        'PHI should not be disclosed where others can overhear. Choosing Is always encouraged is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'The HIPAA Privacy Rule applies to?',
-        'Individually identifiable protected health information held or transmitted by covered entities and their business associates',
-        [
-            'De-identified data prepared per HIPAA methods',
-            'Public weather data',
-            'Restaurant menus',
-        ],
-        'PHI requires safeguards and permitted uses. Choosing De-identified data prepared per HIPAA methods is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'The HIPAA Privacy Rule requires covered entities to provide?',
-        'A notice of privacy practices',
-        [
-            'Unlimited public chart access',
-            'Free medications',
-            'Automatic marketing opt-in',
-        ],
-        'NPP explains uses and patient rights. Choosing Unlimited public chart access is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What does Covered entities under HIPAA include?',
-        'Health plans, clearinghouses, and certain health care providers',
-        [
-            'All employers regardless of industry',
-            'Patients and families',
-            'Medical equipment manufacturers only',
-        ],
-        'HHS defines covered entities subject to Privacy and Security Rules. Choosing All employers regardless of industry is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What is HIPAA protected health information (PHI)?',
-        'Individually identifiable health information held or transmitted by covered entities',
-        [
-            'Only paper charts',
-            'Only billing data',
-            'De-identified research data only',
-        ],
-        'The HIPAA Privacy Rule protects identifiable health information with required safeguards. Choosing Only paper charts is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'When faxing PHI, the sender should?',
-        'Use a cover sheet and verify recipient number',
-        [
-            'Fax to any number without checking',
-            'Include passwords on cover',
-            'Send to local newspaper',
-        ],
-        'Verify recipient to prevent misdirection. Choosing Fax to any number without checking is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Workforce training on HIPAA should occur?',
-        'Initially and periodically per policy',
-        [
-            'Never for medical assistants',
-            'Only after a breach',
-            'Once per lifetime only',
-        ],
-        "Training supports the Security Rule's administrative safeguards. Choosing Never for medical assistants is a plausible near-miss that does not match the clinical fact tested in this question.",
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'A business associate agreement is required when?',
-        'A vendor creates, receives, maintains, or transmits PHI on behalf of the covered entity',
-        [
-            'Buying office pens',
-            'Hiring a landscaper',
-            'Reading public health websites',
-        ],
-        'BAAs contractually bind vendors to protect PHI. Choosing Buying office pens is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'A facility directory may disclose limited information (e.g., location in facility) if?',
-        'The patient has been informed and has opportunity to agree or object',
-        [
-            'Always includes full diagnosis to any caller',
-            'Includes SSN to marketers',
-            'Is posted on the internet',
-        ],
-        'Directory disclosures are limited and optional for patients. Choosing Always includes full diagnosis to any caller is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Accounting of disclosures provides patients?',
-        'List of certain non-routine disclosures',
-        [
-            'Every employee lunch order',
-            'All internal treatment uses by default',
-            'Unrelated payroll',
-        ],
-        'Routine treatment, payment, and operations are excluded. Choosing Every employee lunch order is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Audit controls in HIPAA Security Rule require?',
-        'Mechanisms to record and examine access to ePHI',
-        [
-            'Deleting all logs daily',
-            'Shared generic login for all staff',
-            'No passwords',
-        ],
-        'Audit trails detect inappropriate access. Choosing Deleting all logs daily is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Business associate agreements are required when?',
-        'A vendor creates, receives, maintains, or transmits PHI for the covered entity',
-        [
-            'Buying office paper only',
-            'Public marketing with no PHI',
-            'Personal shopping',
-        ],
-        'BAs must safeguard PHI under contract. Choosing Buying office paper only is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    fact(
-        'ccma-hipaa',
-        'De-identification of PHI under HIPAA Safe Harbor removes?',
-        'Specified identifiers such as name and full dates in many cases',
-        [
-            'All clinical meaning always',
-            'Only patient shoe size',
-            'Nothing',
-        ],
-        'Safe Harbor has 18 identifier categories to remove. Choosing All clinical meaning always is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Encryption of laptops containing ePHI is an example of?',
-        'A technical safeguard under the Security Rule',
-        [
-            'A marketing technique',
-            'Optional with no risk analysis ever',
-            'Prohibited by OSHA',
-        ],
-        'Risk analysis guides safeguard selection. Choosing A marketing technique is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Facility directory information in hospitals may list?',
-        'Patient name, location, and condition if patient agrees',
-        [
-            'Full diagnosis to any visitor without consent',
-            'SSN in lobby monitor',
-            'Credit card numbers',
-        ],
-        'Directory opt-in limits what is shared. Choosing Full diagnosis to any visitor without consent is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Marketing under HIPAA generally requires?',
-        'Authorization unless a specific exception applies',
-        [
-            'No rules for texts about unrelated products',
-            'Automatic consent at registration always',
-            'Posting names for promotions',
-        ],
-        'Marketing uses of PHI usually need permission. Choosing No rules for texts about unrelated products is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Minimum necessary in workforce access means?',
-        'Staff receive access to only the PHI needed for their job',
-        [
-            'All staff access all charts',
-            'Interns access payroll of celebrities',
-            'Volunteers access research database without training',
-        ],
-        'Role-based access reduces breach risk. Choosing All staff access all charts is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Minimum necessary standard means?',
-        'Disclose only the PHI needed for the purpose',
-        [
-            'Share entire charts casually',
-            'Email all records to family without request',
-            'Post lists in lobby',
-        ],
-        'Limit access and disclosure to what is required. Choosing Share entire charts casually is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Minimum necessary under HIPAA means disclosing?',
-        'Only the PHI needed for the current task',
-        [
-            'Entire medical record to any caller',
-            'Passwords in email',
-            'Social security numbers on a whiteboard',
-        ],
-        'Staff limit access to what each role requires. Overdisclosure violates privacy even without malice.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Patient complaint about privacy practices may be filed with?',
-        'The covered entity and HHS OCR',
-        [
-            'Random online forums only',
-            'Local restaurant health dept always',
-            'No avenue',
-        ],
-        'OCR enforces Privacy and Security Rules. Choosing Random online forums only is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Patient requests to restrict disclosures?',
-        'Must be considered; some restrictions are not required to be agreed to',
-        [
-            'Are always mandatory for all types',
-            'Are never documented',
-            'Apply to emergency treatment always without exception',
-        ],
-        'Restrictions have limits under the Privacy Rule. Choosing Are always mandatory for all types is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Patients generally have the right to?',
-        'Access and request amendment of their health records',
-        [
-            'Delete all legal records secretly',
-            'Demand alteration of factual test results without process',
-            "Access other patients' charts",
-        ],
-        'Access and amendment rights have defined procedures. Choosing Delete all legal records secretly is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Patients have the right under HIPAA to?',
-        'Access and request amendments to their health records',
-        [
-            'Delete all medical records permanently',
-            'Hide records from treating clinicians',
-            'Avoid all disclosures including treatment',
-        ],
-        'HHS describes individual rights to access, copy, and request correction of PHI. Choosing Delete all medical records permanently is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Patients may request a copy of their medical record and?',
-        'Receive it within time frames established by HIPAA and state law',
-        [
-            'Be denied all access automatically',
-            'Receive only if they pay a penalty fee not allowed by law',
-            "Get another patient's record",
-        ],
-        'Right of access is a core HIPAA provision. Choosing Be denied all access automatically is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Personal representatives under HIPAA may access records when?',
-        'Authorized by law or patient designation',
-        [
-            'They are curious neighbors',
-            'They work for a marketer',
-            'They found the chart in trash',
-        ],
-        'Representative status must be verified. Choosing They are curious neighbors is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Reporting suspected HIPAA violations internally should follow?',
-        'Facility privacy and compliance policies',
-        [
-            'Posting on personal social media first',
-            'Ignoring unless media asks',
-            'Deleting audit logs',
-        ],
-        'Internal reporting enables investigation and mitigation. Choosing Posting on personal social media first is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Texting PHI with patients requires?',
-        'Secure platform or patient consent with warnings if allowed by policy',
-        [
-            'Standard SMS with full chart always',
-            'Public Twitter DMs',
-            'Unencrypted group chats',
-        ],
-        'Standard texting may not meet security requirements. Choosing Standard SMS with full chart always is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'The HIPAA Security Rule primarily addresses?',
-        'Electronic PHI safeguards',
-        [
-            'Only paper records',
-            'Parking lot design',
-            'Cafeteria menus',
-        ],
-        'Administrative, physical, and technical safeguards protect ePHI. Choosing Only paper records is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'The HIPAA minimum necessary standard means?',
-        'Limit PHI used or disclosed to what is needed for the purpose',
-        [
-            'Share entire charts routinely',
-            'Post diagnoses publicly',
-            'Email all results to family by default',
-        ],
-        'Minimum necessary reduces privacy risk. Choosing Share entire charts routinely is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'intermediate',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What does A HIPAA authorization for disclosure must include?',
-        'Specific description of information and purpose',
-        [
-            'Blanket lifetime permission without limits always',
-            'Verbal OK from unknown caller',
-            'Social media username only',
-        ],
-        'Authorizations require core elements under the Privacy Rule. Choosing Blanket lifetime permission without limits always is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What does A valid HIPAA authorization must include?',
-        'Specific description of information and purpose of disclosure',
-        [
-            'Blanket permission for all future uses forever',
-            'No expiration date required always',
-            'Verbal okay only without signature when written required',
-        ],
-        'Authorizations have required elements. Choosing Blanket permission for all future uses forever is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What does Access controls for EHR workstations include?',
-        'Automatic logoff and unique user IDs',
-        [
-            'Shared passwords on all PCs',
-            'Leaving sessions open overnight',
-            'Posting passwords on monitors',
-        ],
-        'Security Rule technical safeguards protect ePHI. Choosing Shared passwords on all PCs is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What does Protected health information (PHI) include?',
-        'Individually identifiable health information held by covered entities',
-        [
-            'De-identified data per HIPAA rules',
-            'Only billing codes without identifiers',
-            'Public weather reports',
-        ],
-        'PHI ties health data to a person. Choosing De-identified data per HIPAA rules is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What does Workstation security include?',
-        'Screen locks and positioning away from public view',
-        [
-            'Leaving charts open in hallway',
-            'Shared passwords on sticky notes',
-            'Unencrypted public Wi-Fi for EHR without safeguards',
-        ],
-        'Physical and technical safeguards reduce snooping. Choosing Leaving charts open in hallway is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What is Encryption of ePHI on laptops?',
-        'A recommended addressable safeguard under the Security Rule',
-        [
-            'Prohibited by HIPAA',
-            'Optional with no risk consideration',
-            'Only for public blogs',
-        ],
-        'Risk analysis guides encryption decisions. Choosing Prohibited by HIPAA is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What should Verifying identity before releasing records use when measuring?',
-        'Policy-defined identifiers, not guesses',
-        [
-            'Birthday alone from social media',
-            'Voice recognition without policy',
-            'Anyone who knows patient nickname',
-        ],
-        'Identity verification prevents unauthorized access. Choosing Birthday alone from social media is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'A HIPAA authorization is generally required for?',
-        'Uses and disclosures not otherwise permitted by the Privacy Rule',
-        [
-            'Treatment, payment, and health care operations',
-            'Reporting to public health authorities as required by law',
-            'Disclosures to the patient',
-        ],
-        'Marketing and many non-routine disclosures need patient authorization. Choosing Treatment, payment, and health care operations is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'A breach of unsecured PHI requires?',
-        'Risk assessment and notification per HIPAA Breach Notification Rule',
-        [
-            'Automatic jail for all staff',
-            'No documentation',
-            'Public social media post only',
-        ],
-        'Covered entities must evaluate and report certain breaches. Choosing Automatic jail for all staff is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'A limited data set may be used for research when?',
-        'A data use agreement is in place',
-        [
-            'PHI is posted online',
-            'No safeguards exist',
-            'Patients are not informed when required',
-        ],
-        'HHS allows limited data sets with agreements. Choosing PHI is posted online is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'An accounting of disclosures provides patients?',
-        'A list of certain non-routine disclosures of PHI',
-        [
-            'All text messages ever sent',
-            'Unlimited access to employee HR files',
-            'Free medications',
-        ],
-        'Patients have rights to accounting in defined circumstances. Choosing All text messages ever sent is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'De-identified health information?',
-        'Has identifiers removed per HIPAA methods',
-        [
-            'Contains full name and SSN',
-            'Cannot be used for quality improvement',
-            'Is identical to PHI',
-        ],
-        'Proper de-identification removes HIPAA protections. Choosing Contains full name and SSN is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Patients may request restrictions on disclosures when?',
-        'The request is submitted per Privacy Rule procedures',
-        [
-            'They demand deletion of all medical facts',
-            'They refuse all treatment forever',
-            'They want unlimited marketing',
-        ],
-        'Restrictions are limited but recognized under HIPAA. Choosing They demand deletion of all medical facts is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Psychotherapy notes receive?',
-        'Stronger protection than general medical record under HIPAA',
-        [
-            'No protection',
-            'Automatic public posting',
-            'Marketing use without consent',
-        ],
-        'Separate authorization rules apply to psychotherapy notes. Choosing No protection is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'Treatment, payment, and health care operations (TPO) disclosures?',
-        'Are permitted without patient authorization in many cases',
-        [
-            'Always require written authorization',
-            'Are never allowed',
-            'Apply only to employers',
-        ],
-        'HIPAA allows TPO without separate authorization. Choosing Always require written authorization is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    fact(
-        'ccma-hipaa',
-        'What is Encryption of ePHI on portable devices?',
-        'An addressable Security Rule safeguard',
-        [
-            'Prohibited by HIPAA',
-            'Optional with no risk analysis',
-            'Only for billing staff',
-        ],
-        'Risk analysis guides encryption implementation. Choosing Prohibited by HIPAA is a plausible near-miss that does not match the clinical fact tested in this question.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-]
+    # ccma-hipaa-001
+        fact('ccma-hipaa', 'Two staff members discuss a patient by name and diagnosis while riding a crowded hospital elevator. Why is this a privacy concern?', 'Others nearby may overhear individually identifiable health information', ['Elevator conversations are permitted when both employees wear facility badges', 'Whispering patient names makes the exchange a de-identified workforce update', 'Verbal diagnosis discussion between coworkers counts as permitted TPO in public areas'], 'The HIPAA Privacy Rule limits uses and disclosures of PHI to permitted purposes and safeguards. Conversations in public areas can expose identifiers to people who are not part of the care team.', [S.NHA_CCMA], 'beginner'),
 
+    # ccma-hipaa-002
+        fact('ccma-hipaa', 'Which information does the HIPAA Privacy Rule regulate when held or transmitted by a covered entity or business associate?', 'Individually identifiable protected health information held or transmitted', ['Public weather forecasts displayed in the waiting room', 'Health data stripped of identifiers under HIPAA de-identification standards', 'Restaurant menus used for general dietary teaching without patient identifiers'], 'PHI ties health data to a specific person and triggers privacy and security obligations. Data stripped of identifiers under HIPAA rules or unrelated public information falls outside that scope.', [S.NHA_CCMA], 'beginner'),
+
+    # ccma-hipaa-003
+        fact('ccma-hipaa', 'At first visit, what written document must a covered entity offer that explains how it may use and share PHI?', 'A notice of privacy practices describing uses and patient rights', ['A blanket waiver allowing unlimited marketing texts without opt-out', 'A contract granting the public access to every chart on request', 'A form waiving all future breach notifications for the practice'], 'The notice of privacy practices describes routine uses, patient rights, and how to file complaints. It supports informed expectations before treatment and billing activities begin.', [S.NHA_CCMA], 'beginner'),
+
+    # ccma-hipaa-004
+        fact('ccma-hipaa', 'Which organizations are HIPAA covered entities subject to the Privacy and Security Rules?', 'Health plans, health care clearinghouses, and certain health care providers', ['Every employer in every industry that maintains a payroll system', 'Patients and family members who receive treatment in the clinic under typical outpatient policy.', 'Device manufacturers that do not create, receive, or transmit PHI'], 'HHS defines covered entities that create, receive, maintain, or transmit PHI in defined roles. Employers without covered functions and vendors without PHI access are addressed through other relationships such as business associate agreements.', [S.NHA_CCMA], 'beginner'),
+
+    # ccma-hipaa-005
+    fact(
+        'ccma-hipaa',
+        'How does HIPAA define protected health information (PHI) in the outpatient setting?',
+        'Individually identifiable health information held or transmitted by a covered entity',
+        [
+            'Billing codes with all patient identifiers permanently removed under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'Aggregate quality reports with no link to a person under typical outpatient policy.',
+            'Paper appointment books that list first names of staff without patient data',
+        ],
+        'PHI includes demographic and clinical details that identify the individual or could reasonably be used to identify them. De-identified or workforce scheduling data without patient health content is not PHI.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-006
+        fact('ccma-hipaa', 'A medical assistant sends a lab report by fax to another clinic. What step best reduces the risk of an unauthorized disclosure?', 'Confirm the fax number, use a confidentiality cover sheet, and limit detail to what is needed', ['Redial the last stored fax number on the machine without verifying the recipient', 'Place the patient social security number on the cover sheet for quick matching', 'Send the full chart to a front-desk fax at a business with a similar name under typical outpatient policy.'], 'Misdirected faxes are a common breach source. Verifying the destination and labeling the transmission helps ensure PHI reaches the intended covered entity or provider.', [S.NHA_CCMA], 'beginner'),
+
+    # ccma-hipaa-007
+    fact(
+        'ccma-hipaa',
+        'When should HIPAA privacy and security training occur for medical assistants and other workforce members?',
+        'At hire and on a recurring schedule defined by facility policy',
+        [
+            'After OCR opens a formal investigation under typical outpatient policy.',
+            'For information technology staff, not clinical assistants',
+            'One session with no refresher unless a new law passes',
+        ],
+        'Administrative safeguards under the Security Rule expect workforce members to understand policies before handling ePHI. Periodic retraining reinforces safe workflows as systems and threats change.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-008
+    fact(
+        'ccma-hipaa',
+        'A cloud billing vendor will store patient names and diagnoses for the practice. What contractual step is required under HIPAA?',
+        'Execute a business associate agreement before PHI is shared',
+        [
+            'Rely on a verbal promise because the vendor is well known',
+            'Omit a contract when the vendor receives encrypted files',
+            'Treat the vendor like an office supply order with no privacy terms',
+        ],
+        'Business associates must contractually agree to safeguard PHI and report breaches. Covered entities remain accountable for PHI handled on their behalf by vendors.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-009
+        fact('ccma-hipaa', 'A hospital wishes to tell callers whether a patient is in the building and their room number. What must happen first under the facility directory rules?', 'Inform the patient and offer a chance to agree or object to directory disclosures', ['Publish a medical record summary on the lobby monitor for visitors under typical outpatient policy.', "Release diagnosis details to any visitor who knows the patient's last name", 'Add the patient to the directory automatically at admission without notice'], 'Directory information is limited and voluntary for the patient. Name, location, and general condition may be shared only within the rules when the patient does not object.', [S.NHA_CCMA], 'beginner'),
+
+    # ccma-hipaa-010
+    fact(
+        'ccma-hipaa',
+        'A patient asks for an accounting of disclosures. Which disclosures are typically listed?',
+        'Certain disclosures made for purposes other than treatment, payment, and health care operations',
+        [
+            'Every internal note another clinician read for continuity of care',
+            'Routine billing transmissions to the health plan for payment under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'Meal orders the dietary staff placed for the patient under typical outpatient policy.',
+        ],
+        'Treatment, payment, and operations uses are excluded from the accounting unless required by law. Patients may learn about many non-routine disclosures made in the prior six years, subject to exceptions.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-011
+    fact(
+        'ccma-hipaa',
+        'Which HIPAA Security Rule safeguard requires electronic systems to record who accessed ePHI?',
+        'Audit controls that record and review ePHI access activity',
+        [
+            'Disabling access logs to save server storage space',
+            'Assigning one shared user ID for every employee on the unit',
+            'Storing passwords on sticky notes attached to workstations',
+        ],
+        'Audit trails support breach investigation and deter snooping. Reviewing logs is part of detecting inappropriate access to electronic charts.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-012
+    fact(
+        'ccma-hipaa',
+        'A provider shares PHI with another specialist to coordinate the patient\'s surgery. Is patient authorization required for this disclosure?',
+        'No, when the disclosure is for treatment within permitted HIPAA uses',
+        [
+            'Yes, written authorization is required for every treatment-related fax',
+            'No, because any employee may disclose the full record to anyone',
+            'Yes, unless the patient verbally told the front desk the specialist may receive records',
+        ],
+        'Treatment, payment, and health care operations form the core permitted uses without individual authorization. Disclosures still must follow minimum necessary and facility policy.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-013
+    fact(
+        'ccma-hipaa',
+        'A researcher wants a dataset stripped of identifiers using the HIPAA Safe Harbor method. Which action aligns with that approach?',
+        'Remove specified identifier elements such as names and dates tied to the individual',
+        [
+            'Rename the patient but keep the medical record number in the file under typical outpatient policy.',
+            'Delete the patient favorite color field and call the file de-identified',
+            'Share the full chart because the research protocol was approved locally',
+        ],
+        'Safe Harbor requires removal of 18 categories of identifiers unless an expert certifies very low re-identification risk. Partial redaction that leaves key identifiers still counts as PHI.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    # ccma-hipaa-014
+        fact('ccma-hipaa', 'A clinic laptop stores ePHI and may leave the building for home visits. Encrypting the drive is an example of what type of safeguard?', 'A technical safeguard under the HIPAA Security Rule', ['A patient marketing authorization under the Privacy Rule', 'An optional step that replaces the need for any documented risk analysis', 'A substitute for workforce privacy and security training requirements'], 'Technical safeguards protect ePHI through access controls, encryption, and integrity tools selected after risk analysis. Encryption reduces impact if a device is lost or stolen.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-015
+    fact(
+        'ccma-hipaa',
+        'Before buying new software that stores ePHI, what Security Rule process should the practice complete?',
+        'Conduct an accurate and thorough risk analysis of ePHI vulnerabilities',
+        [
+            'Install the product first and document risks after a breach occurs',
+            'Rely on the vendor brochure without reviewing local workflows',
+            'Delegate the decision entirely to staff who do not handle patient data',
+        ],
+        'Risk analysis identifies threats to confidentiality, integrity, and availability of ePHI. Safeguards such as encryption and access controls should address documented risks.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    # ccma-hipaa-016
+        fact('ccma-hipaa', 'The practice wants to email patients about a third-party weight-loss product unrelated to their care plan. What is generally required?', 'Patient authorization for marketing communications that use PHI', ['No permission because the message promotes wellness in general terms', 'Automatic consent because the patient listed an email address at registration', "Verbal agreement from front-desk staff without documenting the patient's choice"], 'Marketing communications paid for by third parties or promoting unrelated products usually need explicit authorization. Treatment reminders and certain face-to-face communications follow different rules.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-017
+        fact('ccma-hipaa', 'How should role-based access to the electronic health record reflect the minimum necessary standard?', 'Grant each user access to the PHI needed for that job and no more', ['Give every employee the same super-user password for workstation convenience', 'Allow volunteers to open any chart while shadowing without privacy training', 'Share executive payroll files with clinical staff to fill idle time'], 'Minimum necessary limits both disclosures to outsiders and internal chart access. Segregating modules by role reduces curiosity browsing and accidental exposure.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-018
+        fact('ccma-hipaa', "A caller says they are the patient's cousin and asks for today's test results by phone. What approach follows minimum necessary principles?", 'Verify identity and authority, then share information limited by policy and the request', ["Read the entire chart aloud once the caller states the patient's date of birth", 'Fax all results to the number provided without confirming who will receive them', 'Refuse to document the call so no record of the disclosure exists under typical outpatient policy.'], 'Even permitted disclosures should be limited to what the recipient needs to know. Identity verification and policy on family involvement prevent casual over-sharing.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-019
+        fact('ccma-hipaa', "When discussing a patient with a consulting physician by phone in a semi-private nurses' station, what practice supports the minimum necessary standard?", 'Lower your voice, move to a private area, and share clinically relevant details', ['Use the hallway speakerphone so the consulting team can hear clearly', 'Project the chart on the wall monitor for staff in the unit to view', 'Email the complete record to personal accounts for faster reading under typical outpatient policy.'], 'Minimum necessary applies to oral disclosures as well as electronic ones. Physical privacy and limiting content reduce incidental disclosure to visitors and other patients.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-020
+    fact(
+        'ccma-hipaa',
+        'A patient believes the clinic mishandled their PHI. Where may they file a privacy complaint?',
+        'With the covered entity\'s privacy officer and with the HHS Office for Civil Rights',
+        [
+            'With the local restaurant health inspector under typical outpatient policy.',
+            'On anonymous gossip boards with no contact information under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'Nowhere, because patients waive privacy rights by seeking care',
+        ],
+        'Covered entities must have a complaint process and may not retaliate for filing. OCR investigates alleged violations of the Privacy and Security Rules.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    # ccma-hipaa-021
+        fact('ccma-hipaa', 'A patient asks the practice not to disclose information about their care to their spouse. How must the covered entity respond?', 'Consider the request and document agreed restrictions except where law limits them', ['Ignore the request because family members usually want clinical updates', 'Agree to every restriction even when payment from the spouse requires disclosure', 'Tell the patient restrictions are impossible for any purpose under typical outpatient policy.'], 'Patients may request limits on certain disclosures, but the entity is not required to agree in every situation such as some payment arrangements. Documented restrictions must be honored when accepted.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-022
+        fact('ccma-hipaa', 'Which right does HIPAA grant individuals regarding their designated record set?', 'Inspect and obtain a copy of their PHI, and request amendment of certain errors', ['Demand that factual lab results be erased because the patient dislikes the numbers', "Access and copy other patients' records for personal comparison", 'Block all sharing of information with treating clinicians during an emergency'], 'Access and amendment rights include timely copies and a process to correct inaccurate information. Providers may deny some amendment requests when records are accurate and complete.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-023
+        fact('ccma-hipaa', 'A patient wants bills sent to a different address so a household member does not see diagnoses on statements. What should the practice do?', 'Accommodate reasonable requests for confidential communications when asked', ["Refuse because mail must go to the address on the driver's license", 'Send detailed clinical notes to the alternate address without discussing format', 'Charge a punitive fee not permitted under HIPAA for honoring the request'], 'Patients may request that communications arrive by alternative means or at alternative locations. Covered entities must accommodate reasonable requests and may not require explanation of the reason.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-024
+        fact('ccma-hipaa', 'How quickly must a covered entity generally act when an individual requests copies of their medical record?', 'Within time frames set by HIPAA and applicable state law, often about 30 days with possible extension', ['Deny the request automatically if the patient owes a small copay balance', "Provide another patient's record if the names are similar on the request", 'Withhold all records until the patient agrees to unrelated marketing under typical outpatient policy.'], 'The right of access requires timely production of readable copies, with limited fees allowed by rule. Delays beyond regulatory timelines or conditioning access on unrelated demands violate patient rights.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-025
+        fact('ccma-hipaa', "Under HIPAA, when may a personal representative access or authorize disclosure of a patient's PHI?", 'When law or documented patient designation gives them authority to act for the individual', ['Whenever a neighbor states they are a close friend of the family', 'When a pharmaceutical sales representative requests records for coaching', 'When someone finds discarded paperwork in a public trash bin under typical outpatient policy.'], 'Representative status must be verified through legal documentation such as guardianship or health care proxy. Curiosity or commercial interest does not create authority to receive PHI.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-026
+    fact(
+        'ccma-hipaa',
+        'A medical assistant suspects a coworker is accessing celebrity charts out of curiosity. What is the appropriate first action under typical facility policy?',
+        'Report the concern through the privacy officer or compliance hotline per written procedures',
+        [
+            'Confront the coworker in the patient waiting area without reporting',
+            'Delete system access logs so the coworker cannot be identified under typical outpatient policy.',
+            'Confront the coworker publicly in the waiting room without involving leadership',
+        ],
+        'Workforce members are expected to escalate suspected privacy violations internally so the entity can investigate and mitigate harm. Public disclosure or tampering with evidence can worsen breaches and violate policy.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    # ccma-hipaa-027
+    fact(
+        'ccma-hipaa',
+        'The practice wants to text patients their lab results using personal smartphones. What approach aligns with HIPAA security expectations?',
+        'Use a HIPAA-compliant messaging platform or follow policy that includes patient consent and security warnings',
+        [
+            'Send the full chart through standard unencrypted SMS to any number on file under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'Text a link to the patient portal without verifying the phone number on file',
+            'Add patients to an unencrypted group chat that includes unrelated staff under typical outpatient policy.',
+        ],
+        'Consumer texting apps may lack required safeguards for ePHI. Covered entities should implement vendor solutions or documented patient agreements that address confidentiality and retention.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    # ccma-hipaa-028
+        fact('ccma-hipaa', 'Which category of health information does the HIPAA Security Rule primarily protect?', 'Electronic protected health information through administrative, physical, and technical safeguards', ['Paper records stored in locked file rooms with no electronic systems', 'Parking lot traffic patterns unrelated to patient care operations under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.', 'Cafeteria daily menus displayed for visitors in the lobby under typical outpatient policy.'], 'The Security Rule applies to ePHI held or transmitted by covered entities and business associates. Paper-only workflows may still fall under the Privacy Rule, but the Security Rule targets electronic systems and media.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-029
+        fact('ccma-hipaa', 'A billing clerk needs a diagnosis code to submit a claim. How does the minimum necessary standard apply?', 'Use the PHI required to complete the billing task rather than the entire medical record', ['Email the complete chart to every payer contact for convenience under typical outpatient policy.', 'Post the patient diagnosis on the clinic lobby monitor for staff', "Automatically forward all future lab results to the patient's employer"], 'Minimum necessary limits internal uses and external disclosures to the amount needed for the stated purpose. Routine dumping of full records increases exposure without business justification.', [S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-030
+    fact(
+        'ccma-hipaa',
+        'A patient signs a form allowing records to be sent to a disability attorney. Which element must appear on a valid HIPAA authorization?',
+        'A specific description of the information to be disclosed and the purpose of the disclosure',
+        [
+            'Blank permission to release every record for any reason with no end date',
+            'A verbal okay from an unidentified caller without the patient\'s signature',
+            'The patient\'s email address typed by the caller without verification under typical outpatient policy..',
+        ],
+        'Privacy Rule authorizations must state what will be shared, who may receive it, an expiration, and the patient\'s right to revoke. Vague or open-ended forms are not valid for non-permitted disclosures.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-031
+    fact(
+        'ccma-hipaa',
+        'Before releasing psychotherapy notes to a family member, what does HIPAA generally require compared with the rest of the medical record?',
+        'A separate patient authorization specific to psychotherapy notes',
+        [
+            'No extra steps because psychotherapy notes are treated like vital signs',
+            'Automatic disclosure whenever the family member knows the patient\'s address',
+            'Verbal permission from front-desk staff without reviewing the record type',
+        ],
+        'Psychotherapy notes held separately from the general chart receive heightened protection. Most treatment, payment, and operations uses still need explicit authorization for these notes.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-032
+        fact('ccma-hipaa', 'Which workstation practices satisfy common HIPAA Security Rule technical safeguards for the EHR?', 'Unique user IDs, automatic logoff, and screens positioned away from public view', ["One shared password posted on every monitor in the nurses' station under typical outpatient policy.", 'Leaving sessions open overnight so the next shift saves login time', "Disabling automatic lock because staff memorize each other's credentials"], 'Access controls and workstation use policies reduce unauthorized viewing of ePHI. Shared accounts and always-open sessions prevent accurate audit trails and invite snooping.', [S.NHA_CCMA], 'advanced'),
+
+    # ccma-hipaa-033
+    fact(
+        'ccma-hipaa',
+        'A quality team reviews aggregate readmission rates with all patient names removed using the HIPAA Safe Harbor method. How is that dataset classified?',
+        'De-identified health information that is not PHI when the standard is met',
+        [
+            'PHI because any health-related number identifies someone under typical outpatient policy.',
+            'PHI unless the patient signs a new authorization every month',
+            'Public domain information that may be sold without any restrictions',
+        ],
+        'Proper de-identification under Safe Harbor or expert determination removes HIPAA protections. Aggregate quality metrics without identifiers support improvement without triggering PHI rules.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-034
+    fact(
+        'ccma-hipaa',
+        'A medical assistant works at a check-in desk visible from the waiting room. Which workstation habit best protects ePHI?',
+        'Lock the screen when stepping away and angle the monitor away from visitors',
+        [
+            'Leave the prior patient\'s chart open while calling the next person forward',
+            'Store login passwords on sticky notes attached to the keyboard',
+            'Connect the EHR through unsecured public Wi-Fi with no VPN under typical outpatient policy.',
+        ],
+        'Physical safeguards complement technical controls by limiting who can see screens in public areas. Visible charts and shared credentials are frequent sources of incidental disclosure.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-035
+    fact(
+        'ccma-hipaa',
+        'After a risk analysis shows laptops may leave the clinic with ePHI, what Security Rule safeguard is commonly implemented?',
+        'Encrypting portable device storage as an addressable safeguard when risk warrants it',
+        [
+            'Prohibiting encryption because HIPAA forbids protecting laptops',
+            'Ignoring the finding because encryption is not considered after analysis',
+            'Posting ePHI on public blogs instead of storing it locally under typical outpatient policy.',
+        ],
+        'Addressable specifications require covered entities to implement a safeguard or document why an equivalent measure is reasonable. Encryption mitigates loss or theft of mobile media.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-036
+    fact(
+        'ccma-hipaa',
+        'A caller requests a copy of imaging results for a patient who is not present. What identity verification approach is appropriate?',
+        'Follow facility policy using pre-established identifiers, not casual guesses from social media',
+        [
+            'Release records when the caller states the patient birthday found online',
+            'Fax results immediately if the caller knows the patient\'s nickname',
+            'Omit verification because voice recognition apps are accurate under typical outpatient policy.',
+        ],
+        'The right of access and minimum necessary rules assume the requester is who they claim to be. Weak verification enables wrongful disclosure to strangers or domestic abusers.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-037
+    fact(
+        'ccma-hipaa',
+        'A marketing firm offers payment if the clinic emails patient lists for a supplement promotion. When is patient authorization required?',
+        'For the marketing use because it is not a permitted treatment, payment, or operations disclosure',
+        [
+            'No authorization is needed because any employee may disclose PHI for commercial gain under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'When the patient is hospitalized, not in outpatient clinics under typical outpatient policy.',
+            'No authorization is needed because treatment, payment, and operations cover third-party ads',
+        ],
+        'Financially motivated marketing to sell unrelated products generally needs explicit authorization. Core TPO and legally required public health reporting follow different pathways.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-038
+    fact(
+        'ccma-hipaa',
+        'Unencrypted backup tapes with PHI are stolen from a courier van. What must the covered entity do first under the Breach Notification Rule?',
+        'Perform a risk assessment to determine whether notification to individuals, HHS, or media is required',
+        [
+            'Assume no breach occurred if the thief promises to return the tapes under typical outpatient policy.',
+            'Omit documentation because criminal theft automatically exempts all HIPAA duties',
+            'Announce every patient diagnosis on the clinic website before investigating under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+        ],
+        'Not every impermissible use is a reportable breach; risk analysis examines probability that PHI was compromised. Timely assessment drives individual and regulatory notice when thresholds are met.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-039
+    fact(
+        'ccma-hipaa',
+        'A university researcher requests dates of service and zip codes tied to diagnoses for an approved study. What agreement is required for a HIPAA limited data set?',
+        'A data use agreement between the covered entity and the researcher',
+        [
+            'No contract because limited data sets may be posted on open internet forums',
+            'A verbal promise that the laptop will stay in the cafeteria',
+            'A business associate agreement that replaces all institutional review board oversight',
+        ],
+        'Limited data sets exclude direct identifiers but may retain certain geographic and date elements. Recipients must sign data use agreements promising safeguards and permitted uses.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-040
+        fact('ccma-hipaa', 'A patient requests an accounting of disclosures for the past three years. Which type of disclosure will usually appear on that list?', 'Disclosures for purposes other than treatment, payment, and health care operations, subject to exceptions', ['Every internal note another clinician read for continuity of care', 'Routine claim transmissions to the health plan for payment under typical outpatient policy.', 'Casual text messages staff sent about weekend plans without PHI under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.'], 'Accounting focuses on non-routine sharing such as many research or legal disclosures. Everyday TPO and many treatment-related exchanges are excluded unless law requires listing them.', [S.NHA_CCMA], 'advanced'),
+
+    # ccma-hipaa-041
+    fact(
+        'ccma-hipaa',
+        'A vendor offers to sell a clinic list of patients with full names and MRNs for outreach. Why does that dataset fail HIPAA de-identification?',
+        'It retains direct identifiers that tie health information to specific individuals',
+        [
+            'De-identified data must include social security numbers under typical outpatient policy.',
+            'Quality improvement projects may not use any health-related numbers',
+            'De-identified and PHI are legally identical terms with no difference',
+        ],
+        'PHI remains regulated until identifiers are removed under Safe Harbor or expert certification. Selling identifiable lists for marketing violates privacy rules and usually needs authorization.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-042
+    fact(
+        'ccma-hipaa',
+        'A patient asks the clinic not to bill the spouse\'s insurance because it would reveal sensitive care. How should the practice handle a restriction request?',
+        'Follow Privacy Rule procedures to consider the request and document any agreed limits',
+        [
+            'Ignore the patient because insurers receive every diagnosis automatically',
+            'Agree to delete all factual entries from the medical record permanently under typical outpatient policy.',
+            'Require the patient to accept unlimited marketing emails as a condition of care',
+        ],
+        'Patients may request limits on certain disclosures to health plans when they pay out of pocket in full, among other situations. Entities are not required to agree in every case but must use the formal process.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-043
+        fact('ccma-hipaa', 'A behavioral health provider keeps separate psychotherapy notes from progress notes in the EHR. What disclosure rule applies to those psychotherapy notes?', 'They require patient authorization for most uses outside narrow exceptions', ['They may be freely marketed to pharmaceutical representatives', 'They must be posted on the facility directory at admission under typical outpatient policy.', 'They have no HIPAA protection and may be shared with any visitor'], 'Psychotherapy notes are defined narrowly and receive extra consent requirements. General medical record entries about medications or hospitalization follow different disclosure rules.', [S.NHA_CCMA], 'advanced'),
+
+    # ccma-hipaa-044
+    fact(
+        'ccma-hipaa',
+        'A specialist shares operative details with the referring primary care provider to coordinate follow-up. Is individual patient authorization required for this exchange?',
+        'No, when the disclosure is for treatment within permitted HIPAA uses',
+        [
+            'Yes, every treatment-related fax needs a new signed authorization',
+            'No, because any bystander may receive the full record on request',
+            'Yes, unless the patient posted a de-identified clinic photo of the surgical site online',
+        ],
+        'Treatment disclosures among providers involved in care are core permitted uses without separate authorization. Disclosures must still respect minimum necessary and facility policy.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-045
+    fact(
+        'ccma-hipaa',
+        'Home health staff carry tablets with ePHI into patients\' homes. Which safeguard addresses loss of those portable devices?',
+        'Encrypting device storage and using remote wipe after documented risk analysis',
+        [
+            'Storing tablets unlocked in vehicles because encryption is banned by HIPAA',
+            'Relying on hope that devices are not lost without reviewing threats under typical outpatient policy.',
+            'Limiting encryption to desktop billing computers and excluding field tablets',
+        ],
+        'Portable media face theft and loss outside the clinic. Addressable encryption and device management reduce the chance that ePHI is readable if hardware disappears.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+
+    # ccma-hipaa-046
+        fact('ccma-hipaa', 'What does the HIPAA minimum necessary standard require when using protected health information?', 'Limit access and disclosure to the amount needed for the current purpose', ['Share the entire chart with any vendor who requests access under typical outpatient policy.', 'Post visit summaries on a public bulletin board in the waiting room', 'Email full records to personal accounts for staff convenience'], 'Minimum necessary reduces privacy risk for treatment, payment, and operations. Broad sharing without role-based limits violates the Privacy Rule.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-047
+        fact('ccma-hipaa', 'A patient requests a copy of their medical record. What should the office do?', 'Follow HIPAA right-of-access procedures, including reasonable timelines and fees per policy', ['Deny all requests because charts are clinic property without exception', 'Give records to a neighbor without verifying legal authority under typical outpatient policy.', 'Require the patient to delete their own diagnoses before copies are sent'], 'Patients generally have a right to access their PHI with defined exceptions. Neighbors lack authority unless documented; outright denial conflicts with access rules.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'beginner'),
+
+    # ccma-hipaa-048
+        fact('ccma-hipaa', 'Which disclosure is generally permitted without patient authorization for treatment purposes?', 'Sharing relevant clinical information with another health care provider involved in care', ['Selling the diagnosis list to a marketing firm for outreach', 'Posting photos of wounds on a personal social media page under typical outpatient policy.', 'Giving records to an employer who requests them out of curiosity'], 'HIPAA permits TPO disclosures among involved professionals. Marketing and employer curiosity are not treatment purposes.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-049
+    fact(
+        'ccma-hipaa',
+        'What is required before a business associate may handle electronic protected health information for a covered entity?',
+        'A business associate agreement with required safeguards',
+        ['A verbal agreement without required contractual safeguards',
+        'Public posting of patient lists',
+        'Verbal agreement without a written business associate contract'],
+        'The Security Rule expects contractual obligations for vendors touching ePHI. Informal agreements do not replace BAAs.',
+        [S.HHS_HIPAA_SECURITY, S.NHA_CCMA],
+        'advanced',
+    ),
+    # ccma-hipaa-050
+    fact(
+        'ccma-hipaa',
+        'Where should patient conversations about diagnoses occur to protect privacy?',
+        'In private treatment areas away from public corridors',
+        ['In a crowded elevator with visitors present',
+        'At the front desk microphone under typical outpatient policy.',
+        'In the cafeteria during lunch rush'],
+        'HIPAA safeguards oral disclosures; public areas risk incidental exposure. Private rooms or lowered voices in enclosed spaces reduce breaches.',
+        [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
+        'beginner',
+    ),
+    # ccma-hipaa-051
+        fact('ccma-hipaa', "A workforce member accesses a celebrity's chart out of curiosity without a job reason. What risk does this create?", 'A privacy violation that may require investigation and workforce sanction', ['Improved public relations for the clinic when celebrity charts are viewed', 'Automatic HIPAA waiver for all staff after one unauthorized lookup', 'Permission to discuss the chart casually in the staff break room'], 'Minimum necessary and role-based access prohibit curiosity browsing. Sanctions and breach analysis may follow unauthorized access.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'advanced'),
+
+    # ccma-hipaa-052
+        fact('ccma-hipaa', 'Which action helps secure electronic health record workstations?', 'Log off or lock sessions when leaving the desk unattended', ['Share login credentials with float staff to avoid password resets', 'Leave prior patient charts open in public view for faster access', 'Disable passwords on workstations to speed rooming workflows'], 'Automatic timeouts and unique credentials protect ePHI under the Security Rule. Shared logins break audit trails.', [S.HHS_HIPAA_SECURITY, S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-053
+        fact('ccma-hipaa', 'A patient authorizes release of records to a specific attorney. What should be verified before sending?', 'The authorization is signed, dated, and lists the correct recipient and information', ["The attorney's recreational interests match the patient's hobbies", 'The mailroom queue is short enough to send records immediately under typical outpatient policy.', 'Other patients with similar names have authorized release in the past'], 'Valid authorizations specify who may receive PHI. Similar names require identity checks to avoid misdirected disclosures.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'advanced'),
+
+    # ccma-hipaa-054
+        fact('ccma-hipaa', 'Which fax practice reduces misdirected protected health information?', 'Verify the recipient number and use a confidentiality cover sheet', ['Send to the last number dialed on the fax machine without checking', 'Include every diagnosis in the subject line read aloud in the hallway', 'Fax to the front desk printer in a public area without prompt retrieval'], 'Confirmation and cover sheets limit wrong routing. Public unattended prints expose PHI.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+
+    # ccma-hipaa-055
+        fact('ccma-hipaa', "A patient requests amendment of an error in their record. What is the covered entity's obligation?", 'Review and respond per the Privacy Rule, accepting or denying with explanation', ['Ignore the request because legal medical records cannot be changed', 'Delete the entire chart instead of correcting the disputed entry', 'Charge a fee to refuse automatically without following policy under typical outpatient policy.'], 'Patients have rights to request amendments with defined timelines. Wholesale deletion is not the pathway for correcting a single error.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'advanced'),
+
+]

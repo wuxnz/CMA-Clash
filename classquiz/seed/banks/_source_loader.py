@@ -47,15 +47,12 @@ _diab_exp = importlib.util.module_from_spec(_diab_exp_spec)
 _diab_exp_spec.loader.exec_module(_diab_exp)
 DIABETES_EXPANSION_FACTS = _diab_exp.FACTS
 
-_DIABETES_ALL = DIABETES_FACTS + DIABETES_EXPANSION_FACTS
-
 _ALL_MODULES = (
     CCMA_FACTS,
     CLINICAL_SKILLS_FACTS,
     CPR_BLS_FACTS,
     EKG_FACTS,
     PHLEBOTOMY_FACTS,
-    _DIABETES_ALL,
     PHLEB_GLUCOSE_FACTS,
     SUPPLEMENT_FACTS,
     EXPANSION_TO_28_FACTS,
