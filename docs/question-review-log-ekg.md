@@ -313,6 +313,27 @@ ekg-acls-basics-041 | pass | Shockable definition VF/pVT neighbors.
 
 ekg-rhythm-038 | fail | NSVT distractors: AIVR, SVT aberrancy, sustained VT neighbors.
 
+## EKG length/parallelism pass 2 (leads+rhythm)
+
+ekg-leads-001 | fail | Rebalanced skin-prep option lengths; removed padded baseline clause on saline distractor.
+ekg-leads-003 | fail | Parallel 12-lead composition phrases; expanded correct to match distractor structure.
+ekg-leads-005 | fail | Trimmed parenthetical V2 tag; aligned fifth-ICS distractor wording with V1 stem style.
+ekg-leads-009 | fail | Removed V4 parenthetical; matched V5/V4/V6 landmark option lengths on chest wall.
+ekg-leads-016 | fail | Expanded supine correct and shortened prone/seated distractors for parallel resting-position options.
+ekg-leads-018 | fail | Expanded paper-speed correct with standard label; parallel mm/s and mm/min distractors.
+ekg-rhythm-005 | fail | Lengthened Wenckebach and SVT distractors to match flutter correct option length.
+ekg-rhythm-012 | fail | Lengthened AF and VF distractors to match monomorphic VT one-line descriptions.
+ekg-rhythm-020 | fail | Lengthened pause and Wenckebach bigeminy distractors to match PVC bigeminy correct.
+ekg-rhythm-022 | fail | Expanded torsades correct label; trimmed monomorphic VT and AF distractor padding.
+ekg-rhythm-023 | fail | Full-line PSVT/VT/flutter options; removed sinus-with-clear-P distractor contradicting hidden P stem.
+ekg-rhythm-025 | fail | Expanded AF RVR correct; flutter distractor uses variable block (not regular response) vs irregular stem.
+ekg-rhythm-028 | fail | Expanded junctional correct and VT/flutter distractors to parallel narrow-QRS rhythm labels.
+ekg-rhythm-030 | fail | Replaced bare Mobitz I label with grouped Wenckebach description matching distractor clauses.
+ekg-rhythm-034 | fail | Expanded PVC couplet correct; lengthened flutter/block/sinus distractors for parallel form.
+ekg-rhythm-035 | fail | Trimmed AF/Wenckebach distractors; matched flutter vs PSVT one-line lead-group descriptions.
+ekg-rhythm-037 | fail | Replaced bare Mobitz I label with progressive PR ladder wording parallel to distractors.
+ekg-rhythm-038 | fail | Expanded NSVT correct with brief-run wording; balanced AIVR/SVT-aberrancy/sustained-VT neighbors.
+
 ## EKG length/parallelism pass 2 (intervals+artifacts)
 
 Pass 2 rules: parallel option length/structure; no stem-contradicting distractors. Verified `correct_is_uniquely_short_by_margin` and `correct_is_uniquely_longest` for topics `ekg-intervals` (42 items) and `ekg-artifacts` (43 items): **0 short-margin, 0 uniquely-longest** after edits.
