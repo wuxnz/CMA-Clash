@@ -574,7 +574,7 @@ FACTS: list[dict] = [
     fact(
         "skill-poct",
         "How should waived test results be relayed to the patient in clinic?",
-        "Review results privately in the exam room after charting per clinic workflow",
+        "Review results privately in the exam room after charting",
         [
             "Post results to the patient portal before the provider sees the value",
             "Give the printed result to a family member at the front desk",

@@ -1,13 +1,13 @@
 # Clinical skills parallel-options rewrite progress
 
-Target: 546 items with plain parallel choices, no hedge tells on correct answers, no self-refuting distractor padding.
+Target: 546 items — plain parallel choices, plausible near-miss distractors, no hedge tells on correct answers.
 
-| Batch | Items | Modules | Status |
-|-------|-------|---------|--------|
+| Batch | Items | Scope | Status |
+|-------|-------|-------|--------|
 | P01 | 84 | injection 001–042, vitals 001–042 | done |
-| P01b | 6 | specimen-033, specimen-023, wound-002, intake-016, poct-041, vitals-035 (sample fixes) | in commit |
-| P02 | 75 | infection 001–042, terminology 001–033 | terminology 001–033 done; infection pending |
-| P03 | 75 | terminology 034–042, pharm_dosage 001–033 | done |
+| P01b | 6 | audit samples (specimen 023/033, vitals 035, wound 002, intake 016, poct 041) | done |
+| P02 | 75 | infection 001–042, terminology 001–033 | done |
+| P03 | 42 | terminology 034–042, pharm_dosage 001–033 | done |
 | P03b | 42 | specimen_lab 001–042 | done |
 | P04 | 75 | pharm_dosage 034–042, intake 001–033 | pending |
 | P05 | 75 | intake 034–042, osha_bbp 001–033 | pending |
@@ -16,8 +16,10 @@ Target: 546 items with plain parallel choices, no hedge tells on correct answers
 | P08 | 75 | poct 034–042, wound_care 001–033 | pending |
 | P09 | 75 | wound_care 034–042, life_stages 001–033 | pending |
 | P10 | 75 | life_stages 034–042, emergency_aid 001–033 | pending |
-| P11 | 75 | life_stages 034–042, emergency_aid 001–033 | pending |
-| P12 | 42 | emergency_aid 034–042 | pending |
+| P11 | 75 | emergency_aid 034–042 (+ overflow) | pending |
 
-**Done:** 84 + 6 sample fixes + 42 specimen_lab (P03b) (132)  
-**Remaining:** 414 (after P03b committed)
+**Completed at parallel-options standard:** 243 items (full modules: injection, vitals, infection, terminology, specimen_lab; partial: pharm_dosage 33/42; plus intake 1/42, poct 1/42, wound 1/42 from P01b).
+
+**Remaining:** 303 items (not yet through parallel-options pass).
+
+Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass P01, P01b, P02, P03, P03b).
