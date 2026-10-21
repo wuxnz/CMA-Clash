@@ -56,11 +56,11 @@ FACTS: list[dict] = [
     fact(
         "skill-med-safety",
         "When in the workflow should documented medication allergies be reviewed?",
-        "Before selecting or administering any drug, including vaccines and contrast when applicable",
+        "Before selecting or administering any drug, including vaccines and contrast",
         [
-            "After the injection is completed and documented without reviewing documented allergies before preparation",
-            "At the annual wellness visit without regard to new prescriptions",
-            "When the patient requests a refill of an unrelated product",
+            "Only after the dose is given and documented in the medication administration record",
+            "At the annual wellness visit even when no new prescriptions are ordered that day",
+            "When the patient requests a refill of an unrelated over-the-counter product",
         ],
         "Allergy review belongs in the preparation phase. Late review may follow irreversible exposure.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         "To prevent misreading the decimal and giving a tenfold overdose",
         [
             "To indicate the drug is a controlled substance",
-            "To convert milligrams automatically to grains without reviewing documented allergies before preparation",
+            "To show the prescriber intended a weight-based titration over several weeks",
             "To signal that trailing zeros are required on all strengths",
         ],
         "Decimal placement errors are a frequent source of tenfold mistakes. Leading zeros clarify doses less than one unit.",
@@ -422,7 +422,7 @@ FACTS: list[dict] = [
         "What should a suspiciously large opioid prescription for a new patient trigger?",
         "Verification with the prescriber and diversion prevention steps per policy",
         [
-            "Automatic dispensing without questions without reviewing documented allergies before preparation",
+            "Immediate dispensing because the prescription is signed and dated by the provider",
             "Splitting tablets among other patients in the clinic",
             "Discarding partial tablets in regular office trash",
         ],
@@ -591,7 +591,7 @@ FACTS: list[dict] = [
         "Cross-patient contamination and labeling errors",
         [
             "Guaranteed sterility of multidose vials",
-            "Automatic insurance reimbursement without reviewing documented allergies before preparation",
+            "Automatic credit to the patient account without relabeling or restocking checks",
             "Elimination of reconciliation at follow-up",
         ],
         "Once issued to a patient, products may not meet storage and identity standards for reuse. Policy governs returns.",

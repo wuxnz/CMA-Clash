@@ -391,11 +391,11 @@ FACTS: list[dict] = [
     fact(
         "skill-pharm-dosage",
         "High-alert medications in the clinic often require which extra step before administration?",
-        "Independent double-check of the order, calculation, and prepared dose by a second qualified staff member",
+        "Independent double-check of order, calculation, and prepared dose by second qualified staff",
         [
-            "Single staff verification when the clinic is busy without reviewing documented allergies before preparation",
-            "Documentation after giving without reading the label",
-            "Skipping calculation when the vial looks familiar",
+            "Single staff verification when the clinic is behind schedule and patient volumes are high",
+            "Documentation after administration without reading the product label on the vial",
+            "Skipping dose calculation when the vial strength matches a familiar prior order",
         ],
         "Independent verification catches calculation and selection errors before they reach the patient. High-alert drugs have narrow safety margins described in medication safety literature.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],

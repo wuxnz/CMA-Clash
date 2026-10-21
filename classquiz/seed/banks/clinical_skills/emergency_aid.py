@@ -353,7 +353,7 @@ FACTS: list[dict] = [
         [
             "Apply butter or prolonged direct ice directly on blistered skin over the burn",
             "Pop any blisters immediately for drainage before cooling under running water",
-            "Ignore cough, singed nasal hairs, or soot around the mouth after a confined fire",
+            "Treat cough, singed nasal hairs, and soot around the mouth as unrelated to smoke exposure",
         ],
         "Cooling limits depth; jewelry can strangulate swollen tissue. Inhalation injury signs need escalation.",
         [S.RED_CROSS_FIRST_AID, S.NHA_CCMA],

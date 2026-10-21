@@ -607,3 +607,18 @@ skill-specimen-lab-027 | fail | Requisition distractors replaced parking and cha
 skill-med-safety-034 | fail | Teach-back distractors replaced parking and break-schedule jokes with appointment and med-bottle near-misses.
 skill-specimen-lab-023 | fail | Replaced tourniquet-color joke distractor with butterfly-versus-vacutainer near-miss.
 skill-poct-041 | fail | Replaced waiting-room announcement distractor with mislabeled printer-tray near-miss.
+
+## Rewrite batch 24 (remove subagent padding tails)
+
+skill-wound-care-001 through skill-wound-care-042 | fail | Removed canned vital-sign padding; rebalanced and rewrote near-miss distractors (37 items touched).
+skill-life-stages-002 through skill-life-stages-042 | fail | Removed canned vital-sign padding; rebalanced distractor length and wording (37 items).
+skill-emergency-aid-001 through skill-emergency-aid-042 | fail | Removed template tails; replaced allergy-history padding with scenario near-misses (30 items).
+skill-osha-bbp-001 through skill-osha-bbp-042 | fail | Stripped outpatient-visit padding; rebalanced options (14 items).
+skill-infection-001 through skill-infection-042 | fail | Stripped outpatient-visit padding; rebalanced options (7 items).
+skill-specimen-lab-001 through skill-specimen-lab-042 | fail | Stripped outpatient-visit padding; rebalanced options (5 items).
+skill-emergency-aid-028 | fail | Replaced ignore-based smoke-inhalation distractor to satisfy absurd-pattern guard.
+skill-med-safety-004 | fail | Replaced allergy-review padding distractor with post-administration MAR near-miss.
+skill-med-safety-016 | fail | Replaced leading-zero distractor padding with weight-titration near-miss.
+skill-med-safety-030 | fail | Replaced opioid diversion distractor padding with signed-prescription near-miss.
+skill-med-safety-042 | fail | Replaced return-to-stock distractor padding with billing-credit near-miss.
+skill-pharm-dosage-028 | fail | Replaced high-alert double-check distractor padding with busy-clinic near-miss.
