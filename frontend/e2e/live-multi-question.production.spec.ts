@@ -41,6 +41,7 @@ test.describe('production live multi-question UI', () => {
 			// Q1 — answer early
 			await answerFirstTile(p1);
 			await answerFirstTile(p2);
+			await new Promise((r) => setTimeout(r, 8000));
 
 			// Q2 — after server reveal + auto-advance
 			await expectPlayerAdvancedToNextQuestion(p1, 'P1 Q2');
@@ -57,6 +58,7 @@ test.describe('production live multi-question UI', () => {
 
 			await answerFirstTile(p1);
 			await answerFirstTile(p2);
+			await new Promise((r) => setTimeout(r, 8000));
 
 			// Q3
 			await expectPlayerAdvancedToNextQuestion(p1, 'P1 Q3');
