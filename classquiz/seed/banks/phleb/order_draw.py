@@ -169,7 +169,7 @@ FACTS: list[dict] = [
         "When an evacuated tube shows a fill-to mark, especially on citrate, what fill practice is required?",
         "Fill to the mark so the blood-to-additive ratio meets manufacturer specifications",
         [
-            "Any visible blood volume is acceptable for coagulation and chemistry testing",
+            "Any visible blood in the tube meets fill requirements for coagulation testing",
             "Fill above the mark to guarantee enough plasma for repeat analysis",
             "Underfill on difficult veins and send without notifying the laboratory",
         ],
@@ -301,6 +301,34 @@ FACTS: list[dict] = [
         ],
         "Lavender EDTA tubes need thorough gentle mixing, typically about eight to ten inversions. "
         "Citrate tube counts or skipping bedside mixing cause microclots and rejected hematology specimens.",
+        [S.CLSI_GP41],
+        "intermediate",
+    ),
+    fact(
+        "phleb-order-draw",
+        "After filling a green-top heparin tube for plasma chemistry, how many gentle inversions does CLSI typically recommend?",
+        "8 to 10 gentle end-over-end inversions",
+        [
+            "3 to 4 gentle end-over-end inversions",
+            "5 gentle end-over-end inversions",
+            "No inversion before the tube reaches the laboratory",
+        ],
+        "Heparin plasma tubes need thorough gentle mixing, typically about eight to ten inversions. "
+        "Citrate or SST inversion counts are common confusions that leave heparin specimens under-mixed.",
+        [S.CLSI_GP41],
+        "intermediate",
+    ),
+    fact(
+        "phleb-order-draw",
+        "After filling a gold serum separator tube, how many gentle inversions does CLSI typically recommend?",
+        "5 gentle end-over-end inversions",
+        [
+            "3 to 4 gentle end-over-end inversions",
+            "8 to 10 gentle end-over-end inversions",
+            "No inversion before the tube reaches the laboratory",
+        ],
+        "Serum separator tubes are mixed with about five gentle inversions to distribute clot activator without hemolysis. "
+        "EDTA or citrate mixing counts do not apply to gold SST collection technique.",
         [S.CLSI_GP41],
         "intermediate",
     ),
@@ -480,11 +508,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A light blue citrate tube fills to about 70% of the manufacturer mark while other tubes on the stick fill adequately. "
         "What is the best next step?",
-        "Recollect coagulation tubes per policy; do not send the underfilled citrate as final",
+        "Discard the underfilled citrate tube and recollect coagulation per policy",
         [
-            "Send the tube with a difficult-vein comment on the requisition",
-            "Add sterile saline to the fill line before inverting the citrate tube",
-            "Invert the citrate tube vigorously to concentrate plasma in the tube",
+            "Send the underfilled citrate with a difficult-vein comment on the form",
+            "Add sterile saline to the fill mark before inverting the citrate tube",
+            "Invert the citrate tube vigorously to concentrate plasma for testing",
         ],
         "Citrate coagulation testing depends on a fixed blood-to-anticoagulant ratio; underfill dilutes the specimen and prolongs clotting times. "
         "Saline top-off or aggressive mixing cannot restore a valid ratio once the tube is underfilled.",

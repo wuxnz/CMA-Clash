@@ -30,15 +30,15 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-handling",
-        "How should evacuated tubes containing EDTA or sodium citrate be mixed immediately after collection?",
-        "Gentle end-over-end inversion per the tube manufacturer's instructions",
+        "After filling a light blue sodium citrate tube at the bedside, how many gentle inversions does CLSI typically recommend?",
+        "3 to 4 gentle end-over-end inversions",
         [
-            "Vigorous shaking until foam appears on the blood sample",
-            "Immediate centrifugation before manual mixing of additive tubes",
-            "Horizontal storage without inverting EDTA or citrate tubes",
+            "8 to 10 gentle end-over-end inversions",
+            "5 gentle end-over-end inversions",
+            "No inversion before the tube reaches the laboratory",
         ],
-        "Proper inversion distributes anticoagulant throughout the sample without hemolyzing cells. "
-        "Over-mixing or skipping inversion promotes clots and microclots that invalidate hematology and coagulation results.",
+        "Citrate coagulation tubes need about three to four gentle inversions to mix anticoagulant without hemolysis. "
+        "EDTA or SST mixing counts are frequent confusions that leave citrate specimens under-mixed or over-mixed.",
         _REF,
         "beginner",
     ),
@@ -171,11 +171,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "What special handling do blood specimens for ammonia testing typically require?",
-        "Prompt chilling and analysis within laboratory stability limits",
+        "Prompt chilling and testing within the laboratory stability window",
         [
-            "Overnight storage at room temperature on the nursing unit",
-            "Freezing in an unvalidated household freezer without laboratory protocol",
-            "Room-air exposure with the cap removed to allow gas equilibration",
+            "Hold at room temperature on the unit until the morning run",
+            "Freeze in a home freezer without a validated laboratory protocol",
+            "Transport with the cap off to let ammonia equilibrate with room air",
         ],
         "Plasma ammonia rises rapidly as blood metabolizes at room temperature, producing falsely elevated results. "
         "Laboratory procedures aligned with GP41 specify ice transport, minimal delay, and validated processing before analysis.",
@@ -479,11 +479,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "When packaging blood specimens for courier transport, how should staff choose between wet ice and insulated gel packs?",
-        "According to laboratory shipping instructions for the ordered tests and the approved carrier design",
+        "Per laboratory shipping instructions for the tests and carrier design",
         [
-            "Use whichever cold pack is stocked nearest the draw station that shift",
-            "Use gel packs for all chemistry specimens because wet ice is prohibited in the lab",
-            "Use crushed dry ice for routine outpatient chemistry panels without checking stability tables",
+            "Use whichever cold pack is nearest the draw station that shift",
+            "Use gel packs for all chemistry because wet ice is prohibited",
+            "Use dry ice for routine outpatient chemistry without checking the manual",
         ],
         "Some specimens need wet ice; others tolerate insulated cool packs without free water exposure. "
         "GP41 transport sections defer to validated laboratory shipping methods.",
@@ -559,5 +559,19 @@ FACTS: list[dict] = [
         "GP41 processing emphasizes prompt spin and aliquot for unstable plasma analytes.",
         _REF,
         "advanced",
+    ),
+    fact(
+        "phleb-handling",
+        "After filling a lavender EDTA tube at the bedside, how many gentle inversions does CLSI typically recommend?",
+        "8 to 10 gentle end-over-end inversions",
+        [
+            "3 to 4 gentle end-over-end inversions",
+            "5 gentle end-over-end inversions",
+            "No inversion before the tube reaches the laboratory",
+        ],
+        "Lavender EDTA tubes need thorough gentle mixing, typically about eight to ten inversions. "
+        "Citrate or SST mixing counts are common confusions that leave hematology specimens under-mixed.",
+        _REF,
+        "beginner",
     ),
 ]

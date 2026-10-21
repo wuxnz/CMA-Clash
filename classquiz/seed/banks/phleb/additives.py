@@ -540,14 +540,14 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         'A phlebotomist inverts an EDTA tube only twice, and the hematology lab reports microclots and rejected specimen. Best educational point?',
-        "Insufficient mixing allowed fibrin to form despite EDTA anticoagulation",
+        "Lavender EDTA needs about eight to ten gentle inversions; two were insufficient mixing",
         [
             "EDTA tubes need no inversion because the additive mixes itself during draw",
-            "Sodium fluoride should be added to the lavender tube to prevent clotting",
-            "The citrate ratio was wrong in the lavender EDTA tube",
+            "Three to four gentle inversions are adequate for every lavender EDTA collection",
+            "Citrate tube inversion rules apply equally to lavender hematology tubes",
         ],
-        "EDTA prevents clotting after proper mixing; double inversion is inadequate. "
-        "Fluoride or citrate comments reveal misunderstanding of lavender versus blue additives.",
+        "EDTA prevents clotting after proper mixing; two inversions are inadequate for lavender tubes. "
+        "Citrate counts and fluoride additives reveal misunderstanding of lavender versus blue or gray tubes.",
         [S.CLSI_GP41],
         "advanced",
     ),

@@ -196,7 +196,7 @@ FACTS: list[dict] = [
  "Check responsiveness, shout for help, and activate the emergency response system",
  [
  "Begin two minutes of chest compressions before anyone notifies emergency services",
- "Search distant floors for an AED while leaving the patient unattended",
+ "Send a bystander to search other floors while you remain with the patient",
  "Roll the patient prone to improve drainage before assessing breathing",
  ],
  "Recognition and activation are early links in the Chain of Survival. Delaying the emergency "
@@ -213,7 +213,7 @@ FACTS: list[dict] = [
  [
  "Wait for EMS on scene before starting any chest compressions",
  "Give two minutes of rescue breaths before delivering any compressions",
- "Place the patient in recovery position and observe without compressions",
+ "Place the patient on the side and wait for normal breathing without compressions",
  ],
  "For unresponsive adults without normal breathing, AHA adult BLS starts with compressions "
  "(CAB). Waiting for EMS or providing breaths-only care delays circulatory support in likely "

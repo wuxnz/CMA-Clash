@@ -122,7 +122,7 @@ FACTS: list[dict] = [
         "Deliver abdominal thrusts sized to the child's body until the object is expelled or the child becomes unresponsive",
         [
             "Perform blind finger sweeps as the first intervention before any back blows or thrusts",
-            "Delay all care and observe until the child loses consciousness and collapses to the floor",
+            "Stay at the bedside and encourage coughing without abdominal thrusts while obstruction continues",
             "Start CPR chest compressions while the child is still awake and clutching the neck",
         ],
         "Conscious children with severe obstruction receive size-appropriate abdominal thrusts per AHA BLS until relief or unresponsiveness. CPR and blind sweeps are not the initial response while the child is still responsive with a complete blockage.",
@@ -265,7 +265,7 @@ FACTS: list[dict] = [
         "Deliver abdominal thrusts appropriate to the child's size until the object is expelled or the child becomes unresponsive",
         [
             "Deliver one abdominal thrust and then stop monitoring even if obstruction continues",
-            "Withhold intervention and observe until the child loses consciousness on the floor",
+            "Monitor the child at the bedside without thrusts while waiting for the cough to strengthen",
             "Slap the child's cheeks repeatedly to stimulate coughing instead of using thrusts",
         ],
         "Conscious children with severe obstruction receive abdominal thrusts sized to the child per AHA BLS until relief or unresponsiveness. Delaying care or substituting inappropriate force risks complete blockage or injury.",
@@ -434,7 +434,7 @@ FACTS: list[dict] = [
         "Deliver chest thrusts in place of abdominal thrusts until the object is expelled or the victim becomes unresponsive",
         [
             "Continue standard abdominal thrusts with harder force centered on the upper abdomen",
-            "Withhold further maneuvers and observe until the patient loses consciousness on the floor",
+            "Pause thrusts and monitor breathing at the bedside without further foreign-body maneuvers",
             "Perform blind finger sweeps while the patient remains standing before any chest thrusts",
         ],
         "When abdominal thrusts are ineffective or difficult because of body habitus, chest thrusts provide an AHA alternative until relief or unresponsiveness. Waiting for unconsciousness or blind sweeps delays effective care.",

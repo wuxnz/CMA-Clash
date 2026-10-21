@@ -83,7 +83,7 @@ FACTS: list[dict] = [
         [
             "Begin chest compressions immediately without checking for responsiveness",
             "Search the area for an AED before touching or assessing the child",
-            "Shake the shoulders vigorously for 15 seconds before calling for help",
+            "Shake the torso repeatedly before checking responsiveness or calling for help",
         ],
         "Recognition of unresponsiveness triggers emergency activation and assessment of breathing "
         "and pulse. Starting compressions on a responsive child would be inappropriate. Scene safety "
