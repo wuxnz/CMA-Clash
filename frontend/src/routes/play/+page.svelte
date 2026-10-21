@@ -23,6 +23,12 @@ SPDX-License-Identifier: MPL-2.0
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
 	import type { LedgerRow } from '$lib/ui/LedgerTable.svelte';
 	import { joinErrorMessage } from '$lib/play/join-errors';
+	import {
+		hasActiveQuestion,
+		initialLivePhaseForQuestion,
+		isKahootStyleMode,
+		normalizeGamePayload
+	} from '$lib/play/live-game';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -45,7 +51,7 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	// State (declare before $derived that references these — SSR TDZ)
-	let question_index = $state('');
+	let question_index: number | null = $state(null);
 	let unique = $state({});
 	let answer_results: Array<PlayerAnswer> | undefined = $state();
 	let gameData: any = $state();
@@ -81,7 +87,7 @@ SPDX-License-Identifier: MPL-2.0
 	});
 
 	let topic_tag = $derived(
-		question_index !== '' && gameData
+		hasActiveQuestion(question_index) && gameData
 			? formatQuestionTopicTag(
 					cert_label,
 					topic_label,
@@ -130,20 +136,26 @@ SPDX-License-Identifier: MPL-2.0
 
 	// Socket-events
 	socket.on('joined_game', (data) => {
-		gameData = data;
-		if (data.started) {
+		gameData = normalizeGamePayload(data);
+		if (gameData?.started) {
 			gameMeta.started = true;
 		}
+		if (gameData?.game_mode != null) {
+			game_mode = gameData.game_mode;
+		}
 		// eslint-disable-next-line no-undef
-		plausible('Joined Game', { props: { game_id: gameData.game_id } });
+		plausible('Joined Game', { props: { game_id: gameData?.game_id } });
 		Cookies.set('joined_game', JSON.stringify({ sid: socket.id, username, game_pin }), {
 			expires: 3600
 		});
 	});
 	socket.on('rejoined_game', (data) => {
-		gameData = data;
-		if (data.started) {
+		gameData = normalizeGamePayload(data);
+		if (gameData?.started) {
 			gameMeta.started = true;
+		}
+		if (gameData?.game_mode != null) {
+			game_mode = gameData.game_mode;
 		}
 	});
 
@@ -190,8 +202,8 @@ SPDX-License-Identifier: MPL-2.0
 		clearTimeout(introTimer);
 		clearTimeout(revealTimer);
 		const { introLeft } = syncRemainingFromServer(data);
-		livePhase = introLeft > 0 ? 'intro' : 'answer';
-		if (introLeft > 0) {
+		livePhase = initialLivePhaseForQuestion(game_mode, introLeft);
+		if (livePhase === 'intro' && introLeft > 0) {
 			introTimer = setTimeout(() => {
 				livePhase = 'answer';
 			}, introLeft * 1000);
@@ -338,22 +350,29 @@ SPDX-License-Identifier: MPL-2.0
 			<JoinGame bind:game_pin bind:game_mode bind:username />
 		{:else if JSON.stringify(final_results) !== JSON.stringify([null])}
 			<ShowEndScreen bind:data={scores} show_final_results={true} {username} />
-		{:else if gameData !== undefined && question_index === ''}
+		{:else if gameData !== undefined && !hasActiveQuestion(question_index)}
 			<ShowTitle
 				title={gameData.title}
 				description={gameData.description}
 				cover_image={gameData.cover_image}
 			/>
-		{:else if gameMeta.started && gameData !== undefined && question_index !== '' && answer_results === undefined}
-			{#if livePhase === 'intro' && question}
-				<QuestionIntro question={question.question} topic={topic_tag} />
-			{:else if question?.answers && (game_mode === 'kahoot' || game_mode === 'battle' || !game_mode)}
+		{:else if gameMeta.started && gameData !== undefined && hasActiveQuestion(question_index) && answer_results === undefined}
+			{#if livePhase === 'intro' && question && !isKahootStyleMode(game_mode)}
+				<QuestionIntro
+					question={question.question}
+					topic={topic_tag}
+					onComplete={() => {
+						livePhase = 'answer';
+					}}
+				/>
+			{:else if question?.answers && isKahootStyleMode(game_mode)}
 				<AnswerTiles
 					question={question.question}
 					answers={Array.isArray(question.answers) ? question.answers : []}
 					remainingSeconds={remainingLive}
 					totalSeconds={remainingTime}
 					interactive={true}
+					hideQuestion={true}
 					selected={selectedAnswer}
 					onSelect={pickAnswer}
 				/>
