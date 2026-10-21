@@ -22,6 +22,14 @@ async function readRevealPoints(page: import('@playwright/test').Page): Promise<
 		return Number((await byTestId.innerText()).replace(/[^\d]/g, ''));
 	}
 	const block = page.getByText('Correct', { exact: true }).locator('xpath=..');
+	const breakdown = block.getByText(/\d+ base/);
+	if (await breakdown.count()) {
+		const text = await breakdown.innerText();
+		const m = text.match(/(\d+)\s+base(?:,\s*(\d+)\s+speed bonus)?/);
+		if (m) {
+			return Number(m[1]) + Number(m[2] ?? 0);
+		}
+	}
 	return Number((await block.locator('p.font-display.text-3xl').innerText()).replace(/[^\d]/g, ''));
 }
 
@@ -71,18 +79,7 @@ test.describe('production live multi-question UI', () => {
 			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
 			await expect(p1.getByTestId('reveal-speed-rank')).toBeVisible();
 
-			const q1RevealDelta = await expect
-				.poll(
-					async () =>
-						Number(
-							(await p1.getByTestId('reveal-points-total').innerText()).replace(/[^\d]/g, '')
-						),
-					{ timeout: 15_000 }
-				)
-				.toBeGreaterThan(500)
-				.then(() =>
-					Number((await p1.getByTestId('reveal-points-total').innerText()).replace(/[^\d]/g, ''))
-				);
+			const q1RevealDelta = await waitForRevealPoints(p1);
 
 			await p1.screenshot({
 				path: path.join(ARTIFACT_DIR, `${slug}-pin${pin}-player-reveal-q1.png`),
@@ -124,11 +121,7 @@ test.describe('production live multi-question UI', () => {
 			await answerFirstTile(p3);
 
 			await expect(p1.getByTestId('reveal-place-line')).toBeVisible({ timeout: 45_000 });
-			const q2RevealText = await p1
-				.locator('.font-display.text-3xl.text-gold.tabular-nums')
-				.first()
-				.innerText();
-			const q2RevealDelta = Number(q2RevealText.replace(/[^\d]/g, ''));
+			const q2RevealDelta = await waitForRevealPoints(p1);
 			await expect(p1.getByTestId('live-scoreboard')).toBeVisible({ timeout: 10_000 });
 			const q2BoardTotal = Number(
 				(await p1.getByTestId('scoreboard-row').first().locator('td').last().innerText()).replace(
