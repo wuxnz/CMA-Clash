@@ -45,6 +45,11 @@ SPDX-License-Identifier: MPL-2.0
 		totalAnswerSeconds,
 		type QuestionTiming
 	} from '$lib/play/live-timing';
+	import {
+		ensurePlaySocketSession,
+		emitRejoinFromCookie,
+		persistJoinedGameCookie
+	} from '$lib/play/player-socket-session';
 	const { t } = getLocalization();
 
 	interface Props {
@@ -75,6 +80,14 @@ SPDX-License-Identifier: MPL-2.0
 	let username = $state('');
 	let scores = $state({});
 	let game_mode = $state();
+	ensurePlaySocketSession({
+		onReconnected: async () => {
+			if (!game_pin) return;
+			const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
+			const json = await res.json();
+			game_mode = normalizeGameMode(json.game_mode) ?? json.game_mode;
+		}
+	});
 	let final_results: Array<null> | Array<Array<PlayerAnswer>> = $state([null]);
 	let gameMeta: GameMeta = $state({
 		started: false
@@ -108,12 +121,7 @@ SPDX-License-Identifier: MPL-2.0
 			if (!cookie_data || !socket.connected) {
 				return;
 			}
-			const payload = JSON.parse(cookie_data);
-			socket.emit('rejoin_game', {
-				old_sid: payload.sid,
-				username: payload.username,
-				game_pin: payload.game_pin
-			});
+			emitRejoinFromCookie(game_pin);
 		}, ADVANCE_RESYNC_MS);
 	}
 	let selectedAnswer = $state<string | undefined>(undefined);
@@ -194,24 +202,7 @@ SPDX-License-Identifier: MPL-2.0
 		syncPlayerClock();
 	}
 
-	socket.on('connect', async () => {
-		console.log('Connected!');
-		const cookie_data = Cookies.get('joined_game');
-		if (!cookie_data) {
-			return;
-		}
-		const data = JSON.parse(cookie_data);
-		socket.emit('rejoin_game', {
-			old_sid: data.sid,
-			username: data.username,
-			game_pin: data.game_pin
-		});
-		const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
-		const json = await res.json();
-		game_mode = normalizeGameMode(json.game_mode) ?? json.game_mode;
-	});
-
-	// Socket-events
+	// Socket-events (connect/rejoin handled once in player-socket-session)
 	socket.on('joined_game', (data) => {
 		gameData = normalizeGamePayload(data);
 		if (gameData?.started) {
@@ -222,9 +213,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		// eslint-disable-next-line no-undef
 		plausible('Joined Game', { props: { game_id: gameData?.game_id } });
-		Cookies.set('joined_game', JSON.stringify({ sid: socket.id, username, game_pin }), {
-			expires: 3600
-		});
+		persistJoinedGameCookie(username, game_pin);
 	});
 	socket.on('rejoined_game', (data) => {
 		gameData = normalizeGamePayload(data);
@@ -233,6 +222,9 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		if (gameData?.game_mode != null) {
 			game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
+		}
+		if (username && game_pin) {
+			persistJoinedGameCookie(username, game_pin);
 		}
 	});
 

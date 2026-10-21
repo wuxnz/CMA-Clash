@@ -13,6 +13,11 @@ export async function joinPlayer(
 	viewport = { width: 390, height: 844 }
 ): Promise<Page> {
 	await installLiveApiProxy(context);
+	if (process.env.CMA_PLAY_SOCKET_DEBUG === '1') {
+		await context.addInitScript(() => {
+			window.localStorage.setItem('cma_play_socket_debug', '1');
+		});
+	}
 	await context.clearCookies();
 	const page = await context.newPage();
 	await page.setViewportSize(viewport);
