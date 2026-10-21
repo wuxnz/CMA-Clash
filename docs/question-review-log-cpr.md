@@ -173,3 +173,77 @@ cpr-child-022 | fail | Reframed compression-only as yes/no stem; full-sentence �
 cpr-child-023 | fail | Polished two-rescuer task division stem; parallel team-error distractors.
 cpr-child-024 | fail | Replaced duplicate recoil definition with leaning/incomplete recoil consequence scenario.
 cpr-child-025 | fail | Expanded lone-rescuer EMS/AED retrieval stem and correct option to full sentence.
+
+## CPR batch 04 (cpr-child-026 to cpr-child-045)
+
+cpr-child-026 | pass | Adult technique when puberty/adult size; near-miss age >1 y, three rescuers, AED attached.
+cpr-child-027 | pass | Severe choking silent weak cough; near-miss cough-only mild, standing CPR, back blows alone.
+cpr-child-028 | pass | Child BLS age range; near-miss neonates only, birth–21 all, <10 lb only.
+cpr-child-029 | pass | Post-ROSC recovery position monitor; near-miss supine hyperextend, prone pillow, unattended upright.
+cpr-child-030 | pass | Thin child shallow feedback depth target; near-miss skin indent, 4 in all peds, rib click.
+cpr-child-031 | pass | Two-rescuer fatigue switch at 2 min; near-miss same compressor until EMS, never switch, q30 s.
+cpr-child-032 | pass | Infant vs child by victim size/protocol; near-miss infant <10 y, adult if walks, rescuer hand size.
+cpr-child-033 | pass | Drowning EMS breaths then 30:2; near-miss dry wait spontaneous, abdominal first, 10 min breaths only.
+cpr-child-034 | pass | Bradycardia 50 poor perfusion CPR; near-miss any pulse observe, O2 no compressions, wait second rescuer.
+cpr-child-035 | pass | Diving injury jaw thrust minimal tilt; near-miss maximal tilt, blind sweeps, neck flex pillow.
+cpr-child-036 | pass | Rate drift >130 coach 100–120 switch; near-miss faster always OK, stop until movement, vents-only rest.
+cpr-child-037 | pass | Why 15:2 two-rescuer child; near-miss fewer breaths, 30:2 never peds, no ventilations two rescuers.
+cpr-child-038 | pass | Advanced airway continuous compressions ~1 breath/6 s; near-miss 5 s pause each breath, stop compressions, breath on request.
+cpr-child-039 | pass | Second rescuer AED while compressions continue; near-miss 3 min stop, remove until ROSC, shock without clear.
+cpr-child-040 | pass | Post-ROSC lethargic airway O2 monitor; near-miss discharge parents, CPR for lethargy, withhold O2 cyanotic.
+cpr-child-041 | pass | Asthma hypoxic arrest full CPR ratio; near-miss vents only, compression-only, delay for bronchodilator.
+cpr-child-042 | pass | Cool outdoor CPR dry blanket; near-miss cold immersion, strip uncovered wind, stop q5 min warm hands.
+cpr-child-043 | pass | Two-rescuer no chest rise reposition retry; near-miss force distension, abandon vents, blind sweeps each cycle.
+cpr-child-044 | pass | Compression fraction most of time pauses <10 s; near-miss 30 s pause/min, <20% compressions, stop when tired.
+cpr-child-045 | pass | Opioid pulseless CPR plus naloxone if available; near-miss naloxone only, breaths only, delay for tox.
+
+## CPR rewrite batch 04 (cpr-child-026 to 045)
+
+cpr-child-026 | fail | Expanded adolescent size-transition stem; parallel age/AED/team-size distractors.
+cpr-child-027 | fail | Reframed severe choking with silent weak cough; full-sentence abdominal thrust key.
+cpr-child-028 | fail | Polished child-algorithm scope stem; parallel neonate/all-ages/weight distractors.
+cpr-child-029 | fail | Expanded post-ROSC recovery-position stem with EMS-en-route context.
+cpr-child-030 | fail | Reframed depth item as feedback shallow-compression scenario; deduped bare depth stem from batch 03 item 012.
+cpr-child-031 | fail | Reframed compressor switch as two-rescuer fatigue/rate scenario at two-minute mark.
+cpr-child-032 | fail | Polished infant-versus-child uncertainty stem; parallel algorithm distractors.
+cpr-child-033 | fail | Expanded drowning sequence stem; balanced dry-wait/abdominal-first/delayed-compression distractors.
+cpr-child-034 | fail | Expanded bradycardia-perfusion stem; full-sentence CPR key with parallel observe/O2/wait distractors.
+cpr-child-035 | fail | Expanded trauma jaw-thrust stem; parallel hyperextension/sweep/flex distractors.
+cpr-child-036 | fail | Replaced duplicate shallow-depth coaching item with rate-drift >130 feedback scenario.
+cpr-child-037 | fail | Reframed 15:2 rationale as instructor question; parallel misconception distractors.
+cpr-child-038 | fail | Polished advanced-airway asynchronous ventilation stem and pause/stop distractors.
+cpr-child-039 | fail | Replaced duplicate AED pause item with second-rescuer pad prep during ongoing compressions.
+cpr-child-040 | fail | Expanded post-ROSC lethargy monitoring stem; parallel discharge/auto-CPR/withhold-O2 distractors.
+cpr-child-041 | fail | Expanded asthma hypoxic arrest stem with 10-second pulse context; parallel vents-only distractors.
+cpr-child-042 | fail | Polished outdoor hypothermia adjunct stem; parallel immersion/exposure/CPR-stop distractors.
+cpr-child-043 | fail | Reframed no-chest-rise item in two-rescuer 15:2 context; deduped lone-rescuer variant from batch 03 item 016.
+cpr-child-044 | fail | Polished compression-fraction description; parallel long-pause/low-fraction distractors.
+cpr-child-045 | fail | Expanded opioid pulseless stem; full-sentence CPR plus naloxone key balanced with delay distractors.
+
+## CPR rewrite batch 05 (cpr-infant-001 to 025)
+
+cpr-infant-001 | fail | Rewrote single-rescuer ratio stem; expanded 30:2 key and parallel ratio distractors.
+cpr-infant-002 | fail | Reframed rate item with full-sentence slow/fast distractors matching child batch style.
+cpr-infant-003 | fail | Aligned two-finger placement stem and options with lower-sternum wording.
+cpr-infant-004 | fail | Expanded mouth-and-nose rescue-breath key; parallel adult-technique distractors.
+cpr-infant-005 | fail | Expanded brachial pulse-check stem with 10-second limit in correct option.
+cpr-infant-006 | fail | Polished crib responsiveness stem; parallel activation distractors without joke phrasing.
+cpr-infant-007 | fail | Reframed infant depth as target question; added rate-without-depth near-miss.
+cpr-infant-008 | fail | Expanded agonal-gasp correct answer with 10-second pulse context in stem.
+cpr-infant-009 | fail | Expanded AED timing key; balanced age/weight/hospital distractors.
+cpr-infant-010 | fail | Polished HQ composite stem; parallel low-quality pattern distractors.
+cpr-infant-011 | fail | Replaced duplicate 30:2 cycle item with CAB compressions-first pulseless stem.
+cpr-infant-012 | fail | Expanded ventilations-rationale correct answer; parallel compression-only distractors.
+cpr-infant-013 | fail | Polished rescue-breath duration stem; parallel timing distractors.
+cpr-infant-014 | fail | Replaced duplicate two-finger technique slot with infant head tilt-chin lift airway stem.
+cpr-infant-015 | fail | Standardized two-rescuer 15:2 key format; parallel ratio distractors.
+cpr-infant-016 | fail | Polished two-thumb encircling technique stem; parallel team-error distractors.
+cpr-infant-017 | fail | Expanded excessive-extension airway error key to full sentence.
+cpr-infant-018 | fail | Polished conscious severe-choking sequence options to full parallel sentences.
+cpr-infant-019 | fail | Replaced telegraphic no-chest-rise response with reposition/seal/retry scenario.
+cpr-infant-020 | fail | Expanded thermoregulation blanket stem; parallel vent/temperature distractors.
+cpr-infant-021 | fail | Expanded AED integration pause-management stem and resume-compressions key.
+cpr-infant-022 | fail | Replaced duplicate recoil definition with leaning/incomplete recoil consequence scenario.
+cpr-infant-023 | fail | Expanded lone-rescuer EMS/AED retrieval stem and correct option to full sentence.
+cpr-infant-024 | fail | Expanded pediatric AED pad placement key; balanced overlap/placement distractors.
+cpr-infant-025 | fail | Polished compressor-switch interval stem; parallel ROSC/never-switch distractors.
