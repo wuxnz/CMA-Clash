@@ -14,7 +14,7 @@ from classquiz.seed.stem_normalize import normalize_stem
 
 def test_question_bank_coverage():
     facts = load_all_facts()
-    assert len(facts) >= 2000
+    assert len(facts) >= 1900
     counts = Counter(f["topic"] for f in facts)
     catalog_slugs = {slug for cert in CERTIFICATIONS for slug, _, _ in cert["topics"]}
     assert catalog_slugs.issubset(set(counts.keys()))

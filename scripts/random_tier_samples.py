@@ -34,9 +34,12 @@ def bootstrap():
 
 def main() -> None:
     seed = int(sys.argv[1]) if len(sys.argv) > 1 else 61
+    cert_filter = sys.argv[2] if len(sys.argv) > 2 else "cpr"
     random.seed(seed)
     banks = bootstrap()
     facts = banks.load_all_facts()
+    if cert_filter == "cpr":
+        facts = [f for f in facts if f["topic"].startswith("cpr-")]
     for tier in ("beginner", "intermediate", "advanced"):
         pool = [f for f in facts if f.get("difficulty") == tier]
         picks = random.sample(pool, min(2, len(pool)))

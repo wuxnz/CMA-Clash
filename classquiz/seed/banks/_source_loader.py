@@ -10,7 +10,6 @@ import importlib.util
 from pathlib import Path
 
 from classquiz.seed import sources as S
-from classquiz.seed.fact_finalize import finalize_fact
 from classquiz.seed.stem_normalize import normalize_stem
 
 _BANKS = Path(__file__).resolve().parent
@@ -95,10 +94,10 @@ def load_source_facts() -> list[dict]:
     seen: set[str] = set()
     for facts in _ALL_MODULES:
         for fact in facts:
-            finalized = finalize_fact(_normalize_references(fact))
-            key = normalize_stem(finalized["stem"])
+            prepared = _normalize_references(dict(fact))
+            key = normalize_stem(prepared["stem"])
             if key in seen:
                 continue
             seen.add(key)
-            merged.append(finalized)
+            merged.append(prepared)
     return merged
