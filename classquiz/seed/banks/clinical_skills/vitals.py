@@ -44,13 +44,13 @@ FACTS: list[dict] = [
         "Why should the patient's arm be supported at heart level during blood pressure measurement?",
         "To limit hydrostatic error when the arm is above or below the heart",
         [
-            "To eliminate audible Korotkoff sounds during cuff deflation at the antecubital fossa",
-            "To raise the recorded diastolic value for chart trending during serial measurements",
+            "To eliminate Korotkoff sounds during cuff deflation at the antecubital fossa",
+            "To raise the recorded diastolic value for trending across visits",
             "To shorten the measurement cycle to about ten seconds without a rest period",
         ],
         "Gravity shifts transmitted pressure when the arm hangs low or sits high. Stethoscope use and measurement duration are independent of arm height.",
         [S.CDC_HBP],
-        "beginner",
+        "intermediate",
     ),
     # skill-vitals-004
     fact(
@@ -59,7 +59,7 @@ FACTS: list[dict] = [
         "About five minutes with feet flat on the floor",
         [
             "No rest; measure immediately after climbing stairs to the room",
-            "At least two hours of strict bed rest before any cuff inflation",
+            "At least two hours of strict bed rest before cuff inflation",
             "About ten seconds while the patient describes active symptoms aloud",
         ],
         "Brief quiet rest reduces transient elevations from activity or conversation. Prolonged bed rest is not required for outpatient screening, and talking during inflation can skew results.",
@@ -92,7 +92,7 @@ FACTS: list[dict] = [
         ],
         "Diastolic is taken at sound disappearance in standard adult technique. The first tap is systolic, and venous pressure is not measured through a brachial cuff.",
         [S.NHA_CCMA, S.CDC_HBP],
-        "intermediate",
+        "advanced",
     ),
     # skill-vitals-007
     fact(
@@ -128,9 +128,9 @@ FACTS: list[dict] = [
         "Why might tympanic temperature readings differ from oral readings on the same patient?",
         "Ear canal placement and cerumen can skew infrared ear measurements",
         [
-            "Poor sublingual seal with recent cold or hot drink intake before oral measurement",
+            "Poor sublingual seal with a recent cold or hot drink before the reading",
             "Axillary probe contact through multiple clothing layers over the sensor pad",
-            "Temporal artery scan over sweat or hair on the forehead during infrared screening",
+            "Temporal artery scan over sweat or hair on the forehead",
         ],
         "Poor probe aim or wax blocks the tympanic membrane target. Site differences matter when trending fever, so document method consistently.",
         [S.NHA_CCMA],
@@ -148,7 +148,7 @@ FACTS: list[dict] = [
         ],
         "Axillary readings reflect cooler surface tissue. Charting should still note site so providers interpret trends without mixing incompatible methods.",
         [S.NHA_CCMA],
-        "beginner",
+        "intermediate",
     ),
     # skill-vitals-011
     fact(
@@ -176,7 +176,7 @@ FACTS: list[dict] = [
         ],
         "Hypoxemia with distress needs rapid evaluation and may require oxygen or escalation. Mildly reduced saturation with good waveform still needs context, not automatic dismissal.",
         [S.NHA_CCMA],
-        "intermediate",
+        "advanced",
     ),
     # skill-vitals-013
     fact(
@@ -238,11 +238,11 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "How is orthostatic blood pressure testing defined in many outpatient protocols?",
-        "Compare supine or sitting pressure with standing pressure after a position change",
+        "Compare supine or sitting pressure with standing pressure after a change",
         [
-            "Measure both arms simultaneously without a position change between the two readings",
-            "Record one standing pressure without a baseline seated or supine value before standing",
-            "Inflate the cuff to maximum pressure before any reading is taken at each clinic visit",
+            "Measure both arms at once without a position change between readings",
+            "Record a standing pressure with no baseline seated value first",
+            "Inflate the cuff to maximum pressure before each clinic blood pressure reading",
         ],
         "Orthostatic testing looks for a drop after standing from rest. Single-position readings or maximal inflation techniques do not define orthostatic change.",
         [S.NHA_CCMA],
@@ -268,8 +268,8 @@ FACTS: list[dict] = [
         "Where is the apical pulse most commonly auscultated on the chest?",
         "At the fifth intercostal space near the midclavicular line",
         [
-            "At the second intercostal space along the right sternal border at the base of the neck",
-            "Over the carotid artery at the anterior neck midline with firm palpation pressure",
+            "At the second intercostal space along the right sternal border",
+            "Over the carotid artery at the anterior neck midline",
             "At the popliteal fossa behind the flexed knee while the patient lies prone",
         ],
         "The apex of the heart underlies this anterior chest site. Carotid and popliteal locations assess peripheral pulses, not the apical impulse.",
@@ -288,7 +288,7 @@ FACTS: list[dict] = [
         ],
         "Irregular rhythms are undercounted with short peripheral sampling. Schedule pressure does not override accurate rate assessment when rhythm is abnormal.",
         [S.NHA_CCMA],
-        "intermediate",
+        "advanced",
     ),
     # skill-vitals-021
     fact(
@@ -302,7 +302,7 @@ FACTS: list[dict] = [
         ],
         "A full minute captures missed beats in atrial fibrillation and other arrhythmias. Short counts and surrogate estimates systematically underestimate irregular rates.",
         [S.NHA_CCMA],
-        "intermediate",
+        "advanced",
     ),
     # skill-vitals-022
     fact(
@@ -326,7 +326,7 @@ FACTS: list[dict] = [
         [
             "Objective tissue damage measured in millimeters on imaging without patient input",
             "Expected systolic blood pressure rise during painful stimuli at the bedside",
-            "Respiratory rate counted while the patient completes distraction tasks during the exam",
+            "Respiratory rate counted while the patient completes distraction tasks",
         ],
         "Numeric scales capture the patient's perceived severity for trending and treatment. They do not replace physical exam or imaging findings.",
         [S.NHA_CCMA],
@@ -367,8 +367,8 @@ FACTS: list[dict] = [
         "Inaccurate weight affects drug dosing and growth chart interpretation",
         [
             "Calibration removes the need to remove shoes before weighing on the clinic scale",
-            "Calibration converts height measures into blood pressure values on the vital sign flowsheet",
-            "Calibration replaces documenting whether the patient ate breakfast before the weight entry",
+            "Calibration converts height measures into blood pressure values",
+            "Calibration replaces documenting whether the patient ate breakfast",
         ],
         "Weight errors propagate into medication and nutritional decisions. Shoe policy and meal timing remain separate parts of the intake assessment.",
         [S.NHA_CCMA],
@@ -378,11 +378,11 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "How should standing height be measured for accurate growth and BMI data?",
-        "Patient stands straight against a stadiometer with heels together and head level",
+        "Patient stands straight against a stadiometer with heels together",
         [
-            "Patient sits on the exam table while staff estimates height visually without a stadiometer",
-            "Patient stands on tiptoes against the stadiometer backboard to maximize recorded height",
-            "Patient lies supine while a tape measure follows the mattress curve along the spine",
+            "Patient sits on the exam table while staff estimates the height visually",
+            "Patient stands on tiptoes against the stadiometer backboard",
+            "Patient lies supine while a tape measure follows the mattress curve",
         ],
         "Stadiometer technique standardizes posture for serial comparisons. Visual guesses and mattress curves introduce systematic error in charts.",
         [S.NHA_CCMA],
@@ -395,7 +395,7 @@ FACTS: list[dict] = [
         "Weight in pounds divided by height in inches squared, then multiplied by 703",
         [
             "Height in inches divided by weight in pounds with no scaling factor applied",
-            "Weight in kilograms multiplied by height in meters without squaring the height term",
+            "Weight in kilograms multiplied by height in meters without squaring",
             "Waist circumference divided by hip circumference for the body mass index value",
         ],
         "BMI uses squared height in the denominator to scale mass to stature. Waist-to-hip ratio is a different anthropometric measure.",
@@ -408,9 +408,9 @@ FACTS: list[dict] = [
         "What is a key limitation of many automated office blood pressure devices?",
         "Irregular heart rhythms can reduce accuracy compared with manual auscultation",
         [
-            "They cannot display systolic and diastolic numbers on the device screen during use",
+            "They cannot display systolic and diastolic numbers on the screen",
             "They require cuff placement on the ankle for every adult patient in the clinic",
-            "They eliminate the need to select cuff size based on measured upper arm circumference",
+            "They eliminate the need to select a cuff size from arm circumference",
         ],
         "Oscillometric devices may misread during arrhythmia; manual confirmation may be needed. Cuff sizing rules still apply to automated cuffs on the arm.",
         [S.CDC_HBP, S.NHA_CCMA],
@@ -428,7 +428,7 @@ FACTS: list[dict] = [
         ],
         "Korotkoff sounds are auscultated at the brachial artery under the cuff margin. Radial, apical, and carotid sites do not substitute for this placement.",
         [S.NHA_CCMA, S.CDC_HBP],
-        "intermediate",
+        "advanced",
     ),
     # skill-vitals-031
     fact(
@@ -480,7 +480,7 @@ FACTS: list[dict] = [
         [
             "Supporting the arm at heart level during blood pressure on the chosen side",
             "Confirming two identifiers before attaching monitoring devices at the bedside",
-            "Recording the measurement site when documenting temperature in the medical record",
+            "Recording the measurement site when documenting temperature",
         ],
         "Routine vitals do not require Trendelenburg positioning, which is reserved for specific clinical scenarios. Standard arm support and identification remain appropriate.",
         [S.NHA_CCMA],
@@ -540,7 +540,7 @@ FACTS: list[dict] = [
         ],
         "Cap refill is a quick perfusion screen at the nail bed. It does not confirm core temperature or pain control without other findings.",
         [S.NHA_CCMA],
-        "beginner",
+        "intermediate",
     ),
     # skill-vitals-039
     fact(
@@ -574,11 +574,11 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "How should a resting pulse near 50 beats per minute in an asymptomatic athlete be interpreted?",
-        "It may be a normal training effect if rhythm is regular and perfusion is good",
+        "It may be a normal training effect if the rhythm and perfusion are good",
         [
-            "It requires immediate defibrillation in an outpatient setting without further assessment",
+            "It requires immediate defibrillation in an outpatient setting",
             "It proves hypothyroidism without laboratory confirmation or symptom review",
-            "It indicates mandatory hospital admission before any further vitals are obtained",
+            "It indicates hospital admission before further vitals are obtained",
         ],
         "Conditioned bradycardia differs from symptomatic bradycardia with dizziness or hypotension. Context, rhythm, and symptoms guide escalation beyond a single number.",
         [S.NHA_CCMA],
@@ -588,11 +588,11 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "When should abnormal vital signs be communicated promptly to the supervising clinician?",
-        "When values fall outside expected limits or match protocol-defined critical thresholds",
+        "When values fall outside expected limits or critical thresholds",
         [
-            "When the patient prefers not to hear the numbers at the bedside during vital sign collection",
-            "After all scheduled appointments finish regardless of severity, symptoms, or trending change",
-            "When the reading matches yesterday's value without new symptoms, orders, or policy triggers",
+            "When the patient prefers not to hear the numbers at the bedside",
+            "After all the scheduled appointments finish regardless of severity",
+            "When the reading matches yesterday with no new symptoms or orders",
         ],
         "Timely reporting allows treatment of hypotension, hypoxia, or hypertensive crisis. Delaying notification for convenience or stable trends without policy guidance risks harm.",
         [S.NHA_CCMA],

@@ -22,7 +22,7 @@ FACTS: list[dict] = [
  [
  "15 compressions followed by 2 ventilations",
  "5 compressions followed by 1 ventilation",
- "Continuous compressions without any ventilations",
+ "Continuous compressions without ventilations",
  ],
  "Single-rescuer infant BLS uses 30:2. The 15:2 ratio applies when two rescuers are present. "
  "Skipping ventilations ignores the frequent respiratory cause of infant arrest.",
@@ -63,7 +63,7 @@ FACTS: list[dict] = [
  "How should rescue breaths be given to an infant during CPR?",
  "Seal the mouth and nose and deliver a gentle breath over about one second watching for chest rise",
  [
- "Pinch the nose closed and blow only into the mouth as for an adult",
+ "Pinch the nose closed and blow into the mouth as for an adult",
  "Deliver large breaths until the abdomen is markedly distended",
  "Blow air across the face without forming a seal",
  ],
@@ -77,9 +77,9 @@ FACTS: list[dict] = [
  "During a pulse check on an unresponsive infant, which site is preferred?",
  "Brachial artery on the inside of the upper arm",
  [
- "Radial artery at the wrist as the only acceptable site",
+ "Radial artery at the wrist as the acceptable site",
  "Carotid pulse with heavy pressure on the neck",
- "Apical pulse through multiple layers of clothing only",
+ "Apical pulse through multiple layers of clothing",
  ],
  "The brachial pulse is accessible and reliable in infants during BLS assessment. Radial pulses "
  "may be difficult to feel in infants with poor perfusion. Excessive neck pressure is "
@@ -123,8 +123,8 @@ FACTS: list[dict] = [
  "this breathing?",
  "As abnormal breathing that may indicate cardiac arrest if pulse is absent",
  [
- "As normal sleep breathing that never requires CPR",
- "As a sign to give oral fluids only",
+ "As normal sleep breathing that does not require CPR",
+ "As a sign to give oral fluids",
  "As mild choking requiring abdominal thrusts first",
  ],
  "Agonal gasps are not effective ventilation. Normal sleep breathing does not accompany "
@@ -138,9 +138,9 @@ FACTS: list[dict] = [
  "When should an AED be considered for an infant in suspected cardiac arrest?",
  "As soon as a device is available, using pediatric equipment when possible",
  [
- "Only after the infant reaches 12 months of age",
- "Never for patients under 10 kg",
- "Only in the hospital after physician approval",
+ "After the infant reaches 12 months of age",
+ "Not for patients under 10 kg",
+ "In the hospital after physician approval",
  ],
  "AED use is part of pediatric resuscitation when arrest is present. Age alone should not "
  "arbitrarily exclude defibrillation when indicated. Lay BLS includes AED attachment per "
@@ -154,7 +154,7 @@ FACTS: list[dict] = [
  "Pushing hard enough to depress the chest one third of its AP diameter with full recoil",
  [
  "Leaning on the chest between compressions to save energy",
- "Compressing only once every 10 seconds",
+ "Compressing once every 10 seconds",
  "Using the fingertips on the infant's face for leverage",
  ],
  "Adequate depth with full recoil defines effective compressions. Leaning between pushes blocks "
@@ -168,9 +168,9 @@ FACTS: list[dict] = [
  "cycles include for a lone trained rescuer?",
  "30 compressions followed by 2 ventilations repeated",
  [
- "15 compressions followed by 2 ventilations only",
+ "15 compressions followed by 2 ventilations",
  "Two ventilations every five minutes without compressions",
- "Five compressions followed by one ventilation only",
+ "Five compressions followed by one ventilation",
  ],
  "Lone rescuer infant CPR follows 30:2 cycles. Fifteen to two is for two rescuers. Ventilation "
  "without compressions does not treat pulseless arrest.",
@@ -182,9 +182,9 @@ FACTS: list[dict] = [
  "Why are ventilations especially important in many infant cardiac arrests?",
  "Infants often arrest because of respiratory failure and hypoxia",
  [
- "Infants never need chest compressions under any circumstance",
- "Ventilations are required only after hospital admission",
- "Compression-only CPR is preferred for all infants at home",
+ "Infants need chest compressions when the pulse is absent",
+ "Ventilations are required before hospital admission",
+ "Compression-only CPR is preferred for infants at home",
  ],
  "Respiratory problems commonly precede infant arrest, so oxygenation matters. Compressions "
  "remain essential when pulse is absent. Compression-only CPR is not the preferred approach "
@@ -246,7 +246,7 @@ FACTS: list[dict] = [
  [
  "One rescuer compresses the infant's head while the other ventilates",
  "Two-finger technique with both rescuers stacking hands on the abdomen",
- "Heel of one hand using adult depth on the upper sternum only",
+ "Heel of one hand using adult depth on the upper sternum",
  ],
  "Two-thumb encircling hands improve depth and recoil with two providers. Head compression is "
  "never appropriate. Abdominal stacking does not provide effective cardiac compression.",
@@ -258,7 +258,7 @@ FACTS: list[dict] = [
  "When opening an infant's airway for ventilations, what error should rescuers avoid?",
  "Excessive neck extension during head tilt",
  [
- "Any head movement regardless of trauma status",
+ "Head movement regardless of trauma status",
  "Using a jaw thrust in every infant even without trauma concern",
  "Keeping the neck in a neutral position with no airway maneuver",
  ],
@@ -275,8 +275,8 @@ FACTS: list[dict] = [
  "Alternate five back slaps and five chest thrusts while supporting the head and neck",
  [
  "Abdominal thrusts identical to adult Heimlich maneuver",
- "Finger sweeps into the mouth before any back slaps",
- "Rescue breaths only while the infant remains conscious",
+ "Finger sweeps into the mouth before back slaps",
+ "Rescue breaths while the infant remains conscious",
  ],
  "Infant choking care uses back slaps and chest thrusts, not abdominal thrusts. Blind finger "
  "sweeps can worsen obstruction. CPR breaths are for unresponsive victims, not initial conscious "
@@ -305,7 +305,7 @@ FACTS: list[dict] = [
  "Infants lose heat quickly, and hypothermia can worsen resuscitation outcomes",
  [
  "Covering replaces the need for ventilations entirely",
- "Infants always overheat during CPR and need cooling with ice",
+ "Infants overheat during CPR and need cooling with ice",
  "Temperature has no effect on infant perfusion",
  ],
  "Thermoregulation is fragile in infants. Covering supports warmth after the chest is exposed "
@@ -348,7 +348,7 @@ FACTS: list[dict] = [
  "they do about EMS activation?",
  "Leave the infant briefly to call EMS and obtain an AED if possible, then return",
  [
- "Never leave the infant to activate EMS under any circumstance",
+ "Leave the infant to activate EMS without delay",
  "Stop CPR permanently at two minutes without calling",
  "Drive the infant to a pharmacy without activating EMS",
  ],
@@ -363,7 +363,7 @@ FACTS: list[dict] = [
  "When pediatric AED pads are available for an infant, how should they be used?",
  "Attach per manufacturer diagram, often with anterior-posterior placement if pads would overlap",
  [
- "Place both pads on the infant's back only",
+ "Place both pads on the infant's back",
  "Use adult pads on the thighs without chest contact",
  "Withhold the AED until hospital arrival",
  ],
@@ -378,8 +378,8 @@ FACTS: list[dict] = [
  "How often should rescuers switch the compressor during two-rescuer infant CPR?",
  "About every two minutes or sooner if compression quality declines",
  [
- "Only after ROSC has occurred",
- "Never switch to avoid breaking rhythm",
+ "After return of spontaneous circulation has occurred",
+ "Avoid switching to keep the rhythm unbroken",
  "Every 10 seconds regardless of fatigue",
  ],
  "Switching limits fatigue-related shallow compressions in prolonged infant resuscitation. "
@@ -394,9 +394,9 @@ FACTS: list[dict] = [
  "mouth?",
  "Before giving rescue breaths if you suspect obstruction or after compressions as trained",
  [
- "Never look in the mouth during infant CPR",
+ "Do not look in the mouth during infant CPR",
  "Perform blind finger sweeps after every compression",
- "Only after 30 minutes of compressions",
+ "After 30 minutes of compressions",
  ],
  "Visible objects may be removed if seen, but blind sweeps are not recommended. Never inspecting "
  "misses dislodged material before breaths. Delaying inspection for 30 minutes is inappropriate.",
@@ -409,9 +409,9 @@ FACTS: list[dict] = [
  "infant in arrest?",
  "No; include ventilations with compressions when able",
  [
- "Yes; infants never benefit from rescue breaths",
+ "Yes; infants do not benefit from rescue breaths",
  "Yes; breaths are contraindicated under one year of age",
- "Only health care providers may give infant ventilations",
+ "Health care providers may give infant ventilations",
  ],
  "Hypoxic respiratory failure commonly precedes infant arrest. Compression-only CPR omits "
  "needed oxygenation when breaths are feasible. Lay rescuers trained in BLS provide ventilations.",
@@ -425,7 +425,7 @@ FACTS: list[dict] = [
  [
  "At least 60 seconds to avoid false starts",
  "Exactly two minutes between every compression cycle",
- "Lay rescuers should never pause compressions to check a pulse",
+ "Lay rescuers pause compressions briefly to check a pulse",
  ],
  "Brief checks limit compression interruption. A 60-second pause harms perfusion. Thinking "
  "lay rescuers must never pause to check a pulse is wrong, trained BLS still uses short checks "
@@ -453,8 +453,8 @@ FACTS: list[dict] = [
  "Soft surfaces absorb compression force and reduce effective depth",
  [
  "Soft bedding increases compression depth automatically",
- "Surface firmness only matters for adult victims",
- "Infants should always be compressed while held upright in arms only",
+ "Surface firmness matters for adult victims",
+ "Infants are compressed while held upright in the arms",
  ],
  "Compressions on soft mattresses dissipate force. Soft bedding does not deepen compressions. "
  "While two-rescuer encircling hands may be on a lap, effective depth still requires a firm "
@@ -469,7 +469,7 @@ FACTS: list[dict] = [
  [
  "The ventilator gives five breaths after every 15 compressions",
  "Both rescuers stop compressions for 30 seconds to ventilate",
- "Ventilations occur only after ROSC",
+ "Ventilations occur after ROSC",
  ],
  "Two breaths follow each set of 15 compressions in two-rescuer care. Five breaths exceed the "
  "ratio. Thirty-second pauses harm compression fraction.",
@@ -516,7 +516,7 @@ FACTS: list[dict] = [
  [
  "Withhold defibrillation until the infant weighs at least 40 pounds",
  "Place both pads on the abdomen because the chest is too small",
- "Remove pads after the first shock and never resume CPR",
+ "Remove pads after the first shock and do not resume CPR",
  ],
  "Adult AEDs may be used on infants and children with appropriate pad placement when pediatric "
  "equipment is missing. Arbitrary weight limits delay shock. CPR must resume immediately after "
@@ -531,7 +531,7 @@ FACTS: list[dict] = [
  "Lay the infant on a firm surface, call for help, and begin CPR with mouth checks before breaths",
  [
  "Continue back slaps while holding the unresponsive infant upright indefinitely",
- "Give rescue breaths only without compressions",
+ "Give rescue breaths without compressions",
  "Perform abdominal thrusts on the infant",
  ],
  "Unresponsive choking infants receive CPR; compressions may dislodge the object. Back slaps "
@@ -546,7 +546,7 @@ FACTS: list[dict] = [
  "Maintain airway, provide oxygen if trained, keep the infant warm, and monitor breathing and pulse",
  [
  "Place the infant alone in a cold vehicle without monitoring",
- "Resume full CPR compressions because lethargy always means arrest",
+ "Resume compressions because lethargy means recurrent arrest",
  "Withhold all monitoring once color improves slightly",
  ],
  "Post-ROSC infants need close observation for recurrence and thermoregulation. Unmonitored "
@@ -561,9 +561,9 @@ FACTS: list[dict] = [
  "a brief check. What BLS action is appropriate?",
  "Begin chest compressions coordinated with ventilations per infant BLS protocol",
  [
- "Observe only because any palpable pulse excludes CPR",
+ "Observe because a palpable pulse excludes CPR",
  "Give blow-by oxygen without compressions until pulse is zero",
- "Wait for parents to arrive before any intervention",
+ "Wait for parents to arrive before intervening",
  ],
  "Bradycardia with poor perfusion in infants is treated as arrest-equivalent. Observation "
  "alone fails to support systemic perfusion. Family presence should not delay CPR when "
@@ -578,7 +578,7 @@ FACTS: list[dict] = [
  "At the infant's head with thumbs on the sternum and hands encircling the chest",
  [
  "At the infant's feet compressing the abdomen with stacked fists",
- "Standing across the room while directing breaths only",
+ "Standing across the room while directing breaths",
  "Kneeling on the infant's legs to stabilize the body",
  ],
  "Two-thumb technique is performed from the head with thumbs on the lower sternum. Abdominal "
@@ -592,9 +592,9 @@ FACTS: list[dict] = [
  "applies before and during CPR?",
  "Open the airway and give ventilations early because hypoxia likely preceded arrest",
  [
- "Dry the infant for 10 minutes before any breaths or compressions",
+ "Dry the infant for 10 minutes before breaths or compressions",
  "Start with abdominal thrusts for all drowning infants",
- "Defer CPR until the infant is wrapped in heated blankets only",
+ "Defer CPR until the infant is wrapped in heated blankets",
  ],
  "Submersion arrests are often hypoxic; ventilations are critical after rescue. Prolonged drying "
  "without care sacrifices oxygenation. Abdominal thrusts are not the drowning response for "
@@ -608,7 +608,7 @@ FACTS: list[dict] = [
  "adjustment is commonly recommended?",
  "Anterior-posterior pad placement per device instructions",
  [
- "Place both pads on the right arm only",
+ "Place both pads on the right arm",
  "Overlap pads intentionally in the center of the chest",
  "Cancel AED use for the remainder of the arrest",
  ],
@@ -625,8 +625,8 @@ FACTS: list[dict] = [
  "Switch to two-thumb encircling hands with the second rescuer managing ventilations at 15:2",
  [
  "Switch to heel-of-hand adult compressions on the sternum",
- "Stop compressions and ventilate only until depth improves",
- "Compress the infant's back while ventilating from the side without sternal compressions",
+ "Stop compressions and ventilate until depth improves",
+ "Compress the infant's back while ventilating from the side",
  ],
  "Two-thumb technique generally provides better depth and recoil with two providers. Adult heel "
  "technique risks excessive depth. Ventilation-only care does not treat pulseless arrest.",
@@ -655,7 +655,7 @@ FACTS: list[dict] = [
  "responsive. What should you do?",
  "Support the head and neck and alternate five back slaps and five chest thrusts",
  [
- "Encourage coughing because cyanosis always means mild obstruction",
+ "Encourage coughing because cyanosis means mild obstruction",
  "Begin CPR compressions while the infant remains conscious and standing",
  "Deliver abdominal thrusts identical to adult technique",
  ],
@@ -688,7 +688,7 @@ FACTS: list[dict] = [
  "Provide infant CPR with appropriate ratio for rescuer number, using gentle but effective compressions and ventilations",
  [
  "Defer all CPR because prematurity makes resuscitation futile",
- "Ventilate only without compressions regardless of pulse status",
+ "Ventilate without compressions regardless of pulse status",
  "Use adult 30:2 on the mother's chest instead of the infant",
  ],
  "Premature infants receive standard infant BLS when arrest criteria are met; gentleness does "

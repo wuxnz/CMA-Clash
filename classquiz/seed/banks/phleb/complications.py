@@ -33,7 +33,7 @@ FACTS: list[dict] = [
         [
             "Syncope",
             "Hemolysis of red cells inside the collection tube",
-            "Arterial spasm without any bruising",
+            "Arterial spasm without bruising",
         ],
         "A hematoma is localized bleeding into tissues from vein wall trauma during or after the stick. "
         "It is not the same as fainting (syncope) or red-cell breakdown in the tube (hemolysis).",
@@ -144,7 +144,7 @@ FACTS: list[dict] = [
         "Repeated sticks raise pain, hematoma, and nerve injury risk",
         [
             "Unlimited attempts are safer for the patient than a set limit",
-            "A second qualified collector is never brought in, whatever the patient's distress",
+            "A second qualified collector is not brought in, whatever the patient's distress",
             "Attempt limits apply to pediatric patients rather than to adults",
         ],
         "CLSI and employer policies cap attempts before another qualified collector steps in. "
@@ -188,7 +188,7 @@ FACTS: list[dict] = [
         "Hemoconcentration and falsely altered analyte levels",
         [
             "Improved glucose accuracy in patients with diabetes",
-            "Hemolysis that occurs without any effect of stasis",
+            "Hemolysis that occurs without an effect of stasis",
             "No change in plasma constituents",
         ],
         "CLSI recommends limiting tourniquet time to about one minute when possible. "
@@ -273,7 +273,7 @@ FACTS: list[dict] = [
         [
             "Allowing the patient to drive home immediately if they insist",
             "Dismissing symptoms if initial vitals looked normal",
-            "Giving stimulants without any assessment or observation",
+            "Giving stimulants without assessment or observation",
         ],
         "Late vasovagal reactions occur after the patient stands or walks. "
         "Observation after phlebotomy and safe positioning reduce fall and injury risk.",
@@ -356,7 +356,7 @@ FACTS: list[dict] = [
         "Releasing intracellular pigments and altering chemistry interpretation",
         [
             "Lowering bilirubin when the tubes are kept away from light",
-            "Having no effect on any liver chemistry analyte",
+            "Having no effect on a liver chemistry analyte",
             "Improving the accuracy of ammonia testing on the same draw",
         ],
         "Lysed cells contaminate serum with substances that mimic or mask true levels. "

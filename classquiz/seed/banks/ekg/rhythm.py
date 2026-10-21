@@ -131,8 +131,8 @@ FACTS: list[dict] = [
         'Atrial flutter often demonstrates?',
         'Sawtooth flutter waves especially in inferior leads',
         [
-            'Random fine fibrillatory waves without organized P waves',
-            'A flat baseline without any organized atrial activity',
+            'Fine, disorganized fibrillatory waves without organized P waves',
+            'A flat baseline without organized atrial activity',
             'Normal sinus P waves with a regular ventricular rate',
         ],
         'Atrial flutter produces a regular sawtooth pattern of atrial activity near 300 beats per minute that is best seen in the inferior leads. Random fine fibrillatory waves describe atrial fibrillation, a flat baseline describes asystole, and normal sinus P waves describe sinus rhythm.',
@@ -237,7 +237,7 @@ FACTS: list[dict] = [
         [
             'Early narrow QRS with identical P',
             'A flat line without organized electrical activity',
-            'ST segment elevation without any QRS change',
+            'ST segment elevation without a QRS change',
         ],
         'PVCs originate in the ventricles, so they appear early with a wide bizarre QRS complex and no preceding P wave. An early narrow QRS with an identical P wave describes a premature atrial complex, a flat line describes asystole, and ST elevation without a QRS change describes repolarization injury rather than a premature beat.',
         [S.NHA_CCMA],
@@ -523,7 +523,7 @@ FACTS: list[dict] = [
         [
             'Narrow QRS with P for every QRS',
             'Slow irregular rhythm with fibrillatory waves',
-            'A flat line without any ventricular activity',
+            'A flat line without ventricular activity',
         ],
         'Ventricular tachycardia is distinguished by wide QRS complexes at a rate often above 100 beats per minute with no consistent P waves in front of them. A narrow QRS with a P wave for every QRS describes a supraventricular rhythm, a slow irregular rhythm with fibrillatory waves describes atrial fibrillation, and a flat line describes asystole.',
         [S.NHA_CCMA],

@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         "Abdominal thrusts (Heimlich)",
         [
             "Encourage sips of water to wash the food down",
-            "Back blows only without any abdominal thrusts",
+            "Back blows without abdominal thrusts",
             "Wait until the patient loses consciousness",
         ],
         "AHA adult BLS treats severe obstruction with abdominal thrusts (Heimlich), not sips of water or "
@@ -41,14 +41,14 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-choking",
-        "Unresponsive choking victim requires?",
+        "What care should be given to an unresponsive choking victim?",
         "CPR starting with compressions; look in mouth before breaths",
         [
-            "Continue Heimlich thrusts only while the patient is on the floor unresponsive",
+            "Continue Heimlich thrusts while the patient is on the floor unresponsive",
             "Shake the patient upright to dislodge the object",
             "Perform blind finger sweeps every thirty seconds",
         ],
-        "Unresponsive choking victims receive CPR beginning with compressions, with a mouth check for a visible object before breaths. Thrusts alone are insufficient once consciousness is lost.",
+        "An unresponsive choking victim is treated with CPR that starts with compressions, with a look in the mouth for a visible object before breaths, because circulation takes priority once consciousness is lost. Continuing Heimlich thrusts while the person lies unresponsive, shaking the patient upright, and performing blind finger sweeps every thirty seconds each delay effective care.",
         _REF,
         "advanced",
     ),
@@ -57,7 +57,7 @@ FACTS: list[dict] = [
         "Pregnant or obese choking patient may receive?",
         "Chest thrusts instead of abdominal thrusts",
         [
-            "Standard abdominal thrusts with maximal force regardless of pregnancy",
+            "Abdominal thrusts with maximal force regardless of pregnancy",
             "No assistance until delivery is complete",
             "CPR compressions while the patient is still speaking",
         ],
@@ -71,7 +71,7 @@ FACTS: list[dict] = [
         "5 back slaps then 5 chest thrusts cycles",
         [
             "Abdominal Heimlich thrusts identical to adult technique",
-            "Repeated blind finger sweeps before any back slaps",
+            "Repeated blind finger sweeps before the back slaps",
             "Shaking the infant vigorously while held upright",
         ],
         "Infants receive five back slaps and five chest thrusts with head and neck support. Abdominal thrusts are not used in infants, and blind sweeps may push objects deeper.",
@@ -96,8 +96,8 @@ FACTS: list[dict] = [
         "What is the difference between mild and severe airway obstruction?",
         "Effective cough vs poor air exchange and silent cough",
         [
-            "Mild obstruction always causes immediate cyanosis and silence",
-            "Severe obstruction always permits loud speech",
+            "Mild obstruction causes immediate cyanosis and silence",
+            "Severe obstruction permits loud speech",
             "Cough strength does not change management",
         ],
         "Effective cough and air movement suggest partial obstruction managed with encouragement. Silent cough, weak air exchange, or inability to speak indicate severe obstruction needing thrusts.",
@@ -150,7 +150,7 @@ FACTS: list[dict] = [
         "Stridor, wheezing, and some air movement",
         [
             "Complete silence with no air movement in every partial obstruction",
-            "Normal speech with strong cough only",
+            "Normal speech with a strong cough",
             "Absent pulse as the earliest sign of mild choking",
         ],
         "Partial obstruction may include stridor, wheezing, or weak air movement while some air still passes. Strong speech and cough suggest mild obstruction; pulse loss indicates arrest, not mild choking.",
@@ -162,9 +162,9 @@ FACTS: list[dict] = [
         "EMS activation for choking is needed when?",
         "Obstruction is not relieved or victim is unresponsive",
         [
-            "Only after the patient has been discharged from the hospital",
+            "After the patient has been discharged from the hospital",
             "Whenever someone coughs once at dinner",
-            "Never; choking never requires 911",
+            "When the person has finished the meal and feels well again",
         ],
         "Activate EMS when obstruction is not relieved with BLS maneuvers or when the victim becomes unresponsive. Mild effective coughing may be monitored, but worsening or unresolved obstruction needs emergency care.",
         _REF,
@@ -177,7 +177,7 @@ FACTS: list[dict] = [
         [
             "Inability to speak with silent ineffective cough",
             "Immediate unresponsiveness as the first sign",
-            "Normal color with loud wheezing only",
+            "Normal color with loud wheezing",
         ],
         "Mild choking features a strong cough and audible air movement. Silent or weak cough with poor air "
         "exchange suggests severe obstruction requiring abdominal thrusts per AHA adult BLS.",
@@ -191,7 +191,7 @@ FACTS: list[dict] = [
         [
             "A single abdominal thrust then stop all care",
             "Water flushes between each thrust",
-            "Blind finger sweeps before any back blows",
+            "Blind finger sweeps before the back blows",
         ],
         "AHA BLS uses abdominal thrusts until the object is expelled or the victim becomes unresponsive. "
         "Water and blind sweeps are not initial treatments, and a single thrust is insufficient for severe obstruction.",
@@ -203,7 +203,7 @@ FACTS: list[dict] = [
         "What should you do if a choking adult becomes unresponsive?",
         "Lower to ground, activate EMS, begin CPR, check mouth for visible object",
         [
-            "Continue standing Heimlich maneuvers only without CPR",
+            "Continue standing Heimlich maneuvers without CPR",
             "Leave the patient seated and call family instead of EMS",
             "Perform blind finger sweeps while the patient is supine without compressions",
         ],
@@ -216,8 +216,8 @@ FACTS: list[dict] = [
         "When should chest thrusts be used instead of abdominal thrusts for a choking victim?",
         "Chest thrusts instead of abdominal thrusts",
         [
-            "Never; abdominal thrusts are always preferred",
-            "Only for infants under one year",
+            "Abdominal thrusts are preferred in every case",
+            "For infants under one year",
             "When the victim is already unresponsive and in CPR",
         ],
         "Chest thrusts replace abdominal thrusts in late pregnancy or when abdominal thrusts cannot be applied effectively, such as in marked obesity. Unresponsive victims transition to CPR rather than standing thrusts.",
@@ -230,7 +230,7 @@ FACTS: list[dict] = [
         "5 back slaps and 5 chest thrusts alternating",
         [
             "Adult-style abdominal thrusts on the infant abdomen",
-            "Immediate CPR without any back slaps or chest thrusts",
+            "Immediate CPR without back slaps or chest thrusts",
             "Holding the infant head-down unsupported and shaking",
         ],
         "Responsive infants with severe obstruction receive alternating five back slaps and five chest thrusts with head support. Abdominal thrusts and shaking are unsafe for infants.",
@@ -242,7 +242,7 @@ FACTS: list[dict] = [
         "What should you do if a choking infant becomes unresponsive?",
         "Start CPR; check mouth for object before breaths",
         [
-            "Continue back slaps only while the infant is limp in your arms",
+            "Continue back slaps while the infant is limp in your arms",
             "Wait until cyanosis resolves before calling for help",
             "Finger sweep the mouth repeatedly without CPR",
         ],
@@ -255,7 +255,7 @@ FACTS: list[dict] = [
         "After an episode of severe choking resolves, why should the patient be evaluated medically?",
         "Encourage medical evaluation if severe episode or complications",
         [
-            "Sore throat alone never needs follow-up",
+            "A sore throat alone does not need follow-up",
             "Patients may drive themselves if voice returns",
             "No evaluation is needed if coughing stops once",
         ],
@@ -268,7 +268,7 @@ FACTS: list[dict] = [
         "How should severe choking be managed in a conscious child?",
         "Abdominal thrusts appropriate to the child's size per AHA BLS",
         [
-            "Abdominal thrusts only without monitoring for worsening obstruction",
+            "Abdominal thrusts without monitoring for worsening obstruction",
             "No intervention until the child loses consciousness",
             "Slapping the face to force coughing",
         ],
@@ -282,9 +282,9 @@ FACTS: list[dict] = [
         "How can choking be distinguished from a heart attack in a responsive patient?",
         "Choking often has sudden while eating and clutching throat; heart attack may have chest pain",
         [
-            "Choking and myocardial infarction always present identically",
-            "Choking never occurs during meals",
-            "Heart attack always causes clutching of the throat without chest symptoms",
+            "Choking and myocardial infarction present identically",
+            "Choking occurs outside of mealtimes",
+            "Heart attack causes clutching of the throat without chest symptoms",
         ],
         "Choking often begins suddenly with eating and the universal throat clutch, whereas heart attack more commonly features chest pressure or discomfort. Ask responsive patients if they are choking while observing cough effectiveness.",
         _REF,
@@ -308,9 +308,9 @@ FACTS: list[dict] = [
         "What is the universal sign that often indicates severe choking?",
         "Hands clenched over neck",
         [
-            "Pointing only to the abdomen while speaking normally",
+            "Pointing to the abdomen while speaking normally",
             "Yawning with easy conversational speech",
-            "Rubbing the chest without any breathing difficulty",
+            "Rubbing the chest without breathing difficulty",
         ],
         "The universal choking sign is hands clenched at the neck with inability to speak or ineffective cough. Normal speech and yawning suggest airway is not severely obstructed.",
         _REF,
@@ -336,7 +336,7 @@ FACTS: list[dict] = [
         [
             "Maximum force on live patients during class",
             "Avoid practicing thrusts on manikins entirely",
-            "Focus only on AED pad placement",
+            "Focus on AED pad placement",
         ],
         "Skills training emphasizes correct hand position and controlled force for back blows, thrusts, and chest thrusts. Live patients are not practice manikins, and choking care is distinct from defibrillator skills.",
         _REF,
@@ -361,7 +361,7 @@ FACTS: list[dict] = [
         "A pregnant woman in the third trimester has severe airway obstruction and is still conscious. What modification is appropriate?",
         "Use chest thrusts instead of abdominal thrusts",
         [
-            "Standard abdominal thrusts centered over the uterus",
+            "Abdominal thrusts centered over the uterus",
             "No maneuvers until after delivery",
             "CPR compressions while she remains conscious and standing",
         ],
@@ -374,9 +374,9 @@ FACTS: list[dict] = [
         "During CPR on an unresponsive choking victim, when should you look in the mouth for a foreign body?",
         "Before giving rescue breaths if you see signs of obstruction or after compressions as part of the cycle",
         [
-            "Only after return of spontaneous circulation",
+            "After return of spontaneous circulation",
             "Every thirty seconds using blind finger sweeps",
-            "Never; the mouth should not be opened during CPR",
+            "The mouth should not be opened during CPR",
         ],
         "Look for a visible object before rescue breaths when obstruction is suspected, and integrate checks into CPR cycles. Blind sweeps are avoided; inspection targets objects you can see and remove.",
         _REF,
@@ -387,11 +387,11 @@ FACTS: list[dict] = [
         "Which finding best distinguishes mild versus severe choking in a responsive adult?",
         "Mild obstruction allows a strong cough and some air movement; severe obstruction includes silent cough or inability to speak",
         [
-            "Severe obstruction always allows shouting for help",
-            "Mild obstruction includes silent cyanosis without any cough",
+            "Severe obstruction allows the person to shout for help",
+            "Mild obstruction includes silent cyanosis with no cough",
             "Cough effectiveness is unrelated to treatment choice",
         ],
-        "Mild obstruction permits strong cough and some air movement; severe obstruction features weak or silent cough and poor air exchange requiring thrust sequences.",
+        "Mild obstruction permits a strong cough and some air movement, while severe obstruction brings a weak or silent cough, poor air exchange, and an inability to speak, which calls for a thrust sequence. Severe obstruction that allows shouting for help, mild obstruction with silent cyanosis and no cough, and the claim that cough effectiveness is unrelated to treatment choice each misread the two presentations.",
         _REF,
         "beginner",
     ),
@@ -400,7 +400,7 @@ FACTS: list[dict] = [
         "An infant with severe choking becomes unresponsive in your arms. What is the correct action?",
         "Lay the infant on a firm surface, call for help, and begin CPR with checks for a visible object in the mouth before breaths",
         [
-            "Keep performing back slaps only in your arms indefinitely",
+            "Keep performing back slaps in your arms indefinitely",
             "Shake the infant to dislodge the object before calling for help",
             "Wait until bradycardia develops without starting CPR",
         ],
@@ -439,7 +439,7 @@ FACTS: list[dict] = [
         "An obese adult with severe choking cannot receive effective abdominal thrusts. What alternative should you try?",
         "Chest thrusts in place of abdominal thrusts until relief or unresponsiveness",
         [
-            "Continue abdominal thrusts with greater force only",
+            "Continue abdominal thrusts with greater force",
             "No further maneuvers until unconsciousness",
             "Finger sweeps while the patient remains standing",
         ],
@@ -453,9 +453,9 @@ FACTS: list[dict] = [
         "What should you ask a conscious adult who appears to be choking but can still cough?",
         "Are you choking? while observing whether the cough is strong and air is moving",
         [
-            "Ask only about chest pain and start CPR",
+            "Ask about chest pain and start CPR",
             "Tell the person to drink water to push the food down",
-            "Wait until they cannot breathe before asking any questions",
+            "Wait until they cannot breathe before asking questions",
         ],
         "Asking \"Are you choking?\" clarifies the emergency while you observe cough strength and air movement. Water may worsen obstruction, and CPR is not indicated while cough remains effective.",
         _REF,
@@ -466,7 +466,7 @@ FACTS: list[dict] = [
         "Why are blind finger sweeps discouraged in BLS airway management?",
         "They can push an object deeper and injure the airway",
         [
-            "They always remove foreign bodies faster than thrusts",
+            "They remove foreign bodies faster than thrusts",
             "They are mandatory every CPR cycle for all arrests",
             "They are safe in infants but required in adults",
         ],
@@ -479,7 +479,7 @@ FACTS: list[dict] = [
         "What initial maneuver does AHA adult BLS recommend for severe choking in a responsive adult?",
         "Abdominal thrusts until the object is expelled or the victim becomes unresponsive",
         [
-            "Five back blows before any abdominal thrusts in every adult",
+            "Five back blows before abdominal thrusts in every adult",
             "Continuous back blows for five minutes without thrusts",
             "One thrust then immediate standing CPR while still conscious",
         ],
@@ -493,7 +493,7 @@ FACTS: list[dict] = [
         "A conscious adult with severe airway obstruction should receive?",
         "Abdominal thrusts until the object is expelled or patient becomes unresponsive",
         [
-            "Encourage coughing only without monitoring",
+            "Encourage coughing without monitoring",
             "A single back blow then stop all care",
             "CPR compressions while the patient is still conscious",
         ],
@@ -509,7 +509,7 @@ FACTS: list[dict] = [
         [
             "Abdominal thrusts as the first choice on every infant",
             "Blind finger sweeps before back slaps",
-            "No back slaps; compressions only while responsive",
+            "No back slaps; compressions while responsive",
         ],
         "Conscious infants with obstruction start with five back slaps and five chest thrusts. Abdominal thrusts and blind sweeps are not initial infant BLS.",
         _REF,
@@ -520,7 +520,7 @@ FACTS: list[dict] = [
         "If a choking victim becomes unresponsive, the rescuer should?",
         "Lower the victim safely and begin CPR starting with compressions",
         [
-            "Leave the patient standing and continue Heimlich thrusts only",
+            "Leave the patient standing and continue Heimlich thrusts",
             "Shake vigorously to dislodge the object",
             "Wait for EMS without lowering the patient safely",
         ],
@@ -547,8 +547,8 @@ FACTS: list[dict] = [
         "Look in the mouth for visible object before breaths and remove if seen",
         [
             "Blind finger sweeps before every ventilation attempt",
-            "Never open the mouth during choking arrest",
-            "Remove objects only after ROSC",
+            "Do not open the mouth during choking arrest",
+            "Remove objects after ROSC",
         ],
         "During CPR for unresponsive choking, look for a visible foreign body before breaths and remove it if seen. Blind sweeps are avoided, and checks occur throughout arrest care.",
         _REF,
@@ -559,7 +559,7 @@ FACTS: list[dict] = [
         "Pregnant or obese patients with severe choking may need?",
         "Chest thrusts instead of abdominal thrusts when indicated",
         [
-            "Abdominal thrusts only regardless of body habitus",
+            "Abdominal thrusts regardless of body habitus",
             "No maneuvers until the patient is unconscious",
             "Water flushes between thrust attempts",
         ],
@@ -569,14 +569,14 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-choking",
-        "Universal sign of severe choking often includes?",
+        "Which findings most often accompany the universal sign of severe choking?",
         "Silent cough, inability to speak, and clutching the throat",
         [
             "Ability to sing full songs while eating",
             "Normal conversation without distress",
-            "Pink skin with strong purposeful cough only",
+            "Pink skin with a strong purposeful cough",
         ],
-        "Severe choking often includes silent or ineffective cough, inability to speak, and clutching the throat. Strong cough with air movement suggests mild obstruction instead.",
+        "Severe choking often includes a silent or ineffective cough, inability to speak, and clutching the throat, which together form the universal sign that the airway is blocked. Being able to sing full songs while eating, holding a normal conversation without distress, and showing pink skin with a strong purposeful cough all point to mild obstruction instead.",
         _REF,
         "intermediate",
     ),
@@ -587,7 +587,7 @@ FACTS: list[dict] = [
         [
             "Immediate discharge without telling EMS if called",
             "Strenuous activity to prove recovery",
-            "Refusal of all medical contact after any choking",
+            "Refusal of all medical contact after choking",
         ],
         "Relief of obstruction does not rule out airway swelling, aspiration, or hypoxic complications. EMS or medical personnel should evaluate patients after significant episodes.",
         _REF,

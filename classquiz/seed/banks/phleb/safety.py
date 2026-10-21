@@ -199,9 +199,9 @@ FACTS: list[dict] = [
         "What should staff with open lesions on their hands do?",
         "Avoid patient contact or use approved barriers per occupational health policy",
         [
-            "Perform draws without any covering if gloves are worn",
-            "Use the same torn gloves for an entire week",
-            "Ignore small cuts because bloodborne risk is zero",
+            "Perform draws without a covering when gloves are worn",
+            "Use the same torn gloves for an entire week of draws",
+            "Ignore small cuts because the bloodborne risk is zero",
         ],
         "Breaks in skin increase worker susceptibility and can transmit organisms to patients. "
         "Cover lesions and follow return-to-work guidance from infection control.",
@@ -253,11 +253,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "What must the employer exposure control plan for bloodborne pathogens include?",
-        "Engineering controls, work practices, hepatitis B vaccination offer, and post-exposure follow-up",
+        "Engineering controls, work practices, hepatitis B vaccination, and post-exposure follow-up",
         [
-            "An annual payroll review without clinical content",
-            "Optional vaccination with no training requirement",
-            "A promise to buy gloves without written procedures",
+            "An annual payroll review with no clinical safety content in it",
+            "Optional hepatitis B vaccination with no training requirement",
+            "A promise to buy gloves with no written procedures on file",
         ],
         "OSHA 29 CFR 1910.1030 requires a written plan reviewed annually. "
         "Phlebotomists must know reporting steps and their rights to free post-exposure care.",
@@ -286,7 +286,7 @@ FACTS: list[dict] = [
         [
             "Ignoring injury if the needle looked clean",
             "Waiting one week to see if symptoms develop",
-            "Completing all draws before any documentation",
+            "Completing all draws before documentation",
         ],
         "HIV post-exposure prophylaxis has time windows for effectiveness. "
         "OSHA requires employers to document exposures and offer appropriate follow-up testing.",
@@ -355,9 +355,9 @@ FACTS: list[dict] = [
         "What is the expectation for patients left unattended in the draw chair?",
         "Not be left unattended; observation continues through and briefly after the procedure",
         [
-            "Be acceptable if the patient's eyes are closed",
-            "Be sent to the parking lot alone when dizzy",
-            "Be restrained without an order when nervous",
+            "Be acceptable if the patient's eyes are closed during the draw",
+            "Be sent to the parking lot alone when the patient feels dizzy",
+            "Be restrained without an order when the patient seems nervous",
         ],
         "Syncope can occur seconds after needle removal. "
         "Continuous observation protects patients who underestimate lightheadedness.",
@@ -369,9 +369,9 @@ FACTS: list[dict] = [
         "What should phlebotomy competency training include?",
         "Venipuncture technique, order of draw, identification, and safety regulations",
         [
-            "Billing codes without hands-on practice",
-            "Social media tips instead of institutional policy",
-            "No documentation of completed validation",
+            "Billing codes and insurance paperwork without hands-on practice",
+            "Social media tips instead of the institutional policy content",
+            "No documentation of the completed skills validation",
         ],
         "Employers must ensure staff are qualified before independent collection duties. "
         "CLSI and certification bodies expect documented skills assessment.",
@@ -385,7 +385,7 @@ FACTS: list[dict] = [
         [
             "Force the draw quickly before behavior worsens",
             "Leave needles inserted while calling for help",
-            "Use physical restraint without any provider order",
+            "Use physical restraint without a provider order",
         ],
         "Patient and staff safety outweigh completing the collection in an unsafe moment. "
         "Involve nursing leadership or security per facility violence prevention plans.",
@@ -397,8 +397,8 @@ FACTS: list[dict] = [
         "What is the recommended approach to hepatitis B vaccination for phlebotomy staff?",
         "Offered by employers at no cost to employees with occupational exposure risk",
         [
-            "Forbidden under OSHA rules",
-            "Optional with no requirement to document declination",
+            "Forbidden under the OSHA bloodborne pathogen rules",
+            "Optional with no requirement to document a written declination",
             "Required for laboratory directors rather than for collectors",
         ],
         "The Bloodborne Pathogens Standard includes hepatitis B vaccine series at employer expense. "
@@ -468,7 +468,7 @@ FACTS: list[dict] = [
         "What do WHO injection safety principles applied to phlebotomy stress?",
         "One sterile needle and syringe or set per patient procedure",
         [
-            "Changing only the needle while reusing the barrel",
+            "Changing the needle while reusing the barrel",
             "Sharing multi-dose vials without aseptic technique",
             "Skipping hand hygiene when gloves are available",
         ],
@@ -498,7 +498,7 @@ FACTS: list[dict] = [
         [
             "Punish the patient for the staff injury",
             "Replace wound washing and occupational health referral",
-            "Determine billing codes only without clinical use",
+            "Determine billing codes without clinical use",
         ],
         "Knowing source status for HIV, HBV, and HCV shapes monitoring and medication offers. "
         "Consent and local law govern testing; protocols must be followed rapidly.",
@@ -554,7 +554,7 @@ FACTS: list[dict] = [
         "Support positioning and emotional safety while staff maintain aseptic technique",
         [
             "Replace two-identifier verification entirely",
-            "Hold the child without any collector instruction",
+            "Hold the child without collector instruction",
             "Eliminate the need for gloves on the collector",
         ],
         "Parents or guardians help immobilize safely when developmentally appropriate. "
@@ -596,7 +596,7 @@ FACTS: list[dict] = [
         "Removed from service and cleaned or discarded per infection control policy",
         [
             "Used on the next patient without cleaning",
-            "Rinsed in tap water only and air-dried in the lunchroom",
+            "Rinsed in tap water and air-dried in the lunchroom",
             "Stored in the sharps container",
         ],
         "Blood-soaked linens and equipment require handling as potentially infectious. "
@@ -625,7 +625,7 @@ FACTS: list[dict] = [
         [
             "Elimination of patient identification requirements",
             "Automatic correction of order-of-draw errors",
-            "Removal of the need for any gloves",
+            "Removal of the need for gloves",
         ],
         "Butterfly sets remain a common injury source during connection and disposal. "
         "Safety versions with shields or retractors align with OSHA's hierarchy of controls.",

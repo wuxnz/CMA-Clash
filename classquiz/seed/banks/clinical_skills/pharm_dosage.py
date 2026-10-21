@@ -351,7 +351,7 @@ FACTS: list[dict] = [
         "A parent asks to measure children's acetaminophen with a dining spoon. What teaching aligns with safe outpatient dosing?",
         "Provide an oral syringe marked in milliliters and show how to read it",
         [
-            "Tell them that any spoon from the kitchen drawer holds exactly 5 mL",
+            "Tell them that a kitchen spoon holds exactly 5 mL",
             "Convert milliliters to tablespoons without using a measuring device",
             "Estimate the volume by how full the bottle looks when it is on the shelf",
         ],

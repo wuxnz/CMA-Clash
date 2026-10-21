@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         "Reduce pathogen spread from hands to patients, surfaces, and staff",
         [
             "Replace glove use during venipuncture, wound care, and specimen collection",
-            "Eliminate terminal cleaning of exam rooms and high-touch surfaces between patients",
+            "Eliminate terminal cleaning of exam rooms between patients",
             "Shorten room turnover without disinfecting high-touch surfaces between visits",
         ],
         "Hands frequently carry organisms between patients and the environment. Gloves and environmental cleaning remain separate layers of infection prevention.",
@@ -86,7 +86,7 @@ FACTS: list[dict] = [
         "Which PPE sequence is commonly taught when both gown and gloves are required?",
         "Gown, then mask or respirator if needed, then eye protection, then gloves",
         [
-            "Gloves first, then gown draped over gloved hands without securing ties at the back",
+            "Gloves first, then the gown draped over the gloved hands",
             "Eye protection last after removing gloves that were used for dirty tasks",
             "Mask after gloves so the mask contacts the outer glove surface during donning",
         ],
@@ -112,11 +112,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "What do Transmission-Based Precautions add to Standard Precautions?",
-        "Added measures for contact, droplet, or airborne spread when known or suspected",
+        "Added measures for contact, droplet, or airborne spread when suspected",
         [
-            "Permission to reuse needles and syringes between patients in the same procedure bay",
-            "Removal of hand hygiene requirements whenever a surgical mask is worn during patient care",
-            "Routine room cleaning without EPA-registered disinfectants on high-touch surfaces after visits",
+            "Permission to reuse needles and syringes between patients",
+            "Removal of the hand hygiene requirement whenever a surgical mask is worn",
+            "Routine room cleaning without EPA-registered disinfectants",
         ],
         "Transmission-Based layers address specific routes such as droplet nuclei or contact with resistant organisms. They do not relax injection safety or basic hygiene.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],
@@ -126,11 +126,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "Which patients typically require droplet precautions in addition to Standard Precautions?",
-        "Patients with suspected or confirmed infection spread by large respiratory droplets",
+        "Patients with suspected or confirmed droplet-spread infection",
         [
-            "Patients with intact skin and no draining wounds during routine clinic visits",
+            "Patients with intact skin and no draining wounds during a routine clinic visit",
             "Patients who are afebrile with no cough while seated in the waiting room today",
-            "Patients who completed antibiotics three weeks ago without relapse or active symptoms",
+            "Patients who completed antibiotics three weeks ago without symptoms",
         ],
         "Droplet precautions target close-range splash of secretions from diseases such as influenza or pertussis when active. Healed distant infections without symptoms may not need isolation.",
         [S.CDC_ISOLATION_2007],
@@ -154,11 +154,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "What is medical asepsis in ambulatory medical assisting practice?",
-        "Techniques that reduce microbes and protect clean sites and supplies from contamination",
+        "Techniques that reduce microbes and protect clean sites and supplies",
         [
-            "Sterilization of every countertop with autoclave packs each morning before clinic opens",
-            "Complete elimination of all bacteria on patient skin without cleansing before procedures",
-            "Use of sterile surgical fields for every blood pressure measurement in the exam room",
+            "Sterilization of every countertop with autoclave packs each morning shift",
+            "Complete elimination of all bacteria on patient skin",
+            "Sterile surgical fields for every blood pressure measurement",
         ],
         "Medical asepsis focuses on clean technique and barrier use rather than terminal sterilization of the entire environment. Routine vitals do not require a surgical sterile field.",
         [S.NHA_CCMA, S.CDC_STANDARD_PRECAUTIONS],
@@ -172,7 +172,7 @@ FACTS: list[dict] = [
         [
             "Rest nonsterile supply boxes on top of the inner drape surface within the margin",
             "Add dropped sterile items back onto the field after brushing visible debris off",
-            "Turn your back to the field while reaching backward for instruments behind the drape",
+            "Turn your back to the field while reaching for instruments behind it",
         ],
         "Sterile fields are violated by nonsterile objects, below-waist levels, and airborne droplets from talking. Once compromised, items may need replacement per policy.",
         [S.NHA_CCMA],
@@ -185,7 +185,7 @@ FACTS: list[dict] = [
         "Remove soil and reduce bioburden before disinfectant contact time",
         [
             "Replace hand hygiene when staff wear gloves for the entire patient visit",
-            "Eliminate the need for PPE during blood specimen collection from the antecubital vein",
+            "Eliminate the need for PPE during antecubital blood collection",
             "Allow reuse of single-use speculum covers on the next patient in the same room",
         ],
         "Cleaning removes organic matter so disinfectants can work. It does not substitute for gloves during exposure-prone tasks or for single-use device policies.",
@@ -196,11 +196,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "Which EPA-registered product claim should surface disinfectants used in clinics carry?",
-        "Hospital disinfectant labeling effective against relevant pathogens when used as directed",
+        "Hospital disinfectant labeling effective against relevant pathogens",
         [
-            "Labeling as a furniture polish safe for wood grain shine without healthcare pathogen claims",
-            "Labeling as a hand lotion with fragrance for staff comfort without disinfectant contact time",
-            "Labeling as a window cleaner without tuberculocidal, virucidal, or hospital disinfectant data",
+            "Labeling as a furniture polish safe for wood grain shine",
+            "Labeling as a hand lotion with fragrance for staff comfort",
+            "Labeling as a window cleaner without a hospital disinfectant claim listed",
         ],
         "Environmental disinfectants must match organism claims and contact times on the label. Household cleaners without healthcare claims may not meet infection control needs.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
@@ -224,11 +224,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "What is the One & Only Campaign message for injection safety?",
-        "One needle, one syringe, one patient for each injection and medication entry",
+        "One needle, one syringe, one patient for each injection and entry",
         [
-            "One multi-dose vial shared between exam rooms if the rubber diaphragm looks intact",
+            "One multi-dose vial shared between exam rooms if it looks intact",
             "One syringe reused with a new needle for the next patient waiting in line",
-            "One bag of saline used as a common flush for multiple peripheral catheters",
+            "One bag of saline used as a common flush for several peripheral catheters",
         ],
         "Reusing connectors or vials between patients has caused large outbreak investigations. Each patient deserves a new sterile syringe and needle for injections.",
         [S.CDC_ONE_AND_ONLY, S.CDC_INJECTION_SAFETY],
@@ -308,11 +308,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "What is the purpose of contact precautions for patients with multidrug-resistant organisms on skin?",
-        "Limit direct contact and require gown and gloves for anticipated body contact",
+        "Limit direct contact and require gown and gloves for body contact",
         [
-            "Allow shared patient equipment without cleaning between uses in the same clinic day",
-            "Permit food trays from the cafeteria to sit on the bedside table unwashed overnight",
-            "Replace hand hygiene with a single pair of gloves for the whole shift on the unit",
+            "Allow shared patient equipment without cleaning between uses",
+            "Permit food trays to sit on the bedside table unwashed overnight",
+            "Replace hand hygiene with a single pair of gloves for the whole shift",
         ],
         "Contact precautions add barriers for touch transmission of resistant bacteria. Shared uncleaned equipment and all-day gloves undermine the intent.",
         [S.CDC_ISOLATION_2007],
@@ -352,7 +352,7 @@ FACTS: list[dict] = [
         "What does cleaning a spill of blood on the floor require before disinfecting?",
         "Wear PPE, absorb the spill, and clean visible organic material first",
         [
-            "Mop with plain water and leave the area open to air dry overnight without barriers",
+            "Mop with plain water and leave the area to air dry overnight",
             "Wipe with a dry paper towel and return to patient care without donning PPE",
             "Spray disinfectant on a large pool without containing the fluid or wearing PPE",
         ],
@@ -364,11 +364,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "Which patient placement is appropriate for someone with active varicella in many outpatient settings?",
-        "Immediate isolation from susceptible individuals and airborne precautions when available",
+        "Isolation from susceptible individuals and airborne precautions",
         [
-            "Seating in the general pediatric waiting area during active rash onset and coughing",
-            "Rooming with an immunocompromised patient in the same exam room to conserve space",
-            "Discharge home by crowded public transit while vesicular lesions are still open and contagious",
+            "Seating in the general pediatric waiting area during rash onset and cough",
+            "Rooming with an immunocompromised patient in the same exam room today",
+            "Discharge home by public transit while the lesions stay open and weeping",
         ],
         "Varicella spreads by air and contact; susceptible contacts need protection. Public transport and shared waiting areas expose vulnerable people.",
         [S.CDC_ISOLATION_2007],
@@ -378,11 +378,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "Why should jewelry and artificial nails be limited per many hand hygiene policies?",
-        "They can harbor organisms and interfere with effective hand washing and rub coverage",
+        "They harbor organisms and interfere with hand washing and rub coverage",
         [
-            "They improve alcohol rub penetration under stone settings and long nail extensions",
-            "They replace the need for gloves during phlebotomy and other blood exposure tasks",
-            "They indicate senior staff who may bypass required hand hygiene before every patient contact",
+            "They improve alcohol rub penetration under stone settings and long nails",
+            "They replace the need for gloves during phlebotomy tasks",
+            "They indicate senior staff who may bypass required hand hygiene",
         ],
         "Rings and long nails reduce mechanical cleaning at the nail bed. Glove use and seniority do not remove hand hygiene requirements.",
         [S.CDC_HAND_HYGIENE, S.NHA_CCMA],
@@ -406,11 +406,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "How should linen soiled with blood be handled in clinical areas?",
-        "Handle with gloves and place in labeled leak-resistant laundry bags without rinsing",
+        "Handle with gloves and place in labeled leak-resistant laundry bags",
         [
             "Shake linen in the hallway to remove solids before placing it in laundry bags",
             "Take soiled linen home for washing when the hospital laundry service is busy",
-            "Store blood-soiled linen in open hampers at the nurse station for aesthetic display",
+            "Store blood-soiled linen in open hampers at the nurse station",
         ],
         "Minimal agitation reduces aerosolization of pathogens. Facility laundry services follow OSHA and state rules for contaminated textiles.",
         [S.CDC_STANDARD_PRECAUTIONS],
@@ -422,9 +422,9 @@ FACTS: list[dict] = [
         "What is the correct response when a sterile glove is torn during a procedure?",
         "Stop, remove the torn glove, perform hand hygiene, and reglove before continuing",
         [
-            "Continue with one gloved hand because the other hand stayed clean during the task",
-            "Tape the tear with nonsterile tape and finish the procedure without regloving",
-            "Dip the torn glove in alcohol to sterilize the defect before continuing the procedure",
+            "Continue with one gloved hand because the other stayed clean",
+            "Tape the tear with nonsterile tape and finish the procedure without regloving it",
+            "Dip the torn glove in alcohol before continuing the procedure",
         ],
         "A tear breaks the sterile barrier and risks wound contamination. Regloving after hand hygiene restores protection.",
         [S.NHA_CCMA],
@@ -464,7 +464,7 @@ FACTS: list[dict] = [
         "What should staff do before entering the room of a patient on contact precautions?",
         "Don gown and gloves if contact with the patient or environment is anticipated",
         [
-            "Enter in street clothes and don gloves after touching the bed rails and door handle",
+            "Enter in street clothes and glove after touching the bed rails",
             "Wear the same gown for three patients in a row to reduce laundry costs",
             "Rely on a surgical mask alone at the door without performing hand hygiene first",
         ],
@@ -480,7 +480,7 @@ FACTS: list[dict] = [
         [
             "It uses plain water without soap for two seconds before donning sterile gloves",
             "It replaces sterile gloves so bare hands may touch the inner sterile field",
-            "It is performed once per month regardless of the scheduled sterile procedure list",
+            "It is performed once per month regardless of the procedure list",
         ],
         "Surgical antisepsis lowers skin flora before donning sterile attire. Brief rinses or bare-hand field contact do not meet operating room standards.",
         [S.NHA_CCMA],
@@ -518,11 +518,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "When may food or drink be kept in a patient care refrigerator?",
-        "When policy separates staff food from medications and specimens in labeled areas",
+        "When policy separates staff food from medications and specimens",
         [
             "When vaccines and staff lunches share one refrigerator shelf to save space",
-            "When blood collection tubes are stored next to sandwiches in the same storage bin",
-            "When the refrigerator has no thermometer because the interior feels cold to touch",
+            "When blood tubes are stored next to sandwiches in the same bin",
+            "When the refrigerator has no thermometer to check the temperature",
         ],
         "Segregation prevents medication and specimen contamination by food spills. Shared bins and unmonitored temperatures jeopardize cold chain for vaccines.",
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -532,11 +532,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "How should staff respond when a patient with influenza is waiting near immunocompromised patients?",
-        "Separate seating, offer a mask, and expedite rooming per respiratory hygiene policy",
+        "Separate seating, offer a mask, and expedite rooming per policy",
         [
-            "Group all respiratory patients together at the front desk for faster triage and registration",
-            "Ask immunocompromised patients to remove masks briefly for photo identification at check-in",
-            "Close the entire clinic without notifying the provider on call or arranging patient follow-up",
+            "Group all respiratory patients together at the front desk for triage",
+            "Ask immunocompromised patients to remove masks for identification",
+            "Close the clinic without notifying the provider on call",
         ],
         "Spatial separation and masks reduce droplet exposure in shared waiting areas. Removing masks from vulnerable patients increases risk.",
         [S.CDC_STANDARD_PRECAUTIONS],
@@ -588,11 +588,11 @@ FACTS: list[dict] = [
     fact(
         "skill-infection",
         "What should a medical assistant do when unsure which isolation precautions apply?",
-        "Follow protocol, ask the charge nurse or provider, and wear PPE pending clarification",
+        "Follow protocol, ask the charge nurse, and wear PPE pending clarification",
         [
-            "Enter without PPE to ask the patient about travel history before calling the charge nurse",
-            "Use Standard Precautions alone for every rash, cough, or draining wound while awaiting orders",
-            "Wait in the hallway until the patient leaves without notifying the charge nurse or provider",
+            "Enter without PPE to ask about travel history before calling the charge nurse",
+            "Use Standard Precautions alone for every rash or draining wound",
+            "Wait in the hallway until the patient leaves without notifying anyone",
         ],
         "Pending clarification, erring toward appropriate barriers protects staff and other patients. Unprotected entry and silent delays both increase exposure risk.",
         [S.CDC_ISOLATION_2007, S.NHA_CCMA],

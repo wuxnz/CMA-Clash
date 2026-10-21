@@ -405,7 +405,7 @@ FACTS: list[dict] = [
         'Increasing R wave amplitude from V1 toward V5/V6',
         [
             'Decreasing R wave amplitude from V1 toward V6',
-            'No R waves in any of the chest leads',
+            'No R waves in the chest leads',
             'S waves alone in all of the chest leads',
         ],
         'In a normal tracing the R wave grows larger as the lead moves from V1 toward V5 and V6, because the chest electrodes move progressively closer to the left ventricle. A decreasing R wave suggests anterior myocardial infarction or a misplaced electrode, an absence of R waves suggests dextrocardia or a lead error, and S waves alone in all chest leads describes dextrocardia rather than normal progression.',

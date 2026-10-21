@@ -156,7 +156,7 @@ FACTS: list[dict] = [
         "Deliver five back blows then five abdominal thrusts, repeating as needed",
         [
             "Encourage the patient to cough forcefully and drink water to clear the object",
-            "Wait for EMS to arrive before attempting any airway clearance maneuvers",
+            "Wait for EMS to arrive before attempting airway clearance maneuvers",
             "Sweep the mouth with a finger to remove the object that is stuck",
         ],
         "A conscious adult with severe airway obstruction needs five back blows followed by five abdominal thrusts, repeated until the object clears or the patient becomes unresponsive. Encouraging cough and water applies to mild obstruction, waiting for EMS delays care, and blind finger sweeps can push the object deeper.",
@@ -195,10 +195,10 @@ FACTS: list[dict] = [
     fact(
         "skill-emergency-aid",
         "What first aid is appropriate for a nosebleed in a patient without significant facial trauma?",
-        "Sit the patient up, lean forward, and pinch the soft nose for ten to fifteen minutes",
+        "Sit the patient up, lean forward, and pinch the nose for ten to fifteen minutes",
         [
             "Sit the patient up, lean forward, and pinch the soft nose for one to two minutes",
-            "Lie the patient flat, tilt the head back, and pinch the soft nose for ten to fifteen minutes",
+            "Lie the patient flat, tilt the head back, and pinch the soft nose",
             "Seat the patient up, lean forward, and place a cold compress on the nose bridge",
         ],
         "Sitting up and leaning forward with steady pressure on the soft part of the nose for ten to fifteen minutes controls most nosebleeds and keeps blood out of the stomach. A one to two minute hold is too short, tilting the head back sends blood down the throat, and a cold compress alone does not press on the bleeding site.",
@@ -223,9 +223,9 @@ FACTS: list[dict] = [
     fact(
         "skill-emergency-aid",
         "A conscious adult in the clinic has signs of hypoglycemia and can swallow safely. What treatment is appropriate?",
-        "Give fifteen grams of fast-acting carbohydrate and recheck glucose in fifteen minutes",
+        "Give fifteen grams of fast-acting carbohydrate and recheck in fifteen minutes",
         [
-            "Give fifteen grams of fast-acting carbohydrate and recheck the glucose after one hour",
+            "Give fifteen grams of fast-acting carbohydrate and recheck in an hour",
             "Give a high-fat meal and then recheck the blood glucose in fifteen minutes",
             "Give glucagon and recheck the blood glucose in fifteen minutes after giving it",
         ],
@@ -478,7 +478,7 @@ FACTS: list[dict] = [
         "Prioritize patients with immediate life threats and tag them for responders",
         [
             "Treat the patients with minor injuries first because they are quicker to help",
-            "Wait for a triage officer from EMS before approaching any patient",
+            "Wait for a triage officer from EMS before approaching a patient",
             "Move every patient inside the clinic before sorting them by condition",
         ],
         "When resources are limited, triage sorts patients by the severity of their injuries so those with immediate life threats are treated first and everyone is accounted for. Treating minor injuries first, waiting for outside direction before starting, and moving people indoors without sorting all reduce the chance of survival.",
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
         "Which information should the medical assistant give EMS when handing off a stabilized emergency patient?",
         "Onset time, interventions given, allergies, and the most recent vital signs",
         [
-            "Onset time, interventions given, insurance status, and the most recent vital signs",
+            "Onset time, interventions given, insurance status, and vital signs",
             "Onset time, room assignment, allergies, and the most recent vital signs",
             "Onset time, interventions given, allergies, and the most recent supply count",
         ],
@@ -561,9 +561,9 @@ FACTS: list[dict] = [
         "A patient swallowed a caustic household cleaner and is drooling with mouth pain. What is appropriate while waiting for EMS?",
         "Keep the patient from eating or drinking, watch the airway, keep the container",
         [
-            "Give milk or water to dilute the chemical and then wait for the ambulance to arrive",
-            "Induce vomiting so the chemical leaves the stomach as quickly as possible",
-            "Rinse the mouth with mouthwash and give the patient a soft snack to eat",
+            "Give milk or water to dilute it and wait for the ambulance",
+            "Induce vomiting so the chemical leaves the stomach quickly at home",
+            "Rinse the mouth with mouthwash and give the patient a soft snack to eat at once",
         ],
         "Caustic ingestion risks airway swelling and perforation, so the patient takes nothing by mouth, the airway is watched, and the container goes to EMS for the poison center. Diluting with milk or water, inducing vomiting, and giving food or mouthwash all increase the injury.",
         [S.RED_CROSS_FIRST_AID, S.NHA_CCMA],

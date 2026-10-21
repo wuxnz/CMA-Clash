@@ -34,7 +34,7 @@ FACTS: list[dict] = [
         "Gentle end-over-end inversion per manufacturer instructions",
         [
             "Vigorous shaking for thirty seconds to froth the sample",
-            "Centrifuging before any inversion occurs",
+            "Centrifuging before inversion occurs",
             "Leaving tubes horizontal without mixing additive tubes",
         ],
         "Proper inversion distributes anticoagulant without hemolyzing cells. "
@@ -133,7 +133,7 @@ FACTS: list[dict] = [
         [
             "A casual snack documented as fasting if the patient insists",
             "The phlebotomist lunch break time",
-            "Verbal results without any tube label",
+            "Verbal results without a tube label",
         ],
         "Interpretation depends on whether the patient was truly fasting for the ordered interval. "
         "GP41 preanalytic data include timing and patient preparation instructions.",
@@ -187,7 +187,7 @@ FACTS: list[dict] = [
         "What special handling do lactate specimens require?",
         "Approved collection devices and immediate processing per the test manual",
         [
-            "Any serum separator left upright for several hours",
+            "A serum separator left upright for several hours",
             "Fingerstick into a citrate tube without verification",
             "Delayed spin because lactate increases with waiting",
         ],
@@ -259,7 +259,7 @@ FACTS: list[dict] = [
         [
             "Change glucose without affecting electrolytes",
             "Improve coagulation factor stability in serum",
-            "Eliminate the need for any centrifuge step",
+            "Eliminate the need for a centrifuge step",
         ],
         "Cellular metabolism and leakage continue until separation. "
         "GP41 processing timelines specify maximum pre-centrifuge delay for serum electrolytes.",
@@ -300,7 +300,7 @@ FACTS: list[dict] = [
         "Operator identity, quality control, patient identifiers, and results",
         [
             "Outdoor temperature at the time of testing",
-            "Random numbers instead of patient identifiers",
+            "Arbitrary numbers instead of patient identifiers",
             "Lunch orders for staff working the meter",
         ],
         "CLIA-waived and moderate-complexity POC programs require traceable documentation. "
@@ -342,7 +342,7 @@ FACTS: list[dict] = [
         "Only to tests with defined cold stability in the laboratory manual",
         [
             "Identically to every tube type without reading the manual",
-            "In no clinical laboratory",
+            "Not in any clinical laboratory",
             "When the patient requests cold samples",
         ],
         "Some analytes require refrigeration; others must not be chilled. "
@@ -397,9 +397,9 @@ FACTS: list[dict] = [
         "What results are most threatened by underfilled citrate tubes?",
         "Coagulation studies because the blood-to-anticoagulant ratio is wrong",
         [
-            "Complete blood count indices",
-            "Urinalysis dipstick reading",
-            "ABG analysis in a heparin syringe",
+            "The complete blood count indices on the same draw",
+            "The urinalysis dipstick reading from the same visit",
+            "The ABG analysis drawn in a heparin syringe",
         ],
         "Citrate tubes must meet the manufacturer fill line for valid PT and aPTT results. "
         "GP41 volume requirements are part of preanalytic quality for coagulation testing.",
@@ -425,7 +425,7 @@ FACTS: list[dict] = [
         "Why does time of collection on the label matter?",
         "Reference ranges and stability calculations often depend on draw time",
         [
-            "It is decorative information for the courier only",
+            "It is decorative information for the courier",
             "It replaces the need for patient identification",
             "It determines the phlebotomist shift bonus",
         ],

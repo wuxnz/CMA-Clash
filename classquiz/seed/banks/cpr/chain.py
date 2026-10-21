@@ -83,7 +83,7 @@ FACTS: list[dict] = [
         "Place AEDs where arrest is likely and train lay rescuers",
         [
             "Removing AEDs from public buildings",
-            "Restricting AED training to hospital staff and removing devices from public areas",
+            "Restricting AED training to hospital staff and removing public devices",
             "Replacing hands-on CPR education with online surveys",
         ],
         "Public access defibrillation programs place AEDs where cardiac arrests occur and train lay rescuers to use them, which shortens the time to first shock. Removing devices from public buildings, restricting training to hospital staff, and replacing hands-on CPR education with online surveys all move defibrillation further from the public.",
@@ -383,9 +383,9 @@ FACTS: list[dict] = [
         [
             "Bystanders fear legal risk and jurisdictions offer no protection for rescuers",
             "Legal risk increases when Good Samaritan laws apply",
-            "Physicians are the only people permitted to perform compressions",
+            "Compressions are treated as medical treatment that requires a license",
         ],
-        "Bystanders may fear legal risk, and Good Samaritan laws in many areas protect good-faith rescue efforts, which is what encourages them to act. Believing that jurisdictions offer no protection for rescuers, claiming legal risk increases when Good Samaritan laws apply, and insisting that physicians are the only people permitted to perform compressions all keep bystanders from helping.",
+        "Bystanders may fear legal risk, and Good Samaritan laws in many areas protect good-faith rescue efforts, which is what encourages them to act. Believing that jurisdictions offer no protection for rescuers, claiming legal risk increases when Good Samaritan laws apply, and treating compressions as medical treatment that requires a license all keep bystanders from helping.",
         _AHA,
         "beginner",
     ),
@@ -461,9 +461,9 @@ FACTS: list[dict] = [
         [
             "Defibrillation that is delayed until hospital arrival",
             "Removal of CPR from public education",
-            "Mandatory sedation of the patient before any shock",
+            "Mandatory sedation of the patient before a shock",
         ],
-        "Public access defibrillation programs add early defibrillation before EMS arrival, which shortens the time to first shock and improves survival in shockable rhythms. Defibrillation that is delayed until hospital arrival, removal of CPR from public education, and mandatory sedation of the patient before any shock all push back or disrupt the early shock.",
+        "Public access defibrillation programs add early defibrillation before EMS arrival, which shortens the time to first shock and improves survival in shockable rhythms. Defibrillation that is delayed until hospital arrival, removal of CPR from public education, and mandatory sedation of the patient before a shock all push back or disrupt the early shock.",
         _AHA,
         "intermediate",
     ),

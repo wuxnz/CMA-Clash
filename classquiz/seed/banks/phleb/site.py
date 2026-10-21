@@ -89,7 +89,7 @@ FACTS: list[dict] = [
         [
             "Down against the vein floor in every patient",
             "Sideways parallel to the skin without anchoring",
-            "Random because bevel direction does not affect entry",
+            "An arbitrary choice because bevel direction does not affect entry",
         ],
         "Bevel-up entry is the conventional technique taught for straight needles and many butterfly sets. "
         "Facility policy may vary slightly, but bevel-down insertion is not the default GP41-aligned approach.",
@@ -154,12 +154,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What venipuncture should be avoided on an arm that has what conditions?",
-        "An active IV infusion, dialysis access, or mastectomy-side restrictions per policy",
+        "On what arm conditions should venipuncture be avoided?",
+        "An active IV infusion, dialysis access, or mastectomy restrictions per policy",
         [
-            "A band-aid on an unrelated finger on the same hand",
-            "Short fingernails on the draw hand",
-            "A blood pressure cuff on the opposite arm earlier that day",
+            "A band-aid on an unrelated finger of the same hand",
+            "Short fingernails on the hand of the venipuncture",
+            "A blood pressure cuff on the opposite arm earlier the same day",
         ],
         "Drawing distal to running IV fluids dilutes specimens, and fistula or lymphedema precautions protect vulnerable arms. "
         "GP41 site-selection guidance directs collectors away from compromised circulation or lymphatic risk.",
@@ -172,7 +172,7 @@ FACTS: list[dict] = [
         "Is generally contraindicated unless the provider and policy explicitly allow it",
         [
             "Is preferred because lymph nodes are already removed",
-            "Requires only a single identifier before proceeding",
+            "Requires a single identifier before proceeding",
             "Eliminates the need to document the chosen arm",
         ],
         "Lymphedema risk after breast surgery makes the affected arm a last-resort site. "
@@ -186,7 +186,7 @@ FACTS: list[dict] = [
         "Is contraindicated on that vascular access arm",
         [
             "Is encouraged to monitor access patency during every draw",
-            "Requires only alcohol without notifying the care team",
+            "Requires alcohol prep without notifying the care team",
             "Replaces the need for dialysis nursing assessment",
         ],
         "Puncturing an access site can thrombose or damage the fistula. "
@@ -196,7 +196,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "When IV fluids are infusing in one arm, venipuncture on that side should?",
+        "When IV fluids are infusing in one arm, what should be done about venipuncture on that side?",
         "Be avoided unless a written protocol specifies discard volume and site",
         [
             "Proceed distal to the catheter without notifying anyone",
@@ -210,11 +210,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "The basilic vein may be selected when other antecubital veins are unavailable because it?",
+        "Why may the basilic vein be selected when other antecubital veins are unavailable?",
         "Is often larger but lies close to the medial nerve and brachial artery",
         [
             "Has no adjacent structures and needs no anchoring",
-            "Is always shallower than the cephalic vein in every patient",
+            "Is shallower than the cephalic vein in every patient",
             "Must be chosen before the median cubital in all adults",
         ],
         "Basilic access can succeed when safer options fail, but the proximity to nerve and artery demands careful technique. "
@@ -224,10 +224,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What hand veins for venipuncture are appropriate when?",
+        "When are hand veins appropriate for venipuncture?",
         "Antecubital sites are unavailable and institutional policy permits distal draws",
         [
-            "They are always preferred over antecubital veins for comfort",
+            "They are preferred over antecubital veins for comfort",
             "The patient has lymphedema precautions on that extremity",
             "Hand veins are mandatory whenever blood culture bottles are ordered",
         ],
@@ -238,7 +238,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What foot and ankle venipuncture in adults is generally handled how?",
+        "How is foot and ankle venipuncture in adults generally handled?",
         "Avoided except when no safer site exists and policy permits it",
         [
             "The default first choice for outpatient chemistry panels",
@@ -252,7 +252,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What venipuncture through an area of edema should usually be avoided when?",
+        "When should venipuncture through an area of edema usually be avoided?",
         "Deferred in favor of a non-edematous site when possible",
         [
             "Preferred because fluid makes veins easier to see",
@@ -280,10 +280,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "Why venipuncture should not be performed through unhealed burns or extensive scar tissue for what reason?",
+        "Why should venipuncture not be performed through unhealed burns or extensive scar tissue?",
         "Healing tissue is fragile and access is unreliable",
         [
-            "Scar tissue always contains arterial blood only",
+            "Scar tissue contains arterial blood",
             "Antiseptics are unnecessary on damaged skin",
             "Tourniquets cannot be applied near scars",
         ],
@@ -294,7 +294,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "If bright red, pulsatile blood appears during venipuncture, the collector should?",
+        "If bright red, pulsatile blood appears during venipuncture, what should the collector do?",
         "Stop the procedure, withdraw, and apply prolonged direct pressure",
         [
             "Continue filling tubes because arterial samples improve chemistry",
@@ -308,11 +308,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "After the last tube fills, the tourniquet should be released?",
+        "When should the tourniquet be released after the last tube fills?",
         "Before needle withdrawal in routine venipuncture practice",
         [
-            "Only after the patient leaves the draw chair",
-            "Never once it has been applied",
+            "After the patient leaves the draw chair",
+            "Left in place once it has been applied",
             "After needle removal while pressure is withheld",
         ],
         "Removing the tourniquet before withdrawal limits venous pressure and hematoma formation. "
@@ -322,7 +322,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What post-venipuncture hemostasis should include what steps?",
+        "What steps should post-venipuncture hemostasis include?",
         "Firm pressure with a clean gauze pad until bleeding stops",
         [
             "Immediate heavy lifting with the draw arm",
@@ -336,7 +336,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "A warm compress proximal to a difficult venipuncture site may?",
+        "What may a warm compress proximal to a difficult venipuncture site do?",
         "Promote venodilation when ordered and policy allows",
         [
             "Replace skin antisepsis and hand hygiene",
@@ -350,7 +350,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "During venipuncture, the patient arm is best supported?",
+        "How is the patient arm best supported during venipuncture?",
         "Extended downward with the antecubital area supported on a surface when tolerated",
         [
             "Hyperflexed tightly with fist clenched the entire draw",
@@ -364,10 +364,10 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "When palpation for vein selection should occur when?",
+        "When should palpation for vein selection occur?",
         "Before skin antisepsis so the prep site is not contaminated by assessment",
         [
-            "Only after alcohol has fully dried to avoid feeling the vein",
+            "After alcohol has fully dried to avoid feeling the vein",
             "Through the sterile field with the same gloved hand used on equipment",
             "After all tubes are filled to confirm successful entry",
         ],
@@ -378,7 +378,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "After applying alcohol or chlorhexidine, the prep site should?",
+        "After applying alcohol or chlorhexidine, what should happen to the prep site?",
         "Be allowed to air-dry completely before venipuncture",
         [
             "Be wiped dry immediately with non-sterile gauze",
@@ -392,7 +392,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What heel stick capillary sampling in infants is used for what?",
+        "What is heel stick capillary sampling in infants used for?",
         "Small-volume collections when policy and device limits allow",
         [
             "Multi-tube adult-style blood cultures in newborns",
@@ -406,12 +406,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What fingerstick capillary specimens are appropriate when?",
+        "When are fingerstick capillary specimens appropriate?",
         "The ordered test is approved for capillary volume and device specifications",
         [
             "Multiple large culture bottles must be filled from a fingertip",
             "Coagulation studies require citrate tubes from a finger",
-            "Any test ordered can be collected capillary without a manual check",
+            "An ordered test can be collected capillary without a manual check",
         ],
         "Capillary draws have volume and analyte limits defined by the laboratory and instrument manufacturer. "
         "GP41 directs collectors to confirm test suitability before choosing a fingerstick site.",
@@ -420,7 +420,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What many laboratory two-attempt policies require what after two unsuccessful venipunctures?",
+        "What do many laboratory two-attempt policies require after two unsuccessful venipunctures?",
         "Another qualified collector or supervisor is consulted per policy",
         [
             "The same collector continues until success without limit",
@@ -434,12 +434,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What needle gauge selection balances what factors?",
+        "What factors does needle gauge selection balance?",
         "Vein size, required volume, and minimizing hemolysis",
         [
-            "Always using the largest bore regardless of vein fragility",
+            "Using the largest bore regardless of vein fragility",
             "Choosing the smallest gauge that cannot yield required volume",
-            "Random gauge assignment to train on every size each visit",
+            "An arbitrary gauge assignment to train on each size every visit",
         ],
         "Large needles in small veins increase trauma and hemolysis; tiny needles may prolong draw time and clot in the line. "
         "GP41 training matches gauge to test requirements and vessel condition.",
@@ -448,7 +448,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "If blood flow stops during a multi-tube draw, the first action is to?",
+        "If blood flow stops during a multi-tube draw, what is the first action?",
         "Gently reposition the needle or evaluate tourniquet tightness within policy",
         [
             "Forcefully advance the needle through the opposite vein wall",
@@ -476,12 +476,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What chemotherapy or vesicant infusion history in an arm means venipuncture there should be done how?",
+        "What does a chemotherapy or vesicant infusion history in an arm mean for venipuncture there?",
         "Follow oncology and facility policy, often using the opposite extremity",
         [
             "Proceed routinely because prior drugs no longer matter",
-            "Use only butterfly needles without provider input",
-            "Skip patient identification if the oncology chart is available",
+            "Use butterfly needles without provider input",
+            "Rely on the oncology chart instead of verifying the patient",
         ],
         "Compromised veins from prior vesicant exposure may extravasate easily or lack durable access. "
         "GP41 site selection integrates specialty precautions beyond standard antecubital assessment.",
@@ -504,7 +504,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What blind venipuncture without palpating or visualizing a vein is what?",
+        "How is blind venipuncture without palpating or visualizing a vein regarded?",
         "Not acceptable standard practice for routine diagnostic collection",
         [
             "Encouraged in experienced collectors to save time",
@@ -518,11 +518,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "When petechiae appear above the tourniquet, the collector should?",
+        "When petechiae appear above the tourniquet, what should the collector do?",
         "Release or loosen the tourniquet and reassess application",
         [
             "Tighten the tourniquet until petechiae disappear",
-            "Ignore them because they always indicate infection",
+            "Ignore them because they point to infection",
             "Move the tourniquet distal to the puncture site",
         ],
         "Petechiae suggest excessive venous pressure or prolonged application. "
@@ -532,12 +532,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "The cephalic vein in the antecubital fossa is often chosen because it?",
+        "Why is the cephalic vein in the antecubital fossa often chosen?",
         "Lies more laterally with relatively easy access in many patients",
         [
-            "Is always the deepest antecubital vein",
-            "Cannot be used if the median cubital is visible",
-            "Runs with the ulnar nerve on the medial arm only",
+            "Is the deepest of the antecubital veins in most adults",
+            "Cannot be used when the median cubital vein is visible",
+            "Runs with the ulnar nerve along the medial arm",
         ],
         "Cephalic anatomy varies, but the lateral antecubital position is a common secondary option. "
         "GP41 training still requires palpation to confirm suitability before puncture.",
@@ -560,7 +560,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "When a patient reports syncope during venipuncture, the collector should?",
+        "When a patient reports syncope during venipuncture, what should the collector do?",
         "Safely abort or complete the draw per protocol, lower the patient, and summon help",
         [
             "Continue quickly before the patient fully loses consciousness",
@@ -574,7 +574,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What venipuncture on the same arm as a previous episode of thrombophlebitis should be done how?",
+        "How should venipuncture on the same arm as a previous episode of thrombophlebitis be handled?",
         "Be avoided when another site is available",
         [
             "Be mandatory to monitor healing of the inflamed vein",

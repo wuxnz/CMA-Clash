@@ -52,7 +52,7 @@ FACTS: list[dict] = [
         [
             "Directly over the xiphoid process with maximal force",
             "Upper abdomen just below the rib cage",
-            "Left nipple line over the cardiac apex only",
+            "Left nipple line over the cardiac apex",
         ],
         "Compressions over the lower sternum generate forward blood flow with the least risk of "
         "injury. Pressing on the xiphoid can cause fracture and does not compress the heart "
@@ -66,7 +66,7 @@ FACTS: list[dict] = [
         "willing and able to give breaths?",
         "Children often arrest from respiratory causes, so early oxygenation and ventilation matter",
         [
-            "Children never need chest compressions once breaths are given",
+            "Children do not need compressions once breaths are given",
             "Ventilations are optional for all children over age 5",
             "Compression-only CPR is preferred for every pediatric age group",
         ],
@@ -97,8 +97,8 @@ FACTS: list[dict] = [
         "When should an AED be applied to a child in suspected cardiac arrest?",
         "As soon as it becomes available while high-quality CPR continues",
         [
-            "Only after 10 minutes of compressions have been completed",
-            "Only if the child is older than 12 years",
+            "After 10 minutes of compressions have been completed",
+            "If the child is older than 12 years",
             "After EMS arrives and takes over compressions exclusively",
         ],
         "Early defibrillation improves survival in shockable rhythms. Delaying pad placement for a "
@@ -175,8 +175,8 @@ FACTS: list[dict] = [
         "pulse. What should a trained lone rescuer do next?",
         "Begin CPR, starting with chest compressions in most lay BLS programs",
         [
-            "Wait for EMS on scene before starting any compressions",
-            "Give two minutes of rescue breaths before any compressions",
+            "Wait for EMS on scene before starting compressions",
+            "Give two minutes of rescue breaths before compressions",
             "Place the child in a seated position and observe breathing",
         ],
         "Immediate CPR supports circulation and oxygen delivery until advanced care arrives. Waiting "
@@ -206,7 +206,7 @@ FACTS: list[dict] = [
         "Carotid or femoral pulse, felt for no more than 10 seconds",
         [
             "Radial pulse at the wrist for up to two minutes",
-            "Apical pulse only through clothing without exposing the chest",
+            "Apical pulse through clothing without exposing the chest",
             "No pulse assessment is performed in pediatric BLS",
         ],
         "Central pulses are easier to detect in children with poor perfusion. Brief checks limit "
@@ -222,7 +222,7 @@ FACTS: list[dict] = [
         "Recognize it as abnormal breathing and provide CPR if no pulse is detected",
         [
             "Consider gasping normal breathing and withhold CPR",
-            "Give supplemental oxygen only without compressions",
+            "Give supplemental oxygen without compressions",
             "Perform abdominal thrusts before checking pulse",
         ],
         "Agonal gasps are not effective ventilation and may occur during cardiac arrest. Treating "
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         [
             "30 compressions to 2 ventilations",
             "5 compressions to 1 ventilation",
-            "Continuous compressions with breaths every 30 seconds only",
+            "Continuous compressions with breaths every 30 seconds",
         ],
         "Two-rescuer pediatric BLS uses 15:2 so ventilations can be given more frequently while one "
         "rescuer focuses on compressions. The 30:2 ratio applies to single-rescuer CPR. The 5:1 "
@@ -256,7 +256,7 @@ FACTS: list[dict] = [
         [
             "Large breaths held for five seconds to maximize oxygen",
             "Tiny breaths with no visible chest movement",
-            "Breaths only after every fifth compression cycle regardless of chest rise",
+            "Breaths after the fifth compression cycle without chest rise",
         ],
         "Visible chest rise indicates adequate tidal volume without overpressurizing the stomach. "
         "Five-second breaths excessively interrupt compressions. Breaths without chest rise do not "
@@ -270,7 +270,7 @@ FACTS: list[dict] = [
         "the lone rescuer do about EMS activation?",
         "Call EMS and send for an AED immediately because witnessed collapse may be cardiac",
         [
-            "Complete five minutes of CPR before any call for help",
+            "Complete five minutes of CPR before the call for help",
             "Defer activation until a pulse check lasts two full minutes",
             "Ask bystanders to wait until the child wakes up before calling",
         ],
@@ -286,9 +286,9 @@ FACTS: list[dict] = [
         "hospital setting?",
         "About every two minutes or when the AED prompts a rhythm check",
         [
-            "Only once at the beginning of the arrest",
+            "Once at the beginning of the arrest",
             "Every 15 seconds between every compression",
-            "After ROSC has been confirmed by EMS only",
+            "After ROSC has been confirmed by EMS",
         ],
         "Periodic reassessment aligns with two-minute CPR cycles and AED analysis intervals. "
         "Checking every 15 seconds causes harmful compression interruptions. A single initial check "
@@ -349,9 +349,9 @@ FACTS: list[dict] = [
         "rescue breaths to a child in cardiac arrest?",
         "No; ventilations should be included when the rescuer can provide them safely",
         [
-            "Yes; breaths are never indicated below age 18",
-            "Yes; compressions alone are always preferred for children",
-            "Only if two rescuers are present may breaths be considered",
+            "Yes; breaths are not indicated below age 18",
+            "Yes; compressions alone are preferred for children",
+            "If two rescuers are present breaths may be considered",
         ],
         "Pediatric arrests are often hypoxic in origin, so ventilations are important when feasible. "
         "Compression-only CPR is not the preferred lay approach for children who need full BLS. "
@@ -365,7 +365,7 @@ FACTS: list[dict] = [
         "One rescuer performs compressions while the other gives ventilations at a 15:2 ratio",
         [
             "Both rescuers compress opposite sides of the chest simultaneously at 30:2",
-            "One rescuer gives breaths only while the other waits without compressing",
+            "One rescuer gives breaths while the other waits without compressing",
             "Rescuers alternate breaths but nobody performs compressions until EMS arrives",
         ],
         "Dedicated roles maintain compression quality and timely ventilations. Simultaneous dual "
@@ -380,7 +380,7 @@ FACTS: list[dict] = [
         "Allow the chest to return fully without leaning on it between pushes",
         [
             "Keep downward pressure on the sternum between compressions",
-            "Compress only the upper ribs without sternal contact",
+            "Compress the upper ribs without sternal contact",
             "Use partial recoil to save energy during prolonged CPR",
         ],
         "Full recoil permits cardiac filling during diastole. Leaning on the chest between compressions "
@@ -410,7 +410,7 @@ FACTS: list[dict] = [
         "When the child is large enough that adult technique is appropriate, often after puberty",
         [
             "For every child older than one year regardless of size",
-            "Only when three rescuers are present",
+            "When three rescuers are present",
             "Whenever an AED is attached, regardless of patient size",
         ],
         "AHA bases technique on victim size rather than age alone. One year of age alone does not "
@@ -424,9 +424,9 @@ FACTS: list[dict] = [
         "is appropriate BLS care?",
         "Abdominal thrusts appropriate to the child's size until relief or unresponsiveness",
         [
-            "Encourage coughing only because any cough means mild obstruction",
+            "Encourage coughing because a cough means mild obstruction",
             "Begin CPR compressions immediately while the child is still standing",
-            "Deliver back blows only until the child loses consciousness",
+            "Deliver back blows until the child loses consciousness",
         ],
         "Severe obstruction requires abdominal thrusts sized to the child per AHA BLS. A weak cough "
         "indicates ineffective air exchange, not mild obstruction. CPR compressions are for unresponsive "
@@ -439,9 +439,9 @@ FACTS: list[dict] = [
         "Which patients are generally managed with child BLS compression and ventilation guidelines?",
         "From about one year of age until puberty or until adult size is reached",
         [
-            "Only neonates under one month of age",
+            "Neonates under one month of age",
             "All patients from birth through 21 years without exception",
-            "Only children who weigh less than 10 pounds",
+            "Children who weigh less than 10 pounds",
         ],
         "Child guidelines apply to pediatric victims who are not infants and not adult-sized. Neonates "
         "follow infant BLS. Weight alone without age and size context does not define the algorithm.",
@@ -471,7 +471,7 @@ FACTS: list[dict] = [
         [
             "Barely indenting the skin without sternal movement",
             "At least 4 inches (10 cm) for every pediatric patient",
-            "Only deep enough to hear a click from the ribs each time",
+            "Deep enough to hear a click from the ribs each time",
         ],
         "One-third AP diameter balances perfusion and injury risk. Barely visible indentation is too "
         "shallow. A fixed 4-inch depth may be excessive for a small child.",
@@ -483,8 +483,8 @@ FACTS: list[dict] = [
         "During child CPR, when should rescuers switch the person performing compressions?",
         "About every two minutes or sooner if compression quality falls",
         [
-            "Only after EMS takes over on arrival",
-            "Never switch roles to avoid confusion",
+            "After EMS takes over on arrival",
+            "Keep the same roles to avoid confusion",
             "Every 30 seconds regardless of fatigue",
         ],
         "Compressor switching limits fatigue-related shallow compressions. Waiting only for EMS may "
@@ -498,9 +498,9 @@ FACTS: list[dict] = [
         "child compressions. Which factor matters most in BLS training?",
         "Victim size and developmental stage per local protocol, not the bystander's guess alone",
         [
-            "Always use infant technique for anyone under 10 years old",
-            "Always use adult technique for anyone who can walk",
-            "Choose technique based on the rescuer's hand size only",
+            "Use infant technique for a child under 10 years old",
+            "Use adult technique for a child who can walk",
+            "Choose technique based on the rescuer's hand size",
         ],
         "Algorithms distinguish infant, child, and adult victims by size and age landmarks. Applying "
         "infant technique to all under 10 is incorrect for school-age children. Rescuer hand size "
@@ -516,9 +516,9 @@ FACTS: list[dict] = [
         "Activate EMS, open the airway, give rescue breaths if not breathing, and start 30:2 CPR if "
         "no pulse after a brief check",
         [
-            "Dry the child completely and wait for normal breathing before any breaths",
+            "Dry the child and wait for normal breathing before breaths",
             "Perform abdominal thrusts as the first step for every drowning victim",
-            "Begin compressions only after 10 minutes of rescue breaths without pulse check",
+            "Begin compressions after 10 minutes of rescue breaths without a pulse check",
         ],
         "Drowning arrests are often hypoxic; ventilations are emphasized early after rescue. Delaying "
         "breaths while waiting for spontaneous breathing sacrifices oxygenation. Abdominal thrusts "
@@ -532,7 +532,7 @@ FACTS: list[dict] = [
         "What is the appropriate BLS action?",
         "Begin chest compressions and provide ventilations per pediatric BLS protocol",
         [
-            "Monitor only because any palpable pulse means CPR is contraindicated",
+            "Monitor because a palpable pulse means CPR is contraindicated",
             "Give high-flow oxygen but withhold compressions until pulse is absent",
             "Wait for a second rescuer before treating bradycardia",
         ],
@@ -564,8 +564,8 @@ FACTS: list[dict] = [
         "Coach hand placement and switch compressors at the next two-minute mark if needed",
         [
             "Stop all compressions until the child moves spontaneously",
-            "Switch to ventilations only until depth improves on its own",
-            "Continue shallow compressions because any activity is sufficient",
+            "Switch to ventilations until depth improves on its own",
+            "Continue shallow compressions because activity is sufficient",
         ],
         "Fatigue and poor technique reduce coronary perfusion; coaching and role switching address "
         "this. Ventilation-only care does not support pulseless arrest. Accepting shallow compressions "
@@ -580,8 +580,8 @@ FACTS: list[dict] = [
         "rescuer maintains compressions",
         [
             "15:2 reduces the number of breaths compared with 30:2",
-            "30:2 is only used for adults and never for children",
-            "Two rescuers should never give ventilations during pediatric arrest",
+            "30:2 is used for adults and not for children",
+            "Two rescuers do not give ventilations during pediatric arrest",
         ],
         "Fifteen compressions between breaths increase ventilation rate compared with lone 30:2. "
         "The ratio does not reduce breaths; it changes their frequency. Pediatric two-rescuer BLS "
@@ -598,7 +598,7 @@ FACTS: list[dict] = [
         [
             "Pause compressions for five seconds before every breath",
             "Stop compressions entirely once the airway is in place",
-            "Give breaths only when the compressor requests a break",
+            "Give breaths when the compressor requests a break",
         ],
         "With an advanced airway, compressions should be continuous with asynchronous ventilations. "
         "Pausing compressions for each breath lowers perfusion pressure. Stopping compressions after "
@@ -630,7 +630,7 @@ FACTS: list[dict] = [
         "Maintain airway, provide oxygen if trained and available, and monitor breathing and pulse",
         [
             "Discharge the child to parents without EMS evaluation",
-            "Resume CPR compressions because lethargy always means recurrent arrest",
+            "Resume compressions because lethargy means recurrent arrest",
             "Withhold oxygen even if the child appears cyanotic",
         ],
         "Post-ROSC patients need close monitoring for recurrence and support of oxygenation. "
@@ -646,9 +646,9 @@ FACTS: list[dict] = [
         "Provide full CPR with compressions and ventilations at the appropriate ratio for rescuer "
         "number",
         [
-            "Give ventilations only because asthma means compressions are harmful",
+            "Give ventilations because asthma means compressions are harmful",
             "Use compression-only CPR because asthma is a cardiac disease",
-            "Wait for bronchodilator medication before starting any CPR",
+            "Wait for bronchodilator medication before starting CPR",
         ],
         "Respiratory disease can lead to hypoxic arrest requiring compressions and ventilations. "
         "Breath-only care does not treat pulseless arrest. Medication delay should not postpone CPR "
@@ -664,7 +664,7 @@ FACTS: list[dict] = [
         [
             "Immerse the child in cold water to prevent fever",
             "Remove all clothing and leave the child uncovered in wind",
-            "Stop CPR every five minutes to warm hands only",
+            "Stop CPR every five minutes to warm hands",
         ],
         "Preventing hypothermia supports resuscitation efforts in children. Cold water immersion is "
         "harmful during active CPR. Uncovered exposure increases heat loss unnecessarily.",
@@ -708,8 +708,8 @@ FACTS: list[dict] = [
         "check. EMS is activated. What BLS care remains appropriate for the lay rescuer?",
         "High-quality CPR with ventilations if trained, and naloxone per local protocol if available",
         [
-            "Naloxone only without compressions until the child wakes up",
-            "Rescue breaths only because opioids never cause cardiac arrest in children",
+            "Naloxone without compressions until the child wakes up",
+            "Rescue breaths because opioids do not cause arrest in children",
             "Delay CPR until toxicology confirms the substance",
         ],
         "Opioids can cause respiratory arrest progressing to pulseless arrest; CPR and ventilation "

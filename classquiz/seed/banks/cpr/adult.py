@@ -32,7 +32,7 @@ FACTS: list[dict] = [
  [
  "About 1 inch (2.5 cm) to avoid rib injury",
  "At least 3 inches (7.5 cm) for every adult regardless of size",
- "Any visible sternal movement, with no minimum depth",
+ "Visible sternal movement, with no minimum depth",
  ],
  "AHA targets at least 2 inches (5 cm) with an upper limit near 2.4 inches (6 cm) to "
  "balance perfusion and injury risk. One inch is a common underestimate that fails to "
@@ -75,7 +75,7 @@ FACTS: list[dict] = [
  "After activating emergency response for an unresponsive adult, what should you assess before starting CPR?",
  "Breathing and pulse simultaneously if trained (no more than 10 seconds)",
  [
- "Blood glucose with a fingerstick before any chest contact",
+ "Blood glucose with a fingerstick before chest contact",
  "Blood pressure with a cuff while the patient lies flat",
  "Core temperature to rule out hypothermic arrest",
  ],
@@ -120,8 +120,8 @@ FACTS: list[dict] = [
  "When should rescuers apply an AED during adult cardiac arrest?",
  "As soon as available for cardiac arrest",
  [
- "Only after five minutes of uninterrupted compressions",
- "Only when the patient regains a cough or gag reflex",
+ "After five minutes of uninterrupted compressions have run",
+ "When the patient regains a cough or gag reflex",
  "Before confirming unresponsiveness and activating EMS",
  ],
  "Early defibrillation is a core link in the Chain of Survival; attach the AED as soon as "
@@ -150,9 +150,9 @@ FACTS: list[dict] = [
  "What compression-to-ventilation approach should two rescuers use during adult BLS CPR?",
  "30:2 with rescuers switching roles",
  [
- "15:2 because two rescuers always use the pediatric ratio",
+ "15:2 because two rescuers use the pediatric ratio",
  "5:1 with one rescuer compressing between every breath",
- "Compressions only with no ventilations for all team responses",
+ "Compressions with no ventilations for all team responses",
  ],
  "Adult two-rescuer CPR remains 30:2; rescuers switch compressor duty about every two "
  "minutes to fight fatigue. 15:2 applies to two-rescuer child CPR, not adult BLS, a common "
@@ -166,7 +166,7 @@ FACTS: list[dict] = [
  "May be sign of cardiac arrest, not normal breathing",
  [
  "Indicate adequate ventilation so CPR is not needed",
- "Require supplemental oxygen only without compressions",
+ "Require supplemental oxygen without compressions",
  "Rule out cardiac arrest unless the patient can speak",
  ],
  "Agonal respirations are ineffective gasps that may occur during arrest and are not "
@@ -182,7 +182,7 @@ FACTS: list[dict] = [
  [
  "Slow shallow compressions with frequent long pauses",
  "Fast compressions while leaning on the chest between cycles",
- "Gentle compressions focused only on ventilation quality",
+ "Gentle compressions focused on ventilation quality",
  ],
  "High-quality CPR combines adequate rate and depth, full recoil, and limited pauses. "
  "Slow shallow compressions feel easier but fail to maintain perfusion, AHA high-quality "
@@ -224,8 +224,8 @@ FACTS: list[dict] = [
  "What compression-to-ventilation ratio should two rescuers use during adult BLS CPR?",
  "30:2",
  [
- "15:2 because additional rescuers always change the ratio",
- "30:1 with breaths only after each minute of compressions",
+ "15:2 because additional rescuers change the ratio",
+ "30:1 with breaths after each minute of compressions",
  "Continuous compressions with asynchronous ventilations every 30 seconds",
  ],
  "Adding a second rescuer does not change the adult 30:2 ratio; it enables role switching "
@@ -241,7 +241,7 @@ FACTS: list[dict] = [
  [
  "Up to 30 seconds to confirm absence of circulation",
  "Until a second rescuer agrees pulse is absent",
- "Only during AED charging, with no limit for manual checks",
+ "During AED charging, with no limit for manual checks",
  ],
  "Prolonged pulse checks erode coronary perfusion pressure built by compressions. AHA "
  "adult BLS limits pulse assessment to about 10 seconds; 30-second pauses are far too long.",
@@ -253,7 +253,7 @@ FACTS: list[dict] = [
  "An unresponsive adult is not breathing normally after you activate emergency response. What should you do first if you are trained in BLS?",
  "Start CPR beginning with compressions for trained lay rescuers in many programs",
  [
- "Wait for EMS arrival before any chest compressions",
+ "Wait for EMS arrival before starting chest compressions",
  "Begin two minutes of rescue breaths before compressions",
  "Place the patient in a recovery position and observe",
  ],
@@ -328,9 +328,9 @@ FACTS: list[dict] = [
  "An unresponsive adult has only agonal gasps. How should you interpret this breathing pattern?",
  "Are not normal breathing; start CPR if no normal breathing",
  [
- "Represent effective respiration requiring oxygen mask only",
+ "Represent effective respiration requiring an oxygen mask",
  "Mean the patient is breathing adequately so pulse check can wait several minutes",
- "Require abdominal thrusts before any compressions",
+ "Require abdominal thrusts before starting compressions",
  ],
  "Agonal gasps are not adequate breathing and often signal arrest. Oxygen alone without "
  "compressions misses the circulation support AHA adult BLS requires when breathing is "
@@ -359,7 +359,7 @@ FACTS: list[dict] = [
  "Provide ventilation support and naloxone per protocol while activating EMS",
  [
  "Withhold all ventilations until naloxone fully awakens the patient",
- "Perform abdominal thrusts before any breaths or compressions",
+ "Perform abdominal thrusts before starting breaths or compressions",
  "Delay EMS activation until family confirms substance use",
  ],
  "AHA opioid-associated emergencies still require airway support and CPR when indicated; "
@@ -403,8 +403,8 @@ FACTS: list[dict] = [
  "During two-rescuer adult CPR, one rescuer is giving poor-quality compressions that are too shallow. What is the best team action?",
  "Pause briefly to coach hand placement and depth, then resume 30:2 cycles with a compressor switch if needed",
  [
- "Continue shallow compressions because any chest movement helps",
- "Switch to ventilations only until depth improves spontaneously",
+ "Continue shallow compressions because chest movement is sufficient",
+ "Switch to ventilations until depth improves on its own",
  "Stop CPR completely until an AED is physically on the chest",
  ],
  "Depth at least 2 inches (5 cm) with full recoil defines effective compressions. Coaching "
@@ -433,7 +433,7 @@ FACTS: list[dict] = [
  "You are performing adult CPR and the victim begins to move and breathe normally. What should you do immediately?",
  "Stop CPR, monitor breathing and pulse, and place the person in a recovery position if no trauma is suspected",
  [
- "Continue 30:2 because movement may be seizure activity only",
+ "Continue 30:2 because movement may be seizure activity",
  "Stop compressions but leave the patient supine without monitoring",
  "End resuscitation and send the patient home without EMS contact",
  ],
@@ -449,8 +449,8 @@ FACTS: list[dict] = [
  "That location optimizes blood flow through the heart with the least risk of injury to underlying structures",
  [
  "The xiphoid is the strongest point to transmit force to the ventricles",
- "Abdominal compression displaces the diaphragm equally to direct cardiac compression",
- "A fixed point on the left lateral chest at the mid-axillary line for every body size",
+ "Abdominal compression displaces the diaphragm to compress the heart",
+ "A fixed point on the left lateral chest for every body size",
  ],
  "Lower sternal compression maximizes forward flow with less risk to the xiphoid and "
  "abdomen. Xiphoid-focused or lateral-chest landmarks are common misconceptions that do not "
@@ -464,7 +464,7 @@ FACTS: list[dict] = [
  "Start high-quality chest compressions immediately and use an AED as soon as it is available",
  [
  "Wait at the bedside until a family member agrees to give breaths",
- "Provide rescue breaths only without compressions until EMS arrives",
+ "Provide rescue breaths without compressions until EMS arrive",
  "Begin passive oxygen by nasal cannula without chest compressions",
  ],
  "Compression-only CPR is acceptable for witnessed adult arrest when breaths cannot be "
@@ -494,8 +494,8 @@ FACTS: list[dict] = [
  "Compressing the chest for most of the resuscitation period with pauses limited to under about 10 seconds for rhythm checks or defibrillation",
  [
  "Pausing compressions for 30 seconds every minute for team planning",
- "Compressing only half the time to allow extended ventilation",
- "Stopping compressions whenever any rescuer needs to adjust equipment",
+ "Compressing half the time to allow extended ventilation",
+ "Stopping compressions whenever a rescuer adjusts equipment",
  ],
  "Compression fraction reflects time on the chest; AHA targets high fraction with brief "
  "pauses for pulse checks and AED use. Scheduled 30-second breaks or 50% compression time "
@@ -509,7 +509,7 @@ FACTS: list[dict] = [
  "Continue compressions without pausing for breaths and deliver one breath every 6 seconds (10 breaths per minute)",
  [
  "Pause compressions for 15 seconds to deliver each ventilation",
- "Stop compressions entirely and ventilate once per minute only",
+ "Stop compressions entirely and ventilate once per minute",
  "Resume 30:2 cycles despite the advanced airway in place",
  ],
  "With an advanced airway, compressions are continuous and asynchronous breaths are given "
@@ -581,9 +581,9 @@ FACTS: list[dict] = [
  "During team resuscitation, when should compressors switch roles during adult CPR?",
  "About every 2 minutes or sooner if compression quality falls",
  [
- "Only after ROSC is confirmed",
+ "After return of spontaneous circulation is confirmed",
  "Every 10 minutes to limit hand fatigue",
- "Never switch once the first compressor establishes a rhythm",
+ "Avoid switching once the first compressor sets the rhythm",
  ],
  "Role switching near two minutes maintains depth and rate as fatigue appears. Ten-minute "
  "stints or never switching invites deteriorating compression quality against AHA team "
@@ -597,8 +597,8 @@ FACTS: list[dict] = [
  "When the patient shows obvious signs of life such as purposeful movement and normal breathing",
  [
  "After exactly two minutes regardless of patient response",
- "When any single cough is heard during compressions",
- "Only when EMS verbally orders cessation over the radio",
+ "When a single cough is heard during compressions",
+ "When EMS verbally orders cessation over the radio",
  ],
  "Stop when there is clear evidence of circulation and normal breathing; continue otherwise "
  "until EMS takes over. A lone cough or arbitrary two-minute limit does not equal ROSC, AHA "
@@ -643,7 +643,7 @@ FACTS: list[dict] = [
  "Why should rescuers minimize interruptions in chest compressions during adult CPR?",
  "Improve coronary perfusion pressure",
  [
- "Reduce the risk of rib fractures only",
+ "Reduce the risk of rib fractures during compressions",
  "Allow more time for family discussions at the bedside",
  "Decrease rescuer perspiration during long events",
  ],
@@ -660,7 +660,7 @@ FACTS: list[dict] = [
  [
  "Start immediate chest compressions at 30:2",
  "Give one breath every 30 seconds while checking pulse hourly",
- "Administer only passive oxygen without ventilations",
+ "Administer passive oxygen without ventilations",
  ],
  "Pulse with poor or absent respirations is respiratory arrest; provide breaths about every "
  "six seconds without compressions. Starting full CPR despite a pulse is a critical "
@@ -673,7 +673,7 @@ FACTS: list[dict] = [
  "When a second rescuer arrives during adult CPR, what should the team do to maintain high-quality compressions?",
  "Switch compressor roles about every 2 minutes",
  [
- "Take over ventilations only and never compress",
+ "Take over ventilations and avoid compressions",
  "Immediately stop CPR for a full team timeout",
  "Alternate 15:2 cycles because two rescuers are present",
  ],
@@ -688,9 +688,9 @@ FACTS: list[dict] = [
  "When may lay rescuers use compression-only CPR for adults?",
  "Adult sudden cardiac arrest when unwilling to give breaths",
  [
- "Any unresponsive patient regardless of breathing status",
+ "An unresponsive patient regardless of breathing status",
  "Pediatric drowning victims when alone",
- "Adults with known chronic respiratory disease only",
+ "Adults with known chronic respiratory disease",
  ],
  "Compression-only CPR is taught for witnessed adult arrest when mouth-to-mouth is declined. "
  "Using it for children or clearly breathing patients does not follow AHA lay rescuer "
@@ -704,7 +704,7 @@ FACTS: list[dict] = [
  "Upper-right chest and lower-left side",
  [
  "Both pads on the anterior midline stacked vertically",
- "Upper-left chest and lower-right abdomen only",
+ "Upper-left chest and lower-right abdomen",
  "One pad on the back and one on the thigh",
  ],
  "Standard anterior placement is upper right chest and lower left lateral chest. Stacking "
