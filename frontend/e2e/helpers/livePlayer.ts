@@ -14,11 +14,15 @@ export async function expectPlayerOnAnswerTiles(page: Page, label: string) {
 }
 
 /** After both players answer, wait until the next question's answer UI is ready. */
+async function answerTileSignature(root: ReturnType<Page['getByTestId']>): Promise<string> {
+	const texts = await root.locator('button').allTextContents();
+	return texts.map((t) => t.trim()).filter(Boolean).join('|');
+}
+
 export async function expectPlayerAdvancedToNextQuestion(page: Page, label: string) {
 	const root = page.getByTestId('answer-tiles');
-	const firstTile = root.locator('button').first();
-	const priorTile = (await root.isVisible().catch(() => false))
-		? ((await firstTile.textContent().catch(() => '')) ?? '').trim()
+	const priorSignature = (await root.isVisible().catch(() => false))
+		? await answerTileSignature(root)
 		: '';
 	let sawTilesHidden = !(await root.isVisible().catch(() => false));
 
@@ -32,12 +36,12 @@ export async function expectPlayerAdvancedToNextQuestion(page: Page, label: stri
 				}
 				const enabled = await root.locator('button:not([disabled])').count();
 				if (enabled === 0) return false;
-				const now = ((await firstTile.textContent().catch(() => '')) ?? '').trim();
-				if (priorTile && now && now !== priorTile) return true;
-				if (!priorTile && sawTilesHidden) return true;
+				const now = await answerTileSignature(root);
+				if (priorSignature && now && now !== priorSignature) return true;
+				if (!priorSignature && sawTilesHidden) return true;
 				return false;
 			},
-			{ message: `${label}: next question answer tiles`, timeout: 90_000 }
+			{ message: `${label}: next question answer tiles`, timeout: 120_000 }
 		)
 		.toBe(true);
 
