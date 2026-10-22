@@ -14,15 +14,16 @@ _RC = [S.RED_CROSS_FIRST_AID]
 FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
-        "Beyond CPR skills, which topics do American Red Cross first aid courses commonly include?",
-        "Bleeding control, burns, sudden illness, and environmental injuries",
+        "Beyond CPR skills, what topics do American Red Cross first aid courses cover?",
+        "Bleeding control, burns, sudden illness, and environmental injury",
         [
-            "12-lead ECG electrode placement and rhythm interpretation only",
-            "Sterile surgical instrument processing in the operating room",
-            "Vaccine cold-chain storage and lot-number documentation only",
+            "Advanced cardiac procedures including 12-lead ECG interpretation",
+            "Sterile surgical instrument processing in an operating room setting",
+            "Vaccine cold-chain storage and lot-number documentation",
         ],
-        "Red Cross first aid teaches bleeding, burns, sudden illness, and environmental emergencies alongside optional CPR certification. "
-        "EKG placement and vaccine storage are outside typical Red Cross first aid scope.",
+        "Red Cross first aid teaches bleeding, burns, sudden illness, and environmental emergencies "
+        "alongside optional CPR certification. EKG interpretation, operating-room instrument "
+        "processing, and vaccine cold-chain storage are outside typical Red Cross first aid scope.",
         _RC,
         "beginner",
     ),
@@ -31,9 +32,9 @@ FACTS: list[dict] = [
         "For minor external bleeding, what is the American Red Cross first aid priority?",
         "Apply direct pressure with a clean dressing over the wound",
         [
-            "Pack ice directly into the open wound without any dressing",
-            "Elevate the limb only without holding pressure on the site",
-            "Place a tourniquet high on the limb for every minor scrape",
+            "Pack ice directly into the open wound without a dressing",
+            "Elevate the limb without holding pressure on the bleeding site",
+            "Place a tourniquet high on the limb for a minor scrape",
         ],
         "Direct pressure helps clot formation at the skin surface. "
         "Ice inside the wound, elevation without pressure, or routine tourniquet use do not match Red Cross minor bleeding care.",
@@ -47,7 +48,7 @@ FACTS: list[dict] = [
         [
             "One small hive at the sting site without breathing difficulty",
             "Mild itching after contact with laundry detergent alone",
-            "Slow-onset dry skin rash without airway or circulation symptoms",
+            "Slow-onset dry skin rash without airway or circulation symptoms present",
         ],
         "Systemic allergic reaction can involve skin, airway, and circulation. "
         "Isolated mild itching or a single local hive without systemic signs is not treated as anaphylaxis.",
@@ -57,11 +58,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "A worker has heavy sweating, weakness, and cool clammy skin after heat exposure. What Red Cross first aid is appropriate for suspected heat exhaustion?",
-        "Move to a cool area, loosen clothing, and give fluids if the person is awake and can swallow",
+        "Move to a cool area, loosen clothing, and give fluids if fully awake",
         [
-            "Continue strenuous work in the sun to build heat tolerance",
-            "Withhold all fluids even when the person is alert and thirsty",
-            "Immerse the person in ice water without monitoring breathing",
+            "Continue strenuous work in the sun to build up heat tolerance over days",
+            "Withhold fluids even when the person is alert and asking for water",
+            "Immerse the person in ice water without monitoring their breathing",
         ],
         "Heat exhaustion care focuses on rest, cooling, and hydration when swallowing is safe. "
         "Ice-water immersion without monitoring is reserved for heat stroke protocols with EMS involvement.",
@@ -71,11 +72,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "What is the American Red Cross priority when managing suspected hypothermia in the field?",
-        "Gentle handling, remove wet clothing, insulate, and rewarm gradually per severity",
+        "Gentle handling, remove wet clothing, insulate, and rewarm gradually",
         [
-            "Vigorous rubbing of cold extremities to restore circulation quickly",
-            "Leave wet clothing in place to trap body heat",
-            "Force the person to run laps until they feel warm",
+            "Vigorous rubbing of the cold extremities to restore circulation quickly",
+            "Leave the wet clothing in place to trap body heat",
+            "Force the person to run laps around the site until they feel warm",
         ],
         "Hypothermia care emphasizes gentle handling and gradual rewarming to limit afterdrop and arrhythmia risk. "
         "Rough massage, wet clothing, and strenuous exercise can worsen cold injury.",
@@ -89,7 +90,7 @@ FACTS: list[dict] = [
         [
             "Hold the person down firmly to stop the movements",
             "Place a spoon or other object between the teeth",
-            "Pour small sips of water into the mouth during jerking movements",
+            "Pour small sips of water into the mouth during the active jerking movements",
         ],
         "Red Cross seizure care protects from injury and notes duration without restraint or mouth objects. "
         "Fluids during active jerking risk aspiration.",
@@ -99,10 +100,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "When stroke is suspected, what does the American Red Cross FAST mnemonic prompt you to do?",
-        "Call 911 immediately if face, arm, or speech abnormalities are present",
+        "Call 911 right away if face, arm, or speech abnormalities are present",
         [
-            "Wait twenty-four hours to see whether symptoms resolve on their own",
-            "Drive the person to a pharmacy for over-the-counter aspirin only",
+            "Wait twenty-four hours to see whether the symptoms resolve on their own",
+            "Drive the person to a pharmacy for over-the-counter aspirin",
             "Give aspirin without activating EMS when speech is mildly slurred",
         ],
         "FAST highlights Face, Arm, Speech, and Time to call emergency services. "
@@ -113,11 +114,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "What is appropriate American Red Cross first aid for a small thermal burn without charring?",
-        "Cool the burn with running water and cover with a clean dry dressing",
+        "Cool the burn with running water and cover with a dry dressing",
         [
-            "Apply butter or cooking oil to the burn surface",
+            "Apply butter or cooking oil to the surface of the burn",
             "Break blisters immediately to drain fluid",
-            "Place ice directly on skin for thirty minutes without water cooling",
+            "Place ice directly on the skin instead of cooling with running water",
         ],
         "Cool running water limits depth of injury; a clean dressing protects afterward. "
         "Butter, ice directly on skin, and deliberate blister rupture increase infection and tissue damage risk.",
@@ -126,11 +127,11 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-red-cross",
-        "In American Red Cross soft-tissue injury care, what do RICE principles include?",
-        "Rest, ice, compression, and elevation as appropriate for the injury",
+        "In American Red Cross soft-tissue injury care, what do RICE principles cover?",
+        "Rest, ice, compression, and elevation for the injury",
         [
-            "Radiograph, insulin, catheter, and epinephrine for every sprain",
-            "Long-term cardiac rehabilitation planning before any splinting",
+            "Radiograph, insulin, catheter, and epinephrine for a sprain",
+            "Long-term cardiac rehabilitation planning before splinting",
             "Routine surgical sterilization of home first aid kits",
         ],
         "RICE addresses acute sprains and strains with rest, ice, compression, and elevation. "
@@ -141,25 +142,26 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "After a chemical splash to the eye, what does Red Cross first aid emphasize?",
-        "Flush with clean water or saline for an extended time while activating emergency care",
+        "Flush with clean water or saline for an extended time",
         [
-            "Patch the eye closed without any irrigation",
-            "Neutralize the chemical with household vinegar before rinsing",
+            "Patch the eye closed without irrigating the surface",
+            "Neutralize the chemical with household vinegar before the water flush",
             "Delay all flushing until the person reaches a clinic",
         ],
-        "Immediate irrigation dilutes chemical injury; prolonged flushing continues while help is arranged. "
-        "Unverified neutralizers or delayed rinsing allow continued ocular damage.",
+        "Immediate irrigation dilutes chemical injury, and prolonged flushing continues while help is "
+        "arranged. Patching the eye, unverified neutralizers, and delayed rinsing allow continued "
+        "ocular damage.",
         _RC,
         "intermediate",
     ),
     fact(
         "cpr-red-cross",
         "A conscious diabetic adult is confused and diaphoretic. What Red Cross first aid may be appropriate if they can swallow safely?",
-        "Give about fifteen grams of fast-acting carbohydrate and recheck per protocol",
+        "Give about fifteen grams of fast-acting carbohydrate and recheck",
         [
-            "Give injectable insulin before checking blood glucose",
-            "Withhold all sugar and observe for one hour",
-            "Treat as heat stroke without considering glucose",
+            "Give injectable insulin before checking the blood glucose result",
+            "Withhold all sugar and observe the person for one hour",
+            "Treat as heat stroke without ever considering the blood glucose",
         ],
         "Confusion with sweating suggests hypoglycemia; fast sugar is given only when the person is awake and can swallow. "
         "Insulin worsens low glucose, and withholding sugar delays treatment of symptomatic hypoglycemia.",
@@ -169,11 +171,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "When is a tourniquet appropriate for extremity bleeding in American Red Cross first aid?",
-        "When life-threatening limb bleeding does not stop with direct pressure",
+        "When life-threatening limb bleeding does not stop with pressure",
         [
-            "As the first step for minor paper cuts on the fingers",
-            "Placed distal to the wound on the forearm for arm bleeding",
-            "Loosened every minute for patient comfort during transport",
+            "As the first step for minor paper cuts on the fingers and hands",
+            "Placed distal to the wound on the forearm for an arm bleed",
+            "Loosened every minute for patient comfort during the transport",
         ],
         "Tourniquets are a last resort for severe limb hemorrhage when pressure fails. "
         "They are not used for minor wounds, distal placement, or routine loosening that restarts bleeding.",
@@ -183,10 +185,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "What is the focus of American Red Cross psychological first aid after a traumatic event?",
-        "Promote safety, calm, connectedness, and hope without forcing detailed trauma interviews",
+        "Promote safety, calm, connectedness, and hope without detailed interviews",
         [
             "Diagnose psychiatric disorders and prescribe sedatives on scene",
-            "Require the person to recount the event in full detail immediately",
+            "Require the person to recount the traumatic event in full detail right away",
             "Tell the person to avoid all follow-up mental health resources",
         ],
         "Psychological first aid supports immediate emotional safety and connection. "
@@ -211,11 +213,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "While waiting for EMS after controlling bleeding from a hand laceration, what additional Red Cross step may help if no fracture is suspected?",
-        "Elevate the injured extremity above heart level while maintaining direct pressure",
+        "Elevate the injured extremity above heart level and hold pressure",
         [
-            "Release pressure every thirty seconds to air the wound",
-            "Apply a tourniquet for every hand laceration regardless of severity",
-            "Soak the hand in hot water to constrict vessels",
+            "Release the pressure every thirty seconds to air the wound",
+            "Apply a tourniquet for a hand laceration even when bleeding is minor",
+            "Soak the hand in warm water to constrict the blood vessels",
         ],
         "Elevation assists venous drainage when bones are not suspected to be broken and pressure is maintained. "
         "Intermittent pressure release or routine tourniquet use is not first-line for controlled lacerations.",
@@ -225,11 +227,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "A hiker has confusion, hot dry skin, and a very high temperature after exertion in heat. What is the likely problem and Red Cross priority?",
-        "Heat stroke; call 911 and begin active cooling while monitoring airway and breathing",
+        "Heat stroke; call 911 and cool the person while monitoring the airway",
         [
-            "Heat exhaustion only; encourage finishing the hike at a slower pace",
-            "Hypothermia; wrap in wet towels without EMS activation",
-            "Mild sunburn; apply oily lotion and return to activity",
+            "Heat exhaustion; encourage finishing the hike at a slower walking pace",
+            "Hypothermia; wrap in wet towels without activating emergency help",
+            "Mild sunburn; apply the lotion and return to the activity",
         ],
         "Altered mental status with hot dry skin suggests heat stroke, a medical emergency. "
         "Heat exhaustion typically includes heavy sweating and does not present with the same mental status change.",
@@ -239,11 +241,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "After a deep nail puncture wound, what Red Cross documentation and follow-up matter once bleeding is controlled?",
-        "Clean the area, apply a dressing, and seek medical evaluation for tetanus and infection risk",
+        "Clean the area, dress the wound, and seek evaluation for tetanus",
         [
-            "Ignore tetanus history because punctures are always superficial",
-            "Seal the puncture track with household super glue only",
-            "Soak the foot in hydrogen peroxide for hours without medical review",
+            "Ignore the tetanus history because puncture wounds look superficial",
+            "Seal the puncture track with household super glue",
+            "Soak the foot in hydrogen peroxide for hours before medical review",
         ],
         "Puncture wounds can introduce deep infection and tetanus risk. "
         "Medical review guides wound care and prophylaxis beyond home cleaning alone.",
@@ -253,11 +255,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "Which snakebite first aid is consistent with American Red Cross guidance?",
-        "Keep the person calm with the bitten limb near heart level and seek emergency care",
+        "Keep the person calm, keep the limb near heart level, and get medical care",
         [
-            "Cut the wound and attempt to suck venom from the site",
-            "Apply ice directly on the bite for thirty minutes only",
-            "Place a tourniquet proximal to every snakebite regardless of swelling",
+            "Cut the wound and attempt to suck the venom out of the bite site",
+            "Apply ice directly on the bite for a short period of time",
+            "Place a tourniquet proximal to the bite even when the swelling is very limited",
         ],
         "Red Cross care emphasizes calm, limb positioning, and EMS evaluation. "
         "Cutting, suction, and routine tourniquet use are outdated or harmful approaches.",
@@ -269,9 +271,9 @@ FACTS: list[dict] = [
         "For a nosebleed, why does American Red Cross first aid prefer leaning slightly forward?",
         "Forward lean keeps blood from draining into the stomach and causing nausea",
         [
-            "Head-back position clears blood from the airway faster",
+            "Head-back position clears blood from the airway more quickly",
             "Swallowing blood is harmless and preferred",
-            "Pinching only the bony bridge of the nose without timing",
+            "Pinching the bony bridge of the nose without timing the pressure applied at all",
         ],
         "Leaning forward with pinch pressure on the soft nose reduces swallowed blood. "
         "Head-back positioning can cause gagging and does not replace sustained soft-tissue pinch.",
@@ -285,7 +287,7 @@ FACTS: list[dict] = [
         [
             "Leave dirt in the wound to promote natural healing",
             "Apply a tight circumferential tourniquet above the scrape",
-            "Ignore increasing redness because minor wounds never infect",
+            "Ignore increasing redness because small wounds rarely become infected",
         ],
         "Cleaning and dressing reduce infection risk for superficial wounds. "
         "Tourniquets and ignored infection signs are not appropriate for minor abrasions.",
@@ -297,7 +299,7 @@ FACTS: list[dict] = [
         "When applying direct pressure to bleeding, what material should be used per Red Cross first aid?",
         "A clean cloth or sterile dressing over the wound",
         [
-            "Bare fingers pressed into an open wound without any barrier",
+            "Bare fingers pressed into an open wound without a barrier",
             "Steady pressure directly on a visibly embedded object",
             "Hot water immersion of the bleeding limb",
         ],
@@ -311,9 +313,9 @@ FACTS: list[dict] = [
         "Which anaphylaxis signs should prompt calling 911 in American Red Cross first aid?",
         "Difficulty breathing or swelling of the tongue or lips",
         [
-            "One localized hive without breathing change",
-            "Dry skin without airway symptoms",
-            "Chronic eczema flare without systemic signs",
+            "One localized hive with no breathing change or swelling",
+            "Dry skin with no airway symptoms or signs of shock",
+            "A chronic eczema flare with no systemic signs present",
         ],
         "Airway and tongue or lip swelling signal systemic reaction needing emergency care. "
         "Mild localized skin findings alone are managed differently than anaphylaxis.",
@@ -351,10 +353,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "For chemical splash to the eye, how long should flushing continue in American Red Cross first aid while help is activated?",
-        "At least fifteen minutes of flushing with clean water unless EMS directs otherwise",
+        "At least fifteen minutes of flushing with clean water",
         [
             "A five-second rinse followed by patching the eye closed",
-            "Neutralize with household vinegar before any water flush",
+            "Neutralize with household vinegar before the water flush",
             "Wait until clinic arrival to begin irrigation",
         ],
         "Extended irrigation dilutes chemical injury; EMS may advise continued flushing in transit. "
@@ -365,10 +367,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "Which findings are most consistent with heat exhaustion rather than heat stroke in Red Cross teaching?",
-        "Heavy sweating, weakness, and cool clammy skin",
+        "Heavy sweating, weakness, and cool clammy skin after heat",
         [
             "Hot dry skin with confusion and very high temperature",
-            "Shivering and low temperature after cold water immersion only",
+            "Shivering and low temperature after cold water immersion",
             "Crushing chest pain radiating to the jaw without heat exposure",
         ],
         "Heat exhaustion often includes sweating and clammy skin. "
@@ -382,7 +384,7 @@ FACTS: list[dict] = [
         "Time to call 911 when face, arm, or speech signs are abnormal",
         [
             "Transport the patient yourself without calling emergency services",
-            "Temperature measurement before any EMS activation",
+            "Temperature measurement before EMS activation",
             "Tourniquet placement on the affected arm",
         ],
         "FAST ends with Time to activate emergency services for possible stroke. "
@@ -393,14 +395,15 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "Which burn patterns should receive emergency medical evaluation per Red Cross first aid?",
-        "Charred skin, circumferential limb burns, or burns involving face or airway",
+        "Charred skin, circumferential burns, or burns on the face or airway",
         [
-            "Small superficial redness treated only with oily home ointment",
-            "Circumferential burns monitored at home without EMS",
-            "All blisters popped immediately before any dressing",
+            "Small superficial redness treated with an ointment at home",
+            "Circumferential limb burns monitored at home without calling for EMS",
+            "All blisters popped immediately before a dressing is applied",
         ],
-        "Deep, circumferential, or airway-involved burns risk fluid loss and swelling. "
-        "Superficial small burns may be managed with cooling and medical advice per local protocol.",
+        "Deep, circumferential, or airway-involved burns risk fluid loss and swelling. Small "
+        "superficial redness may be managed at home with cooling and medical advice per local "
+        "protocol.",
         _RC,
         "intermediate",
     ),
@@ -411,7 +414,7 @@ FACTS: list[dict] = [
         [
             "About ten seconds with the head tilted fully backward",
             "Until blood stops after releasing pinch every thirty seconds",
-            "Only the bony bridge is pinched while mouth breathing",
+            "The bony bridge is pinched while the person breathes through the mouth",
         ],
         "Sustained soft-tissue pinch with forward lean is standard Red Cross nosebleed care. "
         "Frequent release or bridge-only pinch fails to compress the bleeding vessels.",
@@ -423,7 +426,7 @@ FACTS: list[dict] = [
         "For a bee sting with localized swelling and normal breathing, what Red Cross first aid is appropriate?",
         "Scrape the stinger, wash the area, and apply a cold pack",
         [
-            "Pinch and squeeze the venom sac to pull the stinger out",
+            "Pinch and squeeze the venom sac to pull the stinger out of the skin",
             "Apply heat to the sting site to disperse venom",
             "Ignore swelling even when breathing becomes noisy",
         ],
@@ -437,7 +440,7 @@ FACTS: list[dict] = [
         "What is the goal of splinting an injured extremity in American Red Cross first aid?",
         "Immobilize the joints above and below the suspected injury site",
         [
-            "Immobilize only the joint above the injury while moving the distal joint freely",
+            "Immobilize the joint above the injury while moving the distal joint",
             "Repeatedly test range of motion to assess pain",
             "Wrap the limb until distal circulation is absent",
         ],
@@ -449,11 +452,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "When calling a poison control center about a possible ingestion, what information should you have ready?",
-        "Substance name, estimated amount, time of exposure, and patient age or weight",
+        "Substance name, estimated amount, time of exposure, and patient age",
         [
-            "Only the patient insurance member identification number",
-            "Only the prescribing physician office fax number",
-            "Only whether the patient ate a meal earlier that day",
+            "The patient insurance member identification number and group code",
+            "The prescribing physician office fax number and after-hours line",
+            "Whether the patient ate a meal earlier that day and their allergies",
         ],
         "Poison specialists need exposure details to guide first aid and referral. "
         "Insurance or fax data do not replace substance, dose, timing, and patient size information.",
@@ -465,9 +468,9 @@ FACTS: list[dict] = [
         "For suspected electrical injury, what is the American Red Cross scene priority?",
         "Ensure scene safety, shut off power if possible, and activate EMS",
         [
-            "Grab the patient while the circuit is still energized",
-            "Apply antibiotic ointment before de-energizing the source",
-            "Defer cardiac monitoring because skin looks unburned",
+            "Grab the patient while the electrical circuit is still energized",
+            "Apply antibiotic ointment before de-energizing the power source safely",
+            "Defer cardiac monitoring because the skin looks unburned",
         ],
         "Rescuers must not contact energized patients; power isolation precedes care. "
         "Electrical injury can cause internal arrhythmias even with minor external burns.",
@@ -493,7 +496,7 @@ FACTS: list[dict] = [
         "After significant trauma, which findings suggest shock per Red Cross first aid?",
         "Pale cool skin, rapid pulse, and confusion or anxiety",
         [
-            "Flushed hot skin with strong slow pulse only",
+            "Flushed hot skin with a strong slow pulse by itself alone",
             "Isolated finger pain without other systemic signs",
             "Mild nervousness without injury or bleeding",
         ],
@@ -505,11 +508,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "A youth athlete has headache and dizziness after a head blow in a game. What Red Cross sports concussion care applies?",
-        "Remove from play and seek medical evaluation before return to activity",
+        "Remove from play and seek medical evaluation before returning",
         [
-            "Return to the game if symptoms improve within five minutes",
+            "Return to the game once the symptoms improve within five minutes",
             "Apply heat to the scalp and continue playing",
-            "Ignore next-day headache if no loss of consciousness occurred",
+            "Ignore a next-day headache if no loss of consciousness occurred",
         ],
         "Concussion requires removal from play and medical clearance before return. "
         "Same-day return and ignored delayed symptoms increase second-impact risk.",
@@ -519,11 +522,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "For an impaled object in the body, what does American Red Cross first aid teach?",
-        "Stabilize the object in place and seek emergency care without pulling it out",
+        "Stabilize the object in place and seek emergency care without removal",
         [
-            "Remove the object quickly to allow the wound to bleed freely",
-            "Cut the object flush with the skin and leave the fragment inside",
-            "Pack the wound with loose cotton and pull the object out at home",
+            "Remove the object quickly to let the wound bleed and drain freely",
+            "Cut the object flush with the skin and leave the fragment in place",
+            "Pack the wound with loose cotton and pull the object out at home later",
         ],
         "Impaled objects may tamponade bleeding; removal in the field can worsen hemorrhage. "
         "Stabilization and EMS transport allow controlled removal in the hospital.",
@@ -533,11 +536,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "When spinal injury is suspected after a fall, what is the Red Cross approach before EMS arrives?",
-        "Manual stabilization of the head and neck with minimal movement of the body",
+        "Manual stabilization of the head and neck with minimal movement",
         [
             "Sit the person upright to ease breathing immediately",
             "Twist the neck to test whether pain is present",
-            "Pull the person by the arms to move them off the road quickly",
+            "Pull the person by the arms to move them off the road in a hurry",
         ],
         "Suspected spine injury requires limiting motion until trained providers immobilize. "
         "Sitting, twisting, or dragging increases spinal cord injury risk.",
@@ -547,9 +550,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "Per American Red Cross adult choking care, what sequence is used for a conscious adult with severe airway obstruction?",
-        "Alternate five back blows and five abdominal thrusts until the object is expelled or the victim becomes unresponsive",
+        "Alternate five back blows and five abdominal thrusts until the object clears",
         [
-            "Abdominal thrusts only with no back blows for every conscious adult",
+            "Abdominal thrusts with no back blows for a conscious adult",
             "One back blow then stop all care even if obstruction continues",
             "Chest compressions while the adult remains conscious and clutching the throat",
         ],
@@ -561,10 +564,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "How does American Red Cross choking care for a conscious child with severe obstruction differ from infant choking care?",
-        "Back blows and abdominal thrusts sized to the child instead of infant back slaps and chest thrusts",
+        "Back blows and abdominal thrusts sized to the child",
         [
-            "Adult-style abdominal thrusts only with no back blows for every child",
-            "Infant back slaps and chest thrusts on every child regardless of age",
+            "Adult-style abdominal thrusts with no back blows for a child",
+            "Infant back slaps and chest thrusts applied to a conscious child",
             "No maneuvers until the child becomes unresponsive on the floor",
         ],
         "Red Cross child choking uses back blows and age-appropriate abdominal thrusts. "
@@ -575,11 +578,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "An American Red Cross-trained rescuer finds a conscious adult who cannot speak and has a silent ineffective cough after choking on food. What is the first Red Cross maneuver?",
-        "Five back blows, then five abdominal thrusts, repeating cycles as needed",
+        "Five back blows, then five abdominal thrusts, repeating cycles",
         [
-            "Encourage forceful coughing because any cough always means mild obstruction",
+            "Encourage forceful coughing because a cough can mean a mild airway blockage",
             "Wait for EMS on scene without back blows or abdominal thrusts",
-            "Blind finger sweeps before any back blows or thrusts",
+            "Blind finger sweeps before the back blows or the abdominal thrusts",
         ],
         "Severe obstruction with poor air exchange starts with back blows followed by abdominal thrusts in Red Cross care. "
         "Effective cough with good air movement is monitored rather than immediate thrusts.",
@@ -589,9 +592,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "After a Red Cross first aid seizure ends and the person is breathing, what positioning helps protect the airway?",
-        "Place the person on their side in a recovery-style position if no injury prevents it",
+        "Place the person on their side in a recovery-style position",
         [
-            "Leave the person flat on their back without monitoring breathing",
+            "Leave the person flat on their back without monitoring the breathing",
             "Sit the person upright immediately and offer a large meal",
             "Restrain the arms tied to the bed rails until EMS arrives",
         ],
@@ -603,10 +606,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "Which action is appropriate for a conscious person having a mild allergic reaction with only localized hives and no breathing difficulty?",
-        "Monitor closely and activate EMS if breathing difficulty or swelling worsens",
+        "Monitor closely and activate EMS if breathing or swelling worsens",
         [
             "Give a second epinephrine auto-injector dose immediately without assessment",
-            "Withhold all observation because hives always mean anaphylaxis",
+            "Withhold observation because hives mean anaphylaxis",
             "Apply a tourniquet proximal to the hive site",
         ],
         "Localized hives without systemic signs are watched for progression per Red Cross and medical guidance. "
@@ -617,11 +620,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "In American Red Cross first aid, when may aspirin be considered for an adult with suspected heart attack?",
-        "Only if the person is conscious, not allergic, and protocol or EMS advises aspirin while help is on the way",
+        "When the person is conscious, not allergic, and EMS advises aspirin",
         [
-            "Automatically for every chest complaint without calling 911",
-            "For children with chest pain as the first intervention",
-            "Instead of activating EMS when nitroglycerin is available",
+            "Automatically for a chest complaint without ever calling 911 for help",
+            "For a child with chest pain as the first intervention",
+            "Instead of activating EMS when nitroglycerin is available to give",
         ],
         "Chest pain with suspected heart attack requires EMS activation; aspirin is given only when appropriate and not contraindicated. "
         "Aspirin does not replace emergency evaluation or pediatric-specific protocols.",
@@ -631,11 +634,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "What should you do for frostbite of fingers in American Red Cross field first aid?",
-        "Move to a warm environment, remove wet clothing, and seek medical care without rubbing tissue",
+        "Move to a warm place, remove wet clothing, and seek medical care",
         [
-            "Rub snow vigorously into the fingers to restore color",
+            "Rub snow vigorously into the fingers to restore the color",
             "Immerse frostbitten tissue in hot water immediately without EMS guidance",
-            "Ignore numbness if the skin still looks pink at the tips",
+            "Ignore the numbness if the skin still looks pink at the fingertips",
         ],
         "Frostbite care uses gentle rewarming and medical evaluation; rubbing injured tissue causes further damage. "
         "Aggressive hot immersion without assessment can worsen injury.",

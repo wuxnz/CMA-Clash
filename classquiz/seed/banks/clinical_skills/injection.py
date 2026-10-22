@@ -58,7 +58,7 @@ FACTS: list[dict] = [
         "Bony landmarks keep the needle away from the sciatic nerve",
         [
             "It removes the need for two patient identifiers before injection",
-            "It allows any adult IM volume in the deltoid muscle",
+            "It allows a larger adult IM volume in the deltoid muscle",
             "It is required for all intravenous push medications",
         ],
         "The ventrogluteal triangle is defined by the greater trochanter and iliac crest, reducing sciatic nerve injury risk. Identity checks still apply, and IV pushes use a different route than IM gluteal sites.",
@@ -226,7 +226,7 @@ FACTS: list[dict] = [
         "Screen for contraindications and precautions before the dose",
         [
             "Give the dose to catch up when the immunization schedule is behind",
-            "Use any open vial first to limit waste without chart review",
+            "Use an open vial first to limit waste without chart review",
             "Give intradermally when the order lists intramuscular route",
         ],
         "Screening identifies deferrals, precautions, and component allergies before the needle enters skin. Catch-up urgency, open-vial convenience, and route changes still require screening and order match.",
@@ -379,7 +379,7 @@ FACTS: list[dict] = [
         "What is a safe maximum volume for a single adult deltoid intramuscular injection?",
         "About 1 mL per deltoid; use thigh or gluteal for larger volumes",
         [
-            "Up to 5 mL in the deltoid for any medication ordered that clinic day",
+            "Up to 5 mL in the deltoid for a medication ordered that clinic day",
             "Up to 10 mL in the deltoid when the patient tolerates pain well",
             "No volume limit in the arm if the needle is long enough to reach muscle",
         ],
@@ -517,13 +517,13 @@ FACTS: list[dict] = [
     fact(
         "skill-injection",
         "Why should you avoid injecting into skin that is red, swollen, or broken?",
-        "Absorption may vary and local infection may worsen",
+        "Absorption is unpredictable and infection can spread deeper",
         [
-            "Needles cannot penetrate inflamed skin at any angle or depth",
-            "Drug potency increases in infected tissue at the injection site",
-            "Documentation is optional when you choose another intact site",
+            "Drug potency increases in infected tissue at the site",
+            "The infected area absorbs the medication faster than muscle",
+            "The skin is thinner, so the needle reaches the muscle easily",
         ],
-        "Inflamed or broken skin alters uptake and may spread bacteria into deeper tissue. Needles can still penetrate redness, potency does not increase in infection, and documentation remains required.",
+        "Inflamed or broken skin alters uptake and can carry surface bacteria into deeper tissue. Drug potency does not increase in infected tissue, and a thinner site does not make the injection safer, so another intact site is chosen.",
         [S.NHA_CCMA],
         "intermediate",
     ),
@@ -573,7 +573,7 @@ FACTS: list[dict] = [
     fact(
         "skill-injection",
         "What is the correct hand hygiene and glove order for giving an injection?",
-        "Hand hygiene, gloves if needed, care, remove gloves, hand hygiene",
+        "Hand hygiene before, gloves for care, glove removal, hand hygiene",
         [
             "Don gloves first and clean hands afterward in the room",
             "Reuse gloves between patients after wiping with alcohol at the sink",

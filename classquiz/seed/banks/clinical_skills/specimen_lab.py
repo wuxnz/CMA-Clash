@@ -100,9 +100,9 @@ FACTS: list[dict] = [
         "What is hemolysis in a blood specimen and why does it matter?",
         "Red cell breakdown releasing potassium and intracellular contents into plasma",
         [
-            "Clot formation in an EDTA tube intended for hematology cell counts on the analyzer",
+            "Clot formation in an EDTA tube intended for hematology cell counts",
             "Bacterial overgrowth in a culture bottle during prolonged incubator storage time",
-            "Label smearing on the tube making the patient name hard to read at the laboratory bench",
+            "Label smearing that makes the patient name hard to read",
         ],
         "Hemolysis falsely elevates potassium and other intracellular analytes. Clots in EDTA and label issues are separate preanalytic problems.",
         [S.CLSI_GP41, S.NHA_CPT],
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
         "Limit tourniquet time to about one minute and release if draw is delayed",
         [
             "Leave the tourniquet tight for five minutes to distend every accessible vein",
-            "Have the patient pump the fist vigorously for two minutes before needle insertion",
+            "Have the patient pump the fist for two minutes before the stick",
             "Apply the tourniquet after the needle is already seated in the vein lumen",
         ],
         "Prolonged venous stasis concentrates analytes and increases hemolysis risk. Fist pumping also raises potassium artifactually.",
@@ -154,11 +154,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What information must appear on a primary specimen label in most laboratories?",
-        "Patient name, identifier, collection date and time, and collector when required",
+        "Patient name, identifier, collection date and time, and collector",
         [
-            "Nursing unit room color code without patient name or medical record number on the tube",
-            "Ordering provider home address to route questions about pending laboratory results",
-            "Insurance group number in place of medical record number and collection date-time",
+            "Nursing unit room color code without the patient name or medical record number",
+            "Ordering provider home address to route questions about results",
+            "Insurance group number in place of the record number and date",
         ],
         "Accurate identifiers let the lab match results to the correct chart. Room colors and billing numbers do not uniquely identify the patient.",
         [S.CLSI_GP41, S.NHA_CPT],
@@ -168,11 +168,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "How should a timed glucose tolerance blood sample be handled?",
-        "Drawn at the ordered minute mark and processed per laboratory test instructions",
+        "Drawn at the ordered minute mark and processed per test instructions",
         [
-            "Drawn whenever the phlebotomist returns from break without timing the ordered interval",
-            "Combined with the fasting sample in one tube to save venipunctures on the patient",
-            "Left at room temperature for six hours before centrifugation and courier transport",
+            "Drawn whenever the phlebotomist returns from break without timing the draw",
+            "Combined with the fasting sample in one tube to save a stick",
+            "Left at room temperature for six hours before courier transport",
         ],
         "GTT protocols depend on precise timing and handling for valid interpretation. Combined tubes and delayed processing invalidate curves.",
         [S.CLSI_GP41, S.NHA_CPT],
@@ -196,10 +196,10 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "How soon should most urine cultures be refrigerated or transported after collection?",
-        "Within thirty minutes to two hours per laboratory policy unless additive is present",
+        "Within thirty minutes to two hours per laboratory policy",
         [
-            "After twenty-four hours at room temperature to maximize bacterial colony growth",
-            "After boiling the sample to sterilize it before courier transport to the laboratory",
+            "After twenty-four hours at room temperature to maximize colony growth",
+            "After boiling the sample before courier transport to the laboratory",
             "After leaving the collection cup in direct sunlight to warm the urine specimen",
         ],
         "Bacteria multiply or die outside optimal conditions, skewing culture results. Heat and prolonged room storage distort colony counts.",
@@ -212,7 +212,7 @@ FACTS: list[dict] = [
         "What is the purpose of a 24-hour urine collection container?",
         "Measure total daily excretion of analytes such as protein or creatinine",
         [
-            "Provide a single random spot check of urine color at one void",
+            "Provide a single spot check of urine color at one void",
             "Replace blood creatinine when venipuncture is inconvenient for the patient",
             "Store urine at body temperature for comfort during the collection period",
         ],
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         "How should a stool specimen for occult blood be collected when using kit cards?",
         "Small samples from multiple bowel movements on card windows per kit directions",
         [
-            "One large watery sample filling the entire occult blood card without separate smears",
+            "One watery sample filling the whole card without separate smears",
             "Stool mixed with toilet bowl water before scooping into the collection vial",
             "Rectal exam glove tip sent without visible stool on the collection card surface",
         ],
@@ -294,11 +294,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "How should sharps be disposed immediately after venipuncture?",
-        "Activate safety device and place the intact needle in an approved sharps container",
+        "Activate the safety device and place the needle in a sharps container",
         [
             "Recap with two hands and place the uncapped needle in the biohazard red bag",
-            "Break the needle off into the regular trash can to save sharps container space",
-            "Leave the used needle on the bed for environmental services staff to collect later",
+            "Break the needle off into the regular trash can to save on container space",
+            "Leave the used needle on the bed for staff to collect later",
         ],
         "Point-of-use sharps disposal prevents needlestick injuries. Recapping and red-bag needles violate OSHA and clinic policy.",
         [S.OSHA_BBP, S.CLSI_GP41],
@@ -326,7 +326,7 @@ FACTS: list[dict] = [
         [
             "Draw from a vein distal to the IV on the same arm",
             "Collect the sample through the IV hub without a separate venipuncture",
-            "Pause the infusion and use any visible hand vein on the same arm",
+            "Pause the infusion and use a visible hand vein on the same arm",
         ],
         "Blood drawn distal to a running IV is often diluted by infusate. The opposite extremity or a proximal site may be ordered when a distal stick would falsify results.",
         [S.CLSI_GP41, S.NHA_CPT],
@@ -378,11 +378,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What does a requisition form communicate to the laboratory?",
-        "Ordered tests, clinical information, collection time, and patient identifiers",
+        "Ordered tests, clinical information, collection time, and identifiers",
         [
-            "Phlebotomy station phone extensions for the nursing unit assigned that collection day",
-            "Patient appointment reminder scripts for front-desk scheduling staff to read aloud",
-            "Waiting room chair inventory colors for facilities maintenance department weekly tracking",
+            "Phlebotomy station phone extensions for the nursing unit",
+            "Patient appointment reminder scripts for front-desk staff to read",
+            "Waiting room chair inventory colors for the facilities maintenance department",
         ],
         "Requisitions link physical specimens to the correct test battery on the analyzer. Administrative trivia does not direct laboratory work.",
         [S.NHA_CPT, S.NHA_CCMA],
@@ -436,7 +436,7 @@ FACTS: list[dict] = [
         "How should alcohol skin prep dry before venipuncture needle insertion?",
         "Allow complete drying to reduce sting and limit hemolysis from residual alcohol",
         [
-            "Wipe wet alcohol forward into the intended venipuncture puncture site before insertion",
+            "Wipe wet alcohol forward into the intended puncture site",
             "Blow on the prep site to mix alcohol with surface dirt for better needle grip",
             "Insert the collection needle while alcohol is still pooling on the prepared skin",
         ],
@@ -475,9 +475,9 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "Why should specimens for potassium be protected from hemolysis during transport?",
-        "Intracellular potassium release falsely elevates serum or plasma potassium results",
+        "Intracellular potassium release falsely elevates serum potassium results",
         [
-            "Potassium leaks out of tubes that are labeled with the wrong color cap on the tube",
+            "Potassium leaks out of a tube labeled with the wrong color cap",
             "Refrigeration removes all potassium from the blood sample overnight in storage",
             "Shaking tubes mixes sodium into potassium channels printed on the tube label",
         ],
@@ -489,11 +489,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What is chain of custody documentation used for in toxicology specimen collection?",
-        "Tracks each handler of a legal or forensic sample from collection through storage",
+        "Tracks each handler of a legal sample from collection through storage",
         [
-            "Lists grocery items the patient ate before a routine fasting cholesterol blood test",
-            "Replaces patient identifiers on standard chemistry tubes processed in the laboratory",
-            "Records parking receipts for outpatient phlebotomy visits at the clinic entrance",
+            "Lists what the patient ate before a routine fasting lipid panel",
+            "Replaces patient identifiers on standard chemistry tubes",
+            "Records parking receipts for outpatient phlebotomy visits at the clinic car park",
         ],
         "Forensic chains prevent tampering disputes in workplace or legal testing. Routine chemistry does not use the same custody forms.",
         [S.NHA_CPT],
@@ -517,10 +517,10 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "When must blood alcohol specimens follow special collection and preservation rules?",
-        "When legal or workplace testing requires sealed kits and witnessed blood collection",
+        "When legal or workplace testing requires sealed kits and witnessed draws",
         [
-            "Whenever a chemistry panel includes liver enzymes listed on the laboratory requisition",
-            "Whenever the patient drank water in the waiting room before the venipuncture draw",
+            "Whenever a chemistry panel includes liver enzymes on the requisition",
+            "Whenever the patient drank water before the venipuncture draw",
             "Whenever gray-top fluoride tubes are unavailable for routine glucose testing",
         ],
         "Evidentiary alcohol testing uses controlled kits, not routine serum draws. Liver panels and glucose tubes follow different standards.",
@@ -531,11 +531,11 @@ FACTS: list[dict] = [
     fact(
         "skill-specimen-lab",
         "What does STAT on a laboratory order indicate to collection staff?",
-        "Urgent processing for patient care; prioritize specimen collection and transport",
+        "Urgent processing for patient care; prioritize collection and transport",
         [
             "The test may be collected next week when the central laboratory is less busy",
-            "The patient should fast for three days before any blood sample is taken",
-            "The specimen can remain at the bedside unattended until the end of the nursing shift",
+            "The patient should fast for three days before a blood sample is taken",
+            "The specimen can stay at the bedside until the end of the shift",
         ],
         "STAT signals time-sensitive results such as critical electrolytes or crossmatch. Delayed collection defeats the purpose of the urgent order.",
         [S.NHA_CPT, S.NHA_CCMA],
@@ -575,7 +575,7 @@ FACTS: list[dict] = [
         "How does fasting affect a capillary glucose measurement compared with post-meal testing?",
         "Fasting values reflect baseline glucose without recent carbohydrate food intake",
         [
-            "Fasting raises glucose because the body stops insulin production entirely after sleep",
+            "Fasting raises glucose because the body stops producing insulin",
             "Meals have no effect on capillary glucose readings within eight hours of eating",
             "Fasting requires using a red-top serum tube instead of a capillary meter strip",
         ],
@@ -589,9 +589,9 @@ FACTS: list[dict] = [
         "What is the primary reason for mixing additive tubes immediately after blood enters the tube?",
         "To distribute anticoagulant or clot activator before cells clot or aggregate",
         [
-            "To warm the blood sample to body temperature for immediate oral patient drinking trials",
-            "To remove hemoglobin from plasma by shaking red cells out of liquid suspension phase",
-            "To let air bubbles rise so the additive tube can be underfilled safely without redraw",
+            "To warm the blood sample to body temperature for oral patient drinking trials",
+            "To remove hemoglobin by shaking red cells out of suspension",
+            "To let air bubbles rise so the tube can be underfilled safely",
         ],
         "Delayed mixing causes microclots and rejected hematology specimens. Mixing is not a substitute for correct fill volume.",
         [S.CLSI_GP41, S.NHA_CPT],

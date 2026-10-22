@@ -131,7 +131,7 @@ FACTS: list[dict] = [
         "stem": "A pathogen is:",
         "correct": "A microorganism that can cause disease",
         "distractors": [
-            "Any harmless skin bacterium",
+            "A harmless skin bacterium",
             "A vitamin deficiency",
             "A type of antibody"
         ],

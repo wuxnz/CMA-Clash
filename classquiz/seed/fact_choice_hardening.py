@@ -23,7 +23,9 @@ _DIFFICULTY_ALIASES = {
 }
 
 DISTRACTOR_GIVEAWAY_WORDS = re.compile(
-    r"\b(always|never|any|random|only)\b",
+    # "only" inside a hyphenated compound (compression-only) is a technical term,
+    # not an absolute, so it must not trip the giveaway check.
+    r"\b(always|never|any|random)\b|(?<![\w-])only(?![\w-])",
     re.IGNORECASE,
 )
 

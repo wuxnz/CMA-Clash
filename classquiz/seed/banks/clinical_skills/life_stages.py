@@ -127,8 +127,8 @@ FACTS: list[dict] = [
         "What approach reduces anxiety before a procedure in a school-age child?",
         "Age-appropriate explanation, permission to ask questions, and distraction",
         [
-            "An age-appropriate explanation, permission to ask questions, and a promise of no pain",
-            "A distraction video during the procedure without any prior explanation",
+            "An age-appropriate explanation, permission to ask questions, and no pain",
+            "A distraction video during the procedure without prior explanation",
             "A countdown from the provider with no warning and the child held still by staff",
         ],
         "Preparation and distraction reduce fear and improve cooperation during procedures in school-age children. Promising there will be no pain sets up distrust, a video without an explanation leaves the child unprepared, and a countdown without warning adds surprise instead of preparation.",
@@ -167,11 +167,11 @@ FACTS: list[dict] = [
     fact(
         "skill-life-stages",
         "Which car seat setup is correct for a newborn leaving the hospital?",
-        "A rear-facing seat with the harness snug and the chest clip at armpit level",
+        "Rear-facing car seat with a snug harness and the chest clip at armpit level",
         [
-            "A forward-facing seat with the harness snug and the chest clip at armpit level",
-            "A rear-facing seat with a loose harness and the chest clip at armpit level",
-            "A rear-facing seat with the harness snug and the chest clip at the waist",
+            "Forward-facing car seat with a snug harness and the chest clip at armpit height",
+            "Rear-facing car seat with a loose harness and the chest clip at armpit height",
+            "Rear-facing car seat with a snug harness and the chest clip at the waist",
         ],
         "Newborns travel rear-facing in a seat with a snug harness and the chest clip at armpit level, which keeps the infant positioned safely in a crash. A forward-facing seat, a loose harness, and a chest clip placed at the waist each reduce the protection the seat provides.",
         [S.NHA_CCMA, S.RED_CROSS_FIRST_AID],
@@ -240,7 +240,7 @@ FACTS: list[dict] = [
         "Heavy vaginal bleeding with severe abdominal or shoulder pain",
         [
             "Fatigue that improves with rest and a good night's sleep each day",
-            "Food aversions to certain vegetables without any other symptoms",
+            "Food aversions to certain vegetables without other symptoms",
             "Mild nausea with occasional heartburn after larger evening meals",
         ],
         "Bleeding with severe abdominal or shoulder pain in early pregnancy can signal ectopic pregnancy or miscarriage and needs immediate assessment. Fatigue that improves with rest, food aversions, and mild nausea with heartburn are common and expected in the first trimester.",
@@ -265,11 +265,11 @@ FACTS: list[dict] = [
     fact(
         "skill-life-stages",
         "A 16-year-old requests confidential STI testing where state law allows it. What should the medical assistant do?",
-        "Room the patient privately, explain confidentiality limits, and complete the testing",
+        "Room the patient privately, explain the limits, and complete the testing",
         [
-            "Room the patient privately, explain the confidentiality limits, and delay the testing",
-            "Ask the guardian to sign the laboratory requisition before the specimen is collected",
-            "Call the guardian on the phone and arrange for the guardian to speak with the provider",
+            "Room the patient privately, explain the limits, and delay the testing visit",
+            "Ask the guardian to sign the requisition before the specimen",
+            "Call the guardian and arrange for the guardian to speak with the provider",
         ],
         "Adolescents who may consent under state law receive private care with clear limits on confidentiality, and the ordered testing proceeds without a guardian signature. Delaying the test, requiring a guardian signature, and calling the guardian each compromise the confidential service the law permits.",
         [S.NHA_CCMA],
@@ -335,11 +335,11 @@ FACTS: list[dict] = [
     fact(
         "skill-life-stages",
         "A parent refuses routine vaccines for a two-month-old after counseling. What is the appropriate action?",
-        "Chart the refusal and counseling, provide the information sheet, and schedule follow-up",
+        "Chart the refusal and counseling, give the information sheet, and follow up",
         [
             "Chart the refusal and counseling, and record the vaccines as given in the chart",
             "Chart the refusal and counseling, and administer the first vaccine of the series",
-            "Chart the refusal and counseling, provide the information sheet, and end the visit without a return date",
+            "Chart the refusal and counseling, give the information sheet, and end the visit",
         ],
         "After counseling, the MA charts the discussion and the refusal, gives the parent the vaccine information sheet, and arranges a return visit so the conversation can continue. Recording vaccines as given misstates the chart, giving a vaccine against the parent's decision breaks consent, and ending the visit with no return date leaves the decision unaddressed.",
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -381,7 +381,7 @@ FACTS: list[dict] = [
         [
             "Effectiveness, common side effects, and a guarantee that pregnancy cannot occur",
             "Effectiveness, common side effects, and the need for a pelvic examination",
-            "Effectiveness, common side effects, and a guarantee that condoms prevent every STI",
+            "Effectiveness, common side effects, and a guarantee condoms prevent STIs",
         ],
         "Counseling covers how well each method works, the side effects to expect, and that condoms reduce STI risk. No method guarantees that pregnancy cannot occur, a pelvic exam is not required to start contraception, and condoms reduce rather than eliminate the risk of STI.",
         [S.NHA_CCMA, S.CDC_STANDARD_PRECAUTIONS],
@@ -421,9 +421,9 @@ FACTS: list[dict] = [
         "Which combination of measures is most appropriate in a geriatric fall-prevention plan?",
         "Medication review, home hazard changes, vision correction, and balance exercise",
         [
-            "Medication review, home hazard changes, vision correction, and scheduled bed rest",
+            "Medication review, home hazard changes, vision correction, and bed rest",
             "Medication review, home hazard changes, vision correction, and a daily sedative",
-            "Medication review, home hazard changes, vision correction, and a low calcium diet",
+            "Medication review, hazard changes, vision correction, and a calcium supplement",
         ],
         "A fall-prevention plan combines medication review, home hazard changes, vision correction, and balance exercise because each targets a known risk. Scheduled bed rest, a daily sedative, and a low calcium diet add deconditioning, sedation, and bone loss instead of reducing falls.",
         [S.NHA_CCMA, S.CDC_HBP],
@@ -451,7 +451,7 @@ FACTS: list[dict] = [
         [
             "A warm compress or breastfeeding, with distraction during the injection",
             "A sucrose pacifier or breastfeeding, with a brief delay while the child settles",
-            "A sucrose pacifier or breastfeeding, with the child counting aloud during the injection",
+            "A sucrose pacifier or breastfeeding, with the child counting aloud",
         ],
         "Oral sucrose and sucking, whether from a pacifier or breastfeeding, reduce the pain response in infants, and distraction keeps them settled during the injection. A warm compress does not give the same effect for injection pain, delaying the shot does not treat distress, and counting is not a usable distraction for a six-month-old.",
         [S.NHA_CCMA, S.CDC_VACCINE_ADMIN],
