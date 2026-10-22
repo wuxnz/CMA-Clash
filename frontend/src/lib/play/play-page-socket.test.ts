@@ -10,6 +10,7 @@ vi.mock('$lib/socket', () => ({
 }));
 
 import {
+	bindPlaySocketForJoin,
 	isPlaySocketBoundToExpectedPin,
 	markPlaySocketBound,
 	resetPlaySocketBinding,
@@ -31,6 +32,18 @@ describe('play socket pin binding', () => {
 	it('accepts binding when pin matches URL', () => {
 		setExpectedPlayPin('222222');
 		markPlaySocketBound('222222');
+		expect(isPlaySocketBoundToExpectedPin()).toBe(true);
+	});
+
+	it('does not bind a typed-PIN join when no pin was set from the URL (old behaviour)', () => {
+		setExpectedPlayPin('');
+		markPlaySocketBound('222222');
+		expect(isPlaySocketBoundToExpectedPin()).toBe(false);
+	});
+
+	it('binds a join typed on /play without a URL pin', () => {
+		setExpectedPlayPin('');
+		bindPlaySocketForJoin('222222');
 		expect(isPlaySocketBoundToExpectedPin()).toBe(true);
 	});
 
