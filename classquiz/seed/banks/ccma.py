@@ -131,7 +131,7 @@ FACTS: list[dict] = [
         "stem": "A pathogen is:",
         "correct": "A microorganism that can cause disease",
         "distractors": [
-            "Any harmless skin bacterium",
+            "A harmless skin bacterium",
             "A vitamin deficiency",
             "A type of antibody"
         ],
@@ -449,11 +449,11 @@ FACTS: list[dict] = [
         "stem": "Peak flow testing is used to monitor:",
         "correct": "Asthma-related expiratory airflow",
         "distractors": [
-            "Blood glucose",
-            "Vision acuity",
-            "Hearing thresholds"
+            "Blood glucose trends in diabetes",
+            "Resting heart rate variability alone",
+            "Daily weight for fluid overload only"
         ],
-        "explanation": "PEF helps track asthma control.",
+        "explanation": "Peak expiratory flow reflects bronchospasm and helps patients and clinicians track asthma control over time. Blood glucose and weight monitoring are important in other conditions but do not measure expiratory airflow.",
         "references": [
             "NHA CCMA"
         ],
@@ -479,11 +479,11 @@ FACTS: list[dict] = [
         "stem": "Orthostatic vital signs are taken to assess:",
         "correct": "Positional blood pressure and heart rate changes",
         "distractors": [
-            "Dental health",
-            "Lung compliance only",
-            "Bone density"
+            "Fasting blood glucose trends only",
+            "Peak expiratory flow during asthma attack",
+            "Visual acuity with corrective lenses"
         ],
-        "explanation": "Compare lying, sitting, and standing values per protocol.",
+        "explanation": "Orthostatic measurements compare blood pressure and pulse across positions to detect volume depletion or autonomic dysfunction. Glucose, peak flow, and vision tests do not assess positional cardiovascular changes.",
         "references": [
             "NHA CCMA"
         ],
@@ -823,14 +823,14 @@ FACTS: list[dict] = [
     },
     {
         "topic": "ccma-admin",
-        "stem": "The release of information form must be:",
-        "correct": "Signed by the patient or authorized representative per HIPAA",
+        "stem": "When may protected health information be released to a third party?",
+        "correct": "When the patient or authorized representative has signed a valid HIPAA authorization or another permitted disclosure applies",
         "distractors": [
-            "Signed only by staff",
-            "Skipped for family curiosity",
-            "Posted online"
+            "Whenever office staff believe the requester seems trustworthy",
+            "When a family member asks out of curiosity without patient permission",
+            "Whenever the clinic posts a sign that records may be shared"
         ],
-        "explanation": "Authorization rules protect privacy.",
+        "explanation": "HIPAA requires a valid authorization or another permitted use before PHI goes to third parties. Staff judgment or family curiosity is not sufficient, and a general sign does not replace individual authorization.",
         "references": [
             "NHA CCMA"
         ],
