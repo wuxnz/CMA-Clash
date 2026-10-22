@@ -9,17 +9,40 @@ SPDX-License-Identifier: MPL-2.0
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
+	import { SvelteURLSearchParams } from 'svelte/reactivity';
+	import type { PageData } from './$types';
 	import type { Certification, Topic } from '$lib/cma/client';
+	import { CERT_FILTERS } from '$lib/quiz/labels';
 
 	navbarVisible.visible = true;
 
+	interface Props {
+		data: PageData;
+	}
+
+	let { data }: Props = $props();
+
 	let topics = $state<Topic[]>([]);
 	let certs = $state<Certification[]>([]);
+	let cert = $state(data.cert);
 	let loading = $state(true);
 
 	const withStudy = $derived(
 		topics.filter((t) => Array.isArray(t.study_content) && t.study_content.length > 0)
 	);
+
+	const certId = $derived(cert ? (certs.find((c) => c.slug === cert)?.id ?? null) : null);
+	const visibleTopics = $derived(
+		certId ? withStudy.filter((t) => t.certification_id === certId) : withStudy
+	);
+
+	function setCert(slug: string) {
+		cert = slug;
+		const params = new SvelteURLSearchParams();
+		if (cert) params.set('cert', cert);
+		const qs = params.toString();
+		history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
+	}
 
 	onMount(async () => {
 		try {
@@ -62,13 +85,42 @@ SPDX-License-Identifier: MPL-2.0
 			</p>
 		</div>
 
+		<div
+			class="chip-row -mx-4 px-4 sm:mx-0 sm:px-0 mt-6"
+			role="tablist"
+			aria-label="Certification"
+		>
+			{#each CERT_FILTERS as item (item.slug)}
+				<button
+					type="button"
+					role="tab"
+					aria-selected={cert === item.slug}
+					class="chip {cert === item.slug ? 'chip-active' : ''}"
+					onclick={() => setCert(item.slug)}
+				>
+					{item.label}
+				</button>
+			{/each}
+		</div>
+
 		{#if loading}
 			<p class="text-sm text-ink-muted mt-8" aria-busy="true">Loading topics…</p>
 		{:else if withStudy.length === 0}
 			<p class="text-sm text-ink-muted mt-8">No study guides are available yet.</p>
+		{:else if visibleTopics.length === 0}
+			<div data-empty-study class="mt-8">
+				<p class="text-sm text-ink">No study guides for this filter.</p>
+				<button
+					type="button"
+					class="text-sm text-ink link-hover min-h-11"
+					onclick={() => setCert('')}
+				>
+					Clear filter
+				</button>
+			</div>
 		{:else}
 			<ul class="mt-4 divide-y divide-line">
-				{#each withStudy as topic (topic.slug)}
+				{#each visibleTopics as topic (topic.slug)}
 					<li>
 						<a
 							href={resolve('/study/[topic_slug]', { topic_slug: topic.slug })}
