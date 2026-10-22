@@ -4,26 +4,63 @@
 
 
 import asyncio
+import time
 import uuid
 from datetime import datetime
-from typing import BinaryIO, Any
+from typing import Any, BinaryIO
 
 from fastapi import HTTPException
 from openpyxl import load_workbook
 
 
 from classquiz.db.models import Quiz, User, QuizQuestion, ABCDQuizAnswer
+from classquiz.db.cma_models import Certification, Topic
 import xlsxwriter
 from aiohttp import ClientSession
 from io import BytesIO
 from PIL import Image
-from classquiz.config import meilisearch, settings, LOGGER
+from classquiz.config import meilisearch, redis, settings, LOGGER
 from classquiz.helpers.hashcash import check as hc_check
 
 settings = settings()
 
+# Attributes Meilisearch matches a query against. Quiz titles alone are too narrow:
+# a topic search ("EKG") has to reach the certification, the topic and the
+# question text, otherwise a whole collection looks empty.
+SEARCHABLE_ATTRIBUTES = ["title", "description", "certification", "topic", "stems", "user"]
+
+# Bump when the indexed document shape changes so the index is rebuilt once.
+MEILISEARCH_SCHEMA_VERSION = "2"
+MEILISEARCH_SCHEMA_TTL_SEC = 7 * 24 * 3600
+
+_NAME_CACHE_TTL_SEC = 60.0
+_name_cache: tuple[float, dict[str, str], dict[str, str]] | None = None
+
+
+async def certification_and_topic_names() -> tuple[dict[str, str], dict[str, str]]:
+    """Cached {id: name} maps for certifications and topics (one query each, not per quiz)."""
+    global _name_cache
+    now = time.monotonic()
+    if _name_cache is not None and now - _name_cache[0] < _NAME_CACHE_TTL_SEC:
+        return _name_cache[1], _name_cache[2]
+    certifications = {str(cert.id): cert.name for cert in await Certification.objects.all()}
+    topics = {str(topic.id): topic.name for topic in await Topic.objects.all()}
+    _name_cache = (now, certifications, topics)
+    return certifications, topics
+
+
+def quiz_question_text(quiz: Quiz) -> str:
+    """All question stems of a quiz joined into a single searchable string."""
+    parts: list[str] = []
+    for question in quiz.questions or []:
+        stem = question.get("question") if isinstance(question, dict) else getattr(question, "question", None)
+        if stem:
+            parts.append(str(stem))
+    return " ".join(parts)
+
 
 async def get_meili_data(quiz: Quiz) -> dict[str, Any]:
+    certifications, topics = await certification_and_topic_names()
     return {
         "id": str(quiz.id),
         "title": quiz.title,
@@ -31,6 +68,9 @@ async def get_meili_data(quiz: Quiz) -> dict[str, Any]:
         "user": (await User.objects.filter(id=quiz.user_id).first()).username,
         "created_at": int(quiz.created_at.timestamp()),
         "imported_from_kahoot": quiz.imported_from_kahoot,
+        "certification": certifications.get(str(quiz.certification_id), "") if quiz.certification_id else "",
+        "topic": topics.get(str(quiz.topic_id), "") if quiz.topic_id else "",
+        "stems": quiz_question_text(quiz),
     }
 
 
@@ -215,6 +255,36 @@ def _meili_document_count() -> int:
     return 0
 
 
+async def _meili_schema_changed() -> bool:
+    """True when the indexed document shape changed and the index must be rebuilt.
+
+    The document count alone cannot detect it: an index holding the previous
+    shape has the same number of documents, so the new searchable attributes
+    would never be populated.
+    """
+    key = "cmaclash:meili_schema_version"
+    try:
+        current = await redis.get(key)
+    except Exception as exc:
+        LOGGER.warning("Meilisearch schema check skipped: %s", exc)
+        return False
+    if isinstance(current, bytes):
+        current = current.decode("utf-8", "replace")
+    return current != MEILISEARCH_SCHEMA_VERSION
+
+
+async def _mark_meili_schema_current() -> None:
+    """Remember the indexed document shape once the index was rebuilt."""
+    try:
+        await redis.set(
+            "cmaclash:meili_schema_version",
+            MEILISEARCH_SCHEMA_VERSION,
+            ex=MEILISEARCH_SCHEMA_TTL_SEC,
+        )
+    except Exception as exc:
+        LOGGER.warning("Meilisearch schema marker not stored: %s", exc)
+
+
 async def _meilisearch_init_impl():
     classquiz_index_found = False
     try:
@@ -231,7 +301,7 @@ async def _meilisearch_init_impl():
 
     quiz_count = await Quiz.objects.filter(public=True).count()
     number_of_docs = _meili_document_count()
-    if number_of_docs != quiz_count:
+    if number_of_docs != quiz_count or await _meili_schema_changed():
         LOGGER.warning("MeiliSearch and Database out of sync (%s vs %s); re-indexing", number_of_docs, quiz_count)
         try:
             meilisearch.delete_index(settings.meilisearch_index)
@@ -245,10 +315,11 @@ async def _meilisearch_init_impl():
             meili_data.append(await get_meili_data(quiz))
         if meili_data:
             meilisearch.index(settings.meilisearch_index).add_documents(meili_data)
+        await _mark_meili_schema_current()
 
     meilisearch.index(settings.meilisearch_index).update_settings(
         {
-            "searchableAttributes": ["title", "description", "user"],
+            "searchableAttributes": SEARCHABLE_ATTRIBUTES,
             "filterableAttributes": ["imported_from_kahoot"],
             "sortableAttributes": ["created_at"],
         }
