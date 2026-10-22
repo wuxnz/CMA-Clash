@@ -50,26 +50,12 @@ SPDX-License-Identifier: MPL-2.0
 		})
 	);
 
-	if (JSON.stringify(data) === '{}') {
-		for (const i of new_data) {
-			data[i.username] = 0;
-		}
-	}
-
 	let show_new_score_clicked = $state(false);
 
 	const show_new_score = () => {
-		for (const i of player_names) {
-			if (isNaN(data[i])) {
-				data[i] = 0;
-			}
-			data[i] = (score_by_username[i] ?? 0) + data[i];
-		}
-		for (const i of new_data) {
-			if (!data[i.username]) {
-				data[i.username] = score_by_username[i.username];
-			}
-		}
+		// `data` already holds the absolute cumulative totals integrated from the
+		// server's `standings_top`. Only reveal the per-question delta here; never
+		// add the round score again or the displayed totals double.
 		show_new_score_clicked = true;
 		setTimeout(() => {
 			data = data;
