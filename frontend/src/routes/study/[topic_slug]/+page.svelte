@@ -63,8 +63,23 @@ SPDX-License-Identifier: MPL-2.0
 				<div class="mt-8 space-y-8">
 					{#each blocks as block (block.title)}
 						<section>
-							<h2 class="text-sm font-semibold text-ink">{block.title}</h2>
+							<div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+								<h2 class="text-sm font-semibold text-ink">{block.title}</h2>
+								{#if block.source}
+									<span class="text-xs text-ink-muted">{block.source}</span>
+								{/if}
+							</div>
 							<p class="text-sm text-ink-muted mt-2 leading-relaxed">{block.summary}</p>
+							{#if block.bullets && block.bullets.length > 0}
+								<ul class="mt-3 space-y-1.5">
+									{#each block.bullets as bullet (bullet)}
+										<li class="flex gap-2 text-sm text-ink-muted leading-relaxed">
+											<span aria-hidden="true" class="text-primary select-none">—</span>
+											<span>{bullet}</span>
+										</li>
+									{/each}
+								</ul>
+							{/if}
 							<p class="mt-2">
 								<a
 									class="text-sm text-ink link-hover break-all"

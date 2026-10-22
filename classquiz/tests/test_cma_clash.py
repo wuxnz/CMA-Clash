@@ -5,6 +5,7 @@
 import os
 import subprocess
 import sys
+from pathlib import Path
 
 import pytest
 from fastapi.testclient import TestClient
@@ -13,6 +14,19 @@ from classquiz.gamification.service import level_from_xp, xp_for_level
 from classquiz.tests import test_client, test_user_email, test_user_password, ValueStorage
 
 pytestmark = pytest.mark.order("last")
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+
+
+def _run_seed() -> None:
+    """Run the content seed in a subprocess (fresh event loop, same environment)."""
+    env = {**os.environ, "CMA_CLASH_SKIP_SEED": ""}
+    subprocess.run(
+        [sys.executable, "-m", "classquiz.seed.runner"],
+        check=True,
+        env=env,
+        cwd=str(REPO_ROOT),
+    )
 
 
 def _log_in(tc: TestClient) -> int:
@@ -50,9 +64,35 @@ class TestGamification:
 
 
 class TestClashApi:
+    def test_topics_endpoint_returns_study_guides(self, test_client: TestClient):
+        """The topic payload must serialize (FK relation included) and carry study content."""
+        from classquiz.seed.catalog import CERTIFICATIONS
+
+        _run_seed()
+        resp = test_client.get("/api/v1/clash/topics")
+        assert resp.status_code == 200, resp.text
+        topics = resp.json()
+        assert topics
+        slugs = {topic["slug"] for topic in topics}
+        expected = {slug for cert in CERTIFICATIONS for slug, _name, _order in cert["topics"]}
+        assert expected.issubset(slugs)
+        for topic in topics:
+            assert topic["certification_id"], topic["slug"]
+            for block in topic["study_content"] or []:
+                assert block["title"] and block["summary"]
+                assert block["url"].startswith("https://")
+                assert block["source"]
+
+    def test_single_topic_endpoint(self, test_client: TestClient):
+        resp = test_client.get("/api/v1/clash/topics/ccma-diabetes")
+        assert resp.status_code == 200, resp.text
+        topic = resp.json()
+        assert topic["slug"] == "ccma-diabetes"
+        assert topic["certification_id"]
+        assert len(topic["study_content"]) >= 4
+
     def test_certifications_and_seed(self, test_client: TestClient):
-        env = {**os.environ, "CMA_CLASH_SKIP_SEED": ""}
-        subprocess.run([sys.executable, "-m", "classquiz.seed.runner"], check=True, env=env, cwd="/workspace")
+        _run_seed()
         resp = test_client.get("/api/v1/clash/certifications")
         assert resp.status_code == 200
         certs = resp.json()
@@ -82,7 +122,7 @@ with TestClient(fastapi_app) as client:
     code = create.json()["battle_code"]
     assert client.get(f"/api/v1/clash/battles/{{code}}").status_code == 200
 """
-        subprocess.run([sys.executable, "-c", battle_script], check=True, env=os.environ, cwd="/workspace")
+        subprocess.run([sys.executable, "-c", battle_script], check=True, env=os.environ, cwd=str(REPO_ROOT))
 
     def test_leaderboard_and_profile(self, test_client: TestClient):
         from classquiz.config import settings

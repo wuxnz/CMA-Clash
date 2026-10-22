@@ -21,7 +21,8 @@ from classquiz.gamification.system_accounts import CONTENT_ACCOUNT_EMAIL, DEMO_A
 from classquiz.helpers import get_meili_data, meilisearch_init
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
-from classquiz.seed.catalog import CERTIFICATIONS, TOPIC_QUESTIONS_PER_QUIZ, study_content_for_topic
+from classquiz.seed.catalog import CERTIFICATIONS, study_content_for_topic
+from classquiz.seed.quiz_merge import merge_facts_by_topic
 
 LOGGER = logging.getLogger(__name__)
 
@@ -30,10 +31,10 @@ SEED_USER_USERNAME = "cmaclash_content"
 DEMO_USER_EMAIL = DEMO_ACCOUNT_EMAIL
 DEMO_USER_USERNAME = "demo"
 DEMO_USER_PASSWORD = "CMA-Clash-Demo1!"
-QUIZ_BANK_SIZE = 28
 DEFAULT_QUESTIONS_PER_GAME = 10
-# Legacy name used in tests and topic overrides.
-QUESTIONS_PER_QUIZ = QUIZ_BANK_SIZE
+# A merged quiz holds the beginner, intermediate and advanced questions of one
+# topic, so it no longer belongs to a single tier.
+MIXED_DIFFICULTY = "mixed"
 
 
 def _certification_uuid(topic: Topic) -> uuid.UUID | None:
@@ -129,6 +130,20 @@ async def _ensure_certifications_and_topics() -> dict[str, Topic]:
     return topic_by_slug
 
 
+async def _adopt_topic_quiz(user: User, topic: Topic) -> Quiz | None:
+    """Return an existing seed quiz of a topic that can host the merged set.
+
+    Every topic used to own one quiz per difficulty tier.  Reusing one of those
+    rows keeps the quiz id, its play count and its history instead of leaving
+    an orphan behind for every tier.
+    """
+    candidates = await Quiz.objects.filter(user_id=user.id, topic_id=topic.id).exclude(seed_slug=None).all()
+    if not candidates:
+        return None
+    candidates.sort(key=lambda quiz: (-int(quiz.plays or 0), str(quiz.seed_slug)))
+    return candidates[0]
+
+
 async def migrate_seed_quiz_titles() -> int:
     """Rename legacy em-dash quiz titles to colon style (idempotent)."""
     updated = 0
@@ -150,7 +165,7 @@ async def migrate_seed_quiz_titles() -> int:
 
 
 async def run_seed(force: bool = False) -> dict:
-    """Idempotent seed: certifications, topics, and public quizzes from question banks."""
+    """Idempotent seed: certifications, topics, and one merged public quiz per topic."""
     if not force and os.environ.get("CMA_CLASH_SKIP_SEED", "").lower() in ("1", "true", "yes"):
         LOGGER.info("CMA Clash seed skipped (CMA_CLASH_SKIP_SEED)")
         return {"skipped": True}
@@ -163,67 +178,64 @@ async def run_seed(force: bool = False) -> dict:
     titles_migrated = await migrate_seed_quiz_titles()
     topic_by_slug = await _ensure_certifications_and_topics()
     facts = load_all_facts()
-    by_topic_diff: dict[tuple[str, str], list[dict]] = defaultdict(list)
-    for fact in facts:
-        diff = fact.get("difficulty", "intermediate")
-        by_topic_diff[(fact["topic"], diff)].append(fact)
+    merged_by_topic = merge_facts_by_topic(facts)
     quizzes_created = 0
     quizzes_updated = 0
     questions_seeded = 0
     expected_seed_slugs: set[str] = set()
-    for (topic_slug, difficulty), topic_facts in sorted(by_topic_diff.items()):
+    for topic_slug, topic_facts in sorted(merged_by_topic.items()):
         topic = topic_by_slug.get(topic_slug)
         if topic is None:
             LOGGER.warning("Unknown topic slug in bank: %s", topic_slug)
             continue
         cert_id = _certification_uuid(topic)
-        chunk_size = TOPIC_QUESTIONS_PER_QUIZ.get(topic_slug, QUIZ_BANK_SIZE)
-        chunks = [topic_facts[i : i + chunk_size] for i in range(0, len(topic_facts), chunk_size)]
-        for idx, chunk in enumerate(chunks):
-            seed_slug = f"quiz:{topic_slug}:{difficulty}:{idx + 1}"
-            expected_seed_slugs.add(seed_slug)
-            questions = [_fact_to_question(f) for f in chunk]
-            title = f"{topic.name}: Set {idx + 1}"
-            description = (
-                f"CMA Clash practice: {topic.name}. Exam-style multiple-choice questions with rationales."
-            )
-            question_payload = [q.model_dump() for q in questions]
-            existing = await Quiz.objects.get_or_none(seed_slug=seed_slug)
-            if existing is not None:
-                existing.title = title
-                existing.description = description
-                existing.questions = question_payload
-                existing.certification_id = cert_id
-                existing.topic_id = topic.id
-                existing.difficulty = difficulty
-                existing.questions_per_game = DEFAULT_QUESTIONS_PER_GAME
-                existing.public = True
-                existing.updated_at = datetime.now()
-                await existing.update()
-                quizzes_updated += 1
-                questions_seeded += len(chunk)
-                quiz = existing
-            else:
-                quiz = await Quiz(
-                    id=uuid.uuid4(),
-                    public=True,
-                    title=title,
-                    description=description,
-                    user_id=user.id,
-                    questions=question_payload,
-                    certification_id=cert_id,
-                    topic_id=topic.id,
-                    difficulty=difficulty,
-                    seed_slug=seed_slug,
-                    questions_per_game=DEFAULT_QUESTIONS_PER_GAME,
-                    updated_at=datetime.now(),
-                ).save()
-                quizzes_created += 1
-                questions_seeded += len(chunk)
-            try:
-                meilisearch.index(settings().meilisearch_index).add_documents([await get_meili_data(quiz)])
-            except Exception as exc:
-                LOGGER.warning("Meilisearch index update failed for %s: %s", seed_slug, exc)
+        seed_slug = f"quiz:{topic_slug}"
+        expected_seed_slugs.add(seed_slug)
+        questions = [_fact_to_question(f) for f in topic_facts]
+        title = topic.name
+        description = (
+            f"CMA Clash practice: {topic.name}. Exam-style multiple-choice questions with rationales."
+        )
+        question_payload = [q.model_dump() for q in questions]
+        existing = await Quiz.objects.get_or_none(seed_slug=seed_slug)
+        if existing is None:
+            existing = await _adopt_topic_quiz(user, topic)
+        if existing is not None:
+            existing.title = title
+            existing.description = description
+            existing.questions = question_payload
+            existing.certification_id = cert_id
+            existing.topic_id = topic.id
+            existing.difficulty = MIXED_DIFFICULTY
+            existing.seed_slug = seed_slug
+            existing.questions_per_game = DEFAULT_QUESTIONS_PER_GAME
+            existing.public = True
+            existing.updated_at = datetime.now()
+            await existing.update()
+            quizzes_updated += 1
+            questions_seeded += len(topic_facts)
+            quiz = existing
+        else:
+            quiz = await Quiz(
+                id=uuid.uuid4(),
+                public=True,
+                title=title,
+                description=description,
+                user_id=user.id,
+                questions=question_payload,
+                certification_id=cert_id,
+                topic_id=topic.id,
+                difficulty=MIXED_DIFFICULTY,
+                seed_slug=seed_slug,
+                questions_per_game=DEFAULT_QUESTIONS_PER_GAME,
+                updated_at=datetime.now(),
+            ).save()
+            quizzes_created += 1
+            questions_seeded += len(topic_facts)
+        try:
+            meilisearch.index(settings().meilisearch_index).add_documents([await get_meili_data(quiz)])
+        except Exception as exc:
+            LOGGER.warning("Meilisearch index update failed for %s: %s", seed_slug, exc)
 
     owned_seed_quizzes = await Quiz.objects.filter(user_id=user.id).all()
     for quiz in owned_seed_quizzes:
@@ -241,7 +253,8 @@ async def run_seed(force: bool = False) -> dict:
         "quizzes_updated": quizzes_updated,
         "questions_in_bank": len(facts),
         "questions_accounted": questions_seeded,
-        "topics": len({topic for topic, _ in by_topic_diff}),
+        "questions_dropped_as_duplicates": len(facts) - questions_seeded,
+        "topics": len(topic_by_slug),
         "titles_migrated": titles_migrated,
     }
     LOGGER.info("CMA Clash seed complete: %s", summary)

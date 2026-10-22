@@ -3,49 +3,64 @@
 // SPDX-License-Identifier: MPL-2.0
 
 import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig, loadEnv } from 'vite';
 
-/** @type {import("vite").UserConfig} */
-const config = {
-	plugins: [
-		sveltekit(),
-		{
-			name: 'configure-response-headers',
-			configureServer: (server) => {
-				server.middlewares.use((_req, res, next) => {
-					/*        res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+/** Backend used by the dev proxy when nothing else is configured. */
+const DEFAULT_API_TARGET = 'https://cmaclash-api.onrender.com';
+
+/**
+ * @type {import("vite").UserConfig}
+ */
+export default defineConfig(({ mode }) => {
+	// `loadEnv` with an empty prefix reads the whole .env file, not only VITE_* keys.
+	const env = loadEnv(mode, process.cwd(), '');
+	const apiTarget = (
+		env.API_PROXY_TARGET ||
+		env.BACKEND_URL ||
+		env.API_URL ||
+		DEFAULT_API_TARGET
+	).replace(/\/+$/, '');
+
+	return {
+		plugins: [
+			sveltekit(),
+			{
+				name: 'configure-response-headers',
+				configureServer: (server) => {
+					server.middlewares.use((_req, res, next) => {
+						/*        res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
         res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-        res.setHeader("Access-Control-Allow-Origin", "https://ncs3.classquiz.de");*/
-					next();
-				});
+        res.setHeader("Access-Control-Allow-Origin", "https://cmaclash.com");*/
+						next();
+					});
+				}
 			}
+		],
+		server: {
+			port: 3000,
+			proxy: {
+				'/api': { target: apiTarget, changeOrigin: true },
+				'/socket.io': { target: apiTarget, ws: true, changeOrigin: true },
+				'/openapi.json': { target: apiTarget, changeOrigin: true },
+				'/rapidoc': { target: apiTarget, changeOrigin: true }
+			}
+		},
+		preview: {
+			port: 3000
+		},
+		optimizeDeps: {
+			include: ['swiper', 'tippy.js']
+		},
+		build: {
+			sourcemap: true
 		}
-	],
-	server: {
-		port: 3000,
-		proxy: {
-			'/api': { target: 'http://127.0.0.1:8000', changeOrigin: true },
-			'/socket.io': { target: 'http://127.0.0.1:8000', ws: true, changeOrigin: true },
-			'/openapi.json': { target: 'http://127.0.0.1:8000', changeOrigin: true },
-			'/rapidoc': { target: 'http://127.0.0.1:8000', changeOrigin: true }
-		}
-	},
-	preview: {
-		port: 3000
-	},
-	optimizeDeps: {
-		include: ['swiper', 'tippy.js']
-	},
-	build: {
-		sourcemap: true
-	}
 
-	/* Trying
+		/* Trying
 
-	ssr: {
-		noExternal: ['@ckeditor/*'],
-	}
+    ssr: {
+      noExternal: ['@ckeditor/*'],
+    }
 
- end trying*/
-};
-
-export default config;
+    end trying*/
+	};
+});
