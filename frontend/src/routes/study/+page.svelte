@@ -79,7 +79,7 @@ SPDX-License-Identifier: MPL-2.0
 							<span class="flex items-center gap-3 text-xs text-ink-muted">
 								<span>{sectionCount(topic)} sections</span>
 								<span class="eyebrow">{certName(topic.certification_id)}</span>
-							</span
+							</span>
 						</a>
 					</li>
 				{/each}
