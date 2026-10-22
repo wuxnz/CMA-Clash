@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-function ordinalPlace(n: number): string {
+export function ordinalPlace(n: number): string {
 	if (n === 1) return '1st';
 	if (n === 2) return '2nd';
 	if (n === 3) return '3rd';
@@ -23,7 +23,7 @@ export type PlayerStandingsFields = {
 export function placeLine(row: PlayerStandingsFields | undefined | null): string | null {
 	const rank = row?.overall_rank;
 	if (rank == null || !Number.isFinite(Number(rank))) return null;
-	return `You're in ${ordinalPlace(Number(rank))} place`;
+	return `You finished in ${ordinalPlace(Number(rank))} place`;
 }
 
 export function behindOrLeadLine(row: PlayerStandingsFields | undefined | null): string | null {
