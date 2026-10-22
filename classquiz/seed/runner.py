@@ -240,7 +240,7 @@ async def run_seed(force: bool = False) -> dict:
         "quizzes_updated": quizzes_updated,
         "questions_in_bank": len(facts),
         "questions_accounted": questions_seeded,
-        "topics": len(by_topic),
+        "topics": len({topic for topic, _ in by_topic_diff}),
         "titles_migrated": titles_migrated,
     }
     LOGGER.info("CMA Clash seed complete: %s", summary)
