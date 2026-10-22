@@ -17,6 +17,7 @@ from classquiz.db import database
 from classquiz.db.cma_models import Certification, Topic
 from classquiz.db.models import ABCDQuizAnswer, Quiz, QuizQuestion, QuizQuestionType, User
 from classquiz.auth import get_password_hash
+from classquiz.gamification.system_accounts import CONTENT_ACCOUNT_EMAIL, DEMO_ACCOUNT_EMAIL
 from classquiz.helpers import get_meili_data, meilisearch_init
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
@@ -24,9 +25,9 @@ from classquiz.seed.catalog import CERTIFICATIONS, TOPIC_QUESTIONS_PER_QUIZ, stu
 
 LOGGER = logging.getLogger(__name__)
 
-SEED_USER_EMAIL = "content@cmaclash.local"
+SEED_USER_EMAIL = CONTENT_ACCOUNT_EMAIL
 SEED_USER_USERNAME = "cmaclash_content"
-DEMO_USER_EMAIL = "demo@cmaclash.local"
+DEMO_USER_EMAIL = DEMO_ACCOUNT_EMAIL
 DEMO_USER_USERNAME = "demo"
 DEMO_USER_PASSWORD = "CMA-Clash-Demo1!"
 QUIZ_BANK_SIZE = 28
@@ -240,7 +241,7 @@ async def run_seed(force: bool = False) -> dict:
         "quizzes_updated": quizzes_updated,
         "questions_in_bank": len(facts),
         "questions_accounted": questions_seeded,
-        "topics": len(by_topic_diff),
+        "topics": len(topic_by_slug),
         "titles_migrated": titles_migrated,
     }
     LOGGER.info("CMA Clash seed complete: %s", summary)

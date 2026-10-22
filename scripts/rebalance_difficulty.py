@@ -90,7 +90,9 @@ def targets(n: int) -> dict[str, int]:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--module", required=True, choices=sorted(MODULE_FILES))
+    ap.add_argument("--module", choices=sorted(MODULE_FILES), help="clinical skills module key")
+    ap.add_argument("--file", help="path of any seed bank file, relative to the repo root")
+    ap.add_argument("--topic", help="topic slug to rebalance inside --file")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument(
         "--move",
@@ -102,16 +104,33 @@ def main() -> None:
     args = ap.parse_args()
 
     bootstrap()
-    path = SEED / "banks" / "clinical_skills" / MODULE_FILES[args.module]
+    if args.file:
+        path = ROOT / args.file
+        topic = args.topic
+    elif args.module:
+        path = SEED / "banks" / "clinical_skills" / MODULE_FILES[args.module]
+        topic = None
+    else:
+        ap.error("provide --module or --file")
     source = path.read_text(encoding="utf-8")
     tree = ast.parse(source)
 
-    facts = list(_load("_rb_" + args.module, path).FACTS)
+    all_facts = list(_load("_rb_" + path.stem, path).FACTS)
+    if topic:
+        facts = [f for f in all_facts if f["topic"] == topic]
+        call_index = [
+            i
+            for i, node in enumerate([n for n in ast.walk(tree) if isinstance(n, ast.Call)])
+            if False
+        ]
+    else:
+        facts = all_facts
+
     counts: dict[str, int] = {"beginner": 0, "intermediate": 0, "advanced": 0}
     for f in facts:
         counts[f["difficulty"]] += 1
     want = targets(len(facts))
-    print(f"{args.module}: {len(facts)} items, now {counts}, target {want}")
+    print(f"{path.name}: {len(facts)} items, now {counts}, target {want}")
 
     # Locate each fact() call and its difficulty argument position.
     calls = []
@@ -145,7 +164,6 @@ def main() -> None:
             print("already balanced")
             return
         scores = [complexity(f) for f in facts]
-        order = sorted(range(len(facts)), key=lambda i: scores[i])
         for _ in range(400):
             counts = {"beginner": 0, "intermediate": 0, "advanced": 0}
             for d in new_difficulty:

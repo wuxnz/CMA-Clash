@@ -1050,6 +1050,7 @@ REWRITES: dict[str, str] = {
     "A single identifier, such as the full name, confirmed with the patient":
         "A single identifier, such as the full name, confirmed with the patient first",
 
+<<<<<<< HEAD
     # ------------- keyed answer must not be the only short option (new guard)
     "12 to 20 breaths per minute":
         "12 to 20 breaths per minute at rest",
@@ -1113,4 +1114,29 @@ REWRITES: dict[str, str] = {
         "2.0 mL because liquids round up",
     "1.0 mL to simplify charting":
         "1.0 mL for simpler charting",
+=======
+    # ------------------- giveaway words reintroduced while rebalancing cpr options
+    "Begin two minutes of rescue breaths before any compressions":
+        "Begin two minutes of rescue breaths before compressions",
+    "Give supplemental oxygen without any chest compressions":
+        "Give supplemental oxygen without chest compressions",
+    "As normal sleep breathing that does not require any CPR":
+        "As normal sleep breathing that does not require CPR",
+    "In the hospital only after approval by the attending physician":
+        "In the hospital after approval by the attending physician",
+    "Compressing only once every 10 seconds":
+        "Compressing once every 10 seconds",
+    "Place both pads on the infant's back only":
+        "Place both pads on the infant's back",
+    "Ventilations are given only after ROSC is confirmed":
+        "Ventilations are given after ROSC is confirmed",
+    "Give rescue breaths without any chest compressions":
+        "Give rescue breaths without chest compressions",
+    "Paperwork completion without any patient monitoring":
+        "Paperwork completion without patient monitoring",
+    "Dry skin without any change in breathing":
+        "Dry skin without a change in breathing",
+    "A slow chronic rash that never changes":
+        "A slow chronic rash that does not change",
+>>>>>>> 85595af9
 }

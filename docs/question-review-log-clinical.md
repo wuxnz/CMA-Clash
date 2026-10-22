@@ -1236,6 +1236,7 @@ skill-poct-042 | fail | key reworded; distractors reworked into parallel near-mi
 
 ## Parallel-options pass batch P11 (guard cleanup across the cpr, ekg, ccma, and phleb banks)
 
+<<<<<<< HEAD
 scope: the cpr (313), ekg (253), ccma (590), and phleb (337) banks, plus the diabetes
 bank that the CCMA consolidation folded into `classquiz/seed/banks/ccma/diabetes.py`.
 
@@ -1247,10 +1248,25 @@ ccma-admin, anatomy, clinical_care, communication, coordination, diabetes, found
 ## Choice-quality cleanup (all 2039 items in the seed bank)
 
 cpr-*, ekg-*, ccma-*, phleb-*, skill-* | fail | Every distractor was checked for giveaway absolutes ("always", "never", "any", "random", "only"), for over-length options, and for a keyed answer that reads as the only complete option. 267 giveaway distractors and 155 over-length distractors were rewritten, and 217 keyed answers were rebalanced against their siblings so no option stands out. Explanations that quoted a rewritten option were updated to match.
+=======
+scope: 1493 items in cpr (313), ekg (253), ccma (590), and phleb (337) plus the legacy
+`classquiz/seed/banks/diabetes.py` bank (48 items, topic ccma-diabetes).
+
+cpr-adult through cpr-red-cross | fail | Removed giveaway absolutes ("only", "any", "never", "always") from every distractor and rebalanced each quiz chunk so the keyed answer is no longer the long-and-complete option; fragment stems rewritten as complete questions and one-sentence explanations expanded to two specific sentences.
+ekg-acls-basics, ekg-artifacts, ekg-cardiac-ap, ekg-intervals, ekg-leads, ekg-rhythm | fail | Same giveaway and length cleanup; the near-duplicate stem pairs (PVC appearance, R wave progression, ST elevation in contiguous leads) were reworded apart; the topic difficulty mixes rebalanced to 30/40/30.
+ccma-admin, anatomy, clinical_care, communication, coordination, foundational, hipaa, law_ethics, transmission, vaccines | fail | Same giveaway and length cleanup; the ccma-hipaa "PHI is posted online" distractor replaced with a data-use-agreement near-miss; the fragment stems ("Registering a minor patient typically requires?") rewritten as complete questions.
+ccma-diabetes (banks/diabetes.py, banks/ccma/diabetes.py, banks/supplement/diabetes_expansion.py) | fail | 127 items rewritten to the parallel-options standard: colon-terminated template stems became complete questions, the nonsense distractors ("Acute appendicitis", "Otitis media", "Hair color only") became plausible near-misses, and the canned "Choosing X is a plausible near-miss that does not match the clinical fact tested in this question" explanations were replaced with specific two-sentence rationales.
+phleb-additives through phleb-who | fail | Same giveaway and length cleanup across 337 items; the "only" and "any" distractors rewritten as specific clinical statements; phleb-glucose difficulty mix rebalanced.
+
+## Choice-quality cleanup (all 2039 items in the seed bank)
+
+cpr-*, ekg-*, ccma-*, phleb-*, skill-* | fail | 267 distractors rewritten to remove giveaway absolutes ("always", "never", "any", "random", "only") that marked the wrong answer; 155 distractors over 80 characters shortened; 217 keyed answers rebalanced against their siblings so no option reads as the complete one; 45 items whose explanation quoted a rewritten option had the explanation updated to match.
+>>>>>>> 85595af9
 
 ## Test repairs
 
 classquiz/tests/test_seed_answer_order.py | fail | The shuffle test used one fixed stem, and the seeder derives its shuffle seed from the stem, so the keyed answer could only ever land in one slot. It now samples 24 distinct stems and also asserts the layout is stable for a single stem.
+<<<<<<< HEAD
 classquiz/tests/test_diabetes_content.py | fail | The topic count was still 112 after the CCMA consolidation grew ccma-diabetes, and the even-chunk assertion no longer held. The count now matches the consolidated bank and the chunk assertion checks for at least four full 28-question sets, which matches how the runner actually chunks.
 classquiz/seed/fact_choice_hardening.py | fail | The giveaway-word regex matched "only" inside hyphenated compounds such as "compression-only", which is a technical term and not an absolute. It now ignores hyphenated compounds.
 classquiz/tests/test_seed_hand_authored_quality.py | fail | Added a guard that a keyed answer may not run more than 12 percent longer than every distractor, which is the "the key is the only complete option" failure the review samples called out.
@@ -1260,3 +1276,9 @@ classquiz/tests/test_seed_hand_authored_quality.py | fail | Added a guard that a
 
 classquiz/seed/runner.py | fail | The seed summary built its topic count with len(by_topic), but the grouping variable is by_topic_diff. The NameError fired after the quizzes were written, so a deploy with AUTO_SEED_CONTENT enabled would publish the content and then fail API startup, leaving the service in a restart loop. Fixed to count by_topic_diff, and the seed now completes with a full summary.
 
+=======
+classquiz/tests/test_diabetes_content.py | fail | The topic count was still 112 after the CCMA consolidation grew ccma-diabetes to 127, and the even-chunk assertion no longer held. The count now expects 127 and the chunk assertion checks for at least four full 28-question sets, which matches how the runner actually chunks.
+classquiz/seed/fact_choice_hardening.py | fail | The giveaway-word regex matched "only" inside hyphenated compounds such as "compression-only", which is a technical term and not an absolute. It now ignores hyphenated compounds.
+classquiz/tests/test_seed_hand_authored_quality.py | fail | Added a guard that a keyed answer may not run more than 12 percent longer than every distractor, which is the "the key is the only complete option" failure the review samples called out.
+
+>>>>>>> 85595af9

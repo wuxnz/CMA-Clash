@@ -101,7 +101,11 @@ def _stub_app_modules() -> None:
 
 
 def bootstrap():
-    sys.modules["classquiz"] = types.ModuleType("classquiz")
+    # Mirror the real package layout so submodules (classquiz.gamification, ...)
+    # can still be imported without pulling in the whole FastAPI app.
+    classquiz_pkg = types.ModuleType("classquiz")
+    classquiz_pkg.__path__ = [str(ROOT / "classquiz")]
+    sys.modules["classquiz"] = classquiz_pkg
     pkg = types.ModuleType("classquiz.seed")
     pkg.__path__ = [str(SEED)]
     sys.modules["classquiz.seed"] = pkg
@@ -115,7 +119,10 @@ def bootstrap():
         path = SEED / filename
         if path.exists():
             _load(name, path)
-    _stub_app_modules()
+    gam = types.ModuleType("classquiz.gamification")
+    gam.__path__ = [str(ROOT / "classquiz" / "gamification")]
+    sys.modules["classquiz.gamification"] = gam
+    _load("classquiz.gamification.system_accounts", ROOT / "classquiz" / "gamification" / "system_accounts.py")
     _load("classquiz.seed.banks", SEED / "banks" / "__init__.py")
 
 
