@@ -1,57 +1,19 @@
 {
     "index_page": {
         "meta": {
-            "title": "Beranda",
-            "description": "CMA Clash adalah aplikasi kuis untuk belajar secara interaktif bagi siswa, yang bersifat sumber terbuka dan gratis untuk digunakan"
+            "title": "Beranda"
         },
         "features_description": {
             "2": "Fitur utamanya adalah fungsi impor Kahoot!- ini memungkinkan Anda mengimpor kuis dari Kahoot!-kuis.",
             "1": "CMA Clash adalah platform kuis yang memungkinkan kamu untuk membuat dan mengelola kuis.",
             "3": "Editor dan fungsi mengekspor hasil kuis sebagai file Excel adalah fitur khusus dari perangkat lunak ini."
         },
-        "slogan": "Platform kuis sumber terbuka!",
-        "stats": "Saat ini sudah ada {{user_count}} pengguna dan {{quiz_count}} kuis di CMA Clash.",
-        "no_tracking": "Tanpa Pelacakan",
-        "self_hostable": "Dapat Dihost Sendiri",
-        "german_server": "Server Jerman",
-        "user_friendly": "Ramah Pengguna",
-        "create_a_quiz_from_scratch": "Buat kuis dari awal dengan editor dan sertakan gambar serta lainnya",
         "see_all_quizzes": "Lihat semua kuis Anda",
         "teachers_site": "Situs guru",
         "see_how_many_true_and_false": "Lihat berapa banyak yang benar atau salah",
         "students_site": "Situs siswa",
         "see_what_true_and_false": "Lihat mana yang benar atau salah",
-        "create_or_import": "Buat atau Impor",
-        "completely_free": "Sepenuhnya Gratis",
-        "quiz_results_downloadable": "Hasil kuis dapat diunduh",
-        "multilingual": "Multibahasa",
-        "dark_mode": "Mode Gelap",
-        "get_a_quiz": "1. Dapatkan kuis",
-        "how_does_classquiz_work": "Bagaimana sebenarnya cara kerja CMA Clash?",
-        "select_answer": "Pilih jawabannya",
-        "find_or_explore": "Temukan (atau jelajahi) kuis yang dibuat atau diimpor oleh orang lain",
-        "download_quizzes": "Unduh Kuis",
-        "dark_mode_content": "Salah satu fitur terpenting yang dapat dimiliki oleh sebuah situs web!",
-        "community_driven_content": "CMA Clash bergantung pada komunitasnya untuk pendanaan, pengujian ide, permintaan fitur, terjemahan, dan banyak lagi! Anda juga dapat menjadi bagian dari komunitas CMA Clash!",
-        "quiz_results_downloadable_content": "Hasil kuis dapat dengan mudah diekspor ke lembar kerja Excel. (Tidak tahu kalau yang lain tidak bisa melakukan itu)",
-        "view_results": "Lihat hasil",
-        "choose_answer_wisely": "Pilih jawaban Anda dengan bijak",
-        "self_hostable_content": "CMA Clash dapat dengan mudah dihost sendiri, sehingga datanya sepenuhnya berada di bawah kendali Anda!",
-        "german_server_content": "Server CMA Clash berlokasi di Jerman dan di-host oleh netcup.",
-        "get_ranking_and_winners": "Dapatkan peringkat dan lihat siapa yang menang",
-        "list_winners": "Daftar pemenang",
-        "check_if_chosen_wisely": "Periksa, apakah pilihan Anda benar",
-        "why_classquiz": "Mengapa CMA Clash?",
-        "community_driven": "Digerakkan oleh Komunitas",
-        "play_quiz": "2. Mainkan kuis",
-        "completely_free_content": "CMA Clash sepenuhnya gratis (untuk pengguna), tanpa paket berbayar atau pengalihan mengganggu ke halaman peningkatan. Donasi sangat dihargai.",
-        "user_friendly_content": "CMA Clash bertujuan untuk menjadi sederhana, sehingga dapat digunakan oleh semua orang.",
-        "no_tracking_content": "Yang lain melacak Anda dan mengirimkan informasi tersebut ke pihak ketiga, tetapi CMA Clash tidak.",
-        "multilingual_content": "CMA Clash tersedia dalam bahasa Inggris, Prancis, Jerman, Italia, Norwegia Bokmål, Turki, dan sebagian dalam Bahasa Indonesia serta Katalan.",
-        "download_quizzes_content": "Kuis dapat diunduh sebagai satu berkas dan diimpor kapan saja. Ini juga memungkinkan Anda memindahkan kuis ke instance CMA Clash lainnya.",
-        "no_player_limit": "Tanpa batas pemain",
-        "no_player_limit_content": "CMA Clash tidak memiliki batas pemain buatan. Secara teori, 1000+ pemain dapat memainkan kuis yang sama, dan telah diuji hingga 300 pemain per kuis.",
-        "import_quiz_from_kahoot_and_edit": "Impor kuis dari Kahoot! dan edit dalam CMA Clash"
+        "create_or_import": "Buat atau Impor"
     },
     "overview_page": {
         "question_count": "Jumlah pertanyaan",
@@ -159,7 +121,6 @@
         "rating": "Peringkat",
         "video": "Video",
         "stats": "Statistik",
-        "donating": "berdonasi",
         "note": "Catatan",
         "order": "Urutan",
         "dislike_plural": "Tidak suka",
@@ -238,10 +199,9 @@
     "import_page": {
         "need_help": "Butuh bantuan?",
         "visit_docs": "Kunjungi dokumentasi",
-        "this_side_classquiz_excel": "Anda juga dapat mengunggah berkas excel jika telah mengisi templat berikut. Jika kuis dengan judul tersebut sudah ada, pertanyaan akan ditambahkan ke kuis yang ada.",
+        "this_side_cma_clash_excel": "Anda juga dapat mengunggah berkas excel jika telah mengisi templat berikut. Jika kuis dengan judul tersebut sudah ada, pertanyaan akan ditambahkan ke kuis yang ada.",
         "download_template_here": "Unduh templat",
-        "classquiz_quiz": "Kuis CMA Clash",
-        "this_side_classquiz": "Di sisi ini Anda dapat mengimpor kuis yang diekspor dari CMA Clash.",
+        "this_side_cma_clash": "Di sisi ini Anda dapat mengimpor kuis yang diekspor dari CMA Clash.",
         "a_kahoot_quiz": "Kuis Kahoot!",
         "side_import_kahoot": "Di sisi ini Anda dapat mengimpor kuis yang ada di Kahoot!.",
         "url_should_look_like_this": "URL harus terlihat seperti ini: [https://create.kahoot.it/details/](https://create.kahoot.it/details/)...",
@@ -340,8 +300,6 @@
         "hat_color": "Warna topi"
     },
     "footer": {
-        "donate": "",
-        "self_ads": "Dibuat dengan ❤️ oleh CMA Clash dan dengan bantuan {{others_link}}.",
         "more_details_here": "Detail lebih lanjut di sini"
     },
     "quiztivity": {
@@ -468,9 +426,7 @@
         "search_for_own_quizzes": "Cari kuis Anda sendiri",
         "info_analytics": "\"Dimainkan\" hanya menunjukkan seberapa sering kuis dimulai (termasuk Anda), sedangkan \"Tayangan\" menghitung seberapa sering halaman \"Lihat\" dikunjungi, sehingga juga menghitung bot (maaf untuk itu)."
     },
-    "navbar": {
-        "donate": "Donasi"
-    },
+    "navbar": {},
     "editor_page": {
         "add_an_answer": "Tambah jawaban",
         "right_click_to_delete": "Klik kanan pada jawaban untuk menghapusnya!"

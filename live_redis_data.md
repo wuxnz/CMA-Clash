@@ -19,7 +19,7 @@ example-entry:
 
 ```json
 {
-    "username": "Mawoka",
+    "username": "Learner",
     "answer": "a",
     "right": false,
     "time_taken": 4994.246999999999,
@@ -106,7 +106,7 @@ entry:
 
 ```json
 {
-    "username": "Mawoka",
+    "username": "Learner",
     "sid": "VSprqk7xGKaH5QbwAAAD"
 }
 ```

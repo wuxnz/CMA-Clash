@@ -18,7 +18,7 @@ SPDX-License-Identifier: MPL-2.0
 	<title>CMA Clash: docs - Development-setup</title>
 	<meta
 		name="description"
-		content="How to import quizzes from KAHOOT! into CMA Clash, the open-source quiz-application,  easily"
+		content="How to set up a local development environment for CMA Clash, the open-source quiz-application."
 	/>
 </svelte:head>
 <article

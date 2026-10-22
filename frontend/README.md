@@ -1,46 +1,66 @@
 <!--
-SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
+SPDX-FileCopyrightText: 2026 CMA Clash contributors
 
 SPDX-License-Identifier: MPL-2.0
 -->
 
-# create-svelte
+# CMA Clash — frontend
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+The SvelteKit frontend of [CMA Clash](https://github.com/wuxnz/CMA-Clash), the open-source quiz
+platform for CCMA and allied health exam prep.
 
-## Creating a project
+## Requirements
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
+- [Node.js](https://nodejs.org/) 20.19+ or 22.12+ (required by Vite 7)
+- [pnpm](https://pnpm.io/) 10 (the version the CI workflow pins)
+- A running CMA Clash API (see the [development docs](../frontend/src/routes/docs/develop/+page.svelte))
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```bash
-npm run dev
+pnpm install
+pnpm dev
 
 # or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm dev -- --open
 ```
+
+The dev server proxies API requests to the backend, so the app talks to a real CMA Clash API
+instance while you work on it.
 
 ## Building
 
-To create a production version of your app:
-
 ```bash
-npm run build
+pnpm build
+pnpm preview
 ```
 
-You can preview the production build with `npm run preview`.
+The production build targets Vercel (`@sveltejs/adapter-vercel`). The build regenerates
+`vercel.json` from the `BACKEND_URL` environment variable, so the API rewrites always match the
+backend host you deploy against. See [docs/DEPLOY_VERCEL.md](../docs/DEPLOY_VERCEL.md) for the full
+deployment setup.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Quality checks
+
+```bash
+pnpm check   # svelte-check / TypeScript
+pnpm lint    # prettier + eslint
+pnpm test    # vitest
+pnpm test:e2e # playwright
+```
+
+## Layout
+
+| Path | What's in it |
+| --- | --- |
+| `src/routes/` | Pages and API routes |
+| `src/lib/ui/` | Shared UI primitives (`Button`, `Card`, `PageHeader`, …) |
+| `src/lib/i18n/locales/` | Translations, one JSON file per locale |
+| `src/lib/cma/` | CMA Clash domain logic (text, hosts, …) |
+| `e2e/` | Playwright end-to-end tests |
+
+## Translations
+
+Translations live in `src/lib/i18n/locales/`, one JSON file per locale code. Copy `en.json` as a
+starting point, translate the values, and open a pull request. See
+[CONTRIBUTING.md](../CONTRIBUTING.md) for details.
