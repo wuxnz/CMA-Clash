@@ -19,7 +19,7 @@ FACTS: list[dict] = [
         'CLIA-waived when performed with an FDA-cleared system following the manufacturer insert',
         [
             'High-complexity laboratory testing in every setting',
-            'Unregulated and exempt from any quality checks',
+            'Unregulated and exempt from quality checks',
             'Limited to inpatient central laboratories',
         ],
         'Waived status applies to specific test systems, not careless technique. Facilities still must train operators and run controls per CLIA requirements.',
@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         'Before performing a POC glucose test, what should the collector do?',
         'Perform hand hygiene and verify patient identity against the order',
         [
-            'Skip quality control when the meter passed QC yesterday on another unit',
+            'Relying on yesterday\'s QC pass from another unit instead of running controls',
             'Use expired strips to empty old inventory',
             'Share a lancing device after wiping with a dry gauze',
         ],
@@ -70,7 +70,7 @@ FACTS: list[dict] = [
         'What can hemolysis in a glucose sample do?',
         'Alter measured glucose depending on analyzer method and timing of hemolysis',
         [
-            'Fail to change any laboratory analyte',
+            'Fail to change a laboratory analyte',
             'Affect coagulation studies',
             'Increase glucose accurately in every specimen',
         ],
@@ -94,11 +94,11 @@ FACTS: list[dict] = [
     fact(
         'phleb-glucose',
         'If a patient becomes dizzy right after venipuncture for glucose testing, what should the collector do?',
-        'Secure the puncture site and assist the patient to a safe position while notifying staff',
+        'Secure the puncture site and assist the patient to a safe position',
         [
-            'Send the patient to drive home immediately',
-            'Ignore symptoms if the tube filled adequately',
-            'Apply bilateral arm tourniquets',
+            'Send the patient to drive home immediately after the draw',
+            'Ignore the symptoms when the collection tube filled adequately',
+            'Apply bilateral arm tourniquets to keep the patient still',
         ],
         'Vasovagal reactions are common with fasting draws. Falling risks head injury and repeat venipuncture attempts.',
         _REF,
@@ -109,8 +109,8 @@ FACTS: list[dict] = [
         'What does CLIA-waived glucose meter operation require staff to do?',
         'Follow manufacturer instructions and the facility quality control plan',
         [
-            'Use any brand of strips in one meter without verification',
-            'Skip documentation when results are normal',
+            'Use a strip brand in one meter without verification',
+            'Leave results undocumented when values are normal',
             'Disable lockout features to speed testing',
         ],
         'Waived testing still demands documented training, control runs, and maintenance. Deviations invalidate clinical use of results.',
@@ -122,9 +122,9 @@ FACTS: list[dict] = [
         'What does liquid control solution testing on a glucometer verify?',
         'That the meter and strip lot perform within expected range before patient testing',
         [
-            'Patient identity without any chemistry check',
-            'Insurance eligibility for the visit',
-            'Ambient room lighting levels',
+            'Patient identity before the test without a chemistry check',
+            'Insurance eligibility for the patient visit that day',
+            'Ambient room lighting levels near the testing area',
         ],
         'Failed controls require troubleshooting and supervisor notification before patient samples. QC logs demonstrate CLIA compliance.',
         _REF,
@@ -162,7 +162,7 @@ FACTS: list[dict] = [
         'Exactly two hours after the patient begins drinking the glucose solution per protocol',
         [
             'Whenever the phlebotomist is available that afternoon',
-            'Before the patient drinks any glucose',
+            'Before the patient drinks the glucose',
             'Twenty-four hours after the glucose drink',
         ],
         'OGTT interpretation depends on precise timing; early or late draws invalidate the result. Communicate start time at the bedside.',
@@ -187,7 +187,7 @@ FACTS: list[dict] = [
         'How should glucose results on a patient receiving IV dextrose be interpreted?',
         'With awareness that infusion raises values independent of diabetes status alone',
         [
-            'As proof of diabetes without any context',
+            'As proof of diabetes without clinical context',
             'As invalid on every meter regardless of calibration',
             'Without documenting the infusion on the requisition',
         ],
@@ -201,7 +201,7 @@ FACTS: list[dict] = [
         'Lateral plantar surface of the heel using depth-limited devices per policy',
         [
             'Center of the foot arch where bone is superficial',
-            'Any finger of a newborn without an institutional protocol',
+            'A finger of a newborn without an institutional protocol',
             'Earlobe as the default site for all infants',
         ],
         'Incorrect heelstick depth risks osteomyelitis. CLSI and nursery policies define safe zones and device settings.',
@@ -252,8 +252,8 @@ FACTS: list[dict] = [
         'What does adult oral glucose tolerance testing commonly use?',
         'A 75-gram glucose drink volume specified by the laboratory order',
         [
-            'Plain water only regardless of protocol',
-            'Any soft drink the patient prefers',
+            'Plain water regardless of protocol',
+            'A soft drink the patient prefers',
             'A dose chosen by the patient without weight-based guidance',
         ],
         'Pediatric and research protocols may differ by weight. Using the wrong dose invalidates diagnostic thresholds.',
@@ -265,7 +265,7 @@ FACTS: list[dict] = [
         'Why does order of draw still matter when glucose tubes are collected with other additives?',
         'Carryover can corrupt coagulation, chemistry, or the glucose specimen itself',
         [
-            'Tube sequence only affects urine cups',
+            'Tube sequence affects urine cups',
             'Vacuum tubes cannot contaminate one another',
             'It is optional in every outpatient setting',
         ],
@@ -278,9 +278,9 @@ FACTS: list[dict] = [
         'What should reporting a critical low POC glucose to the provider include?',
         'The value, time, symptoms, repeat check, and treatments already given',
         [
-            "The patient's middle name",
-            'Humor to reduce anxiety without clinical data',
-            'No repeat assessment after treatment',
+            "The patient's middle name and room number",
+            'Humor to reduce anxiety instead of the clinical data',
+            'No repeat assessment of the patient after treatment is given',
         ],
         'Critical value policies define thresholds and read-back documentation. Context helps clinicians respond safely.',
         _REF,
@@ -332,7 +332,7 @@ FACTS: list[dict] = [
         [
             'Changing the blood pressure cuff size',
             'Altering urine dipstick glucose pads',
-            'Having no effect on any POC device',
+            'Having no effect on a POC device',
         ],
         'Anemia or polycythemia may require laboratory correlation. Know device limitations listed in the FDA-cleared insert.',
         [S.FDA_CLIA_WAIVED],
@@ -343,7 +343,7 @@ FACTS: list[dict] = [
         'Glucose test strips must be stored away from what?',
         'Excessive heat, humidity, and direct sunlight per manufacturer limits',
         [
-            'Any use of gloves by operators',
+            'Use of gloves by operators',
             'Patient identification bands',
             'Writing the lot number on the vial',
         ],
@@ -396,7 +396,7 @@ FACTS: list[dict] = [
         'Result, date/time, meter identifier, and operator initials',
         [
             'A smiley face sticker',
-            'Random numbers without units',
+            'Arbitrary numbers without units',
             'Nothing when the value falls within the reference range',
         ],
         'Trend analysis and CLIA audits depend on traceable records. Missing meter IDs block troubleshooting of systematic error.',
@@ -421,9 +421,9 @@ FACTS: list[dict] = [
         'What does cleaning the glucose meter between patients require?',
         'Disinfecting external surfaces per manufacturer-approved agents and contact time',
         [
-            'Submerging the electronics in blood',
-            'Skipping cleaning when gloves were worn',
-            'Using steel wool to scratch the display',
+            'Submerging the electronic display and ports in blood',
+            'Skipping the cleaning step when gloves were already worn',
+            'Using steel wool to scrub the display between patients',
         ],
         'Blood splatter on cases can transfer pathogens to the next user or patient. '
         'Harsh cleaners may damage sensors or void warranties. '
@@ -434,11 +434,11 @@ FACTS: list[dict] = [
     fact(
         'phleb-glucose',
         'What can a tight prolonged tourniquet during a venous glucose draw do?',
-        'Cause hemoconcentration that falsely shifts chemistry including glucose if stasis is long',
+        'Hemoconcentration that falsely shifts chemistry including glucose if stasis is long',
         [
-            'Fail to alter any analyte result',
-            'Change complete blood count indices',
-            'Improve glucose accuracy in every patient',
+            'Fail to alter an analyte result in the collected sample',
+            'Change the complete blood count indices on the same draw',
+            'Improve the accuracy of the glucose result in every patient',
         ],
         'CLSI recommends limiting tourniquet time to about one to two minutes. Release before drawing if delay occurs.',
         _REF,
@@ -451,7 +451,7 @@ FACTS: list[dict] = [
         [
             'Waiting a week to repeat the test',
             'Documenting if the patient loses consciousness',
-            'Ignoring values above the reportable range error',
+            'Ignoring a value that falls outside the reportable range',
         ],
         'Neuroglycopenic symptoms can progress to seizures. '
         'Waiting for a repeat reading, documenting only after loss of consciousness, and dismissing out-of-range readings each postpone treatment. '
@@ -461,14 +461,15 @@ FACTS: list[dict] = [
     ),
     fact(
         'phleb-glucose',
-        'How does capillary glucose monitoring differ from venous laboratory plasma testing?',
-        'Sample type and pre-analytic factors may produce different numeric results',
+        'A point-of-care meter reads 110 mg/dL, and a venous plasma sample drawn at the same visit reads 95 mg/dL. What is the most appropriate interpretation?',
+        'They come from different specimen types and reporting methods, so they are compared side by side',
         [
-            'Meters internally standardize to arterial blood gas values',
-            'Capillary testing needs no infection control',
-            'Venous plasma equals fingertip capillary at the same second',
+            'The point-of-care result is invalid because a venous sample was also collected',
+            'The laboratory result should be discarded because capillary is less accurate',
+            'The two results should be averaged before they reach the provider',
         ],
-        'Providers must compare like specimens when trending. Document whether a value is POC capillary or laboratory plasma.',
+        'Point-of-care meters report whole blood or plasma-equivalent values, and a venous plasma result comes from a different laboratory method, so the numbers can differ. '
+        'Discarding one result or averaging the two misrepresents the patient\'s glucose status, and a meter reading is not invalid because a venous draw was also collected.',
         _REF,
         'intermediate',
     ),
@@ -517,7 +518,7 @@ FACTS: list[dict] = [
         'Align calibration factors embedded in the strip lot with the device',
         [
             'Bypass CLIA documentation requirements',
-            "Allow use of any manufacturer's strips",
+            "Allow use of another manufacturer's strips",
             'Disable control solution testing',
         ],
         'Failing to code a new lot is a common source of systematic bias. Scan or enter lot data per insert instructions.',
@@ -542,11 +543,11 @@ FACTS: list[dict] = [
     fact(
         'phleb-glucose',
         'If a patient refuses fingersticks but needs glucose assessment, what should the collector do?',
-        'Notify the ordering clinician and follow facility policy for laboratory venous draw or alternate monitoring',
+        'Notify the ordering clinician and follow policy for a venous draw',
         [
-            'Force the fingerstick without discussion',
-            'Document a random normal value',
-            "Use another patient's meter to save time",
+            'Force the fingerstick without a discussion with the patient',
+            'Document an arbitrary normal value on the glucose worksheet',
+            "Use another patient's meter to save time on a busy day",
         ],
         'Respectful escalation preserves safety and legal consent. Venous sampling or continuous monitors may be appropriate alternatives.',
         [S.NHA_CPT, S.CLSI_GP41],

@@ -28,11 +28,11 @@ FACTS: list[dict] = [
     fact(
         "skill-med-safety",
         "How should patient identity be confirmed before giving a medication in clinic?",
-        "Two identifiers, such as full name and date of birth, confirmed with the patient",
+        "Two identifiers, such as name and date of birth, confirmed with the patient",
         [
-            "One identifier, such as full name, confirmed with the patient before the dose",
-            "The room number on the exam room sign, checked against the appointment schedule",
-            "The medical record number on the chart header, read before the medication is prepared",
+            "A single identifier, such as the full name, confirmed with the patient first",
+            "The room number on the exam room sign, checked against the schedule",
+            "The medical record number on the chart header read before preparation",
         ],
         "Two identifiers are required for every medication administration, and the patient is asked to state them so both match the chart. A single name or a medical record number alone is not enough, and a room number identifies a place rather than a person.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -56,11 +56,11 @@ FACTS: list[dict] = [
     fact(
         "skill-med-safety",
         "When in the workflow should documented medication allergies be reviewed?",
-        "Before selecting or administering any drug, including vaccines and contrast dye",
+        "Before selecting or administering any drug, including vaccines and contrast",
         [
-            "After the dose is given and the medication is entered on the administration record",
-            "At the annual wellness visit, even when no new prescriptions are ordered that day",
-            "When the patient requests a refill of an unrelated over-the-counter product",
+            "After the dose is given and entered on the administration record",
+            "At the annual wellness visit when no prescriptions are ordered",
+            "When the patient requests a refill of an unrelated over-the-counter medication",
         ],
         "Allergy status is reviewed before a drug is selected or given, because a reaction follows exposure and cannot be undone. Reviewing after the dose, tying it to the annual wellness visit, or limiting it to refill requests leaves allergy information out of the decision.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -126,10 +126,10 @@ FACTS: list[dict] = [
     fact(
         "skill-med-safety",
         "What does barcode medication administration add to the medication safety process?",
-        "An electronic match of patient, product, and order before the dose is given",
+        "An electronic match of patient, product, and order before the dose",
         [
             "An electronic match of patient, product, and order after the dose is given",
-            "A printed record of the product that was dispensed and the patient it was given to",
+            "A printed record of the product dispensed and the patient",
             "A second signature from another staff member on the administration record",
         ],
         "Barcode administration adds an electronic check that the patient, the product, and the order match at the moment the dose is given. Matching after the dose, printing a paper record, and adding a co-signature are separate steps that do not substitute for the point-of-administration match.",
@@ -226,8 +226,8 @@ FACTS: list[dict] = [
         "Why should medication orders write 0.5 mg instead of .5 mg?",
         "A leading zero prevents a missed decimal and a tenfold overdose",
         [
-            "A leading zero confirms the prescriber intends a weight-based dose for the patient",
-            "A leading zero indicates that the drug strength was verified against a pharmacy record",
+            "A leading zero confirms the prescriber intends a weight-based dose",
+            "A leading zero indicates the strength was checked against a record",
             "A leading zero marks the order as a controlled substance needing a signature log",
         ],
         "A missing leading zero lets the decimal point be overlooked, so .5 mg can be read as 5 mg and produce a tenfold overdose. Confirming a weight-based intent, verifying the strength against a pharmacy record, and marking a controlled substance are separate documentation steps that do not prevent the misread.",
@@ -548,8 +548,8 @@ FACTS: list[dict] = [
         "What must staff do when using an automated dispensing cabinet override for emergencies?",
         "Document the reason for the override and reconcile the inventory afterward",
         [
-            "Document the reason for the override and close the drawer at the end of the month",
-            "Reconcile the inventory after the override and leave the reason to the supervisor",
+            "Document the override reason and close the drawer at month end",
+            "Reconcile the inventory later and leave the reason to the supervisor",
             "Document the reason for the override and dispense from the personal supply",
         ],
         "Overrides exist for genuine emergencies, so each use is documented with a reason and the cabinet inventory is reconciled so the audit trail matches what was removed. Closing the drawer monthly, leaving the reason for a supervisor, and dispensing from personal supply all defeat the accountability the override record is meant to provide.",

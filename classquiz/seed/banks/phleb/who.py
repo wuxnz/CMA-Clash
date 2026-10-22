@@ -57,11 +57,11 @@ FACTS: list[dict] = [
     fact(
         'phleb-who',
         'Which pair of WHO hand hygiene moments apply before phlebotomy?',
-        'Before touching the patient and before a clean or aseptic procedure such as skin antisepsis',
+        'Before touching the patient and before a clean or aseptic procedure',
         [
-            'After eating lunch in the break room',
-            'After an exposure to blood on gloves',
-            'At home before coming to work',
+            'After eating lunch in the break room before returning to the floor',
+            'After an exposure to blood on the gloves before removing them',
+            'At home before coming to work at the start of the shift',
         ],
         'WHO defines five moments that map directly to identification, tourniquet placement, and antiseptic skin prep. Missing the pre-procedure moment undermines aseptic technique.',
         _HAND,
@@ -256,7 +256,7 @@ FACTS: list[dict] = [
         'What does alignment between CLSI GP41 and WHO patient safety emphasize?',
         'Correct patient, correct tube, and correct process on every collection',
         [
-            'Random tube color selection to save time',
+            'Tube color chosen by convenience to save time',
             'Skipping additive mixing to finish faster',
             'Drawing without an order when the patient requests',
         ],
@@ -387,7 +387,7 @@ FACTS: list[dict] = [
         'Facility protocol based on source patient risk and timely assessment',
         [
             'Offering no evaluation to part-time staff',
-            'Identical drug regimens without any risk review',
+            'Identical drug regimens without a risk review',
             'Delaying assessment until the next work week',
         ],
         'Early PEP for HIV and vaccination status review for HBV improve outcomes. WHO stresses non-punitive pathways so workers report promptly.',
@@ -414,7 +414,7 @@ FACTS: list[dict] = [
         'What does the WHO patient safety curriculum promote after phlebotomy errors?',
         'Open disclosure and system fixes rather than secrecy',
         [
-            'Blame-only investigations without process review',
+            'Investigations that assign blame without reviewing the process',
             'Hiding near misses from quality departments',
             'Deleting incident reports after shift change',
         ],
@@ -481,7 +481,7 @@ FACTS: list[dict] = [
         'What should leadership support for WHO injection safety in phlebotomy include?',
         'Budgeting for safety needles, containers, and time for training',
         [
-            'Pressuring staff to skip disposal to see more patients',
+            'Pressuring staff to postpone disposal to see more patients',
             'Purchasing the cheapest conventional needles without evaluation',
             'Discouraging reporting to keep injury rates looking low',
         ],
@@ -507,9 +507,9 @@ FACTS: list[dict] = [
         'What do WHO global campaigns on injection safety expect facilities to audit?',
         'Adherence to single-use policies and availability of sharps disposal',
         [
-            'Patient satisfaction surveys about wait time',
-            'Staff social media usage',
-            'Parking assignments',
+            'Patient satisfaction surveys about wait time in the clinic',
+            'Staff social media usage during working hours',
+            'Parking assignments for the staff who work on the unit',
         ],
         'Audits reveal gaps such as missing containers at mobile chairs or reused holders. Measurement converts policy posters into practiced behavior.',
         _WHO,
@@ -546,9 +546,9 @@ FACTS: list[dict] = [
         'During an outbreak investigation, what are WHO phlebotomy practices reviewed for?',
         'Reuse of devices, vial contamination, and breakdowns in hand hygiene',
         [
-            'Cafeteria menu choices',
-            'Patient television channels',
-            'Parking lot lighting',
+            'Cafeteria menu choices during the outbreak period',
+            'Patient television channels in the waiting areas',
+            'Parking lot lighting in the staff parking area',
         ],
         'Epidemiology frequently traces clusters to reused syringes, lancets, or contaminated multi-dose vials. Phlebotomy stations are common outbreak settings.',
         _WHO,

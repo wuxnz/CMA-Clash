@@ -351,7 +351,7 @@ FACTS: list[dict] = [
         "A patient has a bilateral below-knee amputation and needs a 12-lead EKG. What should the technician do first?",
         "Follow facility policy for alternative limb electrode placement and document the modification",
         [
-            "Refuse to perform any EKG on patients with amputations",
+            "Refuse to perform an EKG on a patient with amputations",
             "Place all electrodes randomly on the chest without a protocol",
             "Proceed with default foot placements without noting the change",
         ],
@@ -421,7 +421,7 @@ FACTS: list[dict] = [
         "During an exercise stress test, the team uses a Mason-Likar lead system. Why is this modification made?",
         "Torso placement of limb electrodes reduces motion artifact while the patient walks",
         [
-            "It removes the need for any skin preparation",
+            "It removes the need for skin preparation",
             "It eliminates the requirement for precordial leads",
             "It permanently replaces ICU 12-lead monitoring",
         ],
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
         "Which precordial lead pair is most helpful when comparing septal versus lateral ST changes during acute chest pain?",
         "V1 and V6 acquired at the same time in the standard 12-lead set",
         [
-            "V1 recorded alone without any other chest leads",
+            "V1 recorded alone without the other chest leads",
             "V4R and V9 without limb leads",
             "Lead I and lead II without chest electrodes",
         ],
@@ -534,7 +534,7 @@ FACTS: list[dict] = [
         "Motion and poor contact at those sites increase artifact on the tracing",
         [
             "Bone blocks all electrical activity from reaching the electrode",
-            "Muscle tissue prevents any voltage from being detected",
+            "Muscle tissue prevents a voltage from being detected",
             "Bony sites automatically double the paper speed",
         ],
         "Artifact from movement and unstable contact mimics arrhythmia or ST deviation. Electrical signals still reach electrodes, but noise increases when contact is poor.",
@@ -562,7 +562,7 @@ FACTS: list[dict] = [
         "Misplaced chest leads change ST and R-wave patterns compared with standard positions",
         [
             "Moisture automatically doubles heart rate on the tracing",
-            "Diaphoresis prevents any electrical signal from being recorded",
+            "Diaphoresis prevents an electrical signal from being recorded",
             "Standard landmarks are optional during acute care",
         ],
         "Ischemia protocols rely on consistent V lead positions. Moving electrodes to skin folds alters voltage and can mimic or hide pathology even when sweat is present.",

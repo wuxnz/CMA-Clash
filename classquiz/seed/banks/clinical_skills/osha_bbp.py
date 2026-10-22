@@ -14,11 +14,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "Which body fluids are covered by OSHA's Bloodborne Pathogens Standard in typical healthcare exposure?",
-        "Blood and other potentially infectious materials such as semen and cerebrospinal fluid",
+        "Blood and other potentially infectious materials such as semen and CSF",
         [
-            "Blood along with every other body fluid a patient produces, including sweat and tears",
-            "Blood that the laboratory has confirmed as carrying a bloodborne pathogen infection",
-            "Urine, feces, and sputum whenever they are collected anywhere inside a clinical building",
+            "Blood along with every body fluid a patient produces, including sweat and tears",
+            "Blood confirmed by the laboratory as carrying a bloodborne pathogen",
+            "Urine, feces, and sputum whenever they are collected in a clinic",
         ],
         "The standard covers blood and specified other potentially infectious materials such as semen and cerebrospinal fluid. Sweat, tears, and ordinary urine or feces fall outside the standard unless blood or other infectious material is present.",
         [S.OSHA_BBP, S.NHA_CCMA],
@@ -30,9 +30,9 @@ FACTS: list[dict] = [
         "What is an employer's duty regarding hepatitis B vaccination under the Bloodborne Pathogens Standard?",
         "Offer the vaccine at no cost to employees with occupational exposure risk",
         [
-            "Charge employees the cost of the series when they work fewer than twenty hours weekly",
+            "Charge employees the cost of the series when they work part time",
             "Provide the vaccine after a needlestick injury has been documented and evaluated",
-            "Require vaccination for every person who enters the building, including visitors and vendors",
+            "Require vaccination for every person who enters the building",
         ],
         "Employees with occupational exposure risk must be offered hepatitis B vaccination free of charge. Charging employees, limiting the offer to post-exposure events, or extending it to visitors does not meet the standard.",
         [S.OSHA_BBP],
@@ -42,11 +42,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What must be included in an exposure control plan for bloodborne pathogens?",
-        "Exposure determination, engineering and work practice controls, PPE, and post-exposure care",
+        "Exposure determination, controls, protective equipment, and post-exposure care",
         [
-            "Exposure determination, annual training dates, and a supply budget for protective equipment",
-            "Engineering controls, work practice controls, and a list of employees who declined vaccination",
-            "Post-exposure follow-up steps, incident reporting forms, and the annual training calendar",
+            "Exposure determination, training dates, and a supply budget for protective gear",
+            "Engineering controls, work practice controls, and a list of decliners",
+            "Post-exposure follow-up steps, reporting forms, and the training calendar",
         ],
         "OSHA expects a written plan that ties each identified hazard to controls, protective equipment, and post-exposure follow-up. Training dates, declination lists, and reporting forms cover only pieces of the required plan.",
         [S.OSHA_BBP],
@@ -70,10 +70,10 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What is the purpose of engineering controls for sharps injury prevention?",
-        "Remove or isolate the hazard with devices such as safety needles and sharps containers",
+        "Remove or isolate the hazard with safety needles and sharps containers",
         [
             "Reduce the hazard by changing the work sequence so sharps are handled less often",
-            "Reduce the hazard by adding protective equipment that shields the hands during device handling",
+            "Reduce the hazard by adding equipment that shields the hands",
             "Reduce the hazard by training staff to recognize injuries soon after they happen",
         ],
         "Engineering controls physically remove or isolate the hazard, for example safety needles and puncture-resistant containers. Changing the work sequence is a work practice control, and gloves are personal protective equipment.",
@@ -98,11 +98,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What PPE is required when blood splash to the eyes is reasonably anticipated?",
-        "Eye protection such as goggles or a face shield in addition to other needed PPE",
+        "Eye protection such as goggles or a face shield plus other needed PPE",
         [
             "A surgical mask and gloves because splash exposure is limited to droplets",
             "Eye protection alone, since nothing else blocks blood from reaching the eye",
-            "Gloves alone, because mucous membrane exposure is not addressed by PPE rules for staff",
+            "Gloves alone, because mucous membrane exposure is not addressed by PPE",
         ],
         "Blood splash to the eyes requires eye protection, and mucous membrane exposure is covered by the standard. Gloves protect hands rather than eyes, and protective equipment is matched to the task instead of used alone.",
         [S.OSHA_BBP],
@@ -112,11 +112,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "When may employers require employees to pay for their own hepatitis B vaccination series?",
-        "They may not require payment when vaccination is offered due to occupational exposure",
+        "They may not require payment when vaccination is offered for exposure",
         [
             "When the employee declines the vaccine in writing after the offer is made",
-            "When the employee works part time and has fewer than twenty scheduled hours weekly",
-            "When the clinic is privately owned rather than part of a hospital or larger health system",
+            "When the employee works part time with fewer than twenty hours",
+            "When the clinic is privately owned rather than part of a hospital",
         ],
         "The standard prohibits charging employees for an employer-offered hepatitis B series. A written declination documents refusal, but the offer itself must remain free of charge in every case.",
         [S.OSHA_BBP, S.NHA_CCMA],
@@ -130,7 +130,7 @@ FACTS: list[dict] = [
         [
             "Wash the area, finish the draw, and report the stick before the end of the shift",
             "Apply an antiseptic wipe and record the injury in the employee health record",
-            "Squeeze the wound to stop bleeding, then return to patient care without reporting",
+            "Squeeze the wound to stop bleeding, then return to patient care",
         ],
         "Immediate washing, prompt reporting, and medical evaluation start the post-exposure timeline and may open the prophylaxis window. Waiting until end of shift, charting it outside the exposure process, or staying silent delays evaluation.",
         [S.OSHA_BBP, S.OSHA_NEEDLESTICK, S.NHA_CCMA],
@@ -154,9 +154,9 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What does work practice control mean in the Bloodborne Pathogens Standard?",
-        "Policies and behaviors such as no recapping and hand hygiene that reduce exposure",
+        "Policies and behaviors such as no recapping and hand hygiene that reduce risk",
         [
-            "Devices and equipment that physically block contact with blood or other body fluids",
+            "Devices and equipment that physically block contact with blood or other fluids",
             "Orientation sessions and training that teach staff about bloodborne pathogens",
             "Protective equipment worn on the hands and body during most patient procedures",
         ],
@@ -196,11 +196,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What information should post-exposure evaluation include after a blood splash to nonintact skin?",
-        "Source patient status when available, employee baseline labs, and follow-up testing schedule",
+        "Source patient status, baseline labs, and a follow-up testing schedule",
         [
-            "Employee baseline labs, follow-up testing schedule, and the employee's billing account number",
-            "Source patient status when available, the employee's insurance plan, and the billing code used",
-            "The employee's baseline labs, the incident narrative, and the department where the stick occurred",
+            "Baseline labs, a follow-up testing schedule, and the billing account number",
+            "Source patient status, the employee's insurance plan, and the billing code",
+            "Baseline labs, the incident narrative, and the department of the stick",
         ],
         "Post-exposure evaluation documents the exposure route, the source patient status if known, baseline labs, and the follow-up schedule. Billing details and workplace details support recordkeeping but do not guide prophylaxis decisions.",
         [S.OSHA_BBP, S.NHA_CCMA],
@@ -266,11 +266,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What is the role of hepatitis B surface antibody testing after vaccination?",
-        "To document the immune response when recommended for occupational health programs",
+        "To document the immune response for occupational health programs",
         [
-            "To confirm that the employee may safely reuse the same needle between different patients",
-            "To document the employee's status so that gloves may be skipped on later blood draws",
-            "To show that annual bloodborne pathogen training is no longer required for that task",
+            "To confirm the employee may safely reuse a needle between patients",
+            "To document the status so gloves may be skipped on later blood draws",
+            "To show that annual bloodborne pathogen training is no longer required",
         ],
         "Surface antibody testing documents immune response after vaccination when occupational health recommends it. It does not authorize needle reuse, waive glove use, or remove the ongoing training requirement.",
         [S.OSHA_BBP, S.NHA_CCMA],
@@ -322,11 +322,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "Which routes of contact with blood or OPIM count as occupational exposure?",
-        "Skin, eye, mucous membrane, and parenteral routes with reasonably anticipated contact",
+        "Skin, eye, mucous membrane, and parenteral routes with anticipated contact",
         [
-            "Any contact at all with a patient who has a confirmed bloodborne pathogen infection",
-            "Any task in a clinical setting that involves handling patient specimens or blood products",
-            "Any injury sustained in the workplace, including slips, falls, strains, and sprains",
+            "Contact with a patient who has a confirmed bloodborne pathogen infection",
+            "A task in a clinical setting that involves handling specimens or blood products",
+            "An injury sustained in the workplace, such as a slip, fall, or strain",
         ],
         "Occupational exposure covers reasonably anticipated skin, eye, mucous membrane, or parenteral contact with blood or other potentially infectious materials. It is not limited to patients with known infections, to every specimen task, or to workplace injuries of any kind.",
         [S.OSHA_BBP],
@@ -338,7 +338,7 @@ FACTS: list[dict] = [
         "When may an employee decline hepatitis B vaccination offered by the employer?",
         "After receiving mandated training and signing a declination form",
         [
-            "After attending training, without any written documentation of the refusal",
+            "After attending training, without written documentation of the refusal",
             "After the employee's supervisor confirms the refusal in the shift schedule",
             "After the employee tells the employer the series is not medically appropriate",
         ],
@@ -350,10 +350,10 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "How should blood on intact clinic flooring be cleaned?",
-        "Wearing PPE, absorbing the spill, cleaning it, then disinfecting with a germicide",
+        "Wearing PPE, absorbing the spill, cleaning it, then disinfecting it",
         [
-            "Absorbing the spill, then disinfecting the area with a germicide and no protective equipment",
-            "Cleaning the floor with a disinfectant first, then mopping up the remaining blood",
+            "Absorbing the spill, then disinfecting the area with a germicide",
+            "Cleaning the floor with a disinfectant first, then mopping up the blood",
             "Placing a wet floor sign over the spill until the nightly cleaning rounds",
         ],
         "OSHA expects prompt cleanup with protective equipment, absorbent material, cleaning, and an EPA-registered disinfectant. Skipping protective equipment, cleaning before absorbing, and leaving the spill under a sign all leave blood on the floor for longer.",
@@ -448,11 +448,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "When should gloves be worn under the Bloodborne Pathogens Standard?",
-        "When contact with blood, OPIM, mucous membranes, or nonintact skin is anticipated",
+        "When contact with blood, OPIM, mucous membranes, or nonintact skin is expected",
         [
             "When the patient has a known bloodborne pathogen infection or an unknown status",
-            "When the task involves a specimen that might contain blood, even when it is sealed",
-            "When the employee has completed bloodborne pathogen training for the patient unit",
+            "When the task involves a specimen that might contain blood or OPIM",
+            "When the employee has completed training for the patient unit",
         ],
         "Gloves are used when contact with blood, other potentially infectious materials, mucous membranes, or nonintact skin is reasonably anticipated. Known infection status, sealed specimens, and completed training do not define when gloves are required.",
         [S.OSHA_BBP, S.NHA_CCMA],
@@ -462,10 +462,10 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "How should employers respond when an employee requests safer sharps devices?",
-        "Evaluate the request and implement safer devices in the exposure control plan",
+        "Evaluate the request and implement safer devices in the plan",
         [
-            "Evaluate the request, document the decision, and keep the current devices in service",
-            "Wait for the annual injury count to reach a threshold before reviewing device options",
+            "Evaluate the request, document it, and keep the current devices",
+            "Wait for the annual injury count to reach a threshold first",
             "Refer the request to purchasing for a price and contract comparison first",
         ],
         "OSHA requires employers to evaluate requests for safer sharps and to implement appropriate devices as part of the exposure control plan. Documenting a decision without change, waiting for injury counts, and shopping on price do not satisfy the requirement.",
@@ -490,10 +490,10 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "Which practice reduces risk when passing sharps between team members?",
-        "Using a neutral zone or a tray instead of hand-to-hand transfer of instruments",
+        "Using a neutral zone or a tray instead of hand-to-hand transfer",
         [
-            "Announcing each instrument before passing it so the receiving clinician is prepared",
-            "Passing the instrument through the doorway to avoid crossing into the room",
+            "Announcing each instrument so the receiving clinician is prepared",
+            "Passing the instrument through the doorway to avoid anyone crossing the room",
             "Wiping the instrument between staff members before it is handed over",
         ],
         "Neutral zones and tray placement keep both hands visible and away from sharp tips. Announcing instruments, passing through a doorway, and wiping between staff still require a hand-to-hand transfer of the sharp.",
@@ -588,11 +588,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "What should a medical assistant know about confidentiality after reporting a needlestick?",
-        "Employer medical records stay confidential and are kept apart from the personnel file",
+        "Employer medical records stay confidential and apart from personnel files",
         [
-            "The employee's exposure details are shared with the whole unit for safety awareness",
-            "The source patient's identity is posted with the incident report in the staff break room",
-            "Confidentiality ends once the employee returns to work and has been medically cleared",
+            "The exposure details are shared with the whole unit for safety awareness",
+            "The source patient's identity is posted with the report in the break room",
+            "Confidentiality ends once the employee returns to work and is cleared",
         ],
         "Occupational health keeps the exposure record confidential and separate from the personnel file. Unit-wide disclosure, posting source details, and ending confidentiality at return to work each breach privacy expectations.",
         [S.OSHA_BBP, S.HHS_HIPAA_PRIVACY],
