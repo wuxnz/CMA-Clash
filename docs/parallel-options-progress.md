@@ -1,12 +1,7 @@
 # Clinical skills parallel-options rewrite progress
 
-<<<<<<< HEAD
-Target: 546 clinical skills items, plus the same quality bar applied to the other
-certification banks.
-=======
 Target: 546 clinical skills items, plus the guard cleanup that the same quality bar
 implies for the other certification banks.
->>>>>>> 85595af9
 
 Every item now has four parallel options of comparable length, no giveaway absolutes
 ("only", "any", "never", "always", "random") in a distractor, no hedge on the keyed
@@ -26,33 +21,31 @@ answer, and exactly one defensible answer.
 | P08 | 42 | life_stages 001–042 | done |
 | P09 | 42 | emergency_aid 001–042 | done |
 | P10 | 42 | poct 001–042 | done |
-<<<<<<< HEAD
-| P11 | 253 | guard cleanup across the cpr, ekg, ccma, and phleb banks | done |
-
-**Completed at parallel-options standard:** all 546 clinical skills items.
-
-**Guard status:** all 52 checks in the seed quality suite pass, and the per-item
-audit reports zero findings across the whole 2172-question bank.
-
-## Branch structure note
-
-The CCMA consolidation on master folded the old `classquiz/seed/banks/diabetes.py` and
-`classquiz/seed/banks/supplement/diabetes_expansion.py` into
-`classquiz/seed/banks/ccma/diabetes.py`. The merge keeps that structure, so the
-ccma-diabetes topic is one file with 130 items.
-
-## What the cleanup changed outside the clinical skills bank
-
-* Every distractor in the bank was checked for giveaway absolutes, over-length options, and
-  for a keyed answer that reads as the only complete option.
-* Every quiz chunk was rebalanced so the keyed answer is not the long-and-complete option.
-=======
 | P11 | 253 | guard cleanup: cpr, ekg, ccma, phleb banks plus the legacy diabetes bank | done |
+| P12 | 251 | content-bar cleanup across all 45 topics | in progress |
 
 **Completed at parallel-options standard:** all 546 clinical skills items.
 
 **Other banks brought to the same bar:** 1493 items across cpr (313), ekg (253),
 ccma (590), and phleb (337).
+
+## P12, the content-bar cleanup
+
+P11 removed the mechanical tells (giveaway words, over-length options, unbalanced keyed
+answers). A content audit then found five residual defect classes that the mechanical
+guards did not cover, spread across all 45 topics:
+
+| Defect | Example |
+|--------|---------|
+| FRAGMENT stem | `Accounts receivable tracks?` |
+| TRACING stem | `How should A vaccine with cracked glass be assessed on the tracing?` |
+| HEDGE key | `Documented and reported per facility policy` |
+| Joke distractor | `Given to the staff as bonuses for the effort` |
+| LONGER key | keyed answer 20+ characters longer than every distractor |
+
+`scripts/report_content_bar.py` lists every affected item with all four options, and
+`scripts/audit_content_bar.py` reports the counts per topic. The rewrite standard is in
+`docs/content-bar-brief.md`.
 
 ## What the cleanup changed outside the clinical skills bank
 
@@ -61,24 +54,10 @@ ccma (590), and phleb (337).
   rewritten.
 * Every quiz chunk was rebalanced so the keyed answer is not the long-and-complete
   option. 217 items were rebalanced.
->>>>>>> 85595af9
 * Topic difficulty mixes were rebalanced to the 30/40/30 split.
 * Machine-generated fragment stems (for example `Type 1 diabetes mellitus is best
   described as:`) were rewritten as complete questions.
 * Canned template explanations were replaced with two specific sentences per item.
-<<<<<<< HEAD
-* The repeated auto-balance padding tails that the generator had bolted onto options
-  ("under typical outpatient policy.", "per facility policy.", "in a typical outpatient
-  clinic setting.", "for routine ambulatory patient care.") were removed.
-
-## Publishing
-
-`python -m classquiz.seed.runner` re-seeds the database from the banks in the code. The
-production API runs it on every boot (`AUTO_SEED_CONTENT=true`) and re-indexes
-Meilisearch when the index and the database disagree, so a deploy is what publishes
-question changes.
-=======
->>>>>>> 85595af9
 
 ## Tooling
 
@@ -97,14 +76,11 @@ is the option-hygiene standard.
 | `scripts/rebalance_difficulty.py` | rebalances the beginner/intermediate/advanced mix |
 | `scripts/generate_review_log.py` | generates per-item review-log lines from a git diff |
 | `scripts/audit_guard_failures.py` | lists the items that trip each repo guard |
-<<<<<<< HEAD
-| `scripts/peek_module.py`, `scripts/topic_items.py` | print the stems of a module or topic |
+| `scripts/report_content_bar.py` | lists the items that still carry a content-bar defect |
+| `scripts/audit_content_bar.py` | counts the content-bar defects per topic |
+| `scripts/sample_by_cert.py` | prints random items from one certification for review |
+| `scripts/peek_module.py` | prints the stems of one bank module |
+| `scripts/topic_items.py` | prints the stems of one topic with difficulty labels |
 
 Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass
-P01 through P11), plus `docs/question-review-log-ccma-rewrite.md`,
-`docs/question-review-log-cpr.md`, and `docs/question-review-log-ekg.md`.
-=======
-
-Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass
-P01 through P11).
->>>>>>> 85595af9
+P01 through P12).
