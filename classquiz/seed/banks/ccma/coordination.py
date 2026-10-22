@@ -200,7 +200,7 @@ FACTS: list[dict] = [
             'Confirming the claim for the consult was submitted',
             'Confirming the patient was told about the consult',
         ],
-        'Loop closure ensures continuity and safety because the results come back to the primary team. Confirming a scheduled visit, a submitted claim, or that the patient was told leaves the results unretrieved.',
+        'Loop closure ensures continuity and safety because the results come back to the primary team. Confirming the paperwork went out, a submitted claim, or that the patient was told leaves the results unretrieved.',
         [S.NHA_CCMA],
         'intermediate',
     ),

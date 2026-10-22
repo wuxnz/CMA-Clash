@@ -327,10 +327,10 @@ FACTS: list[dict] = [
         'Suspected abuse or neglect of vulnerable persons',
         [
             'Billing disputes over a balance owed to the clinic',
-            'Grooming choices the patient makes each morning',
+            'The patient refusing a scheduled screening',
             'Minor illnesses such as a cold seen in the clinic',
         ],
-        'State mandated reporting laws cover suspected abuse or neglect of children, older adults, and other vulnerable people. Billing disputes, grooming choices, and minor illnesses are not the conditions a reporting statute covers.',
+        'State mandated reporting laws cover suspected abuse or neglect of children, older adults, and other vulnerable people. Billing disputes, a refused screening, and minor illnesses are not the conditions a reporting statute covers.',
         [S.NHA_CCMA],
         'intermediate',
     ),
