@@ -70,7 +70,7 @@ SPDX-License-Identifier: MPL-2.0
 				onclick={() => (fullscreen_open = true)}
 				alt="QR code to join the game"
 				src="/api/v1/utils/qr/{game_pin}"
-				class="block mx-auto w-full max-w-xs bg-paper p-4 border border-line hover:cursor-pointer"
+				class="block mx-auto w-full max-w-xs bg-white p-4 border border-line hover:cursor-pointer"
 			/>
 			{#if cqc_code}
 				<div class="m-auto">
