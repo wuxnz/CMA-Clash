@@ -13,6 +13,8 @@ import {
 	parseQuestionResultsPayload,
 	computeResultsPhaseUntilMs,
 	shouldDeferSetQuestionDuringResults,
+	advanceResyncDelayMs,
+	isDuplicateQuestionResults,
 	questionFromSocketPayload
 } from './live-game';
 
@@ -140,6 +142,52 @@ describe('results phase deferral', () => {
 				nowMs: 10_000,
 				currentQuestionIndex: 0,
 				nextQuestionIndex: 1
+			})
+		).toBe(false);
+	});
+});
+
+describe('advance resync scheduling', () => {
+	it('waits for the local results phase, then the grace period', () => {
+		expect(advanceResyncDelayMs(20_000, 5_000, 3_000)).toBe(18_000);
+	});
+
+	it('uses only the grace period once the results phase has ended', () => {
+		expect(advanceResyncDelayMs(5_000, 20_000, 3_000)).toBe(3_000);
+	});
+});
+
+describe('isDuplicateQuestionResults', () => {
+	it('ignores a repeat payload for the same question already on screen', () => {
+		expect(
+			isDuplicateQuestionResults({
+				hasAnswerResults: true,
+				lastResultsQuestionIndex: 2,
+				resultsQuestionIndex: 2
+			})
+		).toBe(true);
+	});
+
+	it('accepts results for a new question or before any results exist', () => {
+		expect(
+			isDuplicateQuestionResults({
+				hasAnswerResults: true,
+				lastResultsQuestionIndex: 2,
+				resultsQuestionIndex: 3
+			})
+		).toBe(false);
+		expect(
+			isDuplicateQuestionResults({
+				hasAnswerResults: false,
+				lastResultsQuestionIndex: 2,
+				resultsQuestionIndex: 2
+			})
+		).toBe(false);
+		expect(
+			isDuplicateQuestionResults({
+				hasAnswerResults: true,
+				lastResultsQuestionIndex: null,
+				resultsQuestionIndex: null
 			})
 		).toBe(false);
 	});

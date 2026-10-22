@@ -229,3 +229,33 @@ export function isStaleQuestionResults(
 	}
 	return false;
 }
+
+/**
+ * A second `question_results` for the question already on screen (e.g. after a
+ * rejoin/resync) must not restart the reveal + scoreboard window, otherwise the
+ * player is still on the scoreboard while the server has already moved on.
+ */
+export function isDuplicateQuestionResults(opts: {
+	hasAnswerResults: boolean;
+	lastResultsQuestionIndex: number | null;
+	resultsQuestionIndex: number | null;
+}): boolean {
+	if (!opts.hasAnswerResults) return false;
+	if (opts.resultsQuestionIndex == null) return false;
+	if (opts.lastResultsQuestionIndex == null) return false;
+	if (!Number.isFinite(opts.resultsQuestionIndex)) return false;
+	if (!Number.isFinite(opts.lastResultsQuestionIndex)) return false;
+	return Number(opts.lastResultsQuestionIndex) === Number(opts.resultsQuestionIndex);
+}
+
+/**
+ * Wait until the local results phase is over (plus a grace period for the next
+ * question to arrive) before asking the server to resync a missed advance.
+ */
+export function advanceResyncDelayMs(
+	resultsPhaseUntilMs: number,
+	nowMs: number = Date.now(),
+	graceMs = 3000
+): number {
+	return Math.max(0, resultsPhaseUntilMs - nowMs) + Math.max(0, graceMs);
+}
