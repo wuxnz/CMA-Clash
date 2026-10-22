@@ -78,20 +78,34 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-	<main class="flex-1 max-w-3xl mx-auto w-full px-4 py-10">
-		<h1 class="text-2xl font-semibold text-ink tracking-tight">Leaderboard</h1>
-		<p class="text-sm text-ink-muted mt-1 mb-8">Weekly XP and all-time standings.</p>
+	<main class="flex-1 w-full px-4 sm:px-8 lg:px-12 max-w-[1200px] mx-auto py-16 lg:py-24">
+		<div
+			class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 border-b border-line pb-6"
+		>
+			<div>
+				<p class="eyebrow">Standings</p>
+				<h1
+					class="font-display text-[clamp(2.4rem,7vw,4.6rem)] leading-[0.92] tracking-[-0.04em] mt-3"
+				>
+					Leader<b class="font-normal text-primary">board</b>
+				</h1>
+			</div>
+			<p class="eyebrow text-right">Weekly XP and all-time standings</p>
+		</div>
 
-		<RetentionBar {streakDays} dailyGoalPercent={0} />
+		<div class="mt-6">
+			<RetentionBar {streakDays} dailyGoalPercent={0} />
+		</div>
 
-		<div class="flex gap-2 mt-8 mb-6" role="tablist">
+		<div class="flex gap-px bg-line border border-line mt-8 mb-8 w-fit" role="tablist">
 			<button
 				type="button"
 				role="tab"
 				aria-selected={tab === 'weekly'}
-				class="min-h-11 px-4 py-2 rounded-lg text-sm font-medium {tab === 'weekly'
+				class="min-h-11 px-5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] transition-colors {tab ===
+				'weekly'
 					? 'bg-primary text-white'
-					: 'bg-surface border border-ink/15 text-ink-muted'}"
+					: 'bg-paper text-ink-muted hover:bg-elevated'}"
 				onclick={() => (tab = 'weekly')}
 			>
 				Weekly
@@ -100,9 +114,10 @@ SPDX-License-Identifier: MPL-2.0
 				type="button"
 				role="tab"
 				aria-selected={tab === 'alltime'}
-				class="min-h-11 px-4 py-2 rounded-lg text-sm font-medium {tab === 'alltime'
+				class="min-h-11 px-5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] transition-colors {tab ===
+				'alltime'
 					? 'bg-primary text-white'
-					: 'bg-surface border border-ink/15 text-ink-muted'}"
+					: 'bg-paper text-ink-muted hover:bg-elevated'}"
 				onclick={() => (tab = 'alltime')}
 			>
 				All-time
@@ -110,18 +125,24 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 
 		{#if boardLoading}
-			<div class="animate-pulse space-y-3 mt-4" aria-busy="true" aria-label="Loading leaderboard">
+			<div
+				class="animate-pulse space-y-3 mt-4"
+				aria-busy="true"
+				aria-label="Loading leaderboard"
+			>
 				{#each [1, 2, 3, 4, 5] as n (n)}
-					<div class="h-10 rounded-lg bg-elevated"></div>
+					<div class="h-10 bg-elevated"></div>
 				{/each}
 			</div>
 		{:else if rows.length === 0}
-			<p class="text-sm text-ink-muted">No one has earned XP yet. Play a game or battle while logged in to appear here.</p>
+			<p class="text-sm text-ink-muted">
+				No one has earned XP yet. Play a game or battle while logged in to appear here.
+			</p>
 		{:else}
 			<Card class="mb-8">
 				<Podium entries={podium} />
 			</Card>
-			<LedgerTable rows={rows} caption="League standings" flip={true} />
+			<LedgerTable {rows} caption="League standings" flip={true} />
 		{/if}
 	</main>
 	<Footer />

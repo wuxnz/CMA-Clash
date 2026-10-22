@@ -25,27 +25,26 @@
 {#if streakDays > 0 || dailyGoalPercent > 0 || leagueName}
 	<div class="flex flex-wrap gap-3 text-sm">
 		{#if streakDays > 0}
-			<div
-				class="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-surface px-3 py-2"
-			>
-				<Flame class="w-4 h-4 text-gold shrink-0" aria-hidden="true" />
+			<div class="inline-flex items-center gap-2 border border-line bg-paper px-3 py-2">
+				<Flame class="w-4 h-4 text-primary shrink-0" aria-hidden="true" />
 				<span
-					><AnimatedCounter value={streakDays} duration={0.8} class="font-semibold" />-day streak</span
+					><AnimatedCounter value={streakDays} duration={0.8} class="font-semibold" />-day
+					streak</span
 				>
 			</div>
 		{/if}
 		{#if dailyGoalPercent > 0}
 			<div
-				class="inline-flex items-center gap-2 rounded-lg border border-ink/10 bg-surface px-3 py-2 min-w-[10rem]"
+				class="inline-flex items-center gap-2 border border-line bg-paper px-3 py-2 min-w-[10rem]"
 				data-demo-label={dailyGoalIsDemo ? 'true' : undefined}
 			>
-				<Target class="w-4 h-4 text-ink-muted shrink-0" aria-hidden="true" />
+				<Target class="w-4 h-4 text-ink-subtle shrink-0" aria-hidden="true" />
 				<span class="text-ink-muted shrink-0"
 					>Daily goal{dailyGoalIsDemo ? ' (demo)' : ''}</span
 				>
-				<div class="flex-1 h-2 rounded-full bg-paper-muted overflow-hidden">
+				<div class="flex-1 h-1.5 bg-elevated overflow-hidden">
 					<div
-						class="h-full bg-primary rounded-full transition-[width] duration-150 ease-linear"
+						class="h-full bg-primary transition-[width] duration-150 ease-linear"
 						style="width: {Math.min(100, dailyGoalPercent)}%"
 					></div>
 				</div>
@@ -54,7 +53,7 @@
 		{/if}
 		{#if leagueName}
 			<div
-				class="inline-flex items-center gap-2 rounded-lg border border-primary/30 bg-primary/5 px-3 py-2"
+				class="inline-flex items-center gap-2 border border-primary/40 bg-primary-soft px-3 py-2"
 				data-demo-label={leagueIsDemo ? 'true' : undefined}
 			>
 				<Medal class="w-4 h-4 text-primary shrink-0" aria-hidden="true" />

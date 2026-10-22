@@ -1,8 +1,5 @@
 <script lang="ts">
-	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
 	import TimerBar from '$lib/ui/TimerBar.svelte';
-	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
-	import type { AnswerShape } from '$lib/ui/tokens';
 	import { normalizeQuizText } from '$lib/cma/text';
 	export type ArenaAnswer = { answer: string; color?: string; right?: boolean };
 
@@ -53,24 +50,24 @@
 
 <div
 	data-testid="answer-tiles"
-	class="w-full bg-paper flex flex-col items-center px-4 sm:px-6 py-4 sm:py-6 {embedded
+	class="w-full bg-paper flex flex-col items-center px-4 sm:px-8 py-5 sm:py-8 {embedded
 		? 'h-full min-h-0'
 		: 'min-h-dvh'}"
 >
-	<div class="w-full max-w-[28rem] sm:max-w-xl flex flex-col gap-4 flex-1">
+	<div class="w-full max-w-[34rem] sm:max-w-2xl flex flex-col gap-5 flex-1">
 		{#if !hideQuestion && question}
 			<div class="flex flex-col gap-3 w-full">
 				{#if questionLabel}
 					<p
-						class="text-center text-xs sm:text-sm font-mono uppercase tracking-wide {battlePlayerLayout
+						class="text-xs sm:text-sm font-mono uppercase tracking-[0.18em] {battlePlayerLayout
 							? 'text-white/70'
-							: 'text-ink-muted'}"
+							: 'text-ink-subtle'}"
 					>
 						{questionLabel}
 					</p>
 				{/if}
 				{#if questionImage}
-					<div class="w-full max-h-40 sm:max-h-52 overflow-hidden rounded-xl border border-white/15">
+					<div class="w-full max-h-40 sm:max-h-52 overflow-hidden border border-line">
 						<img
 							src={questionImage.startsWith('http') || questionImage.startsWith('/')
 								? questionImage
@@ -82,7 +79,7 @@
 				{/if}
 				<p
 					data-testid="battle-question-text"
-					class="font-sans text-base sm:text-lg text-center font-semibold leading-snug text-balance wrap-break-word px-1 {battlePlayerLayout
+					class="font-display text-2xl sm:text-3xl leading-[1.14] tracking-[-0.03em] text-balance wrap-break-word px-0 {battlePlayerLayout
 						? 'text-white'
 						: 'text-ink'}"
 				>
@@ -91,8 +88,8 @@
 			</div>
 		{/if}
 
-		<div class="w-full rounded-xl border border-white/10 bg-surface/80 px-3 py-2.5 shadow-sm">
-			<TimerBar {remainingSeconds} {totalSeconds} showRing={showRing} />
+		<div class="w-full border border-line bg-paper px-3 py-2.5">
+			<TimerBar {remainingSeconds} {totalSeconds} {showRing} />
 			{#if answeredCount !== undefined}
 				<p class="text-center text-xs text-ink-muted font-mono tabular-nums mt-2">
 					{answeredCount} answered
@@ -100,44 +97,44 @@
 			{/if}
 		</div>
 
-		<div class="grid grid-cols-2 gap-2.5 sm:gap-3 pb-4 auto-rows-fr">
+		<div class="grid grid-cols-2 gap-px bg-line border border-line pb-4 auto-rows-fr">
 			{#each answers as ans, i}
-				{@const color = ans.color ?? LEDGER_ANSWER_COLORS[i]}
 				{#if interactive}
 					<button
 						type="button"
-						class="rounded-2xl flex flex-col items-center justify-center gap-2 px-3 py-4 min-h-[5.5rem] max-h-[9.5rem] text-white font-bold press-scale border border-white/15 shadow-md {selected ===
+						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 min-h-[6rem] max-h-[11rem] text-ink text-left press-scale border-0 transition-colors duration-200 {selected ===
 						ans.answer
-							? 'ring-4 ring-gold'
-							: ''}"
-						style="background:{color}"
+							? 'bg-primary-soft shadow-[inset_3px_0_0_0_var(--color-primary)]'
+							: 'hover:bg-elevated'} {disabled ? 'opacity-60' : ''}"
 						disabled={disabled || selected !== undefined}
 						onclick={() => {
-							if (typeof navigator !== 'undefined' && navigator.vibrate) navigator.vibrate(12);
+							if (typeof navigator !== 'undefined' && navigator.vibrate)
+								navigator.vibrate(12);
 							onSelect?.(ans.answer);
 						}}
 					>
-						<AnswerShapeIcon
-							shape={LEDGER_ANSWER_SHAPES[i] as AnswerShape}
-							class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 text-white drop-shadow"
-						/>
 						<span
-							class="text-sm sm:text-base text-center leading-snug line-clamp-4 text-white font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.55)] [&_*]:!text-white"
+							class="font-mono text-[0.7rem] tracking-[0.2em] {selected === ans.answer
+								? 'text-primary'
+								: 'text-ink-subtle'}"
+						>
+							{String.fromCharCode(65 + i)}
+						</span>
+						<span
+							class="text-sm sm:text-base leading-snug line-clamp-4 font-medium [&_*]:!text-ink"
 						>
 							{@html normalizeQuizText(ans.answer)}
 						</span>
 					</button>
 				{:else}
 					<div
-						class="rounded-2xl flex flex-col items-center justify-center gap-2 px-3 py-4 min-h-[5.5rem] max-h-[9.5rem] text-white font-bold border border-white/15 shadow-md"
-						style="background:{color}"
+						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 min-h-[6rem] max-h-[11rem] text-ink"
 					>
-						<AnswerShapeIcon
-							shape={LEDGER_ANSWER_SHAPES[i] as AnswerShape}
-							class="w-8 h-8 sm:w-10 sm:h-10 shrink-0 text-white drop-shadow"
-						/>
+						<span class="font-mono text-[0.7rem] tracking-[0.2em] text-ink-subtle">
+							{String.fromCharCode(65 + i)}
+						</span>
 						<span
-							class="text-sm sm:text-base text-center leading-snug line-clamp-4 text-white font-bold [text-shadow:0_1px_3px_rgba(0,0,0,0.55)] [&_*]:!text-white"
+							class="text-sm sm:text-base leading-snug line-clamp-4 font-medium [&_*]:!text-ink"
 						>
 							{@html normalizeQuizText(ans.answer)}
 						</span>

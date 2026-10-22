@@ -51,7 +51,11 @@
 					absolute: true,
 					nested: true,
 					onEnter: (els) =>
-						gsap.fromTo(els, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35 }),
+						gsap.fromTo(
+							els,
+							{ opacity: 0, y: 8 },
+							{ opacity: 1, y: 0, duration: 0.35 }
+						),
 					onLeave: (els) => gsap.to(els, { opacity: 0, duration: 0.2 })
 				});
 			})();
@@ -60,25 +64,34 @@
 	});
 </script>
 
-<div class="rounded-xl border border-ink/10 bg-surface overflow-hidden shadow-sm">
+<div class="border border-line bg-paper overflow-hidden">
 	<table class="w-full text-sm" aria-label={caption}>
-		<thead class="bg-paper-muted/80 text-ink-muted text-left">
+		<thead class="bg-paper-muted text-ink-subtle text-left">
 			<tr>
-				<th class="px-3 py-2 font-medium w-12">#</th>
-				<th class="px-3 py-2 font-medium">Player</th>
-				<th class="px-3 py-2 font-medium text-right">Score</th>
+				<th
+					class="px-3 py-2.5 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em] w-12"
+					>#</th
+				>
+				<th
+					class="px-3 py-2.5 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em]"
+					>Player</th
+				>
+				<th
+					class="px-3 py-2.5 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em] text-right"
+					>Score</th
+				>
 			</tr>
 		</thead>
 		<tbody bind:this={tbodyRef}>
 			{#each rows as row (row.name)}
 				<tr
 					data-testid="scoreboard-row"
-					class="border-t border-ink/5 transition-colors {row.isYou
-						? 'bg-primary/10 font-medium'
-						: 'hover:bg-paper-muted/50'}"
+					class="border-t border-line transition-colors {row.isYou
+						? 'bg-primary-soft font-medium'
+						: 'hover:bg-elevated'}"
 				>
-					<td class="px-3 py-2.5 font-mono tabular-nums text-ink-muted">{row.rank}</td>
-					<td class="px-3 py-2.5 text-ink">
+					<td class="px-3 py-3 font-mono tabular-nums text-ink-subtle">{row.rank}</td>
+					<td class="px-3 py-3 text-ink">
 						{row.name}
 						{#if row.delta !== undefined && row.delta !== 0}
 							<span
@@ -91,7 +104,7 @@
 							</span>
 						{/if}
 					</td>
-					<td class="px-3 py-2.5 text-right font-mono tabular-nums">
+					<td class="px-3 py-3 text-right font-mono tabular-nums">
 						{#if scoreAsNumber(row.score) !== null}
 							<AnimatedCounter value={scoreAsNumber(row.score)!} duration={0.9} />
 						{:else}

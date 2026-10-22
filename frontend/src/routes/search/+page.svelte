@@ -6,6 +6,7 @@
 	import BrowseFilters from '$lib/quiz/BrowseFilters.svelte';
 	import QuizBrowseList from '$lib/quiz/QuizBrowseList.svelte';
 	import QuizBrowseSkeleton from '$lib/quiz/QuizBrowseSkeleton.svelte';
+	import PageHeader from '$lib/ui/PageHeader.svelte';
 	import {
 		fetchCerts,
 		fetchClashCatalog,
@@ -95,13 +96,17 @@
 			]);
 			if (useMeili) {
 				const next = rowsFromMeili(meili.hits, catalog, certs, cert, difficulty, sort);
-				rows = reset ? next : [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
+				rows = reset
+					? next
+					: [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
 				offset = nextOffset + meili.hits.length;
 				hasMore = meili.hits.length >= searchPageSize();
 			} else {
 				const users = userMapFromHits(meili.hits);
 				const next = rowsFromClash(clashPage, certs, users, sort);
-				rows = reset ? next : [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
+				rows = reset
+					? next
+					: [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
 				page = nextPage;
 				hasMore = clashPage.length >= searchPageSize();
 			}
@@ -154,11 +159,17 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
-	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0">
-		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Search</h1>
+	<div class="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pt-14 lg:pt-20 pb-20 min-w-0">
+		<PageHeader
+			eyebrow="Search"
+			title="Find a set,"
+			accent="find a topic."
+			lede="Search every public question set by keyword, then narrow by certification or difficulty."
+			meta="Full-text index"
+		/>
 
 		<form
-			class="mt-5 flex flex-col sm:flex-row gap-2 min-w-0"
+			class="mt-2 flex flex-col sm:flex-row gap-2 min-w-0 max-w-2xl"
 			onsubmit={(e) => {
 				e.preventDefault();
 				if (!tooShort) runSearch(true);
@@ -171,7 +182,7 @@
 				bind:value={search_term}
 				oninput={onInput}
 				type="search"
-				class="ledger-input min-h-12 text-base"
+				class="ledger-input min-h-14 text-lg"
 				placeholder="Search quizzes"
 				autocomplete="off"
 				data-search-input
@@ -184,11 +195,11 @@
 			<p class="text-sm text-ink-muted mt-2">Enter at least 3 characters.</p>
 		{/if}
 
-		<div class="mt-6 min-w-0">
+		<div class="mt-8 min-w-0">
 			<BrowseFilters bind:cert bind:difficulty bind:sort />
 		</div>
 
-		<div class="mt-8 min-w-0">
+		<div class="mt-10 min-w-0">
 			{#if loading}
 				<QuizBrowseSkeleton ariaLabel="Loading results" />
 			{:else if rows.length === 0}
@@ -197,7 +208,11 @@
 					<p class="text-sm text-ink-muted mt-1">
 						{#if searchError}
 							{searchError}
-							<button type="button" class="text-ink link-hover min-h-11" onclick={() => runSearch(true)}>
+							<button
+								type="button"
+								class="text-ink link-hover min-h-11"
+								onclick={() => runSearch(true)}
+							>
 								Retry
 							</button>
 						{:else}
@@ -207,7 +222,9 @@
 								Search on
 								<a
 									class="text-ink link-hover"
-									href="https://create.kahoot.it/search?query={encodeURIComponent(search_term)}&tags=test&filter=filter%3D1"
+									href="https://create.kahoot.it/search?query={encodeURIComponent(
+										search_term
+									)}&tags=test&filter=filter%3D1"
 									target="_blank"
 									rel="noreferrer">Kahoot!</a
 								>

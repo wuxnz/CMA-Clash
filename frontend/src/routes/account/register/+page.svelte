@@ -13,10 +13,8 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import Spinner from '$lib/Spinner.svelte';
 	import { focusTrap } from '$lib/ui/focusTrap';
-	import {
-		registerConflictFromResponse,
-		registerConflictMessage
-	} from '$lib/registerApiErrors';
+	import AuthShell from '$lib/ui/AuthShell.svelte';
+	import { registerConflictFromResponse, registerConflictMessage } from '$lib/registerApiErrors';
 
 	const { t } = getLocalization();
 	import reporter from '@felte/reporter-tippy';
@@ -51,7 +49,9 @@ SPDX-License-Identifier: MPL-2.0
 
 	let serverFieldError = $state<{ field: 'email' | 'username'; message: string } | null>(null);
 
-	const { form, errors, isValid, isSubmitting } = createForm<yup.InferType<typeof registerSchema>>({
+	const { form, errors, isValid, isSubmitting } = createForm<
+		yup.InferType<typeof registerSchema>
+	>({
 		validate: validateSchema(registerSchema),
 		extend: [reporter()],
 		onSubmit: async (values) => {
@@ -102,65 +102,86 @@ SPDX-License-Identifier: MPL-2.0
 
 	const heading = $derived(
 		responseData.data === 'error'
-				? 'Unexpected error'
-				: responseData.data === '200'
-					? 'Check your email'
-					: responseData.data === '400'
-						? 'Email not accepted'
-						: 'Something went wrong'
+			? 'Unexpected error'
+			: responseData.data === '200'
+				? 'Check your email'
+				: responseData.data === '400'
+					? 'Email not accepted'
+					: 'Something went wrong'
 	);
 </script>
 
 <svelte:head>
 	<title>CMA Clash: Register</title>
 </svelte:head>
-<div class="flex items-center justify-center min-h-[80vh] px-4">
-	<div
-		class="w-full max-w-sm mx-auto overflow-hidden bg-surface rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
+<div class="min-h-screen flex flex-col">
+	<AuthShell
+		eyebrow="Create account"
+		title="Start your"
+		accent="streak today."
+		lede="An account keeps your XP, your streak and your topic mastery across every device."
+		points={[
+			{
+				label: 'Keep your progress',
+				body: 'XP, streaks and mastery charts sync to your profile on every device.'
+			},
+			{
+				label: 'Climb the ladder',
+				body: 'Weekly and all-time leaderboards for every certification on the platform.'
+			},
+			{
+				label: 'Your own question sets',
+				body: 'Import, edit and host private sets for your cohort or study group.'
+			}
+		]}
 	>
-		<div class="px-6 py-6">
-			<h1 class="text-xl font-semibold text-ink tracking-tight text-center">Create account</h1>
+		<div class="px-6 py-7 sm:px-8 sm:py-8">
+			<p class="eyebrow mb-5">Register</p>
 
-			<form use:form class="mt-6 space-y-4">
+			<form use:form class="space-y-5">
 				<div>
-					<label class="text-sm font-medium text-ink" for="email">{$t('words.email')}</label>
+					<label class="eyebrow block" for="email">{$t('words.email')}</label>
 					<input
 						id="email"
 						name="email"
 						type="email"
-						class="ledger-input mt-1 min-h-11"
+						class="ledger-input mt-2 min-h-11"
 						placeholder={$t('words.email')}
 						autocomplete="email"
 					/>
 					{#if serverFieldError?.field === 'email'}
-						<p class="text-xs text-danger mt-1" role="alert">{serverFieldError.message}</p>
+						<p class="text-xs text-danger mt-1" role="alert">
+							{serverFieldError.message}
+						</p>
 					{:else if $errors.email?.length}
 						<p class="text-xs text-danger mt-1">{$errors.email[0]}</p>
 					{/if}
 				</div>
 				<div>
-					<label class="text-sm font-medium text-ink" for="username">{$t('words.username')}</label>
+					<label class="eyebrow block" for="username">{$t('words.username')}</label>
 					<input
 						id="username"
 						name="username"
 						type="text"
-						class="ledger-input mt-1 min-h-11"
+						class="ledger-input mt-2 min-h-11"
 						placeholder={$t('words.username')}
 						autocomplete="username"
 					/>
 					{#if serverFieldError?.field === 'username'}
-						<p class="text-xs text-danger mt-1" role="alert">{serverFieldError.message}</p>
+						<p class="text-xs text-danger mt-1" role="alert">
+							{serverFieldError.message}
+						</p>
 					{:else if $errors.username?.length}
 						<p class="text-xs text-danger mt-1">{$errors.username[0]}</p>
 					{/if}
 				</div>
 				<div>
-					<label class="text-sm font-medium text-ink" for="password1">{$t('words.password')}</label>
+					<label class="eyebrow block" for="password1">{$t('words.password')}</label>
 					<input
 						id="password1"
 						name="password1"
 						type="password"
-						class="ledger-input mt-1 min-h-11"
+						class="ledger-input mt-2 min-h-11"
 						placeholder={$t('words.password')}
 						autocomplete="new-password"
 					/>
@@ -169,12 +190,14 @@ SPDX-License-Identifier: MPL-2.0
 					{/if}
 				</div>
 				<div>
-					<label class="text-sm font-medium text-ink" for="password2">{$t('words.repeat_password')}</label>
+					<label class="eyebrow block" for="password2"
+						>{$t('words.repeat_password')}</label
+					>
 					<input
 						id="password2"
 						name="password2"
 						type="password"
-						class="ledger-input mt-1 min-h-11"
+						class="ledger-input mt-2 min-h-11"
 						placeholder={$t('words.password')}
 						autocomplete="new-password"
 					/>
@@ -186,7 +209,8 @@ SPDX-License-Identifier: MPL-2.0
 					<input type="checkbox" name="privacy_accept" class="mt-1" />
 					<span>
 						I've read the
-						<a href="/docs/privacy-policy" class="text-ink link-hover">privacy policy</a>.
+						<a href="/docs/privacy-policy" class="text-ink link-hover">privacy policy</a
+						>.
 					</span>
 				</label>
 				<label class="flex items-start gap-3 min-h-11 text-sm text-ink-muted">
@@ -197,7 +221,7 @@ SPDX-License-Identifier: MPL-2.0
 					</span>
 				</label>
 
-				<div class="flex items-center justify-between gap-3 pt-2">
+				<div class="flex items-center justify-between gap-3 pt-3 border-t border-line">
 					<a
 						href="/account/reset-password"
 						class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
@@ -215,13 +239,16 @@ SPDX-License-Identifier: MPL-2.0
 			</form>
 		</div>
 
-		<div class="flex items-center justify-center py-4 text-center bg-paper-muted">
+		<div
+			class="flex items-center justify-center py-4 px-6 text-center border-t border-line bg-paper-muted"
+		>
 			<span class="text-sm text-ink-muted">{$t('register_page.already_have_account?')}</span>
-			<a href="/account/login" class="mx-2 text-sm text-ink link-hover">{$t('words.login')}</a>
+			<a href="/account/login" class="mx-2 text-sm text-ink link-hover">{$t('words.login')}</a
+			>
 		</div>
-	</div>
+	</AuthShell>
+	<Footer />
 </div>
-<Footer />
 
 {#if responseData.open}
 	<div

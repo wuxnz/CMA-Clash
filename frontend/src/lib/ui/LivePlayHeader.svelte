@@ -10,12 +10,14 @@
 </script>
 
 <header
-	class="flex flex-wrap items-center justify-between gap-2 px-4 py-3 border-b border-ink/10 bg-surface/95 backdrop-blur-sm"
+	class="flex flex-wrap items-center justify-between gap-2 px-4 sm:px-8 py-3 border-b border-line bg-paper/95 backdrop-blur-sm"
 >
-	<div class="flex items-baseline gap-2 min-w-0">
-		<span class="font-display font-bold text-lg text-ink shrink-0">CMA Clash</span>
+	<div class="flex items-baseline gap-3 min-w-0">
+		<span class="font-display text-lg text-ink shrink-0"
+			>CMA <em class="italic font-normal">Clash</em></span
+		>
 		{#if pin}
-			<span class="text-xs text-ink-muted truncate">
+			<span class="eyebrow truncate">
 				Live · PIN <span class="font-mono tabular-nums">{pin}</span>
 			</span>
 		{/if}

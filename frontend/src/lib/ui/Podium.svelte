@@ -97,7 +97,7 @@
 			particleCount: 90,
 			spread: 75,
 			origin: { y: 0.62 },
-			colors: ['#C8FF2E', '#7B5CFF', '#FF3B5C', '#22D3EE']
+			colors: ['#2F6BFF', '#7DB2FF', '#4ADE80', '#F4F4F5']
 		});
 		setTimeout(
 			() => confetti({ particleCount: 45, angle: 60, spread: 55, origin: { x: 0 } }),
@@ -153,31 +153,27 @@
 </script>
 
 <div
-	class="relative flex flex-col items-center px-2 sm:px-4 {compact
-		? 'gap-2 py-1'
-		: 'gap-6 py-8'}"
+	class="relative flex flex-col items-center px-2 sm:px-4 {compact ? 'gap-2 py-1' : 'gap-6 py-8'}"
 	aria-label="Final standings"
 	data-testid="podium-root"
 >
 	<div
 		class="pointer-events-none absolute inset-0"
-		style="background: radial-gradient(ellipse at 50% 70%, rgba(200,255,46,0.18), transparent 55%);"
+		style="background: radial-gradient(ellipse at 50% 70%, color-mix(in oklch, var(--color-primary) 16%, transparent), transparent 55%);"
 		aria-hidden="true"
 	></div>
 	{#if phase === 'countdown' && !reduced}
 		<p
-			class="font-display font-bold text-primary tabular-nums {compact
-				? 'text-4xl'
-				: 'text-6xl'}"
+			class="font-display text-primary tabular-nums {compact ? 'text-4xl' : 'text-6xl'}"
 			in:fade={{ duration: 200 }}
 			aria-live="polite"
 		>
 			{countdown}
 		</p>
 	{:else if !reduced}
-		<div class="flex items-center gap-2 text-gold" in:fade={{ duration: 300 }}>
+		<div class="flex items-center gap-2 text-primary" in:fade={{ duration: 300 }}>
 			<Trophy class="w-5 h-5" aria-hidden="true" />
-			<div class="h-1 w-24 rounded-full bg-gold/60" aria-hidden="true"></div>
+			<div class="h-px w-24 bg-primary/60" aria-hidden="true"></div>
 		</div>
 	{/if}
 
@@ -190,7 +186,9 @@
 			{#if col.visible}
 				<div
 					class="flex flex-col items-center min-w-0 w-full"
-					in:fly={reduced ? { duration: 0 } : { y: col.flyY, delay: col.flyDelay ?? 0, duration: 500 }}
+					in:fly={reduced
+						? { duration: 0 }
+						: { y: col.flyY, delay: col.flyDelay ?? 0, duration: 500 }}
 				>
 					<div
 						class="w-full shrink-0 text-center mb-1 sm:mb-2 {compact
@@ -222,18 +220,21 @@
 					</div>
 					<div
 						data-testid="podium-pedestal-{col.place}"
-						class="w-full box-border rounded-t-lg sm:rounded-t-xl flex flex-col justify-end text-center shadow-sm border-2 {col.heightClass} {col.place ===
+						class="w-full box-border flex flex-col justify-end text-center border {col.heightClass} {col.place ===
 						'1'
-							? 'bg-gold/20 border-gold shadow-md relative overflow-hidden'
-							: 'bg-surface border-transparent'}"
+							? 'bg-primary-soft border-primary relative overflow-hidden'
+							: 'bg-paper border-line'}"
 					>
 						{#if col.place === '1'}
-							<div class="absolute inset-x-0 top-0 h-0.5 sm:h-1 bg-gold" aria-hidden="true"></div>
+							<div
+								class="absolute inset-x-0 top-0 h-1 bg-primary"
+								aria-hidden="true"
+							></div>
 						{/if}
 						<p
-							class="font-mono font-bold pb-1 sm:pb-2 {col.place === '1'
-								? 'text-gold'
-								: 'text-ink-muted'} {compact
+							class="font-mono pb-1 sm:pb-2 {col.place === '1'
+								? 'text-primary'
+								: 'text-ink-subtle'} {compact
 								? col.place === '1'
 									? 'text-xl sm:text-3xl'
 									: 'text-lg sm:text-2xl'
