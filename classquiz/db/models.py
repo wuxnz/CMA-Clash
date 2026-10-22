@@ -39,7 +39,7 @@ class User(ormar.Model):
     The user model in the database
     """
 
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     email: str = ormar.String(unique=True, max_length=100)
     username: str = ormar.String(unique=True, max_length=100)
     password: Optional[str] = ormar.String(max_length=100, nullable=True)
@@ -94,7 +94,7 @@ class UserSession(ormar.Model):
     The user session model for user-sessions
     """
 
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4())
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4)
     user: Optional[User] = ormar.ForeignKey(User, ondelete=ReferentialAction.CASCADE)
     session_key: str = ormar.String(unique=True, max_length=64)
     created_at: datetime = ormar.DateTime(default=datetime.now())
@@ -183,7 +183,7 @@ class QuizInput(BaseModel):
 
 
 class Quiz(ormar.Model):
-    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4(), nullable=False, unique=True)
+    id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4, nullable=False, unique=True)
     public: bool = ormar.Boolean(default=False)
     title: str = ormar.Text()
     description: str = ormar.Text(nullable=True)
@@ -215,7 +215,7 @@ class Quiz(ormar.Model):
 
 
 class InstanceData(ormar.Model):
-    instance_id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4(), nullable=False, unique=True)
+    instance_id: uuid.UUID = ormar.UUID(primary_key=True, default=uuid.uuid4, nullable=False, unique=True)
 
     ormar_config = ormar.OrmarConfig(
         tablename="instance_data",

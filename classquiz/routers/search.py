@@ -65,6 +65,55 @@ def _wildcard_query(query: str) -> bool:
     return query in ("*", "")
 
 
+# Upper bound for the question-text scan, so a large library cannot stall a search.
+_QUESTION_SCAN_LIMIT = 2000
+
+
+async def _postgres_taxonomy_matches(query: str) -> list[Quiz]:
+    """Public quizzes whose certification or topic name contains the query."""
+    from classquiz.db.cma_models import Certification, Topic
+
+    certifications = await Certification.objects.filter(name__icontains=query).all()
+    topics = await Topic.objects.filter(name__icontains=query).all()
+    cert_ids = [cert.id for cert in certifications]
+    topic_ids = [topic.id for topic in topics]
+    if not cert_ids and not topic_ids:
+        return []
+    matches: dict[Any, Quiz] = {}
+    if cert_ids:
+        for quiz in await Quiz.objects.filter(public=True).filter(certification_id__in=cert_ids).all():
+            matches[quiz.id] = quiz
+    if topic_ids:
+        for quiz in await Quiz.objects.filter(public=True).filter(topic_id__in=topic_ids).all():
+            matches[quiz.id] = quiz
+    return list(matches.values())
+
+
+async def _postgres_question_matches(query: str) -> list[Quiz]:
+    """Public quizzes whose question text contains the query."""
+    from classquiz.helpers import quiz_question_text
+
+    needle = query.lower()
+    matches: list[Quiz] = []
+    offset = 0
+    page_size = 100
+    while offset < _QUESTION_SCAN_LIMIT:
+        page = (
+            await Quiz.objects.filter(public=True)
+            .order_by("created_at")
+            .offset(offset)
+            .limit(page_size)
+            .all()
+        )
+        if not page:
+            break
+        for quiz in page:
+            if needle in quiz_question_text(quiz).lower():
+                matches.append(quiz)
+        offset += page_size
+    return matches
+
+
 async def _postgres_search(query: str, params: dict) -> dict[str, Any]:
     offset = int(params.get("offset") or 0)
     limit = int(params.get("limit") or 20)
@@ -95,6 +144,14 @@ async def _postgres_search(query: str, params: dict) -> dict[str, Any]:
                 .limit(limit)
                 .all()
             )
+        if not quizzes:
+            # The topic lives in the certification/topic names or in the question
+            # text, so a title/description miss must not end the search.
+            matches = await _postgres_taxonomy_matches(query)
+            if not matches:
+                matches = await _postgres_question_matches(query)
+            matches.sort(key=lambda quiz: quiz.created_at, reverse=desc)
+            quizzes = matches[offset : offset + limit]
 
     hits: list[dict[str, Any]] = []
     for quiz in quizzes:
