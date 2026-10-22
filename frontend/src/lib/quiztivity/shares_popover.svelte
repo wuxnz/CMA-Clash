@@ -29,7 +29,7 @@ SPDX-License-Identifier: MPL-2.0
 		expire_in?: number;
 		quiztivity: { id: string };
 		user: { id: string };
-	}> => {
+	}[]> => {
 		const res = await fetch(`/api/v1/quiztivity/${id}/shares`);
 		return await res.json();
 	};
@@ -167,7 +167,7 @@ SPDX-License-Identifier: MPL-2.0
 		{#await loaded_shares}
 			<Spinner />
 		{:then shares}
-			{#each shares as share}
+			{#each shares as share (share.id)}
 				<div class="grid grid-cols-4 w-full gap-2" in:fade|global={{ duration: 50 }}>
 					<!--                    <p>{share.name ?? "..."}</p>-->
 					<div class="w-full mx-auto">

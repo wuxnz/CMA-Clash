@@ -16,7 +16,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div class="flex flex-col p-2">
-	{#each data.quizzes as quiz}
+	{#each data.quizzes as quiz (quiz.id)}
 		<div class="border-2 border-[#B07156] rounded-sm w-full h-[20vh] p-2 flex flex-col gap-2">
 			<div class="grid grid-cols-3 h-full">
 				<div class="hidden lg:flex w-auto h-full items-center relative">

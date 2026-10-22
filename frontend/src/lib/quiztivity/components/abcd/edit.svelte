@@ -34,7 +34,7 @@ SPDX-License-Identifier: MPL-2.0
 		/>
 	</div>
 	<div class="grid grid-cols-2 m-4 gap-4">
-		{#each data.answers as answer}
+		{#each data.answers as answer (answer.answer)}
 			<div class="rounded-sm p-6 bg-elevated flex">
 				<input
 					bind:value={answer.answer}

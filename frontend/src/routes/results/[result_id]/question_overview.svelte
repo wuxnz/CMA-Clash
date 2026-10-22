@@ -58,7 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="w-full flex justify-center">
 	<div class="flex flex-col w-full gap-4">
-		{#each questions as question, i}
+		{#each questions as question, i (i)}
 			<div class="transition-all">
 				<div
 					class="w-full bg-white/60 p-2 rounded-sm grid grid-cols-3 z-40 bg-elevated/80"

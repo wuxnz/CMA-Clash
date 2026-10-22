@@ -6,6 +6,8 @@ SPDX-License-Identifier: MPL-2.0
 
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import type { PageData } from './$types';
 	import Button from '$lib/ui/Button.svelte';
 	import Spinner from '$lib/Spinner.svelte';
@@ -42,7 +44,7 @@ SPDX-License-Identifier: MPL-2.0
 		});
 		if (res.ok) {
 			const json = await res.json();
-			goto(`/account/controllers/add/wait?id=${json.id}&code=${json.code}`);
+			goto(resolve(`/account/controllers/add/wait?id=${json.id}&code=${json.code}` as Pathname));
 		}
 		isSubmitting = false;
 	};
@@ -91,7 +93,7 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 		<div class="flex items-center justify-center py-4 text-center bg-paper-muted px-4">
 			<span class="text-sm text-ink-muted">Don't know what this is?</span>
-			<a href="/controller" class="mx-2 text-sm text-ink link-hover">Read more</a>
+			<a href={resolve('/controller')} class="mx-2 text-sm text-ink link-hover">Read more</a>
 		</div>
 	</div>
 </div>

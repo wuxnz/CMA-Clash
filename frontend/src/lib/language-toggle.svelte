@@ -154,7 +154,7 @@ SPDX-License-Identifier: MPL-2.0
 		class="ledger-input w-auto min-h-11 text-sm"
 		aria-label="Language"
 	>
-		{#each languages as lang}
+		{#each languages as lang (lang.code)}
 			<option value={lang.code}>{lang.flag} {lang.name} </option>
 		{/each}
 	</select>

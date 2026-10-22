@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import LanguageToggle from './language-toggle.svelte';
 </script>
 
@@ -22,15 +23,15 @@ SPDX-License-Identifier: MPL-2.0
 			class="flex flex-wrap items-center justify-start gap-x-6 gap-y-1 text-sm"
 			aria-label="Footer"
 		>
-			<a href="/docs" class="min-h-11 inline-flex items-center text-ink-muted link-hover"
+			<a href={resolve('/docs')} class="min-h-11 inline-flex items-center text-ink-muted link-hover"
 				>Docs</a
 			>
 			<a
-				href="/docs/privacy-policy"
+				href={resolve('/docs/privacy-policy')}
 				class="min-h-11 inline-flex items-center text-ink-muted link-hover">Privacy</a
 			>
 			<a
-				href="/docs/attribution"
+				href={resolve('/docs/attribution')}
 				class="min-h-11 inline-flex items-center text-ink-muted link-hover">Attribution</a
 			>
 		</nav>

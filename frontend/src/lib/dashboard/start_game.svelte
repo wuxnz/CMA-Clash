@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { captcha_enabled } from '$lib/config';
 	import { onMount } from 'svelte';
 	import Button from '$lib/ui/Button.svelte';
@@ -92,7 +93,7 @@ SPDX-License-Identifier: MPL-2.0
 			loading = false;
 			return;
 		}
-		const plausible = (window as Window & { plausible?: (...args: unknown[]) => void }).plausible;
+		const plausible = (window as Window & { plausible?: (..._args: unknown[]) => void }).plausible;
 		plausible?.('Started Game', { props: { quiz_id, game_id: result.game_id } });
 		window.location.assign(adminLobbyUrl(result));
 	};
@@ -191,7 +192,7 @@ SPDX-License-Identifier: MPL-2.0
 						<p class="text-sm text-ink">Quiz controllers</p>
 						<p class="text-xs text-ink-muted mt-0.5">
 							Allow physical clickers.
-							<a href="/controller" class="text-ink link-hover" target="_blank" rel="noreferrer">Learn more</a>
+							<a href={resolve('/controller')} class="text-ink link-hover" target="_blank" rel="noreferrer">Learn more</a>
 						</p>
 					</div>
 					<Toggle bind:checked={cqcs_enabled} label="Quiz controllers" />

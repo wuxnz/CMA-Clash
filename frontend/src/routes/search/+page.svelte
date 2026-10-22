@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import StartGamePopup from '$lib/dashboard/start_game.svelte';
@@ -19,6 +20,7 @@
 		type BrowseRow
 	} from '$lib/quiz/browse';
 	import { onMount } from 'svelte';
+	import { SvelteURLSearchParams } from 'svelte/reactivity';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -48,7 +50,7 @@
 	const useMeili = $derived(search_term.trim().length >= 3);
 
 	function syncUrl() {
-		const params = new URLSearchParams();
+		const params = new SvelteURLSearchParams();
 		if (search_term.trim()) params.set('q', search_term.trim());
 		if (cert) params.set('cert', cert);
 		if (difficulty) params.set('difficulty', difficulty);
@@ -217,7 +219,7 @@
 							</button>
 						{:else}
 							Try another term, or
-							<a href="/import" class="text-ink link-hover">import</a> a set.
+							<a href={resolve('/import')} class="text-ink link-hover">import</a> a set.
 							{#if search_term.trim().length >= 3}
 								Search on
 								<a

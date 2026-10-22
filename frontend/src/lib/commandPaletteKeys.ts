@@ -11,7 +11,7 @@ export function applyPaletteTabAutocomplete(
 	open: boolean,
 	event: Pick<KeyboardEvent, 'preventDefault'>,
 	bgText: string,
-	setInput: (value: string) => void
+	setInput: (_value: string) => void
 ): void {
 	if (!paletteShortcutActive(open)) {
 		return;

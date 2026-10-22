@@ -19,6 +19,8 @@ SPDX-License-Identifier: MPL-2.0
 	import PlayerChip from '$lib/ui/PlayerChip.svelte';
 	import CountdownRing from '$lib/ui/CountdownRing.svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { fly } from 'svelte/transition';
 	import { prefersReducedMotion } from '$lib/ui/motion';
 
@@ -151,7 +153,7 @@ SPDX-License-Identifier: MPL-2.0
 			guestPlayerId: getBattleGuestPlayerId()
 		});
 		if (!pin) return;
-		goto(`/play?pin=${pin}`);
+		goto(resolve(`/play?pin=${pin}` as Pathname));
 	}
 
 	function enterGameFromLobby() {

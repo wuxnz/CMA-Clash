@@ -15,7 +15,6 @@ SPDX-License-Identifier: MPL-2.0
 	import Pikaso from 'pikaso';
 	import EditMenu from './slides/edit_menu.svelte';
 	import type { Konva, ShapeModel } from 'pikaso';
-	import { browser } from '$app/environment';
 
 	interface Props {
 		data?: Question;

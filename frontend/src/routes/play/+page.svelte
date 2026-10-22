@@ -174,7 +174,6 @@ SPDX-License-Identifier: MPL-2.0
 	let revealTimer: ReturnType<typeof setTimeout> | undefined;
 	let standingsTop = $state<StandingsRow[]>([]);
 	let revealHoldMs = $state(8000);
-	let scoreboardHoldMs = $state(9000);
 	let resultsPhaseUntilMs = $state(0);
 	let pendingSetQuestionPayload: Record<string, unknown> | null = null;
 	let resultsPhaseDeferTimer: ReturnType<typeof setTimeout> | undefined;
@@ -275,7 +274,6 @@ SPDX-License-Identifier: MPL-2.0
 	const confirmUnload = (event: Event) => {
 		if (preventReload) {
 			event.preventDefault();
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			event.returnValue = '';
 		}
@@ -402,7 +400,6 @@ SPDX-License-Identifier: MPL-2.0
 		restart();
 		answer_results = rows as PlayerAnswer[];
 		revealHoldMs = Math.max(0, revealHoldSec * 1000);
-		scoreboardHoldMs = Math.max(0, scoreboardHoldSec * 1000);
 		resultsPhaseUntilMs = computeResultsPhaseUntilMs(revealHoldSec, scoreboardHoldSec);
 		revealExplanation = explanation ?? question?.explanation ?? null;
 		revealCorrectAnswer = correctAnswer ?? correctAnswerFromQuestion(question);

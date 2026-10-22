@@ -112,7 +112,7 @@ SPDX-License-Identifier: MPL-2.0
 							: 'mt-8 border-t border-ink/10 pt-6'}
 					>
 						<ol class="space-y-0.5 sm:space-y-2">
-							{#each player_names.slice(3) as player, i}
+							{#each player_names.slice(3) as player, i (player)}
 								<li
 									class="flex justify-between font-mono tabular-nums px-2 rounded {hostLayout
 										? 'text-xs py-1'
@@ -143,7 +143,7 @@ SPDX-License-Identifier: MPL-2.0
 							duration={1}
 						/>
 					</p>
-					{#each player_names as player, i}
+					{#each player_names as player, i (player)}
 						{#if player === username}
 							<p class="text-ink-muted mt-1">
 								{$t('play_page.your_place', { place: i + 1 })}

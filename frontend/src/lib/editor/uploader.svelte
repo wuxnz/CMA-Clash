@@ -45,7 +45,6 @@ SPDX-License-Identifier: MPL-2.0
 
 	let selected_type: AvailableUploadTypes | null = $state(null);
 
-	// eslint-disable-next-line no-unused-vars
 	enum AvailableUploadTypes {
 		// eslint-disable-next-line no-unused-vars
 		Image,

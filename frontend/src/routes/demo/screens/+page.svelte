@@ -12,6 +12,7 @@
 	import { LEDGER_ANSWER_COLORS } from '$lib/ui/tokens';
 	import MasteryHeatmap from '$lib/ui/MasteryHeatmap.svelte';
 	import RetentionBar from '$lib/ui/RetentionBar.svelte';
+	import { resolve } from '$app/paths';
 
 	navbarVisible.visible = false;
 
@@ -172,7 +173,7 @@
 				<div>
 					<h1 class="text-2xl font-semibold text-ink">Dashboard</h1>
 				</div>
-				<a href="/battle" class="ledger-btn-primary w-auto px-6">Battle queue</a>
+					<a href={resolve('/battle')} class="ledger-btn-primary w-auto px-6">Battle queue</a>
 			</div>
 			<RetentionBar streakDays={7} dailyGoalPercent={62} leagueName="Volt III" />
 			<div class="my-6">

@@ -107,7 +107,7 @@ SPDX-License-Identifier: MPL-2.0
 				animate:flip={{ duration: 200 }}
 			>
 				<div class="grid grid-cols-2 py-2 h-full">
-					{#each card_pair as card}
+					{#each card_pair as card (card.text)}
 						<div class="px-2 flex h-full">
 							<p class="m-auto">{card.text}</p>
 						</div>

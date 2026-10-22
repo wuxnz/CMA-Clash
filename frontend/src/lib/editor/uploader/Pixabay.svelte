@@ -83,7 +83,7 @@ SPDX-License-Identifier: MPL-2.0
 				</form>
 				<span class="italic text-center text-sm">{$t('uploader.search_english_only')}</span>
 
-				{#each data.hits as image}
+				{#each data.hits as image (image.id)}
 					<div class="rounded-sm border-2 border-[#B07156] p-2 flex-col flex gap-2">
 						<div>
 							<img

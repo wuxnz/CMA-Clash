@@ -32,7 +32,6 @@ SPDX-License-Identifier: MPL-2.0
 
 	let fullscreen_open = $state(false);
 	const { t } = getLocalization();
-	let play_music = $state(false);
 
 	if (cqc_code === 'null') {
 		cqc_code = null;
@@ -61,7 +60,7 @@ SPDX-License-Identifier: MPL-2.0
 					{$t('play_page.join_description', {
 						url:
 							window.location.host === ''
-								? 'cquiz.de'
+								? 'cmaclash.com/play'
 								: `${window.location.host}/play`,
 						pin: game_pin
 					})}
@@ -113,7 +112,7 @@ SPDX-License-Identifier: MPL-2.0
 			<h2 class="font-display font-semibold text-ink mb-4">Players in lobby</h2>
 			<div class="flex flex-row w-full flex-wrap gap-2">
 				{#if game_state.players.length > 0}
-					{#each game_state.players as player}
+					{#each game_state.players as player (player.username)}
 						<button
 							type="button"
 							class="hover:opacity-70"

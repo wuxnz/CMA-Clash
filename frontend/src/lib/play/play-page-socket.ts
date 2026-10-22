@@ -7,26 +7,26 @@ import { socket } from '$lib/socket';
 import { isPlaySocketBoundToExpectedPin } from '$lib/play/play-socket-pin';
 
 export type PlayPageSocketHandlers = {
-	onTimeSync: (data: unknown) => void;
-	onClockSync: (data: { server_time_ms?: number }) => void;
-	onJoinedGame: (data: unknown) => void;
-	onRejoinedGame: (data: unknown) => void;
+	onTimeSync: (_data: unknown) => void;
+	onClockSync: (_data: { server_time_ms?: number }) => void;
+	onJoinedGame: (_data: unknown) => void;
+	onRejoinedGame: (_data: unknown) => void;
 	onGameNotFound: () => void;
 	onQuestionTimesUp: () => void;
-	onSetQuestionNumber: (data: Record<string, unknown>) => void;
+	onSetQuestionNumber: (_data: Record<string, unknown>) => void;
 	onStartGame: () => void;
-	onJoinError: (payload?: { code?: string }) => void;
-	onQuestionResults: (data: unknown) => void;
+	onJoinError: (_payload?: { code?: string }) => void;
+	onQuestionResults: (_data: unknown) => void;
 	onUsernameAlreadyExists: () => void;
 	onKick: () => void;
-	onFinalResults: (data: unknown) => void;
-	onSolutions: (data: unknown) => void;
+	onFinalResults: (_data: unknown) => void;
+	onSolutions: (_data: unknown) => void;
 };
 
 let activeHandlers: PlayPageSocketHandlers | null = null;
 let installed = false;
 
-function guard<T extends (...args: never[]) => void>(fn: T): T {
+function guard<T extends (..._args: never[]) => void>(fn: T): T {
 	return ((...args: Parameters<T>) => {
 		if (!isPlaySocketBoundToExpectedPin()) return;
 		fn(...args);

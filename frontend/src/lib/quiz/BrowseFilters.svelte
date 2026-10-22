@@ -14,7 +14,7 @@
 
 <div class="flex flex-col gap-3 min-w-0">
 	<div class="chip-row -mx-4 px-4 sm:mx-0 sm:px-0" role="tablist" aria-label="Certification">
-		{#each CERT_FILTERS as item}
+		{#each CERT_FILTERS as item (item.slug)}
 			<button
 				type="button"
 				role="tab"
@@ -28,7 +28,7 @@
 	</div>
 	<div class="flex flex-wrap items-center gap-3 min-w-0">
 		<div class="chip-row min-w-0 flex-1" role="tablist" aria-label="Difficulty">
-			{#each DIFFICULTY_FILTERS as item}
+			{#each DIFFICULTY_FILTERS as item (item.value)}
 				<button
 					type="button"
 					role="tab"

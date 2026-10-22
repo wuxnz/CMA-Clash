@@ -231,7 +231,7 @@ SPDX-License-Identifier: MPL-2.0
 	</p>
 
 	<div class="grid grid-cols-2 gap-2.5 sm:gap-3 mt-5">
-		{#each payload.answers as a, i}
+		{#each payload.answers as a, i (i)}
 			<button
 				type="button"
 				class={answerTileClass(i)}

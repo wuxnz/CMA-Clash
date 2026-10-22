@@ -13,9 +13,9 @@ body:
       required: true
   - type: dropdown
     attributes:
-      label: Did the issue occur at CMA Clash.de, or on a self-hosted instance?
+      label: Did the issue occur at cmaclash.com, or on a self-hosted instance?
       options:
-        - On CMA Clash.de
+        - On cmaclash.com
         - On a self-hosted instance
     validations:
       required: true

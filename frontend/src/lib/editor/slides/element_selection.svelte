@@ -78,7 +78,7 @@ SPDX-License-Identifier: MPL-2.0
 	transition:fade|global={{ duration: 100 }}
 >
 	<ul>
-		{#each element_list as el}
+		{#each element_list as el (el.name)}
 			<li
 				class="flex flex-row mt-4 w-full bg-paper-muted shadow-xl rounded-lg p-2 hover:bg-gray-300 hover:shadow-2xl hover:cursor-pointer transition bg-surface"
 				onclick={() => {

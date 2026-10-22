@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
@@ -82,7 +83,7 @@ SPDX-License-Identifier: MPL-2.0
 		{#if resendMessage}
 			<p class="text-sm text-ink-muted mt-3">{resendMessage}</p>
 		{/if}
-		<a href="/account/login" class="inline-flex items-center min-h-11 mt-6 text-sm text-ink link-hover">Back to login</a>
+		<a href={resolve('/account/login')} class="inline-flex items-center min-h-11 mt-6 text-sm text-ink link-hover">Back to login</a>
 	</div>
 </div>
 <Footer />

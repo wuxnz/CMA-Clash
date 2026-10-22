@@ -38,7 +38,6 @@ export const mint = async (
 	let result: string;
 	const t1 = performance.now();
 
-	// eslint-disable-next-line no-constant-condition
 	while (true) {
 		// skipcq: JS-0003
 		const data = new TextEncoder().encode(`${challenge}:${counter.toString(16)}`);
@@ -53,7 +52,6 @@ export const mint = async (
 		counter += 1;
 	}
 	const t2 = performance.now();
-	// eslint-disable-next-line no-undef
 	plausible('Hashcash', { props: { ms_taken: t2 - t1 } });
 	return `${challenge}:${result}`;
 };

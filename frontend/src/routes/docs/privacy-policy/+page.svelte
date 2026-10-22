@@ -18,7 +18,7 @@ SPDX-License-Identifier: MPL-2.0
 	<title>CMA Clash: docs - Privacy policy</title>
 	<meta
 		name="description"
-		content="How to self-host CMA Clash, the open-source quiz-application"
+		content="What data CMA Clash stores, for how long, and how cookies and analytics are used."
 	/>
 </svelte:head>
 
@@ -47,19 +47,19 @@ SPDX-License-Identifier: MPL-2.0
 					</ul>
 				</td>
 				<td> For a very long time</td>
-				<td> On the developers server, by Netcup, in Germany.</td>
+				<td> On the CMA Clash servers, hosted by Render.</td>
 			</tr>
 			<tr>
 				<td> The data the user enters (quizzes, email, username)</td>
 				<td> Self-explaining</td>
 				<td> Maximum of 30 days after you've deleted your account</td>
-				<td> On the developers server, by Netcup, in Germany.</td>
+				<td> On the CMA Clash servers, hosted by Render.</td>
 			</tr>
 			<tr>
 				<td>The <b>hashed</b> password of the user</td>
 				<td>Self-explaining</td>
 				<td>Maximum of 30 days after you've deleted your account</td>
-				<td>On my server, by Netcup, in Germany.</td>
+				<td>In the CMA Clash database, hosted by Render.</td>
 			</tr>
 		</tbody>
 	</table>
@@ -72,10 +72,10 @@ SPDX-License-Identifier: MPL-2.0
 
 	<h2>Tracking</h2>
 	<p>
-		This site uses a self-hosted GlitchTip (sentry) instance for error-logging. An opt-out is
-		not available at the moment. This website also uses
-		<a href="https://plausible.io/">Plausible</a> to log usage-data, but this is also running on
-		the same server as CMA Clash itself.
+		This site uses <a href="https://sentry.io/">Sentry</a> for error-logging. An opt-out is not
+		available at the moment. This website also uses
+		<a href="https://plausible.io/">Plausible</a> to log usage-data. Both are privacy-friendly tools
+		that do not build a profile of you, and Plausible does not set cookies.
 	</p>
 	<h3>Third-Parties</h3>
 	<p>

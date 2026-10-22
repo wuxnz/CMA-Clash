@@ -31,9 +31,9 @@ export default defineConfig(({ mode }) => {
 						/*        res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
         res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
         res.setHeader("Access-Control-Allow-Origin", "https://cmaclash.com");*/
-						next();
-					});
-				}
+					next();
+				});
+			}
 			}
 		],
 		server: {

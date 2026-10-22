@@ -61,7 +61,6 @@ SPDX-License-Identifier: MPL-2.0
 	const confirmUnload = (e: Event) => {
 		if (warnToLeave) {
 			e.preventDefault();
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			e.returnValue = '';
 		}
@@ -257,7 +256,7 @@ SPDX-License-Identifier: MPL-2.0
 			{/if}
 			{#if game_data.questions[selected_question].type === QuizQuestionType.ABCD || game_data.questions[selected_question].type === QuizQuestionType.VOTING}
 				<div class="grid grid-cols-2 gap-2 w-full p-4">
-					{#each game_data.questions[selected_question].answers as answer, i}
+					{#each game_data.questions[selected_question].answers as answer, i (i)}
 						<div
 							class="rounded-lg h-fit flex"
 							style="background-color: {answer.color ?? '#B45309'}"
@@ -297,7 +296,7 @@ SPDX-License-Identifier: MPL-2.0
 	{:then _}
 		<div>
 			<ul>
-				{#each players as player}
+				{#each players as player (player.sid)}
 					<li>{player.username}</li>
 				{/each}
 			</ul>

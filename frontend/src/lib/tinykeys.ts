@@ -207,7 +207,6 @@ export function createKeybindingsHandler(
 			clearTimeout(timer);
 		}
 
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore // skipcq: JS-0372
 		timer = setTimeout(possibleMatches.clear.bind(possibleMatches), timeout);
 	};

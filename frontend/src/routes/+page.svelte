@@ -12,8 +12,9 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import HomePreviewQuestion from '$lib/landing/HomePreviewQuestion.svelte';
 	import { prefersReducedMotion } from '$lib/ui/motion';
-	import { fade } from 'svelte/transition';
 	import { reveal, maskLines } from '$lib/motion/editorial';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 
 	const { t } = getLocalization();
 	const reduced = prefersReducedMotion();
@@ -30,6 +31,11 @@ SPDX-License-Identifier: MPL-2.0
 			description: homeDescription,
 			publisher: { '@type': 'Organization', name: SITE_NAME }
 		})
+	);
+	// The tag name is split so the markup/script parsers do not read it as a
+	// nested <script> element while still emitting valid JSON-LD.
+	const structuredDataTag = $derived(
+		`<${'script'} type="application/ld+json">${structuredData}</${'script'}>`
 	);
 
 	let nextClash = $state(134);
@@ -113,7 +119,7 @@ SPDX-License-Identifier: MPL-2.0
 	<meta property="og:description" content={homeDescription} />
 	<meta name="twitter:title" content={homeTitle} />
 	<meta name="twitter:description" content={homeDescription} />
-	{@html `<script type="application/ld+json">${structuredData}</script>`}
+	{@html structuredDataTag}
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
@@ -122,7 +128,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div
 			class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 border-b border-line pb-5"
 		>
-			<p class="eyebrow" use:reveal>NHA CCMA exam prep · est. 2024</p>
+			<p class="eyebrow" use:reveal>NHA CCMA exam prep · est. 2026</p>
 			<p class="eyebrow text-right" use:reveal={{ delay: 0.08 }}>
 				Edition 04 — Kinetic Editorial
 			</p>
@@ -222,7 +228,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div>
 			{#each pillars as pillar, i (pillar.index)}
 				<a
-					href={pillar.href}
+						href={resolve(pillar.href as Pathname)}
 					class="group grid lg:grid-cols-12 gap-4 lg:gap-8 items-start py-7 border-t border-line transition-colors duration-300 hover:bg-primary-soft px-2 -mx-2"
 					use:reveal={{ delay: i * 0.06, y: 20 }}
 				>
@@ -254,7 +260,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line mt-8 border border-line">
 			{#each modes as mode, i (mode.title)}
 				<a
-					href={mode.href}
+						href={resolve(mode.href as Pathname)}
 					class="group bg-paper p-6 lg:p-7 transition-colors duration-300 hover:bg-elevated flex flex-col min-h-[13rem]"
 					use:reveal={{ delay: i * 0.06, y: 22 }}
 				>

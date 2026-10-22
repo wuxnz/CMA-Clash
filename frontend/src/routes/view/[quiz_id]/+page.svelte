@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import DownloadQuiz from '$lib/components/DownloadQuiz.svelte';
 	import { getLocalization } from '$lib/i18n';
 	import CollapsSection from '$lib/collapsible.svelte';
@@ -109,7 +110,10 @@ SPDX-License-Identifier: MPL-2.0
 		{/if}
 		<p class="text-sm text-ink-muted mt-2">
 			{$t('view_quiz_page.made_by')}
-			<a href="/user/{author.id}" class="text-ink link-hover">@{author.username}</a>
+			<a
+				href={resolve('/user/[user_id]', { user_id: author.id })}
+				class="text-ink link-hover">@{author.username}</a
+			>
 			{#if quiz.imported_from_kahoot}
 				<span> · Imported from Kahoot</span>
 			{/if}
@@ -154,7 +158,13 @@ SPDX-License-Identifier: MPL-2.0
 			</p>
 			<RatingComponent bind:quiz />
 			<a
-				href="mailto:abuse@example.com?subject=Report quiz {quiz.id}"
+				href={`https://github.com/wuxnz/CMA-Clash/issues/new?title=${encodeURIComponent(
+					`Report quiz ${quiz.id}`
+				)}&body=${encodeURIComponent(
+					`Quiz ID: ${quiz.id}\nQuiz URL: ${page.url.href}\n\nWhat is wrong with this quiz?\n`
+				)}`}
+				target="_blank"
+				rel="noreferrer"
 				class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
 			>
 				{$t('words.report')}
@@ -190,7 +200,7 @@ SPDX-License-Identifier: MPL-2.0
 
 		<div class="mt-10">
 			<h2 class="text-sm font-semibold text-ink mb-2">Questions</h2>
-			{#each quiz.questions as question, index_question}
+			{#each quiz.questions as question, index_question (index_question)}
 				<div class="border-b border-white/[0.07]">
 					<CollapsSection headerText={`${index_question + 1}. ${question.question}`} expanded={auto_expand}>
 						<div class="pb-4 pt-1">
@@ -200,7 +210,7 @@ SPDX-License-Identifier: MPL-2.0
 							<p class="text-xs text-ink-muted mt-2">{question.time}s</p>
 							{#if question.type === QuizQuestionType.ABCD || question.type === undefined || question.type === QuizQuestionType.CHECK}
 								<ul class="mt-3 space-y-2">
-									{#each question.answers as answer, index_answer}
+									{#each question.answers as answer, index_answer (index_answer)}
 										<li class="flex items-start gap-2 text-sm min-w-0">
 											<span
 												class="mt-1.5 w-2 h-2 rounded-full shrink-0"
@@ -222,13 +232,13 @@ SPDX-License-Identifier: MPL-2.0
 								</p>
 							{:else if question.type === QuizQuestionType.ORDER}
 								<ol class="mt-3 space-y-1 text-sm text-ink list-decimal pl-5">
-									{#each question.answers as answer}
+									{#each question.answers as answer, order_index (order_index)}
 										<li>{answer.answer}</li>
 									{/each}
 								</ol>
 							{:else if question.type === QuizQuestionType.VOTING || question.type === QuizQuestionType.TEXT}
 								<ul class="mt-3 space-y-1 text-sm text-ink">
-									{#each question.answers as answer}
+									{#each question.answers as answer, vote_index (vote_index)}
 										<li>{answer.answer}</li>
 									{/each}
 								</ul>
