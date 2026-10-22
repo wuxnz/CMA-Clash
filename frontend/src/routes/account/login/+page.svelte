@@ -17,6 +17,7 @@ SPDX-License-Identifier: MPL-2.0
 	import BackupComponent from './backup_component.svelte';
 	import TotpComponent from './totp_component.svelte';
 	import { browserSupportsWebAuthn } from '@simplewebauthn/browser';
+	import AuthShell from '$lib/ui/AuthShell.svelte';
 
 	navbarVisible.visible = true;
 
@@ -83,45 +84,64 @@ SPDX-License-Identifier: MPL-2.0
 <svelte:head>
 	<title>CMA Clash: Login</title>
 </svelte:head>
-<div class="flex items-center justify-center min-h-[80vh] px-4">
-	{#if verified}
-		<VerifiedBadge />
-	{/if}
-
-	<div
-		class="lg:w-1/3 max-w-sm mx-auto overflow-hidden bg-surface rounded-2xl border border-white/10 shadow-[var(--shadow-card)]"
+<div class="min-h-screen flex flex-col">
+	<AuthShell
+		eyebrow="Sign in"
+		title="Welcome"
+		accent="back."
+		lede="Pick how you want to sign in. Your streak, XP and topic mastery are waiting."
+		points={[
+			{
+				label: 'Passkey',
+				body: 'Use Face ID, Touch ID or a hardware key — no password to remember.'
+			},
+			{
+				label: 'Password or backup code',
+				body: 'The classic route, plus one-time codes when you lose your device.'
+			},
+			{
+				label: 'Same account everywhere',
+				body: 'Progress follows you from the practice room to the live arena.'
+			}
+		]}
 	>
-		{#if step === 0}
-			<!--			<p>StartWindow</p>-->
-			<div transition:slide|global>
-				<StartWindow bind:session_data bind:step />
-			</div>
-		{:else if selected_method === null}
-			<!--			<p>SelectWindow</p>-->
-			<div transition:slide|global>
-				<SelectMethod {session_data} {step} bind:selected_method />
-			</div>
-		{:else if selected_method === 'PASSWORD'}
-			<!--			<p>PasswordWindow</p>-->
-			<div transition:slide|global>
-				<PasswordComponent {session_data} bind:done bind:step bind:selected_method />
-			</div>
-		{:else if selected_method === 'PASSKEY'}
-			<!--			<p>WebauthnWindow</p>-->
-			<div transition:slide|global>
-				<WebauthnComponent {session_data} bind:done bind:step bind:selected_method />
-			</div>
-		{:else if selected_method === 'BACKUP'}
-			<!--			<p>BackupWindow</p>-->
-			<div transition:slide|global>
-				<BackupComponent {session_data} bind:done bind:step bind:selected_method />
-			</div>
-		{:else if selected_method === 'TOTP'}
-			<!--			<p>TotpWindow</p>-->
-			<div transition:slide|global>
-				<TotpComponent {session_data} bind:done bind:step bind:selected_method />
-			</div>
+		{#if verified}
+			<VerifiedBadge />
 		{/if}
-	</div>
+
+		<div class="px-6 py-7 sm:px-8 sm:py-8">
+			{#if step === 0}
+				<!--			<p>StartWindow</p>-->
+				<div transition:slide|global>
+					<StartWindow bind:session_data bind:step />
+				</div>
+			{:else if selected_method === null}
+				<!--			<p>SelectWindow</p>-->
+				<div transition:slide|global>
+					<SelectMethod {session_data} {step} bind:selected_method />
+				</div>
+			{:else if selected_method === 'PASSWORD'}
+				<!--			<p>PasswordWindow</p>-->
+				<div transition:slide|global>
+					<PasswordComponent {session_data} bind:done bind:step bind:selected_method />
+				</div>
+			{:else if selected_method === 'PASSKEY'}
+				<!--			<p>WebauthnWindow</p>-->
+				<div transition:slide|global>
+					<WebauthnComponent {session_data} bind:done bind:step bind:selected_method />
+				</div>
+			{:else if selected_method === 'BACKUP'}
+				<!--			<p>BackupWindow</p>-->
+				<div transition:slide|global>
+					<BackupComponent {session_data} bind:done bind:step bind:selected_method />
+				</div>
+			{:else if selected_method === 'TOTP'}
+				<!--			<p>TotpWindow</p>-->
+				<div transition:slide|global>
+					<TotpComponent {session_data} bind:done bind:step bind:selected_method />
+				</div>
+			{/if}
+		</div>
+	</AuthShell>
+	<Footer />
 </div>
-<Footer />

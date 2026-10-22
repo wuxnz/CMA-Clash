@@ -7,7 +7,7 @@
 </script>
 
 <p
-	class="inline-flex items-center rounded-md bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-mono font-medium tracking-wide"
+	class="inline-flex items-center bg-primary-soft text-primary px-2.5 py-1 text-[0.66rem] font-mono uppercase tracking-[0.18em]"
 >
 	{label}
 </p>

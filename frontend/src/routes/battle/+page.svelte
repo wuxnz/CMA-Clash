@@ -13,6 +13,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import PageHeader from '$lib/ui/PageHeader.svelte';
 
 	navbarVisible.visible = true;
 
@@ -60,52 +61,70 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div class="min-h-screen flex flex-col">
-	<div class="max-w-2xl mx-auto w-full px-4 py-10 flex-1">
-		<h1 class="text-2xl font-semibold text-ink tracking-tight">Battle</h1>
-		<p class="text-sm text-ink-muted mt-1 mb-8">Start a 1v1 or join with a code.</p>
+	<div class="w-full max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 pt-14 lg:pt-20 pb-20 flex-1">
+		<PageHeader
+			eyebrow="Head to head"
+			title="Two players."
+			accent="One scoreboard."
+			lede="Start a duel with any public set, or join a friend with the code they read out."
+			meta="Rank-based · speed bonus"
+		/>
 
-		<div class="mb-10">
-			<h2 class="text-sm font-semibold mb-3">Join with code</h2>
+		<div class="border border-line bg-paper p-6 sm:p-8 max-w-xl">
+			<p class="eyebrow mb-4">Join with code</p>
 			<form
-				class="flex gap-2"
+				class="flex flex-col sm:flex-row gap-2"
 				onsubmit={(e) => {
 					e.preventDefault();
 					if (joinCode.trim()) goto(`/battle/${joinCode.trim().toUpperCase()}`);
 				}}
 			>
-				<input class="ledger-input flex-1 uppercase" bind:value={joinCode} placeholder="Code" />
-				<button type="submit" class="btn btn-primary w-auto">Join</button>
+				<input
+					class="ledger-input flex-1 uppercase text-center sm:text-left font-mono tracking-[0.3em]"
+					bind:value={joinCode}
+					placeholder="CODE"
+					aria-label="Battle code"
+				/>
+				<button type="submit" class="btn btn-primary w-auto shrink-0">Join</button>
 			</form>
 		</div>
 
 		{#if catalogLoading}
-			<p class="text-ink-muted text-sm mb-4">Loading quizzes…</p>
+			<p class="text-ink-muted text-sm mt-10">Loading quizzes…</p>
 		{:else if error}
-			<p class="text-danger text-sm mb-4">{error}</p>
+			<p class="text-danger text-sm mt-10">{error}</p>
 		{/if}
 
-		<h2 class="text-sm font-semibold text-ink mb-2">Start a battle</h2>
-		<p class="text-xs text-ink-muted mb-4">Pick a quiz. You can set your nickname in the lobby if you are playing.</p>
-		<ul class="divide-y divide-white/[0.07]">
-			{#each quizzes as quiz (quiz.id)}
-				<li class="py-3 flex justify-between items-center gap-4 min-w-0">
-					<div class="min-w-0">
-						<p class="font-medium text-ink truncate">{quiz.title}</p>
-						<p class="text-xs text-ink-muted">{quiz.question_count} questions</p>
-					</div>
-					<button
-						type="button"
-						class="action-button min-h-11 px-4 shrink-0"
-						disabled={loading}
-						onclick={() => startBattle(quiz.id)}
+		<div class="mt-12">
+			<p class="eyebrow">Start a battle</p>
+			<p class="text-xs text-ink-muted mt-2 mb-4">
+				Pick a quiz. You can set your nickname in the lobby if you are playing.
+			</p>
+			<ul class="border-t border-line">
+				{#each quizzes as quiz (quiz.id)}
+					<li
+						class="py-4 flex justify-between items-center gap-4 min-w-0 border-b border-line"
 					>
-						Host
-					</button>
-				</li>
-			{:else}
-				<p class="text-ink-muted text-sm">No public quizzes yet.</p>
-			{/each}
-		</ul>
+						<div class="min-w-0">
+							<p class="font-display text-lg text-ink truncate">{quiz.title}</p>
+							<p class="eyebrow mt-1">{quiz.question_count} questions</p>
+						</div>
+						<button
+							type="button"
+							class="action-button min-h-11 px-4 shrink-0"
+							disabled={loading}
+							onclick={() => startBattle(quiz.id)}
+						>
+							Host
+						</button>
+					</li>
+				{:else}
+					<li class="py-6">
+						<p class="text-ink-muted text-sm">No public quizzes yet.</p>
+					</li>
+				{/each}
+			</ul>
+		</div>
 	</div>
 	<Footer />
 </div>

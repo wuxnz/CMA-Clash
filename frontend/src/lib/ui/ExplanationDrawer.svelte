@@ -13,18 +13,18 @@
 </script>
 
 {#if explanation}
-	<div class="rounded-xl border border-ink/10 bg-surface overflow-hidden">
+	<div class="border border-line bg-paper overflow-hidden">
 		<button
 			type="button"
-			class="w-full flex items-center justify-between px-4 py-3 text-left font-display font-semibold text-ink hover:bg-paper-muted/50 transition"
+			class="w-full flex items-center justify-between px-4 py-3 text-left font-display text-ink hover:bg-elevated transition"
 			aria-expanded={visible}
 			onclick={() => (visible = !visible)}
 		>
 			<span>Explanation</span>
-			<span class="text-ink-muted text-sm">{visible ? 'Hide' : 'Show'}</span>
+			<span class="eyebrow">{visible ? 'Hide' : 'Show'}</span>
 		</button>
 		{#if visible}
-			<div class="px-4 pb-4 text-sm text-ink-muted leading-relaxed border-t border-ink/5 pt-3">
+			<div class="px-4 pb-4 text-sm text-ink-muted leading-relaxed border-t border-line pt-3">
 				{explanation}
 			</div>
 		{/if}

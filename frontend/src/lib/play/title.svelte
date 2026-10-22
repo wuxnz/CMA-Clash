@@ -33,20 +33,25 @@ SPDX-License-Identifier: MPL-2.0
 	<LivePlayHeader />
 	<div class="flex-1 flex flex-col justify-center items-center px-4 py-12">
 		<Card class="max-w-xl w-full text-center">
-			<h1 class="font-display text-3xl sm:text-4xl font-bold text-ink">{@html title}</h1>
+			<p class="eyebrow mb-4">Next up</p>
+			<h1
+				class="font-display text-3xl sm:text-5xl leading-[1.05] tracking-[-0.03em] text-ink"
+			>
+				{@html title}
+			</h1>
 			{#if description}
 				<p class="text-ink-muted mt-4 text-lg">{@html description}</p>
 			{/if}
 			{#if cover_image}
 				<div class="mt-8 flex justify-center">
 					<img
-						class="max-h-[28vh] rounded-lg content-image object-contain"
+						class="max-h-[28vh] content-image object-contain"
 						src="/api/v1/storage/download/{cover_image}"
 						alt=""
 					/>
 				</div>
 			{/if}
-			<p class="mt-8 text-sm text-primary font-medium animate-pulse motion-reduce:animate-none">
+			<p class="mt-8 eyebrow text-primary animate-pulse motion-reduce:animate-none">
 				Get ready…
 			</p>
 		</Card>

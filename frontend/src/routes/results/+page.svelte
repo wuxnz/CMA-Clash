@@ -40,8 +40,15 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
-	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
-		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Results</h1>
+	<div class="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pt-14 pb-20 min-w-0 flex-1">
+		<div class="border-b border-line pb-6">
+			<p class="eyebrow">Archive</p>
+			<h1
+				class="font-display text-[clamp(2.2rem,6vw,4rem)] leading-[0.92] tracking-[-0.04em] mt-3"
+			>
+				Session <b class="font-normal text-primary">results</b>
+			</h1>
+		</div>
 
 		{#if resultsLoading}
 			<p class="text-sm text-ink-muted mt-6" aria-busy="true">Loading results…</p>
@@ -52,18 +59,33 @@ SPDX-License-Identifier: MPL-2.0
 			<div class="mt-6 overflow-x-auto min-w-0">
 				<table class="w-full text-sm text-left min-w-[36rem]">
 					<thead>
-						<tr class="text-xs text-ink-muted border-b border-white/[0.07]">
-							<th class="py-2 pr-3 font-medium">{$t('results_page.quiz_title')}</th>
-							<th class="py-2 pr-3 font-medium">{$t('results_page.date_played')}</th>
-							<th class="py-2 pr-3 font-medium">{$t('results_page.player_count')}</th>
-							<th class="py-2 font-medium">{$t('words.note')}</th>
+						<tr class="text-ink-subtle border-b border-line">
+							<th
+								class="py-2.5 pr-3 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em]"
+								>{$t('results_page.quiz_title')}</th
+							>
+							<th
+								class="py-2.5 pr-3 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em]"
+								>{$t('results_page.date_played')}</th
+							>
+							<th
+								class="py-2.5 pr-3 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em]"
+								>{$t('results_page.player_count')}</th
+							>
+							<th
+								class="py-2.5 font-mono font-normal text-[0.64rem] uppercase tracking-[0.2em]"
+								>{$t('words.note')}</th
+							>
 						</tr>
 					</thead>
 					<tbody>
 						{#each results as result}
-							<tr class="border-b border-white/[0.07]">
+							<tr class="border-b border-line transition-colors hover:bg-elevated">
 								<td class="py-3 pr-3 min-w-0">
-									<a href="/results/{result.id}" class="text-ink link-hover visited:text-ink">
+									<a
+										href="/results/{result.id}"
+										class="text-ink link-hover visited:text-ink"
+									>
 										{@html result.title}
 									</a>
 								</td>

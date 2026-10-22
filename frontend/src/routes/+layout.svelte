@@ -15,6 +15,7 @@ SPDX-License-Identifier: MPL-2.0
 	import '@fontsource/jetbrains-mono/400.css';
 	import '@fontsource/jetbrains-mono/500.css';
 	import '@fontsource/jetbrains-mono/700.css';
+	import '@fontsource-variable/fraunces';
 	import '../app.css';
 	import Navbar from '$lib/navbar.svelte';
 	import { pathname } from '$lib/stores';
@@ -34,7 +35,6 @@ SPDX-License-Identifier: MPL-2.0
 
 	if (browser) {
 		pathname.set(window.location.pathname);
-		document.documentElement.classList.add('dark');
 		if ('serviceWorker' in navigator) {
 			navigator.serviceWorker.getRegistrations().then((regs) => {
 				for (const reg of regs) reg.unregister();

@@ -17,6 +17,11 @@ SPDX-License-Identifier: MPL-2.0
 	import { getLocalization } from '$lib/i18n';
 	import Cookies from 'js-cookie';
 	import { hcaptcha_site_key, recaptcha_key, sentry_dsn } from '$lib/config';
+	import {
+		emitRejoinFromCookie,
+		normalizePlayPin,
+		readJoinedGameCookie
+	} from '$lib/play/player-socket-session';
 
 	const { t } = getLocalization();
 
@@ -113,6 +118,12 @@ SPDX-License-Identifier: MPL-2.0
 		socket.on('rejoin_rejected', onRejoinRejected);
 		if (socket.connected) {
 			socketConnected = true;
+			// Let the play page attach its listeners before requesting the saved session.
+			const joined = readJoinedGameCookie();
+			if (joined && normalizePlayPin(joined.game_pin) === normalizePlayPin(game_pin)) {
+				username = joined.username;
+				setTimeout(() => emitRejoinFromCookie(game_pin), 100);
+			}
 		}
 	});
 

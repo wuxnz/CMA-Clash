@@ -14,14 +14,10 @@ SPDX-License-Identifier: MPL-2.0
 	import CircularTimer from '$lib/play/circular_progress.svelte';
 	import { flip } from 'svelte/animate';
 	import BrownButton from '$lib/components/buttons/brown.svelte';
-	import { get_foreground_color } from '../helpers';
 	import MediaComponent from '$lib/editor/MediaComponent.svelte';
-	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
-	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
 	import TimerBar from '$lib/ui/TimerBar.svelte';
 	import TopicTag from '$lib/ui/TopicTag.svelte';
 	import LivePlayHeader from '$lib/ui/LivePlayHeader.svelte';
-	import type { AnswerShape } from '$lib/ui/tokens';
 	import { normalizeQuizText } from '$lib/cma/text';
 
 	const { t } = getLocalization();
@@ -154,8 +150,6 @@ SPDX-License-Identifier: MPL-2.0
 			return '100';
 		}
 	};
-	const default_colors = [...LEDGER_ANSWER_COLORS];
-
 	let totalTime = $derived(parseInt(question.time) || 30);
 	let remainingTime = $derived(parseInt(timer_res) || 0);
 	let topicLabel = $derived(topic_tag || `Live · Q${Number(question_index) + 1}`);
@@ -171,9 +165,7 @@ SPDX-License-Identifier: MPL-2.0
 			class:mt-10={[QuizQuestionType.RANGE, QuizQuestionType.ORDER, QuizQuestionType.TEXT]}
 			style="height: {question.image ? '33.333333' : '16.666667'}%"
 		>
-			<h1
-				class="lg:text-2xl text-lg text-center text-ink text-ink mt-2 break-normal mb-2"
-			>
+			<h1 class="lg:text-2xl text-lg text-center text-ink text-ink mt-2 break-normal mb-2">
 				{@html normalizeQuizText(question.question)}
 			</h1>
 			{#if question.image !== null && game_mode !== 'kahoot'}
@@ -193,20 +185,28 @@ SPDX-License-Identifier: MPL-2.0
 				style={game_mode !== 'kahoot' ? `height: ${get_div_height()}%` : ''}
 			>
 				{#if game_mode === 'kahoot'}
-					<div class="rounded-2xl border border-ink/10 bg-surface p-4 sm:p-6 shadow-sm">
+					<div class="border border-line bg-paper p-4 sm:p-6">
 						<TopicTag label={topicLabel} />
 						<h1
 							class="font-display text-lg sm:text-xl text-ink mt-3 mb-4 leading-snug text-center"
 						>
 							{@html normalizeQuizText(question.question)}
 						</h1>
-						<TimerBar remainingSeconds={remainingTime} totalSeconds={totalTime} showRing={false} />
+						<TimerBar
+							remainingSeconds={remainingTime}
+							totalSeconds={totalTime}
+							showRing={false}
+						/>
 					</div>
 				{:else}
 					<div
 						class="absolute top-0 bottom-0 left-0 right-0 m-auto rounded-full h-fit w-fit border-2 border-ink/20 shadow-lg z-40 pointer-events-none"
 					>
-						<CircularTimer text={timer_res} progress={circular_progress} color="#0ea5e9" />
+						<CircularTimer
+							text={timer_res}
+							progress={circular_progress}
+							color="#0ea5e9"
+						/>
 					</div>
 				{/if}
 
@@ -218,24 +218,20 @@ SPDX-License-Identifier: MPL-2.0
 					{#each question.answers as answer, i}
 						<button
 							type="button"
-							class="rounded-xl flex flex-col items-center justify-center gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] border-2 border-white/20 shadow-md hover:brightness-105 press-scale focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white"
-							style="background-color: {answer.color ??
-								default_colors[i]}; color: {get_foreground_color(
-								answer.color ?? default_colors[i]
-							)}"
+							class="bg-paper border border-line border-l-2 flex flex-col items-start justify-between gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] text-ink hover:bg-elevated press-scale focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+							style="border-left-color: {answer.color ?? 'var(--color-primary)'}"
 							disabled={selected_answer !== undefined}
 							onclick={() => selectAnswer(answer.answer)}
 						>
+							<span class="font-mono text-[0.68rem] tracking-[0.2em] text-ink-subtle">
+								{String.fromCharCode(65 + i)}
+							</span>
 							{#if game_mode === 'kahoot'}
-								<AnswerShapeIcon
-									shape={LEDGER_ANSWER_SHAPES[i] as AnswerShape}
-									class="w-8 h-8 sm:w-10 sm:h-10"
-								/>
-								<span class="font-mono text-sm sm:text-base font-medium text-center"
+								<span class="font-sans text-sm sm:text-base font-medium text-left"
 									>{normalizeQuizText(answer.answer)}</span
 								>
 							{:else}
-								<p class="m-auto text-center">{normalizeQuizText(answer.answer)}</p>
+								<p class="m-auto text-left">{normalizeQuizText(answer.answer)}</p>
 							{/if}
 						</button>
 					{/each}

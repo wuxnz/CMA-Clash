@@ -10,14 +10,35 @@ SPDX-License-Identifier: MPL-2.0
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="robots" content="noindex, nofollow" />
-		<meta name="color-scheme" content="dark" />
-		<meta name="theme-color" content="#0B0F1A" />
+		<meta name="color-scheme" content="dark light" />
+		<meta name="theme-color" content="#070707" />
 		<style>
 			html {
-				background-color: #0b0f1a;
+				background-color: #070707;
 				color-scheme: dark;
 			}
+			html.light {
+				background-color: #f6f5f2;
+				color-scheme: light;
+			}
 		</style>
+		<script>
+			// Apply the stored theme before first paint to avoid a flash.
+			(function () {
+				try {
+					var stored = localStorage.getItem('cma-clash:theme');
+					var mode = stored === 'light' || stored === 'dark' ? stored : 'dark';
+					var root = document.documentElement;
+					root.classList.toggle('light', mode === 'light');
+					root.classList.toggle('dark', mode === 'dark');
+					root.style.colorScheme = mode;
+					var meta = document.querySelector('meta[name="theme-color"]');
+					if (meta) meta.setAttribute('content', mode === 'light' ? '#f6f5f2' : '#070707');
+				} catch (e) {
+					/* storage blocked — keep the default dark theme */
+				}
+			})();
+		</script>
 		<script>
 			window.plausible =
 				window.plausible ||
@@ -32,23 +53,12 @@ SPDX-License-Identifier: MPL-2.0
 			sizes="180x180"
 			href="%sveltekit.assets%/apple-touch-icon.png"
 		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="%sveltekit.assets%/favicon-32x32.png"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="%sveltekit.assets%/favicon-16x16.png"
-		/>
-		<link rel="icon" href="%sveltekit.assets%/logo-mark.svg" type="image/svg+xml" />
+		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32x32.png" />
+		<link rel="icon" type="image/svg+xml" sizes="any" href="%sveltekit.assets%/logo-mark.svg" />
 		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
 		<meta name="apple-mobile-web-app-title" content="CMA Clash" />
 		<meta name="application-name" content="CMA Clash" />
-		<meta name="msapplication-TileColor" content="#0B0F1A" />
+		<meta name="msapplication-TileColor" content="#070707" />
 		%sveltekit.head%
 	</head>
 	<body>

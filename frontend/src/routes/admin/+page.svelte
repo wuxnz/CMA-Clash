@@ -365,41 +365,40 @@ SPDX-License-Identifier: MPL-2.0
 	{#if !success}
 		<div class="flex min-h-screen w-full items-center justify-center p-6">
 			<div
-				class="w-full max-w-md rounded-lg border border-white/10 bg-surface p-6 text-center shadow-lg"
+				class="w-full max-w-md border border-line bg-paper p-8 text-center"
 				role="status"
 				aria-live="polite"
 			>
 				{#if connectionStatus === 'error' || errorMessage !== ''}
-					<h1 class="text-xl font-semibold text-ink">Couldn't open the host lobby</h1>
-					<p class="mt-3 text-sm text-red-400">{errorMessage || connectionError}</p>
+					<p class="eyebrow">Host console</p>
+					<h1 class="font-display text-2xl text-ink mt-4">
+						Couldn't open the host lobby
+					</h1>
+					<p class="mt-3 text-sm text-danger">{errorMessage || connectionError}</p>
 					<div class="mt-6 flex flex-wrap justify-center gap-3">
-						<button
-							type="button"
-							class="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500"
-							onclick={retryConnection}>Retry</button
+						<button type="button" class="btn btn-primary" onclick={retryConnection}
+							>Retry</button
 						>
-						<a
-							href="/host"
-							class="rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-ink hover:bg-white/5"
-							>Back to Host a Clash</a
-						>
+						<a href="/host" class="btn btn-secondary">Back to Host a Clash</a>
 					</div>
 				{:else if connectionStatus === 'connecting'}
 					<div
-						class="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-white/20 border-t-blue-500"
+						class="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-line border-t-primary"
 						aria-hidden="true"
 					></div>
-					<h1 class="mt-4 text-xl font-semibold text-ink">Connecting to game…</h1>
-					<p class="mt-2 text-sm text-ink-muted">
+					<p class="eyebrow mt-5">Host console</p>
+					<h1 class="font-display text-2xl text-ink mt-3">Connecting to game…</h1>
+					<p class="mt-3 text-sm text-ink-muted">
 						If the server was asleep, this can take up to a minute.
 					</p>
 				{:else}
-					<h1 class="text-xl font-semibold text-ink">Ready to host</h1>
-					<p class="mt-2 text-sm text-ink-muted">Connect to start the lobby for game {game_pin}.</p>
-					<button
-						type="button"
-						class="mt-6 rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500"
-						onclick={connect}>Connect</button
+					<p class="eyebrow">Host console</p>
+					<h1 class="font-display text-2xl text-ink mt-4">Ready to host</h1>
+					<p class="mt-3 text-sm text-ink-muted">
+						Connect to start the lobby for game {game_pin}.
+					</p>
+					<button type="button" class="btn btn-primary mt-6" onclick={connect}
+						>Connect</button
 					>
 				{/if}
 			</div>
