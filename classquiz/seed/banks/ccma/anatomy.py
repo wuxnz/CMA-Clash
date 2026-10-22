@@ -601,7 +601,7 @@ FACTS: list[dict] = [
         [
             'Lungs to the left atrium of the heart',
             'Kidneys down to the urinary bladder',
-            'Brain down to the heart without valves',
+            'Brain down to the heart through the lymphatic ducts',
         ],
         'The hepatic portal vein carries blood from the gastrointestinal tract to the liver so absorbed nutrients can be processed. Blood from the lungs, the kidneys, and the brain reaches the heart by other routes.',
         [S.NHA_CCMA],

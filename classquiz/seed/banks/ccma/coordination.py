@@ -430,7 +430,7 @@ FACTS: list[dict] = [
         'What does patient self-management education for diabetes include?',
         'Glucose monitoring and the basics of foot care',
         [
-            'Adjusting the insulin dose without provider input',
+            'Adjusting the insulin dose on their own',
             'Keeping the blood glucose log at the front desk',
             'Avoiding the follow-up visits to save the travel',
         ],

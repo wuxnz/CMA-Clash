@@ -627,9 +627,9 @@ FACTS: list[dict] = [
         [
             'Entering a sterile body cavity of the patient',
             'Placing the sutures in the wound',
-            'Handling used sharps without a sharps container',
+            'Collecting used sharps by hand from the procedure tray',
         ],
-        'Glove choice matches anticipated exposure. Entering a sterile body cavity, placing sutures, and handling sharps without a container each call for sterile gloves or a sharps container.',
+        'Glove choice matches anticipated exposure. Entering a sterile body cavity, placing sutures, and picking up used sharps by hand each call for sterile gloves or a sharps container.',
         [S.NHA_CCMA],
         'advanced',
     ),
@@ -679,9 +679,9 @@ FACTS: list[dict] = [
         [
             'Nonsterile scissors on the infected tissue with gloves',
             'A single pair of scissors for the whole clinic day',
-            'A shared topical antibiotic without a label check',
+            'A shared tube of topical antibiotic for the wound',
         ],
-        'Assess healing and use aseptic technique. Nonsterile tools on infected tissue, one scissors set used all day, and a shared topical applied without a label check are not appropriate.',
+        'Assess healing and use aseptic technique. Nonsterile tools on infected tissue, one scissors set used all day, and a shared tube of topical antibiotic each fail to protect the patient.',
         [S.NHA_CCMA],
         'advanced',
     ),

@@ -28,10 +28,10 @@ FACTS: list[dict] = [
         'Keeping promises and honoring professional duties',
         [
             'Sharing patient secrets online with others',
-            'Abandoning patients without arranging coverage',
-            'Practicing outside of training without disclosure',
+            'Abandoning patients and leaving the shift uncovered',
+            'Practicing beyond the training and staying silent',
         ],
-        'Trust depends on reliability and honesty. Sharing patient secrets, abandoning patients, and practicing outside training without disclosure each break the promise the profession makes to the patient.',
+        'Trust depends on reliability and honesty. Sharing patient secrets, abandoning patients, and practicing beyond the training in silence each break the promise the profession makes to the patient.',
         [S.NHA_CCMA],
         'beginner',
     ),
