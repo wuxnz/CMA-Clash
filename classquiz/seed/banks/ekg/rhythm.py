@@ -11,7 +11,7 @@ from classquiz.seed.banks._builder import fact
 FACTS: list[dict] = [
     fact(
         'ekg-rhythm',
-        'How should AED use be assessed on the tracing?',
+        'When should an AED be applied during a cardiac arrest?',
         'As soon as the device is available while CPR continues',
         [
             'After ten minutes of continuous chest compressions',
@@ -258,8 +258,8 @@ FACTS: list[dict] = [
     ),
     fact(
         'ekg-rhythm',
-        'Rescuers should switch compressors about every?',
-        '2 minutes or sooner if fatigued',
+        'How often should rescuers switch compressors during CPR?',
+        'Every 2 minutes, or sooner if fatigued',
         [
             'Every 5 minutes, or sooner if fatigued',
             'Every 10 minutes, or sooner if fatigued',
@@ -467,9 +467,9 @@ FACTS: list[dict] = [
     fact(
         'ekg-rhythm',
         'Which ECG feature points to second-degree AV block, Mobitz type II?',
-        'Have sudden dropped QRS beats and often wide QRS',
+        'Constant PR with sudden dropped QRS and wide complexes',
         [
-            'Show progressive PR prolongation before each dropped beat',
+            'Progressive PR prolongation before each dropped QRS beat',
             'Dropped QRS complexes with no preceding P wave',
             'Prolonged PR intervals with every P conducted',
         ],
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
     fact(
         'ekg-rhythm',
         'What distinguishes ventricular tachycardia on the ECG?',
-        'Wide QRS tachycardia often >100 bpm',
+        'Wide QRS tachycardia above 100 bpm',
         [
             'Narrow QRS with P for every QRS',
             'Slow irregular rhythm with fibrillatory waves',

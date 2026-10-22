@@ -41,7 +41,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Why is rapid defibrillation critical in cardiac arrest care?",
-        "VF/pulseless VT may respond to early shock",
+        "VF and pulseless VT respond to an early shock",
         [
             "Asystole converts to a perfusing rhythm after one shock",
             "Defibrillation treats stable sinus tachycardia",
@@ -496,9 +496,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Which physiologic goals drive integrated post-cardiac arrest care?",
-        "Hemodynamics, ventilation, and temperature management when indicated",
+        "Hemodynamics, ventilation, and temperature management",
         [
-            "Completing discharge paperwork before the patient leaves the hospital unit",
+            "Completing discharge paperwork before the patient leaves the unit",
             "Immediate unsupervised home discharge for the recovering patient",
             "Withholding ventilation and oxygen after ROSC returns",
         ],

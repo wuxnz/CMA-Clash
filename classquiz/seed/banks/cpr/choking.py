@@ -514,7 +514,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-choking",
         "While treating a choking victim with abdominal thrusts, the patient suddenly becomes unresponsive and slumps to the floor. What should the rescuer do next per AHA BLS?",
-        "Lower the patient if needed, activate EMS, and begin CPR with compressions",
+        "Lower the patient, activate EMS, and begin CPR with compressions",
         [
             "Leave the patient partly upright and continue standing abdominal thrusts",
             "Hold the patient under the arms and jostle the torso to dislodge the object",

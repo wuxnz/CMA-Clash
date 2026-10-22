@@ -249,7 +249,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "When pediatric AED pads or a dose-attenuator system is available for a child in arrest, how should it be used?",
-        "Attach pediatric pads or use pediatric mode per manufacturer labeling",
+        "Attach pediatric pads or turn on pediatric mode for the child",
         [
             "Use adult pads at full labeled energy on small children in cardiac arrest",
             "Withhold all shocks until the child reaches typical adult weight on the scale",
@@ -392,7 +392,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Which statement best describes pulseless ventricular tachycardia in the context of AED use?",
-        "A shockable arrest rhythm with no palpable pulse that the AED may treat",
+        "A shockable arrest rhythm with no palpable pulse that the AED treats",
         [
             "A perfusing rhythm that requires no CPR or AED attachment during the arrest",
             "A shockable rhythm when the patient is awake, talking, and has a palpable pulse",
@@ -639,7 +639,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "If an AED displays a message to check pads or electrode contact during analysis, what should the team do?",
-        "Ensure pads adhere fully, replace loose pads if needed, and resume per prompts",
+        "Ensure pads adhere fully, replace loose pads, and resume per prompts",
         [
             "Remove the pads and discontinue CPR because a contact error stops the AED",
             "Press the shock button repeatedly without pads to reset the device",

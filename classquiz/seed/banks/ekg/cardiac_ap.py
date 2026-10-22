@@ -50,12 +50,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "ekg-cardiac-ap",
-        "What is the typical intrinsic firing rate range of the SA node in beats per minute?",
-        "About 60 to 100 beats per minute at rest",
+        "What is the intrinsic firing rate range of the SA node in beats per minute?",
+        "60 to 100 beats per minute at rest",
         [
-            "About 20 to 30 beats per minute at rest",
-            "About 150 to 200 beats per minute at rest",
-            "About 280 to 320 beats per minute at rest",
+            "20 to 30 beats per minute at rest",
+            "150 to 200 beats per minute at rest",
+            "280 to 320 beats per minute at rest",
         ],
         "Normal sinus rhythm on the EKG reflects SA automaticity in this range. Much slower or faster resting rates suggest junctional, ventricular, or tachycardia mechanisms.",
         [S.NHA_CCMA],

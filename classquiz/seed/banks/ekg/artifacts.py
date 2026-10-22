@@ -181,7 +181,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A hairy chest prevents pad adhesion after clipping is not permitted. Which alternative best preserves signal quality?",
-        "Clip-style electrodes for hairy skin per manufacturer guidance",
+        "Clip-style electrodes that grip hair on the chest",
         [
             "Pads pressed onto chest hair without skin contact at the landmark",
             "Limb leads with omission of the entire precordial electrode set",
@@ -467,7 +467,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "When should the technician review the tracing at the bedside immediately after acquisition?",
-        "Review at bedside before the patient leaves when quality may affect reading",
+        "Review at bedside before the patient leaves when quality affects reading",
         [
             "When the ordering provider is physically present in the room during acquisition",
             "Defer bedside review because storage systems auto-correct artifact later",

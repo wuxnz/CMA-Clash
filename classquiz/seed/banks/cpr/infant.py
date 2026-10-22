@@ -376,7 +376,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-infant",
         "When pediatric AED pads are available for an infant, how should rescuers attach them?",
-        "Place pediatric pads per the diagram, often anterior-posterior on the chest",
+        "Place pediatric pads per the diagram, anterior-posterior on a small chest",
         [
             "Use adult pads anterolateral even when the pads overlap on a small infant chest",
             "Delay attaching the AED until five full cycles of CPR have been completed",

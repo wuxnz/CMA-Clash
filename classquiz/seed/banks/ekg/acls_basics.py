@@ -64,7 +64,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "During CPR, when should the team pause compressions to analyze rhythm on a defibrillator?",
-        "Brief planned pauses per protocol to read the rhythm strip",
+        "Brief pauses of about 10 seconds or less to read the rhythm strip",
         [
             "Continuously during every compression without pausing for rhythm analysis",
             "After thirty minutes of compressions regardless of rhythm or pulse status",
@@ -220,7 +220,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "What does double sequential defibrillation refer to in refractory VF protocols?",
-        "Two shocks from separate pad sets in rapid sequence per protocol",
+        "Two shocks from separate pad sets in rapid succession",
         [
             "Shocking the patient twice during active chest compressions",
             "Using AED pads on the legs for all adult arrests instead of anterior placement",
@@ -272,7 +272,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "What monitor pattern suggests torsades de pointes during a code?",
-        "Twisting polymorphic wide QRS, often after prolonged QT",
+        "Twisting polymorphic wide QRS with a prolonged QT",
         [
             "Monomorphic wide QRS at steady rate with palpable pulse 110/70",
             "Regular narrow QRS at 180 with hidden P waves on the monitor",
@@ -402,7 +402,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "During a code, the monitor lead is switched to lead II. Why is lead II often used?",
-        "Lead II often shows clear P waves for rhythm identification",
+        "Lead II shows clear P waves for rhythm identification",
         [
             "Lead II measures noninvasive blood pressure through the limb electrode",
             "Lead II eliminates motion artifact during compressions by electrode design",
@@ -479,8 +479,8 @@ FACTS: list[dict] = [
     ),
     fact(
         "ekg-acls-basics",
-        "What post-ROSC blood pressure goal is generally targeted per ACLS post-cardiac arrest care?",
-        "Adequate MAP for perfusion, often at least 65 mmHg post-ROSC",
+        "What post-ROSC blood pressure goal does ACLS post-cardiac arrest care target?",
+        "Adequate MAP for perfusion, at least 65 mmHg post-ROSC",
         [
             "Systolic below 80 mmHg intentionally to reduce afterload after arrest",
             "No blood pressure monitoring for six hours after return of circulation",
@@ -519,7 +519,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-acls-basics",
         "Why is identifying fine VF before calling asystole important during a code?",
-        "Fine VF may shock successfully but is missed if gain is too low",
+        "Fine VF shocks successfully but is missed if gain is too low",
         [
             "Fine VF requires no compressions or shocks once the line appears flat",
             "Fine VF indicates ROSC with hypertension and strong radial pulse",

@@ -155,13 +155,13 @@ FACTS: list[dict] = [
     fact(
         'ekg-intervals',
         'Which leads show a positive QRS with right axis deviation?',
-        'Lead aVF with negative lead I',
+        'Lead aVF positive with a negative lead I',
         [
-            'Lead I positive with aVF negative',
-            'Lead V1 positive with no limb lead change',
+            'Lead II positive with a negative lead III',
+            'Lead V1 positive with no change in the limb leads',
             'Every precordial lead equally positive',
         ],
-        'Right axis deviation means the mean QRS vector points to the right and down, so the QRS is positive in lead aVF and negative in lead I. A positive lead I with a negative aVF describes left axis deviation, a positive V1 by itself does not define the frontal plane axis, and equal positivity across the precordial leads says nothing about axis.',
+        'Right axis deviation means the mean QRS vector points to the right and down, so the QRS is positive in lead aVF and negative in lead I. A positive lead II with a negative lead III describes a different axis, a positive V1 by itself does not define the frontal plane axis, and equal positivity across the precordial leads says nothing about axis.',
         [S.NHA_CCMA],
         'beginner',
     ),
@@ -428,7 +428,7 @@ FACTS: list[dict] = [
     fact(
         'ekg-intervals',
         'What does ST depression in multiple leads suggest?',
-        'Myocardial ischemia or strain depending on clinical context',
+        'Myocardial ischemia or left ventricular strain',
         [
             'A benign repolarization pattern limited to the precordial leads',
             'Limb lead reversal during acquisition of the tracing',

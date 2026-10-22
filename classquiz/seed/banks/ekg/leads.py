@@ -321,7 +321,7 @@ FACTS: list[dict] = [
     fact(
         "ekg-leads",
         "After a 12-lead EKG is acquired, the tracing shows unexpected axis and morphology. The technician realizes the left and right arm electrodes were swapped. What is the most likely effect?",
-        "The tracing may mimic lead reversal with altered axis and mislabeled leads",
+        "The tracing mimics lead reversal with altered axis and mislabeled leads",
         [
             "The tracing will be identical to a correctly wired 12-lead study",
             "The printed paper speed setting will change the measured QRS axis on the tracing",
@@ -363,13 +363,13 @@ FACTS: list[dict] = [
     fact(
         "ekg-leads",
         "From which limb electrodes is standard lead II derived?",
-        "Left leg relative to right arm",
+        "Left leg (LL) relative to right arm (RA)",
         [
-            "Left arm relative to right arm",
-            "Left leg relative to left arm",
-            "Chest lead V5 relative to V1",
+            "Left arm (LA) relative to right arm (RA)",
+            "Right leg (RL) relative to left arm (LA)",
+            "Chest lead V5 relative to precordial lead V1",
         ],
-        "Lead II uses the LL to RA vector, which often highlights P waves. Lead I is LA to RA, lead III is LL to LA, and V5 to V1 is not a standard limb lead II.",
+        "Lead II uses the LL to RA vector, which often highlights P waves. Lead I is LA to RA, lead III is LL to LA, and the right leg electrode is the ground rather than a lead II terminal.",
         [S.NHA_CCMA],
         "intermediate",
     ),

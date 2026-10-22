@@ -163,7 +163,7 @@ FACTS: list[dict] = [
  fact(
  "cpr-adult",
  "How should rescuers interpret agonal gasps in an unresponsive adult?",
- "Agonal gasps are not normal breathing and may indicate cardiac arrest",
+ "Agonal gasps are not normal breathing and signal cardiac arrest",
  [
  "Agonal gasps show adequate ventilation so chest compressions are not needed",
  "Agonal gasps need supplemental oxygen with no chest compressions started",

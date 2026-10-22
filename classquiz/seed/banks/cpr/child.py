@@ -62,7 +62,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-child",
         "Why does AHA advise rescue breaths during child CPR when the rescuer can give them safely?",
-        "Pediatric arrests often begin with respiratory failure, so early breaths matter",
+        "Pediatric arrests begin with respiratory failure, so early breaths matter",
         [
             "Chest compressions are unnecessary once two effective rescue breaths are given",
             "Rescue breaths are optional when the child had a witnessed collapse on dry land",
@@ -266,7 +266,7 @@ FACTS: list[dict] = [
         "cpr-child",
         "A child collapses suddenly while running on a sports field and is unresponsive. What should "
         "the lone rescuer do about EMS activation and AED retrieval?",
-        "Activate EMS and send for an AED because witnessed collapse may be cardiac",
+        "Activate EMS and send for an AED for a suspected cardiac arrest",
         [
             "Complete five minutes of CPR before the call for help or the AED retrieval",
             "Defer EMS activation until a pulse check has lasted two full minutes",
@@ -407,7 +407,7 @@ FACTS: list[dict] = [
         "cpr-child",
         "A tall adolescent looks adult-sized but is still managed with pediatric BLS in your course. "
         "When should rescuers use adult compression depth and hand-placement targets instead?",
-        "When the victim is large enough for adult BLS technique, often after puberty",
+        "When the victim is large enough for adult BLS technique after puberty",
         [
             "For a child older than one year even when the victim appears small for age",
             "When three trained rescuers are present and rotating compressor roles",
@@ -584,7 +584,7 @@ FACTS: list[dict] = [
         "cpr-child",
         "An instructor asks why two-rescuer child CPR uses 15:2 instead of the lone rescuer 30:2 "
         "ratio. Which rationale best matches AHA pediatric BLS?",
-        "15:2 gives ventilations more often while one rescuer keeps compressing",
+        "15:2 gives more ventilations while one rescuer keeps compressing",
         [
             "15:2 reduces the total number of rescue breaths compared with 30:2",
             "30:2 is reserved for adults and is wrong for a pediatric arrest",

@@ -578,11 +578,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-red-cross",
         "An American Red Cross-trained rescuer finds a conscious adult who cannot speak and has a silent ineffective cough after choking on food. What is the first Red Cross maneuver?",
-        "Five back blows, then five abdominal thrusts, repeating cycles as needed",
+        "Five back blows, then five abdominal thrusts, repeating cycles",
         [
             "Encourage forceful coughing because a cough can mean a mild airway blockage",
             "Wait for EMS on scene without back blows or abdominal thrusts",
-            "Blind finger sweeps before the back blows or thrusts",
+            "Blind finger sweeps before the back blows or the abdominal thrusts",
         ],
         "Severe obstruction with poor air exchange starts with back blows followed by abdominal thrusts in Red Cross care. "
         "Effective cough with good air movement is monitored rather than immediate thrusts.",
