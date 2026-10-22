@@ -394,10 +394,7 @@ SPDX-License-Identifier: MPL-2.0
 			explanation,
 			correctAnswer
 		} = parseQuestionResultsPayload(data);
-		if (
-			isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex) ||
-			rows.length === 0
-		) {
+		if (isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex)) {
 			return;
 		}
 		restart();
@@ -491,6 +488,7 @@ SPDX-License-Identifier: MPL-2.0
 			onSetQuestionNumber: handleSetQuestionNumber,
 			onStartGame: () => {
 				gameMeta.started = true;
+				markPlaySocketBound(game_pin);
 			},
 			onJoinError: (payload) => {
 				if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
