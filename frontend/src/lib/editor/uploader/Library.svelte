@@ -21,7 +21,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	const { t } = getLocalization();
 
-	const fetch_images = async (): Promise<PrivateImageData> => {
+	const fetch_images = async (): Promise<PrivateImageData[]> => {
 		const response = await fetch('/api/v1/storage/list/last?count=50');
 		return await response.json();
 	};
@@ -46,7 +46,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div
 			class="flex flex-col w-1/3 m-auto overflow-scroll h-full rounded-sm p-4 gap-4 bg-elevated"
 		>
-			{#each images as image}
+			{#each images as image (image.id)}
 				<div class="rounded-sm border-2 border-[#B07156] p-2 flex-col flex gap-2">
 					<div>
 						<img

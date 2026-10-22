@@ -208,7 +208,7 @@ SPDX-License-Identifier: MPL-2.0
 					</Button>
 					{#if security_keys.length > 0}
 						<ul class="mt-3 divide-y divide-white/[0.07]">
-							{#each security_keys as key, i}
+							{#each security_keys as key, i (key.id)}
 								<li class="flex items-center justify-between gap-3 py-2">
 									<p class="text-sm text-ink">Key {i + 1}</p>
 									<Button

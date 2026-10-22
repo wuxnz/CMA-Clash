@@ -4,6 +4,7 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 -->
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import type { QuizData } from '$lib/quiz_types';
 	import Spinner from '$lib/Spinner.svelte';
@@ -52,7 +53,7 @@ SPDX-License-Identifier: MPL-2.0
 			<p class="text-ink-muted mt-3 max-w-md leading-relaxed">
 				Answer questions on a timer. Pick a set and start (no lobby).
 			</p>
-			<a href="/explore" class="btn btn-primary w-auto mt-8">Pick a quiz</a>
+			<a href={resolve('/explore')} class="btn btn-primary w-auto mt-8">Pick a quiz</a>
 		</div>
 		<div class="rounded-3xl bg-surface overflow-hidden h-[28rem]">
 			<div class="h-full [&_>div]:h-full [&_>div]:min-h-0">
@@ -70,7 +71,7 @@ SPDX-License-Identifier: MPL-2.0
 {:else}
 	{#await get_quiz()}
 		<Spinner />
-	{:then q}
+	{:then}
 		<div class="h-full overflow-hidden">
 			{#if selected_question === -1}
 				<TitleScreen bind:data={quiz} />

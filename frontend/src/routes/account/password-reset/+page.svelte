@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Spinner from '$lib/Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
 	import Button from '$lib/ui/Button.svelte';
@@ -94,7 +95,7 @@ SPDX-License-Identifier: MPL-2.0
 					/>
 				</div>
 				<div class="flex items-center justify-between gap-3">
-					<a href="/account/login" class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center">
+					<a href={resolve('/account/login')} class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center">
 						{$t('words.login')}
 					</a>
 					<Button class="w-auto" disabled={!passwordsValid || isSubmitting} type="submit">

@@ -19,7 +19,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div class="flex flex-row gap-2 mx-auto">
-	{#each code as c}
+	{#each code as c, i (i)}
 		<div class="flex flex-col">
 			<p class="text-center">{c}</p>
 			<span

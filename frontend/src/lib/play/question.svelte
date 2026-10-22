@@ -10,7 +10,6 @@ SPDX-License-Identifier: MPL-2.0
 	import { socket } from '$lib/socket';
 	import Spinner from '../Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
-	import { kahoot_icons } from './kahoot_mode_assets/kahoot_icons';
 	import CircularTimer from '$lib/play/circular_progress.svelte';
 	import { flip } from 'svelte/animate';
 	import BrownButton from '$lib/components/buttons/brown.svelte';
@@ -215,7 +214,7 @@ SPDX-License-Identifier: MPL-2.0
 						? 'sm:gap-4'
 						: 'grid-rows-2 grid-flow-col auto-cols-auto'}"
 				>
-					{#each question.answers as answer, i}
+					{#each question.answers as answer, i (i)}
 						<button
 							type="button"
 							class="bg-paper border border-line border-l-2 flex flex-col items-start justify-between gap-2 disabled:opacity-60 p-4 sm:p-6 min-h-[5.5rem] text-ink hover:bg-elevated press-scale focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
@@ -305,7 +304,7 @@ SPDX-License-Identifier: MPL-2.0
 				style="width: {(100 / parseInt(question.time)) * parseInt(timer_res)}vw"
 			></span>
 			<div class="flex flex-col w-full h-full gap-4 px-4 py-6 mt-10">
-				{#each question.answers as answer, i (answer.id)}
+				{#each question.answers as answer, i (i)}
 					<div
 						class="w-full h-fit flex-row rounded-lg p-2 align-middle"
 						animate:flip={{ duration: 100 }}

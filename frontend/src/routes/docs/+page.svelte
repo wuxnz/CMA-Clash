@@ -5,6 +5,8 @@ SPDX-License-Identifier: MPL-2.0
 -->
 <script lang="ts">
 	import PageHeader from '$lib/ui/PageHeader.svelte';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 </script>
 
 <svelte:head>
@@ -27,7 +29,7 @@ SPDX-License-Identifier: MPL-2.0
 	<nav class="border-t border-line" aria-label="Docs index">
 		{#each [{ href: '/docs/roadmap', label: 'Roadmap', note: 'What is shipping next.' }, { href: '/docs/import-from-kahoot', label: 'Import from Kahoot', note: 'Move an existing deck across in minutes.' }, { href: '/docs/self-host', label: 'Self-hosting', note: 'Run the whole platform yourself.' }, { href: '/docs/develop', label: 'Development setup', note: 'Local environment and contribution flow.' }, { href: '/docs/features', label: 'Features', note: 'Every mode, explained in depth.' }] as doc, i (doc.href)}
 			<a
-				href={doc.href}
+					href={resolve(doc.href as Pathname)}
 				class="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 py-5 border-b border-line transition-colors duration-300 hover:bg-primary-soft px-2 -mx-2"
 			>
 				<span class="flex items-baseline gap-4">
@@ -45,7 +47,7 @@ SPDX-License-Identifier: MPL-2.0
 		<p class="eyebrow">Open source</p>
 		<p class="text-ink-muted leading-relaxed mt-3 max-w-[60ch]">
 			CMA Clash is open source and self-hostable. Read the
-			<a href="/docs/develop" class="text-ink link-hover">development setup</a> to run it
+				<a href={resolve('/docs/develop')} class="text-ink link-hover">development setup</a> to run it
 			locally, or browse the
 			<a href="https://github.com/wuxnz/CMA-Clash" class="text-ink link-hover" target="_blank"
 				>repository</a

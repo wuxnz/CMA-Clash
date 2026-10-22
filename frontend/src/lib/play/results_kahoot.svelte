@@ -37,6 +37,16 @@ SPDX-License-Identifier: MPL-2.0
 
 	let sorted_scores = $derived(sortObjectbyValue(scores));
 
+	let score_by_username = $derived.by(() => {
+		const mapping: Record<string, number> = {};
+		for (const i of question_results) {
+			if (i.score !== undefined) {
+				mapping[i.username] = i.score;
+			}
+		}
+		return mapping;
+	});
+
 	let answerDistribution = $derived.by(() => {
 		const counts: Record<string, number> = {};
 		for (const r of question_results) {
@@ -85,7 +95,7 @@ SPDX-License-Identifier: MPL-2.0
 			<div class="rounded-xl border border-ink/10 bg-surface p-4" aria-label="Answer distribution">
 				<h2 class="font-display font-semibold text-ink mb-4">Answer distribution</h2>
 				<ul class="space-y-3">
-					{#each answerDistribution as [answer, count], i}
+					{#each answerDistribution as [answer, count], i (answer)}
 						<li>
 							<div class="flex justify-between text-sm mb-1">
 								<span class="font-mono truncate pr-2">{answer}</span>

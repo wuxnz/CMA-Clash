@@ -10,7 +10,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { navbarVisible } from '$lib/stores.svelte.ts';
 	import SomeAdminScreen from '$lib/admin.svelte';
 	import GameNotStarted from '$lib/play/admin/game_not_started.svelte';
-	import { browser } from '$app/environment';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	import FinalResults from '$lib/play/admin/final_results.svelte';
 	import GrayButton from '$lib/components/buttons/gray.svelte';
@@ -99,7 +99,6 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	let { data }: Props = $props();
-	let game_mode = $state();
 	let { auto_connect, game_token } = $state(data);
 	const game_pin = data.game_pin;
 	let errorMessage = $state('');
@@ -165,7 +164,7 @@ SPDX-License-Identifier: MPL-2.0
 		try {
 			const res = await fetch(`/api/v1/quiz/play/check_captcha/${game_pin}`);
 			const json = await res.json();
-			game_mode = json.game_mode;
+				void json.game_mode;
 		} catch (e) {
 			console.warn('Could not load game mode', e);
 		}
@@ -195,9 +194,7 @@ SPDX-License-Identifier: MPL-2.0
 			Space: next_action
 		});
 	});
-	socket.on('session_id', (d) => {
-		const session_id = d.session_id;
-	});
+		socket.on('session_id', () => {});
 
 	socket.on('registered_as_admin', (data) => {
 		clearRegisterTimeout();
@@ -221,8 +218,7 @@ SPDX-License-Identifier: MPL-2.0
 		game_state.players = [...game_state.players, int_data];
 	});
 	socket.on('already_registered_as_admin', () => {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
+		// @ts-ignore -- the key is not in the generated translation types
 		errorMessage = $t('admin_page.already_registered_as_admin');
 		clearRegisterTimeout();
 		connectionStatus = 'error';
@@ -261,8 +257,7 @@ SPDX-License-Identifier: MPL-2.0
 	const confirmUnload = () => {
 		if (warnToLeave) {
 			event.preventDefault();
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-			// @ts-ignore
+			// @ts-ignore -- `returnValue` is typed as boolean
 			event.returnValue = '';
 		}
 	};
@@ -379,7 +374,7 @@ SPDX-License-Identifier: MPL-2.0
 						<button type="button" class="btn btn-primary" onclick={retryConnection}
 							>Retry</button
 						>
-						<a href="/host" class="btn btn-secondary">Back to Host a Clash</a>
+							<a href={resolve('/host')} class="btn btn-secondary">Back to Host a Clash</a>
 					</div>
 				{:else if connectionStatus === 'connecting'}
 					<div

@@ -4,7 +4,7 @@
 
 	interface Props {
 		items: QuizRowItem[];
-		onHost?: (id: string) => void;
+		onHost?: (_id: string) => void;
 	}
 
 	let { items, onHost }: Props = $props();

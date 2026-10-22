@@ -108,7 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 				</div>
 			</div>
 			<div class="grid grid-cols-4">
-				{#each Array.from(Array(item_count[data_keys[index]]).keys()) as key}
+				{#each Array.from(Array(item_count[data_keys[index]]).keys()) as key (key)}
 					<button
 						class="hover:opacity-80 transition-all"
 						onclick={() => {

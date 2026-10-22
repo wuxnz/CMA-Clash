@@ -172,7 +172,7 @@ SPDX-License-Identifier: MPL-2.0
 				</button>
 			</div>
 		</div>
-		{#each data.questions as question, index}
+		{#each data.questions as question, index (index)}
 			<div
 				class="bg-surface shadow-sm rounded-lg h-40 p-2 mb-6 hover:cursor-pointer drop-shadow-2xl border border-gray-500 bg-surface transition relative"
 				class:bg-green-300={index === selected_question}
@@ -312,7 +312,7 @@ SPDX-License-Identifier: MPL-2.0
 				{#if question.type === QuizQuestionType.ABCD || question.type === QuizQuestionType.CHECK}
 					<div class="grid grid-cols-2 gap-2">
 						{#if Array.isArray(question.answers)}
-							{#each question.answers as answer}
+							{#each question.answers as answer (answer.answer)}
 								<span
 									class="whitespace-nowrap truncate rounded-lg p-0.5 text-sm text-center border border-gray-700"
 									class:bg-green-500={answer.right}
@@ -345,7 +345,7 @@ SPDX-License-Identifier: MPL-2.0
 				{:else if question.type === QuizQuestionType.VOTING || question.type === QuizQuestionType.TEXT}
 					{#if Array.isArray(question.answers)}
 						<div class="grid grid-cols-2 gap-2">
-							{#each question.answers as answer}
+							{#each question.answers as answer (answer.answer)}
 								<span
 									class="whitespace-nowrap truncate rounded-lg p-0.5 text-sm text-center border border-gray-700"
 									class:bg-elevated={answer.answer}

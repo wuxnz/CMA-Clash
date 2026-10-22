@@ -104,11 +104,7 @@
 		}
 	}
 
-	let game_state = $state(stateFor(phase));
-
-	$effect(() => {
-		game_state = stateFor(phase);
-	});
+	let game_state = $derived(stateFor(phase));
 
 	const noopSocket = { emit: () => {} } as import('socket.io-client').Socket;
 	const socket_game_controls = new SocketGameControls(noopSocket);

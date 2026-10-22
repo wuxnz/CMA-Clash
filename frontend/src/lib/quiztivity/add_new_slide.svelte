@@ -52,7 +52,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div class="rounded-sm bg-white p-6 bg-surface">
 			<h1 class="text-center text-3xl mb-6">{$t('quiztivity.editor.select_page_type')}</h1>
 			<div class="grid grid-cols-4 gap-4 overflow-y-scroll">
-				{#each PageTypes as pt}
+				{#each PageTypes as pt (pt.type)}
 					<div class="rounded-sm p-6 border-[#B07156] border">
 						<button
 							class="text-xl text-ink text-ink"

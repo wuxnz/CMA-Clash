@@ -109,7 +109,7 @@
 	{/if}
 
 	<ul class="max-w-2xl mx-auto w-full space-y-2.5 sm:space-y-4 flex-1 min-h-0 overflow-y-auto">
-		{#each distribution as row, i}
+		{#each distribution as row, i (row.answer)}
 			<li>
 				<div class="flex items-center gap-3 mb-1">
 					<span

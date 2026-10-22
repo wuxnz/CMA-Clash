@@ -7,7 +7,6 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import { getLocalization } from '$lib/i18n';
 	import { signedIn, pathname, isSiteAdmin } from '$lib/stores';
-	import { createTippy } from 'svelte-tippy';
 	import { beforeNavigate } from '$app/navigation';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
@@ -17,14 +16,10 @@ SPDX-License-Identifier: MPL-2.0
 	import { registration_disabled } from './config';
 	import ThemeToggle from '$lib/ui/ThemeToggle.svelte';
 	import { prefersReducedMotion } from '$lib/ui/motion';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 
 	const reduced = prefersReducedMotion();
-
-	const tippy = createTippy({
-		arrow: true,
-		animation: 'perspective-subtle',
-		placement: 'bottom'
-	});
 
 	const { t } = getLocalization();
 
@@ -92,7 +87,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	/** Collapsed into the "More" menu below xl, inline at xl and above. */
 	const secondaryLinks = $derived.by(() => {
-		const links: { href: string; label: string }[] = [
+		const links: { href: Pathname; label: string }[] = [
 			{ href: '/explore', label: $t('words.explore') },
 			{ href: '/search', label: $t('words.search') }
 		];
@@ -102,14 +97,18 @@ SPDX-License-Identifier: MPL-2.0
 
 	/** Always available in the dropdown, never inline. */
 	const adminLinks = $derived.by(() => {
-		const links: { href: string; label: string }[] = [];
+		const links: { href: Pathname; label: string }[] = [];
 		if ($signedIn && $isSiteAdmin)
 			links.push({ href: '/site-admin/users', label: 'Site admin' });
 		return links;
 	});
 
+	/**
+	 * Absolute external link. It must never be routed through `resolve()` - that
+	 * would prefix the app base path onto another origin.
+	 */
+	const githubUrl = 'https://github.com/wuxnz/CMA-Clash';
 	const externalGithub = {
-		href: 'https://github.com/wuxnz/CMA-Clash',
 		label: 'GitHub'
 	};
 </script>
@@ -128,7 +127,7 @@ SPDX-License-Identifier: MPL-2.0
 			<!-- Brand + primary links -->
 			<div class="flex items-center gap-4 xl:gap-6 min-w-0">
 				<a
-					href="/"
+					href={resolve('/')}
 					class="font-display text-2xl text-ink link-hover whitespace-nowrap shrink-0 {isNavLinkActive(
 						page.url.pathname,
 						'/'
@@ -149,7 +148,7 @@ SPDX-License-Identifier: MPL-2.0
 					{#each primaryLinks as link (link.href)}
 						<a
 							class={navLinkClass(link.href, 'play' in link && link.play)}
-							href={link.href}
+							href={resolve(link.href)}
 							aria-current={navAriaCurrent(link.href)}
 						>
 							{'label' in link && link.label.startsWith('words.')
@@ -162,7 +161,7 @@ SPDX-License-Identifier: MPL-2.0
 					{#each secondaryLinks as link (link.href)}
 						<a
 							class="hidden xl:inline-flex btn-nav"
-							href={link.href}
+							href={resolve(link.href)}
 							aria-current={navAriaCurrent(link.href)}
 						>
 							{link.label}
@@ -172,7 +171,7 @@ SPDX-License-Identifier: MPL-2.0
 					<a
 						class="hidden xl:inline-flex btn-nav items-center gap-1"
 						target="_blank"
-						href={externalGithub.href}
+						href={githubUrl}
 					>
 						GitHub
 						<svg
@@ -203,15 +202,15 @@ SPDX-License-Identifier: MPL-2.0
 			<div class="flex items-center gap-3 shrink-0">
 				<ThemeToggle />
 				{#if $signedIn}
-					<a class="btn-nav" href="/dashboard" aria-current={navAriaCurrent('/dashboard')}
+					<a class="btn-nav" href={resolve('/dashboard')} aria-current={navAriaCurrent('/dashboard')}
 						>{$t('words.dashboard')}</a
 					>
-					<a class="btn-nav" href="/api/v1/users/logout">{$t('words.logout')}</a>
+					<a class="btn-nav" href={resolve('/api/v1/users/logout' as Pathname)}>{$t('words.logout')}</a>
 				{:else}
 					{#if !registration_disabled}
-						<a class="btn-nav" href="/account/register">{$t('words.register')}</a>
+						<a class="btn-nav" href={resolve('/account/register')}>{$t('words.register')}</a>
 					{/if}
-					<a class="btn-nav" href="/account/login?returnTo={$pathname}"
+					<a class="btn-nav" href={resolve('/account/login?returnTo=' + $pathname as Pathname)}
 						>{$t('words.login')}</a
 					>
 				{/if}
@@ -249,7 +248,7 @@ SPDX-License-Identifier: MPL-2.0
 							{#each secondaryLinks as link (link.href)}
 								<a
 									class="block px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-elevated transition-colors"
-									href={link.href}
+									href={resolve(link.href)}
 									aria-current={navAriaCurrent(link.href)}
 									onclick={() => (moreIsOpen = false)}
 								>
@@ -259,7 +258,7 @@ SPDX-License-Identifier: MPL-2.0
 							{#each adminLinks as link (link.href)}
 								<a
 									class="block px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-elevated transition-colors"
-									href={link.href}
+									href={resolve(link.href)}
 									aria-current={navAriaCurrent(link.href)}
 									onclick={() => (moreIsOpen = false)}
 								>
@@ -269,7 +268,7 @@ SPDX-License-Identifier: MPL-2.0
 							<a
 								class="block px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-elevated transition-colors"
 								target="_blank"
-								href={externalGithub.href}
+								href={githubUrl}
 							>
 								{externalGithub.label} ↗
 							</a>
@@ -284,7 +283,7 @@ SPDX-License-Identifier: MPL-2.0
 	<div class="lg:hidden px-4">
 		<div class="flex items-center justify-between gap-2 h-16">
 			<a
-				href="/"
+				href={resolve('/')}
 				class="font-display text-xl text-ink link-hover whitespace-nowrap shrink-0 {isNavLinkActive(
 					page.url.pathname,
 					'/'
@@ -297,12 +296,12 @@ SPDX-License-Identifier: MPL-2.0
 			<div class="flex items-center gap-1 shrink-0">
 				<a
 					class="{navLinkClass('/play', true)} flex px-2.5"
-					href="/play"
+					href={resolve('/play')}
 					aria-current={navAriaCurrent('/play')}>{$t('words.play')}</a
 				>
 				<a
 					class="hidden sm:inline-flex btn-nav"
-					href="/host"
+					href={resolve('/host')}
 					aria-current={navAriaCurrent('/host')}>Host</a
 				>
 				<ThemeToggle />
@@ -371,7 +370,7 @@ SPDX-License-Identifier: MPL-2.0
 				<li>
 					<a
 						class="flex items-center justify-between gap-4 py-4 border-b border-line font-display text-2xl text-ink"
-						href={link.href}
+						href={resolve(link.href)}
 						aria-current={navAriaCurrent(link.href)}
 					>
 						{'label' in link && link.label.startsWith('words.')
@@ -399,7 +398,7 @@ SPDX-License-Identifier: MPL-2.0
 				<li>
 					<a
 						class="flex items-center justify-between gap-4 py-3.5 border-b border-line text-base text-ink-muted"
-						href={link.href}
+						href={resolve(link.href)}
 						aria-current={navAriaCurrent(link.href)}
 					>
 						{link.label}
@@ -410,7 +409,7 @@ SPDX-License-Identifier: MPL-2.0
 				<li>
 					<a
 						class="flex items-center justify-between gap-4 py-3.5 border-b border-line text-base text-ink-muted"
-						href={link.href}
+						href={resolve(link.href)}
 						aria-current={navAriaCurrent(link.href)}
 					>
 						{link.label}
@@ -424,28 +423,28 @@ SPDX-License-Identifier: MPL-2.0
 			{#if $signedIn}
 				<a
 					class="flex items-center justify-between py-3.5 border-b border-line text-base text-ink-muted"
-					href="/dashboard">{$t('words.dashboard')}</a
+					href={resolve('/dashboard')}>{$t('words.dashboard')}</a
 				>
 				<a
 					class="flex items-center justify-between py-3.5 border-b border-line text-base text-ink-muted"
-					href="/api/v1/users/logout">{$t('words.logout')}</a
+					href={resolve('/api/v1/users/logout' as Pathname)}>{$t('words.logout')}</a
 				>
 			{:else}
 				{#if !registration_disabled}
 					<a
 						class="flex items-center justify-between py-3.5 border-b border-line text-base text-ink-muted"
-						href="/account/register">{$t('words.register')}</a
+						href={resolve('/account/register')}>{$t('words.register')}</a
 					>
 				{/if}
 				<a
 					class="flex items-center justify-between py-3.5 border-b border-line text-base text-ink-muted"
-					href="/account/login?returnTo={$pathname}">{$t('words.login')}</a
+					href={resolve('/account/login?returnTo=' + $pathname as Pathname)}>{$t('words.login')}</a
 				>
 			{/if}
 			<a
 				class="flex items-center justify-between py-3.5 border-b border-line text-base text-ink-muted"
 				target="_blank"
-				href={externalGithub.href}>GitHub <span aria-hidden="true">↗</span></a
+				href={githubUrl}>GitHub <span aria-hidden="true">↗</span></a
 			>
 		</div>
 

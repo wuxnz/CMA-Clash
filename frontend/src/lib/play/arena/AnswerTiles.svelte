@@ -12,7 +12,7 @@
 		interactive?: boolean;
 		selected?: string;
 		disabled?: boolean;
-		onSelect?: (answer: string) => void;
+		onSelect?: (_answer: string) => void;
 		/** When false, use the compact timer bar above the grid (recommended on player phones). */
 		showRing?: boolean;
 		compact?: boolean;
@@ -98,7 +98,7 @@
 		</div>
 
 		<div class="grid grid-cols-2 gap-px bg-line border border-line pb-4 auto-rows-fr">
-			{#each answers as ans, i}
+			{#each answers as ans, i (ans.answer)}
 				{#if interactive}
 					<button
 						type="button"

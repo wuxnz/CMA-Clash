@@ -7,6 +7,8 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
@@ -41,7 +43,7 @@ SPDX-License-Identifier: MPL-2.0
 		const body = await res.json().catch(() => ({}));
 		if (res.ok && body.status === 'verified') {
 			status = 'verified';
-			setTimeout(() => goto('/account/login?verified=true'), 2000);
+			setTimeout(() => goto(resolve('/account/login?verified=true' as Pathname)), 2000);
 			return;
 		}
 		if (res.ok && body.status === 'already_verified') {
@@ -71,15 +73,15 @@ SPDX-License-Identifier: MPL-2.0
 			<p class="text-ink-muted text-sm mt-2">Redirecting you to login.</p>
 		{:else if status === 'already_verified'}
 			<h1 class="text-xl font-semibold text-ink tracking-tight">Already verified</h1>
-			<a href="/account/login" class="text-ink text-sm mt-4 inline-flex min-h-11 items-center link-hover">Sign in</a>
+			<a href={resolve('/account/login')} class="text-ink text-sm mt-4 inline-flex min-h-11 items-center link-hover">Sign in</a>
 		{:else if status === 'expired'}
 			<h1 class="text-xl font-semibold text-ink tracking-tight">Link expired</h1>
 			<p class="text-ink-muted text-sm mt-2">Request a new verification email from the login page.</p>
-			<a href="/account/login" class="btn btn-primary w-auto mt-6 inline-flex">Go to login</a>
+			<a href={resolve('/account/login')} class="btn btn-primary w-auto mt-6 inline-flex">Go to login</a>
 		{:else}
 			<h1 class="text-xl font-semibold text-ink tracking-tight">Invalid link</h1>
 			<p class="text-ink-muted text-sm mt-2">This verification link is not valid.</p>
-			<a href="/account/register" class="text-ink text-sm mt-4 inline-flex min-h-11 items-center link-hover">Register again</a>
+			<a href={resolve('/account/register')} class="text-ink text-sm mt-4 inline-flex min-h-11 items-center link-hover">Register again</a>
 		{/if}
 	</div>
 </div>

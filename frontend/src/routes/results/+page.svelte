@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import type { PageData } from './$types';
 	import { getLocalization } from '$lib/i18n';
 	import Footer from '$lib/footer.svelte';
@@ -79,11 +80,11 @@ SPDX-License-Identifier: MPL-2.0
 						</tr>
 					</thead>
 					<tbody>
-						{#each results as result}
+						{#each results as result (result.id)}
 							<tr class="border-b border-line transition-colors hover:bg-elevated">
 								<td class="py-3 pr-3 min-w-0">
 									<a
-										href="/results/{result.id}"
+										href={resolve('/results/[result_id]', { result_id: result.id })}
 										class="text-ink link-hover visited:text-ink"
 									>
 										{@html result.title}

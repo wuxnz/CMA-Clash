@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { getLocalization } from '$lib/i18n';
 
 	const { t } = getLocalization();
@@ -13,7 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 </script>
 
 <div class="flex justify-center">
-	<a href="/view/{quiz.id}" class="h-max w-fit">
+	<a href={resolve('/view/[quiz_id]', { quiz_id: quiz.id })} class="h-max w-fit">
 		<div class="max-w-md py-4 px-8 bg-surface shadow-lg rounded-lg my-20 bg-surface">
 			<div>
 				<div class="flex w-full items-center">

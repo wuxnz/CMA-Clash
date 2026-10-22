@@ -5,6 +5,8 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { fly } from 'svelte/transition';
 	import { getLocalization } from '$lib/i18n';
 	import { PopoverTypes } from './smalltop';
@@ -34,7 +36,7 @@ SPDX-License-Identifier: MPL-2.0
 					{$t('components.popover.copied_to_clipboard')}
 				{:else if type === PopoverTypes.GameInLobby}A game is currently in the lobby. Click <a
 						class="underline"
-						href="/remote?game_pin={data.game_pin}&game_id={data.game_id}">here</a
+						href={resolve(`/remote?game_pin=${data.game_pin}&game_id=${data.game_id}` as Pathname)}>here</a
 					> to join as a remote.
 				{:else if type === PopoverTypes.Generic}
 					{@html data}

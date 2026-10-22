@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { getLocalization } from '$lib/i18n';
 	import { DateTime } from 'luxon';
 	import { UAParser } from 'ua-parser-js';
@@ -87,7 +88,7 @@ SPDX-License-Identifier: MPL-2.0
 		api_keys = get_api_keys();
 	});
 
-	const get_api_keys = async (): Promise<Array<string>> => {
+	const get_api_keys = async (): Promise<Array<{ key: string }>> => {
 		const res = await fetch('/api/v1/users/api_keys');
 		const api_keys_temp = await res.json();
 		return api_keys_temp;
@@ -167,13 +168,13 @@ SPDX-License-Identifier: MPL-2.0
 					<p class="text-lg font-semibold text-ink truncate">{user.username}</p>
 					<p class="text-sm text-ink-muted mt-1 break-all">{user.email}</p>
 					<nav class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm" aria-label="Account">
-						<a href="/account/settings/security" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+						<a href={resolve('/account/settings/security')} class="min-h-11 inline-flex items-center text-ink-muted link-hover">
 							Security
 						</a>
-						<a href="/account/controllers" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+						<a href={resolve('/account/controllers')} class="min-h-11 inline-flex items-center text-ink-muted link-hover">
 							Quiz controllers
 						</a>
-						<a href="/user/{user.id}" class="min-h-11 inline-flex items-center text-ink-muted link-hover">
+						<a href={resolve('/user/[user_id]', { user_id: user.id })} class="min-h-11 inline-flex items-center text-ink-muted link-hover">
 							Public profile
 						</a>
 					</nav>
@@ -226,7 +227,7 @@ SPDX-License-Identifier: MPL-2.0
 					<Spinner my_20={false} />
 				{:then keys}
 					<ul class="mt-4 divide-y divide-white/[0.07]">
-						{#each keys as key}
+						{#each keys as key (key.key)}
 							<li class="flex items-center justify-between gap-3 py-3 min-w-0">
 								<code class="text-xs text-ink-muted truncate font-mono">{key.key}</code>
 								<Button
@@ -250,7 +251,7 @@ SPDX-License-Identifier: MPL-2.0
 				<Spinner my_20={false} />
 			{:then sessions}
 				<ul class="divide-y divide-white/[0.07]">
-					{#each sessions as session}
+					{#each sessions as session (session.id)}
 						<li class="py-3 flex flex-col sm:flex-row sm:items-center gap-2 min-w-0">
 							<div class="min-w-0 flex-1">
 								<p class="text-sm text-ink truncate">{getFormattedUserAgent(session.user_agent)}</p>

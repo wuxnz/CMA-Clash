@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import { test, expect, type BrowserContext, type Page } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import fs from 'node:fs';
 import path from 'node:path';
 import { maybeInstallLiveApiProxy } from './helpers/productionBase';

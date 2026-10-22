@@ -23,10 +23,10 @@ SPDX-License-Identifier: MPL-2.0
 
 	interface Props {
 		data: Data;
-		saving: boolean;
+		saving?: boolean;
 	}
 
-	let { data = $bindable(), saving }: Props = $props();
+	let { data = $bindable() }: Props = $props();
 
 	let selected_slide = $state(null);
 	let opened_slide = $state(null);

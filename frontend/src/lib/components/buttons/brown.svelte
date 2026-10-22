@@ -5,6 +5,8 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	interface Props {
 		disabled?: boolean;
 		flex?: boolean;
@@ -12,7 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 		target?: undefined | string;
 		type?: 'button' | 'submit' | 'reset';
 		children?: import('svelte').Snippet;
-		onclick?: (event: MouseEvent) => void;
+		onclick?: (_event: MouseEvent) => void;
 	}
 
 	let {
@@ -28,7 +30,7 @@ SPDX-License-Identifier: MPL-2.0
 
 {#if href}
 	<a
-		{href}
+		href={resolve(href as Pathname)}
 		{target}
 		{disabled}
 		class:opacity-50={disabled}

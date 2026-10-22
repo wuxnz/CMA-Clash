@@ -23,5 +23,4 @@ export interface IGameState {
 	quiz_data: QuizData;
 	control_visible: boolean;
 
-	constructor(game_id: string);
 }

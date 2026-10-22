@@ -14,6 +14,10 @@ SPDX-License-Identifier: MPL-2.0
 	});
 </script>-->
 
+<script lang="ts">
+	import { resolve } from '$app/paths';
+</script>
+
 <svelte:head>
 	<title>CMA Clash: docs - Terms of Service</title>
 	<meta
@@ -73,7 +77,7 @@ SPDX-License-Identifier: MPL-2.0
 		happens if data should be stolen and published? i don't run this platform to get insulted
 		for publishing (personal) data, so I just make sure you're fine with that! Of course, I'll
 		try to not publish any data, delete any content without a reason, etc, but I could. If you
-		still got any questions, please contact me at <a href="/docs"
+		still got any questions, please contact me at <a href={resolve('/docs')}
 			>/docs</a
 		>
 	</p>

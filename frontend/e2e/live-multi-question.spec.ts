@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { installLiveApiProxy } from './helpers/liveApiProxy';
 import { joinPlayer } from './helpers/joinPlayer';
 import { startFromNavbarHost } from './helpers/liveHost';

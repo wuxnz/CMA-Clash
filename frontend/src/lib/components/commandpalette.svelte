@@ -275,7 +275,7 @@ This should be okay, right?
 				/>
 			</div>
 			<div class="flex flex-col p-2 gap-2 overflow-scroll">
-				{#each visible_items as vi, i}
+				{#each visible_items as vi, i (vi.id)}
 					<div
 						transition:fade={{ duration: 60 }}
 						class="p-2 transition rounded-sm"
@@ -291,7 +291,7 @@ This should be okay, right?
 							<p class="font-mono my-auto ml-auto h-fit bg-black/50 rounded-sm p-0.5">
 								/{vi.command}
 								{#if vi.args}
-									{#each vi.args as arg}
+									{#each vi.args as arg (arg)}
 										&lbrace;<span class="text-indigo-400">{arg}</span
 										>&rbrace;{/each}
 								{/if}

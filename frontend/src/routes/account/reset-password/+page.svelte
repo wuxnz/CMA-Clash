@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Spinner from '$lib/Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
 	import { navbarVisible } from '$lib/stores.svelte.ts';
@@ -77,7 +78,7 @@ SPDX-License-Identifier: MPL-2.0
 					<p class="text-sm text-ink-muted">{message}</p>
 				{/if}
 				<div class="flex items-center justify-between gap-3">
-					<a href="/account/login" class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center">
+					<a href={resolve('/account/login')} class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center">
 						{$t('words.login')}
 					</a>
 					<Button class="w-auto" disabled={email === '' || isSubmitting} type="submit">
@@ -92,7 +93,7 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 		<div class="flex items-center justify-center py-4 text-center bg-paper-muted">
 			<span class="text-sm text-ink-muted">{$t('login_page.already_have_account')}</span>
-			<a href="/account/register" class="mx-2 text-sm text-ink link-hover">{$t('words.register')}</a>
+			<a href={resolve('/account/register')} class="mx-2 text-sm text-ink link-hover">{$t('words.register')}</a>
 		</div>
 	</div>
 </div>
