@@ -1,6 +1,6 @@
 # CMA Clash
 
-CMA Clash is CCMA and allied health exam prep built on the ClassQuiz stack (FastAPI, Svelte, Redis/Socket.IO, Meilisearch, PostgreSQL).
+CMA Clash is CCMA and allied health exam prep built on the [ClassQuiz](https://github.com/mawoka-myblock/ClassQuiz) stack (FastAPI, Svelte, Redis/Socket.IO, Meilisearch, PostgreSQL).
 
 ## Architecture
 
@@ -10,6 +10,11 @@ CMA Clash is CCMA and allied health exam prep built on the ClassQuiz stack (Fast
 - **Topics** (`topics`): exam domains and skill areas linked to a certification.
 - **Quizzes** (`quiz`): existing CMA Clash JSON questions, extended with `certification_id`, `topic_id`, `difficulty`, and optional `seed_slug` for idempotent imports.
 - **Questions** (embedded JSON): optional `explanation` and `references` on each `QuizQuestion`.
+
+Every topic ships as one public quiz that merges the beginner, intermediate and
+advanced questions of that topic. Questions that duplicate a harder one are
+dropped during the merge (see `classquiz/seed/quiz_merge.py`), and the merged
+quiz is marked with the `mixed` difficulty because it spans all three tiers.
 
 Browse public content via `GET /api/v1/clash/quizzes` with filters `certification_slug`, `topic_slug`, `difficulty`.
 
@@ -73,4 +78,4 @@ Revision `a1b2c3d4e5f6` adds CMA Clash tables and quiz metadata columns.
 | `CMA_CLASH_SKIP_SEED` | Skip seed when set |
 | `MEILISEARCH_INDEX` | Default `cmaclash` |
 
-Frontend UI is unchanged; only app metadata strings were rebranded where needed.
+The frontend has been rebuilt around CMA Clash — new landing page, docs, dashboard and play UI — on top of the upstream ClassQuiz routing and API layer.

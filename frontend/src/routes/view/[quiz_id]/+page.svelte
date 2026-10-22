@@ -158,7 +158,13 @@ SPDX-License-Identifier: MPL-2.0
 			</p>
 			<RatingComponent bind:quiz />
 			<a
-				href="mailto:abuse@example.com?subject=Report quiz {quiz.id}"
+				href={`https://github.com/wuxnz/CMA-Clash/issues/new?title=${encodeURIComponent(
+					`Report quiz ${quiz.id}`
+				)}&body=${encodeURIComponent(
+					`Quiz ID: ${quiz.id}\nQuiz URL: ${page.url.href}\n\nWhat is wrong with this quiz?\n`
+				)}`}
+				target="_blank"
+				rel="noreferrer"
 				class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
 			>
 				{$t('words.report')}

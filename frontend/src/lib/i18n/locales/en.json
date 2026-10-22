@@ -1,13 +1,8 @@
 {
     "index_page": {
-        "slogan": "CCMA and allied health exam prep",
         "meta": {
-            "description": "CCMA, EKG, phlebotomy, and CPR exam prep with live quizzes, battles, practice, and leaderboards.",
             "title": "Home"
         },
-        "stats": "Join {{user_count}} learners practicing across {{quiz_count}} quizzes on CMA Clash.",
-        "how_cma_clash_works": "How CMA Clash works",
-        "why_cma_clash": "Built for working professionals",
         "cma_hero_subtitle": "Live quizzes with a PIN, 1v1 battles, timed practice, and leaderboards for CCMA and allied certs.",
         "cma_step_study_title": "Study by section",
         "cma_step_study_body": "Browse seeded question banks by certification and topic. Track mastery on your dashboard.",
@@ -26,42 +21,7 @@
         "create_or_import": "Create or Import",
         "see_all_quizzes": "See all your quizzes",
         "teachers_site": "Teacher's site",
-        "students_site": "Student's site",
-        "no_tracking": "No Tracking",
-        "self_hostable": "Self-Hostable",
-        "german_server": "German Server",
-        "user_friendly": "User-Friendly",
-        "completely_free": "Completely Cost Free",
-        "quiz_results_downloadable": "Quiz-results can be downloaded",
-        "multilingual": "Multilingual",
-        "dark_mode": "Darkmode",
-        "get_a_quiz": "1. Get a quiz",
-        "create_a_quiz_from_scratch": "Create a quiz from scratch with the editor and include pictures and more",
-        "find_or_explore": "Find (or explore) quizzes made or imported by other people",
-        "play_quiz": "2. Play the quiz",
-        "select_answer": "Select the answer",
-        "choose_answer_wisely": "Choose your answer wisely",
-        "view_results": "View results",
-        "check_if_chosen_wisely": "Check, if you have chosen wisely",
-        "list_winners": "List winners",
-        "get_ranking_and_winners": "Get the ranking and see who won",
-        "why_classquiz": "Why CMA Clash?",
-        "no_tracking_content": "Others track you and sends that info to third-parties, but CMA Clash doesn't.",
-        "self_hostable_content": "CMA Clash can easily be self-hosted, so the data is only in your control!",
-        "user_friendly_content": "CMA Clash aims to be simple, so it is can be used by everyone.",
-        "completely_free_content": "CMA Clash is completely cost free (for the user), without any paid plans or annoying redirects to the upgrade-page. Donations are highly appreciated.",
-        "quiz_results_downloadable_content": "Quiz-results can be easily exported into an Excel-spreadsheet. (Didn't know others couldn't do that)",
-        "multilingual_content": "CMA Clash is available in English, French, German, Italian, Norwegian Bokmål, Turkish, and partly Indonesian and Catalan.",
-        "dark_mode_content": "One of the most important features a website can have!",
-        "german_server_content": "CMA Clash's servers are located in Germany and hosted by netcup.",
-        "download_quizzes": "Download Quizzes",
-        "download_quizzes_content": "Quizzes can be downloaded as one file and imported at any time. This also lets you move your quizzes to other CMA Clash instances.",
-        "community_driven": "Community-driven",
-        "community_driven_content": "CMA Clash depends on its community for funding, testing ideas, feature requests, translations and more! You can also be a part of the CMA Clash community!",
-        "how_does_classquiz_work": "How does CMA Clash even work?",
-        "no_player_limit": "No player limit",
-        "no_player_limit_content": "CMA Clash doesn't have an artificial player limit. In theory, 1000+ players could play the same quiz, but it's tested with up to 300 players per quiz.",
-        "import_quiz_from_kahoot_and_edit": "Import quizzes from Kahoot! and edit them in CMA Clash"
+        "students_site": "Student's site"
     },
     "overview_page": {
         "created_at": "Created at",
@@ -161,7 +121,6 @@
         "game_pin": "Game PIN",
         "other": "other",
         "other_plural": "others",
-        "donating": "donating",
         "find": "Find",
         "practice": "Practice",
         "get_started": "Get started",
@@ -252,10 +211,9 @@
         "a_kahoot_quiz": "A Kahoot!-Quiz",
         "url_should_look_like_this": "The URL should look like this: https://create.kahoot.it/details/...",
         "side_import_kahoot": "On this side you can import quizzes, which live on Kahoot!.",
-        "classquiz_quiz": "A CMA Clash quiz",
         "upload_file_ending": "Upload the file ending in .cqa or .xlsx",
-        "this_side_classquiz": "On this side you can import quizzes, which were exported from CMA Clash.",
-        "this_side_classquiz_excel": "You can also upload excel files, if you've filled out the following template. If a quiz with the title already exists, it will append the questions to the existing quiz.",
+        "this_side_cma_clash": "On this side you can import quizzes, which were exported from CMA Clash.",
+        "this_side_cma_clash_excel": "You can also upload excel files, if you've filled out the following template. If a quiz with the title already exists, it will append the questions to the existing quiz.",
         "download_template_here": "Download the template"
     },
     "admin_page": {
@@ -330,9 +288,7 @@
         "create_quiz": "Create a new quiz"
     },
     "footer": {
-        "self_ads": "Made with ❤️ by CMA Clash and with the help of {{others_link}}.",
-        "more_details_here": "More details here",
-        "donate": ""
+        "more_details_here": "More details here"
     },
     "error_page": {
         "404_text": "That page is missing or the link may be outdated.",
@@ -397,9 +353,7 @@
         "cancel_update": "Cancel Update!",
         "update_from_to": "Update from {{current_version}} to {{newest_version}}"
     },
-    "navbar": {
-        "donate": "Donate"
-    },
+    "navbar": {},
     "security_settings": {
         "backup_code": "Backup-Code",
         "get_backup_code": "Get Backup-Code",

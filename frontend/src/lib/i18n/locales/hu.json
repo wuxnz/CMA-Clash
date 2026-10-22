@@ -1,52 +1,14 @@
 {
     "index_page": {
-        "slogan": "A nyílt forráskódú kvíz-platform!",
         "meta": {
-            "description": "A CMA Clash egy nyílt forráskódú és ingyenesen használható kvízalkalmazás, amellyel interaktívan tanulhatnak a diákok",
             "title": "Kezdőoldal"
         },
         "see_how_many_true_and_false": "Nézze meg, hánynat hibázott",
         "create_or_import": "Létrehozás vagy importálás",
         "teachers_site": "Tanári oldal",
         "students_site": "Diák oldal",
-        "no_tracking": "Nyomkövetés mentesség",
-        "self_hostable": "Önállóan üzemeltethető",
-        "get_a_quiz": "1. Készíts kvízt",
-        "find_or_explore": "Keressen (vagy fedezzen fel) mások által készített vagy importált kvízeket",
-        "select_answer": "Jelölje ki a választ",
-        "check_if_chosen_wisely": "Ellenőrizd, hogy jól választottál-e",
-        "get_ranking_and_winners": "Rangsor megtekintése, nézd meg ki nyert",
-        "why_classquiz": "Miért a CMA Clash?",
-        "self_hostable_content": "A CMA Clash könnyen futtatható saját szerveren, így az adatai felett Ön rendelkezik!",
-        "quiz_results_downloadable_content": "A kvíz eredményei könnyen exportálhatók Excel-táblázatba. (Nem tudtuk, hogy mások ezt nem tehetik meg)",
-        "dark_mode_content": "Az egyik legfontosabb funkció, amellyel egy weboldal rendelkezhet!",
-        "german_server_content": "A CMA Clash szerverei Németországban találhatók, és a netcup üzemelteti őket.",
-        "download_quizzes": "Kvízek letöltése",
-        "community_driven": "Közösségvezérelt",
-        "how_does_classquiz_work": "Hogyan is működik a CMA Clash?",
-        "german_server": "Német Szerver",
-        "dark_mode": "Sötét mód (darkmode)",
-        "user_friendly": "Felhasználóbarát",
-        "quiz_results_downloadable": "A kvíz eredmények letölthetők",
-        "completely_free": "Teljesen költségmentes",
-        "multilingual": "Többnyelvű",
-        "play_quiz": "2. Tölts ki a kvízt",
-        "stats": "Már {{user_count}} felhasználó és {{quiz_count}} kvíz van a CMA Clashben.",
         "see_what_true_and_false": "Nézze meg, mi volt helyes vagy helytelen",
-        "create_a_quiz_from_scratch": "Készítsen kvízt a semmiből a szerkesztővel, és adjon hozzá képeket és egyebeket",
-        "see_all_quizzes": "Tekintse meg az összes kvízt",
-        "choose_answer_wisely": "Válaszd meg bölcsen a választ",
-        "view_results": "Eredmények megtekintése",
-        "list_winners": "Nyertesek listázása",
-        "no_tracking_content": "Mások követhetik önt, és kiadhatják személyes adatait harmadik feleknek, de a CMA Clash nem.",
-        "user_friendly_content": "A CMA Clash célja, hogy egyszerű legyen, így mindenki használhassa.",
-        "completely_free_content": "A CMA Clash teljesen ingyenes (a felhasználók számára), fizetős csomagok vagy bosszantó átirányítások nélkül a \"prémium előfizetés\" oldalakra. Az adományokat nagyra értékeljük.",
-        "multilingual_content": "A CMA Clash angol, francia, német, olasz, norvég bokmål, török, valamint részben indonéz és katalán nyelven érhető el.",
-        "download_quizzes_content": "A kvízek egy fájlként letölthetők és bármikor importálhatók. Ez lehetővé teszi a kvízek más CMA-Clash-példányokba való áthelyezését is.",
-        "community_driven_content": "A CMA Clash a közösségétől függ a finanszírozás, az ötletek tesztelése, a funkciókérések, a fordítások és egyebek tekintetében! Te is tagja lehetsz a CMA-Clash-közösségnek!",
-        "import_quiz_from_kahoot_and_edit": "Importálj kvízeket a Kahoot!-ból és szerkeszd őket a CMA-Clash-ben",
-        "no_player_limit": "Nincs játékoslimit",
-        "no_player_limit_content": "A CMA Clashnek nincs mesterséges játékoslimitje. Elméletileg több mint 1000 játékos játszhatná ugyanazt a kvízt, a tesztelés során legfeljebb 300 játékost próbáltunk kvízenként."
+        "see_all_quizzes": "Tekintse meg az összes kvízt"
     },
     "overview_page": {
         "created_at": "Létrehozva",
@@ -123,7 +85,6 @@
         "dashboard": "Vezérlőpult",
         "question_plural": "Kérdések",
         "other": "Egyéb",
-        "donating": "adományozás",
         "find": "Keresés",
         "error": "Hiba",
         "voting": "Szavazás",
@@ -233,14 +194,13 @@
     "import_page": {
         "url_should_look_like_this": "Az URL-nek így kell kinéznie: https://create.kahoot.it/details/...",
         "upload_file_ending": "Töltsön fel egy .cqa vagy .xlsx végződésű fájlt",
-        "this_side_classquiz_excel": "Excel fájlokat is feltölthet, ha kitöltötte az alábbi sablont. Ha létezik már egy kvíz az adott címmel, akkor a kérdések a meglévő kvízhez fűződnek.",
+        "this_side_cma_clash_excel": "Excel fájlokat is feltölthet, ha kitöltötte az alábbi sablont. Ha létezik már egy kvíz az adott címmel, akkor a kérdések a meglévő kvízhez fűződnek.",
         "download_template_here": "Töltse le a sablont",
-        "this_side_classquiz": "Ezen az oldalon importálhat CMA Clashból exportált kvízeket.",
+        "this_side_cma_clash": "Ezen az oldalon importálhat CMA Clashból exportált kvízeket.",
         "a_kahoot_quiz": "Egy Kahoot!-Kvíz",
         "side_import_kahoot": "Ezen az oldalon importálhat kvízeket, amelyek a Kahoot!-on aktívak.",
         "need_help": "Segíthetünk?",
-        "visit_docs": "Nézze meg a dokumentációt",
-        "classquiz_quiz": "Egy CMA-Clash-kvíz"
+        "visit_docs": "Nézze meg a dokumentációt"
     },
     "admin_page": {
         "start_game": "Játék kezdése",
@@ -313,9 +273,7 @@
         "commandpalette_notice": "Nyomd meg a <kbd>Ctr</kbd>+<kbd>k</kbd> vagy <kbd>Meta</kbd>+<kbd>k</kbd> gombot a parancspaletta megnyitásához"
     },
     "footer": {
-        "self_ads": "Készítette: ❤️, CMA Clash segítői {{others_link}}.",
-        "more_details_here": "További részletek itt",
-        "donate": ""
+        "more_details_here": "További részletek itt"
     },
     "error_page": {
         "unknown_error_text": "Ennek nem szabadna megtörténnie. Valószínűleg a mi hibánk, nem a tied, de lehet, hogy mágikus erőd van, hogy összetörj dolgokat...",
@@ -380,9 +338,7 @@
         "already_latest_version": "Már a legújabb verziót használja",
         "update_from_to": "Frissítés {{current_version}} verzióról {{newest_version}} verzióra"
     },
-    "navbar": {
-        "donate": "Támogatás"
-    },
+    "navbar": {},
     "security_settings": {
         "get_backup_code": "Szerezze be a biztonsági kódot",
         "2fa_activated": "A kéttényezős hitelesítés aktiválva van",

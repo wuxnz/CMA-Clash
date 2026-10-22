@@ -1,57 +1,19 @@
 {
     "index_page": {
-        "community_driven": "Gemenskapsdrevet",
         "features_description": {
             "2": "Hovedfunksjonen er Kahoot!-import, som lar deg importere spørrekonkurranser fra Kahoot!.",
             "1": "CMA Clash er en spørrekonkurranseplattform som lar deg opprette og håndtere spørrekonkurranser.",
             "3": "Redigereren og eksportering av spørrekonkurranseresultater som Excel-filer er høydepunkter i programvaren."
         },
-        "why_classquiz": "Hvorfor CMA Clash?",
-        "download_quizzes": "Last ned spørrekonkurranser",
         "meta": {
-            "title": "Hjem",
-            "description": "CMA Clash er et spørrekonkurranseprogram som ligner Kahoot! for studenter, og er fritt og gratis"
+            "title": "Hjem"
         },
         "create_or_import": "Opprett eller importer",
         "see_all_quizzes": "Vis alle dine spørrekonkurranser",
         "teachers_site": "Lærerens side",
         "students_site": "Studentens side",
-        "no_tracking": "Ingen sporing",
-        "user_friendly": "Brukervennlig",
-        "multilingual": "Flerspråklig",
-        "dark_mode": "Mørk drakt",
-        "get_a_quiz": "1. Hent en spørrekonkurranse",
-        "play_quiz": "2. Ta del i spørrekonkurransen",
-        "select_answer": "Velg svaret",
-        "choose_answer_wisely": "Velg svaret ditt med omhu",
-        "view_results": "Vis resultater",
-        "list_winners": "List opp vinnerne",
-        "get_ranking_and_winners": "Hent poengtabellen og finn ut hvem som vant",
-        "create_a_quiz_from_scratch": "Opprett en spørrekonkurranse med redigereren og inkluder bilder og andre ting",
-        "quiz_results_downloadable": "Spørrekonkurranseresultater kan lastes ned",
-        "self_hostable_content": "CMA Clash kan enkelt selvtjenes, så dataen er i din kontroll.",
-        "stats": "Det er allerede {{user_count}} brukere og {{quiz_count}} spørrekonkurranser CMA Clash.",
         "see_how_many_true_and_false": "Sjekk hvor mange som var riktige eller feil",
-        "see_what_true_and_false": "Finn ut hva forskjellen på rett og galt er",
-        "self_hostable": "Selvtjenbart",
-        "completely_free": "Gratis",
-        "check_if_chosen_wisely": "Sjekk, hvis du har valgt klokelig.",
-        "no_tracking_content": "Andre sporer deg med minst to amerikanske tredjeparter, noe CMA Clash ikke gjør i det hele tatt.",
-        "quiz_results_downloadable_content": "Resultater av spørrekonkurranser kan eksporteres til regneark. (Visste ikke at de andre ikke kunne gjøre dette.)",
-        "user_friendly_content": "CMA Clash prøver å være enkelt, slik at alle kan bruke det.",
-        "dark_mode_content": "En av de viktigste funksjonene en nettside kan ha.",
-        "german_server_content": "CMA Clash sine tjenere finnes i Tyskland og vertstjenes av netcup.",
-        "community_driven_content": "CMA Clash avhenger av gemenskapen for kronerulling, testing av idéer, funksjonsforespørsler, oversettelser, med mer. Du kan bidra du også.",
-        "slogan": "Den frie spørrekonkurranseplattformen.",
-        "german_server": "Tysk tjener",
-        "find_or_explore": "Finn (eller utforsk) spørrekonkurranser laget eller importert av andre",
-        "import_quiz_from_kahoot_and_edit": "Importer en spørrekonkurranse fra Kahoot! og rediger den i CrassQuiz",
-        "completely_free_content": "CMA Clash er helt kostnadsfritt (for brukeren), uten betalte planer eller irriterende videresending til en oppgraderingsside. Donasjoner verdsettes høyt.",
-        "multilingual_content": "CMA Clash er tilgjengelig på bokmål, engelsk, fransk, italiensk, tysk, tyrkisk, og delvis indonesisk og katalansk.",
-        "download_quizzes_content": "Spørrekonkuranser kan lastes ned som én fil og importeres når som helst, slik at du også kan flytte spørrekonkurransene dine til andre CMA-Clash-instanser.",
-        "how_does_classquiz_work": "Hvordan fungerer CMA Clash?",
-        "no_player_limit": "Ingen spillergrense",
-        "no_player_limit_content": "CMA Clash har ingen kunstig spillergrense. 1000+ spillere kan ta del i samme spørrekonkurranse, og det er testet med 300."
+        "see_what_true_and_false": "Finn ut hva forskjellen på rett og galt er"
     },
     "words": {
         "logout": "Logg ut",
@@ -101,7 +63,6 @@
         "other": "til",
         "browser": "Nettleser",
         "range": "Tallfølge",
-        "donating": "donering",
         "voting": "Stemmegivning",
         "practice": "Tjuvtrening",
         "import": "Importer",
@@ -270,10 +231,9 @@
         "need_help": "Hjelp?",
         "side_import_kahoot": "På denne siden kan du importere spørrekonkurranser som bor på Kahoot!.",
         "upload_file_ending": "Last opp filen som slutter med «.cqa» eller .xlsx",
-        "classquiz_quiz": "En CMA-Clash-spørrekonkurranse",
-        "this_side_classquiz": "På denne siden kan du importere spørrekonkurranser som ble eksportert fra CMA Clash.",
+        "this_side_cma_clash": "På denne siden kan du importere spørrekonkurranser som ble eksportert fra CMA Clash.",
         "url_should_look_like_this": "Nettadressen skal være utformet slik: https://create.kahoot.it/details/…",
-        "this_side_classquiz_excel": "Du kan også laste opp Excel-filer, hvis du har fylt ut følgende mal:",
+        "this_side_cma_clash_excel": "Du kan også laste opp Excel-filer, hvis du har fylt ut følgende mal:",
         "download_template_here": "Last ned malen"
     },
     "password_reset_page": {
@@ -310,8 +270,6 @@
         "info_analytics": "«Reproduksjoner» viser hvor ofte spørrekonkurransen har blitt startet (deg inkludert), mens «Visninger» teller hvor ofte «Vis»-siden har blitt besøkt, så den teller også botter (beklager dette)."
     },
     "footer": {
-        "self_ads": "Med ❤️ av CMA Clash og hjelp fra {{others_link}}.",
-        "donate": "",
         "more_details_here": "Flere detaljer her"
     },
     "error_page": {
@@ -463,9 +421,7 @@
         "time_remaining": "Gjenstående tid",
         "time_elapsed": "Forløpt tid"
     },
-    "navbar": {
-        "donate": "Doner"
-    },
+    "navbar": {},
     "public_user_page": {
         "no_original_quizzes": "Denne brukeren har ikke laget noen spørrekonkurranser selv",
         "joined_on": "Tok del {{date}}"

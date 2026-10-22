@@ -120,13 +120,14 @@ SPDX-License-Identifier: MPL-2.0
 					class="ledger-input mt-3 min-h-11 file:mr-3 file:border-0 file:bg-transparent file:text-ink"
 				/>
 				<p class="text-sm text-ink-muted mt-2">
-					{$t('import_page.this_side_classquiz')}
-					{$t('import_page.this_side_classquiz_excel')}
+					{$t('import_page.this_side_cma_clash')}
+					{$t('import_page.this_side_cma_clash_excel')}
 				</p>
 				<a
 					class="text-sm text-ink link-hover inline-flex min-h-11 items-center"
 					download
-					href="https:///CMA-Clash-ImportTemplate.xlsx">{$t('import_page.download_template_here')}</a
+					href="https://blog.web.garage.realux.mawoka.eu/classquiz/ClassQuizImportTemplate.xlsx"
+					>{$t('import_page.download_template_here')}</a
 				>
 				<Button class="w-full sm:w-auto mt-4" type="submit" disabled={!file_input || is_loading}>
 					{#if is_loading}

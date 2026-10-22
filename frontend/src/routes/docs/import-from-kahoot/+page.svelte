@@ -8,7 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	<title>CMA Clash: docs - Import from Kahoot</title>
 	<meta
 		name="description"
-		content="How to import quizzes from KAHOOT! into CMA Clash, the open-source quiz-application,  easily"
+		content="How to import quizzes from Kahoot into CMA Clash, the open-source quiz-application, easily."
 	/>
 </svelte:head>
 <article
@@ -23,7 +23,7 @@ SPDX-License-Identifier: MPL-2.0
 			target="_blank">create.kahoot.it/discover</a
 		>, find the quiz you want to import, click on it and copy the URL into your clipboard. Then
 		go to
-		<a href="https:///import" rel="nofollow" target="_blank">/import</a>
+		<a href="/import" rel="nofollow">/import</a>
 		and paste the url into the text field.
 	</p>
 

@@ -128,7 +128,7 @@ SPDX-License-Identifier: MPL-2.0
 		<div
 			class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 border-b border-line pb-5"
 		>
-			<p class="eyebrow" use:reveal>NHA CCMA exam prep · est. 2024</p>
+			<p class="eyebrow" use:reveal>NHA CCMA exam prep · est. 2026</p>
 			<p class="eyebrow text-right" use:reveal={{ delay: 0.08 }}>
 				Edition 04 — Kinetic Editorial
 			</p>
