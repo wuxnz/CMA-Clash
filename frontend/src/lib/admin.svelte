@@ -89,6 +89,10 @@ SPDX-License-Identifier: MPL-2.0
 
 	function syncHostClock() {
 		if (!questionTiming) return;
+		// Once results are in, the reveal/rankings hold owns the phase. Running
+		// the answer clock here would pull the host back to 'answer' and mount
+		// the legacy results table on top of the scoreboard.
+		if (game_state.question_results != null) return;
 		const now = serverNowMs(clockOffsetMs);
 		livePhase = resolveLivePhase(questionTiming, game_state.quiz_data?.game_mode, now);
 		const rem = Math.ceil(remainingAnswerSeconds(questionTiming, now));
@@ -166,6 +170,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		game_state.question_results = rows;
 		game_state.timer_res = '0';
+		clearInterval(timer_interval);
 		const scoreIndex =
 			resultsIndex ?? game_state.shown_question_now ?? game_state.selected_question;
 		const integrated = integrateLiveQuestionResults(
