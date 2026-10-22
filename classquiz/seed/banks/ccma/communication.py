@@ -11,7 +11,7 @@ from classquiz.seed.banks._builder import fact
 FACTS: list[dict] = [
     fact(
         'ccma-communication',
-        'What should a professional telephone greeting include?',
+        'What belongs in a professional telephone greeting?',
         'The facility name and an offer of assistance',
         [
             'The department name and the on-call clinician',
@@ -76,7 +76,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What does active listening include?',
+        'What makes up active listening?',
         'Attending, clarifying, and reflecting on the message',
         [
             'Planning your reply while the patient is still talking',
@@ -89,7 +89,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What can nonverbal communication include?',
+        'What counts as part of nonverbal communication?',
         'Eye contact, posture, and facial expression',
         [
             'Written and printed patient education materials',
@@ -115,7 +115,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What does therapeutic active listening in a patient encounter include?',
+        'What makes up therapeutic active listening in a patient encounter?',
         "Reflecting and clarifying the patient's message",
         [
             'Interrupting to save time in the visit',
@@ -219,7 +219,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What should the documentation of a patient communication include?',
+        'What belongs in the documentation of a patient communication?',
         'Be factual and free of biased language',
         [
             'Record how difficult the patient seemed to the staff',
@@ -401,7 +401,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What does conflict de-escalation include?',
+        'What makes up conflict de-escalation?',
         'Lowering the voice, keeping distance, and seeking help',
         [
             'Matching the aggressive behavior and tone of the patient',
@@ -414,7 +414,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What does cultural competence in communication include?',
+        'What makes up cultural competence in communication?',
         'Respecting the beliefs that affect care decisions',
         [
             'Imposing the beliefs of the staff on the patient instead',
@@ -427,7 +427,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What does customer service recovery after an error include?',
+        'What makes up customer service recovery after an error?',
         'Correcting the issue and explaining the next steps',
         [
             'Denying the facts that are already documented in the chart',
@@ -440,7 +440,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What do health literacy considerations include?',
+        'What makes up health literacy considerations?',
         'Using plain language and teach-back',
         [
             'Assuming that every patient reads at college level',
@@ -453,7 +453,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What do health literacy techniques include?',
+        'What makes up health literacy techniques?',
         'Using plain language and avoiding jargon',
         [
             'Long unexplained acronyms in every handout',
@@ -466,7 +466,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What does managing wait times include?',
+        'What is part of managing wait times?',
         'Updating patients about delays when possible',
         [
             'Hiding the wait information from the patients in line',
@@ -479,7 +479,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What do work practice controls under OSHA include?',
+        'What makes up work practice controls under OSHA?',
         'Prohibiting bending or recapping needles by hand',
         [
             'Prohibiting the use of gloves during a blood draw',
@@ -531,7 +531,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-communication',
-        'What should a telephone triage message for the provider include?',
+        'What belongs in a telephone triage message for the provider?',
         'Patient name, callback number, symptoms, and urgency',
         [
             'Patient name, callback number, symptoms, and the visit time',

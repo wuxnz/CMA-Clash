@@ -401,7 +401,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'What do care plans for chronic disease include?',
+        'What makes up care plans for chronic disease?',
         'Self-management goals and follow-up intervals',
         [
             'Insurance billing codes and the charges for the visit',
@@ -414,7 +414,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'What does cultural competence in scheduling include?',
+        'What makes up cultural competence in scheduling?',
         'Offering interpreters when language barriers exist',
         [
             'Assuming the family will translate confidential details',
@@ -427,7 +427,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'What does patient self-management education for diabetes include?',
+        'What makes up patient self-management education for diabetes?',
         'Glucose monitoring and the basics of foot care',
         [
             'Adjusting the insulin dose on their own',
@@ -440,7 +440,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'What should a referral tracking log include?',
+        'What belongs in a referral tracking log?',
         'Reason, date, specialist, and follow-up status',
         [
             'Reason, date, specialist, and the patient home address',
@@ -453,7 +453,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'What should care coordination after a hospital discharge include?',
+        'What belongs in care coordination after a hospital discharge?',
         'Scheduling the follow-up and reviewing the new medications',
         [
             'Relying on the hospital to arrange the follow-up visit',
@@ -466,7 +466,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-coordination',
-        'What should a transition-of-care summary include?',
+        'What belongs in a transition-of-care summary?',
         'The medications, the allergies, and the follow-up plan',
         [
             'The medications and the follow-up plan for the patient',

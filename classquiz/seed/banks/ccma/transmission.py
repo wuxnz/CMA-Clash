@@ -41,13 +41,13 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "What is the primary infection-control goal of respiratory hygiene posters in waiting areas?",
-        "Source control of respiratory secretions",
+        "Reducing the spread of respiratory secretions",
         [
-            "Replacing alcohol-based hand rub stations with posters alone at entrances",
-            "Using Droplet Precautions for every patient with a skin rash",
-            "Reusing the same surgical mask for multiple patients in the waiting area",
+            "Replacing hand rub stations with posters at the entrance",
+            "Using droplet precautions for every patient with a rash",
+            "Cleaning the waiting area surfaces more often than before",
         ],
-        "Covering coughs and sneezes limits how far secretions travel. Hand hygiene remains essential, but posters do not eliminate the need for masks or isolation when a communicable respiratory illness is suspected.",
+        "Covering coughs and sneezes limits how far respiratory secretions travel. Posters reinforce that behavior, but they do not replace hand rub stations, droplet precautions, or cleaning of the waiting area.",
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
         "beginner",
     ),

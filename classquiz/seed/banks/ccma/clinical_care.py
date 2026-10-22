@@ -154,7 +154,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-clinical-care',
-        'Compared with a standard 12-lead ECG, what can a 15-lead ECG improve the detection of?',
+        'Compared with a standard 12-lead ECG, what does a 15-lead ECG detect better?',
         'Posterior wall ischemia',
         [
             'Anterior wall ischemia',

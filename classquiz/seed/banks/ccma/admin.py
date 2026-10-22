@@ -159,7 +159,7 @@ FACTS: list[dict] = [
     # ccma-admin-028
     fact(
         "ccma-admin",
-        "What must telehealth intake documentation include?",
+        "What must be documented at a telehealth intake?",
         "Patient location, consent to virtual care, and modality used",
         [
             "Chief complaint and the insurance eligibility for the visit",

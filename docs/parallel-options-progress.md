@@ -22,12 +22,31 @@ answer, and exactly one defensible answer.
 | P09 | 42 | emergency_aid 001–042 | done |
 | P10 | 42 | poct 001–042 | done |
 | P11 | 253 | guard cleanup: cpr, ekg, ccma, phleb banks plus the legacy diabetes bank | done |
-| P12 | 251 | content-bar cleanup across all 45 topics | in progress |
+| P12 | 251 | content-bar cleanup across all 45 topics | done |
+| P13 | 32 | strict-guard fixes: 25 fragment stems, 7 unbalanced option sets | done |
 
 **Completed at parallel-options standard:** all 546 clinical skills items.
 
 **Other banks brought to the same bar:** 1493 items across cpr (313), ekg (253),
 ccma (590), and phleb (337).
+
+## P13, the strict-guard fixes
+
+P12 cleared the content bar but left two repo guards failing on the pushed branch:
+
+| Guard | Failure | Items |
+|-------|---------|-------|
+| `test_hand_authored_stems_are_complete_questions` | stems ending in `include?`, a truncated-question tell | 25 |
+| `test_hand_authored_correct_not_uniquely_short_by_wide_margin` | keyed answer far shorter than every distractor | 7 |
+
+The 25 stems were rewritten as complete questions that keep the original question
+(`What does active listening include?` becomes `What makes up active listening?`).
+
+The 7 unbalanced items sat in `ccma-anatomy` and `ccma-transmission`. Their keyed
+answers were single words (`Liver`, `Ureter`, `Aorta`) sitting beside much longer
+distractors, which made the short option the only thin one. Each set was rewritten
+so all four options share one length band and the keyed answer is neither the
+longest nor the shortest.
 
 ## P12, the content-bar cleanup
 
@@ -79,8 +98,10 @@ is the option-hygiene standard.
 | `scripts/report_content_bar.py` | lists the items that still carry a content-bar defect |
 | `scripts/audit_content_bar.py` | counts the content-bar defects per topic |
 | `scripts/sample_by_cert.py` | prints random items from one certification for review |
+| `scripts/report_guard_failures.py` | lists every item that trips the two strict length and stem guards |
+| `scripts/check_option_balance.py` | checks candidate option sets against the two length guards |
 | `scripts/peek_module.py` | prints the stems of one bank module |
 | `scripts/topic_items.py` | prints the stems of one topic with difficulty labels |
 
 Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass
-P01 through P12).
+P01 through P13).

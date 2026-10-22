@@ -440,7 +440,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-law-ethics',
-        'What can a mandatory reporting situation include?',
+        'What counts as part of a mandatory reporting situation?',
         'Reasonable suspicion of abuse as the state law describes',
         [
             'Minor billing disputes over the balance owed to the clinic',
@@ -453,7 +453,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-law-ethics',
-        'What do boundary violations in the therapeutic relationship include?',
+        'What makes up boundary violations in the therapeutic relationship?',
         'Inappropriate relationships with the patients',
         [
             'Showing professional empathy to the patient each day',
@@ -466,7 +466,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-law-ethics',
-        'What does patient self-determination include?',
+        'What makes up patient self-determination?',
         'The right to refuse treatment even if it risks harm',
         [
             'Forced treatment after a disagreement occurs at the visit',
@@ -531,7 +531,7 @@ FACTS: list[dict] = [
     ),
     fact(
         'ccma-law-ethics',
-        'What should a workplace harassment policy include?',
+        'What belongs in a workplace harassment policy?',
         'Reporting pathways and a ban on retaliation',
         [
             'A list of the staff members who have made a complaint',
