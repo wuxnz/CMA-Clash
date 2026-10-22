@@ -411,6 +411,25 @@ def check_module(module: str) -> tuple[dict[str, list[str]], dict[str, list[str]
             problems_by_item[key] = problems
         if reviews:
             reviews_by_item[key] = reviews
+
+    # Near-duplicate stems inside the module (mirrors the repo near-duplicate guard).
+    stems = [(f"{module}-{idx:03d}", f["stem"]) for idx, f in enumerate(items, start=1)]
+    for i, (ka, sa) in enumerate(stems):
+        ta = _tokens(sa)
+        if not ta:
+            continue
+        for kb, sb in stems[i + 1 :]:
+            tb = _tokens(sb)
+            if not tb:
+                continue
+            overlap = len(ta & tb) / len(ta | tb)
+            if overlap >= 0.82:
+                problems_by_item.setdefault(ka, []).append(
+                    f"near-duplicate stem with {kb} (similarity {overlap:.2f}): {sb[:60]!r}"
+                )
+                problems_by_item.setdefault(kb, []).append(
+                    f"near-duplicate stem with {ka} (similarity {overlap:.2f})"
+                )
     return problems_by_item, reviews_by_item
 
 

@@ -41,7 +41,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Why is rapid defibrillation critical in cardiac arrest care?",
-        "VF/pulseless VT may respond to early shock",
+        "VF and pulseless VT respond to an early shock",
         [
             "Asystole converts to a perfusing rhythm after one shock",
             "Defibrillation treats stable sinus tachycardia",
@@ -53,27 +53,34 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-chain",
-        "What does the advanced life support link of the Chain of Survival include?",
+        "What does the advanced life support link of the Chain of Survival involve?",
         "Airway management, medications, and advanced monitoring",
         [
-            "Outpatient clinic follow-up scheduling",
-            "Billing and coding without patient care",
-            "Cooling the patient before compressions begin in the field",
+            "Preventive screening for coronary risk factors in the community",
+            "Targeted temperature management in the intensive care unit",
+            "Family counseling and grief support after the resuscitation",
         ],
-        "The advanced life support link covers airway management, medications, and advanced monitoring delivered by EMS and hospital teams beyond lay rescuer BLS. Outpatient follow-up scheduling, billing and coding without patient care, and cooling the patient before compressions begin in the field are not advanced resuscitation measures.",
+        "The advanced life support link covers airway management, medications, and advanced "
+        "monitoring delivered by EMS and hospital teams beyond lay rescuer BLS. Preventive screening, "
+        "temperature management in the intensive care unit, and family counseling belong to "
+        "prevention or post-arrest care rather than to advanced resuscitation.",
         _AHA,
         "intermediate",
     ),
     fact(
         "cpr-chain",
         "What does integrated post-cardiac arrest care focus on?",
-        "Optimizing oxygenation, blood pressure, and targeted temperature management per protocol",
+        "Oxygenation, blood pressure support, and targeted temperature management",
         [
-            "Discharge home immediately after ROSC",
-            "Paperwork completion without monitoring",
-            "Withholding oxygen once a pulse returns",
+            "Discharging the patient home as soon as ROSC returns and care ends",
+            "Completing paperwork and discharge forms without continued monitoring",
+            "Withholding supplemental oxygen, ventilation, and pressure support after ROSC",
         ],
-        "Integrated post-cardiac arrest care focuses on optimizing oxygenation, blood pressure, and targeted temperature management after ROSC, because a return of circulation does not end the resuscitation process. Discharge home immediately after ROSC, paperwork completion without monitoring, and withholding oxygen once a pulse returns leave the patient without the support that limits secondary injury.",
+        "Integrated post-cardiac arrest care focuses on oxygenation, blood pressure support, and "
+        "targeted temperature management after ROSC, because a return of circulation does not end the "
+        "resuscitation process. Discharging the patient home at once, filling out discharge forms "
+        "without monitoring, and withholding oxygen and ventilation after ROSC leave the patient "
+        "without the support that limits secondary injury.",
         _AHA,
         "advanced",
     ),
@@ -83,7 +90,7 @@ FACTS: list[dict] = [
         "Place AEDs where arrest is likely and train lay rescuers",
         [
             "Removing AEDs from public buildings",
-            "Restricting AED training to hospital staff and removing devices from public areas",
+            "Restricting AED training to hospital staff and removing public devices",
             "Replacing hands-on CPR education with online surveys",
         ],
         "Public access defibrillation programs place AEDs where cardiac arrests occur and train lay rescuers to use them, which shortens the time to first shock. Removing devices from public buildings, restricting training to hospital staff, and replacing hands-on CPR education with online surveys all move defibrillation further from the public.",
@@ -93,13 +100,17 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Which community strategies best increase bystander CPR and AED use?",
-        "Hands-on training plus dispatcher-assisted CPR coaching when someone calls 911",
+        "Hands-on training plus dispatcher-assisted CPR coaching for callers",
         [
             "Teaching bystanders to wait for EMS before starting compressions",
-            "Delaying 911 calls until a supervisor approves",
-            "Restricting AED use to trained healthcare workers in clinics",
+            "Delaying 911 calls until a supervisor approves the request",
+            "Restricting AED use to trained healthcare workers in hospital clinics",
         ],
-        "Hands-on courses build the skill to compress and to use an AED, and dispatcher-assisted CPR coaching gets untrained bystanders compressing during the call for help, so both raise bystander CPR and AED use. Teaching that compressions wait for EMS, delaying 911 calls until a supervisor approves, and restricting AEDs to trained healthcare workers work against the community response.",
+        "Hands-on courses build the skill to compress and to use an AED, and dispatcher assisted CPR "
+        "coaching gets untrained bystanders compressing during the call for help, so both raise "
+        "bystander CPR and AED use. Teaching that compressions wait for EMS, delaying 911 calls until "
+        "a supervisor approves, and restricting AEDs to trained healthcare workers work against the "
+        "community response.",
         _AHA,
         "beginner",
     ),
@@ -118,14 +129,18 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-chain",
-        "What does the recovery phase after cardiac arrest include?",
-        "Rehabilitation and psychological support",
+        "What does the recovery phase after cardiac arrest involve?",
+        "Rehabilitation, psychological support, and follow-up care",
         [
             "Immediate return to competitive sports without evaluation",
-            "No follow-up after ICU discharge",
-            "Withholding mental health resources from survivors",
+            "Discharge from the ICU with no follow-up plan of care",
+            "Withholding mental health resources from survivors and families",
         ],
-        "The recovery phase after cardiac arrest includes rehabilitation and psychological support, because survivors can be left with physical limits, cognitive changes, and anxiety. Immediate return to competitive sports without evaluation, no follow-up after ICU discharge, and withholding mental health resources all ignore the long-term needs of survivors.",
+        "The recovery phase after cardiac arrest includes rehabilitation, psychological support, and "
+        "follow-up care, because survivors can be left with physical limits, cognitive changes, and "
+        "anxiety. Returning to competitive sports without evaluation, leaving the ICU without a "
+        "follow-up plan, and withholding mental health resources all ignore the long-term needs of "
+        "survivors.",
         _AHA,
         "advanced",
     ),
@@ -145,13 +160,16 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "What does continuous quality improvement in resuscitation use?",
-        "Data review and debriefing",
+        "Data review, team debriefing, and system-level improvement",
         [
-            "Avoiding review of resuscitation data",
-            "Punishing the newest team member after every arrest",
-            "Replacing debriefs with anonymous complaint forms",
+            "Avoiding review of resuscitation data and case outcomes",
+            "Punishing the newest team member after each difficult arrest",
+            "Replacing debriefs with anonymous complaint forms and surveys",
         ],
-        "Continuous quality improvement in resuscitation uses data review and debriefing, so teams can see trends in arrest response and fix system gaps. Avoiding review of resuscitation data, punishing the newest team member after every arrest, and replacing debriefs with anonymous complaint forms produce nothing that can improve the next code.",
+        "Continuous quality improvement in resuscitation uses data review, team debriefing, and "
+        "system-level improvement, so teams can see trends in arrest response and fix system gaps. "
+        "Avoiding review of resuscitation data, punishing the newest team member, and replacing "
+        "debriefs with complaint forms produce nothing that can improve the next code.",
         _AHA,
         "advanced",
     ),
@@ -170,7 +188,7 @@ FACTS: list[dict] = [
     ),
     fact(
         "cpr-chain",
-        "What is the first link in the out-of-hospital adult Chain of Survival?",
+        "Which step opens the adult out-of-hospital Chain of Survival?",
         "Recognizing cardiac arrest and activating emergency response",
         [
             "Billing insurance before checking responsiveness",
@@ -184,13 +202,17 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Why is early high-quality CPR a critical link in the Chain of Survival?",
-        "Provides oxygenated blood to heart and brain until defibrillation",
+        "Delivers oxygenated blood to the heart and brain until defibrillation",
         [
-            "Provides oxygenated blood after the patient reaches the hospital",
-            "Eliminates the need for early defibrillation",
-            "Replaces EMS activation with self-transport",
+            "Delivers oxygenated blood to the heart and brain after hospital arrival",
+            "Removes the need for early defibrillation once compressions start",
+            "Replaces EMS activation with transport by private vehicle",
         ],
-        "Early high-quality CPR is a critical link because chest compressions perfuse the heart and brain during the minutes before defibrillation and advanced care arrive. Delivering oxygenated blood after hospital admission, eliminating the need for early defibrillation, and replacing EMS activation with self-transport each break the sequence that carries a patient from recognition to defibrillation.",
+        "Early high-quality CPR is a critical link because chest compressions perfuse the heart and "
+        "brain during the minutes before defibrillation and advanced care arrive. Delivering "
+        "oxygenated blood after hospital admission, removing the need for early defibrillation, and "
+        "replacing EMS activation with private transport each break the sequence that carries a "
+        "patient from recognition to defibrillation.",
         _AHA,
         "intermediate",
     ),
@@ -199,9 +221,9 @@ FACTS: list[dict] = [
         "Early defibrillation is most likely to improve survival in which cardiac arrest rhythms?",
         "Shockable rhythms such as ventricular fibrillation",
         [
-            "Normal sinus rhythm with a pulse",
-            "Stable atrial fibrillation with good perfusion",
-            "Mild choking with an effective cough",
+            "Normal sinus rhythm with a pulse and normal blood pressure",
+            "Stable atrial fibrillation with good perfusion and a pulse",
+            "Mild choking with an effective cough and a clear airway",
         ],
         "Early defibrillation improves survival in shockable rhythms such as ventricular fibrillation, because an AED shocks pulseless shockable rhythms and earlier shocks restore a perfusing rhythm more often. Normal sinus rhythm with a pulse, stable atrial fibrillation with good perfusion, and mild choking with an effective cough are not arrest rhythms that benefit from defibrillation.",
         _AHA,
@@ -262,11 +284,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "What does the in-hospital Chain of Survival add compared with community response?",
-        "Rapid recognition of in-hospital arrest and organized response teams",
+        "Rapid recognition of in-hospital arrest and organized code teams",
         [
-            "Outpatient scheduling without code teams",
-            "Eliminating rapid response systems",
-            "Deferring all compressions until imaging is complete",
+            "Hospital scheduling that routinely runs before the code team is called",
+            "Eliminating rapid response systems for deteriorating patients",
+            "Deferring all compressions until imaging and labs are complete",
         ],
         "The in-hospital Chain of Survival adds rapid recognition of in-hospital arrest and organized response teams, so code teams and resuscitation resources reach the patient quickly. Outpatient scheduling without code teams, eliminating rapid response systems, and deferring compressions until imaging is complete remove the hospital-side links that keep arrest care moving.",
         _AHA,
@@ -288,11 +310,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "How should family presence during resuscitation be handled?",
-        "Institutional policy supporting structured support person",
+        "An institutional policy supporting a designated support person",
         [
-            "Mandatory livestreaming for all families",
-            "Banning support persons without a written policy",
-            "Allowing unrestricted interference with the team",
+            "Mandatory livestreaming of the resuscitation for all families",
+            "Banning support persons without a written departmental policy",
+            "Allowing unrestricted interference with the resuscitation team",
         ],
         "Hospitals should handle family presence with an institutional policy that supports a designated support person, which answers family needs while the team stays focused on the arrest. Mandatory livestreaming for all families, banning support persons without a written policy, and allowing unrestricted interference with the team all work against a safe and humane resuscitation environment.",
         _AHA,
@@ -314,11 +336,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Which sequence best lists the links in the adult out-of-hospital Chain of Survival?",
-        "Recognition and activation, immediate high-quality CPR, rapid defibrillation, advanced life support, and post-arrest care",
+        "Recognition, CPR, defibrillation, advanced care, and post-arrest care",
         [
-            "Billing, registration, discharge teaching, then optional CPR",
-            "Cooling before recognition in every community arrest",
-            "Defibrillation before anyone activates emergency response",
+            "Billing, registration, and discharge teaching, then optional CPR classes",
+            "Cooling the patient before recognition in every community arrest",
+            "Defibrillation before anyone activates the emergency response system on scene",
         ],
         "The AHA lists the adult out-of-hospital links as recognition and activation, immediate high-quality CPR, rapid defibrillation, advanced life support, and post-arrest care, in that order. Billing, registration, and discharge teaching, cooling before recognition, and defibrillation before anyone activates emergency response each break the accepted sequence.",
         _AHA,
@@ -327,11 +349,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "How does dispatcher-assisted CPR strengthen the Chain of Survival?",
-        "It coaches untrained bystanders to start compressions while EMS is en route",
+        "It coaches untrained bystanders to start compressions while EMS travels",
         [
-            "Replacing AED placement with telephone hold times",
-            "Instructing callers to avoid all patient contact",
-            "Delaying 911 until a manager approves help",
+            "It replaces AED placement with telephone hold times on the emergency call",
+            "It instructs callers to avoid patient contact during the call",
+            "It delays the 911 call until a manager approves the request",
         ],
         "Dispatcher-assisted CPR strengthens the early CPR link by coaching untrained bystanders to start compressions while EMS is en route, so circulation begins before professionals arrive. Replacing AED placement with telephone hold times, instructing callers to avoid patient contact, and delaying 911 until a manager approves help each remove the link that dispatcher coaching provides.",
         _AHA,
@@ -340,24 +362,28 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Why is post-cardiac arrest care considered a distinct chain link?",
-        "ROSC does not guarantee survival; patients need oxygenation, blood pressure support, and treatment of the underlying cause",
+        "ROSC does not guarantee survival; patients still need ongoing support",
         [
-            "ROSC means the patient can be discharged home right away",
-            "Post-arrest care is limited to completing forms",
-            "Monitoring and blood pressure support are unnecessary after ROSC",
+            "ROSC means the patient can be discharged home without further care",
+            "Post-arrest care is limited to completing the required forms",
+            "Monitoring, blood pressure support, and treating the cause are unnecessary",
         ],
-        "Post-cardiac arrest care is a distinct link because ROSC does not guarantee survival, and patients still need oxygenation, blood pressure support, and treatment of the underlying cause. Discharge home right after ROSC, limiting post-arrest care to paperwork, and treating monitoring and blood pressure support as unnecessary all leave room for rearrest and organ injury.",
+        "Post-cardiac arrest care is a distinct link because ROSC does not guarantee survival, and "
+        "patients still need oxygenation, blood pressure support, and treatment of the underlying "
+        "cause. Discharge home right after ROSC, limiting post-arrest care to paperwork, and treating "
+        "monitoring, blood pressure support, and treatment of the cause as unnecessary all leave room "
+        "for rearrest and organ injury.",
         _AHA,
         "advanced",
     ),
     fact(
         "cpr-chain",
         "A workplace installs AEDs but does not train staff. Which chain link remains weakest?",
-        "Early high-quality CPR and rapid defibrillation because devices require trained responders to use them effectively",
+        "Early CPR and rapid defibrillation, which need trained responders",
         [
-            "Discharge planning in place of bystander CPR",
-            "Post-arrest rehabilitation in place of early defibrillation",
-            "Insurance authorization before AED use",
+            "Discharge planning carried out instead of bystander CPR training",
+            "Post-arrest rehabilitation programs offered instead of early defibrillation",
+            "Insurance authorization completed before the AED is unpacked",
         ],
         "The early CPR and rapid defibrillation links remain weakest, because AEDs and compressions need trained responders and untrained staff may fail to start CPR or use the device. Discharge planning in place of bystander CPR, post-arrest rehabilitation in place of early defibrillation, and insurance authorization before AED use each miss the links that depend on training.",
         _AHA,
@@ -368,9 +394,9 @@ FACTS: list[dict] = [
         "What is the purpose of debriefing after an in-hospital resuscitation attempt?",
         "Review team performance and system factors to improve the next response",
         [
-            "Assigning blame to the least experienced clinician",
-            "Eliminating documentation of the arrest",
-            "Canceling future simulation training",
+            "Assigning blame to the least experienced clinician present on the code team",
+            "Eliminating documentation of the arrest for the quality review",
+            "Canceling future simulation training for the involved staff",
         ],
         "The purpose of debriefing is to review team performance and system factors so the next response is better, which turns each arrest into a learning opportunity. Assigning blame to the least experienced clinician, eliminating documentation of the arrest, and canceling future simulation training turn the review into something that damages the team.",
         _AHA,
@@ -379,24 +405,24 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Why might fear of lawsuits reduce bystander CPR rates, and what helps address that fear?",
-        "Bystanders worry about legal risk; Good Samaritan laws in many areas protect good-faith rescue efforts",
+        "Good Samaritan laws in many areas protect good-faith rescue efforts",
         [
-            "Bystanders fear legal risk and jurisdictions offer no protection for rescuers",
-            "Legal risk increases when Good Samaritan laws apply",
-            "Physicians are the only people permitted to perform compressions",
+            "Bystanders fear legal risk and jurisdictions offer no protection",
+            "Legal risk increases when Good Samaritan laws apply to the rescuer",
+            "Compressions are treated as medical treatment that requires a license",
         ],
-        "Bystanders may fear legal risk, and Good Samaritan laws in many areas protect good-faith rescue efforts, which is what encourages them to act. Believing that jurisdictions offer no protection for rescuers, claiming legal risk increases when Good Samaritan laws apply, and insisting that physicians are the only people permitted to perform compressions all keep bystanders from helping.",
+        "Bystanders may fear legal risk, and Good Samaritan laws in many areas protect good-faith rescue efforts, which is what encourages them to act. Believing that jurisdictions offer no protection for rescuers, claiming legal risk increases when Good Samaritan laws apply, and treating compressions as medical treatment that requires a license all keep bystanders from helping.",
         _AHA,
         "beginner",
     ),
     fact(
         "cpr-chain",
         "How do community AED maps and signage support the Chain of Survival?",
-        "They help bystanders locate devices quickly for early defibrillation",
+        "They help bystanders locate devices for early defibrillation",
         [
-            "They replace the need for CPR training",
-            "They delay EMS activation",
-            "They eliminate maintenance of AED batteries",
+            "They replace the need for CPR training for bystanders",
+            "They delay EMS activation while responders search for a device",
+            "They eliminate the maintenance of AED batteries and pads",
         ],
         "Community AED maps and signage support the Chain of Survival by helping bystanders locate a device quickly, so defibrillation happens earlier. They do not replace the need for CPR training, they do not delay EMS activation, and they do not remove the maintenance that keeps AED batteries and pads ready for use.",
         _AHA,
@@ -407,9 +433,9 @@ FACTS: list[dict] = [
         "Which outcome measure best reflects success of a community CPR training program?",
         "Increased rate of bystander CPR started before EMS arrival",
         [
-            "Number of employees who completed payroll training",
-            "Hospital cafeteria satisfaction scores",
-            "Count of AED battery replacements across the city",
+            "Number of employees who completed the payroll training session",
+            "Hospital cafeteria satisfaction scores from staff surveys",
+            "Count of AED battery replacements across the city each year",
         ],
         "The outcome measure that best reflects success is an increased rate of bystander CPR started before EMS arrival, because that is the change in the early CPR link that saves lives. Counting employees who completed payroll training, tracking cafeteria satisfaction scores, and counting AED battery replacements across the city measure activity rather than patient benefit.",
         _AHA,
@@ -418,11 +444,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Which action best describes the recognition link in the out-of-hospital Chain of Survival?",
-        "Promptly identifying cardiac arrest and activating the emergency response system",
+        "Promptly identifying arrest and activating the response system",
         [
-            "Waiting for a physician on scene before calling 911",
-            "Starting compressions without checking responsiveness",
-            "Applying an AED before ensuring scene safety",
+            "Waiting for a physician on scene before calling 911 for help",
+            "Starting compressions without checking responsiveness and breathing",
+            "Applying an AED before confirming that the scene is safe",
         ],
         "The recognition link is the prompt identification of cardiac arrest and activation of the emergency response system, which begins with checking responsiveness and breathing. Waiting for a physician on scene before calling 911, starting compressions without checking responsiveness, and applying an AED before ensuring scene safety all skip the assessment that recognition requires.",
         _AHA,
@@ -433,9 +459,9 @@ FACTS: list[dict] = [
         "Which links appear early in the out-of-hospital adult Chain of Survival?",
         "Recognition, CPR, defibrillation, and advanced care",
         [
-            "Post-arrest hypothermia delivered in the hospital",
-            "Insurance preauthorization and scheduling",
-            "Medication reconciliation without compressions",
+            "Post-arrest hypothermia delivered later in the hospital",
+            "Insurance preauthorization and elective scheduling",
+            "Medication reconciliation performed without compressions",
         ],
         "The early links of the out-of-hospital adult Chain of Survival are recognition, CPR, defibrillation, and advanced care, since each of them begins before the patient reaches the hospital. Post-arrest hypothermia delivered in the hospital, insurance preauthorization and scheduling, and medication reconciliation without compressions belong to a different phase of care.",
         _AHA,
@@ -444,7 +470,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-chain",
         "Bystander CPR most directly strengthens which chain link?",
-        "Early high-quality CPR",
+        "Early high-quality CPR for the arrest witness",
         [
             "Post-arrest rehabilitation services in the community",
             "Hospital discharge planning before EMS arrives",
@@ -461,20 +487,20 @@ FACTS: list[dict] = [
         [
             "Defibrillation that is delayed until hospital arrival",
             "Removal of CPR from public education",
-            "Mandatory sedation of the patient before any shock",
+            "Mandatory sedation of the patient before a shock",
         ],
-        "Public access defibrillation programs add early defibrillation before EMS arrival, which shortens the time to first shock and improves survival in shockable rhythms. Defibrillation that is delayed until hospital arrival, removal of CPR from public education, and mandatory sedation of the patient before any shock all push back or disrupt the early shock.",
+        "Public access defibrillation programs add early defibrillation before EMS arrival, which shortens the time to first shock and improves survival in shockable rhythms. Defibrillation that is delayed until hospital arrival, removal of CPR from public education, and mandatory sedation of the patient before a shock all push back or disrupt the early shock.",
         _AHA,
         "intermediate",
     ),
     fact(
         "cpr-chain",
-        "What does integrated post-cardiac arrest care address?",
-        "Hemodynamics, ventilation, and targeted temperature management when indicated",
+        "Which physiologic goals drive integrated post-cardiac arrest care?",
+        "Hemodynamics, ventilation, and temperature management",
         [
-            "Completing discharge paperwork before the patient leaves",
-            "Immediate unsupervised home discharge",
-            "Withholding ventilation after ROSC",
+            "Completing discharge paperwork before the patient leaves the unit",
+            "Immediate unsupervised home discharge for the recovering patient",
+            "Withholding ventilation and oxygen after ROSC returns",
         ],
         "Integrated post-cardiac arrest care addresses hemodynamics, ventilation, and targeted temperature management when indicated, because these measures limit secondary brain and organ injury after ROSC. Completing discharge paperwork before the patient leaves, discharging the patient unsupervised and at once, and withholding ventilation after ROSC all skip the physiologic support that post-arrest care provides.",
         _AHA,
@@ -498,9 +524,9 @@ FACTS: list[dict] = [
         "What does community CPR training primarily improve?",
         "Willingness and ability to start the CPR link early",
         [
-            "Ability to bill insurance faster",
-            "Reduced need for AED maintenance",
-            "Elimination of EMS from the chain",
+            "The speed of billing insurance for the responding service",
+            "The reduced need for routine AED battery and pad checks",
+            "The elimination of EMS from the response sequence",
         ],
         "Community CPR training primarily improves the willingness and ability of bystanders to start the CPR link early, because repeated practice builds confidence and skill. Billing insurance faster, reducing the need for AED maintenance, and eliminating EMS from the chain are administrative effects rather than the goal of the training.",
         _AHA,
@@ -511,9 +537,9 @@ FACTS: list[dict] = [
         "Which failure in the Chain of Survival most directly delays defibrillation?",
         "Failure to activate EMS and retrieve an AED promptly",
         [
-            "Taking a pulse check after every compression cycle",
-            "Switching compressors every two minutes",
-            "Documenting vital signs after ROSC",
+            "Taking a prolonged pulse check after every compression cycle",
+            "Switching the compressor every two minutes during the arrest",
+            "Documenting vital signs and reassessing after ROSC",
         ],
         "Failure to activate EMS and retrieve an AED promptly is the failure that most directly delays defibrillation, because shockable rhythms lose survival with every minute without a shock. Taking a pulse check after every compression cycle, switching compressors every two minutes, and documenting vital signs after ROSC are not the steps that postpone the shock.",
         _AHA,
@@ -524,9 +550,9 @@ FACTS: list[dict] = [
         "What do in-hospital cardiac arrest systems focus on?",
         "Rapid recognition, team response, and high-quality CPR",
         [
-            "Outpatient scheduling without code teams",
-            "Skipping debriefing after arrests",
-            "Deferring compressions for routine imaging",
+            "Outpatient scheduling that runs without formal code teams",
+            "Skipping the team debrief after each in-hospital arrest",
+            "Deferring compressions for routine imaging before care",
         ],
         "In-hospital cardiac arrest systems focus on rapid recognition, team response, and high-quality CPR, because a code team at the bedside can start compressions and defibrillate within minutes. Outpatient scheduling without code teams, skipping debriefing after arrests, and deferring compressions for routine imaging remove the elements that make hospital arrests survivable.",
         _AHA,

@@ -71,7 +71,7 @@ FACTS: list[dict] = [
         "When is it appropriate to document no known drug allergies (NKDA)?",
         "After the patient confirms no allergies or verified data support NKDA",
         [
-            "Before staff ask any allergy screening questions at this clinic visit",
+            "Before staff ask the allergy screening questions during this clinic visit",
             "Because a chart from five years ago was not reviewed at check-in",
             "When the patient is in a hurry and skips the allergy interview",
         ],
@@ -114,7 +114,7 @@ FACTS: list[dict] = [
         "Prioritize by acuity and evaluate immediately when symptoms appear severe",
         [
             "Assign exam rooms strictly by arrival time without symptom screening",
-            "Complete all billing entries before any brief safety assessment at triage",
+            "Complete all billing entries before a brief safety assessment at triage",
             "Delay chest pain evaluation until every registration form is finished first",
         ],
         "Triage identifies emergencies such as unstable chest pain or stroke symptoms. First-come scheduling without acuity review can postpone critical care.",
@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             "Former smoker; cigarettes; one pack per day; quit date not recorded",
             "Former smoker; cigarettes; amount not recorded; quit date March 2024",
-            "Former smoker; cigarettes; one pack per week; quit date March 2024",
+            "Former smoker; cigarettes; one pack weekly; quit date March 2024",
         ],
         "Status, product, amount, and quit date should all be captured and match what the patient reports. Omitting the quit date or the amount leaves exposure history unclear, and a different amount misstates it.",
         [S.NHA_CCMA],
@@ -254,7 +254,7 @@ FACTS: list[dict] = [
         "Summarize the primary concern briefly and confirm accuracy with the patient",
         [
             "Record unrelated childhood anecdotes as the sole chief complaint entry",
-            "Select a diagnosis code at random instead of the patient's stated concern",
+            "Select a diagnosis code by assumption instead of the stated concern",
             "Leave chief complaint blank because the patient's story exceeded a word limit",
         ],
         "Brief, confirmed summaries keep the record usable while respecting the patient's words. Empty fields or unrelated anecdotes break continuity for the evaluating clinician.",
@@ -296,7 +296,7 @@ FACTS: list[dict] = [
         "Heart disease, diabetes, or cancer in parents or siblings",
         [
             "Marital status and number of children without documented illness in relatives",
-            "Dietary preferences and caffeine intake recorded without any family disease history",
+            "Dietary preferences and caffeine intake recorded without family history",
             "Insurance plan name and primary care clinic address without relative illnesses",
         ],
         "First-degree relative conditions flag inherited cardiovascular, cancer, and metabolic risk. Marital status, diet alone, or payer details do not replace a structured family illness history.",
@@ -337,9 +337,9 @@ FACTS: list[dict] = [
         "Which intake question helps distinguish emergent abdominal pain from lower-acuity complaints?",
         "Whether pain is severe or sudden, with dizziness or blood in vomit",
         [
-            "Whether the patient prefers generic medications over brand-name products at the pharmacy",
+            "Whether the patient prefers generic over brand-name products",
             "Whether fasting lipid labs were drawn within the past year for routine screening",
-            "Whether mild heartburn after spicy meals has occurred intermittently for several years",
+            "Whether mild heartburn after spicy meals has lasted for years",
         ],
         "Sudden severe pain with dizziness or hematemesis suggests acute abdomen or bleed. Generic-drug preference and chronic reflux patterns do not screen for those alarm features.",
         [S.NHA_CCMA],
@@ -503,7 +503,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "Which documentation approach supports a meaningful ROS when intake time is limited?",
-        "Document pertinent ROS for the complaint and expand review as required",
+        "Document the pertinent ROS for the complaint and expand the review",
         [
             "Copy ROS text from a different patient's chart with a similar age and sex",
             "Mark every body system positive to reduce screening questions during intake",
