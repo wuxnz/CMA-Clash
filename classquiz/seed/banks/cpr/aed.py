@@ -15,11 +15,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "When an AED is brought to an adult in cardiac arrest, what is the correct first action with the device?",
-        "Turn the AED on and follow its voice and visual prompts",
+        "Turn the AED on and follow its voice and visual prompts step by step",
         [
             "Attach the electrode pads before switching the AED on",
             "Press the shock button to test the unit before opening the pad package",
-            "Finish about two minutes of compressions before powering on so the chest is warmed for analysis",
+            "Finish two minutes of compressions before powering on so the chest is warm",
         ],
         "Powering on the AED starts step-by-step prompts for pad placement, rhythm analysis, and shock delivery. Pads must be connected before analysis, and prolonged CPR interruptions while reading instructions delay defibrillation.",
         _REF,
@@ -44,7 +44,7 @@ FACTS: list[dict] = [
         "Announce that the area is clear and ensure no one touches the patient",
         [
             "Continue chest compressions while the device charges and delivers shock",
-            "Keep one hand on the patient's shoulder to stabilize the torso during shock delivery",
+            "Keep one hand on the shoulder to steady the torso during shock delivery",
             "Remove the electrode pads before shock to protect the adhesive gel",
         ],
         "Electricity can injure anyone in contact with the patient during shock delivery. Compressions must pause while the device charges and delivers energy, and pads stay in place for repeated cycles.",
@@ -70,7 +70,7 @@ FACTS: list[dict] = [
         "The patient is unresponsive with absent or abnormal breathing including gasps",
         [
             "The patient is unresponsive with agonal gasps but a strong carotid pulse is felt",
-            "The patient collapsed briefly, is alert, speaks in sentences, and breathes normally",
+            "The patient is alert, speaks in sentences, and breathes normally",
             "The patient has chest pain while awake, oriented, and breathing without distress",
         ],
         "AED use accompanies CPR when arrest is suspected based on unresponsiveness and abnormal or absent breathing. Conscious patients with effective breathing do not meet criteria for defibrillation.",
@@ -82,9 +82,9 @@ FACTS: list[dict] = [
         "Why is it unsafe for rescuers to remain in contact with the patient during AED shock delivery?",
         "Current can pass to rescuers and reduce effective energy through the heart",
         [
-            "Stand clear of the legs but keep contact with the shoulders during shock delivery",
+            "Stand clear of the legs but keep contact with the shoulders",
             "Rescuer contact may cause tingling but does not reduce energy through the chest",
-            "Light contact with the patient's arm helps the AED confirm readiness before shock",
+            "Light contact on the arm helps the AED confirm readiness before shock",
         ],
         "Defibrillation requires a cleared patient so energy crosses the chest between pads. Rescuer contact risks electrical injury and may shunt current away from the myocardium.",
         _REF,
@@ -95,7 +95,7 @@ FACTS: list[dict] = [
         "What is the primary purpose of routine maintenance checks on a facility or public-access AED?",
         "Confirm battery charge and pad expiration so the unit is ready for use",
         [
-            "Replace electrode pads on a fixed schedule even when sealed packages show a future expiration date",
+            "Replace pads on a fixed schedule even when the sealed package has a future date",
             "Store pads in a separate room away from the AED to extend shelf life",
             "Change voice language settings monthly without verifying battery status",
         ],
@@ -108,9 +108,9 @@ FACTS: list[dict] = [
         "When should rescuers turn on an AED after it reaches the patient during ongoing CPR?",
         "Turn the AED on as soon as the device arrives while compressions continue",
         [
-            "Pause compressions until spontaneous circulation and normal breathing are confirmed",
-            "Delay powering on until EMS declares death over the telephone at bystander request",
-            "Power on the AED before anyone starts compressions even when pulse status is unclear",
+            "Pause compressions until circulation and normal breathing return",
+            "Delay powering on until EMS declares death over the telephone",
+            "Power on the AED before compressions start even when pulse status is unclear",
         ],
         "Early power-on allows rapid pad application and rhythm analysis with minimal delay. CPR should continue until the AED instructs rescuers to pause for analysis or shock.",
         _REF,
@@ -119,10 +119,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "The patient's chest is wet with sweat after exertion. What should rescuers do before attaching AED pads?",
-        "Quickly dry the chest and attach pads firmly to bare dry skin",
+        "Quickly dry the chest and attach the pads firmly to bare dry skin",
         [
-            "Shave chest hair first and delay pad placement until grooming at the pad sites is finished",
-            "Wipe sweat with an alcohol pad and attach pads without further drying of the chest",
+            "Shave chest hair first and delay pads until grooming at the sites is finished",
+            "Wipe sweat with an alcohol pad and attach pads without further drying",
             "Place pads on the lower abdomen to keep electrodes away from sweaty chest skin",
         ],
         "Moisture increases transthoracic impedance and may cause arcing between pads or to rescuers. Drying the chest and exposing bare skin improves adhesion and shock effectiveness.",
@@ -136,7 +136,7 @@ FACTS: list[dict] = [
         [
             "Remove the AED and stop all resuscitation efforts on scene",
             "Deliver a shock manually despite the no-shock advisory message",
-            "Provide rescue breaths only and pause chest compressions until EMS arrives on scene",
+            "Give rescue breaths and pause compressions until EMS arrives on scene",
         ],
         "A no-shock message usually indicates a non-shockable rhythm such as asystole or pulseless electrical activity. High-quality CPR and ventilations should continue while awaiting advanced care.",
         _REF,
@@ -147,7 +147,7 @@ FACTS: list[dict] = [
         "Before applying AED pads, what preparation is required for the chest surface?",
         "Expose bare dry skin, dry wet areas, and place pads per the diagram",
         [
-            "Leave thick wet clothing in place to protect skin from electrode adhesive irritation",
+            "Leave wet clothing in place to protect skin from adhesive irritation",
             "Apply body lotion on hairy chest skin to improve pad adhesion before placement",
             "Place pads over jewelry and necklaces without removing metal from the chest",
         ],
@@ -158,11 +158,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "After turning an AED on during resuscitation, how should lay and BLS rescuers proceed?",
-        "Follow the device's voice and visual prompts step by step",
+        "Follow the voice and visual prompts of the device step by step",
         [
-            "Ignore prompts and choose pad sites based on personal preference",
-            "Attach electrode pads only after EMS arrives even when the AED is already at the bedside",
-            "Wait for a physician to arrive before attaching any electrodes",
+            "Ignore the prompts and choose pad sites based on personal preference",
+            "Attach the electrode pads after EMS arrives even when the AED is at the bedside",
+            "Wait for a physician to arrive before the electrodes are attached",
         ],
         "AEDs are designed for prompt-guided use without memorizing complex algorithms. Deviating from prompts or delaying pad placement wastes time in a shockable rhythm.",
         _REF,
@@ -171,11 +171,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "While teammates prepare an AED, what should happen to chest compressions?",
-        "Keep compressions going until the AED calls for a brief pause for pads or analysis",
+        "Keep compressions going until the AED calls for a brief pause for pads",
         [
             "Stop all compressions until pads are attached and the first shock is delivered",
             "Switch to rescue breaths until the AED cabinet is unlocked and opened",
-            "Switch to pulse checks only and pause compressions until the AED case is fully opened",
+            "Switch to pulse checks and pause compressions until the AED case is opened",
         ],
         "Circulation should continue until the AED requires a short interruption for setup or rhythm analysis. Prolonged compression-free intervals reduce coronary and cerebral perfusion pressure.",
         _REF,
@@ -184,11 +184,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Which cardiac arrest rhythms are treated with shock delivery from an AED?",
-        "Shock ventricular fibrillation and pulseless VT when the AED advises shock",
+        "Shock ventricular fibrillation and pulseless VT when the device advises",
         [
-            "Shock asystole and pulseless electrical activity when the AED advises shock delivery",
-            "Shock normal sinus rhythm with a palpable pulse when the AED advises shock delivery",
-            "Shock sinus bradycardia with a strong pulse and calm breathing when the AED advises shock",
+            "Shock asystole and pulseless electrical activity when advised",
+            "Shock normal sinus rhythm with a palpable pulse when advised",
+            "Shock sinus bradycardia with a strong pulse and calm breathing when advised",
         ],
         "Automated external defibrillators shock ventricular fibrillation and pulseless ventricular tachycardia. Non-shockable rhythms require CPR and advanced treatment rather than defibrillation.",
         _REF,
@@ -210,9 +210,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Why must chest compressions pause while the AED analyzes the heart rhythm?",
-        "Chest motion and artifact from compressions keep the AED from detecting rhythm accurately",
+        "Chest motion and compression artifact keep the AED from reading the rhythm",
         [
-            "Pause compressions for at least two full minutes during each rhythm analysis window",
+            "Pause compressions for two full minutes during each rhythm analysis window",
             "Continuous compressions improve AED accuracy by warming the chest wall",
             "The AED analyzes rhythm after spontaneous circulation has already returned",
         ],
@@ -223,11 +223,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Chest hair prevents AED pads from sticking firmly. What is the appropriate response?",
-        "Press pads firmly and shave hair at electrode sites when a kit razor is available",
+        "Press the pads firmly and shave hair at the sites when a razor is available",
         [
-            "Cancel AED use and wait for EMS without attempting pad placement on the hairy chest",
-            "Apply household gel to the chest hair instead of using the supplied AED electrodes",
-            "Place both pads on the lower abdomen to bypass the hairy chest during rhythm analysis",
+            "Cancel AED use and wait for EMS without trying pads on the hairy chest",
+            "Apply household gel to the chest hair instead of the supplied AED electrodes",
+            "Place both pads on the lower abdomen to bypass the hairy chest",
         ],
         "Poor skin contact increases impedance and may block analysis or effective shock. Shaving at pad sites or firm pressure improves adhesion without abandoning defibrillation.",
         _REF,
@@ -236,11 +236,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "A transdermal medication patch lies where an AED pad must be placed. What should rescuers do?",
-        "Remove the patch with a gloved hand, wipe the skin dry, then apply the electrode pad",
+        "Remove the patch with a gloved hand, dry the skin, then apply the electrode",
         [
             "Place the AED pad directly over the medication patch without removing it",
-            "Place the pad on the patch first and reposition only if the AED prompts to check pads",
-            "Skip AED use whenever any transdermal medication patch is present on the chest",
+            "Place the pad on the patch first and reposition if the AED prompts to check",
+            "Delay AED use whenever a transdermal patch is present on the chest",
         ],
         "Patches can block adhesion and may be damaged or cause focal burns during shock. Removing interfering medication from the electrode site improves contact and safety.",
         _REF,
@@ -249,9 +249,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "When pediatric AED pads or a dose-attenuator system is available for a child in arrest, how should it be used?",
-        "Attach pediatric pads or use pediatric mode per manufacturer labeling",
+        "Attach pediatric pads or turn on pediatric mode for the child",
         [
-            "Use standard adult pads at full labeled energy on small children in cardiac arrest",
+            "Use adult pads at full labeled energy on small children in cardiac arrest",
             "Withhold all shocks until the child reaches typical adult weight on the scale",
             "Place a single adult pad centered on the sternum for small children in arrest",
         ],
@@ -262,11 +262,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "The patient is lying on a wet conductive surface near standing water. What is the safest approach to AED use?",
-        "Move the patient to dry ground if possible, dry the chest, and clear everyone for shock",
+        "Move the patient to dry ground if possible, dry the chest, and clear everyone",
         [
-            "Apply pads while the patient remains in shallow standing water and deliver shock without relocating",
+            "Apply pads while the patient stays in shallow water and deliver the shock there",
             "Place towels on the head while leaving the chest and wet surface damp",
-            "Postpone AED use until the entire floor is fully dry even while CPR continues on scene",
+            "Postpone AED use until the floor is dry even while CPR continues",
         ],
         "Water and conductive surfaces increase rescuer risk and may reduce shock effectiveness. Relocate when safe, dry the chest, and ensure no one touches the patient during shock delivery.",
         _REF,
@@ -275,10 +275,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "How should rescuers integrate AED pad application with ongoing chest compressions?",
-        "Keep compressing until the AED prompts a pause, then attach the electrode pads quickly",
+        "Keep compressing until the AED prompts a pause, then attach the pads",
         [
-            "Stop compressions while one rescuer unpacks the AED and reads all packaging labels first",
-            "Apply pads after two minutes of pulse checks without any compressions",
+            "Stop compressions while one rescuer unpacks the AED and reads the labels",
+            "Apply pads after two minutes of pulse checks without compressions",
             "Hold the powered AED against the patient's leg during each compression",
         ],
         "Early defibrillation is time-critical, so compressions continue until a brief pause is needed for electrodes or analysis. Holding equipment on the patient during compressions is unsafe.",
@@ -303,9 +303,9 @@ FACTS: list[dict] = [
         "Agonal gasping is present in an unresponsive patient. Should an AED be used?",
         "Yes; agonal gasps are abnormal breathing and warrant CPR with early AED use",
         [
-            "No; any audible gasp means breathing is effective enough for recovery position care",
-            "No; gasping patients should be placed in the recovery position instead of starting CPR",
-            "Yes; but defer compressions and AED until agonal gasping stops without intervention",
+            "No; an audible gasp means breathing is effective for recovery position care",
+            "No; place gasping patients in the recovery position instead of starting CPR",
+            "Yes; but defer compressions and the AED until gasping stops on its own",
         ],
         "Agonal gasps are irregular and ineffective and occur in cardiac arrest. BLS treats this as abnormal breathing and proceeds with compressions and early defibrillation when indicated.",
         _REF,
@@ -314,11 +314,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "While the AED is analyzing rhythm between CPR cycles, what should all rescuers do?",
-        "Stay clear of the patient and avoid touching the chest or pads",
+        "Stay clear of the patient and avoid touching the chest or the pads",
         [
-            "Continue chest compressions during rhythm analysis to maintain coronary perfusion",
+            "Continue compressions during rhythm analysis to maintain perfusion",
             "Palpate the femoral pulse while the device displays the rhythm analysis strip",
-            "Wipe conductive gel across the pad surface to shorten the rhythm analysis time",
+            "Wipe conductive gel on the pads to shorten the analysis time",
         ],
         "Contact and chest motion create artifact that can confuse analysis. Everyone clears until the device finishes and instructs rescuers to resume compressions or deliver a shock.",
         _REF,
@@ -327,11 +327,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "The AED advises a shock while a rescuer is still performing compressions. What is the correct sequence?",
-        "Stop compressions, clear the patient, then shock when the AED signals readiness",
+        "Stop compressions, clear the patient, then shock when the AED signals ready",
         [
-            "Continue compressions through shock delivery to avoid losing coronary perfusion time",
-            "Remove the electrode pads before shocking to protect the adhesive gel layer on the chest",
-            "Ignore the shock advisory and compress for five more minutes before clearing the patient",
+            "Continue compressions through shock delivery to avoid perfusion time loss",
+            "Remove the electrode pads before shocking to protect the adhesive gel",
+            "Ignore the shock advisory and compress for five more minutes before clearing",
         ],
         "Shock delivery requires that no one touch the patient. Compressions pause, the team clears, and the AED delivers energy when ready after the advisory.",
         _REF,
@@ -343,8 +343,8 @@ FACTS: list[dict] = [
         "Remove the patch and wipe the skin dry before placing the AED pad on that site",
         [
             "Place the AED pad directly over the nitroglycerin patch without removing it",
-            "Place the pad on the patch first and reposition only if the AED prompts to check pads",
-            "Skip AED use whenever any nitroglycerin patch is present on the patient's chest",
+            "Place the pad on the patch first and reposition if the AED prompts for a check",
+            "Delay AED use whenever a nitroglycerin patch is present on the chest",
         ],
         "Medication patches block adhesion and can concentrate energy during shock. AHA BLS special considerations call for removing patches from the electrode area and drying the skin before pad placement.",
         _REF,
@@ -356,7 +356,7 @@ FACTS: list[dict] = [
         "No; leave pads on for repeated analysis and additional shocks when advised",
         [
             "Yes; remove pads after each shock to inspect the chest skin for redness",
-            "Yes; discard pads after one shock and wait for replacement pads from responding EMS",
+            "Yes; discard the pads after one shock and wait for replacements from EMS",
             "No; but power off the AED until EMS arrives after delivering a single shock",
         ],
         "Arrest rhythms may persist or recur, so pads stay attached for ongoing cycles. Removing electrodes delays re-analysis and potential subsequent defibrillation.",
@@ -369,7 +369,7 @@ FACTS: list[dict] = [
         "Resume compressions immediately when prompted rather than ventilation alone",
         [
             "Wait two minutes with no compressions to observe for spontaneous movement",
-            "Observe breathing for about two minutes without compressions to confirm return of circulation",
+            "Observe breathing for two minutes without compressions to confirm circulation",
             "Remove the AED and document shock time on paper before compressing",
         ],
         "Post-shock care prioritizes compressions to restore coronary perfusion. Waiting for obvious signs of life or removing equipment before compressing wastes critical seconds.",
@@ -392,7 +392,7 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Which statement best describes pulseless ventricular tachycardia in the context of AED use?",
-        "A shockable arrest rhythm with no palpable pulse that the AED may treat",
+        "A shockable arrest rhythm with no palpable pulse that the AED treats",
         [
             "A perfusing rhythm that requires no CPR or AED attachment during the arrest",
             "A shockable rhythm when the patient is awake, talking, and has a palpable pulse",
@@ -418,10 +418,10 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "During CPR with an AED attached, when should rescuers pause compressions for ventilation in two-rescuer adult BLS?",
-        "During brief AED pauses for analysis or shock and during planned ventilation breaks",
+        "During brief AED pauses for analysis or shock and planned ventilation breaks",
         [
-            "Stop ventilations until the AED delivers three sequential shock attempts on scene",
-            "Continue compressions through shock delivery and rhythm analysis without pausing hands",
+            "Stop ventilations until the AED delivers three sequential shock attempts",
+            "Continue compressions through shock delivery and analysis without pausing",
             "Give ventilations after EMS intubates while ignoring AED rhythm analysis pauses",
         ],
         "AED operations and CPR ventilations both require short compression interruptions. Teams coordinate pauses to minimize total hands-off time while following 30:2 or local BLS guidance.",
@@ -444,11 +444,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "What does the AED do after instructing rescuers to stand clear and delivering a shock?",
-        "It prompts CPR resumption and later rhythm re-analysis per its programmed algorithm",
+        "It prompts CPR resumption and later rhythm re-analysis per its algorithm",
         [
-            "It begins rhythm analysis again immediately without a CPR interval between shocks",
-            "It charges for a second shock before chest compressions are resumed on the patient",
-            "It instructs rescuers to check a pulse before resuming chest compressions after shock",
+            "It begins rhythm analysis again without a CPR interval between the shocks",
+            "It charges for a second shock before compressions are resumed",
+            "It instructs rescuers to check a pulse before resuming compressions",
         ],
         "Modern AEDs guide post-shock CPR and automatic re-analysis after a CPR interval. Devices remain active for multiple cycles when shockable rhythms continue.",
         _REF,
@@ -457,11 +457,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "How can a resuscitation team limit harmful hands-off time while using an AED?",
-        "Prepare during compressions, pause for analysis and shock, resume compressions when prompted",
+        "Prepare during compressions, pause for analysis and shock, resume when told",
         [
-            "Stop compressions for two minutes after each shock to record the rhythm strip on paper",
+            "Stop compressions for two minutes after each shock to record the rhythm strip",
             "Have one rescuer hold the electrode pads in the air until EMS arrives on scene",
-            "Analyze rhythm during active compressions to avoid any hands-off time",
+            "Analyze rhythm during active compressions to avoid all hands-off time",
         ],
         "Brief pauses are required for analysis and shock but should not extend unnecessarily. Continuing compressions until the device requests a pause keeps coronary perfusion pressure higher during the resuscitation attempt.",
         _REF,
@@ -470,11 +470,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "An implanted pacemaker is visible as a lump under the skin on the upper chest. How should AED pads be positioned?",
-        "Do not place a pad over the generator; shift it about an inch away when you can",
+        "Do not place a pad over the generator; shift it about an inch away",
         [
-            "Place both pads centered directly on the visible pacemaker generator lump under skin",
-            "Withhold the AED because pacemakers contraindicate defibrillation during cardiac arrest",
-            "Apply pads to the lower legs while leaving the chest without any electrodes attached",
+            "Place both pads centered on the visible pacemaker generator lump",
+            "Withhold the AED because pacemakers rule out defibrillation in arrest",
+            "Apply pads to the lower legs while leaving the chest without electrodes",
         ],
         "AEDs are used in arrest despite pacemakers by shifting pad position away from the generator. Leg-only placement does not deliver current through the heart effectively.",
         _REF,
@@ -483,9 +483,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "No pediatric AED pads are available for a child in cardiac arrest. How may adult pads be used?",
-        "Use adult pads with anterior-posterior or separated anterior placement per instructions",
+        "Use adult pads with anterior-posterior or separated anterior placement",
         [
-            "Withhold defibrillation until pediatric electrode pads arrive with the responding EMS unit",
+            "Withhold defibrillation until pediatric pads arrive with the EMS unit",
             "Overlap both adult pads in the center of the small chest without repositioning",
             "Fold one adult pad in half on the sternum to reduce pad surface area",
         ],
@@ -496,11 +496,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "For an infant or small child, anterior AED pads would touch if placed in standard adult positions. What placement is often recommended?",
-        "Anterior-posterior placement with chest and back pads per manufacturer instructions",
+        "Anterior-posterior placement with chest and back pads per instructions",
         [
-            "Overlap both pads on the sternum because sternal contact alone is sufficient for shock",
-            "Withhold AED use for children under eight years even during confirmed cardiac arrest",
-            "Place one pad on each upper arm while leaving the torso without any electrodes",
+            "Overlap both pads on the sternum because sternal contact is enough",
+            "Withhold AED use for children under eight even during confirmed arrest",
+            "Place one pad on each upper arm while leaving the torso bare",
         ],
         "Small thoraces require AP or other labeled configurations so pads do not touch. Manufacturer diagrams prevent overlap that causes short circuits and failed defibrillation.",
         _REF,
@@ -511,7 +511,7 @@ FACTS: list[dict] = [
         "The AED fails to power on during cardiac arrest despite pressing the button. What should rescuers do?",
         "Continue high-quality CPR and obtain defibrillation from responding EMS",
         [
-            "Stop all resuscitation because a failed AED means shock therapy cannot help this patient",
+            "Stop resuscitation because a failed AED means shocks cannot help this patient",
             "Pause CPR to search other floors for a spare AED before resuming compressions",
             "Wait without compressions until a fresh battery is installed in the wall cabinet",
         ],
@@ -522,11 +522,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "A patient in arrest lies on a metal stretcher that cannot be moved immediately. What mitigation may be appropriate before AED shock?",
-        "Place dry insulation between the patient and metal when arc risk is a concern per training",
+        "Place dry insulation between the patient and metal when arc risk is a concern",
         [
-            "Do not defibrillate on metal surfaces because AED energy cannot reach the myocardium from a stretcher",
+            "Do not defibrillate on metal because AED energy cannot reach the heart",
             "Refuse defibrillation on metal surfaces even when dry insulation is available",
-            "Delay shock until transfer off the stretcher is complete even if that prolongs hands-off time",
+            "Delay shock until transfer off the stretcher is complete",
         ],
         "When conductive surfaces are a concern, dry padding may reduce stray current paths during shock. Teams still clear the patient and follow local training without abandoning defibrillation when mitigation is feasible.",
         _REF,
@@ -535,11 +535,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "How should AED pad placement account for an implanted cardioverter-defibrillator (ICD) lump on the chest?",
-        "Keep pads off the ICD generator and adjust placement per the diagram when possible",
+        "Keep pads off the ICD generator and adjust placement per the diagram",
         [
-            "Center both pads on the ICD lump because implants attract defibrillation energy to the device",
-            "Avoid AED use in patients with any implanted cardiac device visible as a lump on the chest",
-            "Place pads on the abdomen while leaving the chest without any electrodes attached during arrest",
+            "Center both pads on the ICD lump because implants draw the energy",
+            "Avoid AED use in patients with an implanted device visible as a chest lump",
+            "Place pads on the abdomen while leaving the chest without electrodes",
         ],
         "ICD generators resemble pacemaker pockets and should not be covered by an electrode if placement can be shifted. AED therapy remains indicated during arrest with appropriate pad adjustment.",
         _REF,
@@ -548,11 +548,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Which combination of steps reflects AHA BLS special considerations before AED pad attachment?",
-        "Remove interfering patches, dry the chest, and keep pads off visible chest implants when possible",
+        "Remove interfering patches, dry the chest, and keep pads off chest implants",
         [
-            "Leave patches in place, attach over wet clothing, and center pads on any implant",
-            "Dry only the sternum, leave wet hair at pad sites, and place electrodes over nitroglycerin patches",
-            "Remove necklaces but attach pads over damp clothing without drying the full chest surface",
+            "Leave the patches in place and attach the pads over wet clothing",
+            "Dry just the sternum and place the electrodes over a nitroglycerin patch",
+            "Remove necklaces but attach pads over damp clothing without drying the chest",
         ],
         "Patches and moisture impair contact, while implants may be avoided by repositioning pads. These adjustments preserve shock effectiveness without delaying defibrillation unnecessarily.",
         _REF,
@@ -563,9 +563,9 @@ FACTS: list[dict] = [
         "After the AED delivers a shock, it begins another rhythm analysis. What should rescuers do during that analysis period?",
         "Remain clear and be ready to resume compressions if no shock is advised",
         [
-            "Perform a two-minute carotid pulse check while others watch the AED rhythm screen",
+            "Perform a two-minute carotid pulse check while others watch the screen",
             "Reposition pads on the chest while the AED analyzes rhythm between shock cycles",
-            "Remove pads between cycles to let chest skin cool before the next analysis period",
+            "Remove the pads between cycles to let the chest skin cool",
         ],
         "All rescuers must clear during each analysis to prevent artifact and injury. If no further shock is indicated, compressions restart without prolonged pulse checks or pad removal.",
         _REF,
@@ -574,11 +574,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "Why might an AED instruct rescuers to press the shock button versus delivering shock automatically?",
-        "Some models require a shock button press after clearing to prevent accidental discharge",
+        "Some models need a shock button press after clearing the patient",
         [
-            "Manual shock buttons exist to test battery strength without delivering energy to the patient",
-            "Semi-automatic devices analyze rhythm but require clinician interpretation before each shock",
-            "The shock button must be pressed before pads attach to initialize the defibrillator circuit",
+            "Manual shock buttons exist to test the battery without delivering energy",
+            "Semi-automatic devices analyze rhythm but need clinician input before shock",
+            "The shock button is pressed before pads attach to initialize the circuit",
         ],
         "Semi-automatic AEDs analyze rhythm and charge but require a rescuer to press shock after clearing. Fully automatic units deliver without a button, but both types require the same safety clearances.",
         _REF,
@@ -587,11 +587,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "When using adult AED pads on a larger child without pediatric pads, why is separated anterior placement sometimes used?",
-        "It prevents pad overlap on a smaller chest while directing current through the heart",
+        "It prevents pad overlap on a small chest while current crosses the heart",
         [
-            "It withholds defibrillation energy when attached so CPR alone treats ventricular fibrillation",
+            "It withholds the shock energy so CPR alone treats ventricular fibrillation",
             "It is used when the child is awake and speaking in full coherent sentences",
-            "It replaces drying the chest or removing medication patches before pad placement",
+            "It replaces drying the chest or removing medication patches before pads go on",
         ],
         "Manufacturer diagrams for adult pads on children emphasize separation or AP orientation to avoid touching electrodes. Skin preparation and patch removal remain required for effective contact.",
         _REF,
@@ -600,11 +600,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "How should rescuers respond if the patient moves noticeably after an AED shock but remains unresponsive?",
-        "Continue CPR and follow AED prompts because movement does not prove sustained ROSC",
+        "Continue CPR and follow AED prompts because movement does not prove ROSC",
         [
-            "Stop resuscitation immediately because any movement equals full neurologic recovery",
+            "Stop resuscitation immediately because movement equals full recovery",
             "Remove the AED and discharge the patient before EMS completes assessment",
-            "Withhold compressions for about two minutes to see whether spontaneous movement increases",
+            "Withhold compressions for two minutes to see if spontaneous movement grows",
         ],
         "Myoclonic or reflex movement can occur without adequate perfusion. BLS resumes compressions and allows the AED to re-analyze until ROSC or termination criteria are met by trained providers.",
         _REF,
@@ -613,11 +613,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "What is the rationale for continuing CPR when the initial AED rhythm analysis shows a non-shockable pattern?",
-        "Non-shockable rhythms still need compressions for perfusion and may convert with care",
+        "Non-shockable rhythms still need compressions and may convert with care",
         [
-            "Non-shockable rhythms mean CPR is harmful and resuscitation should be stopped at once",
-            "CPR is unnecessary because asystole often resolves spontaneously without compressions",
-            "Shockable rhythms alone benefit from chest compressions and oxygenation during arrest",
+            "Non-shockable rhythms mean CPR is harmful and resuscitation should stop",
+            "CPR is unnecessary because asystole resolves without compressions",
+            "Shockable rhythms alone benefit from compressions and oxygenation",
         ],
         "Asystole and pulseless electrical activity require high-quality CPR and treatment of reversible causes. Compressions maintain blood flow while advanced clinicians address underlying etiology.",
         _REF,
@@ -626,9 +626,9 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "During a multi-rescuer resuscitation, who should operate the AED while others perform CPR?",
-        "Any trained rescuer powers on the AED and applies pads while others rotate compressions",
+        "A trained rescuer powers on the AED and applies pads while others compress",
         [
-            "The rescuer performing compressions must also operate the AED without switching roles",
+            "The compressing rescuer also operates the AED without switching roles",
             "The AED must stay untouched until a paramedic enters the resuscitation room",
             "One rescuer must compress and operate the AED at the same time without help",
         ],
@@ -639,11 +639,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "If an AED displays a message to check pads or electrode contact during analysis, what should the team do?",
-        "Ensure pads adhere fully, replace loose pads if needed, and resume per prompts",
+        "Ensure pads adhere fully, replace loose pads, and resume per prompts",
         [
-            "Remove all pads and discontinue CPR because a contact error means the AED cannot be reused",
-            "Press the shock button repeatedly without pads to reset the device after a contact message",
-            "Ignore the message and continue compressions without correcting pad contact",
+            "Remove the pads and discontinue CPR because a contact error stops the AED",
+            "Press the shock button repeatedly without pads to reset the device",
+            "Ignore the message and continue compressions without correcting the pad contact",
         ],
         "Poor adhesion or cable connection triggers troubleshooting prompts. Fixing contact allows rhythm analysis and therapy to proceed without abandoning CPR.",
         _REF,
@@ -652,11 +652,11 @@ FACTS: list[dict] = [
     fact(
         "cpr-aed",
         "How does early AED use fit into the adult BLS chain of survival for witnessed sudden collapse?",
-        "Early shock of shockable rhythms plus CPR improves survival compared with CPR alone",
+        "Early shock of shockable rhythms plus CPR improves survival versus CPR alone",
         [
-            "AED attachment replaces chest compressions during witnessed sudden collapse on scene",
-            "Defibrillation should wait until hospital arrival even when an AED is available nearby",
-            "AEDs are applied after prolonged compressions without epinephrine at the arrest scene",
+            "AED attachment replaces compressions during a witnessed sudden collapse",
+            "Defibrillation should wait for hospital arrival even when an AED is close by",
+            "AEDs are applied after prolonged compressions at the arrest scene",
         ],
         "Ventricular fibrillation may respond to early shock plus high-quality CPR. Compressions remain essential before, between, and after shocks until ROSC or advanced care takes over.",
         _REF,

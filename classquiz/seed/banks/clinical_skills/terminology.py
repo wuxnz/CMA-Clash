@@ -181,7 +181,7 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "What does the suffix -megaly mean in hepatomegaly?",
-        "Enlargement",
+        "Enlargement of an organ",
         [
             "Reduction or small size",
             "Inflammation of tissue",
@@ -253,9 +253,9 @@ FACTS: list[dict] = [
         "What does the abbreviation NPO mean on a preprocedure order?",
         "Nothing by mouth",
         [
-            "Normal pressure oxygen therapy",
-            "Night postoperative observation rounds",
-            "New patient orientation visit",
+            "Normal pressure oxygen",
+            "Night postoperative observation",
+            "New patient orientation",
         ],
         "NPO restricts oral intake before sedation or surgery. The other phrases sound clinical but do not match the Latin nil per os meaning.",
         [S.NHA_CCMA],
@@ -265,11 +265,11 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "What does PRN on a medication order indicate?",
-        "As needed for symptoms or indication",
+        "Given for symptoms or a documented indication",
         [
-            "Every morning at a fixed time",
-            "Before each meal on a standard schedule",
-            "At bedtime once each night",
+            "Given at a fixed time each morning after breakfast",
+            "Given before each meal on a standard daily schedule",
+            "Given once each night when the patient goes to bed",
         ],
         "PRN dosing depends on symptoms or indication. QAM is morning, AC is before meals, and HS is at bedtime in many facilities.",
         [S.NHA_CCMA, S.FDA_MEDICATION_SAFETY],
@@ -295,9 +295,9 @@ FACTS: list[dict] = [
         "What does TID indicate for medication timing?",
         "Three times daily",
         [
-            "Twice daily on a fixed schedule",
-            "Once at bedtime each night",
-            "As needed without a fixed schedule",
+            "Twice daily on a schedule",
+            "Once at bedtime",
+            "As needed without a schedule",
         ],
         "TID is ter in die, meaning three times daily. BID is twice daily, HS is at bedtime, and PRN is as needed.",
         [S.NHA_CCMA],
@@ -307,11 +307,11 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "What does the abbreviation HS commonly mean on a medication order?",
-        "At bedtime",
+        "At bedtime (hora somni)",
         [
-            "Before meals on a standard schedule",
-            "At half the ordered drug concentration",
-            "With a hot saline soak treatment",
+            "Before meals on a schedule",
+            "At half the ordered dose",
+            "With a hot saline soak",
         ],
         "HS often signals hour of sleep dosing. AC is before meals, half strength would be written explicitly, and soak orders use different wording.",
         [S.NHA_CCMA],
@@ -321,11 +321,11 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "What does STAT mean when a provider orders a lab or medication?",
-        "Immediately",
+        "Immediately, without delay",
         [
-            "At the next routine clinic visit",
-            "When the patient verbally requests it",
-            "After three prior routine scheduled doses",
+            "At the next routine visit",
+            "When the patient requests it",
+            "After three prior routine doses",
         ],
         "STAT signals urgent action. Delayed or conditional timing would be written with different frequency terms.",
         [S.NHA_CCMA],
@@ -337,9 +337,9 @@ FACTS: list[dict] = [
         "In documentation, what does SOB usually stand for?",
         "Shortness of breath",
         [
-            "Systolic output balance measurement",
-            "Soft outer bandage application",
-            "Standing on both feet positioning",
+            "Systolic output balance",
+            "Soft outer bandage",
+            "Standing on both feet",
         ],
         "SOB is a common symptom abbreviation in charts. The other expansions are not standard clinical shorthand for breathing difficulty.",
         [S.NHA_CCMA],
@@ -519,9 +519,9 @@ FACTS: list[dict] = [
         "A lab result comment says hematuria. What finding does the term describe?",
         "Blood in the urine",
         [
-            "Low red blood cell count on a CBC",
-            "Elevated white blood cell count on a CBC",
-            "Protein in the urine without red cells",
+            "Low red blood cell count",
+            "Elevated white cell count",
+            "Protein in the urine",
         ],
         "Hematuria combines hem/o (blood) and -uria (urine condition). Anemia and leukocytosis are blood count issues, and proteinuria is a separate urine finding.",
         [S.NHA_CCMA],
@@ -531,7 +531,7 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "A prescription shows acetaminophen 650 mg PO q6h PRN pain. How should the medical assistant explain the route and timing to the patient?",
-        "By mouth every six hours as needed for pain",
+        "By mouth every six hours when pain occurs",
         [
             "By injection every six hours regardless of symptoms",
             "By mouth once each morning before breakfast",

@@ -9,418 +9,550 @@ from classquiz.seed import sources as S
 from classquiz.seed.banks._builder import fact
 
 FACTS: list[dict] = [
-    # ccma-coordination-001
     fact(
         'ccma-coordination',
-        'After reviewing discharge instructions with a patient, which step best confirms they understood the plan?',
-        'Ask the patient to explain the key steps back in their own words',
+        'How does the teach-back method confirm that the patient understood the instructions?',
+        'Asking the patient to explain the instructions',
         [
-            'Read the handout silently while the patient waits under typical outpatient policy.',
-            'Assume the patient can read because they signed the form',
-            'Provide a printed pamphlet without discussion or teach-back',
+            'Reading the handout silently to yourself first',
+            'Assuming the literacy level before the visit',
+            'Giving written material in English and moving on',
         ],
-        'Teach-back reveals misunderstandings before the patient leaves the clinic. Silent review or paperwork alone does not verify that safety-critical details were grasped.',
+        'Teach-back uncovers gaps in comprehension. Reading a handout to yourself, assuming literacy, and handing over English-only materials with no question asked never show what the patient actually understood.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-002
-        fact('ccma-coordination', 'Which statement best describes the typical supervisory relationship for a certified clinical medical assistant?', 'Work under licensed provider supervision within state scope and employer policy', ['Perform invasive surgery independently without provider oversight under typical outpatient policy.', 'Prescribe schedule II controlled substances without a delegating provider', 'Interpret and sign off on imaging studies without radiologist involvement'], 'Medical assistants coordinate care and perform delegated tasks; they do not practice medicine independently. Scope limits protect patients and define what tasks may be assigned.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-003
     fact(
         'ccma-coordination',
-        'When enrolling a patient in the online patient portal, which topic is most important to cover in education?',
-        'Secure messaging limits and when to call 911 instead of using the portal',
+        'Under whose direction do medical assistants provide patient care?',
+        'Under provider supervision within the defined scope',
         [
-            'Encourage sharing login credentials with family members by default',
-            'Use portal messages for chest pain or other emergencies under typical outpatient policy.',
-            'Share portal login credentials with adult children by default',
+            'Independently, with the provider reviewing the chart later',
+            'Prescribing controlled substances on their own license',
+            'Reporting a diagnosis to the patient before the provider does',
         ],
-        'Portals improve access to results and messaging but are not a substitute for emergency services. Credential sharing and public posting violate privacy expectations.',
+        'Scope of practice places medical assistants under the supervising provider and inside the delegation rules of the setting. Working independently, prescribing on their own license, and reporting a diagnosis to the patient each exceed the role and the legal limits of the title.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-004
-        fact('ccma-coordination', 'A clinic uses a recall list for patients overdue for preventive screenings. What is the primary purpose of that system?', 'Identify patients due for recommended preventive services and outreach', ['Order duplicate screening tests on every patient regardless of history', 'Replace provider judgment about whether screening is appropriate', 'Waive informed consent because the recall list is automated'], 'Recall workflows close gaps in preventive care by flagging who needs contact. They support, not override, clinical decision making and consent requirements.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-005
     fact(
         'ccma-coordination',
-        'Which community resources are appropriate to discuss with a patient managing type 2 diabetes?',
-        'Hospital- or clinic-linked diabetes education classes and peer support groups',
+        'What should patient portal enrollment education cover?',
+        'Secure messaging limits and when to call 911',
         [
-            'Unverified online products marketed as guaranteed cures',
-            'Retail sales seminars unrelated to medical care under typical outpatient policy.',
-            'Coupon programs for unrelated retail merchandise',
+            'How to share portal passwords with a family member',
+            'Using portal messages for urgent or emergency needs',
+            'Posting test results to a shared family account',
         ],
-        'Evidence-based self-management programs reinforce monitoring, nutrition, and follow-up. Unvalidated cures and unrelated promotions do not meet care coordination standards.',
+        'Enrollment teaching sets expectations that portal messages are not monitored around the clock and that 911 is the route for emergencies. Sharing passwords, sending urgent needs through the portal, and posting results to a shared account all weaken the privacy of the record.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-006
     fact(
         'ccma-coordination',
-        'The provider asks you to coordinate an urgent cardiology referral. What should appear in the referral documentation?',
-        'Clinical reason, urgency, and confirmation that the consultation request was sent',
+        'What is the purpose of a recall system for overdue screenings?',
+        'Identify the patients due for preventive services',
         [
-            'The patient\'s chronological age without clinical indication',
-            'Internal staff meal preferences for the week under typical outpatient policy.',
-            'Unrelated procedure codes with no clinical narrative under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
+            'Replace the follow-up that the medical team provides',
+            'Generate the clinical notes for the visits already completed',
+            'Bill the payers for the screenings already performed',
         ],
-        'Specialists need context and urgency to triage appointments. Demographics alone or billing codes without indication delay appropriate specialty care.',
+        'A recall list flags the patients who are due for a screening so outreach can be targeted. Replacing the follow-up the team provides, generating notes for completed visits, and billing for completed screenings each describe other tasks entirely.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-007
     fact(
         'ccma-coordination',
-        'When scheduling a new patient for a dermatology referral, which information belongs in the referral packet or EHR entry?',
-        'Reason for consult, urgency, and pertinent clinical findings',
+        'Which of these can be a community resource for a patient with chronic disease?',
+        'Diabetes education classes and support groups',
         [
-            'The patient\'s favorite color as the sole clinical note',
-            'Demographics and insurance ID without clinical indication or urgency',
-            'Front-desk staff scheduling preferences as the sole referral content',
+            'Exercise classes promoted by a local equipment vendor',
+            'A general wellness seminar open to the public',
+            'An online program promising to reverse the disease',
         ],
-        'Complete referral data helps the specialist prepare and prioritize the visit. Nonclinical trivia does not support safe handoffs between providers.',
+        'Validated education programs and support groups build the self-management skills a chronic disease needs. Vendor exercise classes, a general wellness seminar, and an online program promising to reverse the disease are not the resources a diabetes education plan relies on.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-008
-        fact('ccma-coordination', 'A patient sends a portal message asking about a flagged abnormal laboratory result. What is the appropriate medical assistant response per typical workflow?', 'Follow facility policy and route the message to the provider when clinical action may be needed', ['State a definitive diagnosis in the reply without provider review under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.', 'Ignore privacy rules because the patient initiated portal contact', "Attach another patient's results to illustrate a comparison under typical outpatient policy."], 'Secure messaging must stay within scope and privacy rules. Abnormal values often require licensed review before the patient receives clinical interpretation.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-009
     fact(
         'ccma-coordination',
-        'A patient declines a recommended specialty referral after education. How should the team document the encounter?',
-        'The refusal, teaching provided, and notification of the ordering provider',
+        'What should the coordinator document when coordinating a specialty referral?',
+        'Reason, urgency, and the consultations sent',
         [
-            'No documentation because the patient changed their mind',
-            'The medical assistant\'s personal opinion about the decision without refusal details',
-            'Another patient\'s documented choice from a different chart',
+            'Reason, urgency, and the dates of the prior visits',
+            'Reason, urgency, and the insurance coverage limits',
+            'Reason, urgency, and the name of the pharmacy',
         ],
-        'Informed refusal creates a legal and clinical record that the patient understood risks and alternatives. Objective notes support continuity if symptoms worsen later.',
+        'A referral note tells the consultant why the patient is being sent, how soon they need to be seen, and which other results are coming. Visit dates, coverage limits, and the pharmacy name are useful elsewhere but do not belong in the referral note.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-010
-        fact('ccma-coordination', 'In referral tracking, when is a specialty referral considered fully closed?', "The consultant's report is received and shared with the ordering provider", ['The specialist appointment is scheduled without tracking report receipt', 'The referral fax is sent once with no follow-up on consultant findings', 'The referral is marked complete when billing posts without reading the report'], 'Closing the loop ensures recommendations and results reach the primary team. Open loops are a common source of missed diagnoses and delayed treatment.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-011
     fact(
         'ccma-coordination',
-        'During a transition-of-care visit, medication reconciliation should compare which sources?',
-        'Every medication the patient actually takes against the clinic medication list',
+        'What should the scheduler document when scheduling a specialty referral?',
+        'Reason, urgency, and the pertinent clinical details',
         [
-            'Vitamins the patient enjoys taking without prescription medications',
-            'Prescriptions filled on a single arbitrary day under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
-            'Herbal products the patient denies using under typical outpatient policy.',
+            'Reason, urgency, and the patient demographic details',
+            'Reason, urgency, and the patient insurance details',
+            'Reason, urgency, and the clinic wait times',
         ],
-        'Reconciliation catches omissions, duplications, and interactions at handoffs. Partial lists that ignore OTC or denied supplements leave dangerous gaps.',
+        'Complete referral information supports timely care. Demographics, insurance details, and wait times are not the clinical information a consultant needs.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-012
     fact(
         'ccma-coordination',
-        'Which standards apply to documentation in the care coordination record?',
-        'Objective, timely entries accessible to authorized members of the care team',
+        'What should the medical assistant do with a patient portal message about abnormal results?',
+        'Route the message to the provider for review and follow-up',
         [
-            'Unsubstantiated personal judgments about the patient',
-            'Notes kept on unsecured sticky notes at the desk',
-            'Progress entries with no date or time stamp under typical outpatient policy.',
+            'Answer the question with a definitive diagnosis for the patient',
+            'Reply in the portal with the results as soon as they arrive',
+            'Include details of similar cases from other patients',
         ],
-        'Shared electronic or paper records support safe transitions. Opinionated, undated, or hidden notes break continuity when other clinicians pick up the case.',
+        'Abnormal results in a portal message belong with the provider for review and a documented response. Answering with a diagnosis, replying before provider review, and pulling in details about other patients all go beyond the assistant role and the minimum necessary standard.',
         [S.NHA_CCMA],
         'beginner',
     ),
-    # ccma-coordination-013
-        fact('ccma-coordination', 'What is the central goal of care coordination in an ambulatory practice?', 'Connect patients with appropriate services across settings and time', ['Replace physician diagnosis with front-desk triage alone under typical outpatient policy.', 'Eliminate all specialty referrals to reduce paperwork volume', 'Avoid telephone follow-up to save staff time on transitions'], 'Coordination improves adherence, transitions, and access to resources. It complements rather than substitutes for licensed diagnosis and necessary referrals.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-014
-        fact('ccma-coordination', 'A practice tracks referrals in a closed-loop system. What does successful loop closure require?', 'Verification that the specialist visit occurred and results returned to the primary care provider', ['Faxing the referral once with no further contact or tracking under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.', 'Assuming attendance without confirming appointment or consultant report', 'Discarding the referral form immediately after scheduling under typical outpatient policy.'], 'Closed-loop tracking prevents lost consult notes and imaging recommendations. One-way sends without follow-up leave patients and PCPs unaware of specialty findings.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-015
-        fact('ccma-coordination', 'The referral coordinator notes an open loop on a six-week-old consult. What action best closes the referral loop?', 'Confirm specialty results reached the primary care team and are filed in the chart', ['Mark the consult complete because enough calendar time has passed', 'Delete the referral record to clear the coordinator work queue under typical outpatient policy.', 'Close the loop when billing posts without reading the consultant report'], 'Loop closure is about information flow, not elapsed time or payment. Missing consult reports can delay cancer treatment or medication changes ordered by the specialist.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-016
-        fact('ccma-coordination', 'A screen identifies food insecurity and the patient agrees to a food bank referral. What must occur before sharing information?', 'Obtain patient consent and document the referral per clinic workflow', ["Notify local media automatically about the patient's social situation", 'Make the referral with no plan to confirm the patient used services', 'Post referral details on a public community bulletin board'], 'Social needs referrals involve sensitive information. Consent and confidential documentation align with HIPAA and respect patient autonomy.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-017
-        fact('ccma-coordination', 'Which approach reflects cultural competence when coordinating care for a diverse panel?', 'Respect health beliefs while delivering safe, evidence-based recommendations', ['Dismiss preferences that differ from staff habits without discussion', 'Apply an identical plan without assessing individual values', 'Refuse interpreter services to shorten visit length under typical outpatient policy.'], 'Culturally responsive coordination builds trust and adherence. Stereotyping or language barriers increase misunderstanding and disparities in outcomes.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-018
     fact(
         'ccma-coordination',
-        'A clinic offers shared medical appointments for stable chronic conditions. What is a valid benefit of the group visit model?',
-        'Combine structured education with brief individual assessment in one session',
+        'What should be documented when a patient refuses a recommended referral?',
+        'The refusal, the education given, and the provider notified',
         [
-            'Waive all HIPAA privacy protections for participants under typical outpatient policy.',
-            'Eliminate individual consent for every sensitive topic',
-            'Defer documentation because the visit is held in a group room',
+            'The refusal and the education that was given to the patient',
+            'The education given and the provider notified of the decision',
+            'The refusal and the provider who was notified of it',
         ],
-        'Group visits can improve efficiency and peer support when facilitation, privacy, and documentation follow policy. Privacy rules and consents still apply.',
+        'An informed refusal is documented with the education the patient received and the notification to the provider, so the record shows the decision was informed. A note with only the refusal and education, only the education and notification, or only the refusal and notification leaves part of the decision unrecorded.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    fact(
+        'ccma-coordination',
+        'When is a referral considered closed?',
+        'The consulting report reaches the ordering provider',
+        [
+            'The patient confirms that the visit happened by phone',
+            'The referral is entered into the tracking log',
+            'The insurance claim for the consult is submitted',
+        ],
+        'Closing the loop means the consult results have reached the ordering provider. A call from the patient, a log entry, and a submitted claim do not bring the report back to the care team.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    fact(
+        'ccma-coordination',
+        'At a transition of care, what does medication reconciliation compare?',
+        'Every medication the patient takes with the clinic list',
+        [
+            'The medications the patient takes with their meals each day',
+            'The medications taken on a single day in the recent past',
+            'The herbal products the patient mentions at the visit',
+        ],
+        'Accurate lists prevent omissions and interactions. A list built from one day, from what is taken with meals, or from the supplements a patient volunteers can hide omissions and interactions.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    fact(
+        'ccma-coordination',
+        'What belongs in a care coordination note so the whole team can use it?',
+        'Objective facts with dates and times, available to the team',
+        [
+            'Personal opinions about the care and the patient attitude',
+            'Notes kept at the front desk until the end of the day shift',
+            'Entries that carry the date but not the time',
+        ],
+        'Clear documentation supports continuity. Personal opinions, notes that stay on the front desk, and entries that give the date but not the time each break the continuity of care across the team.',
+        [S.NHA_CCMA],
+        'beginner',
+    ),
+    fact(
+        'ccma-coordination',
+        'What is the main goal of care coordination in a clinic?',
+        'Link patients with the services and follow-up they need',
+        [
+            'Replace the diagnosis that the provider has already made',
+            'Reduce the number of referrals the clinic sends out',
+            'Cut the number of follow-up calls made to patients',
+        ],
+        'Coordination connects the patient with the services, referrals, and follow-up that the plan calls for. Making the diagnosis, reducing referrals, and cutting follow-up calls each work against the purpose of coordinating care across the team.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-019
-        fact('ccma-coordination', 'A patient with heart failure has new symptoms and changed personal goals. How should the written care plan be managed?', 'Revise the plan to reflect current condition, targets, and follow-up intervals', ['Leave the original plan unchanged when symptoms and goals shift', 'Keep the plan hidden from the patient and authorized caregivers', 'Base updates on informal staff gossip rather than assessment under typical outpatient policy.'], 'Living care plans align the team and patient on measurable goals. Static or secret plans fail when clinical status or priorities shift.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-020
-        fact('ccma-coordination', 'You are selecting take-home education for a patient with low health literacy. Which choice is most appropriate?', "Materials written at an appropriate reading level in the patient's preferred language", ['Peer-reviewed journal articles with no plain-language summary under typical outpatient policy.', 'Identical handouts for every diagnosis regardless of patient need', 'Handouts distributed without teach-back or opportunity for questions'], 'Readable, language-concordant materials plus teach-back improve self-management. Dense text or one-size-fits-all packets often fail in real-world use.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-021
-        fact('ccma-coordination', 'Under HIPAA, what does the minimum necessary standard require when disclosing protected health information?', 'Limit disclosure to the PHI reasonably needed for the specific purpose', ['Release the entire medical record whenever any request arrives', 'Deny patients access to their own information by default', 'Send full charts to marketing vendors for convenience under typical outpatient policy.'], 'Minimum necessary limits incidental over-disclosure during treatment, payment, and operations. Patients retain access rights separate from workforce disclosure rules.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-022
     fact(
         'ccma-coordination',
-        'The lab orders fasting chemistry panels. Which instructions should the reminder call convey?',
-        'How long to remain NPO and whether to take usual medications',
+        'What does closed-loop referral tracking require the coordinator to do?',
+        'Confirm the visit occurred and the results reach the PCP',
         [
-            'Eat a large breakfast before the draw to avoid dizziness',
-            'Withhold all fluids including water for 72 hours in every case',
-            'Tell the patient not to ask about prescription timing',
+            'Send the referral to the specialist and log the request sent',
+            'Record the referral as sent and wait for a call',
+            'File the referral paperwork once the request is sent',
         ],
-        'Fasting instructions vary by test and medication; clear guidance reduces cancelled specimens. Food or incorrect med holds can invalidate results or harm the patient.',
+        'Loop closure prevents lost test results. Sending and logging the request, waiting for the patient to call, and filing the paperwork after it is sent all leave the loop open and the results unretrieved.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-023
     fact(
         'ccma-coordination',
-        'Population health staff call patients overdue for mammography or hemoglobin A1C testing. What is the intended outcome?',
-        'Close documented preventive care gaps with scheduled screening',
+        'What does closing the referral loop mean?',
+        'Confirming the consult results reached the primary team',
         [
-            'Market unrelated retail products during the call',
-            'Replace annual wellness visits with phone outreach alone',
-            'Leave voicemail messages with full laboratory values on a shared family line',
+            'Confirming the referral paperwork was mailed to the specialist',
+            'Confirming the claim for the consult was submitted',
+            'Confirming the patient was told about the consult',
         ],
-        'Outreach targets evidence-based screenings that improve early detection and chronic disease control. It supplements clinical visits rather than replacing them and must stay confidential.',
+        'Loop closure ensures continuity and safety because the results come back to the primary team. Confirming the paperwork went out, a submitted claim, or that the patient was told leaves the results unretrieved.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-024
     fact(
         'ccma-coordination',
-        'Insurance requires prior authorization before an MRI. What must typically happen before the scan?',
-        'Submit clinical documentation supporting medical necessity to the payer',
+        'What do community resource referrals such as food bank and transport require?',
+        'Patient consent and documentation of the referral',
         [
-            'Rely on the patient\'s verbal assurance that insurance will pay',
-            'Submit the order to the payer without supporting clinical documentation',
-            'Proceed with imaging without contacting the payer',
+            'A verbal handoff to the agency on the patient behalf',
+            'A signed consent form filed with no referral note',
+            'An automated referral sent to the agency with the patient list',
         ],
-        'Payers review diagnosis, indications, and prior treatments before approving high-cost studies. Starting without authorization commonly results in denial and patient financial liability.',
+        'A community referral shares health information with another agency, so the patient agrees and the referral is recorded. Handing the request over verbally, keeping the consent form with no referral note, and sending an automated referral with a patient list each leave the referral unauthorized or undocumented.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-025
-        fact('ccma-coordination', 'When completing a prior authorization request for physical therapy, which supporting information do payers usually need?', 'Clinical notes that document medical necessity for the ordered service', ['Diagnosis codes without symptoms, medications, or functional status', 'Diagnosis codes chosen to match the fee schedule without documentation', 'Deleted visit documentation to shorten the authorization packet'], 'Authorization reviewers match orders to coverage criteria using visit notes, diagnoses, and functional status. Incomplete or inaccurate packets delay therapy start dates.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-026
     fact(
         'ccma-coordination',
-        'When running preventive-care recall outreach, which practice best supports ethical and effective contact?',
-        'Follow the clinic protocol for patients due for screening, including documented refusals',
+        'What does cultural competence in care coordination mean?',
+        'Respecting patient beliefs while providing evidence-based care',
         [
-            'Contact brand-new patients while omitting established panel members under typical outpatient policy.',
-            'Remove patients from the list after refusal without charting the discussion',
-            'Export the recall list to a shared drive folder without access controls',
+            'Ignoring the preferences that the patient states',
+            'Using one single approach for every culture that the clinic sees',
+            'Relying on the family to interpret the clinical details',
         ],
-        'Recall workflows depend on consistent outreach and accurate lists. Undocumented refusals and privacy breaches undermine gap closure and violate confidentiality expectations.',
+        'Cultural respect improves engagement and outcomes. Ignoring stated preferences, using one approach for every culture, and relying on family to interpret clinical details all work against the patient.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-027
     fact(
         'ccma-coordination',
-        'A validated social determinants of health screen flags unstable housing. Which need category does that finding represent?',
-        'A nonclinical barrier that can interfere with treatment adherence and follow-up',
+        'What can a group visit model include for each patient who attends?',
+        'Combine group education with a brief individual assessment',
         [
-            'A request for elective cosmetic surgery unrelated to housing insecurity',
-            'A retail loyalty program enrollment opportunity under typical outpatient policy.',
-            'A reason to delete the electronic health record',
+            'Replace the privacy safeguards that the group visit requires',
+            'Use one consent form for the whole group session',
+            'Rely on the group note in place of per-patient records',
         ],
-        'Housing insecurity affects appointment attendance, medication storage, and safety. Coordinators connect patients to appropriate resources rather than treating SDOH as billing trivia.',
+        'Shared medical appointments require structured facilitation. Shared visits still require privacy safeguards, individual consent, and documentation for each patient.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-028
-        fact('ccma-coordination', "After a positive SDOH screen, what is the medical assistant's typical coordination role?", 'Warm handoff or referral to social work, case management, or community partners per policy', ['Prescribe housing or food directly without provider involvement', 'Document the screen but take no further action when the patient agrees to help', 'Share the screen results on a public community bulletin board under typical outpatient policy.'], 'Screening without linkage leaves needs unaddressed. MAs facilitate referrals and documentation within scope while licensed staff manage clinical orders.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-029
-        fact('ccma-coordination', 'During a post-discharge transition-of-care phone call, what should be verified first?', 'Whether the patient understands new medications and has a plan to obtain them', ['That the patient will delay pharmacy pickup until the next scheduled visit', 'That discharge paperwork was discarded to reduce home clutter under typical outpatient policy.', 'That primary care follow-up is unnecessary if symptoms improve briefly'], 'Medication errors drive many readmissions after hospitalization. Calls that confirm understanding and access catch problems before they become emergencies.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-030
-        fact('ccma-coordination', 'Which elements belong in a transition-of-care summary sent to the primary care provider?', 'Active medications, allergies, principal diagnoses, and pending test results', ['An empty medication list to protect privacy during the handoff', 'Front-desk staff vacation schedules for the coming month', 'Marketing flyers for unrelated retail products under typical outpatient policy.'], 'Structured summaries give the receiving clinician a usable snapshot at handoff. Missing meds or results recreate the information gaps that transitions are meant to close.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-031
     fact(
         'ccma-coordination',
-        'A collaborative chronic disease care plan should routinely include which components?',
-        'Measurable self-management goals and scheduled follow-up intervals',
+        'How should a care plan be maintained as the patient condition changes?',
+        'Revised when the patient goals change',
         [
-            'Procedure codes with no patient-facing targets under typical outpatient policy.',
-            'A static plan that remains unchanged when status worsens',
-            'A blanket rule to exclude caregivers from all discussions',
+            'Written once at intake and then left unchanged',
+            'Kept in the chart and not shared with the patient',
+            'Written from the notes passed in the staff lounge',
         ],
-        'Shared goals align the patient and team on monitoring, lifestyle changes, and when to seek help. Plans without targets or updates fail when disease activity shifts.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-032
-        fact('ccma-coordination', 'When scheduling for a patient with limited English proficiency, which action reflects culturally competent coordination?', 'Offer qualified interpreter services for the appointment per facility policy', ['Rely on young children in the family to interpret confidential medical details', 'Refuse all alternate appointment times without assessing patient need', 'Record ethnicity in the chart solely for informal staff discussion'], 'Professional interpreters reduce errors in consent, instructions, and scheduling. Family members may omit sensitive topics; qualified services protect accuracy and privacy.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-033
-        fact('ccma-coordination', 'Which topics belong in diabetes self-management education coordinated by the ambulatory team?', 'Blood glucose monitoring, hypoglycemia recognition, and daily foot inspection', ['Stopping prescribed insulin whenever glucose readings are high', 'Avoiding all follow-up visits after the first education class under typical outpatient policy.', 'Ignoring shakiness and sweating as unrelated to glucose levels'], 'Self-management education reinforces safe monitoring and early complication detection. Unauthorized insulin changes and missed follow-up increase acute and long-term harm.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-034
-    fact(
-        'ccma-coordination',
-        'What minimum data should a referral tracking log capture for each specialty consult?',
-        'Clinical reason, referral date, specialist, and current follow-up status',
-        [
-            'The patient\'s favorite color for filing purposes',
-            'Catering orders from the last staff meeting under typical outpatient policy.',
-            'Unrelated diagnosis codes with no narrative indication',
-        ],
-        'Complete logs let coordinators chase open loops and confirm reports returned. Trivial or nonclinical fields do not support safe closure of the referral cycle.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-035
-        fact('ccma-coordination', "After a patient is discharged from the hospital, which tasks fit the medical assistant's care coordination role?", 'Schedule timely primary care follow-up and review new medications with the patient', ['Discard hospital discharge instructions to simplify the ambulatory chart', 'Assume the inpatient team will call the patient about all medication changes', 'Remove active problems from the problem list without provider review under typical outpatient policy.'], 'Ambulatory follow-up bridges inpatient recommendations to daily self-care. Discarding instructions or deferring all contact invites readmission and medication mistakes.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-036
-    fact(
-        'ccma-coordination',
-        'For a patient discharged after heart failure exacerbation, when should outpatient follow-up typically be arranged?',
-        'Within the timeframe recommended by transition-of-care guidelines and the discharging team',
-        [
-            'Defer follow-up until the patient develops new symptoms months later',
-            'Whenever front desk has an opening with no clinical urgency review under typical outpatient policy.',
-            'Decline scheduling because hospital care is considered complete at discharge',
-        ],
-        'Early post-discharge visits catch fluid overload, medication errors, and misunderstanding of diet or activity limits. Delayed access is linked to higher readmission rates.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-037
-        fact('ccma-coordination', 'When sharing protected health information with another provider for active patient treatment, HIPAA generally requires what?', 'No separate patient authorization when disclosure is for treatment purposes', ['A complete ban on any PHI exchange between treating clinicians under typical outpatient policy.', 'A court order for every routine consult note sent to a specialist', 'Notarized patient consent for each fax to a specialist involved in care'], 'Treatment is a permitted use under HIPAA when minimum necessary and policy are followed. Routine care coordination does not require a new authorization for each treating clinician.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-038
-    fact(
-        'ccma-coordination',
-        'A patient has missed three consecutive appointments. What is the most appropriate care coordination response?',
-        'Assess barriers such as transport or work schedule and adjust outreach per policy',
-        [
-            'Automatically discharge the patient from the practice without contact',
-            'Document no-show letters without attempting barrier assessment or outreach',
-            'Ignore the pattern because reminders were sent once under typical outpatient policy.',
-        ],
-        'No-shows often reflect access, literacy, or social barriers rather than disinterest. Structured outreach and documentation support engagement and medicolegal clarity.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-039
-    fact(
-        'ccma-coordination',
-        'When arranging home health services, what should the medical assistant document in the chart?',
-        'That the referral was sent, ordered services are listed, and consent followed policy',
-        [
-            'Nonclinical trivia unrelated to the visit under typical outpatient policy.',
-            'Unrelated procedure codes with no home health context under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
-            'Staff personal schedules instead of patient-specific actions',
-        ],
-        'Clear documentation supports continuity for nurses, therapists, and billing reviewers. Vague or nonclinical notes do not prove the handoff occurred.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-040
-    fact(
-        'ccma-coordination',
-        'Before home health begins visits, which items must the coordinator typically confirm?',
-        'Signed orders, payer authorization when required, and patient agreement to services',
-        [
-            'Confirmation that the mailing address on the ID is current under typical outpatient policy.',
-            'That durable medical equipment is decorative rather than functional',
-            'Nothing further if a family member verbally insists on care',
-        ],
-        'Home health agencies cannot bill or treat without valid orders and coverage. Address alone does not establish medical necessity or consent.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-041
-    fact(
-        'ccma-coordination',
-        'When booking a colonoscopy or other diagnostic procedure, what should the scheduler verify with the patient?',
-        'Preparation instructions and prior authorization when the payer requires it',
-        [
-            'Preferred appointment day without bowel prep or authorization details',
-            'Footwear size for unrelated orthopedic billing under typical outpatient policy.',
-            'Vaccine lot numbers with no connection to the ordered test',
-        ],
-        'Incorrect prep or missing authorization commonly leads to cancelled procedures and delayed diagnosis. Schedulers reinforce instructions that protect specimen quality and coverage.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-    # ccma-coordination-042
-    fact(
-        'ccma-coordination',
-        'After a needlestick in the clinic, why must sharps injury logs be maintained per OSHA?',
-        'To document exposure incidents and support required follow-up and program evaluation',
-        [
-            'When a federal inspector is already on site under typical outpatient policy.',
-            'In inpatient hospitals but not in ambulatory outpatient offices under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy. under typical outpatient policy.',
-            'Withhold logs because medical offices are exempt from bloodborne pathogen rules',
-        ],
-        'The bloodborne pathogens standard applies to many ambulatory settings and requires a sharps injury log for needlestick tracking. Records guide post-exposure care and device safety reviews.',
-        [S.NHA_CCMA],
-        'advanced',
-    ),
-
-    # ccma-coordination-043
-    fact(
-        'ccma-coordination',
-        'When scheduling a follow-up visit, what information helps the care team prioritize timing?',
-        'Clinical urgency, provider instructions, and patient availability',
-        ['The color of the patient\'s clothing under typical outpatient policy..',
-        'Whether the front desk prefers morning breaks',
-        'Insurance member ID without clinical context'],
-        'Scheduling should reflect medical need and ordered follow-up intervals. Cosmetic or staff convenience factors do not determine safe return intervals.',
-        [S.NHA_CCMA],
-        'beginner',
-    ),
-    # ccma-coordination-044
-        fact('ccma-coordination', 'Why is closing the referral loop important after a specialist visit?', 'It ensures consultation findings reach the primary team for ongoing care', ['It eliminates the need for future appointments with the primary provider', "It replaces the specialist's medical license with primary care authority", 'It guarantees insurance payment without documentation of the consult'], 'Loop closure prevents lost results and medication changes from falling through. It does not remove follow-up needs or legal documentation requirements.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-045
-        fact('ccma-coordination', 'A patient with limited English proficiency needs education about a new inhaler. What resource should be used?', 'A qualified medical interpreter and translated materials when available', ['A bilingual receptionist with no medical interpretation training under typical outpatient policy.', 'Hand gestures without involving the provider or qualified interpreter', 'Written instructions in a language the patient does not read fluently'], 'Qualified interpretation supports informed use of devices. Untrained staff or mismatched language materials increase error risk.', [S.NHA_CCMA], 'advanced'),
-
-    # ccma-coordination-046
-        fact('ccma-coordination', 'What should a transition-of-care document include for safe handoffs?', 'Medication list, allergies, pending tests, and follow-up plan', ['Staff lunch orders for the unit on the day of discharge', 'Marketing flyers for unrelated retail products', 'Social security numbers of visitors who accompanied the patient'], 'Accurate med and allergy data prevent errors after discharge. Nonclinical identifiers do not support continuity.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-047
-        fact('ccma-coordination', 'A recall notice identifies patients overdue for mammography screening. What is the goal of outreach?', 'Prompt preventive care within evidence-based screening intervals', ['Increase duplicate screening without clinical indication', 'Replace shared decision making about screening with automated calls', 'Bill for imaging services that were not actually performed'], 'Recall systems close gaps in prevention. They should follow evidence-based intervals, not drive unnecessary duplicate imaging.', [S.NHA_CCMA], 'intermediate'),
-
-    # ccma-coordination-048
-        fact('ccma-coordination', 'What is the benefit of using a patient portal for routine refill requests?', 'Secure messaging that documents refill requests for the care team', ['Public posting of medication lists on an unsecured web page', 'Automatic approval of controlled substances without provider review', 'Sharing portal passwords among family members for convenience'], 'Portals create auditable threads within HIPAA controls. Refills still require clinical review; shared passwords undermine security.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-049
-    fact(
-        'ccma-coordination',
-        'When coordinating home health services, which document must align with payer rules?',
-        'Signed orders describing skilled needs and frequency',
-        ['A handwritten grocery list under typical outpatient policy.',
-        'Unrelated school transcripts',
-        'Insurance card copy without skilled orders'],
-        'Payers require authorized plans of care. Nonclinical documents do not establish medical necessity for home visits.',
+        'A care plan stays useful when it is revised to match the goals and condition the patient reports. Leaving it unchanged after intake, keeping it away from the patient, and rewriting it from hallway discussion all leave the plan out of step with the care delivered.',
         [S.NHA_CCMA],
         'intermediate',
     ),
-    # ccma-coordination-050
-        fact('ccma-coordination', 'Why should patient education materials match literacy level?', 'Plain language improves comprehension and adherence to the care plan', ['Complex journal articles impress every patient regardless of literacy', 'Reading level is irrelevant to self-management outcomes', 'Pictures alone replace all verbal teaching and teach-back'], 'Materials at appropriate literacy support self-care. Dense text without teach-back leaves gaps.', [S.NHA_CCMA], 'beginner'),
-
-    # ccma-coordination-051
-        fact('ccma-coordination', 'A care plan for heart failure includes daily weight monitoring. What instruction supports the goal?', 'Weigh at the same time each day on the same scale', ['Weigh once a year before holidays to reduce clinic calls', 'Switch scales randomly at home to verify device accuracy', 'Ignore two-pound daily changes because they are usually insignificant'], 'Consistent technique detects fluid retention early. Infrequent or inconsistent weighing misses gradual gain.', [S.NHA_CCMA], 'intermediate'),
-
+    fact(
+        'ccma-coordination',
+        'How should patient education materials be selected for a patient?',
+        'Matched to the literacy level and language needs',
+        [
+            'Left to the provider to pick from the clinical articles',
+            'Selected from a single handout used for every patient',
+            'Handed out at checkout with no questions asked',
+        ],
+        'Materials that match literacy and language needs can be understood and acted on. Handing over research articles, using one handout for every patient, and distributing material without checking understanding all produce instructions the patient may not be able to use.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What does the HIPAA minimum necessary standard require?',
+        'Limit each disclosure to the PHI the purpose requires',
+        [
+            'Share the whole chart whenever it speeds up the work for staff',
+            'Withhold the information from the patient requesting it',
+            'Send the full record to every vendor who reviews it',
+        ],
+        'The minimum necessary standard limits each use or disclosure to the information the purpose actually requires. Releasing whole charts for convenience, hiding information from the patient, and sending full records to vendors each exceed what the standard allows.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What should a reminder for a fasting lab state?',
+        'The NPO duration and whether medications are allowed',
+        [
+            'The NPO duration and the fasting blood glucose target',
+            'The NPO duration and the cost of the test to the patient',
+            'The NPO duration and the results from the last draw',
+        ],
+        'Clear fasting instructions improve specimen quality. The glucose target, the cost of the test, and the prior results do not tell the patient how long to fast or how to handle medications.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What do population health outreach calls for overdue screenings aim to do?',
+        'Close care gaps such as A1C or mammography',
+        [
+            'Fill the schedule with the visits already completed',
+            'Confirm that the patients already completed the screening',
+            'Set the reminder for the patients who already came in',
+        ],
+        'Outreach improves preventive care adherence. Filling the schedule, confirming a screening that is already done, and setting reminders for patients who already came in each miss the aim of closing an open care gap.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What does prior authorization for a procedure require?',
+        'Clinical documentation sent to the payer before the service',
+        [
+            'A verbal promise from the patient made at the check-in desk',
+            'An order posted on the public clinic website',
+            'Contact with the payer after the service has been done',
+        ],
+        'Payers often need diagnosis and procedure codes with supporting notes, and starting without approval can lead to denied claims. A verbal promise from the patient, a public posting of the order, and contacting the payer afterward do not establish authorization.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What do prior authorization tasks require the clinic to provide?',
+        'Clinical documentation of medical necessity',
+        [
+            'A list of the patient preferences and daily activities',
+            'Codes for a different diagnosis to improve the chance of approval',
+            'A promise from the patient to pay the balance later',
+        ],
+        'Payers review orders against coverage rules. Preferences, codes for another diagnosis, and a promise of patient payment do not demonstrate medical necessity to the payer.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What should a recall system for preventive care do?',
+        'Identify the patients due for a screening and contact them',
+        [
+            'Call the new patients first at every recall cycle',
+            'Send reminders to the patients who signed a refusal form',
+            'Contact the patients who have missed the most visits recently',
+        ],
+        'Systematic outreach improves preventive uptake. Calling new patients first, sending reminders to the patients who refused, and contacting the frequent no-shows instead of the patients who are due all fail the outreach protocol.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What kinds of needs can a social determinants of health screening identify?',
+        'Food, housing, or transportation support',
+        [
+            'Elective procedures and cosmetic services',
+            'Specialist referrals for a second opinion',
+            'Repeat office visits for the same complaint',
+        ],
+        'Addressing social needs supports outcomes. Elective procedures, specialist second opinions, and repeat visits for the same complaint are clinical services rather than responses to a food, housing, or transportation barrier.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'Which needs does a social determinants screening identify?',
+        'Food, housing, or transportation support',
+        [
+            'Optional wellness classes and gym memberships',
+            'Referrals for elective cosmetic services',
+            'Replacing the routine office visits with phone calls',
+        ],
+        'Social needs screening finds the practical barriers that affect adherence. Wellness classes, cosmetic service referrals, and replacing office visits with phone calls each miss the food, housing, or transportation barrier the screening is meant to find.',
+        [S.NHA_CCMA],
+        'intermediate',
+    ),
+    fact(
+        'ccma-coordination',
+        'What should a transition-of-care phone call after discharge verify?',
+        'The patient understanding of the new medications',
+        [
+            'The billing codes that were used for the visit',
+            'The pharmacy pickup of the new medications',
+            'The date of the primary care follow-up appointment',
+        ],
+        'Follow-up reduces adverse events after discharge. Billing codes, pharmacy pickup, and the follow-up date are handled elsewhere and do not confirm that the patient understands the new medications.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What do transition-of-care summaries help the next provider do?',
+        'Communicating the medications and the pending results',
+        [
+            'Recording the discharge date and the follow-up appointment',
+            'Listing the billing codes and the charges for the stay',
+            'Confirming the patient understands the discharge instructions',
+        ],
+        'A transition-of-care summary carries the medication list and pending results to the next setting so nothing is missed. Recording only the discharge date, itemizing billing codes, and confirming patient understanding at discharge do not transfer the clinical information the next provider needs.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What makes up care plans for chronic disease?',
+        'Self-management goals and follow-up intervals',
+        [
+            'Insurance billing codes and the charges for the visit',
+            'The clinic schedule and the nursing visit times',
+            'The names of the staff who will make the calls',
+        ],
+        'Collaborative goals support adherence. Billing codes, the clinic schedule, and the staff names do not make a usable self-management plan with measurable targets and follow-up intervals.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What makes up cultural competence in scheduling?',
+        'Offering interpreters when language barriers exist',
+        [
+            'Assuming the family will translate confidential details',
+            'Refusing the alternate appointment times offered',
+            'Recording the ethnicity for the office statistics',
+        ],
+        'Qualified interpreters improve safety and trust. Assuming family will translate, refusing other times, and recording ethnicity for office use all work against access.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What makes up patient self-management education for diabetes?',
+        'Glucose monitoring and the basics of foot care',
+        [
+            'Adjusting the insulin dose on their own',
+            'Keeping the blood glucose log at the front desk',
+            'Avoiding the follow-up visits to save the travel',
+        ],
+        'Education empowers safe self-care. Dose changes made alone, a log kept at the front desk, and missed follow-up visits each work against the self-management the education is meant to build.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What belongs in a referral tracking log?',
+        'Reason, date, specialist, and follow-up status',
+        [
+            'Reason, date, specialist, and the patient home address',
+            'Reason, date, specialist, and the clinic staffing plan',
+            'Reason, date, specialist, and the room number used',
+        ],
+        'Tracking supports closure of the referral loop. A home address, a staffing plan, and a room number do not help the team close the referral loop.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What belongs in care coordination after a hospital discharge?',
+        'Scheduling the follow-up and reviewing the new medications',
+        [
+            'Relying on the hospital to arrange the follow-up visit',
+            'Reviewing the discharge summary and then closing the case file',
+            'Waiting for the hospital to call the patient after this',
+        ],
+        'Transitions of care reduce readmissions and medication errors. Relying on the hospital to arrange follow-up, filing the summary and closing the case, and waiting for a hospital call each leave the transition uncoordinated.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What belongs in a transition-of-care summary?',
+        'The medications, the allergies, and the follow-up plan',
+        [
+            'The medications and the follow-up plan for the patient',
+            'The allergies and the follow-up plan for the patient',
+            'The medications and the allergies for the patient',
+        ],
+        'A transition-of-care summary gives the next provider the medication list, the allergies, and the follow-up plan. Omitting the allergies, omitting the follow-up plan, or omitting the medications each leaves a gap the next clinician has to close by calling the patient.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'Under HIPAA, how is PHI handled for treatment, payment, and operations?',
+        'Disclosure is permitted without patient authorization',
+        [
+            'A signed written authorization is required for each disclosure',
+            'A court order is required for each disclosure',
+            'A notarized release is required for each disclosure',
+        ],
+        'Treatment, payment, and operations are permitted uses of protected health information, so a covered entity may disclose PHI for them without a written authorization. Requiring a signed authorization, a court order, or a notarized release for each such disclosure misstates the permitted uses in the privacy rule.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What should the team do when a patient misses appointments repeatedly?',
+        'Ask about barriers and adjust the outreach approach',
+        [
+            'Send a discharge letter and remove the patient from the list',
+            'Call the same time of day with the same reminder script',
+            'Document the no-shows and continue the same schedule',
+        ],
+        'Repeated no-shows often point to a barrier such as transport, cost, or hours, so the team asks about it and changes how it reaches the patient. Sending a discharge letter, calling at the same hour with the same script, and recording the pattern without asking leave the reason unaddressed.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What does the medical assistant document when coordinating home health services?',
+        'The referral sent, the services ordered, and the consent',
+        [
+            'The referral sent, the services ordered, and the billing code',
+            'The referral sent, the services ordered, and the staff schedule',
+            'The referral sent, the services ordered, and the patient age',
+        ],
+        'Documentation supports continuity and billing accuracy. The billing code, the staff schedule, and the patient age do not support continuity of care or an accurate claim.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What should be verified when coordinating home health?',
+        'The orders, the insurance authorization, and the consent',
+        [
+            'The orders, the insurance authorization, and the family name',
+            'The orders, the insurance authorization, and the room number',
+            'The orders, the insurance authorization, and the visit length',
+        ],
+        'Authorization and orders must align with payer rules. A family name, a room number, and a visit length do not confirm that the orders and authorization are in place.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'What should be confirmed when scheduling a diagnostic test?',
+        'The preparation instructions and the authorization',
+        [
+            'The preparation instructions and the insurance plan',
+            'The preparation instructions and the ordering provider',
+            'The preparation instructions and the date of the last visit',
+        ],
+        'Prep errors can delay or invalidate testing. The insurance plan, the ordering provider, and the date of the last visit do not replace confirming the preparation instructions and the prior authorization.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
+    fact(
+        'ccma-coordination',
+        'Which employers must maintain a sharps injury log under OSHA rules?',
+        'Employers covered by the bloodborne pathogens standard',
+        [
+            'Employers that have already had an OSHA inspection visit',
+            'Hospitals, surgery centers, and blood banks',
+            'Employers with fewer than twenty employees',
+        ],
+        'The sharps injury log is required of every covered employer under the bloodborne pathogens standard, and medical offices with occupational exposure risk are covered too. Waiting for an inspection, limiting the rule to hospitals and surgery centers, or exempting small employers each misread who has to keep the log.',
+        [S.NHA_CCMA],
+        'advanced',
+    ),
 ]
