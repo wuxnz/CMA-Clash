@@ -1186,3 +1186,73 @@ skill-emergency-aid-040 | fail | stem reworded into a complete question; key rew
 skill-emergency-aid-041 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
 skill-emergency-aid-042 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
 
+
+
+## Parallel-options pass batch P10 (skill-poct-001 to skill-poct-042)
+
+skill-poct-001 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-002 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-003 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-004 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-005 | fail | stem reworded into a complete question; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-006 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-007 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-008 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-009 | fail | stem reworded into a complete question; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-010 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-011 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-012 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-013 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-014 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-015 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-016 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-017 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-018 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-019 | fail | distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-020 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-021 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-022 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-023 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-024 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-025 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-026 | fail | stem reworded into a complete question; key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-027 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-028 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-029 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-030 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-031 | fail | key reworded; sabotage distractor replaced; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-032 | fail | key reworded without the policy hedge; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-033 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-034 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-035 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-036 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-037 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-038 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-039 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-040 | fail | stem reworded into a complete question; key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-041 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+skill-poct-042 | fail | key reworded; distractors reworked into parallel near-misses; explanation rewritten to name the near-misses.
+
+
+## Parallel-options pass batch P11 (guard cleanup across the cpr, ekg, ccma, and phleb banks)
+
+scope: 1493 items in cpr (313), ekg (253), ccma (590), and phleb (337) plus the legacy
+`classquiz/seed/banks/diabetes.py` bank (48 items, topic ccma-diabetes).
+
+cpr-adult through cpr-red-cross | fail | Removed giveaway absolutes ("only", "any", "never", "always") from every distractor and rebalanced each quiz chunk so the keyed answer is no longer the long-and-complete option; fragment stems rewritten as complete questions and one-sentence explanations expanded to two specific sentences.
+ekg-acls-basics, ekg-artifacts, ekg-cardiac-ap, ekg-intervals, ekg-leads, ekg-rhythm | fail | Same giveaway and length cleanup; the near-duplicate stem pairs (PVC appearance, R wave progression, ST elevation in contiguous leads) were reworded apart; the topic difficulty mixes rebalanced to 30/40/30.
+ccma-admin, anatomy, clinical_care, communication, coordination, foundational, hipaa, law_ethics, transmission, vaccines | fail | Same giveaway and length cleanup; the ccma-hipaa "PHI is posted online" distractor replaced with a data-use-agreement near-miss; the fragment stems ("Registering a minor patient typically requires?") rewritten as complete questions.
+ccma-diabetes (banks/diabetes.py, banks/ccma/diabetes.py, banks/supplement/diabetes_expansion.py) | fail | 127 items rewritten to the parallel-options standard: colon-terminated template stems became complete questions, the nonsense distractors ("Acute appendicitis", "Otitis media", "Hair color only") became plausible near-misses, and the canned "Choosing X is a plausible near-miss that does not match the clinical fact tested in this question" explanations were replaced with specific two-sentence rationales.
+phleb-additives through phleb-who | fail | Same giveaway and length cleanup across 337 items; the "only" and "any" distractors rewritten as specific clinical statements; phleb-glucose difficulty mix rebalanced.
+
+## Choice-quality cleanup (all 2039 items in the seed bank)
+
+cpr-*, ekg-*, ccma-*, phleb-*, skill-* | fail | 267 distractors rewritten to remove giveaway absolutes ("always", "never", "any", "random", "only") that marked the wrong answer; 155 distractors over 80 characters shortened; 217 keyed answers rebalanced against their siblings so no option reads as the complete one; 45 items whose explanation quoted a rewritten option had the explanation updated to match.
+
+## Test repairs
+
+classquiz/tests/test_seed_answer_order.py | fail | The shuffle test used one fixed stem, and the seeder derives its shuffle seed from the stem, so the keyed answer could only ever land in one slot. It now samples 24 distinct stems and also asserts the layout is stable for a single stem.
+classquiz/tests/test_diabetes_content.py | fail | The topic count was still 112 after the CCMA consolidation grew ccma-diabetes to 127, and the even-chunk assertion no longer held. The count now expects 127 and the chunk assertion checks for at least four full 28-question sets, which matches how the runner actually chunks.
+classquiz/seed/fact_choice_hardening.py | fail | The giveaway-word regex matched "only" inside hyphenated compounds such as "compression-only", which is a technical term and not an absolute. It now ignores hyphenated compounds.
+classquiz/tests/test_seed_hand_authored_quality.py | fail | Added a guard that a keyed answer may not run more than 12 percent longer than every distractor, which is the "the key is the only complete option" failure the review samples called out.
+

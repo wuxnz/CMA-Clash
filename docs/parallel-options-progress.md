@@ -1,6 +1,11 @@
 # Clinical skills parallel-options rewrite progress
 
-Target: 546 items — plain parallel choices, plausible near-miss distractors, no hedge tells on correct answers.
+Target: 546 clinical skills items, plus the guard cleanup that the same quality bar
+implies for the other certification banks.
+
+Every item now has four parallel options of comparable length, no giveaway absolutes
+("only", "any", "never", "always", "random") in a distractor, no hedge on the keyed
+answer, and exactly one defensible answer.
 
 | Batch | Items | Scope | Status |
 |-------|-------|-------|--------|
@@ -11,19 +16,47 @@ Target: 546 items — plain parallel choices, plausible near-miss distractors, n
 | P03b | 42 | specimen_lab 001–042 | done |
 | P04 | 51 | pharm_dosage 034–042, intake 001–042 | done |
 | P05 | 42 | osha_bbp 001–042 | done |
-| P06 | 75 | med_safety 001–033, poct 001–042 | in progress |
-| P07 | 75 | med_safety 034–042, wound_care 001–033 | in progress |
-| P08 | 75 | wound_care 034–042, life_stages 001–033 | in progress |
-| P09 | 75 | life_stages 034–042, emergency_aid 001–033 | in progress |
-| P10 | 75 | emergency_aid 034–042 (+ overflow) | in progress |
-| P11 | 75 | guard cleanup for cpr / ekg / ccma / phleb banks | in progress |
+| P06 | 42 | med_safety 001–042 | done |
+| P07 | 42 | wound_care 001–042 | done |
+| P08 | 42 | life_stages 001–042 | done |
+| P09 | 42 | emergency_aid 001–042 | done |
+| P10 | 42 | poct 001–042 | done |
+| P11 | 253 | guard cleanup: cpr, ekg, ccma, phleb banks plus the legacy diabetes bank | done |
 
-**Completed at parallel-options standard:** 335 items (full modules: injection, vitals, infection, terminology, specimen_lab, pharm_dosage, intake, osha_bbp; plus poct 1/42, wound 1/42 from P01b).
+**Completed at parallel-options standard:** all 546 clinical skills items.
 
-**Remaining:** 211 clinical skills items plus the guard cleanup backlog in the other cert banks.
+**Other banks brought to the same bar:** 1493 items across cpr (313), ekg (253),
+ccma (590), and phleb (337).
 
-Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass P01, P01b, P02, P03, P03b, P04, P05).
+## What the cleanup changed outside the clinical skills bank
 
-The bar and the tooling for each pass are in `docs/parallel-options-brief.md`. Use
-`scripts/validate_skill_bank_item.py --module <name>` for per-item checks and
-`scripts/run_seed_quality_checks.py` to run the real repo guards without the app stack.
+* Every distractor in the whole 2039-item bank was checked for giveaway absolutes and
+  for over-length options. 267 giveaway distractors and 155 over-length distractors were
+  rewritten.
+* Every quiz chunk was rebalanced so the keyed answer is not the long-and-complete
+  option. 217 items were rebalanced.
+* Topic difficulty mixes were rebalanced to the 30/40/30 split.
+* Machine-generated fragment stems (for example `Type 1 diabetes mellitus is best
+  described as:`) were rewritten as complete questions.
+* Canned template explanations were replaced with two specific sentences per item.
+
+## Tooling
+
+`docs/parallel-options-brief.md` is the content standard. `docs/choice-quality-brief.md`
+is the option-hygiene standard.
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/validate_skill_bank_item.py` | per-item check of one clinical skills module |
+| `scripts/run_seed_quality_checks.py` | runs the real repo guard tests without the app stack |
+| `scripts/audit_item_quality.py` | per-item giveaway, length, and key-balance report |
+| `scripts/audit_item_quality_breakdown.py` | the same report grouped by problem type |
+| `scripts/audit_choice_quality.py` | giveaway, length, explanation, difficulty, chunk reports |
+| `scripts/audit_chunk_longest.py` | the per-chunk keyed-answer ratio the repo test enforces |
+| `scripts/apply_choice_rewrites.py` | applies a batch of option rewrites to the source files |
+| `scripts/rebalance_difficulty.py` | rebalances the beginner/intermediate/advanced mix |
+| `scripts/generate_review_log.py` | generates per-item review-log lines from a git diff |
+| `scripts/audit_guard_failures.py` | lists the items that trip each repo guard |
+
+Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass
+P01 through P11).

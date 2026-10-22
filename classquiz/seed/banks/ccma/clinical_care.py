@@ -15,9 +15,9 @@ FACTS: list[dict] = [
         'Before applying a topical antibiotic to an open wound in the clinic, what is the first action the medical assistant should take?',
         'Perform hand hygiene before touching the wound or medication supplies',
         [
-            'Don clean gloves before hand hygiene when the gloves worn for dressing change appear intact',
-            'Remove the soiled dressing and cleanse the wound before performing hand hygiene',
-            'Apply topical antibiotic from the tube opening directly to the wound, then perform hand hygiene',
+            'Don clean gloves before performing hand hygiene for the dressing change',
+            'Remove the soiled dressing and cleanse the wound before hand hygiene',
+            'Apply topical antibiotic from the tube opening to the wound, then wash hands',
         ],
         'Hand hygiene is the first step before wound contact or handling topical agents. Gloves, wound cleansing, and ointment application follow once hands and the field are prepared per policy.',
         [S.NHA_CCMA],
@@ -27,10 +27,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When performing a capillary blood glucose check at the point of care, which supply practice reduces cross-contamination risk?',
-        'Use a new lancet and an in-date test strip for each puncture per policy',
+        'Use a new lancet and an in-date test strip for each puncture',
         [
             'Wipe the lancet with alcohol and reuse it for the next patient in the session',
-            'Use strips from a vial past expiration when the desiccant pellet still looks intact',
+            'Use strips from a vial past expiration when the desiccant still looks intact',
             'Puncture the same fingertip repeatedly for serial checks without rotating sites',
         ],
         'Single-use lancets and current strips support accurate results and infection control. Reusing sharps or expired reagents is a common source of clinic errors.',
@@ -43,11 +43,11 @@ FACTS: list[dict] = [
         'A patient arrives for a fasting blood draw. Which pre-test instruction aligns with typical laboratory orders?',
         'Take no food or drink except plain water if the order permits water',
         [
-            'Drink black coffee with sugar before the draw when fasting was ordered',
+            'Eat a light breakfast of toast and juice before the draw',
             'Withhold all fluids including water for 24 hours unless the order says otherwise',
             'Take morning diabetes medication with a small meal if the patient feels hungry',
         ],
-        'Fasting requirements depend on the specific tests ordered; juice and extra medication can invalidate results. Patients should follow the written order and ask the care team when instructions are unclear.',
+        'Fasting requirements depend on the specific tests ordered, and a light breakfast or extra medication can invalidate results. Patients should follow the written order and ask the care team when instructions are unclear.',
         [S.NHA_CCMA],
         'beginner',
     ),
@@ -55,15 +55,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Dense hair covers the skin where ECG electrodes will be placed. How should the medical assistant prepare the sites?',
-        'Clip the hair close to the skin; shave with a razor only when the provider orders shaving',
+        'Clip the hair close to the skin and shave only on provider order',
         [
-            'Shave every electrode site with a razor before each routine 12-lead tracing in a typical outpatient clinic setting.',
+            'Shave every electrode site with a razor before each routine 12-lead tracing',
             'Press electrodes through uncut hair when clipping would add extra setup time',
             'Apply conductive gel over thick hair instead of clipping or shaving the sites',
         ],
         'Good skin contact reduces artifact and improves tracing quality. Routine razor shaving can nick skin and is reserved for orders, whereas clipping is often sufficient.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-clinical-care-005
     fact(
@@ -113,13 +113,13 @@ FACTS: list[dict] = [
         'A patient loses consciousness briefly during a minor in-office procedure. What should the medical assistant do first?',
         'Lower the patient safely, check responsiveness and breathing, and summon help',
         [
-            'Keep the patient seated upright in the chair without lowering the head or calling for help',
+            'Keep the patient seated upright without lowering the head or calling for help',
             'Offer solid food by mouth while the patient is unresponsive',
             'Leave the procedure room to finish charting before assisting',
         ],
         'Syncope requires airway and circulation assessment and prevention of injury from falling. Oral intake is unsafe until the patient is fully alert and swallowing normally.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-clinical-care-009
     fact(
@@ -127,8 +127,8 @@ FACTS: list[dict] = [
         "When applying a cold pack for a localized injury, how should the medical assistant protect the patient's skin?",
         'Place a cloth barrier between the skin and the cold source',
         [
-            'Apply ice directly to intact skin for the full ordered interval without a barrier',
-            'Leave the pack in place when the patient reports numbness if time remains on the clock',
+            'Apply ice directly to intact skin for the full ordered time',
+            'Leave the pack in place after the patient reports numbness',
             'Rotate the same frozen gel pack between patients after wiping the plastic cover',
         ],
         'Prolonged direct cold can cause frostbite, especially over areas with reduced sensation. Barriers and timed application follow safe thermal therapy practice.',
@@ -153,11 +153,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'During a visual acuity screening in clinic, how should a patient who normally wears glasses or contacts be tested?',
-        'Use the usual corrective lenses unless the provider gives different instructions',
+        'Use the usual corrective lenses unless the provider says otherwise',
         [
             'Test uncorrected vision for every line even when the patient wears daily lenses',
-            'Cover both eyes together for the entire chart instead of alternating per protocol',
-            'Use whichever wall chart is open at an unmeasured distance for convenience',
+            'Cover both eyes together for the chart instead of alternating',
+            'Use whichever wall chart is open at an unmeasured distance',
         ],
         'Screening should reflect how the patient sees day to day unless a specific protocol calls for uncorrected vision. Standardized distance and eye sequencing follow facility policy.',
         [S.NHA_CCMA],
@@ -167,7 +167,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Compared with a standard 12-lead electrocardiogram, adding posterior leads in a 15-lead study may improve detection of what?',
-        'Posterior wall myocardial ischemia per common clinical practice.',
+        'Posterior wall myocardial ischemia on the back of the heart',
         [
             'Right ventricular strain pattern from acute pulmonary embolism',
             'Anterior ST-segment elevation from left anterior descending occlusion',
@@ -175,7 +175,7 @@ FACTS: list[dict] = [
         ],
         'Posterior ST changes can be subtle on a standard 12-lead tracing. Extra posterior leads increase sensitivity for occult ischemia behind the heart.',
         [S.NHA_CCMA],
-        'beginner',
+        'advanced',
     ),
     # ccma-clinical-care-013
     fact(
@@ -183,13 +183,13 @@ FACTS: list[dict] = [
         'While measuring vital signs, the medical assistant hears new expiratory wheezing in a patient with no prior documentation of wheezes. What action is appropriate?',
         'Promptly report the finding to the clinical team',
         [
-            'Document wheezing at the next visit if the sound persists during rooming',
-            'Note the finding in a personal notebook and mention it casually later',
-            'Instruct the patient to double rescue inhaler doses without notifying the provider',
+            "Document wheezing at the next visit if the sound persists during rooming",
+            "Note the finding in a personal notebook and mention it casually later",
+            "Double the patient's rescue inhaler doses without notifying the provider",
         ],
         'New wheezing may reflect bronchospasm, aspiration, or another acute process. Timely communication allows the provider to examine the patient and adjust treatment.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-clinical-care-014
     fact(
@@ -209,10 +209,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Once a sterile field is opened for a procedure, how should the medical assistant maintain it?',
-        'Keep the field in view and prevent contact with non-sterile surfaces or items',
+        'Keep the field in view and free of contact with non-sterile items',
         [
             'Cover unused instruments with a nonsterile towel until the provider returns',
-            'Reach across the field with gloved hands to reposition the overhead light when documented per facility policy.',
+            'Reach across the field with gloved hands to reposition the overhead light',
             'Leave remaining sterile supplies on the open field for the next case today',
         ],
         'Sterility is broken the moment a non-sterile object crosses above or touches the field. Fields are opened for one patient and one procedure episode.',
@@ -251,29 +251,29 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When assisting a provider with suture removal, which practice aligns with safe clinical care?',
-        'Use hand hygiene and sterile or clean technique according to order and policy',
+        'Use hand hygiene and sterile or clean technique for the wound',
         [
-            'Remove knots with the same gloves worn during the prior patient rooming in a typical outpatient clinic setting.',
+            'Remove knots with the same gloves worn during the prior patient rooming',
             'Use nonsterile shears on purulent drainage without notifying the provider',
             'Clip every suture when one segment is erythematous without reporting it',
         ],
         'Even closed wounds can harbor bacteria at suture lines. Hand hygiene, appropriate gloves, and reporting erythema or drainage help prevent secondary infection.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-clinical-care-019
     fact(
         'ccma-clinical-care',
         'Immediately before starting a sterile procedure, what should the medical assistant confirm about the patient?',
-        'Identity with two identifiers and informed consent when required by policy',
+        'Two patient identifiers plus informed consent when required',
         [
-            'Printed full name on the schedule without verifying date of birth',
-            'Wristband match to the room number posted on the hallway board when documented per facility policy.',
-            'Verbal consent from the patient\'s companion without reviewing the chart',
+            "Printed full name on the schedule without verifying date of birth",
+            "Wristband match to the room number posted on the hallway board",
+            "Verbal consent from the patient's companion without reviewing the chart",
         ],
         'Wrong-patient procedures are preventable with two-identifier checks and documented consent. Room numbers and glove preferences do not verify who is receiving invasive care.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-clinical-care-020
     fact(
@@ -287,7 +287,7 @@ FACTS: list[dict] = [
         ],
         'Laboratory specimens labeled for the wrong person can lead to harmful treatment decisions. Name and date of birth (or other approved pair) must match the requisition.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-clinical-care-021
     fact(
@@ -295,9 +295,9 @@ FACTS: list[dict] = [
         'Before giving a provider-ordered injection, which checks reflect medication safety standards?',
         'Correct patient, medication, dose, route, time, and documentation',
         [
-            'Vial cap color matched to the prior patient\'s medication without reading the label',
-            'Room number on the door aligned with the scheduled appointment slot',
-            'Pharmacy label compared to an outdated faxed order without the current order',
+            "Vial cap color matched to the prior patient's medication",
+            "Room number on the door aligned with the scheduled appointment slot",
+            "Pharmacy label compared to an outdated faxed order without the current order",
         ],
         'The six rights of medication administration guard against look-alike vials and transcription errors. Visual cues such as cap color are insufficient without reading the label against the order.',
         [S.NHA_CCMA],
@@ -325,7 +325,7 @@ FACTS: list[dict] = [
         [
             'Finish filling the current tube before lowering the patient or calling for help',
             'Loosen then retighten the tourniquet to complete the draw more quickly',
-            'Step out to locate staff while the patient remains seated with the needle in place',
+            'Step out to find staff while the patient sits with the needle in place',
         ],
         'Vasovagal syncope during phlebotomy is common and can cause falls. Stopping the draw, lowering the head if tolerated, and calling for assistance follow standard reaction protocols.',
         [S.NHA_CCMA],
@@ -335,15 +335,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When irrigating a wound under provider direction, which supply choice supports aseptic technique?',
-        'Sterile irrigant from a new container, poured without touching the pour spout to the field',
+        'Sterile irrigant poured without touching the spout to the field',
         [
-            '0.9% saline drawn into a syringe from a multi-dose vial opened earlier the same day',
-            'Antiseptic wound cleanser used as the irrigating fluid per label when documented per facility policy.',
+            '0.9% saline drawn from a multi-dose vial opened earlier the same day',
+            'Antiseptic wound cleanser used as the irrigating fluid per label',
             'Sterile water remaining in a bowl that sat open on the mayo stand for an hour',
         ],
         'Irrigation requires fluid and delivery that stay uncontaminated. Multi-dose vials and open bowls increase bioburden; antiseptics clean skin but are not routine primary irrigants for deep tissue flushing.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-025
     fact(
@@ -371,35 +371,35 @@ FACTS: list[dict] = [
         ],
         'Individual baselines vary, but oral temperatures above 100.4°F are widely treated as fever in adults. Measurement site and timing affect expected values and should be documented.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-027
     fact(
         'ccma-clinical-care',
         'The provider orders subcutaneous insulin from a high-alert medication drawer. Which practice aligns with medication safety policy?',
-        'An independent double check of the order, label, dose, and syringe marking before administration',
+        'An independent double check of the order, label, and dose',
         [
-            'Draw the dose from memory while moving quickly between rooms in a typical outpatient clinic setting.',
+            'Draw the dose from memory while moving quickly between rooms',
             'Store insulin vials unlabeled beside saline flushes in the same bin',
             'Verify cap color against the prior patient without reading the vial label',
         ],
         'High-alert medications such as insulin have narrow therapeutic windows. Independent double checks catch decimal and look-alike vial errors before injection.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-028
     fact(
         'ccma-clinical-care',
         'A patient wears a Holter monitor at home for intermittent palpitations. What does this device primarily record?',
-        'Continuous ambulatory electrocardiogram activity over 24 to 48 hours',
+        'Continuous ambulatory ECG activity over 24 to 48 hours',
         [
-            'Continuous ambulatory blood pressure trends over 24 hours in a typical outpatient clinic setting.',
+            'Continuous ambulatory blood pressure trends over 24 hours',
             'Symptom-triggered event recorder rhythm during palpitations',
             'Resting transthoracic echocardiography wall motion assessment',
         ],
         'Holter monitoring captures rhythm changes that may not appear during a brief office ECG. It supplements, rather than replaces, inpatient telemetry when symptoms occur away from the hospital.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-029
     fact(
@@ -409,11 +409,11 @@ FACTS: list[dict] = [
         [
             'Say nothing because no harm occurred',
             'Record the near-miss in a personal note without filing a safety report',
-            'Correct the error silently and discard the mismatched vial without telling the team',
+            'Correct the error silently and discard the mismatched vial',
         ],
         'Near-miss reporting helps teams fix labeling, storage, and workflow problems before a patient is harmed. Most policies use nonpunitive channels for honest safety reporting.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-030
     fact(
@@ -427,13 +427,13 @@ FACTS: list[dict] = [
         ],
         'Suspected stroke is time-critical; rapid EMS activation and evaluation improve eligibility for reperfusion therapy. Delaying care for a future appointment risks permanent disability.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-031
     fact(
         'ccma-clinical-care',
         'A nonfasting patient’s urine dipstick shows 2+ protein at point of care. What should the medical assistant do with the result?',
-        'Document the finding and notify the clinical team per protocol',
+        'Document the finding and notify the clinical team',
         [
             'Ignore the result because concentrated yellow urine is expected in every sample',
             'Discard the strip without charting to avoid alarming the patient',
@@ -441,7 +441,7 @@ FACTS: list[dict] = [
         ],
         'Proteinuria on dipstick may reflect kidney disease, infection, or other conditions requiring clinical follow-up. Abnormal point-of-care results are communicated and acted on per policy.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-032
     fact(
@@ -455,15 +455,15 @@ FACTS: list[dict] = [
         ],
         'Undersized cuffs tend to read falsely high and oversized cuffs falsely low. Width near 40% of arm circumference is the usual standard for adult arm cuffs.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-033
     fact(
         'ccma-clinical-care',
         'While coaching a postoperative patient to use an incentive spirometer, which breathing pattern should the medical assistant encourage?',
-        'Slow, deep inhalation through the mouthpiece followed by a brief hold if ordered',
+        'Slow, deep inhalation through the mouthpiece and a brief hold',
         [
-            'Indefinite breath holding without exhaling in a typical outpatient clinic setting.',
+            'Indefinite breath holding without exhaling',
             'Rapid shallow panting until the patient feels dizzy',
             'Quick sniffing breaths through the nose without deep lung expansion',
         ],
@@ -475,93 +475,93 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Two medication vials look alike and have similar names on the shelf. Which strategy reduces look-alike sound-alike (LASA) errors?',
-        'Use tall-man lettering on labels and perform extra verification against the order',
+        'Use tall-man lettering on labels and verify against the order',
         [
-            'Store all vials without labels to speed retrieval in a typical outpatient clinic setting.',
+            'Store all vials without labels to speed retrieval',
             'Identify drugs by cap color alone without reading the label',
             'Omit the second patient identifier when the drug names sound similar',
         ],
         'LASA pairs such as hydroXYZINE and hydrALAZINE require deliberate label reading and separation strategies. Tall-man lettering highlights spelling differences during verification.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-035
     fact(
         'ccma-clinical-care',
         'A patient feels dizzy when standing after bed rest. Which vital sign series best evaluates orthostatic changes?',
-        'Blood pressure and heart rate measured lying, sitting, and standing with position documented',
+        'Blood pressure and heart rate taken lying, sitting, and standing',
         [
-            'Temperature alone in each position without pulse or pressure',
-            'Respiratory rate after vigorous exercise in the hallway when documented per facility policy.',
-            'Pain score recorded without changing position for routine ambulatory patient care.',
+            'Temperature alone in each position without pulse or pressure readings',
+            'Respiratory rate after vigorous exercise in the hallway',
+            'Pain score recorded without changing position',
         ],
         'Orthostatic hypotension or tachycardia may signal hypovolemia or autonomic dysfunction. Comparing pressure and pulse across positions with documented timing supports accurate interpretation.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-036
     fact(
         'ccma-clinical-care',
         'A patient with asthma uses a peak flow meter at home. Which technique yields the most reliable expiratory airflow reading?',
-        'Sit or stand upright, inhale fully, seal the lips around the mouthpiece, and blow out as hard and fast as possible',
+        'Sit upright, inhale fully, seal the lips, and blow out hard and fast',
         [
-            'Lie flat and exhale gently without coaching in a typical outpatient clinic setting in a typical outpatient clinic setting.',
-            'Hold breath for one minute before a weak puff into the meter when documented per facility policy.',
-            'Record a single weak puff without a full inhalation or tight lip seal for routine ambulatory patient care.',
+            'Lie flat and exhale gently without coaching',
+            'Hold breath for one minute before a weak puff into the meter',
+            'Record a single weak puff without a full inhalation or tight lip seal',
         ],
         'Peak expiratory flow reflects bronchospasm and supports asthma action plans. Maximal effort after full inspiration with a tight seal avoids falsely low values.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-037
     fact(
         'ccma-clinical-care',
         'During setup for a minor sterile procedure, when is strict sterile technique most essential for the medical assistant?',
-        'Whenever hands or instruments contact the sterile field or invasive device pathways',
+        'Whenever hands or instruments contact the sterile field',
         [
             'While documenting vital signs on a patient with intact skin',
-            'While applying an adhesive bandage to a closed abrasion when documented per facility policy.',
+            'While applying an adhesive bandage to a closed abrasion',
             'While preparing a clean injection site for an intramuscular vaccine',
         ],
         'Sterile technique prevents introduction of pathogens into tissue or equipment that enters the body. Nonclinical tasks do not require maintenance of a sterile field.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-038
     fact(
         'ccma-clinical-care',
         'The provider asks the medical assistant to remove sutures from a well-healed linear incision with intact skin. Which approach is typical?',
-        'Clean technique with hand hygiene and gloves per policy, assessing the site before removal',
+        'Clean technique with hand hygiene and gloves, assessing the site first',
         [
-            'Remove knots with bare hands because the epidermis appears fully closed in a typical outpatient clinic setting.',
+            'Remove knots with bare hands because the epidermis appears fully closed',
             'Don a full sterile gown and gloves for every superficial suture removal',
             'Use the same scissors from another tray after wiping the blades with dry gauze',
         ],
-        'Healed external closures are often managed with clean procedure rather than full surgical sterility, though erythema or drainage requires provider evaluation before removal.',
+        'Healed external closures are often managed with clean procedure rather than full surgical sterility. Erythema, drainage, or a separating wound requires provider evaluation before the sutures are removed.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-clinical-care-039
     fact(
         'ccma-clinical-care',
         'When screening distance visual acuity with a Snellen chart, at what testing distance should the chart be placed?',
-        '20 feet, or an optically equivalent setup per facility protocol',
+        'Twenty feet, or an optically equivalent testing setup',
         [
-            'Five inches from the patient’s face for all ages in a typical outpatient clinic setting.',
-            'One hundred meters regardless of chart calibration',
+            "Five inches from the patient's face for all ages",
+            "One hundred meters regardless of chart calibration",
             "At bedside arm's length without a calibrated mirror system",
         ],
         'Standardized testing distance keeps acuity scores comparable across visits and clinicians. Equivalent mirror systems must be calibrated to the same effective distance.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-clinical-care-040
     fact(
         'ccma-clinical-care',
         'Before inflating a blood pressure cuff on an adult upper arm, how should the bladder length relate to arm circumference?',
-        'The bladder should encircle at least about 80% of the arm circumference',
+        'The bladder should encircle about 80 percent of the arm',
         [
-            'About 40% encirclement is sufficient for all adults in a typical outpatient clinic setting.',
+            'About 40% encirclement is sufficient for all adults',
             'Coverage based on wrist width for typical adult arms',
             'The bladder must overlap itself completely around the arm',
         ],
@@ -587,9 +587,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'While scrubbed in to assist with a sterile procedure, how should the medical assistant move supplies to the provider?',
-        'Stay within the sterile zone and never reach over or lean on the sterile field',
+        'Stay within the sterile zone and avoid reaching over the field',
         [
-            'Rest both forearms on the sterile drape while handing instruments in a typical outpatient clinic setting.',
+            'Rest both forearms on the sterile drape while handing instruments',
             'Pass nonsterile outer packaging directly over open sterile instruments',
             'Adjust a loose mask with bare scrubbed hands without regloving afterward',
         ],
@@ -601,11 +601,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'During a routine dressing change on a closed surgical wound with no anticipated fluid exposure, which glove choice is usually appropriate?',
-        'Nonsterile examination gloves when intact skin and clean dressings will be touched',
+        'Nonsterile gloves when clean dressings touch intact skin',
         [
-            'Sterile surgical gloves for every superficial dressing change regardless of exposure',
-            'No gloves because the incision appears dry and fully epithelialized',
-            'The same examination gloves worn during the prior patient\'s rooming',
+            "Sterile surgical gloves for every superficial dressing change",
+            "No gloves because the incision looks dry and fully epithelialized",
+            "The same examination gloves worn during the prior patient's rooming",
         ],
         'Glove selection matches anticipated contact with blood, body fluids, or sterile tissue. Clean closed wounds often require only clean technique with nonsterile gloves per policy.',
         [S.NHA_CCMA],
@@ -615,11 +615,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When teaching clean-catch midstream urine collection, what patient steps reduce contamination of the specimen?',
-        'Perform hand hygiene, cleanse the urinary meatus, void the first portion into the toilet, then collect midstream in the container',
+        'Cleanse the meatus, void first into the toilet, then collect midstream',
         [
-            'Collect the first voided stream in the cup without perineal cleansing in a typical outpatient clinic setting.',
-            'Store urine in the same container at home for several days before delivery when documented per facility policy.',
-            'Defer perineal cleansing to shorten the collection teaching for routine ambulatory patient care when documented per facility policy.',
+            'Collect the first voided stream in the cup without perineal cleansing',
+            'Store urine in the same container at home for several days before delivery',
+            'Defer perineal cleansing to shorten the collection teaching',
         ],
         'Discarding the initial stream and using midstream urine lowers bacterial contamination from the urethra. Proper labeling and timely delivery to the laboratory follow facility protocol.',
         [S.NHA_CCMA],
@@ -630,9 +630,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Before measuring an adult\'s blood pressure, what should the medical assistant confirm?',
-        'The patient has rested with the back supported and feet flat for several minutes',
+        'The patient has rested with the back supported and feet flat',
         [
-            'The patient is seated with legs crossed and the back unsupported in a typical outpatient clinic setting.',
+            'The patient is seated with legs crossed and the back unsupported',
             'The cuff is placed over a thin shirt sleeve to keep the arm warm',
             'The arm hangs below heart level while the patient talks during inflation',
         ],
@@ -644,7 +644,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'Which site is commonly used for an intramuscular injection in an adult with adequate deltoid mass?',
-        'Upper outer third of the deltoid muscle in routine outpatient care.',
+        'Upper outer third of the deltoid muscle in the adult',
         [
             'Middle third of the deltoid along the acromion edge in thin adults',
             'Vastus lateralis of the anterior thigh for routine adult influenza vaccine',
@@ -661,8 +661,8 @@ FACTS: list[dict] = [
         'Notify the provider and reschedule or follow lab protocol for the ordered test',
         [
             'Draw the sample and note nonfasting in small text without provider notification',
-            'Instruct the patient to forgo lunch and proceed because partial fasting may suffice',
-            'Discard the requisition and tell the patient to return without documenting the visit',
+            'Tell the patient to go without lunch and proceed with the draw',
+            'Discard the requisition and tell the patient to return later',
         ],
         'Fasting requirements depend on the ordered analyte. Proceeding without notifying the team can yield misleading glucose or lipid results.',
         [S.NHA_CCMA],
@@ -672,23 +672,25 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'During a sterile dressing change, the assistant accidentally touches the inner sterile pad. What should happen next?',
-        'Discard the contaminated item and replace it using sterile technique',
-        ['Continue if the outer wrapper still looks clean in a typical outpatient clinic setting.',
-        'Fold the pad so the touched side faces the wound',
-        'Wipe the pad with alcohol and reuse it on the wound'],
+        'Discard the contaminated pad and replace it with sterile technique',
+        [
+            'Continue the dressing change if the outer wrapper still looks clean',
+            'Fold the pad so the contaminated side faces the wound',
+            'Wipe the pad with alcohol and reuse it on the wound bed',
+        ],
         'Sterility is event-based; contact with nonsterile surfaces requires replacement. Rinsing does not restore sterility for invasive wound care.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-clinical-care-049
     fact(
         'ccma-clinical-care',
         'When preparing a patient for a 12-lead EKG, why is hair clipped instead of shaved with a razor when needed?',
-        'Clipping reduces skin abrasion that can irritate the site before electrode placement',
+        'Clipping reduces skin abrasion before the electrode is placed',
         [
             'Razor shaving every electrode site improves ST-segment accuracy on all patients',
-            'Hair may be left intact when tracing quality looks acceptable without preparation',
-            'Conductive lotion should be applied under each pad instead of trimming hair for routine ambulatory patient care.',
+            'Hair may be left intact when the tracing quality looks acceptable',
+            'Conductive lotion should be applied under each pad instead of trimming',
         ],
         'Gentle clipping improves contact without micro-cuts that sting or weep. Razors are reserved for orders because they can irritate skin and affect tracing quality.',
         [S.NHA_CCMA],
@@ -712,11 +714,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'A point-of-care glucose meter displays an error after a new test strip is inserted. What should the medical assistant do?',
-        'Repeat quality control per manufacturer instructions before patient testing',
+        'Repeat quality control before testing the patient',
         [
-            'Repeat patient testing with another strip from the same lot without control checks',
-            'Wipe the meter sensor with alcohol and proceed while the error code remains',
-            'Use a strip from another patient\'s opened vial to complete the ordered check',
+            "Repeat patient testing with another strip from the same lot",
+            "Wipe the meter sensor with alcohol and proceed while the error code remains",
+            "Use a strip from another patient's opened vial to complete the ordered check",
         ],
         'CLIA-waived devices still require control checks when errors occur. Patient strips are single use; alcohol can damage strip chemistry.',
         [S.NHA_CCMA],
@@ -726,10 +728,12 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When weighing a child in outpatient clinic, which practice supports the most accurate measurement?',
-        'Use a calibrated scale appropriate for the child\'s age and remove heavy outer clothing',
-        ['Weigh the child while holding them without subtracting adult weight',
-        'Place the scale on a thick carpet pad when documented per facility policy.',
-        'Estimate weight from height percentile on the growth chart for routine ambulatory patient care.'],
+        "Use a calibrated scale for the child's age and remove outer clothing",
+        [
+            'Weigh the child while holding them without subtracting the adult weight',
+            'Place the scale on a thick carpet pad',
+            'Estimate weight from height percentile on the growth chart',
+        ],
         'Pediatric dosing and growth charts depend on accurate weight. Holding the child without taring adds adult mass; carpet throws off load cells.',
         [S.NHA_CCMA],
         'beginner',
@@ -738,10 +742,12 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'For adult upper-arm blood pressure measurement, which patient position aligns with standard technique?',
-        'Seated with back supported, feet flat, and arm at heart level',
-        ['Standing on one foot with arm raised overhead',
-        'Prone with cuff on the ankle when documented per facility policy.',
-        'Supine with legs dangling off the exam table'],
+        'Seated, feet flat, back supported, arm at heart level',
+        [
+            'Standing on one foot with the arm raised overhead at cuff level',
+            'Prone with the blood pressure cuff on the ankle',
+            'Supine with the legs dangling off the exam table',
+        ],
         'Heart-level arm placement and supported seating align with guideline technique. Ankle cuffs in prone adults are not the routine upper-arm method.',
         [S.NHA_CCMA],
         'beginner',
@@ -770,7 +776,7 @@ FACTS: list[dict] = [
         'Proceed after wiping the sleeve contact spot with nonsterile gauze'],
         'Sterility is lost once nonsterile items contact the field. Drying or flipping drapes does not restore asepsis.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-clinical-care-056
     fact(
@@ -828,10 +834,12 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When obtaining orthostatic vital signs, how many positions are typically compared?',
-        'Supine, sitting, and standing in the ambulatory setting.',
-        ['Supine and standing measurements without a sitting set',
-        'Sitting and standing measurements without a supine baseline',
-        'Supine, sitting, standing, then supine again in one continuous series'],
+        'Supine, sitting, and standing positions',
+        [
+            'Supine and standing measurements without a sitting set',
+            'Sitting and standing measurements without a supine baseline',
+            'Supine, sitting, standing, then supine again in one continuous series',
+        ],
         'Orthostatic series detect postural blood pressure and pulse changes. A single standing reading without baseline lacks comparison.',
         [S.NHA_CCMA],
         'intermediate',
@@ -840,13 +848,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'What is the correct angle for an intradermal injection such as a tuberculin skin test?',
-        '5 to 15 degrees with bevel up in the ambulatory setting.',
-        ['90 degrees into deltoid muscle for Mantoux testing',
-        '45 degrees into abdominal subcutaneous fat for tuberculin',
-        'Intradermal injection pressed flat parallel to the skin surface'],
+        '5 to 15 degrees with the bevel pointing up',
+        [
+            '90 degrees into deltoid muscle for Mantoux testing',
+            '45 degrees into abdominal subcutaneous fat for tuberculin',
+            'Intradermal injection pressed flat parallel to the skin surface',
+        ],
         'Intradermal tests form a bleb in the dermis. Ninety-degree angles are for typical IM vaccines, not Mantoux placement.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-clinical-care-062
     fact(
@@ -864,10 +874,12 @@ FACTS: list[dict] = [
     fact(
         'ccma-clinical-care',
         'When applying a heat pack, why is a cloth barrier placed between the pack and skin?',
-        'To reduce risk of thermal burns per common clinical practice.',
-        ['To keep the pack colder against bare skin for longer intervals',
-        'To monitor blood glucose through the insulating cloth layer',
-        'To sterilize the reusable gel pack between patients without cleaning'],
+        'To reduce the risk of thermal burns to the skin',
+        [
+            'To keep the pack colder against bare skin for longer intervals',
+            'To monitor blood glucose through the insulating cloth layer',
+            'To sterilize the reusable gel pack between patients without cleaning',
+        ],
         'Thermal injuries occur quickly on sensitive or neuropathic skin. Barriers distribute temperature more safely.',
         [S.NHA_CCMA],
         'beginner',

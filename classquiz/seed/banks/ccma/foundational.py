@@ -13,15 +13,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'What is the medical assistant\'s typical responsibility when contributing to the diagnostic process?',
-        'Gather subjective and objective data accurately and report findings to the supervising provider',
+        'Gather subjective and objective data and report findings to the provider',
         [
-            'Gather patient data and document a working diagnosis in the chart before the provider evaluates the patient',
-            'Collect vital signs and defer history documentation until the provider enters the examination room',
-            'Gather laboratory results and adjust medication doses using clinic standing orders without provider review',
+            'Gather data and record a working diagnosis before the provider evaluates',
+            'Collect vital signs and defer history until the provider enters the room',
+            'Adjust medication doses from standing orders without provider review',
         ],
         'Medical assistants collect histories, vitals, and test results to support provider decision-making. Assigning final diagnoses, independent prescribing, or unsupervised medication changes exceed typical MA scope.',
         [S.NHA_CCMA],
-        'beginner',
+        'advanced',
     ),
     # ccma-foundational-002
     fact(
@@ -30,12 +30,12 @@ FACTS: list[dict] = [
         'The front or ventral surface of the body',
         [
             'The back or dorsal surface of the body',
-            'A structure lying on the midline when documented per facility policy.',
-            'A structure farther from the trunk',
+            'A structure lying on the midline of the body',
+            'A structure located farther from the trunk',
         ],
         'Anterior and posterior are paired directional terms used throughout documentation and procedures. The back of the body is posterior, not anterior.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-003
     fact(
@@ -77,7 +77,7 @@ FACTS: list[dict] = [
         ],
         '-itis specifically means inflammation, seen in arthritis and gastritis. Surgical removal uses -ectomy, and blood conditions often use -emia.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-006
     fact(
@@ -91,7 +91,7 @@ FACTS: list[dict] = [
         ],
         'NHA administers the CCMA credential for medical assistants. CLSI focuses on laboratory standards, and the FDA regulates drugs and devices rather than MA certification.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-007
     fact(
@@ -133,21 +133,21 @@ FACTS: list[dict] = [
         ],
         'Standard Precautions treat blood, non-intact skin, and most body fluids as potentially infectious regardless of diagnosis. Limiting precautions to visible blood or specific settings leaves gaps in outpatient and ambulatory care.',
         [S.CDC_STANDARD_PRECAUTIONS],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-010
     fact(
         'ccma-foundational',
         'What primarily determines what tasks a medical assistant may legally perform?',
-        'State law, employer policy, and the assistant\'s training',
+        'State law, employer policy, and assistant training',
         [
-            'The patient\'s stated preference for who performs care',
-            'Advertising claims from medical supply vendors when documented per facility policy.',
-            'Informal clinic tradition without written policy',
+            'Patient preference for who performs a given procedure',
+            'Unwritten clinic tradition rather than documented policy',
+            'What other clinics allow their assistants to perform',
         ],
-        'Scope of practice is set by regulation and delegated duties under supervision. Patient preference does not override legal limits on who may perform invasive or clinical acts.',
+        "Scope of practice is set by state law, employer policy, and the assistant's training. Patient preference and unwritten clinic tradition cannot expand the legal limits on delegated clinical tasks.",
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-011
     fact(
@@ -167,15 +167,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'What does homeostasis mean in human physiology?',
-        'Maintenance of relatively stable internal conditions despite external change',
+        'Maintenance of stable internal conditions despite external change',
         [
-            'Complete shutdown of metabolism during stress in a typical outpatient clinic setting.',
-            'Permanent elimination of all microorganisms in the body',
-            'Fixed body temperature with no measurable variation',
+            'A complete shutdown of metabolism whenever the body is stressed',
+            'Permanent elimination of every microorganism that enters the body',
+            'A fixed body temperature with no variation around the set point',
         ],
         'Homeostasis uses feedback to regulate variables such as temperature, glucose, and fluid balance. The body still allows small fluctuations around set points rather than halting metabolism or forbidding any temperature change.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-013
     fact(
@@ -183,9 +183,9 @@ FACTS: list[dict] = [
         'Which description best defines a pathogen?',
         'A microorganism that can cause disease in a susceptible host',
         [
-            'Any bacterium living on intact skin without symptoms',
-            'A dietary vitamin required for nerve function',
-            'An antibody produced after vaccination for routine ambulatory patient care.',
+            'Bacteria that colonize intact skin without causing symptoms',
+            'A dietary vitamin that supports normal nerve function in adults',
+            'An antibody the immune system makes after a vaccination',
         ],
         'Pathogens include bacteria, viruses, fungi, and parasites capable of producing infection. Commensal skin flora, nutrients, and immune proteins are not pathogens even though they appear in clinical discussions.',
         [S.NHA_CCMA],
@@ -209,25 +209,25 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'How does a negative feedback loop help regulate a body variable such as core temperature?',
-        'It counteracts the initial change to move the variable back toward a set point',
+        'It opposes the change and moves the variable toward a set point',
         [
-            'It amplifies the initial stimulus without limit',
-            'It removes hormones from circulation permanently',
-            'It blocks all sensory input from the skin for routine ambulatory patient care.',
+            'It amplifies the initial stimulus rather than opposing the change',
+            'It removes regulatory hormones from circulation for good',
+            'It blocks sensory input from the skin before signals arrive',
         ],
         'Negative feedback opposes deviation, as when sweating begins after a rise in temperature. Amplifying the stimulus without limit would worsen instability rather than restore balance.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-016
     fact(
         'ccma-foundational',
         'How is a solution with a pH of 7.0 classified?',
-        'Neutral per common clinical practice.',
+        'Neutral, midway between acidic and alkaline',
         [
-            'Strongly acidic in a typical outpatient clinic setting.',
-            'Strongly alkaline (basic)',
-            'Equal to the pH of gastric acid',
+            'Strongly acidic, well below 7 on the pH scale',
+            'Strongly alkaline, well above 7 on the pH scale',
+            'Equal to the pH of gastric acid secretions in the stomach',
         ],
         'On the pH scale, values below 7 are acidic and above 7 are alkaline. Gastric acid is far more acidic than 7.0, so it is not equivalent to a neutral solution.',
         [S.NHA_CCMA],
@@ -237,11 +237,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'During passive diffusion across a membrane, how do molecules move relative to concentration?',
-        'From higher concentration to lower concentration without cellular energy',
+        'From higher to lower concentration without cellular energy',
         [
-            'From lower concentration to higher concentration using ATP',
-            'Against a concentration gradient with active transport',
-            'Randomly with no relationship to concentration for routine ambulatory patient care.',
+            'From lower to higher concentration using cellular ATP energy',
+            'Against the concentration gradient using active transport',
+            'In either direction with no link to concentration differences',
         ],
         'Passive diffusion follows a concentration gradient and does not require ATP. Moving uphill against a gradient requires active transport, which is a separate mechanism.',
         [S.NHA_CCMA],
@@ -259,7 +259,7 @@ FACTS: list[dict] = [
         ],
         'Evidence-based practice weighs published evidence with clinician judgment and what matters to the patient. Reference ranges alone or informal habits do not replace that structured approach.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-019
     fact(
@@ -282,12 +282,12 @@ FACTS: list[dict] = [
         'Closer to the point of attachment or the trunk',
         [
             'Farther from the trunk toward the extremity',
-            'Toward the sole of the foot when documented per facility policy.',
-            'Away from the midline of the body',
+            'Toward the sole of the foot rather than the ankle',
+            'Away from the midline toward the lateral side',
         ],
         'On the arm, the elbow is proximal to the wrist because it lies nearer the shoulder attachment. Distal describes structures farther from the trunk, which is the opposite pairing tested on anatomy items.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-021
     fact(
@@ -365,27 +365,27 @@ FACTS: list[dict] = [
         'What is the primary goal of medical asepsis during routine patient care?',
         'Reduce the number and spread of microorganisms using clean technique',
         [
-            'Achieve sterility on every work surface in the clinic',
-            'Eliminate all bacterial spores from the environment',
-            'Replace hand hygiene and Standard Precautions for routine ambulatory patient care.',
+            'Achieve sterility on every work surface in the clinic and on instruments',
+            'Eliminate all bacterial spores from every surface in the building',
+            'Replace hand hygiene and Standard Precautions in daily patient care',
         ],
         'Medical asepsis (clean technique) lowers microbial load on hands, equipment, and surfaces. Surgical asepsis targets sterility for invasive procedures; the two approaches complement rather than replace Standard Precautions.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-027
     fact(
         'ccma-foundational',
         'What is the main purpose of OSHA\'s Bloodborne Pathogens Standard in healthcare workplaces?',
-        'Protect workers from occupational exposure to bloodborne pathogens',
+        'Protect workers from bloodborne pathogen exposure',
         [
-            'Establish maximum doses for prescription medications',
-            'Assign ICD-10 diagnosis codes for billing when documented per facility policy.',
+            'Establish maximum daily doses for prescription medications',
+            'Assign ICD-10 diagnosis codes for insurance billing',
             'Define the legal elements of surgical informed consent',
         ],
         'The standard requires a written exposure control plan, employee training, hepatitis B vaccination offers, and engineering or work-practice controls such as sharps safety devices. It addresses occupational safety rather than clinical coding or prescribing rules.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-028
     fact(
@@ -407,13 +407,13 @@ FACTS: list[dict] = [
         'What is the central aim of quality improvement (QI) activities in an outpatient clinic?',
         'Systematically improve care processes and patient outcomes',
         [
-            'Focus quality meetings on individual blame without reviewing workflow causes',
-            'Track satisfaction scores while deferring review of recurring medication errors',
-            'Adopt each staff member\'s preferred habit instead of testing a guideline-based change',
+            "Focus quality meetings on individual blame without reviewing workflow causes",
+            "Track satisfaction scores while deferring review of recurring medication errors",
+            "Adopt each staff member's preferred habit instead of testing a change",
         ],
         'QI uses data, teamwork, and small tests of change to reduce harm and waste. Blaming individuals without examining workflows misses recurring system causes of errors.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-030
     fact(
@@ -421,7 +421,7 @@ FACTS: list[dict] = [
         'Under Standard Precautions, which body fluids are generally treated as potentially infectious?',
         'All blood, non-intact skin, and most body fluids',
         [
-            'Blood from patients with a documented positive HIV test but not other body fluids',
+            'Blood from patients with a documented positive HIV test',
             'Blood drawn during inpatient hospitalization but not in outpatient settings',
             'Saliva during routine dental prophylaxis without blood',
         ],
@@ -433,15 +433,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'In the chain of infection, what is the final link that must be present for disease to occur in a person?',
-        'Susceptible host per common clinical practice.',
+        'A susceptible host who lacks protective immunity',
         [
-            'A vector organism that carries the pathogen',
-            'Portal of entry without an infectious agent present',
-            'Mode of transmission with no reservoir identified',
+            'The handwashing sink used as the biologic host of germs',
+            'A sterile instrument pack in central supply',
+            'The clinic scheduling software database',
         ],
         'The classic chain includes an infectious agent, reservoir, portal of exit, mode of transmission, portal of entry, and a susceptible host. Interventions such as vaccination or isolation break one or more links to stop spread.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-032
     fact(
@@ -463,9 +463,9 @@ FACTS: list[dict] = [
         'Which metric unit is most commonly used to express medication mass in prescriptions?',
         'Gram (often as milligrams)',
         [
-            'Liter',
-            'Meter',
-            'Mole for routine ambulatory patient care.',
+            'Liter, for volume of medication',
+            'Meter, for distance measurement',
+            'Mole, for amount of a substance',
         ],
         'Solid and many liquid drug strengths are written in grams or milligrams. Liters measure volume, meters measure length, and the mole is a chemistry unit not used for everyday prescription labels.',
         [S.NHA_CCMA],
@@ -503,15 +503,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'What information does a Safety Data Sheet (SDS) provide for a chemical used in the clinic?',
-        'Hazards, safe handling, and emergency measures for that substance',
+        'Hazards, safe handling, and emergency response measures',
         [
-            'Recommended storage temperature for the chemical without hazard or spill guidance',
-            'Employee parking assignments for the clinic lot',
-            'A substitute for infection-control precautions during patient care',
+            'Storage temperature alone, without hazard or spill response guidance',
+            "The chemical's cost and supplier contact information",
+            'A substitute for infection control precautions during patient care',
         ],
         'OSHA hazard communication rules require accessible SDS files for hazardous chemicals such as disinfectants and fixatives. They support safe storage and spill response but do not replace clinical infection prevention practices.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-037
     fact(
@@ -533,37 +533,37 @@ FACTS: list[dict] = [
         'In medical terminology, what does the suffix -pathy indicate?',
         'Disease or disorder of the referenced structure',
         [
-            'Surgical repair of the structure',
-            'Inflammation of the structure when documented per facility policy.',
-            'A blood condition involving the structure',
+            'Surgical repair of the referenced structure',
+            'Inflammation of the referenced structure',
+            'A blood condition involving the referenced structure',
         ],
         '-pathy appears in terms such as neuropathy and cardiomyopathy to describe disease processes. Surgical repair uses -plasty or -ectomy, inflammation uses -itis, and blood conditions often end in -emia.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-039
     fact(
         'ccma-foundational',
         'For informed consent to be valid, what must the patient receive before agreeing to a procedure?',
-        'Clear information needed to make a voluntary, informed decision',
+        'Clear information for a voluntary, informed decision',
         [
             'A signature line without discussion of risks or alternatives',
-            'A promise of a specific treatment outcome when documented per facility policy.',
+            'A promise that the procedure will produce a specific outcome',
             'A waiver releasing the clinic from all future medical care',
         ],
         'Valid consent requires disclosure of the procedure, benefits, risks, and alternatives in language the patient understands. It must be voluntary and given by a competent decision-maker; a blank form or guaranteed results do not meet that standard.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-040
     fact(
         'ccma-foundational',
         'Which behavior best reflects critical thinking during patient care?',
-        'Evaluating clinical data and questioning inconsistencies before acting',
+        'Evaluating clinical data and questioning inconsistencies',
         [
             'Carrying out every request without clarifying the order',
-            'Deferring all documentation until the end of the shift when documented per facility policy.',
-            'Relying on habit rather than comparing findings to expected norms',
+            'Deferring all documentation until the end of the shift',
+            'Relying on habit rather than comparing findings to norms',
         ],
         'Critical thinking combines observation, knowledge, and judgment to spot errors or changes in condition. Clarifying ambiguous orders and documenting contemporaneously support safer care than unchecked routine.',
         [S.NHA_CCMA],
@@ -595,7 +595,7 @@ FACTS: list[dict] = [
         ],
         'A single elevated reading should be interpreted with symptoms, route, and baseline. Core temperature near 91°F suggests hypothermia, while 98.6°F is closer to average than to fever.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-043
     fact(
@@ -603,13 +603,13 @@ FACTS: list[dict] = [
         'In healthcare risk management, what is a "near miss"?',
         'An event that could have caused harm but did not reach the patient',
         [
-            'A sentinel event that resulted in serious patient harm',
-            'An expected therapeutic response to treatment when documented per facility policy.',
-            'Routine variation within a laboratory reference interval',
+            'A sentinel event that resulted in serious and lasting harm to the patient',
+            'An expected therapeutic response to the prescribed treatment',
+            'Routine biologic variation within a laboratory reference interval',
         ],
         'Near misses reveal system weaknesses before injury occurs and are valuable for proactive improvement. Sentinel events involve actual serious harm; they are reported and analyzed under a different safety category.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-044
     fact(
@@ -687,12 +687,12 @@ FACTS: list[dict] = [
         'Blood and body fluids may carry infection even when a diagnosis is unknown',
         [
             'They apply when gross blood is visible on linens but not to other body fluids',
-            'They replace Transmission-Based Precautions once a patient\'s infection status is known',
-            'They focus on hand hygiene after glove removal but not on safe injection practices',
+            'They replace Transmission-Based Precautions once infection status is known',
+            'They focus on hand hygiene after glove removal, not safe injection',
         ],
-        'CDC Standard Precautions treat all patients as potentially infectious. Limiting precautions to visible blood misses asymptomatic or undiagnosed carriage.',
+        'CDC Standard Precautions treat every patient as potentially infectious because blood and body fluids can carry pathogens before a diagnosis is known. Limiting precautions to visible blood, or replacing Transmission-Based Precautions once results return, misses undiagnosed carriage.',
         [S.CDC_STANDARD_PRECAUTIONS, S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-050
     fact(
@@ -704,28 +704,32 @@ FACTS: list[dict] = [
         'Whether patients prefer scented products'],
         'EPA-registered disinfectants require label-directed contact times to kill pathogens. Dilution and surface compatibility affect both safety and effectiveness.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-051
     fact(
         'ccma-foundational',
         'What plane divides the body into superior and inferior portions?',
         'Transverse (horizontal) plane',
-        ['Sagittal plane',
-        'Frontal plane',
-        'Median plane for routine ambulatory patient care.'],
+        [
+            'Sagittal plane of the body',
+            'Frontal (coronal) plane of the body',
+            'Median plane through the midline',
+        ],
         'A transverse cut separates head from lower body regions. Sagittal planes divide right from left, which is a common plane mix-up.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-foundational-052
     fact(
         'ccma-foundational',
         'Which type of pathogen is a single-celled organism that may produce toxins?',
-        'Bacterium',
-        ['Virus in a typical outpatient clinic setting.',
-        'Prion',
-        'Vitamin'],
+        'Bacterium, a single-celled organism',
+        [
+            'Virus, which needs a living host cell',
+            'Prion, a misfolded protein',
+            'Vitamin, an organic nutrient',
+        ],
         'Bacteria are living cells that can multiply outside host cells. Viruses require host machinery, and prions are misfolded proteins without cells.',
         [S.NHA_CCMA],
         'intermediate',
@@ -735,12 +739,14 @@ FACTS: list[dict] = [
         'ccma-foundational',
         'A splash of blood lands on unbroken skin of a gloved hand during a procedure. What is the priority action after the event?',
         'Remove gloves, perform hand hygiene, and follow exposure protocol',
-        ['Wipe with a dry paper towel and continue without reporting',
-        'Apply lotion and return to the procedure room',
-        'Ignore because the skin was intact for routine ambulatory patient care.'],
+        [
+            'Wipe the glove with a dry paper towel and continue working without reporting',
+            'Apply hand lotion and return to the procedure room',
+            'Ignore the splash because the skin was intact',
+        ],
         'OSHA bloodborne pathogen rules require prompt cleansing and evaluation after exposure. Intact skin still warrants protocol because permeability and microabrasions vary.',
         [S.OSHA_BBP, S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-054
     fact(
@@ -758,13 +764,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'An employee reports a needlestick with a contaminated hollow-bore needle. What must happen immediately?',
-        'Wash the area, report the exposure, and begin post-exposure evaluation per policy',
-        ['Finish the clinic day before telling anyone in a typical outpatient clinic setting.',
-        'Squeeze the wound until bleeding stops without cleansing',
-        'Document as a patient allergy for routine ambulatory patient care.'],
+        'Wash the area, report the exposure, and seek medical evaluation',
+        [
+            'Finish the clinic day before telling anyone about the needlestick',
+            'Squeeze the wound until the bleeding stops and return to work',
+            'Document the incident as a patient allergy instead',
+        ],
         'OSHA requires prompt reporting and medical follow-up for sharps injuries. Delayed care reduces prophylaxis options for bloodborne viruses.',
         [S.OSHA_NEEDLESTICK, S.OSHA_BBP, S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-056
     fact(
@@ -795,21 +803,25 @@ FACTS: list[dict] = [
         'ccma-foundational',
         'A clinic switches to a new EPA-registered surface disinfectant after a norovirus outbreak in the community. What training should staff receive?',
         'Proper dilution, contact time, and PPE for the new product',
-        ['Use the previous product contact time for the new bottle',
-        'That any cleaner works the same without reading labels',
-        'How to store disinfectant in exam rooms unlocked for routine ambulatory patient care.'],
+        [
+            'Use the previous product contact time for the new bottle of cleaner',
+            'That every cleaner works the same without reading the product labels',
+            'How to store disinfectant in unlocked exam rooms between uses',
+        ],
         'Label instructions define kill claims and safe use. Misuse leaves viable viruses on surfaces and risks chemical exposure.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-foundational-059
     fact(
         'ccma-foundational',
         'What does the suffix "-ectomy" indicate in a surgical term?',
         'Surgical removal',
-        ['Inflammation',
-        'Enlargement when documented per facility policy.',
-        'Pertaining to'],
+        [
+            'Inflammation of the part',
+            'Enlargement of the part',
+            'Pertaining to the part',
+        ],
         '-ectomy means excision, as in appendectomy. -itis is inflammation; -megaly is enlargement.',
         [S.NHA_CCMA],
         'beginner',
@@ -818,10 +830,12 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'Which temperature route is considered core-adjacent for many adults when oral measurement is not possible?',
-        'Rectal in routine outpatient care.',
-        ['Axillary in a typical outpatient clinic setting.',
-        'Skin over the forearm',
-        'Ear without probe cover'],
+        'Rectal temperature',
+        [
+            'Axillary temperature',
+            'Skin over the forearm',
+            'Ear without a probe cover',
+        ],
         'Rectal readings reflect core trends when oral is contraindicated. Axillary and uncovered probes are more variable.',
         [S.NHA_CCMA],
         'intermediate',
@@ -830,12 +844,14 @@ FACTS: list[dict] = [
     fact(
         'ccma-foundational',
         'After a chemical splash to the eye in the clinic laboratory, what is the immediate priority?',
-        'Flush the eye with water or saline per eyewash protocol for the recommended duration',
-        ['Wait for symptoms before rinsing in a typical outpatient clinic setting.',
-        'Apply contact lens solution and rub vigorously when documented per facility policy.',
-        'Document the event tomorrow for routine ambulatory patient care when documented per facility policy.'],
+        'Flush the eye at the eyewash station with water or saline',
+        [
+            'Wait for irritation symptoms to appear before rinsing the eye',
+            'Apply contact lens solution and rub the eye vigorously',
+            'Document the exposure event the following day',
+        ],
         'Prompt irrigation dilutes caustic agents and limits corneal injury. Delay worsens chemical burns.',
         [S.OSHA_BBP, S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
 ]

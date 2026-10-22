@@ -27,10 +27,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'A patient has waited past the scheduled appointment time. What is the best way to apologize while staying professional?',
-        'Acknowledge the inconvenience and give a realistic update on timing',
+        'Acknowledge the inconvenience and give a timing update',
         [
             'Tell the patient the delay is their fault for arriving early',
-            'Guarantee an exact rooming time you cannot control when documented per facility policy.',
+            'Guarantee an exact rooming time you cannot control',
             'Avoid mentioning the wait until the patient complains loudly',
         ],
         'Validating frustration shows respect without making promises the team cannot keep. Blaming the patient or staying silent usually increases conflict in the waiting area.',
@@ -83,10 +83,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'Which behaviors demonstrate active listening during a patient interview?',
-        'Attend fully, ask clarifying questions, and reflect key points without interrupting',
+        'Attend fully, ask clarifying questions, and reflect key points',
         [
-            'Rehearse your next reply while the patient is speaking',
-            'Use complex jargon without checking comprehension when documented per facility policy.',
+            'Rehearse your next reply while the patient is still speaking to you',
+            'Use complex jargon without checking for comprehension',
             'Turn away from the patient to finish computer entries',
         ],
         'Active listening confirms the patient\'s story and builds rapport. Divided attention or interrupting sends a message that the patient\'s concerns are not important.',
@@ -111,10 +111,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'Which nonverbal behaviors help build rapport with a patient during an office visit?',
-        'Appropriate eye contact and open posture at the patient\'s eye level when possible',
+        "Eye contact and open posture at the patient's eye level",
         [
             'Turn your back while the patient is describing symptoms',
-            'Stand close above the seated patient with arms crossed when documented per facility policy.',
+            'Stand close above the seated patient with arms crossed',
             'Read text messages while the patient discloses sensitive information',
         ],
         'Open, attentive body language signals that you are present for the conversation. Dismissive posture or divided attention can make patients withhold important details.',
@@ -125,10 +125,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'During a therapeutic conversation, what does active listening require from the medical assistant?',
-        "Reflect and clarify the patient's message before responding with instructions",
+        "Reflect and clarify the message before giving instructions",
         [
-            'Interrupt frequently to shorten the visit in a typical outpatient clinic setting.',
-            'Form your answer while the patient is still talking',
+            'Interrupt frequently to shorten the visit and save time',
+            'Form your answer while the patient is still talking to you',
             'Face the computer screen instead of the patient',
         ],
         'Reflection checks that you understood concerns and priorities before giving directions. Rushing or planning a reply in advance misses cues that affect education and follow-up.',
@@ -139,11 +139,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'When you first approach a visibly anxious patient, what communication step is most appropriate?',
-        'Acknowledge the patient\'s feelings and speak in a calm, steady tone',
+        "Acknowledge the patient's feelings in a calm, steady tone",
         [
-            'Label the patient\'s worries as unreasonable and move on',
-            'Speak louder to assert control over the room when documented per facility policy.',
-            'Leave the room without telling the patient what will happen next',
+            "Label the patient's worries as unreasonable and move on",
+            "Speak louder to assert control over the room",
+            "Leave the room without telling the patient what will happen next",
         ],
         'Calm validation reduces physiologic arousal and improves cooperation with procedures. Dismissal or abrupt exits increase fear and may trigger escalation.',
         [S.NHA_CCMA],
@@ -157,7 +157,7 @@ FACTS: list[dict] = [
         [
             'They restrict answers to yes or no for speed',
             'They require interrupting every few seconds to stay on time',
-            'They replace the need to ask any follow-up questions',
+            'They replace the need for follow-up questions',
         ],
         'Open questions surface symptoms and context the chart may not show. Overusing closed questions can miss the patient\'s main worry or timeline.',
         [S.NHA_CCMA],
@@ -181,25 +181,25 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'Under OSHA bloodborne pathogen standards, how must an Exposure Control Plan be maintained?',
-        'In writing, reviewed at least annually and when job duties change',
+        'In writing, reviewed annually and when job duties change',
         [
-            'As an informal verbal agreement among staff in a typical outpatient clinic setting.',
-            'Waived for small practices with few employees',
-            'Written after the first needlestick event occurs',
+            'As an informal verbal agreement among the clinic staff',
+            'Waived for small practices with fewer than ten employees',
+            'Written after the first needlestick event has occurred',
         ],
         'A written plan documents engineering controls, work practices, and training for covered employees. Employers must update it when procedures or risks change, not react solely after an exposure.',
         [S.NHA_CCMA],
-        'beginner',
+        'intermediate',
     ),
     # ccma-communication-014
     fact(
         'ccma-communication',
         'When explaining a delay in lab results or scheduling, how should you phrase an apology?',
-        'Express sincerity and empathy without admitting fault beyond organizational policy',
+        'Express sincerity and empathy without promising outcomes',
         [
-            'Attribute the problem entirely to the patient\'s behavior',
-            'Promise compensation or discounts you are not authorized to give',
-            'Change the subject without acknowledging the wait for routine ambulatory patient care.',
+            "Attribute the problem entirely to the patient's behavior",
+            "Promise compensation or discounts you are not authorized to give",
+            "Change the subject without acknowledging the wait",
         ],
         'Empathetic language preserves trust when processes break down. Overpromising or deflecting blame can create legal and service expectations the clinic cannot meet.',
         [S.NHA_CCMA],
@@ -223,25 +223,25 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'Which statement best describes cultural humility in patient care?',
-        "Recognizing that your own cultural lens may limit your understanding of the patient's experience",
+        "Recognizing that your own cultural lens limits your view",
         [
-            'Treating stereotyped beliefs about a group as clinical facts in a typical outpatient clinic setting.',
-            'Declining reasonable requests tied to culture or religion when documented per facility policy.',
-            'Joking about a patient\'s food or dress preferences with coworkers',
+            "Treating stereotyped beliefs about a group as clinical facts",
+            "Declining reasonable requests tied to culture or religion",
+            "Joking about a patient's food or dress preferences with the team",
         ],
         'Humility invites questions and partnership rather than assumptions about beliefs or practices. Stereotyping or ridicule erodes trust and can lead to missed needs.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-communication-017
     fact(
         'ccma-communication',
         'How should patient communication be reflected in the medical record?',
-        'Objectively, using factual wording without biased or insulting language',
+        'Objective wording without biased or insulting language',
         [
             'Recording personal insults when the patient was upset',
-            'Leaving out direct quotes the patient provided when documented per facility policy.',
-            'Entering rumors heard in the break room as facts',
+            'Leaving out direct quotes the patient provided in the visit',
+            'Entering break room rumors as documented facts',
         ],
         'Neutral documentation supports continuity of care and legal review. Subjective attacks or omitted patient statements weaken the record\'s credibility.',
         [S.NHA_CCMA],
@@ -251,11 +251,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'Which of the following should appear in a patient education note in the chart?',
-        'Topics covered, handouts given, and patient response or teach-back',
+        "Topics covered, handouts given, and the patient's response",
         [
-            'A checkbox marked education without listing what was taught',
-            'The educator\'s personal opinion of the patient\'s motivation',
-            'Procedure codes billed that day without teaching content for routine ambulatory patient care.',
+            "A checkbox marked education without listing what was taught",
+            "The educator's personal opinion of the patient's motivation",
+            "Procedure codes billed that day without teaching content",
         ],
         'Specific notes show what the patient was told and whether they understood. Vague entries cannot support adherence counseling or discharge planning if questions arise later.',
         [S.NHA_CCMA],
@@ -279,53 +279,53 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'Two team members disagree loudly about workflow in a patient care area. What is the appropriate response?',
-        'Address the issue privately with respectful discussion and involve a supervisor if needed',
+        'Address the issue privately with respectful discussion',
         [
-            'Continue arguing in front of patients in the waiting room in a typical outpatient clinic setting.',
+            'Continue arguing in front of patients in the waiting room',
             'Give each other silent treatment while patients wait for help',
             'Ask the practice manager to settle the dispute during peak patient check-in',
         ],
         'Patients expect a calm, coordinated environment. Resolving conflict away from public view protects dignity and prevents care delays.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-communication-021
     fact(
         'ccma-communication',
         'When a patient files a complaint about care or service, what should the medical assistant do?',
-        'Document the concern objectively and route it according to facility policy',
+        'Document the concern objectively and route it to leadership',
         [
-            'File the complaint with no record in the chart in a typical outpatient clinic setting.',
+            'File the complaint with no record in the chart',
             'Respond by raising your voice to defend the clinic',
             'Share the complaint narrative on a public review site from work',
         ],
         'Structured complaint processes ensure leadership can investigate and improve. Retaliation or ignoring concerns can violate policy and patient rights regulations.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-communication-022
     fact(
         'ccma-communication',
         'How should results from patient satisfaction surveys be used in a medical practice?',
-        'Identify trends to improve processes while de-identifying individual responses',
+        'Identify trends to improve processes without exposing responses',
         [
             'Post individual comments with patient initials on the staff board',
-            'Ignore repeated themes because one score looks acceptable when documented per facility policy.',
+            'Ignore repeated themes because one score looks acceptable',
             'Use survey data to choose which patients receive longer visits',
         ],
         'Aggregate data guides quality improvement without exposing PHI. Misusing survey content or ignoring patterns wastes a tool meant to strengthen service.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-communication-023
     fact(
         'ccma-communication',
         'During telephone triage, how should the medical assistant\'s tone of voice sound to the caller?',
-        'Clear, respectful, and steady even when the caller is upset',
+        'Clear, respectful, and steady even with an upset caller',
         [
-            'Rushed and dismissive to finish calls quickly',
-            'Whispered or muffled so words are hard to understand',
-            'Sarcastic when the caller repeats a question for routine ambulatory patient care.',
+            'Rushed and dismissive to finish calls more quickly',
+            'Whispered or muffled so the words are hard to understand',
+            'Sarcastic when the caller repeats the same question',
         ],
         'Callers often cannot see nonverbal cues, so vocal tone carries empathy and authority. Harsh or unclear speech leads to missed instructions and repeat calls.',
         [S.NHA_CCMA],
@@ -349,11 +349,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'In the SBAR handoff model, what does the final letter stand for?',
-        'Recommendation',
+        'Recommendation for the action needed',
         [
-            'Resuscitation',
-            'Regulation',
-            'Referral for routine ambulatory patient care.',
+            'Resuscitation of the patient right away',
+            'Regulation of clinical practice',
+            'Referral to the specialty service',
         ],
         'SBAR ends with a clear recommendation so the receiver knows what action or decision is needed. The full acronym is Situation, Background, Assessment, Recommendation, not scheduling or billing terms.',
         [S.NHA_CCMA],
@@ -419,15 +419,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'What is the primary focus of the HIPAA Security Rule?',
-        'Administrative, physical, and technical safeguards for electronic PHI',
+        'Administrative, physical, and technical safeguards for ePHI',
         [
-            'Minimum necessary limits on using and disclosing PHI in any format',
+            'Minimum necessary limits on using and disclosing PHI',
             'Patient rights to access, amend, and receive an accounting of disclosures',
             'Providing the written notice of privacy practices at first service',
         ],
         'The Security Rule protects ePHI on workstations, networks, and portable devices. Minimum necessary use, access rights, and privacy notices are Privacy Rule expectations, not Security Rule safeguards.',
         [S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-communication-031
     fact(
@@ -455,7 +455,7 @@ FACTS: list[dict] = [
         ],
         'Curiosity and respect help tailor education and scheduling without assuming values. Stereotypes, ignored dietary needs, or volume changes erode trust and can hide adherence barriers.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-communication-033
     fact(
@@ -475,11 +475,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'When discharging a patient with limited health literacy, which communication pair is most effective?',
-        'Plain-language teaching with teach-back on medications, follow-up, and warning signs',
+        'Plain-language teaching with teach-back on key warning signs',
         [
-            'Written handouts at a high reading level with abbreviations and no understanding check',
-            'Teach-back on medication names while follow-up and lifestyle steps are taught with jargon',
-            'Spoken-language interpreter during the visit without a written home summary in plain text',
+            'Written handouts at a high reading level with abbreviations',
+            'Teach-back on medication names with jargon in follow-up teaching',
+            'Interpreter during the visit without a plain-language home summary',
         ],
         'Limited literacy calls for simple wording plus teach-back on the steps that keep the patient safe at home. Dense handouts without verification, partial teach-back, or interpreter-only visits leave home-care gaps.',
         [S.NHA_CCMA],
@@ -497,7 +497,7 @@ FACTS: list[dict] = [
         ],
         'Transparent updates reduce anxiety and help patients reschedule errands or childcare. Silence or blame shifts frustration onto individuals who cannot control clinic flow.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-communication-036
     fact(
@@ -517,11 +517,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'You sustain a needlestick while drawing blood. What should you do immediately before completing the exposure report?',
-        'Wash the puncture with soap and water; flush mucous membranes with water if splashed',
+        'Wash the puncture with soap and water and flush any splashed mucosa',
         [
             'Apply antiseptic to the wound without washing with soap and water first',
             'Finish remaining patient care tasks before notifying your supervisor',
-            'Delay the exposure report until the source patient is identified for routine ambulatory patient care.',
+            'Delay the exposure report until the source patient is identified',
         ],
         'Prompt cleansing lowers viral load on the skin and documents the event while details are fresh. Delayed reporting or incomplete first aid can worsen outcomes and violate OSHA requirements.',
         [S.NHA_CCMA],
@@ -539,13 +539,13 @@ FACTS: list[dict] = [
         ],
         'Professional interpreters protect accuracy, privacy, and informed consent. Untrained bilingual staff, gestures alone, or companions may omit details needed for clinical and legal concepts.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-communication-039
     fact(
         'ccma-communication',
         'A family member volunteers to interpret during a discussion of domestic violence screening. What should the medical assistant do?',
-        'Request a qualified interpreter per policy and explain why neutrality matters',
+        'Request a qualified interpreter and explain why neutrality matters',
         [
             'Accept the relative as interpreter to keep the visit on schedule',
             'Postpone the domestic violence screening until a relative can translate later',
@@ -601,15 +601,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-communication',
         'An angry caller yells about a billing mistake. What is the most effective first response?',
-        'Stay calm, listen, and acknowledge the concern before gathering facts',
+        'Stay calm, listen, and acknowledge the concern first',
         [
-            'Transfer to billing immediately without hearing the concern in a typical outpatient clinic setting.',
+            'Transfer to billing immediately without hearing the concern',
             'State that refunds are against policy before gathering facts',
             'Place the caller on extended hold without explaining the next step',
         ],
         'Acknowledgment without admitting unauthorized concessions can lower tension enough to solve the problem. Abrupt transfers or policy lectures before listening worsen the complaint.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-communication-044
     fact(
@@ -665,7 +665,7 @@ FACTS: list[dict] = [
         ],
         'Take-home sheets reinforce teaching when they use familiar language and defined terms. Academic papers, cryptic sig lines, or verbal-only teaching confuse patients managing doses at home.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
 
     # ccma-communication-048
@@ -730,7 +730,7 @@ FACTS: list[dict] = [
         'Which of the following should be documented in the chart note for a patient telephone call?',
         'Caller identity, symptoms discussed, advice given, and follow-up plan',
         [
-            'Staff scheduling complaints documented without any clinical content',
+            'Staff scheduling complaints documented without clinical content',
             'Caller phone number recorded with no symptoms or advice documented',
             'Insurance precertification status noted without triage or follow-up details',
         ],
@@ -750,7 +750,7 @@ FACTS: list[dict] = [
         ],
         'Cultural humility improves trust without abandoning evidence-based safety. Ignoring language access or relevant preferences erodes engagement.',
         [S.NHA_CCMA],
-        'advanced',
+        'intermediate',
     ),
     # ccma-communication-054
     fact(

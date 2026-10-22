@@ -13,11 +13,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'When must a Vaccine Information Statement (VIS) be offered for a federally covered vaccine?',
-        'Before each dose when a current VIS is required for that vaccine',
+        'Before each dose when a current VIS is required',
         [
-            'After the patient reports a reaction',
-            'Once per lifetime regardless of booster doses',
-            'When billing commercial insurance for routine ambulatory patient care.',
+            'After the patient reports a reaction at the visit',
+            'Once in a lifetime regardless of how many booster doses follow',
+            'When billing commercial insurance for the dose',
         ],
         'Federal requirements tie VIS distribution to specific vaccines and doses so patients receive current benefit and risk information. Waiting until after administration or tying VIS solely to billing would not meet informed consent expectations for immunization.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -55,13 +55,13 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Per CDC vaccine storage guidance, what should staff record on the refrigerator temperature log at least twice daily?',
-        'Minimum and maximum temperatures inside the vaccine storage unit',
+        'Minimum and maximum temperatures in the storage unit',
         [
-            'The outdoor weather forecast in a typical outpatient clinic setting.',
-            'Patient copayment amounts collected that day',
-            'Staff break schedules for routine ambulatory patient care.',
+            'The outdoor weather forecast at the clinic',
+            'Patient copayment amounts collected in the clinic that day',
+            'Staff break schedules for the week',
         ],
-        'Twice-daily min/max readings help detect excursions between checks when continuous loggers are not used. Unrelated administrative data does not document cold-chain integrity.',
+        'Twice-daily min/max readings help detect excursions between checks when continuous loggers are not used. A display reading or unrelated administrative data does not document cold-chain integrity.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
         'beginner',
     ),
@@ -69,11 +69,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Why is documenting the vaccine lot number at administration important?',
-        'It links the dose to the manufacturer for safety tracking and recalls',
+        'It links the dose to the maker for safety tracking',
         [
-            'It replaces the need to record route and site',
-            'It is collected for cosmetic charting when documented per facility policy.',
-            'It allows vials to be used after expiration',
+            'It replaces the need to record the route and injection site',
+            'It is collected for cosmetic charting purposes',
+            'It allows vials to be used after the expiration date',
         ],
         'Lot numbers identify production batches if safety alerts or recalls occur. Lot data supports traceability but does not replace full administration documentation or override expiration rules.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -83,11 +83,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'After giving a vaccine, which documentation best supports registry reporting and medicolegal charting?',
-        'Vaccine product, lot number, site, route, and VIS or education when applicable',
+        'Vaccine product, lot number, site, route, and VIS when applicable',
         [
             'Date and route documented, without vaccine product or lot number',
             'CPT code and charge capture without clinical administration details',
-            'Verbal confirmation to the patient without a chart entry for routine ambulatory patient care.',
+            'Verbal confirmation to the patient without a chart entry',
         ],
         'Complete immunization records enable state registries, continuity of care, and investigation of adverse events. Sparse or absent documentation breaks the chain needed for accurate patient histories.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -97,10 +97,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A patient develops diffuse hives, wheezing, and hypotension within minutes of a vaccine. What is the priority intervention?',
-        'Give epinephrine immediately and activate emergency response per protocol',
+        'Give epinephrine at once and activate emergency response',
         [
             'Observe in the waiting room for thirty minutes without medication',
-            'Give oral diphenhydramine and discharge when hives begin to fade when documented per facility policy.',
+            'Give oral diphenhydramine and discharge when hives begin to fade',
             'Document the reaction and schedule a clinic follow-up in one week',
         ],
         'Anaphylaxis after vaccination is a medical emergency treated with prompt epinephrine and emergency care. Antihistamines alone or delayed treatment can allow progression to airway compromise or shock.',
@@ -111,11 +111,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Before administering an injectable vaccine, what should the medical assistant complete?',
-        'Verify the six rights of medication administration and inspect the vial for defects',
+        'Verify the six rights of administration and inspect the vial',
         [
-            'Select any open vial without reading the label in a typical outpatient clinic setting.',
-            'Shake every vaccine vigorously regardless of instructions',
-            'Omit identity checks when the patient is familiar',
+            'Select an open vial without reading the label',
+            'Shake every vaccine vigorously regardless of the product instructions',
+            'Omit identity checks when the patient is familiar to staff',
         ],
         'Medication safety rules apply to immunizations, including correct patient, product, dose, route, time, and documentation. Skipping checks or mishandling vials increases wrong-patient and wrong-product risk.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -128,8 +128,8 @@ FACTS: list[dict] = [
         'Expiration date, lot number, and appearance per the package insert',
         [
             'That expiration may be extended one month when the vial stays refrigerated',
-            'That diluent from a different manufacturer lot may be substituted without checking',
-            'That visible particulates are acceptable if the vial was shaken before withdrawal',
+            'That diluent from a different manufacturer lot may be substituted',
+            'That visible particulates are acceptable if the vial was shaken',
         ],
         'Label review catches expired, recalled, or visibly compromised product before it reaches the patient. Mixing unrelated diluents or ignoring appearance can inactivate vaccine or harm the recipient.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -139,11 +139,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A staff member draws vaccine into a syringe for one patient. Who should give that dose when clinic policy allows?',
-        'The person who prepared or opened the syringe for that patient when feasible',
+        'The person who prepared or opened the syringe for that patient',
         [
-            'A credentialed colleague who did not draw the dose but checks the label at bedside',
+            'A credentialed colleague who did not draw the dose but checks the label',
             'The front-desk staff member who escorted the patient to the exam room',
-            'Whoever finds an unlabeled syringe on the medication counter and matches it to the chart',
+            'Whoever finds an unlabeled syringe and matches it to the chart',
         ],
         'One needle, one syringe, only one time aligns with injection safety and reduces cross-contamination. Sharing prepared syringes between patients or leaving them unsecured violates basic infection control.',
         [S.CDC_INJECTION_SAFETY, S.CDC_ONE_AND_ONLY, S.NHA_CCMA],
@@ -153,7 +153,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'During inspection, a vaccine vial shows cracked glass. What is the correct action?',
-        'Do not administer the vaccine; isolate the vial and report per policy',
+        'Do not administer the vaccine; isolate the vial and report',
         [
             'Draw the dose through a filter needle and administer immediately',
             'Transfer the vaccine into a sterile syringe and proceed with the injection',
@@ -167,7 +167,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A vaccine vial appears cloudy, the wrong color, or contains floating particles. What should staff do?',
-        'Discard or quarantine per policy and do not administer the dose',
+        'Discard or quarantine the vial and do not administer the dose',
         [
             'Administer a reduced dose to limit exposure to the abnormal product',
             'Refrigerate overnight and recheck appearance before administering',
@@ -195,11 +195,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Staff discover a frozen vaccine product thawed in the refrigerator. How should it be managed?',
-        'Follow manufacturer and immunization program guidance, which often includes discarding the vials',
+        'Follow manufacturer guidance, which often includes discarding the vials',
         [
-            'Refreeze the vials once the internal temperature reads below 36°F (2°C)',
+            'Refreeze the vials once the internal temperature reads below 36 degrees',
             'Administer thawed doses if the liquid still feels cool when touched',
-            'Blend thawed vials with unthawed stock without separate labeling for routine ambulatory patient care.',
+            'Blend thawed vials with unthawed stock without separate labeling',
         ],
         'Freezing or uncontrolled thawing can destroy live or adjuvanted products. Program consultants help decide whether doses remain viable instead of assuming refrigeration alone saved potency.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -209,11 +209,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A parent asks when they will receive the Vaccine Information Statement before their child\'s shots. What is the correct timing when a VIS is required?',
-        'Before vaccination with the current edition for that vaccine',
+        'Before vaccination with the current VIS edition',
         [
-            'After all injections are complete in a typical outpatient clinic setting.',
-            'If the parent requests a paper copy years later',
-            'Replaced by informal online forums',
+            'After all of the injections are complete',
+            'If the parent requests a paper copy of the VIS years later',
+            'Replaced by informal online forums and blogs',
         ],
         'VIS materials support informed consent before immunization. Providing them only after doses are given or substituting unverified sources does not meet federal expectations for covered vaccines.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -223,11 +223,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'How should vaccine refrigerator temperatures be monitored per the CDC storage toolkit?',
-        'In degrees Celsius with calibrated thermometers or continuous digital data loggers',
+        'In degrees Celsius with calibrated probes or loggers',
         [
-            'By staff estimate without a thermometer in a typical outpatient clinic setting.',
-            'In Fahrenheit with no conversion records when documented per facility policy.',
-            'Using the wall thermostat reading from the front office for routine ambulatory patient care.',
+            'By staff estimate without using a thermometer',
+            'In Fahrenheit with no conversion records kept',
+            'Using the wall thermostat reading taken in the front office',
         ],
         'CDC ranges and excursion thresholds are defined in Celsius for vaccine refrigerators. Calibrated probes or loggers provide auditable data; guesswork cannot prove the cold chain stayed in range.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -237,10 +237,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'How should expired or unused vaccine doses be handled in the clinic?',
-        'Document the waste and dispose per facility and immunization program policy',
+        'Document the waste and dispose per facility policy',
         [
             'Return partial vials to the refrigerator for the next patient',
-            'Offer doses to staff as personal supplies when documented per facility policy.',
+            'Offer doses to staff as personal supplies',
             'Pool partial doses into one syringe for the next patient',
         ],
         'Waste documentation supports inventory accountability and vaccine program reporting. Improper disposal or dose pooling risks contamination and breaks injection safety rules.',
@@ -253,9 +253,9 @@ FACTS: list[dict] = [
         'Which practice best protects vaccines stored in the clinic refrigerator?',
         'Continuous temperature monitoring with alarms on the storage unit',
         [
-            'Twice-daily manual temperature checks without continuous monitoring or alarms',
-            'Storage in a dorm-style refrigerator shared with staff beverages when space is tight',
-            'Placement on open shelving when the dedicated vaccine unit is temporarily full',
+            'Twice-daily manual checks without continuous monitoring or alarms',
+            'Storage in a dorm-style refrigerator shared with staff beverages',
+            'Placement on open shelving when the vaccine unit is full',
         ],
         'Monitored units alert staff to excursions before large batches are compromised. Food refrigerators and uncontrolled room storage lack validated temperature maps required for biologics.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -265,11 +265,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'What type of refrigerator is recommended for routine vaccine storage in outpatient settings?',
-        'A dedicated, purpose-built or pharmacy-grade unit with temperature monitoring',
+        'A dedicated, purpose-built unit with monitoring',
         [
-            'Any dorm-style refrigerator shared with lunches',
-            'An unplugged unit used during business hours',
-            'A vehicle glove compartment during summer for routine ambulatory patient care.',
+            'A dorm-style refrigerator shared with lunches',
+            'An unplugged unit kept running during business hours',
+            'A vehicle glove compartment during summer months',
         ],
         'Purpose-built units maintain stable temperatures away from frequent door openings that occur with food storage. Improvised locations cannot reliably keep vaccines within labeled ranges.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -279,11 +279,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'For intramuscular vaccination, how should needle length be chosen?',
-        'Long enough for the patient\'s size to reach muscle at the selected site',
+        "Long enough for the patient's size to reach muscle at the site",
         [
             'Short enough to stay in subcutaneous tissue for every product',
             'Identical length for neonates and large adults without adjustment',
-            'Based solely on whichever syringe is already open for routine ambulatory patient care.',
+            'Based solely on whichever syringe is already open',
         ],
         'Needle length and site selection follow patient age, weight, and product labeling so antigen reaches muscle. Using one length for all patients or staying superficial can reduce immunogenicity.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -293,10 +293,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'After a multidose vaccine vial is opened, what infection control practices are required?',
-        'Aseptic technique and adherence to beyond-use dating on the label',
+        'Aseptic technique and beyond-use dating on the label',
         [
             'Leave a used needle inserted in the stopper between patients',
-            'Share one syringe after changing the needle when documented per facility policy.',
+            'Share one syringe after changing the needle',
             'Store the open vial indefinitely without a date',
         ],
         'Repeated entry increases contamination risk, so sterile technique and manufacturer beyond-use times apply. Reusing syringes or needles between patients violates fundamental injection safety.',
@@ -307,15 +307,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A medical assistant sustains a needlestick after giving a vaccine. What is the required response?',
-        'Initiate the bloodborne pathogen exposure protocol per OSHA and facility policy',
+        'Initiate the bloodborne pathogen exposure protocol per OSHA',
         [
-            'Wash the puncture site and continue vaccinating without reporting the injury',
-            'Apply a bandage and document at end of shift if symptoms develop when documented per facility policy.',
-            'Schedule source-patient blood testing at the patient\'s next routine visit',
+            "Wash the puncture site and continue vaccinating without reporting the injury",
+            "Apply a bandage and document at end of shift if symptoms develop",
+            "Schedule source-patient blood testing at the patient's next routine visit",
         ],
         'OSHA requires evaluation, source-patient testing when indicated, and follow-up after sharps injuries. Delayed or omitted reporting can miss post-exposure prophylaxis windows.',
         [S.OSHA_BBP, S.OSHA_NEEDLESTICK, S.NHA_CCMA],
-        'intermediate',
+        'advanced',
     ),
     # ccma-vaccines-023
     fact(
@@ -329,17 +329,17 @@ FACTS: list[dict] = [
         ],
         'Just-in-time preparation keeps vials in the refrigerator until needed and pairs drawing with immediate verification. It does not waive consent, documentation, or standard precautions.',
         [S.CDC_VACCINE_STORAGE, S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
-        'intermediate',
+        'beginner',
     ),
     # ccma-vaccines-024
     fact(
         'ccma-vaccines',
         'When reconstituting a lyophilized vaccine, which diluent is acceptable?',
-        'Only the diluent supplied by the manufacturer for that vaccine',
+        'The diluent supplied by the manufacturer for that vaccine',
         [
-            'Any 0.9% sodium chloride vial opened in the treatment room',
-            'Sterile water for injection from a different vaccine kit when documented per facility policy.',
-            'Bacteriostatic saline drawn from another patient\'s IV bag',
+            "A 0.9% sodium chloride vial opened in the treatment room",
+            "Sterile water for injection from a different vaccine kit",
+            "Bacteriostatic saline drawn from another patient's IV bag",
         ],
         'Incorrect diluent volume or type can inactivate antigen or change osmolarity. Manufacturers pair specific diluents with each lyophilized product in the package insert.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -349,11 +349,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Can multiple inactivated vaccines be administered during the same visit?',
-        'Yes, generally at different anatomical sites per the immunization schedule',
+        'Yes, generally at different sites per the immunization schedule',
         [
-            'No, inactivated vaccines may not be given the same day',
-            'Yes, but if mixed in one syringe when documented per facility policy.',
-            'No, unless doses are separated by twelve months for routine ambulatory patient care.',
+            'No, inactivated vaccines may not be given on the same clinic day',
+            'Yes, but if mixed in one syringe',
+            'No, unless doses are separated by twelve months',
         ],
         'ACIP schedules routinely allow same-day inactivated vaccines at separate sites to improve coverage. Combining unrelated products in one syringe is not standard unless explicitly labeled for combination.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -363,10 +363,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A patient becomes pale and faints right after vaccination. What is the first management step?',
-        'Lay the patient supine, protect from injury, and monitor per protocol',
+        'Lay the patient supine, protect from injury, and monitor closely',
         [
             'Have the patient sit upright and drive home once skin color returns',
-            'Document the episode and resume vaccines without physician review when documented per facility policy.',
+            'Document the episode and resume vaccines without physician review',
             'Obtain standing orders to defer all future injections permanently',
         ],
         'Syncope can occur with any injection; supine positioning reduces fall injury and supports perfusion. Observation after vaccination follows clinic policy and may include timing based on patient risk.',
@@ -377,15 +377,15 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'The anterolateral thigh is a preferred intramuscular site for which group?',
-        'Infants and young children when labeling allows that site',
+        'Infants and young children when labeling allows the thigh',
         [
-            'Healthy adults receiving influenza vaccine in the thigh in a typical outpatient clinic setting.',
+            'Healthy adults receiving the influenza vaccine in the thigh',
             'Patients who require intradermal TB testing in the thigh',
             'Anyone regardless of age for every intramuscular product',
         ],
         'Large muscle mass in the anterolateral thigh accommodates pediatric IM vaccines per CDC site guidance. Adults more often receive deltoid injections unless product directions specify otherwise.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
-        'intermediate',
+        'beginner',
     ),
     # ccma-vaccines-028
     fact(
@@ -399,7 +399,7 @@ FACTS: list[dict] = [
         ],
         'The deltoid site targets the thick lateral shoulder muscle used for many adult vaccines. Antecubital veins are for venipuncture, and gluteal sites are selected for specific products and sizes, not universal adult use.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
-        'intermediate',
+        'beginner',
     ),
     # ccma-vaccines-029
     fact(
@@ -447,11 +447,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'The vaccine refrigerator alarm indicates temperatures were out of range overnight. What should staff do first?',
-        'Document the excursion and contact the immunization coordinator per CDC steps',
+        'Document the excursion and contact the immunization coordinator',
         [
             'Discard every vial in the unit immediately without reviewing logger data',
             'Resume use if the refrigerator door feels cold when opened in the morning',
-            'Reset the alarm and continue dosing without contacting the coordinator for routine ambulatory patient care.',
+            'Reset the alarm and continue dosing without contacting the coordinator',
         ],
         'CDC toolkit workflows require recording min/max or logger data and seeking guidance before administering potentially compromised doses. Blanket discard without review may waste viable vaccine; ignoring alarms risks giving ineffective product.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -461,10 +461,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Minutes after vaccination, a patient has stridor, wheezing, and a blood pressure of 80/50 mmHg. Which treatment is essential?',
-        'Intramuscular epinephrine and emergency activation per anaphylaxis protocol',
+        'Intramuscular epinephrine and emergency activation at once',
         [
-            'Oral diphenhydramine alone as definitive therapy in a typical outpatient clinic setting.',
-            'Observation without medication for twenty-four hours',
+            'Oral diphenhydramine alone as the definitive therapy',
+            'Observation without medication for a full twenty-four hours',
             'Discharge home if the rash is limited to the arms',
         ],
         'Anaphylaxis requires rapid epinephrine and emergency care because symptoms can progress quickly. Antihistamines and passive observation do not reliably reverse airway edema or shock.',
@@ -489,11 +489,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A patient reports a history of egg allergy before routine immunization. What should guide the medical assistant\'s screening?',
-        'Current ACIP vaccine-specific contraindications and precautions',
+        'Current ACIP guidance for that specific product',
         [
-            'Defer all vaccines permanently for any egg mention',
-            'Omit allergy history because vaccines contain no protein',
-            'Substitute oral home remedies for every injection for routine ambulatory patient care.',
+            'Defer all vaccines permanently for an egg mention',
+            'Omit allergy history because the vaccine contains no protein',
+            'Substitute oral home remedies for every injection',
         ],
         'Egg-related recommendations differ by product; for example, influenza guidance has evolved while other vaccines have distinct rules. Blanket deferral without product review can leave patients under-immunized.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -517,9 +517,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Vials were stored at an undocumented out-of-range temperature. What must occur before any dose is given?',
-        'Label and quarantine the vials and consult immunization program guidance',
+        'Label and quarantine the vials, then consult program guidance',
         [
-            'Administer doses quickly before potency might decline further in a typical outpatient clinic setting.',
+            'Administer doses quickly before potency might decline further',
             'Return vials to the shipping carton without recording excursion data',
             'Mix affected vials with unaffected stock to average storage temperature',
         ],
@@ -531,9 +531,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Live attenuated intranasal influenza vaccine is generally avoided in which patients?',
-        'Those who are severely immunocompromised per product labeling and ACIP guidance',
+        'Those who are severely immunocompromised per ACIP guidance',
         [
-            'Healthy adults aged fifty to sixty-four with no chronic conditions in a typical outpatient clinic setting.',
+            'Healthy adults aged fifty to sixty-four with no chronic conditions',
             'Patients with mild seasonal allergic rhinitis not on immunosuppression',
             'Persons receiving inactivated injectable influenza vaccine the same day',
         ],
@@ -545,9 +545,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Live attenuated injectable or mucosal vaccines are usually withheld from which patients unless a specialist directs otherwise?',
-        'Patients with severe immunosuppression or certain immunocompromising therapies',
+        'Patients with severe immunosuppression or immunocompromising therapies',
         [
-            'All adults sixty-five or older regardless of immune status in a typical outpatient clinic setting.',
+            'All adults sixty-five or older regardless of immune status',
             'Patients with controlled type 2 diabetes without immunosuppressing therapy',
             'Patients receiving inactivated injectable vaccines during the same visit',
         ],
@@ -559,11 +559,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Staff use a new needle and syringe for each entry into a multidose vial. What additional rules still apply?',
-        'Maintain aseptic technique and observe manufacturer beyond-use dating after opening',
+        'Maintain aseptic technique and observe beyond-use dating after opening',
         [
             'Pool leftover partial doses into one syringe for the next scheduled patient',
             'Store the open vial at room temperature until the multidose lot expires',
-            'Reuse the same needle on the next patient after wiping with alcohol for routine ambulatory patient care.',
+            'Reuse the same needle on the next patient after wiping with alcohol',
         ],
         'Sterile technique and dated multidose vials limit bacterial contamination even when needles are changed. Pooling doses or reusing needles between patients remains prohibited.',
         [S.CDC_INJECTION_SAFETY, S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -587,11 +587,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'How is recombinant zoster vaccine (Shingrix) given per current ACIP recommendations?',
-        'Intramuscularly as a two-dose series at the recommended interval',
+        'Intramuscularly as a two-dose series at the interval',
         [
             'Subcutaneously as a single dose in adults per standing orders',
             'Intramuscularly as one lifetime dose without a second injection',
-            'Intradermally in the forearm like a tuberculin skin test for routine ambulatory patient care.',
+            'Intradermally in the forearm like a tuberculin skin test',
         ],
         'Shingrix is an adjuvanted recombinant product given IM in two doses for adults per immunization schedules. Oral or pediatric single-dose schemes do not match labeled administration.',
         [S.CDC_VACCINE_ADMIN, S.NHA_CCMA],
@@ -603,9 +603,9 @@ FACTS: list[dict] = [
         'When relocating vaccines between buildings on the same campus, what must accompany the shipment?',
         'Validated transport materials and a temperature record for the trip',
         [
-            'A handwritten note that the cooler felt cold in a typical outpatient clinic setting.',
+            'A handwritten note that the cooler felt cold',
             'Ice packs without a thermometer or data logger',
-            'Open transfer on a loading dock for several hours unmonitored',
+            'Open transfer on a loading dock for several hours with no monitoring',
         ],
         'Even short moves can warm vials if doors stay open or packs fail; documentation shows the cold chain stayed intact. Unmonitored transfers cannot support decisions about dose viability.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -616,10 +616,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Where should most refrigerated vaccines be stored in the clinic?',
-        'In a dedicated medical refrigerator with continuous temperature monitoring',
+        'In a dedicated medical refrigerator with continuous monitoring',
         [
             'In a break-room refrigerator if a probe is placed inside once daily',
-            'On a medication cart near a sunny window between patient rooms when documented per facility policy.',
+            'On a medication cart near a sunny window between patient rooms',
             'In the freezer compartment to extend shelf life beyond product labeling',
         ],
         'CDC storage guidance requires monitored, dedicated units to maintain the cold chain. Food refrigerators and freezing inappropriate products ruin potency.',
@@ -630,9 +630,9 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Before giving an injectable vaccine, which patient check matches two identifiers to the order?',
-        'Match full legal name and date of birth stated by the patient to the order',
+        'Match the legal name and date of birth stated by the patient',
         [
-            'Match legal name and assigned room number to the order in a typical outpatient clinic setting.',
+            'Match legal name and assigned room number to the order',
             'Match legal name and date of birth printed on the vial label to the order',
             'Match medical record number and vaccine lot number to the order',
         ],
@@ -644,11 +644,11 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'A vaccine refrigerator alarm shows a temperature of 46°F (8°C) overnight. What is the first step?',
-        'Document the event, relocate vaccines per protocol, and contact the immunization coordinator',
+        'Document the event, relocate vaccines, and contact the coordinator',
         [
             'Administer all vials in the unit immediately to avoid wasting doses',
             'Silence the alarm and resume clinic without reviewing temperature data',
-            'Move vaccines to the freezer compartment to cool them faster for routine ambulatory patient care.',
+            'Move vaccines to the freezer compartment to cool them faster',
         ],
         'Excursions require assessment before use; administering potentially compromised vaccine risks ineffective immunity. Freezing can destroy many products.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -660,8 +660,8 @@ FACTS: list[dict] = [
         'Which documentation is required after administering a vaccine?',
         'Vaccine name, lot number, site, route, and administrator per policy',
         [
-            'Vaccine name and date without lot number or administration site',
-            'Insurance authorization number and billing code for the visit when documented per facility policy.',
+            'Vaccine name and date without the lot number or administration site',
+            'Insurance authorization number and billing code for the visit',
             'Chief complaint and last visit date copied from the problem list',
         ],
         'Immunization records support recall and adverse event investigation. Nonclinical trivia does not meet registry or legal documentation needs.',
@@ -672,7 +672,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'What should be done with a multidose vial after the beyond-use date on the label?',
-        'Discard per policy even if liquid remains',
+        'Discard the vial even if some liquid remains',
         [
             'Return to the refrigerator if the liquid still appears clear',
             'Pool remaining volume into one syringe for the next scheduled patient',
@@ -686,10 +686,10 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Why is aspiration generally not recommended during routine vaccine injections?',
-        'Vaccines are given intramuscularly where blood vessels are not routinely entered',
+        'Vaccines are given intramuscularly away from blood vessels',
         [
             'Aspiration is recommended before every deltoid intramuscular injection',
-            'Aspiration increases antigen uptake at the injection site when documented per facility policy.',
+            'Aspiration increases antigen uptake at the injection site',
             'Aspiration replaces rotating injection sites between doses',
         ],
         'Current CDC administration guidance does not recommend aspiration for standard IM vaccines. Aspiration does not address site rotation or potency.',
