@@ -108,7 +108,10 @@ async def rejoin_game(sid: str, data: dict):
         print(e)
     redis_sid_key = f"game_session:{data.game_pin}:players:{data.username}"
     old_sid = await redis.get(redis_sid_key)
-    if old_sid != data.old_sid:
+    # A fast route remount can emit rejoin twice: the connect hook may already
+    # have claimed the identity for this socket before the /play view mounts.
+    # Accept that retry on the same socket while still rejecting stale tabs.
+    if old_sid != data.old_sid and old_sid != sid:
         await sio.emit("rejoin_rejected", {"code": "stale_sid"}, room=sid)
         return
     try:
@@ -119,9 +122,6 @@ async def rejoin_game(sid: str, data: dict):
             return
     except ConnectionRefusedError:
         pass
-    encrypted_datetime = fernet.encrypt(datetime.now().isoformat().encode("utf-8")).decode("utf-8")
-    await sio.emit("time_sync", encrypted_datetime, room=sid)
-    await _emit_clock_sync(sid)
     await redis.set(redis_sid_key, sid)
     await redis.srem(
         f"game_session:{data.game_pin}:players",
@@ -140,6 +140,9 @@ async def rejoin_game(sid: str, data: dict):
     }
     await save_session(sid, sio, session)
     await sio.enter_room(sid, data.game_pin)
+    encrypted_datetime = fernet.encrypt(datetime.now().isoformat().encode("utf-8")).decode("utf-8")
+    await sio.emit("time_sync", encrypted_datetime, room=sid)
+    await _emit_clock_sync(sid)
     await sio.emit(
         "rejoined_game",
         game_data.to_player_data(),
@@ -163,6 +166,7 @@ async def join_game(sid: str, data: dict):
         return
     game_data = PlayGame.model_validate_json(redis_res)
     game_pin = data.game_pin
+    prior_sid = await redis.get(f"game_session:{data.game_pin}:players:{data.username}")
     if game_data.game_mode == "battle":
         from classquiz.socket_server.battle_sync import (
             is_battle_finished,
@@ -176,7 +180,7 @@ async def join_game(sid: str, data: dict):
             await sio.emit("join_error", {"code": "not_in_battle"}, room=sid)
             return
     if game_data.started:
-        if game_data.game_mode != "battle":
+        if game_data.game_mode != "battle" and prior_sid is None:
             await sio.emit("join_error", {"code": "game_already_started"}, room=sid)
             return
     # +++ START checking captcha +++
@@ -186,10 +190,14 @@ async def join_game(sid: str, data: dict):
             await sio.emit("join_error", {"code": "captcha_failed"}, room=sid)
             return
     # --- END checking captcha ---
-    if await redis.get(f"game_session:{data.game_pin}:players:{data.username}") is not None:
-        await sio.emit("join_error", {"code": "username_taken"}, room=sid)
-        await sio.emit("username_already_exists", room=sid)
-        return
+    if prior_sid is not None:
+        # A name is the player's identity for this match. Reclaim it on a fresh
+        # join (e.g. after storage/cookie loss) and replace its old socket entry.
+        await redis.srem(
+            f"game_session:{data.game_pin}:players",
+            GamePlayer(username=data.username, sid=prior_sid).model_dump_json(),
+        )
+        await sio.leave_room(prior_sid, data.game_pin)
 
     await detach_socket_from_prior_game(sio, sid)
 
@@ -242,9 +250,7 @@ async def start_game(sid: str, _data: dict):
     if not session["admin"]:
         return
     game_pin = session["game_pin"]
-    game_data = await PlayGame.get_from_redis(game_pin)
-    auto_first = game_data.game_mode in ("battle", "kahoot", None)
-    await start_live_game(sio, game_pin, show_first_question=auto_first and bool(game_data.questions))
+    await start_live_game(sio, game_pin, show_first_question=True)
 
 
 @sio.event
@@ -257,10 +263,20 @@ async def register_as_admin(sid: str, data: dict):
         return
     game_pin = data.game_pin
     game_id = data.game_id
-    if await redis.get(f"game_session:{game_pin}") is not None:
-        await sio.emit("already_registered_as_admin", room=sid)
-        return
-    await GameSession(admin=sid, game_id=game_id, answers=[]).save(game_pin)
+    existing_session = await redis.get(f"game_session:{game_pin}")
+    if existing_session is not None:
+        try:
+            saved_session = GameSession.model_validate_json(existing_session)
+        except Exception:
+            await sio.emit("already_registered_as_admin", room=sid)
+            return
+        if saved_session.game_id != game_id:
+            await sio.emit("already_registered_as_admin", room=sid)
+            return
+        saved_session.admin = sid
+        await saved_session.save(game_pin)
+    else:
+        await GameSession(admin=sid, game_id=game_id, answers=[]).save(game_pin)
     await sio.emit(
         "registered_as_admin",
         {"game_id": game_id, "game": await redis.get(f"game:{game_pin}")},
@@ -270,6 +286,19 @@ async def register_as_admin(sid: str, data: dict):
     await save_session(sid, sio, session)
     await sio.enter_room(sid, game_pin)
     await sio.enter_room(sid, f"admin:{data.game_pin}")
+    game_data = await PlayGame.get_from_redis(game_pin)
+    if game_data.started:
+        await sio.emit("start_game", room=sid)
+        if game_data.current_question >= 0:
+            if game_data.question_show:
+                from classquiz.socket_server.game_sync import sync_player_to_live_game
+
+                await sync_player_to_live_game(sio, sid, game_pin, game_data)
+            else:
+                from classquiz.socket_server.question_lifecycle import build_question_results_payload
+
+                payload, _ = await build_question_results_payload(game_pin, game_data.current_question)
+                await sio.emit("question_results", payload, room=sid)
 
 
 @sio.event

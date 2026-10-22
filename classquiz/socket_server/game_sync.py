@@ -23,6 +23,8 @@ from classquiz.socket_server.timing import (
 
 INTRO_GRACE_SEC = 3.5
 
+BATTLE_RESULTS_CLOSED_PREFIX = "game:battle:results_closed:"
+
 _battle_timer_tasks: dict[str, asyncio.Task] = {}
 
 
@@ -54,7 +56,10 @@ async def _prepare_question_payload(
         "server_time_ms": server_now_ms(),
     }
     if q_type != QuizQuestionType.SLIDE:
-        payload["question"] = ReturnQuestion(**temp_return).model_dump()
+        q_payload = ReturnQuestion(**temp_return).model_dump()
+        q_payload.pop("explanation", None)
+        q_payload.pop("references", None)
+        payload["question"] = q_payload
     if existing_timing is None:
         await save_question_timing(game_data.game_pin, timing)
         payload["_answer_phase_iso"] = answer_phase_start.isoformat()
@@ -66,6 +71,8 @@ async def emit_show_question(sio, game_pin: str, game_data: PlayGame, question_i
     from classquiz.socket_server.question_lifecycle import cancel_question_lifecycle
 
     cancel_question_lifecycle(game_pin)
+    if game_data.game_mode == "battle" and question_index > 0:
+        await redis.delete(f"{BATTLE_RESULTS_CLOSED_PREFIX}{game_pin}:{question_index - 1}")
     game_data.current_question = question_index
     game_data.question_show = True
     await game_data.save(game_pin)
@@ -142,6 +149,11 @@ async def sync_player_to_live_game(sio, sid: str, game_pin: str, game_data: Play
             game_data, game_data.current_question, existing_timing=timing
         )
         await sio.emit("set_question_number", payload, room=sid)
+    elif game_data.current_question >= 0:
+        from classquiz.socket_server.question_lifecycle import build_question_results_payload
+
+        payload, _ = await build_question_results_payload(game_pin, game_data.current_question)
+        await sio.emit("question_results", payload, room=sid)
 
 
 async def try_kickoff_battle(sio, game_pin: str) -> None:
@@ -168,20 +180,20 @@ async def begin_battle_from_rest(sio, game_pin: str) -> None:
 
 async def battle_maybe_advance(sio, game_pin: str, game_data: PlayGame) -> None:
     _cancel_battle_timer(game_pin)
-    from classquiz.socket_server.question_lifecycle import broadcast_question_results
+    from classquiz.socket_server.question_lifecycle import _schedule_advance, broadcast_question_results
 
     q_index = game_data.current_question
-    if q_index >= 0:
-        await broadcast_question_results(sio, game_pin, q_index)
-    next_q = game_data.current_question + 1
-    if next_q >= len(game_data.questions):
-        from classquiz.socket_server import generate_final_results
-        from classquiz.socket_server.battle_hooks import finalize_battle
-
-        results = await generate_final_results(game_data, game_pin)
-        await sio.emit("final_results", results, room=game_pin)
-        await sio.emit("battle_finished", room=game_pin)
-        await finalize_battle(game_pin, game_data)
+    if q_index < 0:
         return
-    refreshed = await PlayGame.get_from_redis(game_pin)
-    await emit_show_question(sio, game_pin, refreshed, next_q)
+    closed_key = f"{BATTLE_RESULTS_CLOSED_PREFIX}{game_pin}:{q_index}"
+    if await redis.get(closed_key):
+        return
+    await redis.set(closed_key, "1", ex=7200)
+    _, payload = await broadcast_question_results(sio, game_pin, q_index)
+    _schedule_advance(
+        sio,
+        game_pin,
+        q_index,
+        float(payload["reveal_hold_sec"]),
+        float(payload["scoreboard_hold_sec"]),
+    )

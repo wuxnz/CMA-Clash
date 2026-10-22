@@ -113,9 +113,11 @@ async def test_advance_after_reveal_emits_next_question_to_game_room(test_client
     await submit_answer("pytest-player-adv", {"question_index": 0, "answer": "Yes"})
     await close_question_now(mock_sio, game_pin, 0)
 
+    from unittest.mock import AsyncMock, patch
+
     mock_sio.reset_mock()
-    with patch("classquiz.socket_server.question_lifecycle.live_post_question_hold_sec", lambda: 0):
-        await _advance_after_reveal(mock_sio, game_pin, 0)
+    with patch("asyncio.sleep", new_callable=AsyncMock):
+        await _advance_after_reveal(mock_sio, game_pin, 0, 0.0, 0.0)
 
     set_calls = [c for c in mock_sio.emit.call_args_list if c.args[0] == "set_question_number"]
     assert set_calls, "expected set_question_number after reveal"
