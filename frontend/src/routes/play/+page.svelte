@@ -34,6 +34,8 @@ SPDX-License-Identifier: MPL-2.0
 		isStaleQuestionResults,
 		computeResultsPhaseUntilMs,
 		shouldDeferSetQuestionDuringResults,
+		advanceResyncDelayMs,
+		isDuplicateQuestionResults,
 		questionFromSocketPayload,
 		type StandingsRow
 	} from '$lib/play/live-game';
@@ -111,6 +113,7 @@ SPDX-License-Identifier: MPL-2.0
 		username = getBattlePlayUsername(pin) ?? '';
 		lastScoreAppliedQuestionIndex = null;
 		lastStreakQuestionIndex = null;
+		lastResultsQuestionIndex = null;
 		streak = 0;
 		latestQuestionIndex = -1;
 	}
@@ -177,12 +180,13 @@ SPDX-License-Identifier: MPL-2.0
 	let standingsTop = $state<StandingsRow[]>([]);
 	let revealHoldMs = $state(8000);
 	let resultsPhaseUntilMs = $state(0);
+	let lastResultsQuestionIndex: number | null = $state(null);
 	let pendingSetQuestionPayload: Record<string, unknown> | null = null;
 	let resultsPhaseDeferTimer: ReturnType<typeof setTimeout> | undefined;
 	let revealExplanation = $state<string | null>(null);
 	let revealCorrectAnswer = $state<string | null>(null);
 	let advanceSyncTimer: ReturnType<typeof setTimeout> | undefined;
-	const ADVANCE_RESYNC_MS = 7500;
+	const ADVANCE_RESYNC_GRACE_MS = 3000;
 
 	function clearAdvanceResyncTimer() {
 		if (advanceSyncTimer !== undefined) {
@@ -191,7 +195,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 	}
 
-	function scheduleAdvanceResync(closedQuestionIndex: number | null) {
+	function scheduleAdvanceResync(closedQuestionIndex: number | null, resultsUntilMs: number) {
 		clearAdvanceResyncTimer();
 		if (closedQuestionIndex == null || !Number.isFinite(closedQuestionIndex)) {
 			return;
@@ -211,7 +215,7 @@ SPDX-License-Identifier: MPL-2.0
 				return;
 			}
 			emitRejoinFromCookie(game_pin);
-		}, ADVANCE_RESYNC_MS);
+		}, advanceResyncDelayMs(resultsUntilMs, Date.now(), ADVANCE_RESYNC_GRACE_MS));
 	}
 	let selectedAnswer = $state<string | undefined>(undefined);
 	let remainingLive = $state(30);
@@ -397,6 +401,18 @@ SPDX-License-Identifier: MPL-2.0
 		if (isStaleQuestionResults(question_index, resultsIndex, latestQuestionIndex)) {
 			return;
 		}
+		// Duplicate results (rejoin/resync) for the question already on screen:
+		// keep the running reveal/scoreboard window instead of restarting it.
+		if (
+			isDuplicateQuestionResults({
+				hasAnswerResults: answer_results !== undefined,
+				lastResultsQuestionIndex,
+				resultsQuestionIndex: resultsIndex
+			})
+		) {
+			return;
+		}
+		lastResultsQuestionIndex = resultsIndex;
 		restart();
 		answer_results = rows as PlayerAnswer[];
 		revealHoldMs = Math.max(0, revealHoldSec * 1000);
@@ -425,7 +441,7 @@ SPDX-License-Identifier: MPL-2.0
 		revealTimer = setTimeout(() => {
 			livePhase = 'rankings';
 		}, revealHoldMs);
-		scheduleAdvanceResync(resultsIndex ?? (typeof question_index === 'number' ? question_index : null));
+		scheduleAdvanceResync(scoreIndex, resultsPhaseUntilMs);
 	}
 
 	$effect.pre(() => {
