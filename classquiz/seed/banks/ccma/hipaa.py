@@ -16,10 +16,10 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'Which information does the HIPAA Privacy Rule regulate when held or transmitted by a covered entity or business associate?', 'Individually identifiable protected health information held or transmitted', ["Public information with no connection to a patient's care", "Health data stripped of identifiers under HIPAA de-identification standards", "Handouts printed with no patient-specific health content"], 'PHI ties health data to a specific person and triggers privacy and security obligations. Data stripped of identifiers under HIPAA rules or unrelated public information falls outside that scope.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-003
-        fact('ccma-hipaa', 'At first visit, what written document must a covered entity offer that explains how it may use and share PHI?', 'A notice of privacy practices describing uses and patient rights', ['A blanket waiver allowing unlimited marketing texts without opt-out', 'A contract granting the public access to every chart on request', 'A form waiving all future breach notifications for the practice'], 'The notice of privacy practices describes routine uses, patient rights, and how to file complaints. It supports informed expectations before treatment and billing activities begin.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-hipaa', 'At first visit, what written document must a covered entity offer that explains how it may use and share PHI?', 'A notice of privacy practices describing uses and patient rights', ['A blanket waiver allowing unlimited marketing texts without opt-out', 'A consent form that lets the patient receive care at the clinic', 'A financial responsibility agreement for the charges of the visit'], 'The notice of privacy practices describes routine uses, patient rights, and how to file complaints. A marketing waiver, a consent to receive care, and a financial responsibility agreement do not explain how the clinic may use and share PHI.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-004
-        fact('ccma-hipaa', 'Which organizations are HIPAA covered entities subject to the Privacy and Security Rules?', 'Health plans, clearinghouses, and certain health care providers', ["Employers whose staff members park in the clinic's lot", "Patients and family members who receive treatment in the clinic", "Device manufacturers that do not create, receive, or transmit PHI"], 'HHS defines covered entities that create, receive, maintain, or transmit PHI in defined roles. Employers without covered functions and vendors without PHI access are addressed through other relationships such as business associate agreements.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-hipaa', 'Which organizations are HIPAA covered entities subject to the Privacy and Security Rules?', 'Health plans, clearinghouses, and certain health care providers', ["Employers who do not create, receive, maintain, or transmit PHI", "Patients and family members who receive treatment in the clinic", "Device manufacturers that do not create, receive, or transmit PHI"], 'HHS defines covered entities that create, receive, maintain, or transmit PHI in defined roles. Employers without covered functions and vendors without PHI access are addressed through other relationships such as business associate agreements.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-005
     fact(
@@ -77,7 +77,7 @@ FACTS: list[dict] = [
         [
             'Every internal note another clinician read for the care of the patient',
             'Routine billing transmissions to the health plan for payment',
-            'Meal orders the dietary staff placed for the patient',
+            'Disclosures to a pharmacy to fill refill prescriptions',
         ],
         'Treatment, payment, and operations uses are excluded from the accounting unless required by law. Patients may learn about many non-routine disclosures made in the prior six years, subject to exceptions.',
         [S.NHA_CCMA],
@@ -160,11 +160,11 @@ FACTS: list[dict] = [
         'A patient believes the clinic mishandled their PHI. Where may they file a privacy complaint?',
         'With the privacy officer and the HHS Office for Civil Rights',
         [
-            'With the state medical board instead of the privacy officer',
-            'On an anonymous online forum that cannot accept complaints',
-            'Nowhere, because patients waive privacy rights by seeking care',
+            'With the state medical board instead of the clinic privacy officer',
+            'With the clinician who previously cared for the patient',
+            'With local law enforcement and the county district attorney',
         ],
-        'Covered entities must have a complaint process and may not retaliate for filing. OCR investigates alleged violations of the Privacy and Security Rules.',
+        'Covered entities must have a complaint process and may not retaliate for filing, and OCR investigates alleged violations of the Privacy and Security Rules. A medical board, the treating clinician, and law enforcement are not substitutes for that complaint route.',
         [S.NHA_CCMA],
         'advanced',
     ),
@@ -178,10 +178,10 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'A patient wants bills sent to a different address so a household member does not see diagnoses on statements. What should the practice do?', 'Accommodate reasonable requests for confidential communications when asked', ["Refuse because mail must go to the address on the driver's license", 'Send detailed clinical notes to the alternate address without discussing format', 'Charge a punitive fee not permitted under HIPAA for honoring the request'], 'Patients may request that communications arrive by alternative means or at alternative locations. Covered entities must accommodate reasonable requests and may not require explanation of the reason.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-hipaa-024
-        fact('ccma-hipaa', 'How quickly must a covered entity generally act when an individual requests copies of their medical record?', 'Within the HIPAA and state timelines, often about 30 days with extension', ["Deny the request automatically if the patient owes a small copay balance", "Provide another patient's record if the names are similar on the request", "Withhold all records until the patient agrees to unrelated marketing"], 'The right of access requires timely production of readable copies, with limited fees allowed by rule. Delays beyond regulatory timelines or conditioning access on unrelated demands violate patient rights.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-hipaa', 'How quickly must a covered entity act when an individual requests copies of their medical record?', 'Within 30 days of the request, with one 30-day extension allowed', ["Within 30 days of the request, with no extension allowed", "Within 30 days of the request, with two 30-day extensions allowed", "Within 90 days of the request, with two 30-day extensions allowed"], 'The right of access requires the covered entity to act on the request within 30 days, and it may take one additional 30 days when the records cannot be produced on time. Refusing any extension, allowing two extensions, or waiting 90 days pushes production beyond the regulatory timeline.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-hipaa-025
-        fact('ccma-hipaa', "Under HIPAA, when may a personal representative access or authorize disclosure of a patient's PHI?", 'When law or patient designation gives them authority to act', ['Whenever a neighbor states they are a close friend of the family', 'When a pharmaceutical sales representative requests records for coaching', 'When someone finds discarded paperwork in a public trash bin'], 'Representative status must be verified through legal documentation such as guardianship or health care proxy. Curiosity or commercial interest does not create authority to receive PHI.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-hipaa', "Under HIPAA, when may a personal representative access or authorize disclosure of a patient's PHI?", 'When law or patient designation gives them authority to act', ['Whenever a neighbor states they are a close friend of the family', 'When the patient signs a verbal agreement at the front desk', 'When someone finds discarded paperwork in a public trash bin'], 'Representative status must be verified through legal documentation such as guardianship or health care proxy. Curiosity or commercial interest does not create authority to receive PHI.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-hipaa-026
     fact(
@@ -284,7 +284,7 @@ FACTS: list[dict] = [
         [
             'Prohibiting encryption because HIPAA forbids protecting laptops',
             'Ignoring the finding because encryption is not considered after analysis',
-            'Posting ePHI on public blogs instead of storing it locally',
+            'Emailing ePHI to a personal address instead of storing it locally',
         ],
         'Addressable specifications require covered entities to implement a safeguard or document why an equivalent measure is reasonable. Encryption mitigates loss or theft of mobile media.',
         [S.NHA_CCMA],
@@ -310,11 +310,11 @@ FACTS: list[dict] = [
         'A marketing firm offers payment if the clinic emails patient lists for a supplement promotion. When is patient authorization required?',
         'For the marketing use because it is not a permitted disclosure',
         [
-            'No authorization is needed because every employee may disclose PHI for gain',
             'When the patient is hospitalized, not in outpatient clinics',
-            'No authorization is needed because treatment and payment cover third-party ads',
+            'When the clinic already has the email address of the patient on file',
+            'When the promotion covers wellness items the patient already uses',
         ],
-        'Financially motivated marketing to sell unrelated products generally needs explicit authorization. Core TPO and legally required public health reporting follow different pathways.',
+        'Financially motivated marketing to sell unrelated products generally needs explicit authorization, while core TPO and legally required public health reporting follow different pathways. An email address on file, a hospitalized status, and a wellness-themed promotion do not create authorization.',
         [S.NHA_CCMA],
         'intermediate',
     ),
@@ -324,9 +324,9 @@ FACTS: list[dict] = [
         'Unencrypted backup tapes with PHI are stolen from a courier van. What must the covered entity do first under the Breach Notification Rule?',
         'Perform a risk assessment to decide whether notification is required',
         [
-            'Assume no breach occurred if the thief promises to return the tapes',
-            'Omit documentation because criminal theft automatically exempts HIPAA duties',
-            'Announce every patient diagnosis on the clinic website before investigating',
+            'Suspend all system access while the investigation of the loss proceeds',
+            'Omit documentation because criminal theft exempts HIPAA duties',
+            'Notify the courier first and document the incident afterward',
         ],
         'Not every impermissible use is a reportable breach; risk analysis examines probability that PHI was compromised. Timely assessment drives individual and regulatory notice when thresholds are met.',
         [S.NHA_CCMA],
@@ -338,11 +338,11 @@ FACTS: list[dict] = [
         'A university researcher requests dates of service and zip codes tied to diagnoses for an approved study. What agreement is required for a HIPAA limited data set?',
         'A data use agreement between the covered entity and the researcher',
         [
-            'No contract because limited data sets may be posted on open internet forums',
+            'A business associate agreement with the employer of the researcher',
             'A verbal promise that the research laptop stays with the team',
             'A business associate agreement replacing institutional review board oversight',
         ],
-        'Limited data sets exclude direct identifiers but may retain certain geographic and date elements. Recipients must sign data use agreements promising safeguards and permitted uses.',
+        'Limited data sets exclude direct identifiers but may retain certain geographic and date elements. Recipients must sign data use agreements, so an agreement with the employer, a verbal promise about the laptop, and business associate terms do not qualify.',
         [S.NHA_CCMA],
         'advanced',
     ),
@@ -355,11 +355,11 @@ FACTS: list[dict] = [
         'A vendor offers to sell a clinic list of patients with full names and MRNs for outreach. Why does that dataset fail HIPAA de-identification?',
         'It retains direct identifiers that tie health information to people',
         [
-            'De-identified data must still include social security numbers',
+            'It contains clinical details that the vendor will use for marketing',
             'Quality improvement projects may not use health-related numbers',
             'De-identified and PHI are legally identical terms with no difference',
         ],
-        'PHI remains regulated until identifiers are removed under Safe Harbor or expert certification. Selling identifiable lists for marketing violates privacy rules and usually needs authorization.',
+        'PHI remains regulated until identifiers are removed under Safe Harbor or expert certification. The intended marketing use, a blanket limit on quality improvement work, and treating the two terms as synonyms do not describe de-identification.',
         [S.NHA_CCMA],
         'intermediate',
     ),
@@ -370,15 +370,15 @@ FACTS: list[dict] = [
         'Follow Privacy Rule procedures to consider the request and document limits',
         [
             'Ignore the patient because insurers receive every diagnosis automatically',
-            'Agree to delete all factual entries from the medical record permanently',
-            'Require the patient to accept unlimited marketing emails as a condition of care',
+            'Tell the patient that the restriction cannot be honored at all by the practice',
+            'Require the patient to pay the full balance before the request is reviewed',
         ],
         'Patients may request limits on certain disclosures to health plans when they pay out of pocket in full, among other situations. Entities are not required to agree in every case but must use the formal process.',
         [S.NHA_CCMA],
         'advanced',
     ),
     # ccma-hipaa-043
-        fact('ccma-hipaa', 'A behavioral health provider keeps separate psychotherapy notes from progress notes in the EHR. What disclosure rule applies to those psychotherapy notes?', 'They need patient authorization for most uses outside exceptions', ['They may be marketed freely to pharmaceutical representatives', 'They must be posted on the facility directory when the patient arrives', 'They have no HIPAA protection and may be shared with visitors'], 'Psychotherapy notes are defined narrowly and receive extra consent requirements. General medical record entries about medications or hospitalization follow different disclosure rules.', [S.NHA_CCMA], 'advanced'),
+        fact('ccma-hipaa', 'A behavioral health provider keeps separate psychotherapy notes from progress notes in the EHR. What disclosure rule applies to those psychotherapy notes?', 'They need patient authorization for most uses outside exceptions', ['They may be shared with a relative who asks about the care', 'They follow the same authorization rules as the rest of the chart', 'They have no HIPAA protection and may be shared with visitors'], 'Psychotherapy notes are defined narrowly and receive extra consent requirements, so sharing them with a relative or treating them like the rest of the chart does not meet that rule. General medical record entries about medications or hospitalization follow different disclosure rules.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-hipaa-044
     fact(
@@ -401,7 +401,7 @@ FACTS: list[dict] = [
         'Encrypting device storage and using remote wipe after risk analysis',
         [
             'Storing tablets unlocked in vehicles because encryption is banned by HIPAA',
-            'Relying on hope that devices are not lost without reviewing threats',
+            'Relying on a sign-out sheet instead of a documented risk analysis',
             'Limiting encryption to desktop billing computers and excluding field tablets',
         ],
         'Portable media face theft and loss outside the clinic. Addressable encryption and device management reduce the chance that ePHI is readable if hardware disappears.',
@@ -416,7 +416,7 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'A patient requests a copy of their medical record. What should the office do?', 'Follow right-of-access procedures, including timelines and fees', ['Deny all requests because charts are clinic property without exception', 'Give records to a neighbor without verifying legal authority', 'Require the patient to delete their own diagnoses before copies are sent'], 'Patients generally have a right to access their PHI with defined exceptions. Neighbors lack authority unless documented; outright denial conflicts with access rules.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-048
-        fact('ccma-hipaa', 'Which disclosure is generally permitted without patient authorization for treatment purposes?', 'Sharing clinical information with a provider involved in care', ['Selling the list of diagnoses to a marketing firm for outreach', 'Posting photos of wounds on a personal social media page', 'Giving records to an employer who requests them out of curiosity'], 'HIPAA permits TPO disclosures among involved professionals. Marketing and employer curiosity are not treatment purposes.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+        fact('ccma-hipaa', 'Which disclosure is generally permitted without patient authorization for treatment purposes?', 'Sharing clinical information with a provider involved in care', ['Selling the list of diagnoses to a marketing firm for outreach', 'Sharing clinical photographs with a coworker of the patient', 'Giving records to an employer who requests them out of curiosity'], 'HIPAA permits TPO disclosures among involved professionals. Marketing and employer curiosity are not treatment purposes.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-049
     fact(
@@ -424,9 +424,9 @@ FACTS: list[dict] = [
         'What is required before a business associate may handle electronic protected health information for a covered entity?',
         'A business associate agreement with required safeguards',
         ['A verbal agreement without required contractual safeguards',
-        'Public posting of patient lists',
-        'Verbal agreement without a written business associate contract'],
-        'The Security Rule expects contractual obligations for vendors touching ePHI. Informal agreements do not replace BAAs.',
+        'A written agreement that omits the required privacy safeguards',
+        'A signed agreement covering billing and not clinical services'],
+        'The Security Rule expects contractual obligations for vendors touching ePHI. An informal promise, an agreement without the safeguards list, and a billing-only contract do not replace a complete business associate agreement.',
         [S.HHS_HIPAA_SECURITY, S.NHA_CCMA],
         'intermediate',
     ),
@@ -451,7 +451,7 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'Which action helps secure electronic health record workstations?', 'Log off or lock sessions when leaving the desk unattended', ['Share login credentials with float staff to avoid password resets', 'Leave prior patient charts open in public view for faster access', 'Disable passwords on workstations to speed rooming workflows'], 'Automatic timeouts and unique credentials protect ePHI under the Security Rule. Shared logins break audit trails.', [S.HHS_HIPAA_SECURITY, S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-053
-        fact('ccma-hipaa', 'A patient authorizes release of records to a specific attorney. What should be verified before sending?', 'The authorization is signed, dated, and lists the correct recipient', ["That the attorney is licensed in the state where the clinic sits", "The mailroom queue is short enough to send records immediately", "Other patients with similar names have authorized release in the past"], 'Valid authorizations specify who may receive PHI. Attorney licensure and similar names still require identity checks to avoid misdirected disclosures.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+        fact('ccma-hipaa', 'A patient authorizes release of records to a specific attorney. What should be verified before sending?', 'The authorization is signed, dated, and lists the correct recipient', ["That the attorney is licensed in the state where the clinic sits", "That the records release fee has been paid before the records are mailed", "That the patient remains an active patient of the clinic at the time"], 'Valid authorizations specify who may receive PHI. Attorney licensure and similar names still require identity checks to avoid misdirected disclosures.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-054
         fact('ccma-hipaa', 'Which fax practice reduces misdirected protected health information?', 'Verify the recipient number and use a confidentiality cover sheet', ['Send to the last number dialed on the fax machine without checking', 'Include every diagnosis in the subject line read aloud in the hallway', 'Fax to the front desk printer in a public area without prompt retrieval'], 'Confirmation and cover sheets limit wrong routing. Public unattended prints expose PHI.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'beginner'),
