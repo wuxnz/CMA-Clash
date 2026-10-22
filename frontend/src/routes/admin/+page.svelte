@@ -215,6 +215,9 @@ SPDX-License-Identifier: MPL-2.0
 		connectionStatus = 'idle';
 	});
 	socket.on('player_joined', (int_data) => {
+		// Host refreshes re-emit the current roster; de-dupe so we don't list
+		// the same player twice.
+		if (game_state.players.some((p: any) => p?.username === int_data?.username)) return;
 		game_state.players = [...game_state.players, int_data];
 	});
 	socket.on('already_registered_as_admin', () => {
