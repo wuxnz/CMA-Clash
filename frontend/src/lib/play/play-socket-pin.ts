@@ -23,16 +23,24 @@ export function markPlaySocketBound(pin: string | undefined | null): void {
 	boundPlayPin = normalized;
 }
 
+/**
+ * Join flow: the player typed the PIN on /play (no ?pin= in the URL), so the page
+ * never set an expected pin. Adopt the joined pin and bind the socket to it, otherwise
+ * every set_question_number / question_results event is dropped by the guard.
+ */
+export function bindPlaySocketForJoin(pin: string | undefined | null): void {
+	const normalized = normalizePlayPin(pin);
+	if (normalized.length < 6) return;
+	expectedPlayPin = normalized;
+	boundPlayPin = normalized;
+}
+
 export function resetPlaySocketBinding(): void {
 	boundPlayPin = null;
 }
 
 export function isPlaySocketBoundToExpectedPin(): boolean {
-	return (
-		expectedPlayPin.length >= 6 &&
-		boundPlayPin !== null &&
-		boundPlayPin === expectedPlayPin
-	);
+	return expectedPlayPin.length >= 6 && boundPlayPin !== null && boundPlayPin === expectedPlayPin;
 }
 
 export function getExpectedPlayPin(): string {

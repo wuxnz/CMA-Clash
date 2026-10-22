@@ -69,7 +69,7 @@ SPDX-License-Identifier: MPL-2.0
 		warmPlaySocketConnection
 	} from '$lib/play/player-socket-session';
 	import {
-		markPlaySocketBound,
+		bindPlaySocketForJoin,
 		setExpectedPlayPin
 	} from '$lib/play/play-socket-pin';
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
@@ -449,7 +449,7 @@ SPDX-License-Identifier: MPL-2.0
 				if (gameData?.game_mode != null) {
 					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 				}
-				markPlaySocketBound(game_pin);
+				bindPlaySocketForJoin(game_pin);
 				// eslint-disable-next-line no-undef
 				plausible('Joined Game', { props: { game_id: gameData?.game_id } });
 				persistJoinedGameCookie(username, game_pin);
@@ -470,7 +470,7 @@ SPDX-License-Identifier: MPL-2.0
 				if (gameData?.game_mode != null) {
 					game_mode = normalizeGameMode(gameData.game_mode) ?? gameData.game_mode;
 				}
-				markPlaySocketBound(game_pin);
+				bindPlaySocketForJoin(game_pin);
 				if (username && game_pin) {
 					persistJoinedGameCookie(username, game_pin);
 				}
@@ -488,7 +488,7 @@ SPDX-License-Identifier: MPL-2.0
 			onSetQuestionNumber: handleSetQuestionNumber,
 			onStartGame: () => {
 				gameMeta.started = true;
-				markPlaySocketBound(game_pin);
+				bindPlaySocketForJoin(game_pin);
 			},
 			onJoinError: (payload) => {
 				if (payload?.code === 'game_already_started' && game_mode !== 'battle') {
@@ -508,7 +508,7 @@ SPDX-License-Identifier: MPL-2.0
 				window.location.reload();
 			},
 			onFinalResults: (data) => {
-				markPlaySocketBound(game_pin);
+				bindPlaySocketForJoin(game_pin);
 				final_results = data;
 				const fromFinal = aggregateScoresFromFinalResults(data);
 				if (Object.keys(fromFinal).length > 0) {
