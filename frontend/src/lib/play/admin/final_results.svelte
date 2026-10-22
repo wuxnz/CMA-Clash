@@ -11,6 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import AnimatedCounter from '$lib/ui/AnimatedCounter.svelte';
 	import type { PodiumEntry } from '$lib/ui/Podium.svelte';
 	import { prefersReducedMotion } from '$lib/ui/motion';
+	import { ordinalPlace } from '$lib/play/live-standings-copy';
 
 	const { t } = getLocalization();
 
@@ -146,7 +147,7 @@ SPDX-License-Identifier: MPL-2.0
 					{#each player_names as player, i (player)}
 						{#if player === username}
 							<p class="text-ink-muted mt-1">
-								{$t('play_page.your_place', { place: i + 1 })}
+								{$t('play_page.your_place', { place: ordinalPlace(i + 1) })}
 							</p>
 						{/if}
 					{/each}

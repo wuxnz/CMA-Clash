@@ -7,7 +7,7 @@ import { behindOrLeadLine, placeLine, speedRankLine } from './live-standings-cop
 
 describe('live-standings-copy', () => {
 	it('formats place and behind lines', () => {
-		expect(placeLine({ overall_rank: 3 })).toBe("You're in 3rd place");
+		expect(placeLine({ overall_rank: 3 })).toBe("You finished in 3rd place");
 		expect(
 			behindOrLeadLine({
 				overall_rank: 2,
