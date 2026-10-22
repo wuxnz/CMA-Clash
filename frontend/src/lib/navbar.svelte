@@ -76,6 +76,23 @@ SPDX-License-Identifier: MPL-2.0
 		return isNavLinkActive(page.url.pathname, href) ? 'page' : undefined;
 	}
 
+	/** Style for rows inside the "More" dropdown. */
+	function navMenuItemClass(href: string): string {
+		const base = 'block px-3 py-2.5 text-sm hover:text-ink hover:bg-elevated transition-colors';
+		return isNavLinkActive(page.url.pathname, href)
+			? `${base} text-ink bg-elevated font-medium`
+			: `${base} text-ink-muted`;
+	}
+
+	/** Style for secondary rows inside the mobile panel. */
+	function navMobileItemClass(href: string): string {
+		const base =
+			'flex items-center justify-between gap-4 py-3.5 border-b border-line text-base';
+		return isNavLinkActive(page.url.pathname, href)
+			? `${base} btn-nav-active`
+			: `${base} text-ink-muted`;
+	}
+
 	/** Shown inline at every desktop width. */
 	const primaryLinks = [
 		{ href: '/play', label: 'words.play', play: true },
@@ -160,7 +177,7 @@ SPDX-License-Identifier: MPL-2.0
 					<!-- Secondary links: inline at xl, dropdown below -->
 					{#each secondaryLinks as link (link.href)}
 						<a
-							class="hidden xl:inline-flex btn-nav"
+							class="{navLinkClass(link.href)} hidden xl:inline-flex"
 							href={resolve(link.href)}
 							aria-current={navAriaCurrent(link.href)}
 						>
@@ -247,7 +264,7 @@ SPDX-License-Identifier: MPL-2.0
 						>
 							{#each secondaryLinks as link (link.href)}
 								<a
-									class="block px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-elevated transition-colors"
+									class={navMenuItemClass(link.href)}
 									href={resolve(link.href)}
 									aria-current={navAriaCurrent(link.href)}
 									onclick={() => (moreIsOpen = false)}
@@ -257,7 +274,7 @@ SPDX-License-Identifier: MPL-2.0
 							{/each}
 							{#each adminLinks as link (link.href)}
 								<a
-									class="block px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-elevated transition-colors"
+									class={navMenuItemClass(link.href)}
 									href={resolve(link.href)}
 									aria-current={navAriaCurrent(link.href)}
 									onclick={() => (moreIsOpen = false)}
@@ -397,7 +414,7 @@ SPDX-License-Identifier: MPL-2.0
 			{#each secondaryLinks as link (link.href)}
 				<li>
 					<a
-						class="flex items-center justify-between gap-4 py-3.5 border-b border-line text-base text-ink-muted"
+						class={navMobileItemClass(link.href)}
 						href={resolve(link.href)}
 						aria-current={navAriaCurrent(link.href)}
 					>
@@ -408,7 +425,7 @@ SPDX-License-Identifier: MPL-2.0
 			{#each adminLinks as link (link.href)}
 				<li>
 					<a
-						class="flex items-center justify-between gap-4 py-3.5 border-b border-line text-base text-ink-muted"
+						class={navMobileItemClass(link.href)}
 						href={resolve(link.href)}
 						aria-current={navAriaCurrent(link.href)}
 					>
