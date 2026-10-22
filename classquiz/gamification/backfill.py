@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import logging
+import uuid
 
 from classquiz.config import redis
 from classquiz.db import database
@@ -40,7 +41,7 @@ async def backfill_profiles_from_xp_events() -> int:
         email = (row["email"] or "").lower()
         if email in PROTECTED_EMAILS:
             continue
-        user_id = row["user_id"]
+        user_id = uuid.UUID(str(row["user_id"]))
         target_xp = int(row["xp"] or 0)
         if target_xp <= 0:
             continue

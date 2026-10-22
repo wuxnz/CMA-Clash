@@ -38,6 +38,10 @@ SPDX-License-Identifier: MPL-2.0
 		if (!id) return '';
 		return certs.find((c) => c.id === id)?.name ?? '';
 	}
+
+	function sectionCount(topic: Topic): number {
+		return Array.isArray(topic.study_content) ? topic.study_content.length : 0;
+	}
 </script>
 
 <svelte:head>
@@ -73,7 +77,10 @@ SPDX-License-Identifier: MPL-2.0
 							<span class="font-display text-lg sm:text-xl text-ink"
 								>{topic.name}</span
 							>
-							<span class="eyebrow">{certName(topic.certification_id)}</span>
+							<span class="flex items-center gap-3 text-xs text-ink-muted">
+								<span>{sectionCount(topic)} sections</span>
+								<span class="eyebrow">{certName(topic.certification_id)}</span>
+							</span
 						</a>
 					</li>
 				{/each}

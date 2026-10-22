@@ -37,10 +37,14 @@ export function getBackendOrigin(): string {
 /**
  * Origin used for server-side fetches to the CMA Clash API.
  *
- * - Local + Caddy: set API_URL=http://localhost:8080
+ * - Local dev: set API_URL=http://127.0.0.1:8000 (or API_URL=http://localhost:8080
+ *   with the Caddy reverse proxy) to talk to a local backend.
  * - Production (https://cmaclash.com): set API_URL=https://cmaclash.com (SSR cookies via same-origin rewrites)
  * - Vercel preview: API_URL can fall back to https://${VERCEL_URL}
  * - Split without rewrites: set API_URL or BACKEND_URL to the backend origin
+ *
+ * When nothing is configured the shared Render backend is used, so `pnpm dev`
+ * works against the deployed API without extra setup.
  */
 export function getServerApiOrigin(): string {
 	const apiUrl = normalizeHttpOrigin(process.env.API_URL);
@@ -54,10 +58,7 @@ export function getServerApiOrigin(): string {
 	if (backend) {
 		return backend;
 	}
-	if (process.env.VERCEL === '1') {
-		return DEFAULT_BACKEND_ORIGIN;
-	}
-	return 'http://127.0.0.1:8000';
+	return DEFAULT_BACKEND_ORIGIN;
 }
 
 export function serverApiUrl(path: string): string {

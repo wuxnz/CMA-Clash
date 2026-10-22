@@ -58,6 +58,10 @@ export type StudyBlock = {
 	title: string;
 	summary: string;
 	url: string;
+	/** Human-readable name of the official source (CDC, OSHA, AHA, ...). */
+	source?: string | null;
+	/** Optional key points for the section. */
+	bullets?: string[] | null;
 };
 
 export type Topic = {

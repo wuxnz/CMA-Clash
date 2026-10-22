@@ -38,9 +38,13 @@ class CertificationOut(BaseModel):
 
 
 class StudyBlockOut(BaseModel):
+    """A single study-guide section with its authoritative source."""
+
     title: str
     summary: str
     url: str
+    source: str | None = None
+    bullets: list[str] | None = None
 
 
 class TopicOut(BaseModel):
@@ -121,12 +125,48 @@ async def list_certifications():
     return await Certification.objects.order_by("sort_order").all()
 
 
+def _certification_id(topic: Topic) -> uuid.UUID | None:
+    """Read the certification primary key from an ormar relation.
+
+    `Topic.certification` is a ForeignKey, so ormar exposes the related model
+    (lazily loaded, primary key only) instead of a `certification_id` attribute.
+    """
+    cert = getattr(topic, "certification", None)
+    if cert is None:
+        return None
+    if isinstance(cert, uuid.UUID):
+        return cert
+    return getattr(cert, "id", None)
+
+
+_UNSET = object()
+
+
+def _topic_out(topic: Topic, certification_id: object = _UNSET) -> TopicOut:
+    """Build the topic payload explicitly.
+
+    Returning the ormar model directly makes FastAPI validate against the
+    response model, which fails for the `certification` relation because the
+    model has no `certification_id` attribute.
+    """
+    cert_id = _certification_id(topic) if certification_id is _UNSET else certification_id
+    return TopicOut(
+        id=topic.id,
+        slug=topic.slug,
+        name=topic.name,
+        description=topic.description,
+        study_content=topic.study_content,
+        certification_id=cert_id,
+        sort_order=topic.sort_order,
+    )
+
+
 @router.get("/topics/{topic_slug}", response_model=TopicOut)
 async def get_topic(topic_slug: str):
     topic = await Topic.objects.get_or_none(slug=topic_slug)
     if topic is None:
         raise HTTPException(status_code=404, detail="topic not found")
-    return topic
+    return _topic_out(topic)
 
 
 @router.get("/topics", response_model=list[TopicOut])
@@ -135,8 +175,9 @@ async def list_topics(certification_slug: str | None = None):
         cert = await Certification.objects.get_or_none(slug=certification_slug)
         if cert is None:
             raise HTTPException(status_code=404, detail="certification not found")
-        return await Topic.objects.filter(certification=cert.id).order_by("sort_order").all()
-    return await Topic.objects.order_by("sort_order").all()
+        topics = await Topic.objects.filter(certification=cert.id).order_by("sort_order").all()
+        return [_topic_out(topic, certification_id=cert.id) for topic in topics]
+    return [_topic_out(topic) for topic in await Topic.objects.order_by("sort_order").all()]
 
 
 @router.get("/quizzes", response_model=list[QuizBrowseItem])

@@ -101,7 +101,12 @@ services:
         value: https://cmaclash.com
         sync: false
       - key: CORS_ORIGINS
-        value: https://cmaclash.com,https://cmaclash.vercel.app
+        value: https://cmaclash.com,https://cmaclash.vercel.app,http://localhost:3000,http://127.0.0.1:3000
         sync: false
+      # Allows the local dev server (vite dev on :3000) to call the API directly.
+      # The dev site normally goes through the same-origin proxy, so this is a
+      # convenience for tools that talk to the API cross-origin.
+      - key: CORS_ALLOW_LOCALHOST
+        value: "true"
       - key: ADMIN_EMAILS
         sync: false
