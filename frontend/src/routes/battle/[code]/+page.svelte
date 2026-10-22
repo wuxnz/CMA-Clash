@@ -105,7 +105,7 @@ SPDX-License-Identifier: MPL-2.0
 	async function handleJoinSubmit(e: Event) {
 		e.preventDefault();
 		error = '';
-		const name = joinName.trim();
+		const name = joinName.trim().replace(/\b\p{L}/gu, (letter) => letter.toUpperCase());
 		if (name.length < 2) {
 			error = 'Nickname must be at least 2 characters.';
 			return;
