@@ -60,7 +60,7 @@ SPDX-License-Identifier: MPL-2.0
 					{$t('play_page.join_description', {
 						url:
 							window.location.host === ''
-								? 'cquiz.de'
+								? 'cmaclash.com/play'
 								: `${window.location.host}/play`,
 						pin: game_pin
 					})}

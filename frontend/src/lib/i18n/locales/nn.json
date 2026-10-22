@@ -87,7 +87,6 @@
         "video": "",
         "browser": "",
         "stats": "",
-        "donating": "",
         "save": "",
         "note": "",
         "order": "",
@@ -143,51 +142,15 @@
             "1": "CMA Clash er ein kvissplatform der du kan laga og handsame kvissar.",
             "2": "Den viktigaste funksjonen er at du kan importera kvissar frå Kahoot!"
         },
-        "stats": "Det er allereie {{user_count}} brukarar og {{quiz_count}} kvissar på CMA Clash.",
         "see_how_many_true_and_false": "Sjå kor mange som hadde rett eller feil",
         "see_all_quizzes": "Sjå kvissane dine",
         "teachers_site": "Læraren si side",
         "students_site": "Eleven si side",
-        "no_tracking": "Inga sporing",
-        "german_server": "Tjenarmaskin i Tyskland",
-        "user_friendly": "Brukarvenleg",
-        "completely_free": "Heilt gratis",
-        "quiz_results_downloadable": "Du kan lasta ned kvissresultat",
-        "multilingual": "Fleirspråkleg",
-        "get_a_quiz": "1. Vel ein kviss",
-        "find_or_explore": "Finn kvissar laga eller importert av andre",
-        "import_quiz_from_kahoot_and_edit": "Importer ein kviss frå Kahoot! og rediger han i CMA Clash",
-        "play_quiz": "2. Spel kvissen",
-        "select_answer": "Vel eit svar",
-        "choose_answer_wisely": "Vel med omhug",
-        "view_results": "Sjå resultata",
-        "check_if_chosen_wisely": "Sjekk om du hadde rett",
-        "list_winners": "List opp vinnarane",
-        "why_classquiz": "Kvifor CMA Clash?",
-        "self_hostable": "Køyr frå eigen vert",
-        "dark_mode": "Mørk drakt",
-        "no_tracking_content": "Kahoot! sporar deg og sender info til tredjepart, det gjer ikkje CMA Clash.",
-        "slogan": "Den opne kvissplatformen!",
         "meta": {
-            "description": "CMA Clash er ein kvissapp som Kahoot! for elever, som har open kjeldekode og er gratis",
             "title": "Heim"
         },
         "see_what_true_and_false": "Sjå kva som er rett og gale",
-        "create_or_import": "Lag eller importer",
-        "create_a_quiz_from_scratch": "Lag ein ny kviss frå botnen av og ta med bilete og meir",
-        "how_does_classquiz_work": "",
-        "completely_free_content": "",
-        "download_quizzes": "",
-        "dark_mode_content": "",
-        "community_driven_content": "",
-        "quiz_results_downloadable_content": "",
-        "self_hostable_content": "",
-        "german_server_content": "",
-        "get_ranking_and_winners": "",
-        "user_friendly_content": "",
-        "multilingual_content": "",
-        "community_driven": "",
-        "download_quizzes_content": ""
+        "create_or_import": "Lag eller importer"
     },
     "result_page": {
         "correct_answer_plural": "",
@@ -281,9 +244,7 @@
         "add_api_key": ""
     },
     "footer": {
-        "donate": "",
-        "more_details_here": "",
-        "self_ads": ""
+        "more_details_here": ""
     },
     "quiztivity": {
         "editor": {
@@ -392,11 +353,10 @@
         "view_on_kahoot": ""
     },
     "import_page": {
-        "this_side_classquiz_excel": "",
+        "this_side_cma_clash_excel": "",
         "visit_docs": "",
         "download_template_here": "",
-        "classquiz_quiz": "",
-        "this_side_classquiz": "",
+        "this_side_cma_clash": "",
         "a_kahoot_quiz": "",
         "side_import_kahoot": "",
         "url_should_look_like_this": "",
@@ -453,9 +413,7 @@
         "search_for_own_quizzes": "",
         "info_analytics": ""
     },
-    "navbar": {
-        "donate": ""
-    },
+    "navbar": {},
     "editor_page": {
         "add_an_answer": "",
         "right_click_to_delete": ""

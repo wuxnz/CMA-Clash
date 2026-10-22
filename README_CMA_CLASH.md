@@ -1,13 +1,13 @@
 # CMA Clash
 
-**CMA Clash** is CCMA and allied health exam prep on this ClassQuiz fork: live quizzes, battles, XP/leaderboards, and seeded CCMA, EKG, phlebotomy, CPR/BLS, and clinical skills banks.
+**CMA Clash** is CCMA and allied health exam prep, forked from [ClassQuiz](https://github.com/mawoka-myblock/ClassQuiz): live quizzes, battles, XP/leaderboards, and seeded CCMA, EKG, phlebotomy, CPR/BLS, and clinical skills banks.
 
 See [docs/CMA_CLASH.md](docs/CMA_CLASH.md) for API endpoints, data model, socket events, and seed instructions.
 
 ## Quick start (development)
 
 1. Start dependencies: `docker compose -f docker-compose.dev.yml up -d db redis meilisearch`
-2. Configure `.env` (mail + `SECRET_KEY` + `DB_URL` as in upstream CMA Clash docs).
+2. Configure `.env` (mail + `SECRET_KEY` + `DB_URL` — see the self-hosting docs at `/docs/self-host`).
 3. `pipenv run alembic upgrade head`
 4. `pipenv run python -m classquiz.seed.runner`
 5. Run API and frontend per in-app develop docs at `/docs/develop`.
@@ -21,4 +21,4 @@ Production Docker: `docker compose up` runs migrations and seed when `AUTO_SEED_
 
 ## Content
 
-860 multiple-choice questions (20 per topic × 43 topics), grouped into public quizzes. Medically reviewed against common standards (NHA CCMA test plan, AHA BLS, CLSI order of draw, CDC infection control).
+2,115 multiple-choice questions across 45 topics, published as one public quiz per topic. Each quiz merges the beginner, intermediate and advanced questions of its topic; questions that duplicate a harder one are dropped during the merge. Medically reviewed against common standards (NHA CCMA test plan, AHA BLS, CLSI order of draw, CDC infection control).

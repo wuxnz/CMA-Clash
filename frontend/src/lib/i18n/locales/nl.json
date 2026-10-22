@@ -7,51 +7,13 @@
         },
         "create_or_import": "Maken of Importeren",
         "see_all_quizzes": "Bekijk al je quizzen",
-        "no_tracking": "Geen Tracking",
-        "german_server": "Duitse Server",
-        "user_friendly": "Gebruikersvriendelijk",
-        "completely_free": "Volledig Kosteloos",
-        "quiz_results_downloadable": "Quiz-resultaten kunnen worden gedownload",
-        "multilingual": "Meertalig",
-        "dark_mode": "Donkere Modus",
-        "create_a_quiz_from_scratch": "Maak een quiz vanaf niks met de editor en voeg afbeeldingen en meer toe",
-        "find_or_explore": "Zoek (of verken) quizzen gemaakt of geïmporteerd door andere mensen",
-        "import_quiz_from_kahoot_and_edit": "Importeer een quiz vanuit Kahoot! en bewerk het in CMA Clash",
-        "play_quiz": "2. Speel de quiz",
-        "select_answer": "Selecteer het antwoord",
-        "view_results": "Bekijk de resultaten",
-        "check_if_chosen_wisely": "Check of je goed had gekozen",
-        "list_winners": "Winnaarslijst",
-        "get_ranking_and_winners": "Bekijk het klassement en zie wie er gewonnen heeft",
-        "why_classquiz": "Waarom CMA Clash?",
         "meta": {
-            "title": "Home",
-            "description": "CMA Clash is een quiz-app om interactief te leren voor studenten, die open source en gratis te gebruiken is"
+            "title": "Home"
         },
-        "get_a_quiz": "1. Verkrijg een quiz",
-        "user_friendly_content": "CMA Clash heeft als doel simpel te zijn, zodat iedereen het kan gebruiken.",
         "students_site": "Studenten site",
         "teachers_site": "Leraar's site",
-        "slogan": "Het open-source quizplatform!",
-        "self_hostable": "Zelf-Hostable",
-        "multilingual_content": "CMA Clash is beschikbaar in het Engels, Frans, Duits, Italiaans, Noors Bokmål, Turks en gedeeltelijk Indonesisch en Catalaans.",
-        "dark_mode_content": "Een van de belangrijkste functies die een website kan hebben!",
-        "community_driven_content": "CMA Clash is afhankelijk van haar gemeenschap voor financiering, het testen van ideeën, feature requests, vertalingen en meer! U kunt ook deel uitmaken van de CMA-Clash-community!",
-        "community_driven": "Gedreven door de community",
-        "stats": "Er zijn al {{user_count}} gebruikers en {{quiz_count}} quizzen op CMA Clash.",
         "see_how_many_true_and_false": "Kijk hoeveel er goed of fout waren",
-        "see_what_true_and_false": "Zie wat goed of fout was",
-        "choose_answer_wisely": "Kies je antwoord verstandig",
-        "no_tracking_content": "Anderen tracken jou en sturen die informatie naar derden, maar CMA Clash doet dat niet.",
-        "self_hostable_content": "CMA Clash kan eenvoudig zelf worden gehost, dus de gegevens zijn alleen in jouw beheer!",
-        "german_server_content": "De servers van CMA Clash bevinden zich in Duitsland en worden gehost door netcup.",
-        "completely_free_content": "CMA Clash is volledig gratis (voor de gebruiker), zonder betaalde abonnementen of vervelende doorverwijzingen naar de upgrade-pagina. Donaties worden zeer op prijs gesteld.",
-        "download_quizzes": "Download Quizzen",
-        "download_quizzes_content": "Quizzen kunnen als één bestand worden gedownload en op elk moment worden geïmporteerd. Zo kun je ook je testen verplaatsen naar andere CMA Clash instanties.",
-        "quiz_results_downloadable_content": "Quiz-resultaten kunnen gemakkelijk worden geëxporteerd naar een Excel-spreadsheet. (Wist niet dat anderen dat niet konden)",
-        "how_does_classquiz_work": "Hoe werkt CMA Clash eigenlijk?",
-        "no_player_limit": "Geen spelerslimiet",
-        "no_player_limit_content": "CMA Clash heeft geen kunstmatige spelerslimiet. In theorie zouden meer dan 1000 spelers dezelfde quiz kunnen spelen, maar het is getest met maximaal 300 spelers per quiz."
+        "see_what_true_and_false": "Zie wat goed of fout was"
     },
     "overview_page": {
         "created_at": "Gemaakt op",
@@ -139,7 +101,6 @@
         "private": "Privé",
         "other": "andere",
         "other_plural": "anderen",
-        "donating": "doneren",
         "find": "Vind",
         "practice": "Oefenen",
         "error": "Fout",
@@ -239,12 +200,11 @@
         "url_should_look_like_this": "De URL zou er als volgt uit moeten zien: https://create.kahoot.it/details/...",
         "side_import_kahoot": "Aan deze kant kun je quizzen van Kahoot! importeren.",
         "upload_file_ending": "Upload het bestand met de extensie .cqa of .xlsx",
-        "this_side_classquiz": "Aan deze kant kun je quizzen importeren die geëxporteerd zijn vanuit CMA Clash.",
+        "this_side_cma_clash": "Aan deze kant kun je quizzen importeren die geëxporteerd zijn vanuit CMA Clash.",
         "visit_docs": "Bekijk de documentatie",
         "a_kahoot_quiz": "Een Kahoot!-Quiz",
         "need_help": "Hulp nodig?",
-        "classquiz_quiz": "Een CMA Clash quiz",
-        "this_side_classquiz_excel": "Je kunt ook Excel-bestanden uploaden, als je het volgende sjabloon hebt ingevuld. Als er al een quiz met die titel bestaat, worden de vragen aan de bestaande quiz toegevoegd.",
+        "this_side_cma_clash_excel": "Je kunt ook Excel-bestanden uploaden, als je het volgende sjabloon hebt ingevuld. Als er al een quiz met die titel bestaat, worden de vragen aan de bestaande quiz toegevoegd.",
         "download_template_here": "Download het sjabloon"
     },
     "admin_page": {
@@ -312,9 +272,7 @@
         "right_click_to_delete": "Klik met de rechtermuisknop op een antwoord om het te verwijderen!"
     },
     "footer": {
-        "more_details_here": "Meer details hier",
-        "donate": "",
-        "self_ads": "Gemaakt met ❤️ door CMA Clash en met de hulp van {{others_link}}."
+        "more_details_here": "Meer details hier"
     },
     "error_page": {
         "404_text": "De pagina waarnaar je op zoek was, is verdwenen of heeft zelfs nooit bestaan. Wie weet?",
@@ -401,9 +359,7 @@
         "disable_totp": "Schakel TOTP uit",
         "enable_totp": "Schakel TOTP in"
     },
-    "navbar": {
-        "donate": "Doneer"
-    },
+    "navbar": {},
     "view_quiz_page": {
         "made_by": "Gemaakt door",
         "view_on_kahoot": "Bekijk het origineel"

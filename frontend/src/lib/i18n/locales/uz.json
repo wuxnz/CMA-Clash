@@ -65,7 +65,6 @@
         "browser": "",
         "stats": "",
         "password": "",
-        "donating": "",
         "save": "",
         "note": "",
         "order": "",
@@ -121,50 +120,15 @@
         "success_update_title": ""
     },
     "index_page": {
-        "quiz_results_downloadable": "",
-        "slogan": "",
-        "completely_free": "",
-        "how_does_classquiz_work": "",
-        "select_answer": "",
-        "user_friendly": "",
-        "no_tracking": "",
-        "find_or_explore": "",
-        "completely_free_content": "",
-        "stats": "",
         "see_how_many_true_and_false": "",
-        "download_quizzes": "",
-        "dark_mode_content": "",
-        "multilingual": "",
-        "community_driven_content": "",
-        "get_a_quiz": "",
-        "quiz_results_downloadable_content": "",
-        "view_results": "",
-        "choose_answer_wisely": "",
-        "self_hostable_content": "",
-        "german_server_content": "",
-        "get_ranking_and_winners": "",
         "meta": {
-            "description": "",
             "title": ""
         },
-        "list_winners": "",
         "students_site": "",
-        "self_hostable": "",
         "see_what_true_and_false": "",
-        "german_server": "",
-        "create_a_quiz_from_scratch": "",
         "teachers_site": "",
-        "check_if_chosen_wisely": "",
-        "user_friendly_content": "",
         "create_or_import": "",
-        "no_tracking_content": "",
-        "multilingual_content": "",
-        "dark_mode": "",
-        "why_classquiz": "",
-        "community_driven": "",
-        "play_quiz": "",
-        "see_all_quizzes": "",
-        "download_quizzes_content": ""
+        "see_all_quizzes": ""
     },
     "admin_page": {
         "stop_time_and_solutions": "",
@@ -250,9 +214,7 @@
         "add_api_key": ""
     },
     "footer": {
-        "donate": "",
-        "more_details_here": "",
-        "self_ads": ""
+        "more_details_here": ""
     },
     "quiztivity": {
         "editor": {
@@ -361,11 +323,10 @@
         "view_on_kahoot": ""
     },
     "import_page": {
-        "this_side_classquiz_excel": "",
+        "this_side_cma_clash_excel": "",
         "visit_docs": "",
         "download_template_here": "",
-        "classquiz_quiz": "",
-        "this_side_classquiz": "",
+        "this_side_cma_clash": "",
         "a_kahoot_quiz": "",
         "side_import_kahoot": "",
         "url_should_look_like_this": "",
@@ -447,9 +408,7 @@
         "search_for_own_quizzes": "",
         "info_analytics": ""
     },
-    "navbar": {
-        "donate": ""
-    },
+    "navbar": {},
     "editor_page": {
         "add_an_answer": "",
         "right_click_to_delete": ""

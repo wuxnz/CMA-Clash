@@ -1,52 +1,14 @@
 {
     "index_page": {
-        "select_answer": "اختر الإجابة",
-        "no_tracking": "بدون تَتَبُّع",
-        "multilingual": "متعدد اللغات",
-        "view_results": "اعرض النتائج",
-        "choose_answer_wisely": "اختر إجابتك بحكمة",
-        "list_winners": "قائمة الفائزون",
         "students_site": "موقع الطالِب",
-        "self_hostable": "مُستضاف ذاتيا",
         "see_what_true_and_false": "رؤية ما هو صحيح أو خطأ",
-        "german_server": "خادم ألماني",
         "teachers_site": "موقع المُعَلِّم",
         "create_or_import": "إنشاء أو استيراد",
-        "dark_mode": "الوضع الداكن",
-        "why_classquiz": "لماذا CMA Clash؟",
-        "quiz_results_downloadable": "يمكن تنزيل نتائج الاختبار",
-        "slogan": "منصة مسابقة مفتوحة المصدر!",
-        "completely_free": "خالية تماما من التكلفة",
-        "how_does_classquiz_work": "كيف يعمل CMA Clash حتى؟",
-        "user_friendly": "سهل-الاستخدام",
-        "find_or_explore": "ابحث عن (أو استكشف) الاختبارات التي تم إجراؤها أو استيرادها بواسطة أشخاص آخرين",
-        "completely_free_content": "CMA Clash مجاني تمامًا (للمستخدم)، دون أي خطط مدفوعة أو عمليات إعادة توجيه مزعجة إلى صفحة الترقية. التبرعات هي محل تقدير كبير.",
-        "stats": "يوجد بالفعل {{user_count}} مستخدم و{{quiz_count}} اختبار في CMA Clash.",
         "see_how_many_true_and_false": "انظر كم منهم كانوا على حق أو على خطأ",
-        "download_quizzes": "تنزيل الاختبارات",
-        "dark_mode_content": "من أهم الميزات التي يمكن أن يتمتع بها موقع الويب!",
-        "community_driven_content": "يعتمد CMA Clash على مجتمعه للحصول على التمويل واختبار الأفكار وطلبات الميزات والترجمات والمزيد! يمكنك أيضًا أن تكون جزءًا من مجتمع CMA Clash!",
-        "get_a_quiz": "1. احصل على اختبار",
-        "quiz_results_downloadable_content": "يمكن تصدير نتائج الاختبار بسهولة إلى جدول بيانات Excel. (لم أكن أعلم أن الآخرين لا يستطيعون فعل ذلك)",
-        "self_hostable_content": "يمكن استضافة CMA Clash ذاتيًا بسهولة، وبالتالي فإن البيانات تحت سيطرتك فقط!",
-        "german_server_content": "تقع خوادم CMA Clash في ألمانيا وتستضيفها شركة netcup.",
-        "get_ranking_and_winners": "الحصول على الترتيب ومعرفة من فاز",
         "meta": {
-            "description": "CMA Clash هو تطبيق اختبار للتعلم بشكل تفاعلي للطلاب، وهو مفتوح المصدر ومجاني الاستخدام",
             "title": "الرئيسية"
         },
-        "create_a_quiz_from_scratch": "قم بإنشاء اختبار من البداية باستخدام المحرر وقم بتضمين الصور والمزيد",
-        "check_if_chosen_wisely": "تحقق، إذا كنت قد اخترت بحكمة",
-        "user_friendly_content": "يهدف CMA Clash إلى أن يكون بسيطًا، بحيث يمكن استخدامه من قبل الجميع.",
-        "no_tracking_content": "يتتبعك الآخرون ويرسلون تلك المعلومات إلى جهات خارجية، لكن CMA Clash لا يفعل ذلك.",
-        "multilingual_content": "CMA Clash متاح باللغات الإنجليزية والفرنسية والألمانية والإيطالية والنرويجية والتركية والإندونيسية والكتالونية جزئيًا.",
-        "community_driven": "يقودها-المجتمع",
-        "play_quiz": "2. العب الاختبار",
-        "see_all_quizzes": "رؤية جميع الاختبارات الخاصة بك",
-        "download_quizzes_content": "يمكن تنزيل الاختبارات كملف واحد واستيرادها في أي وقت. يتيح لك هذا أيضًا نقل اختباراتك إلى مثيلات CMA Clash الأخرى.",
-        "no_player_limit": "لا يوجد حد لعدد اللاعبين",
-        "no_player_limit_content": "ليس لدى CMA Clash حد اصطناعي للاعبين. من الناحية النظرية، يمكن لأكثر من 1000 لاعب لعب نفس الاختبار، ولكن يتم اختباره مع ما يصل إلى 300 لاعب في كل اختبار.",
-        "import_quiz_from_kahoot_and_edit": "أحضر اختباراتك من Kahoot وعدلها في CMA Clash !"
+        "see_all_quizzes": "رؤية جميع الاختبارات الخاصة بك"
     },
     "result_page": {
         "correct_answer_plural": "",
@@ -114,7 +76,6 @@
         "browser": "المتصفح",
         "stats": "احصائيات",
         "password": "كلمة المرور",
-        "donating": "تبرع",
         "save": "حفظ",
         "note": "ملاحظة",
         "order": "طلب",
@@ -258,9 +219,7 @@
         "add_api_key": "أضف مفتاح API"
     },
     "footer": {
-        "donate": "",
-        "more_details_here": "",
-        "self_ads": ""
+        "more_details_here": ""
     },
     "quiztivity": {
         "editor": {
@@ -376,11 +335,10 @@
         "view_on_kahoot": ""
     },
     "import_page": {
-        "this_side_classquiz_excel": "يمكنك أيضًا تحميل ملفات Excel، إذا قمت بملء النموذج التالي. إذا كان هناك اختبار يحمل عنوانًا موجودًا بالفعل، فسيتم إلحاق الأسئلة بالاختبار الموجود.",
+        "this_side_cma_clash_excel": "يمكنك أيضًا تحميل ملفات Excel، إذا قمت بملء النموذج التالي. إذا كان هناك اختبار يحمل عنوانًا موجودًا بالفعل، فسيتم إلحاق الأسئلة بالاختبار الموجود.",
         "visit_docs": "قم بزيارة الوثائق",
         "download_template_here": "قم بتنزيل القالب",
-        "classquiz_quiz": "مسابقة CMA Clash",
-        "this_side_classquiz": "في هذا الجانب يمكنك استيراد الاختبارات التي تم تصديرها من CMA Clash.",
+        "this_side_cma_clash": "في هذا الجانب يمكنك استيراد الاختبارات التي تم تصديرها من CMA Clash.",
         "a_kahoot_quiz": "مسابقة- كاهوت!",
         "side_import_kahoot": "في هذا الجانب يمكنك استيراد الاختبارات الموجودة على Kahoot!.",
         "url_should_look_like_this": "يجب أن يبدو عنوان URL بهذا الشكل: https://create.´/details/...",
@@ -462,9 +420,7 @@
         "search_for_own_quizzes": "ابحث عن مسابقاتك الخاصة",
         "info_analytics": ""
     },
-    "navbar": {
-        "donate": ""
-    },
+    "navbar": {},
     "editor_page": {
         "add_an_answer": "أضف إجابة",
         "right_click_to_delete": "انقر بالزر الأيمن على الإجابة ليتم حذفها!"
