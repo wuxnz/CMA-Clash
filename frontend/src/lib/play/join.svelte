@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { socket } from '$lib/socket';
 	import { onDestroy, onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import { resolve } from '$app/paths';
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
 	import { joinErrorMessage } from '$lib/play/join-errors';
 	import { normalizeGameMode } from '$lib/play/live-game';
@@ -317,7 +318,7 @@ SPDX-License-Identifier: MPL-2.0
 		<p class="text-ink-muted mb-4 text-center">Enter the 6-digit PIN from the host screen</p>
 		<p class="text-ink-muted mb-8 text-center text-sm">
 			Hosting?
-			<a href="/host" class="link-hover text-ink">Start a Clash</a>
+			<a href={resolve('/host')} class="link-hover text-ink">Start a Clash</a>
 		</p>
 		<input
 			class="ledger-input text-center font-display text-4xl tracking-[0.4em] max-w-sm"

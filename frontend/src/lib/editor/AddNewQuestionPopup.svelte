@@ -10,6 +10,8 @@ SPDX-License-Identifier: MPL-2.0
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import { getLocalization } from '$lib/i18n';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 
 
 	interface Props {
@@ -108,7 +110,7 @@ SPDX-License-Identifier: MPL-2.0
 	>
 		<h1 class="text-center text-3xl mb-6">{$t('quiztivity.editor.select_page_type')}</h1>
 		<div class="grid grid-cols-4 gap-4 overflow-y-scroll">
-			{#each question_types as qt, i}
+			{#each question_types as qt, i (qt.type)}
 				<div class="rounded-sm p-6 border-[#B07156] border">
 					<button
 						class="text-xl text-ink text-ink"
@@ -125,7 +127,7 @@ SPDX-License-Identifier: MPL-2.0
 			<p>
 				{$t('editor.need_more_help')}
 				<a
-					href="/docs/quiz/question-types"
+					href={resolve('/docs/quiz/question-types' as Pathname)}
 					target="_blank"
 					class="text-sm font-bold underline text-primary"
 					>{$t('editor.visit_docs')}</a

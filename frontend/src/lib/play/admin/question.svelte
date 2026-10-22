@@ -75,7 +75,7 @@ SPDX-License-Identifier: MPL-2.0
 
 		{#if q.type === QuizQuestionType.ABCD || q.type === QuizQuestionType.VOTING || q.type === QuizQuestionType.CHECK}
 			<div class="grid grid-cols-2 gap-3 sm:gap-4">
-				{#each q.answers as answer, i}
+				{#each q.answers as answer, i (i)}
 					<div
 						class="rounded-xl flex flex-col items-center justify-center gap-2 p-4 sm:p-6 min-h-[5rem] border-2 border-white/20 shadow-md"
 						style="background-color: {answer.color ?? default_colors[i]};"

@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Button from '$lib/ui/Button.svelte';
@@ -46,7 +47,7 @@ SPDX-License-Identifier: MPL-2.0
 <div class="min-h-screen flex flex-col overflow-x-hidden">
 	<div class="w-full max-w-3xl mx-auto px-4 pt-8 pb-16 min-w-0">
 		<p class="text-sm text-ink-muted">
-			<a href="/study" class="link-hover text-ink-muted">Study guides</a>
+			<a href={resolve('/study')} class="link-hover text-ink-muted">Study guides</a>
 		</p>
 
 		{#if loading}
@@ -70,7 +71,7 @@ SPDX-License-Identifier: MPL-2.0
 									class="text-sm text-ink link-hover break-all"
 									href={block.url}
 									target="_blank"
-									rel="noreferrer"
+									rel="noreferrer external"
 								>
 									{block.url}
 								</a>
@@ -89,7 +90,7 @@ SPDX-License-Identifier: MPL-2.0
 						{#each quizzes as quiz (quiz.id)}
 							<li>
 								<a
-									href="/view/{quiz.id}"
+									href={resolve('/view/[quiz_id]', { quiz_id: quiz.id })}
 									class="flex items-center justify-between gap-3 py-3 min-h-11 text-sm text-ink link-hover"
 								>
 									<span>{quiz.title}</span>

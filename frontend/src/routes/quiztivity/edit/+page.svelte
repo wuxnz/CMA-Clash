@@ -9,6 +9,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Editor from '$lib/quiztivity/editor.svelte';
 	import SharesPopover from '$lib/quiztivity/shares_popover.svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 
 	interface Props {
 		data: PageData;
@@ -33,7 +34,7 @@ SPDX-License-Identifier: MPL-2.0
 			body: stringification
 		});
 		if (res.ok) {
-			await goto('/dashboard');
+			await goto(resolve('/dashboard'));
 		} else {
 			alert("Couldn't save");
 		}

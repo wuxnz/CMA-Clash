@@ -23,6 +23,8 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import { certificationShortLabel } from '$lib/cma/client';
 	import { loadDashboardData } from '$lib/dashboard/loadDashboardData';
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 
 	interface Props {
 		data: PageData;
@@ -187,7 +189,7 @@ SPDX-License-Identifier: MPL-2.0
 		else window.location.assign('/host');
 	}
 
-	const links = [
+	const links: { href: Pathname; label: string }[] = [
 		{ href: '/create', label: 'Create' },
 		{ href: '/play', label: 'Join with PIN' },
 		{ href: '/practice', label: 'Practice' },
@@ -230,13 +232,13 @@ SPDX-License-Identifier: MPL-2.0
 			class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-ink-muted border-t border-line pt-5"
 			aria-label="Dashboard"
 		>
-			{#each links as link}
-				<a href={link.href} class="min-h-11 inline-flex items-center link-hover"
+			{#each links as link (link.href)}
+				<a href={resolve(link.href)} class="min-h-11 inline-flex items-center link-hover"
 					>{link.label}</a
 				>
 			{/each}
 			{#if $isSiteAdmin}
-				<a href="/site-admin/users" class="min-h-11 inline-flex items-center link-hover"
+				<a href={resolve('/site-admin/users')} class="min-h-11 inline-flex items-center link-hover"
 					>Site admin</a
 				>
 			{/if}
@@ -270,9 +272,9 @@ SPDX-License-Identifier: MPL-2.0
 					<div class="pt-5" data-empty-quizzes>
 						<p class="text-sm text-ink">No quizzes yet.</p>
 						<p class="text-sm text-ink-muted mt-1">
-							<a href="/create" class="text-ink link-hover">Create</a>
+							<a href={resolve('/create')} class="text-ink link-hover">Create</a>
 							or
-							<a href="/import" class="text-ink link-hover">import</a>
+							<a href={resolve('/import')} class="text-ink link-hover">import</a>
 							one, then host it from this list.
 						</p>
 					</div>
@@ -301,11 +303,11 @@ SPDX-License-Identifier: MPL-2.0
 					{#if startedMastery.length === 0}
 						<p class="text-sm text-ink-muted mt-3">
 							No cert stats yet.
-							<a href="/practice" class="text-ink link-hover">Practice</a>
+							<a href={resolve('/practice')} class="text-ink link-hover">Practice</a>
 						</p>
 					{:else}
 						<ul class="mt-4 space-y-4">
-							{#each startedMastery as lane}
+							{#each startedMastery as lane (lane.slug)}
 								<li>
 									<div class="flex items-baseline justify-between gap-3 text-sm">
 										<span class="text-ink truncate">{lane.name}</span>
@@ -330,14 +332,14 @@ SPDX-License-Identifier: MPL-2.0
 					{#if recent.length === 0}
 						<p class="text-sm text-ink-muted mt-3">
 							None yet.
-							<a href="/results" class="text-ink link-hover">Results</a>
+							<a href={resolve('/results')} class="text-ink link-hover">Results</a>
 						</p>
 					{:else}
 						<ul class="mt-3 border-t border-line">
-							{#each recent as game}
+							{#each recent as game (game.id)}
 								<li>
 									<a
-										href="/results/{game.id}"
+									href={resolve('/results/[result_id]', { result_id: game.id })}
 										class="flex items-center justify-between gap-3 py-2.5 min-h-11 min-w-0 border-b border-line"
 									>
 										<span class="truncate text-sm text-ink"
@@ -358,11 +360,11 @@ SPDX-License-Identifier: MPL-2.0
 					{#if board.length === 0}
 						<p class="text-sm text-ink-muted mt-3">
 							No scores this week.
-							<a href="/leaderboard" class="text-ink link-hover">Leaderboard</a>
+							<a href={resolve('/leaderboard')} class="text-ink link-hover">Leaderboard</a>
 						</p>
 					{:else}
 						<ol class="mt-3 space-y-1">
-							{#each board as row, i}
+							{#each board as row, i (row.username)}
 								<li
 									class="flex items-center justify-between gap-3 min-h-11 text-sm"
 								>

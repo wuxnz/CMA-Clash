@@ -47,7 +47,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <div class="grid grid-cols-2 gap-4 w-full px-10">
 	{#if Array.isArray(data.questions[selected_question].answers)}
-		{#each data.questions[selected_question].answers as answer, index}
+		{#each data.questions[selected_question].answers as answer, index (answer.answer)}
 			<div
 				out:fade={{ duration: 150 }}
 				class="p-4 rounded-lg flex justify-center w-full transition relative"

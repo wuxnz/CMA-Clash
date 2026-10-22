@@ -24,7 +24,6 @@ SPDX-License-Identifier: MPL-2.0
 
 	let { data }: Props = $props();
 
-	// eslint-disable-next-line no-unused-vars
 	enum SelectedTab {
 		// eslint-disable-next-line no-unused-vars
 		Overview,

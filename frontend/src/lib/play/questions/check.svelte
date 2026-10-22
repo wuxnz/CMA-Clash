@@ -61,7 +61,7 @@ SPDX-License-Identifier: MPL-2.0
 	</div>
 
 	<div class="grid grid-rows-2 grid-flow-col auto-cols-auto gap-2 w-full p-4 h-full">
-		{#each question.answers as answer, i}
+		{#each question.answers as answer, i (i)}
 			<button
 				class="rounded-lg h-full flex align-middle justify-center disabled:opacity-60 p-3 border-2 border-black transition-all"
 				style="background-color: {answer.color ??

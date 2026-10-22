@@ -8,8 +8,7 @@ import { joinPlayer } from './helpers/joinPlayer';
 import { startFromNavbarHost } from './helpers/liveHost';
 import {
 	answerFirstTile,
-	expectPlayerAdvancedToNextQuestion,
-	expectPlayerOnAnswerTiles
+	expectPlayerAdvancedToNextQuestion
 } from './helpers/livePlayer';
 
 test.describe('live match reconnect', () => {

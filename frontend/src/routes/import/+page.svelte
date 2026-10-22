@@ -12,6 +12,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Spinner from '$lib/Spinner.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import Footer from '$lib/footer.svelte';
+	import { resolve } from '$app/paths';
 
 	navbarVisible.visible = true;
 
@@ -138,7 +139,9 @@ SPDX-License-Identifier: MPL-2.0
 
 		<p class="text-sm text-ink-muted mt-10">
 			{$t('import_page.need_help')}
-			<a href="/docs/import-from-kahoot" class="text-ink link-hover">{$t('import_page.visit_docs')}</a>
+			<a href={resolve('/docs/import-from-kahoot')} class="text-ink link-hover"
+				>{$t('import_page.visit_docs')}</a
+			>
 		</p>
 	</div>
 	<Footer />

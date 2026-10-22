@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import { onMount } from 'svelte';
@@ -66,7 +67,7 @@ SPDX-License-Identifier: MPL-2.0
 				{#each withStudy as topic (topic.slug)}
 					<li>
 						<a
-							href="/study/{topic.slug}"
+							href={resolve('/study/[topic_slug]', { topic_slug: topic.slug })}
 							class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-5 min-h-11 link-hover transition-colors hover:bg-elevated px-2 -mx-2"
 						>
 							<span class="font-display text-lg sm:text-xl text-ink"

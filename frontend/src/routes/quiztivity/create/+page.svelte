@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import type { Data } from '$lib/quiztivity/types';
 	import Editor from '$lib/quiztivity/editor.svelte';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 
 	let title = page.url.searchParams.get('title');
@@ -30,7 +31,7 @@ SPDX-License-Identifier: MPL-2.0
 			body: stringification
 		});
 		if (res.ok) {
-			await goto('/dashboard');
+			await goto(resolve('/dashboard'));
 		} else {
 			alert("Couldn't save");
 		}

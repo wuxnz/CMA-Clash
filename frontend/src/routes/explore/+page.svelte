@@ -18,6 +18,7 @@
 		type BrowseRow
 	} from '$lib/quiz/browse';
 	import { onMount } from 'svelte';
+	import { SvelteURLSearchParams } from 'svelte/reactivity';
 	import type { PageData } from './$types';
 
 	interface Props {
@@ -46,7 +47,7 @@
 	);
 
 	function syncUrl() {
-		const params = new URLSearchParams();
+		const params = new SvelteURLSearchParams();
 		if (cert) params.set('cert', cert);
 		if (difficulty) params.set('difficulty', difficulty);
 		if (sort && sort !== 'newest') params.set('sort', sort);

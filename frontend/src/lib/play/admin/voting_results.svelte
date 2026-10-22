@@ -40,14 +40,14 @@ SPDX-License-Identifier: MPL-2.0
 		style="grid-template-columns: repeat({quiz_answers.length}, minmax(0, 1fr));"
 	>
 		<div class="flex gap-12">
-			{#each quiz_answers as answer}
+			{#each quiz_answers as answer (answer)}
 				<span class="text-center self-end mx-auto text-lg"
 					>{#if sorted_data[answer] > 0}{sorted_data[answer]}{/if}</span
 				>
 			{/each}
 		</div>
 		<div class="flex gap-12">
-			{#each quiz_answers as answer, i}
+			{#each quiz_answers as answer, i (answer)}
 				<div
 					class="w-20 self-end flex justify-center border border-black shadow-xl rounded-sm"
 					class:shadow-blue-500={answer_correct[i] &&
@@ -64,7 +64,7 @@ SPDX-License-Identifier: MPL-2.0
 			{/each}
 		</div>
 		<div class="flex gap-12">
-			{#each quiz_answers as answer, i}
+			{#each quiz_answers as answer, i (answer)}
 				<div class="w-20">
 					<p
 						class="-rotate-45 text-xl text-str"

@@ -62,7 +62,7 @@ SPDX-License-Identifier: MPL-2.0
 				</tr>
 			</thead>
 			<tbody>
-				{#each usernames as uname}
+				{#each usernames as uname (uname)}
 					<tr class="text-left">
 						<td class="border-r dark:border-gray-500 p-1 border-ink/20">{uname}</td>
 						<td class="border-r dark:border-gray-500 p-1 border-ink/20"

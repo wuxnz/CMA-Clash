@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import MediaComponent from '$lib/editor/MediaComponent.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
 	import {
@@ -28,10 +30,10 @@
 	interface Props {
 		quiz: QuizItem;
 		lastPlayed?: string | null;
-		onHost: (id: string) => void;
-		onAnalytics: (quiz: QuizItem) => void;
-		onDelete: (id: string, type: 'quiz' | 'quiztivity') => void;
-		onDownload: (id: string) => void;
+		onHost: (_id: string) => void;
+		onAnalytics: (_quiz: QuizItem) => void;
+		onDelete: (_id: string, _type: 'quiz' | 'quiztivity') => void;
+		onDownload: (_id: string) => void;
 	}
 
 	let { quiz, lastPlayed = null, onHost, onAnalytics, onDelete, onDownload }: Props = $props();
@@ -94,7 +96,7 @@
 	<div class="flex items-center justify-end gap-1">
 		{#if playHref}
 			<a
-				href={playHref}
+				href={resolve(playHref as Pathname)}
 				class="action-button min-h-11 px-3 inline-flex items-center justify-center text-sm"
 			>
 				Play
@@ -109,7 +111,7 @@
 			</button>
 		{/if}
 		<a
-			href={editHref}
+			href={resolve(editHref as Pathname)}
 			class="action-button min-h-11 min-w-11 hidden sm:inline-flex items-center justify-center"
 			aria-label="Edit quiz"
 		>
@@ -137,7 +139,7 @@
 				>
 					<li class="sm:hidden">
 						<a
-							href={editHref}
+							href={resolve(editHref as Pathname)}
 							class="flex items-center gap-2 px-3 py-2.5 min-h-11 text-ink"
 							onclick={() => (menuOpen = false)}
 						>
@@ -147,7 +149,7 @@
 					{#if quiz.public && quiz.type === 'quiz'}
 						<li>
 							<a
-								href="/view/{quiz.id}"
+							href={resolve('/view/[quiz_id]', { quiz_id: quiz.id })}
 								class="flex items-center gap-2 px-3 py-2.5 min-h-11 text-ink"
 								onclick={() => (menuOpen = false)}
 							>

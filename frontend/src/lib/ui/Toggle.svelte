@@ -4,7 +4,7 @@
 		disabled?: boolean;
 		id?: string;
 		label?: string;
-		onchange?: (checked: boolean) => void;
+		onchange?: (_checked: boolean) => void;
 	}
 
 	let {

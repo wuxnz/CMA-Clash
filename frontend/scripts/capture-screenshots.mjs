@@ -4,7 +4,6 @@
  */
 import { chromium } from 'playwright';
 import { mkdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
 
 const BASE = process.env.SCREENSHOT_BASE ?? 'http://127.0.0.1:3000';
 const OUT = process.env.SCREENSHOT_OUT ?? '../cma-clash-research/screenshots/after';

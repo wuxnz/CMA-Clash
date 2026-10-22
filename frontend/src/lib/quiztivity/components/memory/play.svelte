@@ -84,7 +84,7 @@ SPDX-License-Identifier: MPL-2.0
 <div>
 	<p class="text-center">{$t('quiztivity.play.memory.try_count', { try_count })}</p>
 	<div class="grid lg:grid-cols-6 grid-cols-2 gap-2 m-4">
-		{#each random_card_order as card}
+		{#each random_card_order as card (card.text)}
 			<button
 				class="aspect-square flex border-[#B07156] border-2 rounded-sm"
 				onclick={() => {

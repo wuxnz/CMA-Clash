@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import type { PageData } from './$types';
 	import Button from '$lib/ui/Button.svelte';
 	import Footer from '$lib/footer.svelte';
@@ -49,10 +50,10 @@ SPDX-License-Identifier: MPL-2.0
 						</tr>
 					</thead>
 					<tbody>
-						{#each data.controllers as controller}
+						{#each data.controllers as controller (controller.id)}
 							<tr class="border-b border-white/[0.07]">
 								<td class="py-3 pr-3">
-									<a href="/account/controllers/{controller.id}" class="text-ink link-hover visited:text-ink">
+									<a href={resolve('/account/controllers/[controller_id]', { controller_id: controller.id })} class="text-ink link-hover visited:text-ink">
 										{controller.name}
 									</a>
 								</td>

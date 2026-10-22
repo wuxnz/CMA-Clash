@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { SvelteDate } from 'svelte/reactivity';
 	import Smalltop from './smalltop.svelte';
 	import { PopoverTypes } from '$lib/components/popover/smalltop';
 	import Cookies from 'js-cookie';
@@ -20,7 +21,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		open = true;
 		Cookies.set('commandpalette_notice', 'shown', {
-			expires: new Date().setDate(new Date().getDate() + 30)
+			expires: new SvelteDate().setDate(new SvelteDate().getDate() + 30)
 		});
 	});
 </script>

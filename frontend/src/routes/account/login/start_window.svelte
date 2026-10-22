@@ -5,6 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import Spinner from '$lib/Spinner.svelte';
 	import { getLocalization } from '$lib/i18n';
 	import OAuthBlock from './oauth_block.svelte';
@@ -103,7 +104,7 @@ SPDX-License-Identifier: MPL-2.0
 			/>
 			<div class="flex items-center justify-between gap-3 mt-4">
 				<a
-					href="/account/reset-password"
+					href={resolve('/account/reset-password')}
 					class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
 					>{$t('register_page.forgot_password?')}</a
 				>
@@ -130,5 +131,5 @@ SPDX-License-Identifier: MPL-2.0
 		>{$t('login_page.already_have_account')}
 	</span>
 
-	<a href="/account/register" class="mx-2 text-sm text-ink link-hover">{$t('words.register')}</a>
+	<a href={resolve('/account/register')} class="mx-2 text-sm text-ink link-hover">{$t('words.register')}</a>
 </div>

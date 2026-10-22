@@ -4,6 +4,10 @@ SPDX-FileCopyrightText: 2023 Marlon W (Mawoka)
 SPDX-License-Identifier: MPL-2.0
 -->
 
+<script lang="ts">
+	import { resolve } from '$app/paths';
+</script>
+
 <svelte:head>
 	<title>CMA Clash: docs - Attribution</title>
 	<meta name="description" content="People who helped making with CMA Clash." />
@@ -28,7 +32,7 @@ SPDX-License-Identifier: MPL-2.0
 	</ul>
 	<h2>Translators</h2>
 	<p>
-		People who translated CMA Clash on <a href="/docs/attribution"
+			People who translated CMA Clash on <a href={resolve('/docs/attribution')}
 			>Weblate</a
 		> or directly.
 	</p>

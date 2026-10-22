@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	interface Props {
 		href?: string;
 		variant?: 'primary' | 'secondary' | 'ghost';
@@ -6,7 +8,7 @@
 		type?: 'button' | 'submit';
 		disabled?: boolean;
 		class?: string;
-		onclick?: (e: MouseEvent) => void;
+		onclick?: (_e: MouseEvent) => void;
 		children?: import('svelte').Snippet;
 	}
 
@@ -28,7 +30,7 @@
 </script>
 
 {#if href}
-	<a {href} class={classes} aria-disabled={disabled || undefined} {onclick}>
+	<a href={resolve(href as Pathname)} class={classes} aria-disabled={disabled || undefined} {onclick}>
 		{@render children?.()}
 	</a>
 {:else}

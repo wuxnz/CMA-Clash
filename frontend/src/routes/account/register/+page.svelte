@@ -6,6 +6,7 @@ SPDX-License-Identifier: MPL-2.0
 
 <script lang="ts">
 	import { createForm } from 'felte';
+	import { resolve } from '$app/paths';
 	import { getLocalization } from '$lib/i18n';
 	import { validateSchema } from '@felte/validator-yup';
 	import { navbarVisible } from '$lib/stores.svelte.ts';
@@ -209,7 +210,7 @@ SPDX-License-Identifier: MPL-2.0
 					<input type="checkbox" name="privacy_accept" class="mt-1" />
 					<span>
 						I've read the
-						<a href="/docs/privacy-policy" class="text-ink link-hover">privacy policy</a
+						<a href={resolve('/docs/privacy-policy')} class="text-ink link-hover">privacy policy</a
 						>.
 					</span>
 				</label>
@@ -217,13 +218,13 @@ SPDX-License-Identifier: MPL-2.0
 					<input type="checkbox" name="tos_accept" class="mt-1" />
 					<span>
 						I agree to the
-						<a href="/docs/tos" class="text-ink link-hover">terms of service</a>.
+						<a href={resolve('/docs/tos')} class="text-ink link-hover">terms of service</a>.
 					</span>
 				</label>
 
 				<div class="flex items-center justify-between gap-3 pt-3 border-t border-line">
 					<a
-						href="/account/reset-password"
+						href={resolve('/account/reset-password')}
 						class="text-sm text-ink-muted link-hover min-h-11 inline-flex items-center"
 					>
 						{$t('register_page.forgot_password?')}
@@ -243,7 +244,7 @@ SPDX-License-Identifier: MPL-2.0
 			class="flex items-center justify-center py-4 px-6 text-center border-t border-line bg-paper-muted"
 		>
 			<span class="text-sm text-ink-muted">{$t('register_page.already_have_account?')}</span>
-			<a href="/account/login" class="mx-2 text-sm text-ink link-hover">{$t('words.login')}</a
+			<a href={resolve('/account/login')} class="mx-2 text-sm text-ink link-hover">{$t('words.login')}</a
 			>
 		</div>
 	</AuthShell>

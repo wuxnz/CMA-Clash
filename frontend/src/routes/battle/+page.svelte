@@ -11,6 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { setBattleHostSecret } from '$lib/cma/battle-guest';
 	import { loadPublicQuizCatalogClient } from '$lib/cma/quiz-catalog';
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	import PageHeader from '$lib/ui/PageHeader.svelte';
@@ -52,7 +53,7 @@ SPDX-License-Identifier: MPL-2.0
 		if (lobby.host_secret) {
 			setBattleHostSecret(lobby.battle_code, lobby.host_secret);
 		}
-		goto(`/battle/${lobby.battle_code}`);
+		goto(resolve('/battle/[code]', { code: lobby.battle_code }));
 	}
 </script>
 
@@ -76,7 +77,7 @@ SPDX-License-Identifier: MPL-2.0
 				class="flex flex-col sm:flex-row gap-2"
 				onsubmit={(e) => {
 					e.preventDefault();
-					if (joinCode.trim()) goto(`/battle/${joinCode.trim().toUpperCase()}`);
+						if (joinCode.trim()) goto(resolve('/battle/[code]', { code: joinCode.trim().toUpperCase() }));
 				}}
 			>
 				<input

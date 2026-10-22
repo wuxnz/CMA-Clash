@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import type { Pathname } from '$app/types';
 	import { onMount } from 'svelte';
 	import { prefersReducedMotion } from './motion';
 
@@ -9,7 +11,7 @@
 		disabled?: boolean;
 		static?: boolean;
 		children?: import('svelte').Snippet;
-		onclick?: (e: MouseEvent) => void;
+		onclick?: (_e: MouseEvent) => void;
 	}
 
 	let {
@@ -53,7 +55,7 @@
 
 {#if href}
 	<a
-		{href}
+		href={resolve(href as Pathname)}
 		class="{baseClass} {className}"
 		style={canMagnet ? `transform: translate(${x}px, ${y}px);` : undefined}
 		onpointermove={onMove}

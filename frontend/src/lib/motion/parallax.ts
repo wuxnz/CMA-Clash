@@ -13,7 +13,6 @@ export const scrollParallax: Action<HTMLElement, ParallaxOptions | undefined> = 
 
 	loadGsap().then(async (gsap) => {
 		if (destroyed) return;
-		const { ScrollTrigger } = await import('gsap/ScrollTrigger');
 		gsap.to(node, {
 			y: () => speed * 80,
 			ease: 'none',
