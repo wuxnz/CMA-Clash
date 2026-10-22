@@ -286,6 +286,21 @@ async def register_as_admin(sid: str, data: dict):
     await save_session(sid, sio, session)
     await sio.enter_room(sid, game_pin)
     await sio.enter_room(sid, f"admin:{data.game_pin}")
+    # Replay the current lobby roster so a refreshed host page is not blank.
+    try:
+        _existing_players = await redis.smembers(f"game_session:{game_pin}:players")
+    except Exception:
+        _existing_players = set()
+    for _raw in _existing_players:
+        try:
+            _player = GamePlayer.model_validate_json(_raw)
+        except Exception:
+            continue
+        await sio.emit(
+            "player_joined",
+            {"username": _player.username, "sid": _player.sid},
+            room=f"admin:{data.game_pin}",
+        )
     game_data = await PlayGame.get_from_redis(game_pin)
     if game_data.started:
         await sio.emit("start_game", room=sid)
