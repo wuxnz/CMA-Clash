@@ -84,12 +84,23 @@ SPDX-License-Identifier: MPL-2.0
 		return abcd[Math.floor(Math.random() * abcd.length)];
 	}
 
+	/** Shorten a quiz title on a word boundary so the eyebrow never ends mid-word. */
+	function truncateTitle(title: string, max = 28): string {
+		if (title.length <= max) {
+			return title;
+		}
+		const clipped = title.slice(0, max - 1);
+		const lastSpace = clipped.lastIndexOf(' ');
+		const base = lastSpace > 12 ? clipped.slice(0, lastSpace) : clipped;
+		return `${base.replace(/[\s.,;:—–-]+$/, '')}…`;
+	}
+
 	function toPayload(quizTitle: string, q: Question): PreviewPayload {
 		const answers = (q.answers as Answer[]).slice(0, 4).map((a) => ({
 			text: a.answer,
 			right: Boolean(a.right)
 		}));
-		const shortTitle = quizTitle.length > 28 ? `${quizTitle.slice(0, 25)}.` : quizTitle;
+		const shortTitle = truncateTitle(quizTitle);
 		return {
 			tagLine: `${certificationShortLabel('ccma')} — ${shortTitle}`,
 			question: q.question,
@@ -108,7 +119,15 @@ SPDX-License-Identifier: MPL-2.0
 		if (!res?.ok) {
 			return [];
 		}
-		const list = (await res.json()) as QuizBrowseItem[];
+		let list: QuizBrowseItem[];
+		try {
+			list = (await res.json()) as QuizBrowseItem[];
+		} catch {
+			return [];
+		}
+		if (!Array.isArray(list)) {
+			return [];
+		}
 		quizPool = list.filter((q) => q.question_count > 0);
 		return quizPool;
 	}
@@ -133,7 +152,12 @@ SPDX-License-Identifier: MPL-2.0
 			if (!res?.ok) {
 				continue;
 			}
-			const quiz = await res.json();
+			let quiz: { questions?: Question[] };
+			try {
+				quiz = (await res.json()) as { questions?: Question[] };
+			} catch {
+				continue;
+			}
 			const picked = pickAbcdQuestion(quiz.questions ?? []);
 			if (!picked) {
 				continue;
@@ -166,6 +190,10 @@ SPDX-License-Identifier: MPL-2.0
 		loadRandomQuestion();
 	}
 
+	onMount(() => {
+		void loadRandomQuestion();
+	});
+
 	function answerTileClass(index: number): string {
 		const base =
 			'rounded-none p-4 sm:p-5 text-ink min-h-[6rem] sm:min-h-[7rem] flex flex-col items-start justify-between gap-3 press-scale cursor-pointer border-l-2 text-left transition-colors duration-200';
@@ -183,7 +211,11 @@ SPDX-License-Identifier: MPL-2.0
 	}
 </script>
 
-<div class="border border-line bg-paper p-5 sm:p-8 w-full min-w-0" aria-live="polite">
+<div
+	class="border border-line bg-paper p-5 sm:p-8 w-full min-w-0"
+	aria-live="polite"
+	data-testid="home-preview-question"
+>
 	<div class="flex items-center justify-between pb-4 border-b border-line">
 		<span class="font-mono text-[0.66rem] tracking-[0.2em] text-primary">Sample item</span>
 		<span class="font-mono text-xs text-ink-muted tabular-nums">{questionNumber} / 12</span>
