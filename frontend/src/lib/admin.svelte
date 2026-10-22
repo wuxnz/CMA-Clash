@@ -269,7 +269,7 @@ SPDX-License-Identifier: MPL-2.0
 					question={game_state.quiz_data.questions[game_state.selected_question]}
 				/>
 			{/await}
-		{:else if hostKahootStyle && livePhase === 'intro' && activeQ}
+		{:else if livePhase === 'intro' && activeQ}
 			<QuestionIntro
 				hostFit
 				question={activeQ.question}
