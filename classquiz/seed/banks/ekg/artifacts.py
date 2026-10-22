@@ -68,7 +68,7 @@ FACTS: list[dict] = [
         [
             "Reposition all limb electrodes to the abdomen for stability",
             "Diagnose anterior STEMI because one precordial lead is flat",
-            "Increase heart rate alarm limits on the monitor display panel only",
+            "Increase the heart rate alarm limits on the monitor display panel",
         ],
         "Single-lead loss is usually local contact or cable fault. Moving all limbs, labeling STEMI from one flat lead, or alarm changes do not fix an isolated V3 circuit problem.",
         [S.NHA_CCMA],
@@ -81,7 +81,7 @@ FACTS: list[dict] = [
         [
             "Apply petroleum jelly under each pad to seal moisture and sweat buildup",
             "Increase monitor gain until dropout no longer appears on screen",
-            "Switch to lead aVR only and omit the affected chest leads",
+            "Switch to lead aVR and omit the affected chest leads from the study",
         ],
         "Drying and new pads restore impedance. Petroleum traps moisture, gain tricks mask poor contact, and dropping chest leads abandons the ordered precordial view.",
         [S.NHA_CCMA],
@@ -94,7 +94,7 @@ FACTS: list[dict] = [
         [
             "Whether repeat acquisition is needed if ST segments remain uninterpretable",
             "The brand of monitor used without describing tracing quality",
-            "Only the time of day the study was performed",
+            "The time of day the study was performed on the unit",
         ],
         "Documentation must address whether the strip supports the clinical question. Uninterpretable ST may need repeat; brand and clock time alone do not establish diagnostic adequacy.",
         [S.NHA_CCMA],
@@ -107,7 +107,7 @@ FACTS: list[dict] = [
         [
             "Call the rhythm ventricular fibrillation because spikes are present on strip",
             "Ignore spikes and report pure sinus rhythm without review",
-            "Delete spikes electronically and treat as normal sinus only",
+            "Delete the spikes electronically and treat the rhythm as normal sinus",
         ],
         "Captured paced beats show spike-to-QRS relationship; native beats lack spikes. VF is chaotic without consistent capture, and deleting spikes hides pacemaker function.",
         [S.NHA_CCMA],
@@ -184,7 +184,7 @@ FACTS: list[dict] = [
         "Clip-style electrodes for hairy skin per manufacturer guidance",
         [
             "Pads pressed onto chest hair without skin contact at the landmark",
-            "Limb leads only with omission of the entire precordial set",
+            "Limb leads with omission of the entire precordial electrode set",
             "Lotion rubbed into hair to hold standard pads",
         ],
         "Specialized electrodes improve contact on hair. Hair-only contact, limb-only studies, and lotion increase impedance and artifact.",
@@ -275,7 +275,7 @@ FACTS: list[dict] = [
         "Secure cables to skin or gown with slack relief at landmarks",
         [
             "Tighten wires until electrodes lift off the chest wall",
-            "Switch to blood pressure waveform as the only rhythm source on monitor",
+            "Switch to the blood pressure waveform as the rhythm source on the monitor",
             "Place electrodes on the jersey fabric over the chest",
         ],
         "Slack relief reduces bounce artifact while preserving contact. Overtightening lifts pads, pressure waves are not 12-lead EKG, and fabric blocks signal.",
@@ -300,8 +300,8 @@ FACTS: list[dict] = [
         "How does loose electrode artifact differ from true asystole on the monitor?",
         "Loose: some channels flat, others QRS; asystole: all leads flat, no pulse",
         [
-            "Loose leads always show tachycardia above 150 in every lead on the strip always",
-            "Asystole always shows tall peaked T waves before flat line in all leads",
+            "Loose leads show a fast irregular baseline in a few of the leads on the monitor",
+            "Asystole shows tall peaked T waves before a flat line in all leads",
             "Loose leads produce sawtooth waves at 300 per minute",
         ],
         "Selective flat channels suggest technical failure; global asystole with no pulse is arrest. Tachycardia, peaked T, and flutter are organized patterns unlike simple dropout.",
@@ -337,11 +337,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A smartphone is held close to the EKG cable bundle during acquisition. Brief high-frequency noise appears. Best prevention?",
-        "Keep mobile devices away from patient cables and use grounded equipment",
+        "Keep mobile devices away from cables and use grounded equipment",
         [
-            "Disable all monitor alarms for the rest of the shift",
-            "Move every electrode to the lower extremities",
-            "Record only lead I for the entire 12-lead order without any chest leads",
+            "Disable all of the monitor alarms for the rest of the clinical shift",
+            "Move every electrode to the lower extremities of the patient",
+            "Record lead I for the entire 12-lead order and omit the chest leads",
         ],
         "RF pickup decreases with distance and proper grounding. Alarm changes, leg-only placement, and single-lead recording do not address RF coupling.",
         [S.NHA_CCMA],
@@ -380,7 +380,7 @@ FACTS: list[dict] = [
         [
             "Reuse the same irritated skin to keep lead positions identical",
             "Apply cyanoacrylate glue before standard pads on broken skin",
-            "Skip skin inspection because redness cannot affect tracings or contact",
+            "Continue without skin inspection because redness cannot affect the tracing",
         ],
         "Rotating sites protects skin and contact quality. Reusing damaged skin, glue on injury, or ignoring dermatitis risks artifact and harm.",
         [S.NHA_CCMA],
@@ -421,7 +421,7 @@ FACTS: list[dict] = [
             "Paced beat with failure to capture on the monitor strip",
             "Delta wave with short PR in lead II and widened QRS",
         ],
-        "Equipment spikes are brief and external; PVCs have wide QRS, non-capture shows spikes without QRS, WPW alters conduction pattern.",
+        "Equipment spikes from an in-bed scale are brief and external to the heart. A PVC has a wide QRS with a compensatory pause, non-capture shows pacing spikes without a following QRS, and a delta wave changes the conduction pattern with a short PR interval.",
         [S.NHA_CCMA],
         "advanced",
     ),
@@ -467,11 +467,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "When should the technician review the tracing at the bedside immediately after acquisition?",
-        "Review at bedside when quality may affect interpretation before the patient leaves",
+        "Review at bedside before the patient leaves when quality may affect reading",
         [
-            "Only when the ordering provider is physically present in the room during acquisition",
-            "Never review at bedside because storage systems auto-correct all artifact later",
-            "Only for pediatric patients under 12 years of age without adult exceptions",
+            "When the ordering provider is physically present in the room during acquisition",
+            "Defer bedside review because storage systems auto-correct artifact later",
+            "For pediatric patients under 12 years of age without adult exceptions",
         ],
         "Bedside review catches loose leads while repositioning is possible. Provider presence, automatic correction myths, and age limits do not replace quality checks.",
         [S.NHA_CCMA],
@@ -480,9 +480,9 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "A nicotine patch lies under planned V2 placement. What is the appropriate action?",
-        "Remove patch if allowed, clean residue, and place electrode on skin at landmark",
+        "Remove the patch if allowed, clean the residue, and place V2 on skin",
         [
-            "Place V2 directly on the patch for consistent position every time regardless of policy",
+            "Place V2 directly on the patch for a consistent position each time",
             "Cancel all future EKG orders for every patient who wears nicotine patches",
             "Move V2 to the back without noting the electrode change in the chart",
         ],
@@ -493,13 +493,13 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "Wet alcohol prep was not allowed to dry before pad application. How does this differ from proper prep with dry alcohol technique?",
-        "Undried alcohol increases impedance and baseline drift until skin is dry",
+        "Undried alcohol increases impedance and baseline drift until skin dries",
         [
-            "Undried alcohol shortens PR interval to below 0.12 second on every beat always",
+            "Undried alcohol shortens the PR interval to below 0.12 second on each beat",
             "Undried alcohol produces delta waves in limb leads",
             "Undried alcohol converts rhythm to atrial flutter on the strip",
         ],
-        "Moisture under pads causes wander; it does not change AV conduction, pre-excitation, or create flutter waves.",
+        "Moisture trapped under the pads raises impedance and causes baseline wander until the skin dries. It does not change AV conduction, produce a delta wave, or create flutter waves on the tracing.",
         [S.NHA_CCMA],
         "beginner",
     ),
@@ -523,7 +523,7 @@ FACTS: list[dict] = [
         [
             "Treat as STEMI using the unreadable ST segments on the current strip",
             "Assume ST segments are normal in all future studies without repeat",
-            "Use pulse oximetry plethysmograph waveform as ST segment substitute always",
+            "Use the pulse oximetry plethysmograph waveform as an ST segment substitute",
         ],
         "Therapy needs readable ST or reliable comparison. Treating noise, assuming normals, or substituting plethysmography misguides care.",
         [S.NHA_CCMA],
@@ -532,11 +532,11 @@ FACTS: list[dict] = [
     fact(
         "ekg-artifacts",
         "Cold outdoor exposure causes shivering during a field EKG. The strip is noisy but perfusing rhythm is suspected. Best approach?",
-        "Warm the patient, reduce shivering, and repeat the tracing when motion decreases",
+        "Warm the patient, reduce shivering, and repeat the tracing when still",
         [
             "Interpret the noisy strip as ventricular fibrillation requiring immediate shock",
             "Start anticoagulation for atrial fibrillation on the noisy strip without repeat",
-            "Defibrillate because baseline oscillates on the monitor strip during shiver only",
+            "Defibrillate because the baseline oscillates on the monitor during shivering",
         ],
         "Hypothermic shiver adds noise; warming permits clearer rhythm analysis. VF therapy and AF anticoagulation require clearer diagnosis.",
         [S.NHA_CCMA],

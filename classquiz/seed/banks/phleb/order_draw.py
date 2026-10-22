@@ -13,11 +13,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Why does CLSI GP41 specify a collection sequence when multiple vacuum tubes are filled from one venipuncture?",
-        "To limit additive carryover that spoils coagulation, chemistry, and hematology results",
+        "To limit additive carryover that spoils coagulation and chemistry results",
         [
-            "To match tube order to stopper size on the collection tray",
-            "To keep the tourniquet on until every tube is completely filled",
-            "Because stopper color shows storage shelf rather than draw sequence",
+            "To match the tube order to the stopper size on the collection tray",
+            "To keep the tourniquet on until every one of the tubes is filled",
+            "Because the stopper color shows the storage shelf rather than the draw sequence",
         ],
         "Additive from an earlier tube can enter the next tube and skew assays such as PT/INR or calcium. "
         "Choosing sequence by tube size or convenience ignores the cross-contamination risk CLSI documents for multi-tube draws.",
@@ -31,7 +31,7 @@ FACTS: list[dict] = [
         [
             "After gray-top fluoride tubes because they complete the CLSI sequence",
             "After all chemistry and gel separator tubes to reduce hemolysis in cultures",
-            "In any convenient order because tube sequence does not alter culture accuracy",
+            "In a convenient order because the tube sequence does not alter cultures",
         ],
         "CLSI prioritizes culture collection early to limit skin-flora and additive contamination. "
         "Drawing routine tubes first is a common error that can produce false-positive cultures.",
@@ -43,8 +43,8 @@ FACTS: list[dict] = [
         "In the CLSI multi-tube venipuncture sequence, which tube type typically follows blood cultures?",
         "Light blue sodium citrate used for coagulation testing",
         [
-            "Gold or tiger-top serum separator tube ahead of any citrate tube",
-            "Lavender EDTA tube before any other additive tube on the same stick",
+            "Gold or tiger-top serum separator tube ahead of the citrate tube",
+            "Lavender EDTA tube before the other additive tubes on the same stick",
             "Gray sodium fluoride tube placed ahead of light blue citrate",
         ],
         "Citrate follows cultures so EDTA, oxalate, or gel additives do not carry into coagulation specimens. "
@@ -55,11 +55,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Where does a light blue sodium citrate tube belong in a standard multi-tube venipuncture?",
-        "Right after blood cultures and before serum, heparin, EDTA, and gray tubes",
+        "Right after blood cultures and before the serum and additive tubes",
         [
-            "As the last tube after the gray fluoride tube in the teaching order",
+            "As the last tube after the gray fluoride tube in the teaching order used",
             "Before blood cultures when prothrombin time is ordered",
-            "Only on solitary citrate draws with no other tubes on the stick",
+            "Used on solitary citrate draws with no other tubes on the same stick",
         ],
         "Citrate must follow cultures and precede serum and other additives that can carry into the coagulation tube. "
         "Drawing citrate last or before cultures misstates the CLSI sequence used in practice.",
@@ -111,11 +111,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "You poured blood from one tube into another to top off a short fill. What is the appropriate response?",
-        "Do not use either tube for testing; recollect per policy and document the error",
+        "Do not use either tube; recollect per policy and document the error",
         [
             "Invert both tubes gently and submit them because additives will equilibrate",
-            "Add sterile saline to the underfilled tube until it reaches the mark",
-            "Centrifuge the overfilled tube and send the plasma portion alone",
+            "Add the sterile saline to the underfilled tube until it reaches the mark",
+            "Centrifuge the overfilled tube and send the plasma portion of it alone",
         ],
         "Pouring between tubes cross-contaminates additives and invalidates results. "
         "Saline top-off or selective plasma submission destroys the defined blood-to-additive ratios CLSI requires.",
@@ -139,10 +139,10 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "According to injection safety and OSHA bloodborne pathogen guidance, how should phlebotomy needles be used?",
-        "One patient, one use, with immediate disposal in an approved sharps container",
+        "One patient, one use, with disposal in an approved sharps container",
         [
             "Wiped with alcohol between patients when the hub appears clean",
-            "Recapped by hand and stored in a drawer for the next venipuncture on another patient",
+            "Recapped by hand and stored in a drawer for the next draw",
             "Bent to break the bevel and placed in a regular waste container between uses",
         ],
         "The One & Only Campaign and OSHA rules require single-patient use of sharps with puncture-resistant disposal. "
@@ -167,11 +167,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "When an evacuated tube shows a fill-to mark, especially on citrate, what fill practice is required?",
-        "Fill to the mark so the blood-to-additive ratio meets manufacturer specifications",
+        "Fill to the mark so the blood-to-additive ratio is correct",
         [
-            "Any visible blood in the tube meets fill requirements for coagulation testing",
-            "Fill above the mark to guarantee enough plasma for repeat analysis",
-            "Underfill on difficult veins and send without notifying the laboratory",
+            "Visible blood in the tube meets the fill requirement for coagulation testing",
+            "Fill above the mark to guarantee enough plasma for the repeat analysis",
+            "Underfill on the difficult veins and send it without notifying the laboratory",
         ],
         "Citrate tubes depend on a fixed blood-to-anticoagulant ratio; underfills dilute anticoagulant relative to plasma. "
         "Overfilling seems helpful for repeat testing but is equally invalid under CLSI coagulation guidance.",
@@ -195,11 +195,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "If a single lavender EDTA tube is the sole collection on a stick, when do CLSI order-of-draw rules chiefly matter?",
-        "When multiple tubes or prior additive exposure occur on the same needle stick",
+        "When several tubes or prior additive exposure share one needle stick",
         [
-            "On every venipuncture even when just one tube is ordered",
-            "For arterial collections but not for routine peripheral venous draws",
-            "For pediatric heel sticks but not for adult antecubital venipuncture",
+            "On every venipuncture even when just a single tube is ordered",
+            "For the arterial collections but not for the routine peripheral venous draws",
+            "For the pediatric heel sticks but not for the adult antecubital venipuncture",
         ],
         "Carryover requires more than one tube in the set; a solitary EDTA draw has no prior additive in the line. "
         "Over-applying order rules can delay urgent single-tube collections without improving specimen quality.",
@@ -209,11 +209,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Coagulation tests are ordered without serum tubes. Why might a non-additive discard tube precede light blue citrate?",
-        "To clear needle and holder dead space so tissue thromboplastin does not falsely shorten clotting times",
+        "To clear dead space so tissue thromboplastin does not shorten clotting times",
         [
-            "Because citrate tubes are prohibited from being first on any draw list",
-            "To dilute citrate anticoagulant so mixing is easier in underfilled tubes",
-            "Because discard tubes contain EDTA to prevent clotting in the adapter",
+            "Because the citrate tubes are prohibited from being first on the draw list",
+            "To dilute the citrate anticoagulant so the mixing is easier in underfilled tubes",
+            "Because the discard tubes contain EDTA to prevent clotting in the adapter",
         ],
         "Dead-space contamination falsely shortens PT and aPTT; a discard tube clears tissue thromboplastin without adding anticoagulant. "
         "Believing citrate can never be first ignores CLSI discard-tube protocols used on coagulation-only draws.",
@@ -251,10 +251,10 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "If a green heparin tube is drawn before light blue citrate on one stick, what is the primary risk?",
-        "Heparin carryover that interferes with subsequent citrate coagulation testing",
+        "Heparin carryover that interferes with the citrate coagulation tests",
         [
             "Immediate hemolysis confined to a later gray glucose tube on the same stick",
-            "False-positive blood culture bottles filled after the heparin tube on the same venipuncture",
+            "False-positive blood culture bottles filled after the heparin tube",
             "Mandatory invalidation of a urine culture unrelated to the venipuncture",
         ],
         "Even trace heparin alters clotting assays, which is why CLSI places heparin after citrate. "
@@ -265,11 +265,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "During butterfly collection of multiple evacuated tubes, why maintain blood flow between tube changes?",
-        "To reduce stasis, clot formation in the tubing, and underfilled additive tubes",
+        "To reduce stasis, clot formation in the tubing, and underfilled tubes",
         [
-            "To draw air into the tubing so vacuum tubes fill more quickly",
-            "To keep the tourniquet maximally tight until the final tube disconnects",
-            "To dry the needle bore between tubes and reduce hub contamination",
+            "To draw the air into the tubing so the vacuum tubes fill more quickly",
+            "To keep the tourniquet maximally tight until the final tube disconnects from it",
+            "To dry the needle bore between the tubes and reduce the hub contamination",
         ],
         "Paused flow lets micro-clots form that plug the set and prevent proper citrate fills. "
         "Introducing air or drying the needle increases hemolysis and failed draws rather than improving fill quality.",
@@ -281,9 +281,9 @@ FACTS: list[dict] = [
         "Blood is collected with a syringe and transferred through a safety transfer device. What does CLSI require?",
         "The same order of draw and fill-volume rules as direct vacuum collection",
         [
-            "Any transfer sequence because syringe plastic binds additive chemicals",
-            "Serum tubes after all additive tubes when coagulation and chemistry share one stick",
-            "Citrate first after cultures even when transfer delays exceed several minutes",
+            "A convenient transfer sequence because the syringe plastic binds the additives",
+            "Serum tubes after the additive tubes when the tests share one stick",
+            "Citrate first after the cultures even when the transfer delay is long",
         ],
         "Syringe technique does not waive ratio or sequence requirements; citrate still needs proper fill and placement. "
         "Believing syringes neutralize additives ignores carryover through the transfer needle hub.",
@@ -349,11 +349,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Pediatric blood is collected into microtainer tubes on one puncture. What sequence rule still applies?",
-        "A laboratory-approved order of draw to limit additive carryover between microcontainers",
+        "A laboratory-approved order of draw to limit additive carryover",
         [
-            "No sequence rules because pediatric microvolumes are too small for carryover",
-            "Culture tubes last on the stick even when sterile cultures were filled first elsewhere",
-            "Lavender EDTA before citrate because infants clot more quickly than adults",
+            "No sequence rules because the pediatric microvolumes are too small for carryover",
+            "Culture tubes last on the stick even when the sterile cultures were filled first",
+            "Lavender EDTA before the citrate because the infants clot more quickly",
         ],
         "Small volumes magnify ratio errors, and microtainers follow the same carryover principles as adult evacuated tubes. "
         "Assuming volume exempts pediatrics from sequence is a common teaching gap on CLSI-aligned order-of-draw charts.",
@@ -363,11 +363,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Tubes for a coagulation and CBC panel were filled in reverse order. What should the phlebotomist do?",
-        "Notify the laboratory promptly and recollect per policy when results may be affected",
+        "Notify the laboratory promptly and recollect per policy when needed",
         [
-            "Relabel tubes to reflect the intended order and submit them for testing",
-            "Add saline to the citrate tube to restore the blood-to-anticoagulant ratio",
-            "Freeze all tubes immediately to halt further additive interaction",
+            "Relabel the tubes to reflect the intended order and submit them for testing",
+            "Add the saline to the citrate tube to restore the blood-to-anticoagulant ratio",
+            "Freeze all of the tubes immediately to halt the further additive interaction",
         ],
         "Relabeling does not remove additive contamination already present in the specimens. "
         "Saline dilution or freezing cannot restore valid coagulation ratios once carryover occurs.",
@@ -377,11 +377,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Why should routine non-culture tubes not be filled before blood cultures when both are required on one stick?",
-        "Non-sterile hub flow can introduce skin organisms that produce false-positive culture results",
+        "Non-sterile hub flow can introduce skin organisms and false-positive cultures",
         [
-            "Culture bottles cannot withstand vacuum pressure from evacuated tubes",
-            "Routine additive tubes contain broth that sterilizes organisms in culture media",
-            "CLSI limits blood cultures to arterial puncture sites rather than peripheral veins",
+            "The culture bottles cannot withstand the vacuum pressure from the tubes",
+            "The routine additive tubes contain broth that sterilizes organisms in the media",
+            "CLSI limits the blood cultures to arterial puncture sites",
         ],
         "Sterile culture technique requires filling bottles before hub contamination from other tubes. "
         "Believing routine tubes protect cultures or that cultures must be arterial misstates CLSI venipuncture practice.",
@@ -391,11 +391,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "After filling a lavender EDTA tube, a student shakes it vigorously for about 30 seconds. Why is that mixing technique inappropriate?",
-        "It can hemolyze red cells and falsely elevate potassium and other cell-bound analytes",
+        "It can hemolyze red cells and falsely elevate potassium and other analytes",
         [
-            "It can hemolyze red cells and falsely lower potassium while platelets clump in fibrin strands",
-            "It improves platelet dispersion so automated counts match manual smear differentials",
-            "It is required because lavender tubes contain clot activator for serum separation",
+            "It can hemolyze the red cells and falsely lower the potassium",
+            "It improves the platelet dispersion so the automated counts match the smears",
+            "It is required because the lavender tubes contain clot activator for the serum",
         ],
         "Hemolysis releases intracellular potassium and other analytes; CLSI recommends gentle inversion for EDTA, not violent shaking. "
         "Believing lavender needs clot activator or that mixing is optional confuses hematology tubes with gold serum separator tubes.",
@@ -408,9 +408,9 @@ FACTS: list[dict] = [
         "When should the gold SST tube be filled relative to citrate and the heparin or lavender tubes?",
         "After light blue citrate and before green heparin or lavender EDTA",
         [
-            "Before sterile blood cultures so serum clots before other additives enter the line",
-            "Before light blue citrate whenever a comprehensive chemistry panel is on the requisition",
-            "Immediately after gray-top fluoride tubes in the standard teaching sequence",
+            "Before the sterile blood cultures so the serum clots before other additives",
+            "Before the light blue citrate whenever a chemistry panel is on the requisition",
+            "Immediately after the gray-top fluoride tubes in the standard teaching sequence",
         ],
         "SST belongs after cultures and citrate so gel and clot activator do not carry into coagulation specimens. "
         "Drawing SST before cultures or citrate, or assuming gray must precede SST, misapplies the CLSI serum group placement.",
@@ -421,11 +421,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Prothrombin time is the only test ordered, and you plan one properly filled light blue citrate tube with no other tubes on that needle stick. "
         "Is that collection acceptable under CLSI order-of-draw principles?",
-        "Yes, because carryover rules apply when multiple additive tubes share one needle stick",
+        "Yes, because carryover rules apply when several tubes share a stick",
         [
-            "No, lavender EDTA must precede citrate on every venipuncture requisition",
-            "Yes, but a gray-top fluoride tube must be collected first to stabilize the specimen",
-            "No, citrate cannot serve as the solitary tube during outpatient phlebotomy",
+            "No, the lavender EDTA must precede the citrate on every venipuncture",
+            "Yes, but a gray-top fluoride tube must be collected first to stabilize it",
+            "No, the citrate cannot serve as the solitary tube during outpatient draws",
         ],
         "A single citrate draw has no prior additive in the line, so multi-tube sequencing rules do not apply. "
         "Requiring lavender or gray before a lone citrate tube misextends carryover guidance from composite draws.",
@@ -437,9 +437,9 @@ FACTS: list[dict] = [
         "When pink-top EDTA blood bank tubes are included in a multi-tube venipuncture, when are they typically filled?",
         "Per facility blood bank chart, often after culture, citrate, and serum steps",
         [
-            "Before sterile blood cultures to preserve ABO and Rh typing antigens in the bottle",
-            "From arterial catheters exclusively rather than routine peripheral venipuncture sites",
-            "After gray-top fluoride tubes because ABO typing requires fluoride preservative",
+            "Before the sterile blood cultures to preserve the ABO typing antigens",
+            "From the arterial catheters exclusively rather than the routine venipuncture",
+            "After the gray-top fluoride tubes because the ABO typing needs it",
         ],
         "Blood bank SOPs define pink placement; it is not interchangeable with routine lavender timing on the same chart. "
         "Drawing pink before sterile cultures or assuming fluoride stabilizes typing risks contamination and misinterpreted transfusion workups.",
@@ -450,11 +450,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "During a difficult multi-tube draw you leave the tourniquet inflated while changing several evacuated tubes. "
         "Which preanalytic change is most likely on chemistry results?",
-        "Hemoconcentration with artifactually elevated protein-bound analytes and potassium",
+        "Hemoconcentration with artifactually elevated protein-bound analytes",
         [
-            "Improved citrate mixing that makes prothrombin time more representative of in vivo clotting",
-            "No measurable preanalytic effect once bedside labels are applied to each tube",
-            "Selective distortion of urine drug screens collected later the same day",
+            "Improved citrate mixing that makes the PT reflect the in vivo clotting",
+            "No measurable preanalytic effect once the bedside labels are applied",
+            "The selective distortion of the urine drug screens collected later the same day",
         ],
         "CLSI recommends limiting tourniquet time because extended venous stasis concentrates analytes in the limb. "
         "Assuming labels fix stasis effects or that tourniquet time affects urine but not venous chemistry ignores documented hemoconcentration.",
@@ -464,11 +464,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Midway through a multi-tube venipuncture you see clot in the needle hub. What is the appropriate next step?",
-        "Stop, discard the collection set per policy, and recollect instead of continuing",
+        "Stop, discard the collection set per policy, and recollect",
         [
-            "Flush the visible clot into the next lavender EDTA tube to avoid wasting vacuum tubes",
-            "Attach additional vacuum tubes until the clot passes and flow resumes normally",
-            "Continue the draw if the light blue citrate tube already reached the fill mark",
+            "Flush the visible clot into the next lavender EDTA tube",
+            "Attach the additional vacuum tubes until the clot passes and the flow resumes",
+            "Continue the draw if the light blue citrate tube already reached the mark",
         ],
         "Clot in the hub invalidates hematology specimens and may prevent proper fills on remaining tubes. "
         "Flushing clot into EDTA contaminates the CBC, and continuing after a compromised line risks cascading erroneous results.",
@@ -478,11 +478,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "When transferring blood from a syringe through a device that pierces tube stoppers, what injection-safety rule applies to that transfer device?",
-        "Use a new sterile device for each patient and tube set to maintain closed-system safety",
+        "Use a new sterile device for each patient and tube set",
         [
-            "Reuse the same transfer needle on multiple patients when gloves are changed between sticks",
-            "Reserve transfer devices for glass tubes because plastic stoppers cannot be pierced safely",
-            "Rinse the transfer needle with alcohol between patients during busy outpatient sessions",
+            "Reuse the same transfer needle on multiple patients between the sticks",
+            "Reserve the transfer devices for the glass tubes, not the plastic stoppers",
+            "Rinse the transfer needle with the alcohol between the patients",
         ],
         "OSHA and WHO injection-safety guidance require single-patient use of sharps, including transfer needles. "
         "Plastic stoppers are designed for piercing with single-use transfer devices; alcohol rinsing does not restore sterility between patients.",
@@ -493,11 +493,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "In the emergency department you filled lavender EDTA before light blue citrate for a trauma coagulation panel. "
         "How should the laboratory treat prothrombin time from that citrate tube?",
-        "Treat results as suspect for EDTA carryover and likely require recollection per policy",
+        "Treat results as suspect for EDTA carryover and require recollection",
         [
-            "Accept results as valid if the citrate tube was inverted the recommended number of times",
-            "Accept results as valid when the patient is not taking prescribed anticoagulant medication",
-            "Accept results as valid if a gold SST tube was collected between the lavender and citrate tubes",
+            "Accept the results as valid if the citrate tube was inverted enough times",
+            "Accept the results as valid when the patient is not taking an anticoagulant",
+            "Accept the results as valid if a gold SST tube was drawn between the tubes",
         ],
         "EDTA in the needle hub chelates calcium and falsifies coagulation even with correct inversion technique. "
         "An intermediate SST tube does not remove EDTA already in the line, and attributing abnormal PT to anticoagulant therapy delays error recognition.",
@@ -510,9 +510,9 @@ FACTS: list[dict] = [
         "What is the best next step?",
         "Discard the underfilled citrate tube and recollect coagulation per policy",
         [
-            "Send the underfilled citrate with a difficult-vein comment on the form",
-            "Add sterile saline to the fill mark before inverting the citrate tube",
-            "Invert the citrate tube vigorously to concentrate plasma for testing",
+            "Send the underfilled citrate with a difficult-vein comment on the request",
+            "Add the sterile saline to the fill mark before inverting the citrate tube",
+            "Invert the citrate tube vigorously to concentrate the plasma for testing",
         ],
         "Citrate coagulation testing depends on a fixed blood-to-anticoagulant ratio; underfill dilutes the specimen and prolongs clotting times. "
         "Saline top-off or aggressive mixing cannot restore a valid ratio once the tube is underfilled.",
@@ -523,11 +523,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A fasting patient needs aerobic and anaerobic cultures, PT/INR, a comprehensive metabolic panel on SST, CBC, and fluoride glucose on one stick. "
         "Which collection sequence aligns with CLSI principles?",
-        "Cultures first, then citrate, SST or serum, heparin if ordered, EDTA, then gray fluoride last",
+        "Cultures, then citrate, SST or serum, heparin, EDTA, and gray fluoride last",
         [
-            "Gray fluoride first for glucose, then cultures, citrate, lavender, and SST",
-            "Lavender EDTA, cultures, citrate, SST, and gray fluoride in that order",
-            "SST before cultures because the chemistry panel is marked stat on the requisition",
+            "The gray fluoride first for glucose, then cultures, citrate, lavender, and SST",
+            "The lavender EDTA, cultures, citrate, SST, and gray fluoride in that order",
+            "The SST before the cultures because the chemistry panel is marked stat",
         ],
         "Sterile cultures take priority, citrate precedes EDTA to protect coagulation, and gray fluoride belongs last to limit additive carryover. "
         "Drawing gray, lavender, or SST before cultures trades convenience for contaminated bottles and invalid coagulation or chemistry specimens.",
@@ -538,11 +538,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Using a butterfly with a safety valve, you note sluggish flow and a fibrin strand in the tubing before attaching the light blue citrate tube. "
         "What action best protects coagulation results?",
-        "Discontinue the draw, dispose of the set, and restart with new equipment following order of draw",
+        "Discontinue the draw, dispose of the set, and restart with new equipment",
         [
-            "Push sterile saline through the valve to flush the fibrin strand into a waste tube",
-            "Attach the citrate tube anyway and increase inversion time after collection",
-            "Switch to a larger-gauge needle but continue using the same tubing set",
+            "Push the sterile saline through the valve to flush the fibrin into a waste tube",
+            "Attach the citrate tube anyway and increase the inversion time after the draw",
+            "Switch to a larger-gauge needle but keep using the same tubing set",
         ],
         "Fibrin and micro-clots in the line invalidate coagulation specimens and may prevent proper citrate fill. "
         "Saline flushing introduces non-blood fluid, and reusing contaminated tubing preserves the clot risk CLSI avoids with a fresh set.",
@@ -553,11 +553,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "After syringe collection, blood is pushed through a transfer device in this order: citrate, SST, lavender. "
         "Which issue remains most critical to verify before sending the specimens?",
-        "Verify each tube met fill volume during transfer, especially citrate blood-to-additive ratio",
+        "Verify each tube met fill volume, especially the citrate ratio",
         [
-            "That all tubes were labeled with the patient name before venipuncture began at the bedside",
-            "That the collection syringe was heparin-coated to stabilize chemistry analytes during transfer",
-            "That blood cultures were omitted because syringes cannot fill culture bottles",
+            "That all of the tubes were labeled with the patient name before the venipuncture",
+            "That the collection syringe was heparin-coated to stabilize the chemistry",
+            "That the blood cultures were omitted because syringes cannot fill the bottles",
         ],
         "Syringe transfer does not relax citrate fill requirements; ratio errors invalidate PT and aPTT regardless of collection method. "
         "Pre-draw labeling without identity verification and unordered heparin-coated syringes are separate errors, but citrate volume remains paramount.",
@@ -568,11 +568,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A phlebotomist sustains a needlestick after filling the first of six ordered tubes. "
         "According to OSHA bloodborne pathogen requirements, what must occur in addition to safe disposal of the used sharp?",
-        "Wash the wound, report the exposure promptly, and follow the employer exposure evaluation protocol",
+        "Wash the wound, report the exposure promptly, and follow the exposure protocol",
         [
-            "Finish the remaining tube draws first, then wash the wound and report when the patient leaves",
-            "Apply a bandage when blood is visible, discard the sharp, and defer occupational health notification",
-            "Wait twenty-four hours for symptoms, then report and request follow-up if illness develops",
+            "Finish the remaining tube draws first, then wash the wound and report it later",
+            "Apply a bandage when the blood is visible and defer the health notice",
+            "Wait twenty-four hours for the symptoms, then report and request the follow-up",
         ],
         "OSHA 29 CFR 1910.1030 requires prompt reporting and medical evaluation after sharps injuries. "
         "Delaying notification to finish the draw or waiting for symptoms can forfeit timely post-exposure prophylaxis and source-patient testing.",
@@ -583,11 +583,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "An outpatient lab fills SST and lavender EDTA from one venipuncture, then discovers blood cultures were also ordered. "
         "What is the best corrective action?",
-        "Obtain new cultures with sterile technique instead of attaching bottles to the used needle line",
+        "Obtain new cultures with sterile technique instead of using the used needle",
         [
-            "Notify the laboratory and attach culture bottles to the existing needle without repeating sterile skin prep",
-            "Cancel the culture order permanently and document that routine tubes contaminated the patient",
-            "Submit the SST aliquot for culture incubation because both containers hold patient blood",
+            "Notify the laboratory and attach the bottles to the existing needle",
+            "Cancel the culture order and document that the routine tubes contaminated it",
+            "Submit the SST aliquot for the culture incubation because it holds blood",
         ],
         "Once non-sterile hub flow occurred, skin organisms can produce false-positive cultures if bottles are attached late. "
         "Sterile re-collection is required; reattaching bottles without fresh prep perpetuates contamination risk.",
@@ -598,11 +598,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Two light blue citrate tubes are ordered for a lupus anticoagulant panel, and facility policy requires a discard tube when drawing multiple citrate tubes. "
         "How should the phlebotomist proceed?",
-        "Fill a non-additive discard tube first, then fill both citrate tubes to the line in sequence",
+        "Fill a non-additive discard tube first, then fill both citrate tubes",
         [
-            "Fill one citrate tube and split the specimen after centrifugation in the laboratory",
-            "Use a lavender EDTA tube as discard because it is also an anticoagulant tube",
-            "Omit the discard tube because both citrate tubes share the same stopper color",
+            "Fill one citrate tube and split the specimen after the centrifugation",
+            "Use a lavender EDTA tube as the discard because it is also an anticoagulant",
+            "Omit the discard tube because both citrate tubes share the stopper color",
         ],
         "A non-additive discard clears tissue thromboplastin from dead space without introducing chelating anticoagulant. "
         "Lavender discard would carry EDTA into coagulation testing, and splitting one tube post hoc breaks volume and mixing requirements.",
@@ -613,11 +613,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "During a long butterfly draw with the tourniquet left on, potassium and phosphate on a green heparin plasma tube return markedly high with hemolysis flags. "
         "Which preanalytic factor most likely contributed?",
-        "Prolonged venous stasis and hemolysis from difficult flow during extended tube changes",
+        "Prolonged venous stasis and hemolysis from the difficult flow",
         [
-            "Correct order of draw prevents hemolysis even when tourniquet time exceeds recommended limits",
-            "Heparin additive independently raises plasma potassium without regard to collection technique",
-            "Gray fluoride drawn last back-flushed into the green heparin tube on the same stick",
+            "The correct order of draw prevents the hemolysis even with a long tourniquet",
+            "The heparin additive independently raises the plasma potassium without regard",
+            "The gray fluoride drawn last and back-flushed into the green tube",
         ],
         "Extended stasis and line trauma hemolyze cells even when tube sequence is correct; heparin does not intrinsically spike potassium. "
         "Blaming order of draw alone misses tourniquet time and difficult-flow hemolysis documented in CLSI preanalytic guidance.",
@@ -628,11 +628,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "The first tube attached for a BMP and coagulation panel was lavender EDTA instead of gold SST, and you notice before attaching additional tubes. "
         "What is the best response?",
-        "Stop, discard the lavender tube, and restart with a new needle set following order of draw per policy",
+        "Stop, discard the lavender tube, and restart with a new needle set",
         [
-            "Continue because EDTA in the hub will not affect serum chemistry on an SST tube drawn second on the stick",
-            "Send the lavender tube for BMP because total calcium uses the same tube type as serum calcium",
-            "Continue the draw and submit the lavender tube for serum BMP methods to save a needle stick",
+            "Continue because the EDTA in the hub will not affect the SST chemistry",
+            "Send the lavender tube for the BMP because the calcium uses the same tube type",
+            "Continue the draw and submit the lavender tube for the serum BMP methods",
         ],
         "EDTA chelates calcium and contaminates the hub for subsequent tubes, compromising both chemistry and coagulation on the same stick. "
         "Serum BMP methods are not interchangeable with EDTA whole blood; continuing wastes the citrate tube as well.",
@@ -643,11 +643,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A NICU nurse collects a capillary heel stick into microtainers for total bilirubin on serum and a CBC on EDTA. "
         "What should guide the order those microcontainers are filled?",
-        "Hospital microcollection chart, typically serum or non-additive before EDTA unless policy differs",
+        "Hospital microcollection chart, usually serum before EDTA unless policy differs",
         [
-            "Lavender EDTA first on every neonate because infants have higher hematocrit than adults on heel sticks",
-            "Any fill sequence because capillary specimens are exempt from CLSI order-of-draw guidance for neonates",
-            "Gray fluoride before lavender EDTA on newborn screening heel-stick collections",
+            "The lavender EDTA first because the neonate has a higher hematocrit than adults",
+            "A convenient fill sequence because the capillary specimens are exempt from rules",
+            "The gray fluoride before the lavender EDTA on the newborn screening sticks",
         ],
         "Neonatal microcollection still limits additive carryover between tiny volumes; wrong order can ruin bilirubin or hematology on the same puncture. "
         "Universal EDTA-first or fluoride-first rules ignore test-specific laboratory manuals for microtainers.",
@@ -658,11 +658,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Home health collects blood by syringe from fragile veins; citrate and SST tubes are about thirty percent underfilled while lavender EDTA is full. "
         "Which decision aligns with CLSI principles and patient safety?",
-        "Recollect coagulation and chemistry tubes and do not submit the underfilled citrate or compromised SST volumes",
+        "Recollect the coagulation and chemistry tubes, do not submit them",
         [
-            "Submit all tubes because partial laboratory data is better than reporting no results",
-            "Combine SST and citrate blood into one tube to reach the required fill volume",
-            "Top off the citrate tube with capillary heel-stick blood to reach the manufacturer mark",
+            "Submit all of the tubes because the partial data is better than no results",
+            "Combine the SST and the citrate blood into one tube to reach the fill volume",
+            "Top off the citrate tube with the capillary heel-stick blood to reach the mark",
         ],
         "Underfilled citrate and inadequate SST volumes invalidate coagulation and chemistry ratios; partial submission risks clinical decisions on bad data. "
         "Combining tubes cross-contaminates additives, and capillary top-off breaks ratio control and introduces tissue fluid.",
@@ -673,11 +673,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Ionized calcium is ordered, the laboratory manual requires serum, and only a lavender EDTA tube is available in the draw kit. "
         "What should the phlebotomist do before collecting blood?",
-        "Obtain the correct tube per the laboratory manual and defer collection until serum tubes are available",
+        "Obtain the correct tube per the lab manual and defer the collection",
         [
-            "Collect in lavender EDTA because all calcium assays use the same anticoagulant tube type on the tray",
-            "Collect in lavender EDTA and ask the laboratory to mathematically correct for EDTA chelation of calcium",
-            "Collect in gray sodium fluoride because fluoride stabilizes ionized calcium measurements on the draw",
+            "Collect in the lavender EDTA because all of the calcium assays use that tube",
+            "Collect in the lavender EDTA and ask the lab to correct the calcium chelation",
+            "Collect in the gray sodium fluoride because it stabilizes the ionized calcium",
         ],
         "EDTA chelates calcium and makes ionized calcium uninterpretable on the wrong tube type. "
         "Gray fluoride does not reverse EDTA chelation, and laboratories cannot reliably mathematically correct ionized calcium after improper collection.",
@@ -689,11 +689,11 @@ FACTS: list[dict] = [
         "After a power outage, a clinic draws cultures, PT, and glucose on one patient using a single butterfly set. "
         "The nurse documents a deviation because only a winged set without a holder was available, delaying citrate fill. "
         "Which details are priority to document for the laboratory?",
-        "Time of draw, tubes collected, order used, equipment limitation, and notification to the laboratory for interpretation",
+        "Time of draw, tubes collected, order used, and lab notification",
         [
-            "The patient allergy list without reference to tubes collected or draw sequence",
-            "A statement that CLSI standards do not apply during facility power outages",
-            "The color of the tourniquet applied during venipuncture without tube or timing details",
+            "The patient allergy list with no reference to the tubes or the sequence",
+            "A statement that the CLSI standards do not apply during the facility outages",
+            "The color of the tourniquet applied during the venipuncture alone",
         ],
         "Laboratories need draw context to judge compromised coagulation or culture specimens when equipment or sequence deviates from policy. "
         "Claiming standards do not apply during outages or omitting tube and timing data prevents appropriate result flagging and recollection decisions.",
@@ -719,11 +719,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Trace-element testing on royal blue EDTA is ordered with routine lavender CBC and chemistry on SST from one venipuncture. "
         "How should tube sequence typically be handled?",
-        "Follow the laboratory trace-element chart, often drawing dedicated royal blue tubes early with minimal contact to other additive tubes",
+        "Follow the laboratory trace-element chart for the royal blue tubes",
         [
-            "Draw lavender CBC first because hematology is the most time-sensitive result on the requisition",
-            "Draw SST chemistry first so clotting does not delay transport of the royal blue tube",
-            "Fill royal blue tubes last because trace metals concentrate in the final tube on the stick",
+            "Draw the lavender CBC first because the hematology is most time-sensitive",
+            "Draw the SST chemistry first so the clotting does not delay the royal blue tube",
+            "Fill the royal blue tubes last because the trace metals concentrate in it",
         ],
         "Trace-element specimens are vulnerable to metal contamination from needles, hubs, and prior additive tubes. "
         "Laboratory manuals usually specify dedicated sequence and sometimes dedicated collection supplies rather than routine order-of-draw alone.",
@@ -734,11 +734,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "Before venipuncture, the patient repeatedly pumps their fist while the tourniquet is applied to make veins easier to see. "
         "Which laboratory results are most likely to be affected on tubes collected during that draw?",
-        "Potassium and other intracellular analytes may rise from hemolysis and local stasis artifact",
+        "Potassium and other intracellular analytes may rise from hemolysis",
         [
-            "ABO and Rh typing on a pink blood bank tube drawn later in the same sequence",
-            "Prothrombin time on a properly filled citrate tube drawn first after cultures",
-            "Fluoride glucose on a gray tube drawn last in the sequence",
+            "The ABO and Rh typing on a pink blood bank tube drawn later in the sequence",
+            "The prothrombin time on a properly filled citrate tube drawn first",
+            "The fluoride glucose on a gray tube drawn last in the sequence",
         ],
         "Fist pumping with an inflated tourniquet increases venous pressure and hemolysis risk, elevating potassium and related flags. "
         "Assuming fist pumping helps coagulation or spares glucose while sparing chemistry is a common preanalytic error in busy draw areas.",
@@ -749,11 +749,11 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A student collects a stat coagulation panel using a syringe and waits three minutes before transferring blood into the citrate tube while labeling other specimens. "
         "What is the primary concern with that delay before citrate fill?",
-        "Clot formation in the syringe can consume coagulation factors and invalidate PT and aPTT on the citrate tube",
+        "Clot formation in the syringe can consume the coagulation factors",
         [
-            "Citrate anticoagulant loses potency after three minutes of room-air exposure in the syringe barrel",
-            "Delayed transfer improves mixing so clotting times better reflect in vivo hemostasis",
-            "The delay chiefly affects lavender EDTA counts but not citrate coagulation specimens",
+            "The citrate anticoagulant loses potency after three minutes of the room air",
+            "The delayed transfer improves the mixing so the clotting times reflect more",
+            "The delay chiefly affects the lavender EDTA counts but not the citrate tubes",
         ],
         "Blood begins to clot in a syringe when transfer is delayed, depleting factors before the citrate tube is filled. "
         "Citrate does not reverse clotting that already occurred in the syringe, and EDTA timing rules do not replace citrate transfer urgency.",

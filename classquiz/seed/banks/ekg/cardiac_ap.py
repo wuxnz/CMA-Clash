@@ -404,7 +404,7 @@ FACTS: list[dict] = [
         "A patient with acute chest pain has ST elevation in leads II, III, and aVF with reciprocal ST depression in I and aVL. Which myocardial territory is most likely injured?",
         "Inferior wall injury in typical right coronary artery territory",
         [
-            "Anterior septum supplied by a ramus intermedius branch only",
+            "Anterior septum supplied by a ramus intermedius branch of the left main",
             "Basal lateral wall supplied by a circumflex marginal branch",
             "Right ventricular free wall supplied by the bronchial circulation",
         ],
@@ -470,8 +470,8 @@ FACTS: list[dict] = [
         "Ventricular tachycardia with fusion and occasional narrow capture beats",
         [
             "Atrial flutter with fixed 2:1 conduction and sawtooth waves throughout the strip",
-            "Monomorphic ventricular tachycardia without capture or fusion complexes on the strip",
-            "Antidromic atrioventricular reciprocating tachycardia without fusion beats on the strip",
+            "Monomorphic ventricular tachycardia without capture or fusion beats",
+            "Antidromic atrioventricular reciprocating tachycardia without fusion",
         ],
         "Capture and fusion imply a ventricular focus with some impulses conducting antegrade from above. Flutter, VT without capture, and antidromic SVT lack the mixed fusion pattern seen with intermittent narrow capture beats.",
         [S.NHA_CCMA],
