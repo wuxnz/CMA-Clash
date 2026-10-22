@@ -155,9 +155,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "When should blood tubes be labeled?",
-        "At the bedside immediately after collection per policy",
+        "At the bedside while the patient is still present",
         [
-            "At the central lab bench without the patient present nearby",
+            "At the central lab bench without the patient nearby",
             "The next day if the draw on the unit was busy",
             "On every third tube in the rack to save time",
         ],
@@ -239,7 +239,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "Why is hand recapping used needles prohibited?",
-        "Discouraged; use a one-hand scoop or safety device if needed",
+        "Prohibited; use a one-hand scoop or a safety device",
         [
             "Required before every disposal into the sharps boxes",
             "Safer than safety-engineered needles in most clinical situations",
@@ -296,11 +296,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "How should shared cloth tourniquets between patients be handled?",
-        "Managed per policy, often disposable or disinfected between uses",
+        "Disposable per patient or disinfected between uses",
         [
             "Used on each patient without cleaning to save time",
-            "Soaked in bleach while it is still on the patient arm",
-            "Shared with the cafeteria staff for their other daily tasks on the unit",
+            "Rinsed under running water and dried between patients",
+            "Shared between collectors as long as it looks clean",
         ],
         "Tourniquets can harbor organisms when blood contacts the surface. "
         "Single-patient disposable barriers or documented cleaning reduce cross-contamination.",
@@ -338,7 +338,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "What is required after a blood spill on the phlebotomy floor?",
-        "Donning PPE and cleaning with approved disinfectant per protocol",
+        "Donning PPE and cleaning the floor with approved disinfectant",
         [
             "Wiping the spill with dry paper towels taken from the supply shelf",
             "Waiting for housekeeping to arrive without placing a barrier sign",
@@ -579,7 +579,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "How should a patient refusal of phlebotomy be managed?",
-        "Respected and documented with provider notification per policy",
+        "Respected and documented with the provider notified",
         [
             "Completed anyway after verbal reassurance from a family member",
             "Deferred until the next shift without notifying the provider",
@@ -593,7 +593,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-safety",
         "How should reusable tourniquets suspected of blood contamination be handled?",
-        "Removed from service and cleaned or discarded per policy",
+        "Removed from service and then cleaned or discarded",
         [
             "Used on the next patient with no cleaning between the two draws",
             "Rinsed in tap water and air-dried in the staff lunchroom",

@@ -210,11 +210,11 @@ FACTS: list[dict] = [
     fact(
         "skill-osha-bbp",
         "Which pathogens are commonly emphasized in bloodborne pathogen training?",
-        "Human immunodeficiency virus, hepatitis B virus, and hepatitis C virus",
+        "HIV, hepatitis B, and hepatitis C",
         [
-            "Human immunodeficiency virus, hepatitis B virus, and influenza virus",
-            "Hepatitis C virus, hepatitis A virus, and human immunodeficiency virus",
-            "Hepatitis B virus, tuberculosis bacillus, and human immunodeficiency virus",
+            "HIV, hepatitis B, and influenza",
+            "Hepatitis A, hepatitis C, and HIV",
+            "Hepatitis B, tuberculosis, and HIV",
         ],
         "Training centers on the viruses that are reliably transmitted by blood exposure in healthcare: HIV, hepatitis B, and hepatitis C. Influenza, hepatitis A, and tuberculosis follow different routes and are not the focus of bloodborne pathogen training.",
         [S.OSHA_BBP, S.NHA_CCMA],

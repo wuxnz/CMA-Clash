@@ -517,13 +517,13 @@ FACTS: list[dict] = [
     fact(
         "skill-injection",
         "Why should you avoid injecting into skin that is red, swollen, or broken?",
-        "Absorption may vary and local infection may worsen",
+        "Absorption is unpredictable and infection can spread deeper",
         [
-            "Inflamed skin is unsuitable for injection at a shallow depth",
-            "Drug potency increases in infected tissue at the injection site",
-            "Documentation is optional when you choose another intact site",
+            "Drug potency increases in infected tissue at the site",
+            "The infected area absorbs the medication faster than muscle",
+            "The skin is thinner, so the needle reaches the muscle easily",
         ],
-        "Inflamed or broken skin alters uptake and may spread bacteria into deeper tissue. Needles can still penetrate redness, potency does not increase in infection, and documentation remains required.",
+        "Inflamed or broken skin alters uptake and can carry surface bacteria into deeper tissue. Drug potency does not increase in infected tissue, and a thinner site does not make the injection safer, so another intact site is chosen.",
         [S.NHA_CCMA],
         "intermediate",
     ),
@@ -573,7 +573,7 @@ FACTS: list[dict] = [
     fact(
         "skill-injection",
         "What is the correct hand hygiene and glove order for giving an injection?",
-        "Hand hygiene, gloves if needed, care, remove gloves, hand hygiene",
+        "Hand hygiene before, gloves for care, glove removal, hand hygiene",
         [
             "Don gloves first and clean hands afterward in the room",
             "Reuse gloves between patients after wiping with alcohol at the sink",

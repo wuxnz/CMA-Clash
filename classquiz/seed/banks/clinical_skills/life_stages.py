@@ -167,11 +167,11 @@ FACTS: list[dict] = [
     fact(
         "skill-life-stages",
         "Which car seat setup is correct for a newborn leaving the hospital?",
-        "A rear-facing seat with the harness snug and the chest clip at armpit level",
+        "Rear-facing car seat with a snug harness and the chest clip at armpit level",
         [
-            "A forward-facing seat with the harness snug and the chest clip at armpit level",
-            "A rear-facing seat with a loose harness and the chest clip at armpit level",
-            "A rear-facing seat with the harness snug and the chest clip at the waist",
+            "Forward-facing car seat with a snug harness and the chest clip at armpit height",
+            "Rear-facing car seat with a loose harness and the chest clip at armpit height",
+            "Rear-facing car seat with a snug harness and the chest clip at the waist",
         ],
         "Newborns travel rear-facing in a seat with a snug harness and the chest clip at armpit level, which keeps the infant positioned safely in a crash. A forward-facing seat, a loose harness, and a chest clip placed at the waist each reduce the protection the seat provides.",
         [S.NHA_CCMA, S.RED_CROSS_FIRST_AID],

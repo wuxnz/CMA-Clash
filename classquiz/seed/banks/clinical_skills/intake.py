@@ -227,7 +227,7 @@ FACTS: list[dict] = [
         [
             "Former smoker; cigarettes; one pack per day; quit date not recorded",
             "Former smoker; cigarettes; amount not recorded; quit date March 2024",
-            "Former smoker; cigarettes; one pack per week; quit date March 2024",
+            "Former smoker; cigarettes; one pack weekly; quit date March 2024",
         ],
         "Status, product, amount, and quit date should all be captured and match what the patient reports. Omitting the quit date or the amount leaves exposure history unclear, and a different amount misstates it.",
         [S.NHA_CCMA],
@@ -503,7 +503,7 @@ FACTS: list[dict] = [
     fact(
         "skill-intake",
         "Which documentation approach supports a meaningful ROS when intake time is limited?",
-        "Document pertinent ROS for the complaint and expand review as required",
+        "Document the pertinent ROS for the complaint and expand the review",
         [
             "Copy ROS text from a different patient's chart with a similar age and sex",
             "Mark every body system positive to reduce screening questions during intake",

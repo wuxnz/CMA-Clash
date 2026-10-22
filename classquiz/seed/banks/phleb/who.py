@@ -492,11 +492,11 @@ FACTS: list[dict] = [
     fact(
         'phleb-who',
         'Is hand hygiene still needed when gloves are worn during WHO-aligned draws?',
-        'Before donning gloves and after removal when hands may be soiled',
+        'Before donning gloves and after removing them',
         [
             'No, because the gloves replace the hand hygiene steps',
             'Once a week with no regard to patient contact',
-            'After the visible gross soil rather than after the blood contact',
+            'After visible gross soil rather than after blood contact',
         ],
         'Gloves can tear or leak and do not protect against touch contamination of phones or labels. Hand hygiene breaks the chain between patients.',
         _HAND,

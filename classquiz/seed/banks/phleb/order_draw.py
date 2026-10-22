@@ -111,7 +111,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "You poured blood from one tube into another to top off a short fill. What is the appropriate response?",
-        "Do not use either tube; recollect per policy and document the error",
+        "Do not use either tube; recollect the specimens and document the error",
         [
             "Invert both tubes gently and submit them because additives will equilibrate",
             "Add the sterile saline to the underfilled tube until it reaches the mark",
@@ -153,9 +153,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Before attaching evacuated tubes during venipuncture, what patient safety step is required?",
-        "Verify identity with at least two identifiers per facility policy",
+        "Verify identity with at least two identifiers at the bedside",
         [
-            "Choose tube colors from the requisition without confirming the patient name",
+            "Choose tube colors from the requisition without confirming the name",
             "Accept the bedmate's stated name when the intended patient is drowsy",
             "Use room number and bed label when the patient cannot speak",
         ],
@@ -181,9 +181,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "When should tube labels be applied relative to venipuncture and leaving the patient?",
-        "At the bedside during or after collection per policy",
+        "At the bedside during or right after the collection",
         [
-            "After centrifugation at the central laboratory processing area",
+            "After centrifugation at the central laboratory bench",
             "On the following shift when the draw area is less busy",
             "Before identity verification to reduce time at the bedside",
         ],
@@ -335,7 +335,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "During a stat draw, the phlebotomist is unsure of the institutional tube color sequence. What is the best immediate action?",
-        "Consult the laboratory manual or supervisor; document deviations per policy",
+        "Consult the laboratory manual or supervisor; document the deviation",
         [
             "Follow the sequence remembered from a prior week to avoid delaying the draw",
             "Collect one tube and cancel the remaining ordered tests on the requisition",
@@ -363,7 +363,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Tubes for a coagulation and CBC panel were filled in reverse order. What should the phlebotomist do?",
-        "Notify the laboratory promptly and recollect per policy when needed",
+        "Notify the laboratory promptly and recollect the affected specimens",
         [
             "Relabel the tubes to reflect the intended order and submit them for testing",
             "Add the saline to the citrate tube to restore the blood-to-anticoagulant ratio",
@@ -435,7 +435,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "When pink-top EDTA blood bank tubes are included in a multi-tube venipuncture, when are they typically filled?",
-        "Per facility blood bank chart, often after culture, citrate, and serum steps",
+        "On the facility blood bank chart, after culture, citrate, and serum steps",
         [
             "Before the sterile blood cultures to preserve the ABO typing antigens",
             "From the arterial catheters exclusively rather than the routine venipuncture",
@@ -464,10 +464,10 @@ FACTS: list[dict] = [
     fact(
         "phleb-order-draw",
         "Midway through a multi-tube venipuncture you see clot in the needle hub. What is the appropriate next step?",
-        "Stop, discard the collection set per policy, and recollect",
+        "Stop, discard the collection set, and recollect the specimens",
         [
-            "Flush the visible clot into the next lavender EDTA tube",
-            "Attach the additional vacuum tubes until the clot passes and the flow resumes",
+            "Flush the visible clot forward into the next lavender EDTA tube",
+            "Attach more vacuum tubes until the clot passes and flow resumes",
             "Continue the draw if the light blue citrate tube already reached the mark",
         ],
         "Clot in the hub invalidates hematology specimens and may prevent proper fills on remaining tubes. "
@@ -508,7 +508,7 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A light blue citrate tube fills to about 70% of the manufacturer mark while other tubes on the stick fill adequately. "
         "What is the best next step?",
-        "Discard the underfilled citrate tube and recollect coagulation per policy",
+        "Discard the underfilled citrate tube and recollect coagulation studies",
         [
             "Send the underfilled citrate with a difficult-vein comment on the request",
             "Add the sterile saline to the fill mark before inverting the citrate tube",
@@ -643,10 +643,10 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A NICU nurse collects a capillary heel stick into microtainers for total bilirubin on serum and a CBC on EDTA. "
         "What should guide the order those microcontainers are filled?",
-        "Hospital microcollection chart, usually serum before EDTA unless policy differs",
+        "Hospital microcollection chart, with serum filled before EDTA",
         [
-            "The lavender EDTA first because the neonate has a higher hematocrit than adults",
-            "A convenient fill sequence because the capillary specimens are exempt from rules",
+            "The lavender EDTA first because the neonate has a higher hematocrit",
+            "A convenient sequence because capillary specimens are exempt from rules",
             "The gray fluoride before the lavender EDTA on the newborn screening sticks",
         ],
         "Neonatal microcollection still limits additive carryover between tiny volumes; wrong order can ruin bilirubin or hematology on the same puncture. "
@@ -704,9 +704,9 @@ FACTS: list[dict] = [
         "phleb-order-draw",
         "A patient pulls away after a citrate tube is half filled and remaining ordered tubes are not collected. "
         "What should you do with that citrate tube?",
-        "Discard the partial citrate tube and recollect coagulation per policy",
+        "Discard the partial citrate tube and recollect coagulation studies",
         [
-            "Submit the partial tube for a screening prothrombin time",
+            "Submit the partial tube for a screening prothrombin time result",
             "Top off the tube from a second venipuncture using the same partial fill",
             "Finish other tubes on a second stick and send the partial citrate for testing",
         ],

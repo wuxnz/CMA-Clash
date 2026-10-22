@@ -495,11 +495,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-complications",
         "How should persisting numbness or weakness after venipuncture be managed?",
-        "Documented and referred for clinical evaluation per policy",
+        "Documented and referred for clinical evaluation",
         [
-            "Treated as an expected finding in the patient",
-            "Managed with ice and no notification to the provider on the unit",
-            "Set aside when the collected tubes were labeled correctly for the chart",
+            "Treated as an expected finding for the patient",
+            "Managed with ice and no notification to the provider",
+            "Set aside when the collected tubes were labeled correctly",
         ],
         "Nerve injury may be transient or lasting; early documentation supports care and follow-up. "
         "CLSI quality programs expect reporting of significant adverse events from collection.",

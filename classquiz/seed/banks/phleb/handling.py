@@ -31,11 +31,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "How should additive tubes such as EDTA and citrate be mixed?",
-        "Gentle end-over-end inversion per manufacturer instructions",
+        "Gentle end-over-end inversion of the filled tube",
         [
             "Vigorous shaking for thirty seconds to froth the sample up",
-            "Centrifuging before inversion occurs",
-            "Leaving the tubes horizontal without mixing the additive tubes",
+            "Centrifuging the tube before the inversion occurs",
+            "Leaving the tubes horizontal without mixing the additive",
         ],
         "Proper inversion distributes anticoagulant without hemolyzing cells. "
         "Over-mixing or skipping inversion causes clots or microclots that invalidate hematology and coagulation results.",
@@ -185,7 +185,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "What special handling do lactate specimens require?",
-        "Approved collection devices and immediate processing per protocol",
+        "Approved collection devices and immediate processing",
         [
             "A serum separator tube left upright for several hours",
             "A fingerstick into a citrate tube without the verification",
@@ -199,9 +199,9 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "What handling do arterial blood gas specimens need after collection?",
-        "Immediate mixing, ice when required, and analysis within limits",
+        "Gentle mixing, ice for delayed analysis, prompt testing",
         [
-            "Clotting upright like a serum chemistry tube on the bench top of it",
+            "Clotting upright like a serum chemistry tube on the bench",
             "The storage in a vaccine refrigerator without the mixing",
             "Leaving the syringe uncapped to balance the oxygen",
         ],
@@ -269,7 +269,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "What actions are required when critical laboratory values are identified?",
-        "Immediate notification to the responsible clinician per protocol",
+        "Immediate notification to the clinician responsible for the patient",
         [
             "Batching the results at the month-end for the efficiency",
             "Posting the values on a public waiting-room board in the clinic lobby",
@@ -423,10 +423,10 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "Why does time of collection on the label matter?",
-        "Reference ranges and stability limits often depend on draw time",
+        "Reference ranges and stability limits depend on the draw time",
         [
-            "It is decorative information for the courier on the transport route",
-            "It replaces the need for the patient identification",
+            "It is decorative information for the courier on the route",
+            "It replaces the need for patient identification before the draw",
             "It determines the phlebotomist shift bonus for the week",
         ],
         "Therapeutic drug monitoring and timed tests interpret results relative to dose and fasting clocks. "
@@ -521,14 +521,14 @@ FACTS: list[dict] = [
     fact(
         "phleb-handling",
         "When batching multiple patients' specimens in one bag for courier pickup, what is required?",
-        "Requires each tube to remain labeled and segregated per policy",
+        "Each tube stays labeled and segregated inside the bag",
         [
-            "Allows the removing of labels to save the space",
-            "Permits the mixing of serum and urine without the secondary bags",
-            "Eliminates the temperature requirements for all of the contents",
+            "Each tube is labeled after the courier collects the bag",
+            "Each patient's tubes share one label for the batch",
+            "Each bag travels without temperature control to save space",
         ],
         "Batch transport still demands patient-specific identification on every container. "
-        "GP41 traceability extends through courier handoff with leak-proof secondary containment.",
+        "Labeling after pickup, sharing one label across patients, and dropping temperature control each break GP41 traceability through courier handoff.",
         _REF,
         "intermediate",
     ),

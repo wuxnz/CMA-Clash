@@ -29,7 +29,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-site",
         "Why is the median cubital vein often the first antecubital choice?",
-        "Is usually superficial, anchored, and away from major nerves",
+        "Is superficial, anchored, and away from major nerves",
         [
             "Runs deep beside the radial artery in a smaller group of patients",
             "Is located on the dorsum of the hand in most patients",
@@ -85,14 +85,14 @@ FACTS: list[dict] = [
     fact(
         "phleb-site",
         "For standard superficial venipuncture, what is the usual needle bevel orientation?",
-        "Up (bevel facing upward) per facility training",
+        "Up, with the bevel facing upward during entry",
         [
             "Down against the vein floor as the default approach",
             "Sideways parallel to the skin surface without anchoring",
-            "An arbitrary choice because bevel direction does not affect entry",
+            "An arbitrary choice because bevel direction does not matter",
         ],
         "Bevel-up entry is the conventional technique taught for straight needles and many butterfly sets. "
-        "Facility policy may vary slightly, but bevel-down insertion is not the default GP41-aligned approach.",
+        "Bevel-down insertion against the vein floor, a sideways approach without anchoring, and treating the direction as arbitrary are not the taught technique.",
         _REF,
         "intermediate",
     ),
@@ -210,8 +210,8 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "The basilic vein may be selected when other antecubital veins are unavailable because it?",
-        "Is often larger but lies close to the medial nerve and artery",
+        "Why may the basilic vein be selected when other antecubital veins are unavailable?",
+        "Is larger but lies close to the medial nerve and artery",
         [
             "Has no adjacent structures nearby and needs no anchoring",
             "Is usually shallower than the cephalic vein in most adult patients",
@@ -420,8 +420,8 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What many laboratory two-attempt policies require what after two unsuccessful venipunctures?",
-        "Another qualified collector or supervisor is consulted per policy",
+        "What do many laboratory two-attempt policies require after two unsuccessful venipunctures?",
+        "Another qualified collector or supervisor takes over the draw",
         [
             "The same collector continues until success without a set attempt limit",
             "The patient is discharged without notifying the ordering provider",
@@ -476,12 +476,12 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What chemotherapy or vesicant infusion history in an arm means venipuncture there should be done how?",
-        "Follow oncology and facility policy, often using the opposite arm",
+        "What does a chemotherapy or vesicant infusion history in an arm mean for venipuncture there?",
+        "Draw from the opposite arm under the oncology policy",
         [
             "Proceed routinely because the prior drugs no longer matter",
             "Use butterfly needles without provider input or guidance",
-            "Continue without the patient identification step if the chart is available",
+            "Continue without the identification step if the chart is available",
         ],
         "Compromised veins from prior vesicant exposure may extravasate easily or lack durable access. "
         "GP41 site selection integrates specialty precautions beyond standard antecubital assessment.",
@@ -504,8 +504,8 @@ FACTS: list[dict] = [
     ),
     fact(
         "phleb-site",
-        "What blind venipuncture without palpating or visualizing a vein is what?",
-        "Not acceptable standard practice for routine collection",
+        "How is blind venipuncture without palpating or visualizing a vein regarded?",
+        "Not an acceptable approach for routine collection",
         [
             "Encouraged in experienced collectors to save collection time",
             "Required for stat orders placed after hours in the unit",

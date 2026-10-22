@@ -265,11 +265,11 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "What does PRN on a medication order indicate?",
-        "As needed for symptoms or indication",
+        "Given for symptoms or a documented indication",
         [
-            "Every morning at a fixed time",
-            "Before each meal on a standard schedule",
-            "At bedtime once each night",
+            "Given at a fixed time each morning after breakfast",
+            "Given before each meal on a standard daily schedule",
+            "Given once each night when the patient goes to bed",
         ],
         "PRN dosing depends on symptoms or indication. QAM is morning, AC is before meals, and HS is at bedtime in many facilities.",
         [S.NHA_CCMA, S.FDA_MEDICATION_SAFETY],
@@ -531,7 +531,7 @@ FACTS: list[dict] = [
     fact(
         "skill-terminology",
         "A prescription shows acetaminophen 650 mg PO q6h PRN pain. How should the medical assistant explain the route and timing to the patient?",
-        "By mouth every six hours as needed for pain",
+        "By mouth every six hours when pain occurs",
         [
             "By injection every six hours regardless of symptoms",
             "By mouth once each morning before breakfast",

@@ -41,7 +41,7 @@ FACTS: list[dict] = [
     fact(
         "skill-emergency-aid",
         "Where should an epinephrine auto-injector be given for suspected anaphylaxis?",
-        "Into the anterolateral thigh, through clothing when needed",
+        "Into the middle third of the anterolateral thigh",
         [
             "Into the outer upper arm, positioned well above the elbow",
             "Into the fleshy center of the abdomen, just above the navel",
@@ -153,9 +153,9 @@ FACTS: list[dict] = [
     fact(
         "skill-emergency-aid",
         "A conscious adult in the clinic cannot speak and coughs silently. What sequence should the medical assistant follow?",
-        "Deliver five back blows then five abdominal thrusts, repeating as needed",
+        "Deliver five back blows, then five abdominal thrusts, and repeat",
         [
-            "Encourage the patient to cough forcefully and drink water to clear the object",
+            "Encourage forceful coughing and sips of water to clear the object",
             "Wait for EMS to arrive before attempting airway clearance maneuvers",
             "Sweep the mouth with a finger to remove the object that is stuck",
         ],

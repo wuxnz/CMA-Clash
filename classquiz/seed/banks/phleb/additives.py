@@ -52,7 +52,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         'What additive do gray-top tubes commonly used for glucose preservation contain?',
-        'Sodium fluoride and often potassium oxalate',
+        'Sodium fluoride with potassium oxalate',
         [
             'Sodium citrate in a light blue tube',
             'Clot activator and a gel separator in a gold tube',
@@ -117,11 +117,11 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         'When the laboratory requests a plasma glucose with delayed transport, which additive helps limit in vitro glycolysis?',
-        'Sodium fluoride in a gray tube, often with oxalate',
+        'Sodium fluoride in a gray top tube with oxalate',
         [
-            'Citrate in a light blue top tube for the coagulation tests',
-            'Clot activator in a red top tube for the serum',
-            'Broth in a blood culture bottle',
+            'Sodium citrate in a light blue top tube for coagulation',
+            'Clot activator in a red top tube for serum testing',
+            'Broth media in a blood culture bottle for pathogens',
         ],
         'Fluoride inhibits enolase, slowing glucose consumption by cells and bacteria in vitro. Serum from red tops or citrate plasma does not provide the same stabilization for glucose.',
         [S.CLSI_GP41],
@@ -533,7 +533,7 @@ FACTS: list[dict] = [
     fact(
         "phleb-additives",
         'While capping tubes, a phlebotomist drops a filled lavender tube and blood aerosols onto intact skin with no cuts. According to OSHA BBP practice, what should the employee do?',
-        'Wash the site promptly and report it per facility exposure policy',
+        'Wash the site promptly and report the exposure for evaluation',
         [
             'No action because the intact skin does not require the follow-up',
             'Reuse the gloves for the next patient without the hand hygiene',

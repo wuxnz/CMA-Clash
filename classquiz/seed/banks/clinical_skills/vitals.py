@@ -574,7 +574,7 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "How should a resting pulse near 50 beats per minute in an asymptomatic athlete be interpreted?",
-        "It may be a normal training effect if the rhythm and perfusion are good",
+        "Normal athletic bradycardia with a regular rhythm and good perfusion",
         [
             "It requires immediate defibrillation in an outpatient setting",
             "It proves hypothyroidism without laboratory confirmation or symptom review",
