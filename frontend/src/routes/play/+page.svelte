@@ -73,6 +73,7 @@ SPDX-License-Identifier: MPL-2.0
 		setExpectedPlayPin
 	} from '$lib/play/play-socket-pin';
 	import { getBattlePlayUsername } from '$lib/cma/battle-guest';
+	import ExplanationDrawer from '$lib/ui/ExplanationDrawer.svelte';
 	import {
 		bindPlayPageSocketHandlers,
 		unbindPlayPageSocketHandlers
@@ -455,6 +456,13 @@ SPDX-License-Identifier: MPL-2.0
 			},
 			onRejoinedGame: (data) => {
 				if (!playPayloadMatchesActivePin(data)) return;
+				const joined = readJoinedGameCookie();
+				if (
+					joined &&
+					normalizePlayPin(joined.game_pin) === normalizePlayPin(game_pin)
+				) {
+					username = joined.username;
+				}
 				gameData = normalizeGamePayload(data);
 				if (gameData?.started) {
 					gameMeta.started = true;
@@ -702,6 +710,11 @@ SPDX-License-Identifier: MPL-2.0
 						{question}
 					/>
 				{/key}
+			{/if}
+			{#if question?.explanation}
+				<div class="max-w-3xl mx-auto w-full px-4 pb-8">
+					<ExplanationDrawer explanation={question.explanation} />
+				</div>
 			{/if}
 		{/if}
 	</div>

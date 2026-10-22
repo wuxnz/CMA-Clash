@@ -149,6 +149,11 @@ async def sync_player_to_live_game(sio, sid: str, game_pin: str, game_data: Play
             game_data, game_data.current_question, existing_timing=timing
         )
         await sio.emit("set_question_number", payload, room=sid)
+    elif game_data.current_question >= 0:
+        from classquiz.socket_server.question_lifecycle import build_question_results_payload
+
+        payload, _ = await build_question_results_payload(game_pin, game_data.current_question)
+        await sio.emit("question_results", payload, room=sid)
 
 
 async def try_kickoff_battle(sio, game_pin: str) -> None:

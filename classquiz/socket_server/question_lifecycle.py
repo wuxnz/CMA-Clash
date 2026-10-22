@@ -13,6 +13,7 @@ from classquiz.db.models import AnswerData, AnswerDataList, GamePlayer, PlayGame
 from classquiz.socket_server.helpers import has_already_answered
 from classquiz.socket_server.timing import load_question_timing, server_now_ms
 
+LIVE_REVEAL_HOLD_SEC = 8.0
 LIVE_SCOREBOARD_HOLD_SEC = 9.0
 
 
