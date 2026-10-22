@@ -17,6 +17,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { fetchCerts } from '$lib/quiz/browse';
 	import type { Certification } from '$lib/cma/client';
 	import Button from '$lib/ui/Button.svelte';
+	import PageHeader from '$lib/ui/PageHeader.svelte';
 
 	navbarVisible.visible = true;
 
@@ -57,18 +58,22 @@ SPDX-License-Identifier: MPL-2.0
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
-	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0 flex-1">
-		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Host</h1>
-		<p class="text-sm text-ink-muted mt-1 mb-8">
-			Pick a set, then share the PIN at
-			<a href="/play" class="text-ink link-hover">/play</a>.
-		</p>
+	<div class="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pt-14 lg:pt-20 pb-20 min-w-0 flex-1">
+		<PageHeader
+			eyebrow="Host a session"
+			title="Pick a set."
+			accent="Share the PIN."
+			lede="Choose any public question set, then read the six-digit PIN at /play to your room."
+			meta="Live · real-time scoring"
+		/>
 
 		{#if catalogLoading}
 			<p class="text-sm text-ink-muted">Loading quizzes</p>
 		{:else if error && rows.length === 0}
 			<p class="text-sm text-danger mb-4">{error}</p>
-			<Button variant="secondary" class="w-auto" onclick={() => location.reload()}>Retry</Button>
+			<Button variant="secondary" class="w-auto" onclick={() => location.reload()}
+				>Retry</Button
+			>
 		{:else if rows.length === 0}
 			<p class="text-sm text-ink-muted">No public quizzes yet.</p>
 		{:else}

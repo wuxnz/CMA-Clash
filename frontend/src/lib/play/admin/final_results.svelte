@@ -72,15 +72,11 @@ SPDX-License-Identifier: MPL-2.0
 				: 'flex-1 px-4 py-8'}"
 		>
 			<header class="shrink-0 text-center {hostLayout ? 'mb-2' : 'mb-8'}">
-				<p
-					class="font-display text-gold tracking-[0.3em] {hostLayout
-						? 'text-[10px] sm:text-sm'
-						: 'text-sm mb-2'}"
-				>
+				<p class="eyebrow {hostLayout ? 'text-[10px] sm:text-sm' : 'text-sm mb-2'}">
 					Final
 				</p>
 				<h1
-					class="font-display text-center text-ink {hostLayout
+					class="font-display text-center text-ink tracking-[-0.04em] leading-[0.92] {hostLayout
 						? 'text-2xl sm:text-5xl'
 						: 'text-5xl sm:text-6xl'}"
 					in:fly={reduced ? { duration: 0 } : { y: -20, duration: 400 }}
@@ -111,9 +107,9 @@ SPDX-License-Identifier: MPL-2.0
 
 				{#if player_names.length > 3}
 					<div
-						class="{hostLayout
+						class={hostLayout
 							? 'flex-1 min-h-0 overflow-y-auto mt-2 border-t border-ink/10 pt-2'
-							: 'mt-8 border-t border-ink/10 pt-6'}"
+							: 'mt-8 border-t border-ink/10 pt-6'}
 					>
 						<ol class="space-y-0.5 sm:space-y-2">
 							{#each player_names.slice(3) as player, i}
@@ -141,7 +137,11 @@ SPDX-License-Identifier: MPL-2.0
 				>
 					<p class="font-mono text-lg tabular-nums">
 						Your score:
-						<AnimatedCounter class="font-semibold" value={scoreNumber(data[username])} duration={1} />
+						<AnimatedCounter
+							class="font-semibold"
+							value={scoreNumber(data[username])}
+							duration={1}
+						/>
 					</p>
 					{#each player_names as player, i}
 						{#if player === username}

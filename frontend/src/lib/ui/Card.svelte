@@ -10,8 +10,6 @@
 	const pad = { sm: 'p-4', md: 'p-6', lg: 'p-8' };
 </script>
 
-<div
-	class="rounded-2xl glass-panel card-interactive {pad[padding]} {className}"
->
+<div class="border border-line glass-panel card-interactive {pad[padding]} {className}">
 	{@render children?.()}
 </div>

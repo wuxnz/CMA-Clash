@@ -61,7 +61,7 @@
 		</div>
 	{/if}
 	<div
-		class="flex-1 h-2.5 rounded-full bg-paper-muted overflow-hidden border border-ink/10"
+		class="flex-1 h-1.5 bg-elevated overflow-hidden"
 		role="progressbar"
 		aria-valuenow={remainingSeconds}
 		aria-valuemin={0}
@@ -69,7 +69,7 @@
 		aria-label="Time remaining"
 	>
 		<div
-			class="h-full rounded-full bg-primary transition-[width] duration-1000 ease-linear motion-reduce:transition-none"
+			class="h-full bg-primary transition-[width] duration-1000 ease-linear motion-reduce:transition-none"
 			style="width: {progress * 100}%"
 		></div>
 	</div>

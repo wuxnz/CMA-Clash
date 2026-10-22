@@ -6,6 +6,7 @@
 	import BrowseFilters from '$lib/quiz/BrowseFilters.svelte';
 	import QuizBrowseList from '$lib/quiz/QuizBrowseList.svelte';
 	import QuizBrowseSkeleton from '$lib/quiz/QuizBrowseSkeleton.svelte';
+	import PageHeader from '$lib/ui/PageHeader.svelte';
 	import {
 		fetchCerts,
 		fetchClashQuizzes,
@@ -75,7 +76,9 @@
 				clash.map((item) => rowFromClash(item, catalog, users)),
 				sort === 'relevance' ? 'newest' : sort
 			);
-			rows = reset ? next : [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
+			rows = reset
+				? next
+				: [...rows, ...next.filter((row) => !rows.some((r) => r.id === row.id))];
 			if (reset) {
 				featured =
 					cert || difficulty
@@ -114,14 +117,20 @@
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
-	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0">
-		<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Explore</h1>
+	<div class="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pt-14 lg:pt-20 pb-20 min-w-0">
+		<PageHeader
+			eyebrow="The library"
+			title="Every set,"
+			accent="one shelf."
+			lede="Browse the full catalogue of public question sets. Filter by certification or difficulty, then host one in a click."
+			meta="Public catalogue"
+		/>
 
-		<div class="mt-6 min-w-0">
+		<div class="min-w-0">
 			<BrowseFilters bind:cert bind:difficulty bind:sort />
 		</div>
 
-		<div class="mt-8 min-w-0">
+		<div class="mt-10 min-w-0">
 			{#if loading}
 				<QuizBrowseSkeleton ariaLabel="Loading quizzes" />
 			{:else if rows.length === 0}
@@ -130,7 +139,11 @@
 					<p class="text-sm text-ink-muted mt-2">
 						{#if exploreError}
 							{exploreError}
-							<button type="button" class="text-ink link-hover min-h-11" onclick={() => loadPage(1, true)}>
+							<button
+								type="button"
+								class="text-ink link-hover min-h-11"
+								onclick={() => loadPage(1, true)}
+							>
 								Retry
 							</button>
 						{:else}
@@ -149,13 +162,13 @@
 				</div>
 			{:else}
 				{#if showFeatured}
-					<h2 class="text-sm font-semibold text-ink mb-2">Featured</h2>
+					<p class="eyebrow mb-4">Featured</p>
 					<QuizBrowseList items={featured} onHost={(id) => (start_game = id)} />
-					<h2 class="text-sm font-semibold text-ink mt-10 mb-2">All sets</h2>
+					<p class="eyebrow mt-12 mb-4">All sets</p>
 				{/if}
 				<QuizBrowseList items={listRows} onHost={(id) => (start_game = id)} />
 				{#if hasMore}
-					<div class="mt-6">
+					<div class="mt-8">
 						<Button
 							variant="secondary"
 							class="w-full sm:w-auto"

@@ -5,8 +5,6 @@ SPDX-License-Identifier: MPL-2.0
 -->
 
 <script lang="ts">
-	import AnswerShapeIcon from '$lib/ui/AnswerShapeIcon.svelte';
-	import { LEDGER_ANSWER_COLORS, LEDGER_ANSWER_SHAPES } from '$lib/ui/tokens';
 	import { certificationShortLabel, type QuizBrowseItem } from '$lib/cma/client';
 	import { QuizQuestionType, type Answer, type Question } from '$lib/quiz_types';
 	import { normalizeQuizText } from '$lib/cma/text';
@@ -22,7 +20,7 @@ SPDX-License-Identifier: MPL-2.0
 	};
 
 	const STATIC_FALLBACK: PreviewPayload = {
-		tagLine: 'CCMA · Anatomy',
+		tagLine: 'CCMA — Anatomy',
 		question: 'Which chamber of the heart receives oxygenated blood from the pulmonary veins?',
 		answers: [
 			{ text: 'Left ventricle', right: false },
@@ -91,9 +89,9 @@ SPDX-License-Identifier: MPL-2.0
 			text: a.answer,
 			right: Boolean(a.right)
 		}));
-		const shortTitle = quizTitle.length > 28 ? `${quizTitle.slice(0, 25)}…` : quizTitle;
+		const shortTitle = quizTitle.length > 28 ? `${quizTitle.slice(0, 25)}.` : quizTitle;
 		return {
-			tagLine: `${certificationShortLabel('ccma')} · ${shortTitle}`,
+			tagLine: `${certificationShortLabel('ccma')} — ${shortTitle}`,
 			question: q.question,
 			answers,
 			explanation: q.explanation ?? null
@@ -168,80 +166,83 @@ SPDX-License-Identifier: MPL-2.0
 		loadRandomQuestion();
 	}
 
-	onMount(() => {
-		loadRandomQuestion();
-	});
-
 	function answerTileClass(index: number): string {
 		const base =
-			'rounded-xl p-3 sm:p-4 text-white min-h-[5.25rem] sm:min-h-[5.75rem] flex flex-col items-center justify-center gap-1.5 press-scale cursor-pointer border-2';
+			'rounded-none p-4 sm:p-5 text-ink min-h-[6rem] sm:min-h-[7rem] flex flex-col items-start justify-between gap-3 press-scale cursor-pointer border-l-2 text-left transition-colors duration-200';
 		if (!revealed) {
-			return `${base} border-transparent`;
+			return `${base} border-line bg-paper hover:bg-elevated`;
 		}
 		const ans = payload.answers[index];
 		if (ans.right) {
-			return `${base} border-gold ring-2 ring-gold/40`;
+			return `${base} border-success bg-success/10`;
 		}
 		if (index === selectedIndex) {
-			return `${base} border-white/70 opacity-80`;
+			return `${base} border-danger bg-danger/10`;
 		}
-		return `${base} border-transparent opacity-60`;
+		return `${base} border-line bg-paper opacity-50`;
 	}
 </script>
 
-<div
-	class="rounded-2xl bg-surface p-5 sm:p-7 w-full min-w-0 text-base sm:text-[1.0625rem]"
-	aria-live="polite"
->
-	<div class="flex items-center justify-between mb-4 sm:mb-5">
-		<span class="font-display text-2xl sm:text-3xl text-gold">VS</span>
-		<span class="text-base text-ink-muted tabular-nums font-medium">{questionNumber} / 12</span>
+<div class="border border-line bg-paper p-5 sm:p-8 w-full min-w-0" aria-live="polite">
+	<div class="flex items-center justify-between pb-4 border-b border-line">
+		<span class="font-mono text-[0.66rem] tracking-[0.2em] text-primary">Sample item</span>
+		<span class="font-mono text-xs text-ink-muted tabular-nums">{questionNumber} / 12</span>
 	</div>
-	<p class="text-base sm:text-lg text-ink-muted mb-2 leading-snug">{payload.tagLine}</p>
-	<p class="font-semibold text-ink mb-4 sm:mb-5 text-lg sm:text-xl leading-snug">
+
+	<p class="eyebrow mt-5">{payload.tagLine}</p>
+	<p class="font-display text-xl sm:text-2xl leading-snug mt-2 text-ink">
 		{#if loading}
-			<span class="text-ink-muted">Loading a sample question…</span>
+			<span class="text-ink-muted">Loading a sample question.</span>
 		{:else}
 			{@html normalizeQuizText(payload.question)}
 		{/if}
 	</p>
-	<div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+
+	<div class="grid grid-cols-2 gap-2.5 sm:gap-3 mt-5">
 		{#each payload.answers as a, i}
 			<button
 				type="button"
 				class={answerTileClass(i)}
-				style="background:{LEDGER_ANSWER_COLORS[i]}"
 				disabled={loading || revealed}
 				onclick={() => selectAnswer(i)}
 			>
-				<AnswerShapeIcon shape={LEDGER_ANSWER_SHAPES[i]} class="w-7 h-7 sm:w-8 sm:h-8 shrink-0" />
-				<span
-					class="font-display text-base sm:text-lg normal-case text-center leading-snug line-clamp-3 px-0.5"
+				<span class="font-mono text-[0.66rem] tracking-[0.18em] text-ink-subtle"
+					>{String.fromCharCode(65 + i)}</span
+				>
+				<span class="text-sm sm:text-base leading-snug line-clamp-3"
 					>{normalizeQuizText(a.text)}</span
 				>
 			</button>
 		{/each}
 	</div>
+
 	{#if revealed && payload.explanation}
-		<p class="mt-4 text-base text-ink-muted leading-relaxed">
-			<span class="font-semibold text-ink">{lastCorrect ? 'Correct.' : 'Not quite.'}</span>
+		<p
+			class="mt-5 pt-4 border-t border-line text-sm sm:text-base text-ink-muted leading-relaxed"
+		>
+			<span class="text-ink font-semibold">{lastCorrect ? 'Correct.' : 'Not quite.'}</span>
 			{payload.explanation}
 		</p>
 	{/if}
-	<div class="mt-4 sm:mt-5 text-center text-base text-ink-muted">
+
+	<div
+		class="mt-5 pt-4 border-t border-line flex flex-wrap items-center gap-3 text-sm text-ink-muted"
+	>
 		{#if revealed}
 			<button
 				type="button"
-				class="font-display text-gold normal-case hover:underline"
+				class="font-mono text-[0.68rem] tracking-[0.18em] text-primary hover:underline"
 				onclick={nextQuestion}
 			>
 				Next question
 			</button>
-			<span class="mx-2" aria-hidden="true">·</span>
+			<span aria-hidden="true">·</span>
 		{/if}
-		<span class="font-display text-gold normal-case">{streak}</span> streak
+		<span class="font-mono text-[0.68rem] tracking-[0.18em] text-ink-subtle"
+			>{streak} streak</span
+		>
 		{#if revealed && lastCorrect}
-			<span> · +240 XP</span>
+			<span class="font-mono text-[0.68rem] tracking-[0.18em] text-success">+240 XP</span>
 		{/if}
 	</div>
 </div>

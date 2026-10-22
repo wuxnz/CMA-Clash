@@ -50,15 +50,23 @@ SPDX-License-Identifier: MPL-2.0
 		const match = certs.find((c) => c.id === item.certification_id);
 		if (match) return certificationShortLabel(match.slug, match.name);
 		const fromTitle = certificationShortLabel(null, item.title);
-		return fromTitle === 'CCMA' && !/ccma/i.test(String(item.title ?? '')) ? undefined : fromTitle;
+		return fromTitle === 'CCMA' && !/ccma/i.test(String(item.title ?? ''))
+			? undefined
+			: fromTitle;
 	}
 
 	function buildItems(): DashItem[] {
 		const quizzes = Array.isArray(dashboardData.quizzes) ? dashboardData.quizzes : [];
-		const quiztivities = Array.isArray(dashboardData.quiztivities) ? dashboardData.quiztivities : [];
+		const quiztivities = Array.isArray(dashboardData.quiztivities)
+			? dashboardData.quiztivities
+			: [];
 		return [
 			...quizzes.map((q) => ({ ...q, type: 'quiz' as const, certLabel: certLabelFor(q) })),
-			...quiztivities.map((q) => ({ ...q, type: 'quiztivity' as const, certLabel: certLabelFor(q) }))
+			...quiztivities.map((q) => ({
+				...q,
+				type: 'quiztivity' as const,
+				certLabel: certLabelFor(q)
+			}))
 		];
 	}
 
@@ -76,7 +84,9 @@ SPDX-License-Identifier: MPL-2.0
 			const id = typeof q === 'object' && q ? q.id : q;
 			return String(id) === String(item.id);
 		});
-		return formatDay(hit?.timestamp) ?? formatDay(item.updated_at) ?? formatDay(item.created_at);
+		return (
+			formatDay(hit?.timestamp) ?? formatDay(item.updated_at) ?? formatDay(item.created_at)
+		);
 	}
 
 	let search_term = $state('');
@@ -116,7 +126,10 @@ SPDX-License-Identifier: MPL-2.0
 				answered > 0
 					? Math.round((correct / answered) * 100)
 					: rows.length
-						? Math.round(rows.reduce((n, r) => n + (r.accuracy_percent ?? 0), 0) / rows.length)
+						? Math.round(
+								rows.reduce((n, r) => n + (r.accuracy_percent ?? 0), 0) /
+									rows.length
+							)
 						: 0;
 			return { ...lane, answered, accuracy, started: answered > 0 };
 		});
@@ -193,12 +206,17 @@ SPDX-License-Identifier: MPL-2.0
 <CommandpaletteNotice />
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
-	<div class="w-full max-w-6xl mx-auto px-4 pt-8 pb-16 min-w-0">
-		<header class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+	<div class="w-full max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 pt-14 lg:pt-20 pb-20 min-w-0">
+		<header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
 			<div class="min-w-0">
-				<h1 class="text-xl sm:text-2xl font-semibold text-ink tracking-tight">Hi, {displayName}</h1>
+				<p class="eyebrow">Operator dashboard</p>
+				<h1
+					class="font-display text-[clamp(2.2rem,6vw,4.2rem)] leading-[0.92] tracking-[-0.04em] mt-4"
+				>
+					Hi, <em class="italic font-normal text-primary">{displayName}</em>
+				</h1>
 				{#if hasStats}
-					<p class="text-sm text-ink-muted mt-1">
+					<p class="text-sm text-ink-muted mt-4">
 						{#if streak > 0}{streak}-day streak{/if}
 						{#if streak > 0 && xp > 0}<span> · </span>{/if}
 						{#if xp > 0}Level {level} · {xp.toLocaleString()} XP{/if}
@@ -209,21 +227,25 @@ SPDX-License-Identifier: MPL-2.0
 		</header>
 
 		<nav
-			class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-muted"
+			class="mt-8 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-ink-muted border-t border-line pt-5"
 			aria-label="Dashboard"
 		>
 			{#each links as link}
-				<a href={link.href} class="min-h-11 inline-flex items-center link-hover">{link.label}</a>
+				<a href={link.href} class="min-h-11 inline-flex items-center link-hover"
+					>{link.label}</a
+				>
 			{/each}
 			{#if $isSiteAdmin}
-				<a href="/site-admin/users" class="min-h-11 inline-flex items-center link-hover">Site admin</a>
+				<a href="/site-admin/users" class="min-h-11 inline-flex items-center link-hover"
+					>Site admin</a
+				>
 			{/if}
 		</nav>
 
 		<div class="mt-12 grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-14">
 			<section class="xl:col-span-9 min-w-0">
-				<div class="flex flex-wrap items-center justify-between gap-3 mb-2">
-					<h2 class="text-sm font-semibold text-ink">Quizzes</h2>
+				<div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+					<h2 class="eyebrow">Quizzes</h2>
 					{#if !forceEmpty && all_items.length > 0}
 						<label class="sr-only" for="quiz-search">Search quizzes</label>
 						<input
@@ -239,8 +261,8 @@ SPDX-License-Identifier: MPL-2.0
 				{#if dashLoading}
 					<ul class="animate-pulse pt-2" aria-busy="true" aria-label="Loading quizzes">
 						{#each [1, 2, 3, 4, 5] as n (n)}
-							<li class="border-b border-white/[0.07] py-3">
-								<div class="h-3 w-2/5 max-w-xs rounded bg-elevated"></div>
+							<li class="border-b border-line py-3">
+								<div class="h-3 w-2/5 max-w-xs bg-elevated"></div>
 							</li>
 						{/each}
 					</ul>
@@ -273,25 +295,27 @@ SPDX-License-Identifier: MPL-2.0
 				{/if}
 			</section>
 
-			<aside class="xl:col-span-3 min-w-0 xl:border-l xl:border-white/[0.07] xl:pl-8">
+			<aside class="xl:col-span-3 min-w-0 xl:border-l xl:border-line xl:pl-8">
 				<section>
-					<h2 class="text-sm font-semibold text-ink">Mastery</h2>
+					<h2 class="eyebrow">Mastery</h2>
 					{#if startedMastery.length === 0}
-						<p class="text-sm text-ink-muted mt-2">
+						<p class="text-sm text-ink-muted mt-3">
 							No cert stats yet.
 							<a href="/practice" class="text-ink link-hover">Practice</a>
 						</p>
 					{:else}
-						<ul class="mt-4 space-y-3">
+						<ul class="mt-4 space-y-4">
 							{#each startedMastery as lane}
 								<li>
 									<div class="flex items-baseline justify-between gap-3 text-sm">
 										<span class="text-ink truncate">{lane.name}</span>
-										<span class="tabular-nums text-ink-muted">{lane.accuracy}%</span>
+										<span class="tabular-nums text-ink-muted"
+											>{lane.accuracy}%</span
+										>
 									</div>
-									<div class="mt-1.5 h-1 rounded-full bg-elevated overflow-hidden">
+									<div class="mt-1.5 h-1 bg-elevated overflow-hidden">
 										<div
-											class="h-full rounded-full bg-violet"
+											class="h-full bg-primary"
 											style="width:{lane.accuracy}%; transition: width 300ms ease-out"
 										></div>
 									</div>
@@ -301,22 +325,24 @@ SPDX-License-Identifier: MPL-2.0
 					{/if}
 				</section>
 
-				<section class="mt-10">
-					<h2 class="text-sm font-semibold text-ink">Recent games</h2>
+				<section class="mt-12">
+					<h2 class="eyebrow">Recent games</h2>
 					{#if recent.length === 0}
-						<p class="text-sm text-ink-muted mt-2">
+						<p class="text-sm text-ink-muted mt-3">
 							None yet.
 							<a href="/results" class="text-ink link-hover">Results</a>
 						</p>
 					{:else}
-						<ul class="mt-3 divide-y divide-white/[0.07]">
+						<ul class="mt-3 border-t border-line">
 							{#each recent as game}
 								<li>
 									<a
 										href="/results/{game.id}"
-										class="flex items-center justify-between gap-3 py-2.5 min-h-11 min-w-0"
+										class="flex items-center justify-between gap-3 py-2.5 min-h-11 min-w-0 border-b border-line"
 									>
-										<span class="truncate text-sm text-ink">{game.title ?? 'Untitled'}</span>
+										<span class="truncate text-sm text-ink"
+											>{game.title ?? 'Untitled'}</span
+										>
 										<span class="text-xs text-ink-muted shrink-0 tabular-nums">
 											{formatDay(game.timestamp) ?? ''}
 										</span>
@@ -327,22 +353,28 @@ SPDX-License-Identifier: MPL-2.0
 					{/if}
 				</section>
 
-				<section class="mt-10">
-					<h2 class="text-sm font-semibold text-ink">Weekly</h2>
+				<section class="mt-12">
+					<h2 class="eyebrow">Weekly</h2>
 					{#if board.length === 0}
-						<p class="text-sm text-ink-muted mt-2">
+						<p class="text-sm text-ink-muted mt-3">
 							No scores this week.
 							<a href="/leaderboard" class="text-ink link-hover">Leaderboard</a>
 						</p>
 					{:else}
 						<ol class="mt-3 space-y-1">
 							{#each board as row, i}
-								<li class="flex items-center justify-between gap-3 min-h-11 text-sm">
+								<li
+									class="flex items-center justify-between gap-3 min-h-11 text-sm"
+								>
 									<span class="text-ink truncate">
-										<span class="text-ink-muted tabular-nums mr-2">{i + 1}</span>
+										<span class="text-ink-subtle tabular-nums mr-2"
+											>{i + 1}</span
+										>
 										{row.username}
 									</span>
-									<span class="tabular-nums text-ink-muted">{row.xp.toLocaleString()}</span>
+									<span class="tabular-nums text-ink-muted"
+										>{row.xp.toLocaleString()}</span
+									>
 								</li>
 							{/each}
 						</ol>

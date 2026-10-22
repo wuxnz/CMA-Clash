@@ -10,38 +10,94 @@ SPDX-License-Identifier: MPL-2.0
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark:not(.light), .dark:not(.light) *));
+@custom-variant light (&:where(.light, .light *));
 
-/* Arena dark (only theme) */
-@theme {
-	--color-paper: #0b0f1a;
-	--color-paper-muted: #101625;
-	--color-surface: #151b2b;
-	--color-elevated: #1b2338;
-	--color-ink: #f4f7fb;
-	--color-ink-muted: #9aa4b8;
-	--color-primary: #7b5cff;
-	--color-primary-hover: #9378ff;
-	--color-primary-muted: #3d2e80;
-	--color-gold: #c8ff2e;
-	--color-success: #c8ff2e;
-	--color-danger: #ff3b5c;
-	--color-volt: #c8ff2e;
-	--color-violet: #7b5cff;
-	--color-signal: #ff3b5c;
-	--color-cyan: #22d3ee;
-	--color-answer-red: #ff3b5c;
-	--color-answer-blue: #7b5cff;
-	--color-answer-yellow: #f59e0b;
-	--color-answer-green: #22d3ee;
-	--color-glow: rgba(123, 92, 255, 0.35);
+/* --------------------------------------------------------------------------
+   Design 04 — Kinetic Editorial
+   Solid near-black canvas, medical blue accent, hairline rules, sharp geometry.
+   -------------------------------------------------------------------------- */
 
-	--font-display: 'Barlow Condensed', ui-sans-serif, system-ui, sans-serif;
+:root {
+	--c-paper: #070707;
+	--c-paper-muted: #0c0c0d;
+	--c-surface: #101012;
+	--c-elevated: #18181b;
+	--c-ink: #f4f4f5;
+	--c-ink-muted: #a1a1aa;
+	--c-ink-subtle: #6f6f78;
+	--c-line: rgba(255, 255, 255, 0.12);
+	--c-line-strong: rgba(255, 255, 255, 0.26);
+	--c-primary: #2f6bff;
+	--c-primary-hover: #4d84ff;
+	--c-primary-muted: #16244a;
+	--c-primary-soft: rgba(47, 107, 255, 0.14);
+	--c-success: #4ade80;
+	--c-danger: #ff5a5a;
+	--c-warn: #fbbf24;
+	--c-glow: rgba(47, 107, 255, 0.34);
+	--c-shadow: 0 24px 60px -32px rgba(0, 0, 0, 0.85);
+}
+
+:root.light {
+	--c-paper: #f6f5f2;
+	--c-paper-muted: #ffffff;
+	--c-surface: #ffffff;
+	--c-elevated: #ecebe6;
+	--c-ink: #0a0a0b;
+	--c-ink-muted: #52525b;
+	--c-ink-subtle: #8b8b93;
+	--c-line: rgba(10, 10, 11, 0.13);
+	--c-line-strong: rgba(10, 10, 11, 0.28);
+	--c-primary: #1d4ed8;
+	--c-primary-hover: #12307f;
+	--c-primary-muted: #dbe4fb;
+	--c-primary-soft: rgba(29, 78, 216, 0.09);
+	--c-success: #128a4b;
+	--c-danger: #d92d20;
+	--c-warn: #b45309;
+	--c-glow: rgba(29, 78, 216, 0.22);
+	--c-shadow: 0 24px 60px -36px rgba(10, 10, 11, 0.35);
+}
+
+@theme inline {
+	--color-paper: var(--c-paper);
+	--color-paper-muted: var(--c-paper-muted);
+	--color-surface: var(--c-surface);
+	--color-elevated: var(--c-elevated);
+	--color-ink: var(--c-ink);
+	--color-ink-muted: var(--c-ink-muted);
+	--color-ink-subtle: var(--c-ink-subtle);
+	--color-line: var(--c-line);
+	--color-line-strong: var(--c-line-strong);
+	--color-primary: var(--c-primary);
+	--color-primary-hover: var(--c-primary-hover);
+	--color-primary-muted: var(--c-primary-muted);
+	--color-primary-soft: var(--c-primary-soft);
+	--color-success: var(--c-success);
+	--color-danger: var(--c-danger);
+	--color-warn: var(--c-warn);
+	--color-glow: var(--c-glow);
+	--color-shadow: var(--c-shadow);
+
+	/* Legacy aliases kept pointing at the editorial palette. */
+	--color-gold: var(--c-primary);
+	--color-volt: var(--c-primary);
+	--color-violet: var(--c-primary);
+	--color-signal: var(--c-danger);
+	--color-cyan: var(--c-primary-hover);
+	--color-answer-red: #ff5a5a;
+	--color-answer-blue: #2f6bff;
+	--color-answer-yellow: #fbbf24;
+	--color-answer-green: #4ade80;
+
+	--font-display: 'Fraunces Variable', 'Inter', ui-serif, serif;
 	--font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+	--font-serif: 'Fraunces Variable', 'Inter', ui-serif, serif;
 
-	--shadow-card: 0 1px 0 rgba(255, 255, 255, 0.05), 0 16px 40px rgba(0, 0, 0, 0.45);
-	--shadow-glow: 0 0 48px var(--color-glow);
+	--shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04), 0 24px 60px -34px rgba(0, 0, 0, 0.7);
+	--shadow-glow: 0 0 48px var(--c-glow);
 }
 
 @layer base {
@@ -50,6 +106,10 @@ SPDX-License-Identifier: MPL-2.0
 		color-scheme: dark;
 		font-feature-settings: 'kern' 1;
 		scroll-behavior: smooth;
+	}
+
+	:root.light html {
+		color-scheme: light;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -70,9 +130,19 @@ SPDX-License-Identifier: MPL-2.0
 
 	.font-display {
 		font-family: var(--font-display);
-		font-weight: 800;
-		letter-spacing: -0.03em;
-		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: -0.035em;
+		text-transform: none;
+		font-variation-settings:
+			'SOFT' 0,
+			'WONK' 1;
+	}
+
+	.font-serif {
+		font-family: var(--font-serif);
+		font-variation-settings:
+			'SOFT' 0,
+			'WONK' 1;
 	}
 
 	button:not(:disabled),
@@ -102,7 +172,7 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility press-scale {
-	@apply transition-[transform] duration-150 ease-out active:scale-[0.96] motion-reduce:active:scale-100;
+	@apply transition-[transform] duration-150 ease-out active:scale-[0.97] motion-reduce:active:scale-100;
 }
 
 @keyframes arena-enter {
@@ -162,21 +232,25 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility card-interactive {
-	transition-property: box-shadow;
+	transition-property: box-shadow, transform, border-color;
 	transition-duration: 300ms;
-	transition-timing-function: ease-out;
+	transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (hover: hover) {
 	.card-interactive:hover {
 		box-shadow: var(--shadow-glow), var(--shadow-card);
+		transform: translateY(-2px);
 	}
 }
 
 @utility font-display {
 	font-family: var(--font-display);
-	font-weight: 800;
-	letter-spacing: -0.03em;
+	font-weight: 600;
+	letter-spacing: -0.035em;
+	font-variation-settings:
+		'SOFT' 0,
+		'WONK' 1;
 }
 
 @utility font-mono {
@@ -189,10 +263,8 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility glass-panel {
-	@apply bg-elevated/60 backdrop-blur-xl border border-transparent;
-	box-shadow:
-		var(--shadow-card),
-		0 0 0 1px color-mix(in oklch, var(--color-ink) 8%, transparent);
+	@apply bg-elevated/70 backdrop-blur-xl border border-line;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 @utility gradient-text {
@@ -200,23 +272,23 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility admin-button {
-	@apply px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-primary rounded-lg text-center hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
+	@apply px-4 py-2 leading-5 text-white transition-colors duration-200 transform bg-primary rounded-none text-center hover:bg-primary-hover focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility action-button {
-	@apply px-4 py-2 leading-5 text-ink glass-panel rounded-lg text-center focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 press-scale;
+	@apply px-4 py-2 leading-5 text-ink glass-panel rounded-none text-center focus:outline-hidden disabled:cursor-not-allowed disabled:opacity-50 press-scale;
 	transition-property: color, background-color, border-color, box-shadow;
 	transition-duration: 150ms;
 }
 
 @media (hover: hover) {
 	.action-button:hover {
-		border-color: color-mix(in oklch, var(--color-primary) 30%, transparent);
+		border-color: color-mix(in oklch, var(--color-primary) 45%, transparent);
 	}
 }
 
 @utility btn-nav {
-	@apply text-sm font-medium px-3 text-ink-muted py-1.5 rounded-md focus-visible:ring-2 focus-visible:ring-primary press-scale;
+	@apply text-sm font-medium px-3 text-ink-muted py-1.5 rounded-none whitespace-nowrap focus-visible:ring-2 focus-visible:ring-primary press-scale;
 	transition-property: color;
 	transition-duration: 150ms;
 }
@@ -228,23 +300,23 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility btn-nav-active {
-	color: var(--color-primary);
+	color: var(--color-ink);
 	text-decoration-line: underline;
-	text-underline-offset: 4px;
-	text-decoration-color: var(--color-primary);
+	text-underline-offset: 6px;
+	text-underline-color: var(--color-primary);
 }
 
 @utility ledger-input {
-	@apply w-full rounded-lg border border-white/10 bg-elevated px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/25 outline-none;
+	@apply w-full rounded-none border border-line bg-elevated px-4 py-2.5 text-ink placeholder:text-ink-muted/60 focus:border-primary focus:ring-2 focus:ring-primary/25 outline-none;
 	transition-property: border-color, box-shadow;
 	transition-duration: 150ms;
 }
 
 @utility btn {
-	@apply inline-flex items-center justify-center gap-2 box-border h-12 min-h-11 px-5 rounded-lg font-sans text-sm font-semibold leading-none disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
-	transition-property: transform, background-color, color, box-shadow, filter;
-	transition-duration: 150ms;
-	transition-timing-function: ease-out;
+	@apply inline-flex items-center justify-center gap-2 box-border h-12 min-h-11 px-5 rounded-none font-sans text-sm font-semibold leading-none disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+	transition-property: transform, background-color, color, box-shadow, border-color;
+	transition-duration: 180ms;
+	transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn:disabled,
@@ -256,7 +328,7 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 .btn:active:not(:disabled) {
-	transform: scale(0.96);
+	transform: scale(0.98);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -266,13 +338,14 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility btn-primary {
-	@apply bg-gold text-paper;
-	box-shadow: none;
+	@apply bg-primary text-white;
+	border: 1px solid var(--color-primary);
 }
 
 @media (hover: hover) {
 	.btn-primary:hover:not(:disabled) {
-		filter: brightness(1.05);
+		background-color: var(--color-primary-hover);
+		border-color: var(--color-primary-hover);
 	}
 }
 
@@ -280,6 +353,7 @@ SPDX-License-Identifier: MPL-2.0
 .btn-primary[aria-disabled='true'] {
 	background: var(--color-elevated);
 	color: var(--color-ink-muted);
+	border-color: var(--color-line);
 	filter: none;
 }
 
@@ -293,12 +367,13 @@ SPDX-License-Identifier: MPL-2.0
 
 @utility btn-secondary {
 	@apply bg-transparent text-ink;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+	border: 1px solid var(--color-line-strong);
 }
 
 @media (hover: hover) {
 	.btn-secondary:hover:not(:disabled) {
-		background-color: rgba(255, 255, 255, 0.06);
+		border-color: var(--color-primary);
+		color: var(--color-primary);
 	}
 }
 
@@ -312,16 +387,16 @@ SPDX-License-Identifier: MPL-2.0
 }
 
 @utility chip {
-	@apply inline-flex items-center justify-center min-h-11 px-3 rounded-lg text-sm font-medium whitespace-nowrap shrink-0 text-ink-muted focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
-	transition-property: background-color, color, box-shadow, transform;
+	@apply inline-flex items-center justify-center min-h-11 px-3 rounded-none text-sm font-medium whitespace-nowrap shrink-0 text-ink-muted focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-paper press-scale;
+	border: 1px solid var(--color-line);
+	transition-property: background-color, color, box-shadow, border-color;
 	transition-duration: 150ms;
 }
 
 .chip-active {
-	background-color: var(--color-elevated);
-	color: var(--color-ink);
-	box-shadow: none;
+	background-color: var(--color-primary);
+	color: #fff;
+	border-color: var(--color-primary);
 }
 
 .chip-row {
@@ -339,7 +414,7 @@ SPDX-License-Identifier: MPL-2.0
 @media (hover: hover) {
 	.btn-ghost:hover:not(:disabled) {
 		color: var(--color-ink);
-		background-color: rgba(255, 255, 255, 0.04);
+		background-color: color-mix(in oklch, var(--color-ink) 6%, transparent);
 	}
 }
 
@@ -379,8 +454,101 @@ select.ledger-input option {
 
 .marck-script {
 	font-family: var(--font-display);
-	font-weight: 700;
+	font-weight: 600;
 }
+
+/* --- split text helpers (used by masked headline reveals) ---------------- */
+
+.ml-split-line {
+	display: block;
+	overflow: hidden;
+	/* Keep descenders from being clipped by the mask. */
+	padding-bottom: 0.12em;
+	margin-bottom: -0.12em;
+}
+
+.ml-split-inner {
+	display: block;
+	will-change: transform;
+}
+
+.ml-split-word {
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: bottom;
+}
+
+.ml-split-word > .ml-split-inner {
+	display: inline-block;
+	will-change: transform;
+}
+
+.ml-split-space {
+	display: inline;
+	white-space: pre;
+}
+
+/* --- editorial helpers -------------------------------------------------- */
+
+/** Uppercase mono label used across the editorial surfaces. */
+@utility eyebrow {
+	@apply font-mono text-[0.66rem] uppercase tracking-[0.22em] text-ink-subtle;
+}
+
+/** Hard horizontal rule used to divide editorial sections. */
+@utility rule {
+	@apply w-full h-px bg-line;
+}
+
+/** Display heading with editorial scale. */
+@utility headline {
+	@apply font-display leading-[0.92] tracking-[-0.04em];
+}
+
+/** Blue inline emphasis inside display headings. */
+@utility accent-italic {
+	@apply italic text-primary;
+}
+
+@keyframes editorial-marquee {
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@utility marquee-track {
+	display: flex;
+	gap: 2.5rem;
+	width: max-content;
+	animation: editorial-marquee 34s linear infinite;
+}
+
+.marquee-track:hover {
+	animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.marquee-track {
+		animation: none;
+	}
+}
+
+@keyframes editorial-rise {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@utility rise-in {
+	animation: editorial-rise 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --- dialogs ------------------------------------------------------------ */
 
 .dialog-backdrop {
 	position: fixed;
@@ -389,7 +557,8 @@ select.ledger-input option {
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.72);
+	backdrop-filter: blur(6px);
 	overscroll-behavior: contain;
 	padding: 0;
 }
@@ -400,7 +569,8 @@ select.ledger-input option {
 	display: flex;
 	flex-direction: column;
 	background: var(--color-surface);
-	border-radius: 12px 12px 0 0;
+	border: 1px solid var(--color-line);
+	border-radius: 0;
 	box-shadow: var(--shadow-card);
 	overflow: hidden;
 }
@@ -451,7 +621,6 @@ select.ledger-input option {
 
 	.dialog-panel {
 		max-width: 28rem;
-		border-radius: 12px;
 		max-height: min(42rem, 92vh);
 	}
 
@@ -504,11 +673,11 @@ select.ledger-input option {
 	transform: translateY(-50%);
 	border-radius: 999px;
 	background: var(--color-elevated);
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+	box-shadow: inset 0 0 0 1px var(--color-line);
 }
 
 .toggle[aria-checked='true']::before {
-	background: var(--color-gold);
+	background: var(--color-primary);
 	box-shadow: none;
 }
 
@@ -528,7 +697,7 @@ select.ledger-input option {
 
 .toggle[aria-checked='true']::after {
 	transform: translate(1.25rem, -50%);
-	background: var(--color-paper);
+	background: #fff;
 }
 
 .mode-option {
@@ -536,16 +705,16 @@ select.ledger-input option {
 	width: 100%;
 	text-align: left;
 	padding: 0.75rem 0.875rem;
-	border-radius: 0.75rem;
+	border-radius: 0;
 	min-height: 2.75rem;
-	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+	box-shadow: inset 0 0 0 1px var(--color-line);
 	transition-property: transform, background-color, box-shadow;
 	transition-duration: 150ms;
 	transition-timing-function: ease-out;
 }
 
 .mode-option:active {
-	transform: scale(0.96);
+	transform: scale(0.98);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -555,6 +724,6 @@ select.ledger-input option {
 }
 
 .mode-option[aria-checked='true'] {
-	box-shadow: inset 0 0 0 1px var(--color-gold);
-	background: color-mix(in oklch, var(--color-gold) 8%, transparent);
+	box-shadow: inset 0 0 0 1px var(--color-primary);
+	background: color-mix(in oklch, var(--color-primary) 10%, transparent);
 }
