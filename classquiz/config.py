@@ -18,6 +18,14 @@ from classquiz.storage import Storage
 
 LOGGER = logging.getLogger(f"uvicorn.{__name__}")
 
+# Origins of the local dev servers (SvelteKit `vite dev`, default port 3000).
+LOCAL_DEV_ORIGINS: tuple[str, ...] = (
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+)
+
 
 class CustomOpenIDProvider(BaseModel):
     scopes: str | None = "openid email profile"
@@ -75,15 +83,19 @@ class Settings(BaseSettings):
     # Comma-separated site admin emails (case-insensitive). Empty = first registered user only.
     admin_emails: str = ""
     cors_origins: str = ""
+    # Also allow the local dev servers (vite on :3000, :5173) to call the API
+    # directly. Off by default: a local origin can read credentialed responses.
+    cors_allow_localhost: bool = False
     # Set when the SPA and API are on different sites without a reverse proxy (cookies need SameSite=None).
     cookie_cross_site: bool = False
     # Force Secure cookies (HTTPS). Enabled automatically when cookie_cross_site is true.
     cookie_secure: bool = False
 
     def parsed_cors_origins(self) -> list[str]:
-        if not self.cors_origins.strip():
-            return []
-        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+        origins = [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+        if self.cors_allow_localhost:
+            origins.extend(origin for origin in LOCAL_DEV_ORIGINS if origin not in origins)
+        return origins
 
     def parsed_admin_emails(self) -> set[str]:
         if not self.admin_emails.strip():
