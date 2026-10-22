@@ -110,6 +110,8 @@ SPDX-License-Identifier: MPL-2.0
 		final_results = [null];
 		username = getBattlePlayUsername(pin) ?? '';
 		lastScoreAppliedQuestionIndex = null;
+		lastStreakQuestionIndex = null;
+		streak = 0;
 		latestQuestionIndex = -1;
 	}
 
@@ -216,6 +218,7 @@ SPDX-License-Identifier: MPL-2.0
 	let questionTiming = $state<QuestionTiming | null>(null);
 	let clockOffsetMs = $state(0);
 	let streak = $state(0);
+	let lastStreakQuestionIndex: number | null = $state(null);
 	let prevRanks: Record<string, number> = {};
 	let lastScoreAppliedQuestionIndex: number | null = $state(null);
 	let latestQuestionIndex = $state(-1);
@@ -416,7 +419,10 @@ SPDX-License-Identifier: MPL-2.0
 		const mine = rows.find((r) => r.username === username);
 		const right =
 			mine?.right === true || mine?.right === 'true' || mine?.right === 1;
-		streak = right ? streak + 1 : 0;
+		if (scoreIndex == null || scoreIndex !== lastStreakQuestionIndex) {
+			streak = right ? streak + 1 : 0;
+			lastStreakQuestionIndex = scoreIndex;
+		}
 		livePhase = 'reveal';
 		clearTimeout(revealTimer);
 		revealTimer = setTimeout(() => {

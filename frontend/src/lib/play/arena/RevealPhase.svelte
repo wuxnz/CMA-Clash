@@ -49,18 +49,18 @@
 <div
 	class="w-full bg-paper flex flex-col px-4 sm:px-8 {hostFit
 		? 'h-full min-h-0 py-4 sm:py-6'
-		: 'h-dvh min-h-dvh py-8'}"
+		: 'min-h-dvh py-6 pb-10 sm:py-8'}"
 >
 	<p
 		class="font-sans text-ink text-center font-semibold max-w-4xl mx-auto shrink-0 {hostFit
 			? 'text-base sm:text-lg mb-4 line-clamp-3'
-			: 'text-lg sm:text-2xl mb-8'}"
+			: 'text-lg sm:text-2xl mb-6 sm:mb-8'}"
 	>
 		{@html normalizeQuizText(question)}
 	</p>
 
 	{#if isPlayer && correct !== null}
-		<div class="text-center mb-6">
+		<div class="text-center mb-5 sm:mb-6">
 			{#if !correct && (points ?? 0) === 0}
 				<p class="text-sm font-semibold uppercase tracking-wide text-ink-muted mb-2">Time's up</p>
 			{/if}
@@ -92,7 +92,7 @@
 
 	{#if showAnswerBlock || showExplanation}
 		<div
-			class="max-w-2xl mx-auto w-full mb-6 rounded-xl border border-ink/10 bg-surface px-4 py-4 text-left shrink-0"
+			class="max-w-2xl mx-auto w-full mb-5 sm:mb-6 rounded-xl border border-ink/10 bg-surface px-4 py-3 sm:py-4 text-left shrink-0"
 			data-testid="reveal-explanation-panel"
 		>
 			{#if showAnswerBlock}
@@ -108,7 +108,11 @@
 		</div>
 	{/if}
 
-	<ul class="max-w-2xl mx-auto w-full space-y-2.5 sm:space-y-4 flex-1 min-h-0 overflow-y-auto">
+	<ul
+		class="max-w-2xl mx-auto w-full space-y-2.5 sm:space-y-4 {hostFit
+			? 'flex-1 min-h-0 overflow-y-auto'
+			: 'shrink-0'}"
+	>
 		{#each distribution as row, i (row.answer)}
 			<li>
 				<div class="flex items-center gap-3 mb-1">
