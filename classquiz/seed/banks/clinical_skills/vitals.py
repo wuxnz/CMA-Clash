@@ -98,7 +98,7 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "What is a typical normal respiratory rate range for a healthy resting adult?",
-        "12 to 20 breaths per minute",
+        "12 to 20 breaths per minute at rest",
         [
             "4 to 6 breaths per minute without sleep or sedation",
             "28 to 36 breaths per minute at rest in the exam room",
@@ -154,7 +154,7 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "What pulse oximetry saturation is commonly cited as normal for a healthy adult on room air?",
-        "About 95 to 100 percent",
+        "About 95 to 100 percent on room air",
         [
             "About 70 to 80 percent without supplemental oxygen",
             "About 88 to 90 percent at rest without lung disease",
@@ -308,7 +308,7 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "Which temperature finding commonly defines fever in an adult oral measurement?",
-        "100.4 degrees Fahrenheit or higher",
+        "An oral temperature of 100.4 degrees Fahrenheit or higher",
         [
             "99.0 degrees Fahrenheit after drinking cold water minutes earlier",
             "97.5 degrees Fahrenheit in the morning without symptoms",
@@ -350,7 +350,7 @@ FACTS: list[dict] = [
     fact(
         "skill-vitals",
         "What respiratory rate range is often taught for a resting infant without respiratory distress?",
-        "About 30 to 60 breaths per minute",
+        "About 30 to 60 breaths per minute for an infant",
         [
             "About 8 to 12 breaths per minute while awake and calm",
             "About 20 to 25 breaths per minute matching adult norms exactly",

@@ -97,7 +97,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "Posted instructions for Airborne Precautions should remind staff to?",
-        "Wear a fit-tested respirator and keep the door closed when feasible",
+        "Wear a fit-tested respirator and keep the door closed",
         [
             "Use gown and gloves alone without respiratory protection",
             "Wear a surgical mask without a respirator within three feet of the bed",
@@ -520,7 +520,7 @@ FACTS: list[dict] = [
         "Wear a surgical mask if tolerated and follow transport protocols",
         [
             "Remove the mask in the elevator to improve oxygen saturation",
-            "Walk through the cafeteria without notifying staff in public areas",
+            "Walk through the lobby without notifying staff in public areas",
             "Use a fit-tested N95 instead of a surgical mask for all droplet diseases",
         ],
         "Masking the patient during movement limits dispersion of large droplets. Staff near the patient wear masks per distance rules; N95s are for Airborne Precautions, not routine droplet transport.",
@@ -573,7 +573,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "When a private room is unavailable, where should a patient on Droplet Precautions be placed?",
-        "Cohort with another patient with the same infection if policy allows",
+        "Cohort with another patient with the same infection",
         [
             "Place next to a neutropenic patient in protective environment",
             "Seat in an open bay without masks because droplets fall within inches",
@@ -685,7 +685,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-transmission",
         "During an aerosol-generating procedure on a patient in airborne isolation, staff should wear?",
-        "A fit-tested N95 respirator plus eye protection per policy",
+        "A fit-tested N95 respirator plus eye protection",
         [
             "A surgical mask because the aerosol-generating procedure is brief",
             "Gloves without eye protection when suctioning is performed",

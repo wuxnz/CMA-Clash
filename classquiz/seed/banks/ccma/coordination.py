@@ -77,7 +77,7 @@ FACTS: list[dict] = [
         'When scheduling a new patient for a dermatology referral, which information belongs in the referral packet or EHR entry?',
         'Reason for consult, urgency, and pertinent clinical findings',
         [
-            'Insurance coverage details without any clinical indication',
+            'Insurance coverage details with no clinical indication',
             'Demographics and insurance ID without clinical indication or urgency',
             'Front-desk staff scheduling preferences as the sole referral content',
         ],
@@ -385,7 +385,7 @@ FACTS: list[dict] = [
         'Clinical urgency, provider instructions, and availability',
         [
             'Which insurance plan the patient prefers for billing',
-            'Whether the front desk prefers morning breaks',
+            'Whether the front desk prefers certain morning break times',
             'Insurance member ID without clinical context',
         ],
         'Scheduling should reflect medical need and ordered follow-up intervals. Cosmetic, billing preference, and staff convenience factors do not determine safe return intervals.',

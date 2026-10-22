@@ -13,7 +13,7 @@ def _facts_for(topic: str):
 
 def test_diabetes_topic_question_count():
     facts = _facts_for("ccma-diabetes")
-    assert len(facts) == 127
+    assert len(facts) == 130
 
 
 def test_diabetes_quiz_set_chunks():

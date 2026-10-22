@@ -464,8 +464,8 @@ FACTS: list[dict] = [
         "20 mg as two whole tablets",
         [
             "23 mg as two and one-third tablets",
-            "30 mg as three whole tablets without prescriber contact",
-            "0 mg withheld until a liquid formulation is available",
+            "30 mg as three whole tablets",
+            "0 mg until a liquid is available",
         ],
         "Rounding down to two whole tablets delivers 20 mg instead of the calculated 23 mg. Protocol usually requires notifying the prescriber when rounding changes the therapeutic amount.",
         [S.FDA_MEDICATION_SAFETY, S.NHA_CCMA],
@@ -489,11 +489,11 @@ FACTS: list[dict] = [
     fact(
         "skill-pharm-dosage",
         "A pediatric liquid calculates to 1.74 mL. Policy rounds oral volumes to the nearest 0.1 mL. What should be drawn on the oral syringe?",
-        "1.7 mL",
+        "1.7 mL of the oral liquid",
         [
-            "1.74 mL on a device without tenths",
-            "2.0 mL because all liquids round up",
-            "1.0 mL to simplify charting",
+            "1.74 mL without tenths",
+            "2.0 mL because liquids round up",
+            "1.0 mL for simpler charting",
         ],
         "One point seven four rounds to one point seven at the tenths place. Rounding up to 2 mL without policy would exceed the calculated dose for a narrow therapeutic drug.",
         [S.NHA_CCMA],

@@ -13,13 +13,13 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'Two staff members discuss a patient by name and diagnosis while riding a crowded hospital elevator. Why is this a privacy concern?', 'Others nearby may overhear individually identifiable health information', ['Elevator conversations are permitted when both employees wear facility badges', 'Whispering patient names makes the exchange a de-identified workforce update', 'Verbal diagnosis discussion between coworkers counts as TPO in public areas'], 'The HIPAA Privacy Rule limits uses and disclosures of PHI to permitted purposes and safeguards. Conversations in public areas can expose identifiers to people who are not part of the care team.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-002
-        fact('ccma-hipaa', 'Which information does the HIPAA Privacy Rule regulate when held or transmitted by a covered entity or business associate?', 'Individually identifiable protected health information held or transmitted', ["Public information with no connection to a patient's care", 'Health data stripped of identifiers under HIPAA de-identification standards', 'Handouts printed without any patient-specific health content'], 'PHI ties health data to a specific person and triggers privacy and security obligations. Data stripped of identifiers under HIPAA rules or unrelated public information falls outside that scope.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-hipaa', 'Which information does the HIPAA Privacy Rule regulate when held or transmitted by a covered entity or business associate?', 'Individually identifiable protected health information held or transmitted', ["Public information with no connection to a patient's care", "Health data stripped of identifiers under HIPAA de-identification standards", "Handouts printed with no patient-specific health content"], 'PHI ties health data to a specific person and triggers privacy and security obligations. Data stripped of identifiers under HIPAA rules or unrelated public information falls outside that scope.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-003
         fact('ccma-hipaa', 'At first visit, what written document must a covered entity offer that explains how it may use and share PHI?', 'A notice of privacy practices describing uses and patient rights', ['A blanket waiver allowing unlimited marketing texts without opt-out', 'A contract granting the public access to every chart on request', 'A form waiving all future breach notifications for the practice'], 'The notice of privacy practices describes routine uses, patient rights, and how to file complaints. It supports informed expectations before treatment and billing activities begin.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-004
-        fact('ccma-hipaa', 'Which organizations are HIPAA covered entities subject to the Privacy and Security Rules?', 'Health plans, clearinghouses, and certain health care providers', ['Every employer in every industry that maintains a payroll system', 'Patients and family members who receive treatment in the clinic', 'Device manufacturers that do not create, receive, or transmit PHI'], 'HHS defines covered entities that create, receive, maintain, or transmit PHI in defined roles. Employers without covered functions and vendors without PHI access are addressed through other relationships such as business associate agreements.', [S.NHA_CCMA], 'beginner'),
+        fact('ccma-hipaa', 'Which organizations are HIPAA covered entities subject to the Privacy and Security Rules?', 'Health plans, clearinghouses, and certain health care providers', ["Employers whose staff members park in the clinic's lot", "Patients and family members who receive treatment in the clinic", "Device manufacturers that do not create, receive, or transmit PHI"], 'HHS defines covered entities that create, receive, maintain, or transmit PHI in defined roles. Employers without covered functions and vendors without PHI access are addressed through other relationships such as business associate agreements.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-hipaa-005
     fact(
@@ -117,9 +117,9 @@ FACTS: list[dict] = [
         'A researcher wants a dataset stripped of identifiers using the HIPAA Safe Harbor method. Which action aligns with that approach?',
         'Remove specified identifiers such as names and dates',
         [
-            'Rename the patient but keep the medical record number in the file',
-            'Delete the patient favorite color field and call the file de-identified',
-            'Share the full chart because the research protocol was approved locally',
+            "Rename the patient but keep the medical record number in the file",
+            "Delete the patient's preferred contact method and call it de-identified",
+            "Share the full chart because the research protocol was approved locally",
         ],
         'Safe Harbor requires removal of 18 categories of identifiers unless an expert certifies very low re-identification risk. Partial redaction that leaves key identifiers still counts as PHI.',
         [S.NHA_CCMA],
@@ -146,7 +146,7 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'The practice wants to email patients about a third-party weight-loss product unrelated to their care plan. What is generally required?', 'Patient authorization for marketing communications that use PHI', ['No permission because the message promotes wellness in general terms', 'Automatic consent because the patient listed an email address at registration', "Verbal agreement from front-desk staff without documenting the patient's choice"], 'Marketing communications paid for by third parties or promoting unrelated products usually need explicit authorization. Treatment reminders and certain face-to-face communications follow different rules.', [S.NHA_CCMA], 'advanced'),
 
     # ccma-hipaa-017
-        fact('ccma-hipaa', 'How should role-based access to the electronic health record reflect the minimum necessary standard?', 'Grant each user access to the PHI needed for that job and no more', ['Give every employee the same super-user password for workstation convenience', 'Allow volunteers to open every chart while shadowing without training', 'Share executive payroll files with clinical staff to fill idle time'], 'Minimum necessary limits both disclosures to outsiders and internal chart access. Segregating modules by role reduces curiosity browsing and accidental exposure.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-hipaa', 'How should role-based access to the electronic health record reflect the minimum necessary standard?', 'Grant each user access to the PHI needed for that job and no more', ['Give every employee the same super-user password for workstation convenience', 'Allow volunteers to open every chart while shadowing without training', 'Share executive personnel files with clinical staff to fill idle time'], 'Minimum necessary limits both disclosures to outsiders and internal chart access. Segregating modules by role reduces curiosity browsing and accidental exposure.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-018
         fact('ccma-hipaa', "A caller says they are the patient's cousin and asks for today's test results by phone. What approach follows minimum necessary principles?", 'Verify identity and authority, then share only what policy allows', ["Read the entire chart aloud once the caller states the patient's date of birth", "Fax all results to the number provided without confirming who will receive them", "Refuse to document the call so no record of the disclosure exists"], 'Even permitted disclosures should be limited to what the recipient needs to know. Identity verification and policy on family involvement prevent casual over-sharing.', [S.NHA_CCMA], 'intermediate'),
@@ -160,8 +160,8 @@ FACTS: list[dict] = [
         'A patient believes the clinic mishandled their PHI. Where may they file a privacy complaint?',
         'With the privacy officer and the HHS Office for Civil Rights',
         [
-            'With the local restaurant health inspector',
-            'On anonymous gossip boards with no contact information',
+            'With the state medical board instead of the privacy officer',
+            'On an anonymous online forum that cannot accept complaints',
             'Nowhere, because patients waive privacy rights by seeking care',
         ],
         'Covered entities must have a complaint process and may not retaliate for filing. OCR investigates alleged violations of the Privacy and Security Rules.',
@@ -212,7 +212,7 @@ FACTS: list[dict] = [
         'advanced',
     ),
     # ccma-hipaa-028
-        fact('ccma-hipaa', 'Which category of health information does the HIPAA Security Rule primarily protect?', 'Electronic PHI protected by administrative and technical safeguards', ['Paper records stored in locked file rooms with no electronic systems', 'Parking lot traffic patterns unrelated to patient care operations', 'Cafeteria daily menus displayed for visitors in the lobby'], 'The Security Rule applies to ePHI held or transmitted by covered entities and business associates. Paper-only workflows and printed handouts may still fall under the Privacy Rule, but the Security Rule targets electronic systems and media.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-hipaa', 'Which category of health information does the HIPAA Security Rule primarily protect?', 'Electronic PHI protected by administrative and technical safeguards', ['Paper records stored in locked file rooms with no electronic systems', 'Records kept on paper with no electronic system in place', 'Printed patient education handouts left in the lobby'], 'The Security Rule applies to ePHI held or transmitted by covered entities and business associates. Paper-only workflows and printed handouts may still fall under the Privacy Rule, but the Security Rule targets electronic systems and media.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-029
         fact('ccma-hipaa', 'A billing clerk needs a diagnosis code to submit a claim. How does the minimum necessary standard apply?', 'Use the PHI required for the billing task rather than the whole chart', ["Email the complete chart to every payer contact for convenience", "Post the patient diagnosis on the clinic lobby monitor for staff", "Automatically forward all future lab results to the patient's employer"], 'Minimum necessary limits internal uses and external disclosures to the amount needed for the stated purpose. Routine dumping of full records increases exposure without business justification.', [S.NHA_CCMA], 'intermediate'),
@@ -296,7 +296,7 @@ FACTS: list[dict] = [
         'A caller requests a copy of imaging results for a patient who is not present. What identity verification approach is appropriate?',
         'Follow facility policy with pre-established identifiers',
         [
-            "Release records when the caller states a birthday found online",
+            "Release records when the caller states a date of birth",
             "Fax results immediately if the caller knows the patient's nickname",
             "Omit verification because voice recognition apps are accurate",
         ],
@@ -339,7 +339,7 @@ FACTS: list[dict] = [
         'A data use agreement between the covered entity and the researcher',
         [
             'No contract because limited data sets may be posted on open internet forums',
-            'A verbal promise that the laptop will stay in the cafeteria',
+            'A verbal promise that the research laptop stays with the team',
             'A business associate agreement replacing institutional review board oversight',
         ],
         'Limited data sets exclude direct identifiers but may retain certain geographic and date elements. Recipients must sign data use agreements promising safeguards and permitted uses.',
@@ -437,8 +437,8 @@ FACTS: list[dict] = [
         'In private treatment areas away from public corridors',
         [
             'In a crowded elevator with visitors and families present',
-            'At the front desk microphone',
-            'In the cafeteria during lunch rush',
+            'At the front desk with the waiting line listening',
+            'In the cafeteria during the lunch hour',
         ],
         'HIPAA safeguards oral disclosures; public areas risk incidental exposure. Private rooms or lowered voices in enclosed spaces reduce breaches.',
         [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA],
@@ -451,7 +451,7 @@ FACTS: list[dict] = [
         fact('ccma-hipaa', 'Which action helps secure electronic health record workstations?', 'Log off or lock sessions when leaving the desk unattended', ['Share login credentials with float staff to avoid password resets', 'Leave prior patient charts open in public view for faster access', 'Disable passwords on workstations to speed rooming workflows'], 'Automatic timeouts and unique credentials protect ePHI under the Security Rule. Shared logins break audit trails.', [S.HHS_HIPAA_SECURITY, S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-053
-        fact('ccma-hipaa', 'A patient authorizes release of records to a specific attorney. What should be verified before sending?', 'The authorization is signed, dated, and lists the correct recipient', ["The attorney's recreational interests match the patient's hobbies", "The mailroom queue is short enough to send records immediately", "Other patients with similar names have authorized release in the past"], 'Valid authorizations specify who may receive PHI. Attorney licensure and similar names still require identity checks to avoid misdirected disclosures.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
+        fact('ccma-hipaa', 'A patient authorizes release of records to a specific attorney. What should be verified before sending?', 'The authorization is signed, dated, and lists the correct recipient', ["That the attorney is licensed in the state where the clinic sits", "The mailroom queue is short enough to send records immediately", "Other patients with similar names have authorized release in the past"], 'Valid authorizations specify who may receive PHI. Attorney licensure and similar names still require identity checks to avoid misdirected disclosures.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'intermediate'),
 
     # ccma-hipaa-054
         fact('ccma-hipaa', 'Which fax practice reduces misdirected protected health information?', 'Verify the recipient number and use a confidentiality cover sheet', ['Send to the last number dialed on the fax machine without checking', 'Include every diagnosis in the subject line read aloud in the hallway', 'Fax to the front desk printer in a public area without prompt retrieval'], 'Confirmation and cover sheets limit wrong routing. Public unattended prints expose PHI.', [S.HHS_HIPAA_PRIVACY, S.NHA_CCMA], 'beginner'),

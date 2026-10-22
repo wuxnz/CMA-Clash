@@ -1049,4 +1049,68 @@ REWRITES: dict[str, str] = {
         "A single identifier, such as the full name, confirmed with the patient",
     "A single identifier, such as the full name, confirmed with the patient":
         "A single identifier, such as the full name, confirmed with the patient first",
+
+    # ------------- keyed answer must not be the only short option (new guard)
+    "12 to 20 breaths per minute":
+        "12 to 20 breaths per minute at rest",
+    "About 95 to 100 percent":
+        "About 95 to 100 percent on room air",
+    "100.4 degrees Fahrenheit or higher":
+        "An oral temperature of 100.4 degrees Fahrenheit or higher",
+    "About 30 to 60 breaths per minute":
+        "About 30 to 60 breaths per minute for an infant",
+    "Enlargement":
+        "Enlargement of an organ",
+    "Normal pressure oxygen therapy":
+        "Normal pressure oxygen",
+    "Night postoperative observation rounds":
+        "Night postoperative observation",
+    "New patient orientation visit":
+        "New patient orientation",
+    "Twice daily on a fixed schedule":
+        "Twice daily on a schedule",
+    "Once at bedtime each night":
+        "Once at bedtime",
+    "As needed without a fixed schedule":
+        "As needed without a schedule",
+    "At bedtime":
+        "At bedtime (hora somni)",
+    "Before meals on a standard schedule":
+        "Before meals on a schedule",
+    "At half the ordered drug concentration":
+        "At half the ordered dose",
+    "With a hot saline soak treatment":
+        "With a hot saline soak",
+    "Immediately":
+        "Immediately, without delay",
+    "At the next routine clinic visit":
+        "At the next routine visit",
+    "When the patient verbally requests it":
+        "When the patient requests it",
+    "After three prior routine scheduled doses":
+        "After three prior routine doses",
+    "Systolic output balance measurement":
+        "Systolic output balance",
+    "Soft outer bandage application":
+        "Soft outer bandage",
+    "Standing on both feet positioning":
+        "Standing on both feet",
+    "Low red blood cell count on a CBC":
+        "Low red blood cell count",
+    "Elevated white blood cell count on a CBC":
+        "Elevated white cell count",
+    "Protein in the urine without red cells":
+        "Protein in the urine",
+    "30 mg as three whole tablets without prescriber contact":
+        "30 mg as three whole tablets",
+    "0 mg withheld until a liquid formulation is available":
+        "0 mg until a liquid is available",
+    "1.7 mL":
+        "1.7 mL of the oral liquid",
+    "1.74 mL on a device without tenths":
+        "1.74 mL without tenths",
+    "2.0 mL because all liquids round up":
+        "2.0 mL because liquids round up",
+    "1.0 mL to simplify charting":
+        "1.0 mL for simpler charting",
 }

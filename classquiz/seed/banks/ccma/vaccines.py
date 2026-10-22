@@ -57,9 +57,9 @@ FACTS: list[dict] = [
         'Per CDC vaccine storage guidance, what should staff record on the refrigerator temperature log at least twice daily?',
         'Minimum and maximum temperatures in the storage unit',
         [
-            'The outdoor weather forecast at the clinic',
-            'Patient copayment amounts collected in the clinic that day',
-            'Staff break schedules for the week',
+            "The temperature shown on the refrigerator's own display",
+            "Patient copayment amounts collected in the clinic that day",
+            "Staff break schedules for the week",
         ],
         'Twice-daily min/max readings help detect excursions between checks when continuous loggers are not used. A display reading or unrelated administrative data does not document cold-chain integrity.',
         [S.CDC_VACCINE_STORAGE, S.NHA_CCMA],
@@ -237,7 +237,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'How should expired or unused vaccine doses be handled in the clinic?',
-        'Document the waste and dispose per facility policy',
+        'Document the waste and dispose of it safely',
         [
             'Return partial vials to the refrigerator for the next patient',
             'Offer doses to staff as personal supplies',
@@ -658,7 +658,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-vaccines',
         'Which documentation is required after administering a vaccine?',
-        'Vaccine name, lot number, site, route, and administrator per policy',
+        'Vaccine name, lot number, site, route, and administrator',
         [
             'Vaccine name and date without the lot number or administration site',
             'Insurance authorization number and billing code for the visit',

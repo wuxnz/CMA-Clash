@@ -79,11 +79,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-admin",
         "How does a superbill link clinical work to the revenue cycle?",
-        "It maps services rendered to diagnosis and procedure codes",
+        "It maps services to diagnosis and procedure codes",
         [
-            "It matches patient hobbies to payroll deductions",
-            "It ties parking citations to laboratory orders",
-            "It links nursing vital signs to payroll and tax withholdings",
+            "It totals the day's charges without linking them to codes",
+            "It records the appointment time for every patient seen",
+            "It tracks staff hours worked against daily patient volume",
         ],
         "Charge capture depends on accurate code linkage from the encounter. Appointment times, staff hours, and daily totals do not generate insurable claims.",
         [S.NHA_CCMA],
@@ -99,7 +99,7 @@ FACTS: list[dict] = [
         fact('ccma-admin', 'What do Current Procedural Terminology (CPT) codes describe?', 'Health care professional services and procedures', ['Vacutainer tube additive colors used during outpatient phlebotomy', 'Reference ranges for adult vital signs documented in triage', 'Recommended injection angles for intramuscular vaccines in the deltoid'], 'CPT codes report billable procedures and visits. Specimen handling colors and vital norms are reference data, not CPT descriptors.', [S.NHA_CCMA], 'beginner'),
 
     # ccma-admin-016
-        fact('ccma-admin', 'When does coordination of benefits apply?', 'More than one active health plan may share payment responsibility', ['The patient is uninsured and pays cash at the time of service', 'The visit is limited to vision hardware fitting without medical services', 'The clinic closes for a weather emergency before the visit occurs'], 'Secondary and primary payers are identified when multiple policies exist. Uninsured cash visits do not trigger coordination rules.', [S.NHA_CCMA], 'intermediate'),
+        fact('ccma-admin', 'When does coordination of benefits apply?', 'More than one active health plan may share payment responsibility', ['The patient is uninsured and pays cash at the time of service', 'The visit is limited to vision hardware fitting without medical services', 'The patient has a single active plan that covers the visit'], 'Secondary and primary payers are identified when multiple policies exist. Uninsured cash visits do not trigger coordination rules.', [S.NHA_CCMA], 'intermediate'),
 
     # ccma-admin-017
     fact(
@@ -119,11 +119,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-admin",
         "What does a daily day sheet report typically summarize?",
-        "Charges posted, payments received, and daily adjustments",
+        "Charges posted, payments received, and adjustments",
         [
-            "Patient birth dates for the calendar year",
+            "Which patients still owe a balance from last year",
             "Year-to-date revenue posted without daily payment detail",
-            "Personal staff vacation requests",
+            "Which staff member worked the busiest register",
         ],
         "Day sheets reconcile cash drawers and posting batches. Outstanding patient balances and staff activity are not daily financial totals.",
         [S.NHA_CCMA],
@@ -344,9 +344,9 @@ FACTS: list[dict] = [
         "What does an electronic remittance advice (ERA) explain?",
         "How each claim line was paid, denied, or adjusted",
         [
-            "Patient appointment reminders to send for the next week",
-            "Annual staff performance rankings",
-            "Vital sign flowsheet trends for the nursing unit",
+            "Which patients are due for a preventive visit next month",
+            "How many claims each payer denied last quarter",
+            "Which clinicians met their productivity target",
         ],
         "ERAs drive payment posting and appeal decisions. Appointment lists, denial counts, and productivity data are not claim adjudication tools.",
         [S.NHA_CCMA],
@@ -356,11 +356,11 @@ FACTS: list[dict] = [
     fact(
         "ccma-admin",
         "What does days in accounts receivable measure?",
-        "Average time between providing service and collecting payment",
+        "Average time between service and collecting payment",
         [
-            "The number of patients seated in the waiting room during the day",
-            "Vaccine storage unit temperature",
-            "Annual needlestick injury rate",
+            "The average number of claims posted each business day",
+            "The temperature recorded in the vaccine refrigerator",
+            "The number of needlestick injuries reported last year",
         ],
         "Days in A/R is a revenue cycle metric. Patient volume, vaccine storage temperature, and needlestick counts are tracked separately.",
         [S.NHA_CCMA],
@@ -412,7 +412,7 @@ FACTS: list[dict] = [
     fact(
         "ccma-admin",
         "A clinic adds a new self-pay policy for elective services. How should staff communicate costs?",
-        "Provide written estimates per policy before nonurgent services",
+        "Provide written estimates before nonurgent services",
         [
             "Quote amounts verbally without documentation",
             "Refuse to discuss fees with a patient",

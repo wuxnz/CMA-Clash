@@ -1,7 +1,7 @@
 # Clinical skills parallel-options rewrite progress
 
-Target: 546 clinical skills items, plus the guard cleanup that the same quality bar
-implies for the other certification banks.
+Target: 546 clinical skills items, plus the same quality bar applied to the other
+certification banks.
 
 Every item now has four parallel options of comparable length, no giveaway absolutes
 ("only", "any", "never", "always", "random") in a distractor, no hedge on the keyed
@@ -21,20 +21,22 @@ answer, and exactly one defensible answer.
 | P08 | 42 | life_stages 001–042 | done |
 | P09 | 42 | emergency_aid 001–042 | done |
 | P10 | 42 | poct 001–042 | done |
-| P11 | 253 | guard cleanup: cpr, ekg, ccma, phleb banks plus the legacy diabetes bank | done |
+| P11 | 253 | guard cleanup across the cpr, ekg, ccma, and phleb banks | done |
 
 **Completed at parallel-options standard:** all 546 clinical skills items.
 
-**Other banks brought to the same bar:** 1493 items across cpr (313), ekg (253),
-ccma (590), and phleb (337).
+## Branch structure note
+
+The CCMA consolidation on master folded the old `classquiz/seed/banks/diabetes.py` and
+`classquiz/seed/banks/supplement/diabetes_expansion.py` into
+`classquiz/seed/banks/ccma/diabetes.py`. The merge keeps that structure, so the
+ccma-diabetes topic is one file with 127 items.
 
 ## What the cleanup changed outside the clinical skills bank
 
-* Every distractor in the whole 2039-item bank was checked for giveaway absolutes and
-  for over-length options. 267 giveaway distractors and 155 over-length distractors were
-  rewritten.
-* Every quiz chunk was rebalanced so the keyed answer is not the long-and-complete
-  option. 217 items were rebalanced.
+* Every distractor in the bank was checked for giveaway absolutes, over-length options, and
+  for a keyed answer that reads as the only complete option.
+* Every quiz chunk was rebalanced so the keyed answer is not the long-and-complete option.
 * Topic difficulty mixes were rebalanced to the 30/40/30 split.
 * Machine-generated fragment stems (for example `Type 1 diabetes mellitus is best
   described as:`) were rewritten as complete questions.
@@ -57,6 +59,8 @@ is the option-hygiene standard.
 | `scripts/rebalance_difficulty.py` | rebalances the beginner/intermediate/advanced mix |
 | `scripts/generate_review_log.py` | generates per-item review-log lines from a git diff |
 | `scripts/audit_guard_failures.py` | lists the items that trip each repo guard |
+| `scripts/peek_module.py`, `scripts/topic_items.py` | print the stems of a module or topic |
 
 Per-item logs: `docs/question-review-log-clinical.md` (sections Parallel-options pass
-P01 through P11).
+P01 through P11), plus `docs/question-review-log-ccma-rewrite.md`,
+`docs/question-review-log-cpr.md`, and `docs/question-review-log-ekg.md`.

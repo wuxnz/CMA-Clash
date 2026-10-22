@@ -505,9 +505,9 @@ FACTS: list[dict] = [
         'What information does a Safety Data Sheet (SDS) provide for a chemical used in the clinic?',
         'Hazards, safe handling, and emergency response measures',
         [
-            'Storage temperature alone, without hazard or spill response guidance',
+            "Storage temperature alone, without hazard or spill response guidance",
             "The chemical's cost and supplier contact information",
-            'A substitute for infection control precautions during patient care',
+            "A substitute for infection control precautions during patient care",
         ],
         'OSHA hazard communication rules require accessible SDS files for hazardous chemicals such as disinfectants and fixatives. They support safe storage and spill response but do not replace clinical infection prevention practices.',
         [S.NHA_CCMA],

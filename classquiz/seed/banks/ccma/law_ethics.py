@@ -672,7 +672,7 @@ FACTS: list[dict] = [
     fact(
         'ccma-law-ethics',
         'A coworker asks you to document care you did not observe. What is the ethical response?',
-        'Refuse and report per facility policy because falsification is fraudulent',
+        'Refuse and report because falsification is fraudulent',
         [
             'Sign after the coworker promises to complete the task that shift',
             'Document care generally without stating you did not observe it',
