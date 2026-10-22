@@ -1255,3 +1255,8 @@ classquiz/tests/test_diabetes_content.py | fail | The topic count was still 112 
 classquiz/seed/fact_choice_hardening.py | fail | The giveaway-word regex matched "only" inside hyphenated compounds such as "compression-only", which is a technical term and not an absolute. It now ignores hyphenated compounds.
 classquiz/tests/test_seed_hand_authored_quality.py | fail | Added a guard that a keyed answer may not run more than 12 percent longer than every distractor, which is the "the key is the only complete option" failure the review samples called out.
 
+
+## Publishing the rewritten banks
+
+classquiz/seed/runner.py | fail | The seed summary built its topic count with len(by_topic), but the grouping variable is by_topic_diff. The NameError fired after the quizzes were written, so a deploy with AUTO_SEED_CONTENT enabled would publish the content and then fail API startup, leaving the service in a restart loop. Fixed to count by_topic_diff, and the seed now completes with a full summary.
+

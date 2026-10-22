@@ -25,12 +25,15 @@ answer, and exactly one defensible answer.
 
 **Completed at parallel-options standard:** all 546 clinical skills items.
 
+**Guard status:** all 52 checks in the seed quality suite pass, and the per-item
+audit reports zero findings across the whole 2172-question bank.
+
 ## Branch structure note
 
 The CCMA consolidation on master folded the old `classquiz/seed/banks/diabetes.py` and
 `classquiz/seed/banks/supplement/diabetes_expansion.py` into
 `classquiz/seed/banks/ccma/diabetes.py`. The merge keeps that structure, so the
-ccma-diabetes topic is one file with 127 items.
+ccma-diabetes topic is one file with 130 items.
 
 ## What the cleanup changed outside the clinical skills bank
 
@@ -41,6 +44,16 @@ ccma-diabetes topic is one file with 127 items.
 * Machine-generated fragment stems (for example `Type 1 diabetes mellitus is best
   described as:`) were rewritten as complete questions.
 * Canned template explanations were replaced with two specific sentences per item.
+* The repeated auto-balance padding tails that the generator had bolted onto options
+  ("under typical outpatient policy.", "per facility policy.", "in a typical outpatient
+  clinic setting.", "for routine ambulatory patient care.") were removed.
+
+## Publishing
+
+`python -m classquiz.seed.runner` re-seeds the database from the banks in the code. The
+production API runs it on every boot (`AUTO_SEED_CONTENT=true`) and re-indexes
+Meilisearch when the index and the database disagree, so a deploy is what publishes
+question changes.
 
 ## Tooling
 
