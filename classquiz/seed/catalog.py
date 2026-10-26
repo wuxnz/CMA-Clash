@@ -98,6 +98,12 @@ TOPIC_QUESTIONS_PER_QUIZ: dict[str, int] = {
     "ccma-diabetes": 28,
 }
 
+# Questions drawn for each battle or match. Topics not listed use the runner default (10).
+# The Diabetes Study Guide draws its whole bank so every question is played.
+TOPIC_QUESTIONS_PER_GAME: dict[str, int] = {
+    "diabetes-study-guide": 30,
+}
+
 
 def study_content_for_topic(slug: str) -> list[dict] | None:
     return STUDY_BY_TOPIC.get(slug)
