@@ -11,6 +11,7 @@ SPDX-License-Identifier: MPL-2.0
 	import CollapsSection from '$lib/collapsible.svelte';
 	import { QuizQuestionType } from '$lib/quiz_types.js';
 	import StartGamePopup from '$lib/dashboard/start_game.svelte';
+	import { practiceHref } from '$lib/study/practice-test';
 	import Spinner from '$lib/Spinner.svelte';
 	import MediaComponent from '$lib/editor/MediaComponent.svelte';
 	import RatingComponent from '$lib/view_quiz/RatingComponent.svelte';
@@ -188,7 +189,7 @@ SPDX-License-Identifier: MPL-2.0
 				</Button>
 			{/if}
 			<Button class="w-full sm:w-auto" onclick={() => (start_game = quiz.id)}>Host</Button>
-			<Button href="/practice?quiz_id={quiz.id}" variant="secondary" class="w-full sm:w-auto">
+			<Button href={practiceHref(quiz)} variant="secondary" class="w-full sm:w-auto">
 				{$t('words.practice')}
 			</Button>
 			{#if logged_in}
