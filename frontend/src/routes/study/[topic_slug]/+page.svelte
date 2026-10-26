@@ -152,7 +152,7 @@ SPDX-License-Identifier: MPL-2.0
 				{/if}
 				<div class="mt-6 flex flex-wrap gap-3">
 					<Button href="/explore">Explore</Button>
-					{#if quizzes[0]}
+					{#if quizzes[0] && !practiceTest}
 						<Button variant="secondary" href="/practice?quiz_id={quizzes[0].id}">Practice</Button>
 					{/if}
 				</div>
