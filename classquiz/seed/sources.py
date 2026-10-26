@@ -826,6 +826,93 @@ ADA_NUTRITION = cite(
     "American Diabetes Association: Food and Nutrition",
     "https://diabetes.org/food-nutrition",
 )
+
+# Diabetes study guide (ccma-diabetes) — pages verified against the live site.
+CDC_TYPE_1 = cite(
+    "CDC: About Type 1 Diabetes",
+    "https://www.cdc.gov/diabetes/about/about-type-1-diabetes.html",
+)
+CDC_TYPE_2 = cite(
+    "CDC: About Type 2 Diabetes",
+    "https://www.cdc.gov/diabetes/about/about-type-2-diabetes.html",
+)
+CDC_PREDIABETES = cite(
+    "CDC: Prediabetes — Prevent Type 2 Diabetes",
+    "https://www.cdc.gov/diabetes/prevention-type-2/prediabetes-prevent-type-2.html",
+)
+CDC_A1C = cite(
+    "CDC: A1C Test for Prediabetes and Diabetes",
+    "https://www.cdc.gov/diabetes/diabetes-testing/prediabetes-a1c-test.html",
+)
+CDC_DIABETES_TESTING = cite(
+    "CDC: Diabetes Testing",
+    "https://www.cdc.gov/diabetes/diabetes-testing/index.html",
+)
+CDC_GESTATIONAL = cite(
+    "CDC: Gestational Diabetes",
+    "https://www.cdc.gov/diabetes/about/gestational-diabetes.html",
+)
+CDC_INSULIN_RESISTANCE = cite(
+    "CDC: Insulin Resistance and Type 2 Diabetes",
+    "https://www.cdc.gov/diabetes/about/insulin-resistance-type-2-diabetes.html",
+)
+CDC_DIABETES_HEART = cite(
+    "CDC: Diabetes and Your Heart",
+    "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-your-heart.html",
+)
+CDC_VISION_LOSS = cite(
+    "CDC: Vision Loss and Diabetes",
+    "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-vision-loss.html",
+)
+CDC_KIDNEY_DISEASE = cite(
+    "CDC: Diabetes and Chronic Kidney Disease",
+    "https://www.cdc.gov/diabetes/diabetes-complications/diabetes-and-chronic-kidney-disease.html",
+)
+CDC_NCHS_DB319 = cite(
+    "CDC NCHS: Data Brief 319, Diabetes Prevalence (NHANES 2013–2016)",
+    "https://www.cdc.gov/nchs/data/databriefs/db319.pdf",
+)
+CDC_MMWR_CARDIOMETABOLIC = cite(
+    "CDC MMWR: Cardiometabolic Diseases Among Racial and Ethnic Subgroups (BRFSS 2013–2021)",
+    "https://www.cdc.gov/mmwr/volumes/73/wr/mm7303a1.htm",
+)
+NIDDK_LOW_BLOOD_GLUCOSE = cite(
+    "NIDDK: Low Blood Glucose (Hypoglycemia)",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia",
+)
+NIDDK_DIABETES_SYMPTOMS = cite(
+    "NIDDK: Symptoms & Causes of Diabetes",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/symptoms-causes",
+)
+NIDDK_INSULIN_TREATMENTS = cite(
+    "NIDDK: Insulin, Medicines, & Other Diabetes Treatments",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/insulin-medicines-treatments",
+)
+NIDDK_TYPE_1 = cite(
+    "NIDDK: Type 1 Diabetes",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/type-1-diabetes",
+)
+NIDDK_TYPE_2 = cite(
+    "NIDDK: Type 2 Diabetes",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/type-2-diabetes",
+)
+NIDDK_SEXUAL_BLADDER = cite(
+    "NIDDK: Diabetes, Sexual, & Bladder Problems",
+    "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/sexual-bladder-problems",
+)
+NIDDK_GDM_CHAPTER = cite(
+    "NIDDK: Diabetes in America, Chapter 4 — Gestational Diabetes",
+    "https://www.niddk.nih.gov/-/media/Files/Strategic-Plans/Diabetes-in-America-3rd-Edition/DIA_Ch04.ashx"
+    "?la=en&hash=BCF055C3BF22718550FB0706FC3A6EED",
+)
+FDA_HUMULIN_R_LABEL = cite(
+    "FDA: Humulin R U-100 Prescribing Information",
+    "https://www.accessdata.fda.gov/drugsatfda_docs/label/2015/018780s150lbl.pdf",
+)
+FDA_INSULIN_SYRINGE_510K = cite(
+    "FDA 510(k) K212499: BD Insulin Syringe Clearance",
+    "https://www.accessdata.fda.gov/cdrh_docs/pdf21/K212499.pdf",
+)
 AMA_ETHICS = cite(
     "American Medical Association: Code of Medical Ethics",
     "https://www.ama-assn.org/about/ethics",
