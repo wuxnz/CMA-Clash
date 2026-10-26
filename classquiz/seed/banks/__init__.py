@@ -8,6 +8,7 @@ from classquiz.seed import sources as S
 from classquiz.seed.stem_normalize import normalize_stem
 
 from .ccma import FACTS as CCMA_FACTS
+from .diabetes_study import FACTS as DIABETES_STUDY_FACTS
 from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
 from .cpr_bls import FACTS as CPR_BLS_FACTS
 from .ekg import FACTS as EKG_FACTS
@@ -19,6 +20,7 @@ from .expansion_growth import FACTS as EXPANSION_GROWTH_FACTS
 from .expansion_audit_replacements import FACTS as EXPANSION_AUDIT_REPLACEMENTS
 _ALL_MODULES = (
     CCMA_FACTS,
+    DIABETES_STUDY_FACTS,
     CLINICAL_SKILLS_FACTS,
     CPR_BLS_FACTS,
     EKG_FACTS,

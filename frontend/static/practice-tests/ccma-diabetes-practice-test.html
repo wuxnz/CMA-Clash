@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CCMA Diabetes and Insulin Practice Test</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 820px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; color: #1d1d1f; }
+  h1 { font-size: 1.6rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; border-bottom: 1px solid #ccc; padding-bottom: 0.25rem; }
+  .intro { color: #444; }
+  .progress { color: #555; font-weight: 600; }
+  .q { margin: 1rem 0; padding: 0.9rem 1rem; border: 1px solid #ddd; border-radius: 8px; }
+  .q legend { font-weight: 600; padding: 0 0.25rem; }
+  .q label { display: block; padding: 0.2rem 0; cursor: pointer; }
+  button { font-size: 1rem; padding: 0.6rem 1.2rem; border-radius: 6px; border: 1px solid #1d1d1f; background: #1d1d1f; color: #fff; cursor: pointer; }
+  button.secondary { background: #fff; color: #1d1d1f; }
+  .score { font-size: 1.4rem; font-weight: 700; margin: 1rem 0; }
+  .result { margin: 0.9rem 0; padding: 0.7rem 0.9rem; border-left: 4px solid #ccc; }
+  .result.right { border-left-color: #17602b; }
+  .result.wrong { border-left-color: #a11d1d; }
+  .result .verdict { font-weight: 600; }
+  .result .verdict.right { color: #17602b; }
+  .result .verdict.wrong { color: #a11d1d; }
+  .explain { margin: 0.35rem 0 0; color: #444; }
+  .hidden { display: none; }
+  .actions { margin: 1.5rem 0; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<h1>CCMA Diabetes and Insulin Practice Test</h1>
+<p class="intro">There is no time limit. Answer at your own pace. Answers and explanations appear only after you submit the test, when your score is shown.</p>
+<p class="progress" id="progress"></p>
+
+<form id="test" autocomplete="off"></form>
+
+<div class="actions" id="submitBar">
+  <button type="button" id="submitBtn">Submit test</button>
+</div>
+
+<div id="results" class="hidden"></div>
+
+<script>
+// Each question: s = section index, q = prompt, o = options, a = index of the correct option, e = explanation.
+const SECTIONS = ["Concepts", "Calculations and conversions"];
+
+const QUESTIONS = [
+  // ---------- Concepts ----------
+  { s: 0, q: "What causes type 1 diabetes?",
+    o: ["Insulin resistance from excess weight", "Autoimmune destruction of insulin-producing beta cells", "Liver overproduction of glucose only", "Eating too much sugar"],
+    a: 1, e: "Type 1 diabetes is autoimmune. The immune system destroys the beta cells, so little or no insulin is made." },
+  { s: 0, q: "About what share of diagnosed diabetes is type 2?",
+    o: ["5 to 10 percent", "20 to 30 percent", "50 percent", "90 to 95 percent"],
+    a: 3, e: "CDC states that type 2 accounts for about 90 to 95 percent of diagnosed cases." },
+  { s: 0, q: "Which A1C range indicates prediabetes?",
+    o: ["Below 5.7 percent", "5.7 to 6.4 percent", "6.5 percent or higher", "7.0 to 8.0 percent"],
+    a: 1, e: "Normal is below 5.7 percent, prediabetes is 5.7 to 6.4 percent, and diabetes is 6.5 percent or higher." },
+  { s: 0, q: "An A1C reflects average blood glucose over about:",
+    o: ["One day", "One week", "2 to 3 months", "One year"],
+    a: 2, e: "Red blood cells live about 3 months, so A1C reflects roughly the past 2 to 3 months." },
+  { s: 0, q: "A fasting plasma glucose of 126 mg/dL or higher indicates:",
+    o: ["Normal glucose", "Prediabetes", "Diabetes", "Hypoglycemia"],
+    a: 2, e: "A fasting plasma glucose of 126 mg/dL or higher is in the diabetes range; 100 to 125 is prediabetes." },
+  { s: 0, q: "Hypoglycemia is generally defined as blood glucose below:",
+    o: ["70 mg/dL", "100 mg/dL", "126 mg/dL", "180 mg/dL"],
+    a: 0, e: "NIDDK defines low blood glucose as below 70 mg/dL for many people with diabetes; the clinician sets the low number for each patient." },
+  { s: 0, q: "For a conscious patient with low blood glucose, the first treatment is:",
+    o: ["15 to 20 grams of fast-acting carbohydrate", "A large protein meal", "An insulin injection", "Waiting an hour to see if it improves"],
+    a: 0, e: "The 15-15 rule: 15 to 20 g of fast-acting carbohydrate, then recheck in 15 minutes and repeat if still low." },
+  { s: 0, q: "After giving fast carbohydrate for low blood glucose, recheck the glucose after:",
+    o: ["5 minutes", "15 minutes", "1 hour", "The next morning"],
+    a: 1, e: "Recheck after 15 minutes and repeat the treatment if it is still low." },
+  { s: 0, q: "For an unconscious patient with low blood glucose, you should:",
+    o: ["Give juice by mouth", "Give food", "Give glucagon and call 911", "Give insulin"],
+    a: 2, e: "Never give food or drink to an unconscious person. Glucagon is the treatment, and 911 should be called." },
+  { s: 0, q: "Gestational diabetes is usually screened for at:",
+    o: ["8 to 12 weeks of pregnancy", "24 to 28 weeks of pregnancy", "36 weeks of pregnancy", "After delivery"],
+    a: 1, e: "CDC notes screening usually happens between 24 and 28 weeks, and earlier for people at higher risk." },
+  { s: 0, q: "Which is a risk factor for gestational diabetes?",
+    o: ["Being underweight", "A previous pregnancy with gestational diabetes", "Age under 18", "Regular exercise"],
+    a: 1, e: "Risk factors include a previous pregnancy with gestational diabetes, a previous baby over 9 pounds, overweight, a family history of type 2 diabetes, and PCOS." },
+  { s: 0, q: "Macrosomia is a birth weight of:",
+    o: ["2,500 g or less", "3,000 g", "4,000 g or more", "1,000 g or less"],
+    a: 2, e: "Macrosomia is a birth weight of 4,000 g (about 8.8 lb) or more, which raises the risk of shoulder dystocia." },
+  { s: 0, q: "Fruity-smelling breath is a sign of:",
+    o: ["Hypoglycemia", "A build-up of ketones", "Normal breath", "Dehydration only"],
+    a: 1, e: "Ketones build up when the body lacks insulin and burns fat. Ketones with high glucose can mean DKA, a medical emergency." },
+  { s: 0, q: "Polyuria means:",
+    o: ["Excessive thirst", "Excessive urination", "Low urine output", "Pain with urination"],
+    a: 1, e: "Polyuria is excessive urination. Polydipsia is excessive thirst." },
+  { s: 0, q: "Polydipsia means:",
+    o: ["Excessive urination", "Excessive thirst", "Excessive hunger", "Fatigue"],
+    a: 1, e: "Polydipsia is excessive thirst. Both are classic early signs of high blood glucose." },
+  { s: 0, q: "Insulin is produced by the:",
+    o: ["Liver", "Kidneys", "Pancreas", "Stomach"],
+    a: 2, e: "Beta cells in the pancreatic islets make and release insulin." },
+  { s: 0, q: "Insulin resistance means:",
+    o: ["Beta cells are destroyed by the immune system", "The body does not respond well to insulin", "The kidneys cannot filter glucose", "The liver stops making glucose"],
+    a: 1, e: "In insulin resistance the body does not respond well to insulin, so it needs more to move glucose into cells." },
+  { s: 0, q: "Hepatic glucose overproduction refers to:",
+    o: ["The liver releasing too much glucose", "The kidneys filtering too much glucose", "The intestines absorbing too much glucose", "The pancreas making too much insulin"],
+    a: 0, e: "In type 2 diabetes the liver keeps releasing glucose even when blood glucose is already high, which drives fasting hyperglycemia." },
+  { s: 0, q: "Metformin mainly works by:",
+    o: ["Reducing liver glucose production", "Destroying beta cells", "Increasing glucose loss in urine", "Increasing appetite"],
+    a: 0, e: "Metformin reduces hepatic glucose production and is first-line for most patients with type 2 diabetes." },
+  { s: 0, q: "The eye disease caused by diabetes that damages the retinal blood vessels is:",
+    o: ["Cataract", "Diabetic retinopathy", "Glaucoma", "Myopia"],
+    a: 1, e: "Diabetic retinopathy damages the retinal blood vessels. Macular edema from leaking vessels is the most common cause of blindness from it." },
+  { s: 0, q: "The most common cause of blindness in people with diabetic retinopathy is:",
+    o: ["Cataract", "Macular edema", "Retinal detachment", "Glaucoma"],
+    a: 1, e: "Leaking vessels swell the macula (macular edema), which is the most common cause of blindness in diabetic retinopathy." },
+  { s: 0, q: "Erectile dysfunction in men with diabetes often starts:",
+    o: ["Never", "About a decade or more earlier than in men without diabetes", "Only after age 80", "Only in men who take insulin"],
+    a: 1, e: "High blood glucose damages the blood vessels and nerves that control erection, so ED can start a decade or more earlier." },
+  { s: 0, q: "Type 1 diabetes today is:",
+    o: ["Curable with diet alone", "Not curable; insulin is lifelong", "Curable with surgery", "Curable with vitamins"],
+    a: 1, e: "NIDDK says transplants help but do not cure type 1 diabetes. Insulin and glucose monitoring are needed for life." },
+  { s: 0, q: "The NIDDK recommends losing what percent of body weight to help prevent or delay type 2 diabetes?",
+    o: ["1 to 2 percent", "5 to 7 percent", "25 to 30 percent", "50 percent"],
+    a: 1, e: "NIDDK recommends losing 5 to 7 percent of body weight to prevent or delay diabetes." },
+  { s: 0, q: "According to NIDDK, which injection site does insulin act on fastest?",
+    o: ["Thigh", "Abdomen", "Upper arm", "Buttocks"],
+    a: 1, e: "NIDDK says insulin works fastest when injected into the belly; the thigh, buttocks, and upper arm take longer." },
+  { s: 0, q: "Why should insulin injection sites be rotated?",
+    o: ["To avoid fever", "Repeated injection in one spot can harden the tissue", "To mix insulin types", "To increase insulin potency"],
+    a: 1, e: "NIDDK warns that injecting in the same spot repeatedly can cause the tissue to harden." },
+  { s: 0, q: "What is an autoantibody?",
+    o: ["A protein made by the immune system that attacks the body's own tissue by mistake", "A type of insulin", "A glucose test", "A syringe marking"],
+    a: 0, e: "NIDDK describes autoantibodies as proteins made by the immune system that attack healthy tissue by mistake." },
+
+  // ---------- Calculations and conversions ----------
+  { s: 1, q: "How many mL is 30 units of U-100 insulin?",
+    o: ["0.03 mL", "0.30 mL", "3.0 mL", "30 mL"],
+    a: 1, e: "mL = units ÷ 100, so 30 ÷ 100 = 0.30 mL." },
+  { s: 1, q: "How many units are in 0.15 mL of U-100 insulin?",
+    o: ["1.5 units", "15 units", "150 units", "0.015 units"],
+    a: 1, e: "units = mL × 100, so 0.15 × 100 = 15 units." },
+  { s: 1, q: "10 units of U-100 insulin equals:",
+    o: ["0.01 mL", "0.10 mL", "1.0 mL", "10 mL"],
+    a: 1, e: "10 ÷ 100 = 0.10 mL." },
+  { s: 1, q: "25 units of U-100 insulin equals:",
+    o: ["0.025 mL", "0.25 mL", "2.5 mL", "25 mL"],
+    a: 1, e: "25 ÷ 100 = 0.25 mL." },
+  { s: 1, q: "50 units of U-100 insulin equals:",
+    o: ["0.05 mL", "0.5 mL", "5 mL", "50 mL"],
+    a: 1, e: "50 ÷ 100 = 0.5 mL." },
+  { s: 1, q: "100 units of U-100 insulin equals:",
+    o: ["0.1 mL", "1.0 mL", "10 mL", "100 mL"],
+    a: 1, e: "100 ÷ 100 = 1.0 mL. A 1 mL syringe holds 100 units." },
+  { s: 1, q: "A 1 mL insulin syringe holds how many units of U-100 insulin?",
+    o: ["10", "50", "100", "1,000"],
+    a: 2, e: "1 mL × 100 units per mL = 100 units." },
+  { s: 1, q: "Which is the smallest syringe that holds a 37-unit dose?",
+    o: ["0.3 mL", "0.5 mL", "1 mL", "2 mL"],
+    a: 1, e: "A 0.3 mL syringe holds only 30 units, so the 0.5 mL syringe (50 units) is the smallest that fits." },
+  { s: 1, q: "Which is the smallest syringe that holds an 18-unit dose?",
+    o: ["0.3 mL", "0.5 mL", "1 mL", "2 mL"],
+    a: 0, e: "A 0.3 mL syringe holds 30 units, which is enough for 18 units and is the most precise choice." },
+  { s: 1, q: "For a 12-unit dose, which syringe should you choose?",
+    o: ["0.3 mL", "0.5 mL", "1 mL", "Any size is equally precise"],
+    a: 0, e: "Choose the smallest syringe that holds the dose. Smaller syringes have finer marks, so measurement is more accurate." },
+  { s: 1, q: "A meal has 45 g of carbohydrate at 1 unit per 15 g. How many units are needed for the meal?",
+    o: ["2 units", "3 units", "4 units", "45 units"],
+    a: 1, e: "units = grams ÷ grams per unit = 45 ÷ 15 = 3 units." },
+  { s: 1, q: "A meal has 60 g of carbohydrate at 1 unit per 15 g. How many units are needed for the meal?",
+    o: ["3 units", "4 units", "6 units", "60 units"],
+    a: 1, e: "60 ÷ 15 = 4 units." },
+  { s: 1, q: "A meal has 90 g of carbohydrate at 1 unit per 10 g. How many units are needed for the meal?",
+    o: ["6 units", "9 units", "10 units", "15 units"],
+    a: 1, e: "90 ÷ 10 = 9 units." },
+  { s: 1, q: "Correction dose: glucose 250 mg/dL, target 150 mg/dL, factor 1 unit per 50 mg/dL. How many correction units?",
+    o: ["1 unit", "2 units", "3 units", "5 units"],
+    a: 1, e: "(250 − 150) ÷ 50 = 2 units." },
+  { s: 1, q: "Correction dose: glucose 310 mg/dL, target 150 mg/dL, factor 1 unit per 40 mg/dL. How many correction units?",
+    o: ["2 units", "3 units", "4 units", "8 units"],
+    a: 2, e: "(310 − 150) ÷ 40 = 160 ÷ 40 = 4 units." },
+  { s: 1, q: "Total dose is a 4-unit meal dose plus a 2-unit correction dose. What is the volume of U-100 insulin?",
+    o: ["0.6 mL", "0.06 mL", "6 mL", "0.006 mL"],
+    a: 1, e: "Total = 4 + 2 = 6 units. mL = 6 ÷ 100 = 0.06 mL." },
+  { s: 1, q: "Estimated average glucose (eAG = 28.7 × A1C − 46.7) for an A1C of 7 percent is about:",
+    o: ["126 mg/dL", "154 mg/dL", "183 mg/dL", "212 mg/dL"],
+    a: 1, e: "28.7 × 7 − 46.7 = 154.2, about 154 mg/dL, which matches CDC's table value." },
+  { s: 1, q: "Estimated average glucose (eAG = 28.7 × A1C − 46.7) for an A1C of 8 percent is about:",
+    o: ["154 mg/dL", "183 mg/dL", "212 mg/dL", "240 mg/dL"],
+    a: 1, e: "28.7 × 8 − 46.7 = 182.9, about 183 mg/dL." },
+  { s: 1, q: "Convert 126 mg/dL to mmol/L (divide by 18):",
+    o: ["6.0", "7.0", "8.0", "9.0"],
+    a: 1, e: "126 ÷ 18 = 7.0 mmol/L." },
+  { s: 1, q: "Convert 70 mg/dL to mmol/L (divide by 18):",
+    o: ["3.9", "5.0", "7.0", "4.2"],
+    a: 0, e: "70 ÷ 18 = 3.9 mmol/L." },
+  { s: 1, q: "Convert 5.5 mmol/L to mg/dL (multiply by 18):",
+    o: ["90 mg/dL", "99 mg/dL", "110 mg/dL", "120 mg/dL"],
+    a: 1, e: "5.5 × 18 = 99 mg/dL." }
+];
+
+// ---------- Rendering ----------
+const form = document.getElementById("test");
+let lastSection = -1;
+
+QUESTIONS.forEach((item, i) => {
+  if (item.s !== lastSection) {
+    const h = document.createElement("h2");
+    h.textContent = SECTIONS[item.s];
+    form.appendChild(h);
+    lastSection = item.s;
+  }
+  const fs = document.createElement("fieldset");
+  fs.className = "q";
+  const legend = document.createElement("legend");
+  legend.textContent = (i + 1) + ". " + item.q;
+  fs.appendChild(legend);
+  item.o.forEach((text, j) => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "q" + i;
+    input.value = String(j);
+    input.addEventListener("change", updateProgress);
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(" " + text));
+    fs.appendChild(label);
+  });
+  form.appendChild(fs);
+});
+
+function answeredCount() {
+  let n = 0;
+  QUESTIONS.forEach((_, i) => {
+    if (form.querySelector('input[name="q' + i + '"]:checked')) n++;
+  });
+  return n;
+}
+
+function updateProgress() {
+  document.getElementById("progress").textContent =
+    "Answered " + answeredCount() + " of " + QUESTIONS.length;
+}
+updateProgress();
+
+// ---------- Scoring ----------
+document.getElementById("submitBtn").addEventListener("click", () => {
+  const unanswered = QUESTIONS.length - answeredCount();
+  if (unanswered > 0 &&
+      !confirm(unanswered + " question(s) are unanswered and will count as wrong. Submit anyway?")) {
+    return;
+  }
+  showResults();
+});
+
+function showResults() {
+  let correct = 0;
+  const sectionTotals = SECTIONS.map(() => ({ right: 0, total: 0 }));
+  const out = document.getElementById("results");
+  const rows = [];
+
+  QUESTIONS.forEach((item, i) => {
+    const checked = form.querySelector('input[name="q' + i + '"]:checked');
+    const picked = checked ? Number(checked.value) : -1;
+    const isRight = picked === item.a;
+    sectionTotals[item.s].total++;
+    if (isRight) { correct++; sectionTotals[item.s].right++; }
+    rows.push({ i, item, picked, isRight });
+  });
+
+  const pct = Math.round((correct / QUESTIONS.length) * 100);
+  const summary = document.createElement("div");
+  const score = document.createElement("p");
+  score.className = "score";
+  score.textContent = "Score: " + correct + " of " + QUESTIONS.length + " (" + pct + "%)";
+  summary.appendChild(score);
+
+  sectionTotals.forEach((t, si) => {
+    const p = document.createElement("p");
+    p.textContent = SECTIONS[si] + ": " + t.right + " of " + t.total;
+    summary.appendChild(p);
+  });
+  out.appendChild(summary);
+
+  rows.forEach(({ i, item, picked, isRight }) => {
+    const box = document.createElement("div");
+    box.className = "result " + (isRight ? "right" : "wrong");
+
+    const q = document.createElement("p");
+    q.style.margin = "0";
+    q.textContent = (i + 1) + ". " + item.q;
+    box.appendChild(q);
+
+    const verdict = document.createElement("p");
+    verdict.className = "verdict " + (isRight ? "right" : "wrong");
+    verdict.textContent = isRight
+      ? "Correct"
+      : (picked === -1 ? "Unanswered" : "Incorrect");
+    box.appendChild(verdict);
+
+    const yours = document.createElement("p");
+    yours.style.margin = "0";
+    yours.textContent = "Your answer: " + (picked === -1 ? "(none)" : item.o[picked]);
+    box.appendChild(yours);
+
+    const right = document.createElement("p");
+    right.style.margin = "0";
+    right.textContent = "Correct answer: " + item.o[item.a];
+    box.appendChild(right);
+
+    const ex = document.createElement("p");
+    ex.className = "explain";
+    ex.textContent = item.e;
+    box.appendChild(ex);
+
+    out.appendChild(box);
+  });
+
+  const again = document.createElement("div");
+  again.className = "actions";
+  const retry = document.createElement("button");
+  retry.type = "button";
+  retry.className = "secondary";
+  retry.textContent = "Take the test again";
+  retry.addEventListener("click", () => location.reload());
+  again.appendChild(retry);
+  out.appendChild(again);
+
+  form.classList.add("hidden");
+  document.getElementById("submitBar").classList.add("hidden");
+  document.getElementById("progress").classList.add("hidden");
+  out.classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
