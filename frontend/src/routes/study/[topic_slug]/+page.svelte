@@ -30,7 +30,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	// Practice tests served from static/ that belong to a study guide.
 	const PRACTICE_TEST = {
-		href: '/practice-tests/ccma-diabetes-practice-test.html',
+		href: '/practice-test/diabetes',
 		label: 'Diabetes and insulin practice test'
 	};
 	const PRACTICE_TEST_TOPICS = ['ccma-diabetes', 'diabetes-study-guide'];
@@ -166,7 +166,6 @@ SPDX-License-Identifier: MPL-2.0
 						<a
 							class="text-sm text-ink link-hover"
 							href={practiceTest.href}
-							data-sveltekit-reload
 						>
 							{practiceTest.label}
 						</a>
