@@ -22,6 +22,7 @@ CERTIFICATIONS = [
             ("ccma-hipaa", "HIPAA & Patient Privacy", 9),
             ("ccma-transmission", "Transmission-Based Precautions", 10),
             ("ccma-diabetes", "Diabetes", 11),  # 112 facts → four 28-question quiz sets
+            ("diabetes-study-guide", "Diabetes Study Guide", 12),
         ],
     },
     {

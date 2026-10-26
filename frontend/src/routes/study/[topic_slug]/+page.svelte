@@ -12,6 +12,10 @@ SPDX-License-Identifier: MPL-2.0
 	import type { QuizBrowseItem, StudyBlock, Topic } from '$lib/cma/client';
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
+	import { createBattle } from '$lib/cma/client';
+	import { setBattleHostSecret } from '$lib/cma/battle-guest';
+	import StartGamePopup from '$lib/dashboard/start_game.svelte';
 
 	navbarVisible.visible = true;
 
@@ -23,6 +27,37 @@ SPDX-License-Identifier: MPL-2.0
 	let notFound = $state(false);
 
 	const blocks = $derived((topic?.study_content ?? []) as StudyBlock[]);
+
+	// Practice tests served from static/ that belong to a study guide.
+	const PRACTICE_TEST = {
+		href: '/practice-tests/ccma-diabetes-practice-test.html',
+		label: 'Diabetes and insulin practice test'
+	};
+	const PRACTICE_TEST_TOPICS = ['ccma-diabetes', 'diabetes-study-guide'];
+	const practiceTest = $derived(PRACTICE_TEST_TOPICS.includes(slug) ? PRACTICE_TEST : null);
+
+	// The Diabetes Study Guide quiz can be played as a battle or a match.
+	const GAME_TOPIC = 'diabetes-study-guide';
+	const gameQuiz = $derived(slug === GAME_TOPIC ? (quizzes[0] ?? null) : null);
+	let startGame = $state<string | null>(null);
+	let battleStarting = $state(false);
+	let battleError = $state('');
+
+	async function startBattle(quizId: string) {
+		if (battleStarting) return;
+		battleStarting = true;
+		battleError = '';
+		const result = await createBattle(quizId, 4);
+		battleStarting = false;
+		if (!result.ok) {
+			const detail = 'detail' in result ? result.detail : undefined;
+			battleError = detail ?? 'Could not create battle. Try again.';
+			return;
+		}
+		const lobby = result.data;
+		if (lobby.host_secret) setBattleHostSecret(lobby.battle_code, lobby.host_secret);
+		goto(resolve('/battle/[code]', { code: lobby.battle_code }));
+	}
 
 	onMount(async () => {
 		try {
@@ -122,7 +157,42 @@ SPDX-License-Identifier: MPL-2.0
 					{/if}
 				</div>
 			</section>
+
+			{#if practiceTest}
+				<section class="mt-12">
+					<h2 class="text-sm font-semibold text-ink">Practice test</h2>
+					<p class="text-sm text-ink-muted mt-2">Untimed questions. Answers and your score appear when you submit.</p>
+					<p class="mt-3">
+						<a
+							class="text-sm text-ink link-hover"
+							href={practiceTest.href}
+							data-sveltekit-reload
+						>
+							{practiceTest.label}
+						</a>
+					</p>
+				</section>
+			{/if}
+
+			{#if gameQuiz}
+				<section class="mt-12">
+					<h2 class="text-sm font-semibold text-ink">Play the quiz</h2>
+					<p class="text-sm text-ink-muted mt-2">{gameQuiz.title}: battle another player, or host a match for a room.</p>
+					<div class="mt-4 flex flex-wrap gap-3">
+						<Button onclick={() => startBattle(gameQuiz.id)} disabled={battleStarting}>
+							{battleStarting ? 'Starting battle…' : 'Battle'}
+						</Button>
+						<Button variant="secondary" onclick={() => (startGame = gameQuiz.id)}>Match</Button>
+					</div>
+					{#if battleError}
+						<p class="text-sm text-ink mt-3" role="alert">{battleError}</p>
+					{/if}
+				</section>
+			{/if}
 		{/if}
 	</div>
+	{#if startGame !== null}
+		<StartGamePopup bind:quiz_id={startGame} title={gameQuiz?.title ?? ''} />
+	{/if}
 	<Footer />
 </div>

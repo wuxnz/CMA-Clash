@@ -5272,3 +5272,5 @@ STUDY_BY_TOPIC: dict[str, list[dict]] = {
         ),
     ],
 }
+# The Diabetes Study Guide quiz shares this guide with the CCMA diabetes topic.
+STUDY_BY_TOPIC["diabetes-study-guide"] = STUDY_BY_TOPIC["ccma-diabetes"]
