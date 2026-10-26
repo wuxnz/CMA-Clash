@@ -21,7 +21,7 @@ from classquiz.gamification.system_accounts import CONTENT_ACCOUNT_EMAIL, DEMO_A
 from classquiz.helpers import get_meili_data, meilisearch_init
 from classquiz.helpers.avatar import gzipped_user_avatar
 from classquiz.seed.banks import load_all_facts
-from classquiz.seed.catalog import CERTIFICATIONS, study_content_for_topic
+from classquiz.seed.catalog import CERTIFICATIONS, TOPIC_QUESTIONS_PER_GAME, study_content_for_topic
 from classquiz.seed.quiz_merge import merge_facts_by_topic
 
 LOGGER = logging.getLogger(__name__)
@@ -208,7 +208,7 @@ async def run_seed(force: bool = False) -> dict:
             existing.topic_id = topic.id
             existing.difficulty = MIXED_DIFFICULTY
             existing.seed_slug = seed_slug
-            existing.questions_per_game = DEFAULT_QUESTIONS_PER_GAME
+            existing.questions_per_game = TOPIC_QUESTIONS_PER_GAME.get(topic_slug, DEFAULT_QUESTIONS_PER_GAME)
             existing.public = True
             existing.updated_at = datetime.now()
             await existing.update()
@@ -227,7 +227,7 @@ async def run_seed(force: bool = False) -> dict:
                 topic_id=topic.id,
                 difficulty=MIXED_DIFFICULTY,
                 seed_slug=seed_slug,
-                questions_per_game=DEFAULT_QUESTIONS_PER_GAME,
+                questions_per_game=TOPIC_QUESTIONS_PER_GAME.get(topic_slug, DEFAULT_QUESTIONS_PER_GAME),
                 updated_at=datetime.now(),
             ).save()
             quizzes_created += 1
