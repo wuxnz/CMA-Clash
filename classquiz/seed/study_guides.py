@@ -19,7 +19,6 @@ from collections.abc import Sequence
 
 from classquiz.seed.sources import (
     ADA_DIAGNOSIS,
-    ADA_NUTRITION,
     ADA_STANDARDS,
     AHA_ADULT_BLS,
     AHA_ADULT_FBAO,
@@ -34,39 +33,50 @@ from classquiz.seed.sources import (
     AHA_PALS,
     AHA_TOP_THINGS,
     AHA_WHAT_IS_CPR,
-    AMA_ETHICS,
     AHRQ_CARE_COORDINATION,
     AHRQ_HEALTH_LITERACY,
     AHRQ_PATIENT_SAFETY,
     AHRQ_TEAMSTEPPS,
+    AMA_ETHICS,
+    CDC_A1C,
     CDC_CHILD_DEV,
     CDC_CHRONIC_DISEASE,
     CDC_COVID,
     CDC_DIABETES,
+    CDC_DIABETES_HEART,
+    CDC_DIABETES_TESTING,
     CDC_FLU,
-    CDC_HBP_MEASURE,
+    CDC_GESTATIONAL,
     CDC_HAND_HYGIENE,
+    CDC_HBP_MEASURE,
     CDC_HEPATITIS_B,
     CDC_HIV,
     CDC_IMZ_BEST_PRACTICES,
     CDC_IMZ_SCHEDULES,
     CDC_INFECTION_CONTROL,
     CDC_INJECTION_SAFETY,
+    CDC_INSULIN_RESISTANCE,
     CDC_ISOLATION_PRECAUTIONS,
+    CDC_KIDNEY_DISEASE,
     CDC_LEAD,
+    CDC_MMWR_CARDIOMETABOLIC,
+    CDC_NCHS_DB319,
     CDC_NIOSH_BBP,
     CDC_NIOSH_INFECTIOUS,
     CDC_NIOSH_PPE,
     CDC_NIOSH_RISK,
     CDC_PHYSICAL_ACTIVITY,
     CDC_PINKBOOK,
+    CDC_PREDIABETES,
     CDC_SLEEP,
     CDC_TB,
     CDC_TB_HCP,
-    CDC_VACCINES_HCP,
+    CDC_TYPE_2,
     CDC_VACCINE_ADMIN,
     CDC_VACCINE_STORAGE,
+    CDC_VACCINES_HCP,
     CDC_VIS,
+    CDC_VISION_LOSS,
     CLSI_GP41,
     CLSI_GP41_SAMPLE,
     DIETARY_GUIDELINES,
@@ -76,17 +86,21 @@ from classquiz.seed.sources import (
     FDA_CLIA,
     FDA_CLIA_WAIVED,
     FDA_DRUG_SAFETY,
+    FDA_HUMULIN_R_LABEL,
+    FDA_INSULIN_SYRINGE_510K,
     FDA_MEDICATION_SAFETY,
     FDA_MEDWATCH,
     HHS_HIPAA,
     HHS_HIPAA_COVERED,
     HHS_HIPAA_PRIVACY,
     HHS_HIPAA_SECURITY,
+    MEDICAID_GOV,
+    MEDICARE_GOV,
     ML_A1C,
+    ML_AFIB,
     ML_AGING_VITALS,
     ML_ANAPHYLAXIS,
     ML_ARRHYTHMIAS,
-    ML_AFIB,
     ML_BLOOD,
     ML_BP_MEASURE,
     ML_BURNS,
@@ -101,7 +115,6 @@ from classquiz.seed.sources import (
     ML_CUTS,
     ML_DEHYDRATION,
     ML_DEMENTIA,
-    ML_DIABETES,
     ML_DIABETIC_FOOT,
     ML_ECG,
     ML_ENCYCLOPEDIA,
@@ -123,21 +136,26 @@ from classquiz.seed.sources import (
     ML_TEEN_HEALTH,
     ML_VENIPUNCTURE,
     ML_VITAL_SIGNS,
-    MEDICAID_GOV,
-    MEDICARE_GOV,
-    NCI_CANCER,
-    NIA_HEALTH,
     NCBI_BOOKSHELF,
+    NCI_CANCER,
     NHA_CCMA,
     NHA_CCMA_EXAM,
     NHA_CET,
     NHLBI_BP,
     NHLBI_HEALTH,
+    NIA_HEALTH,
+    NIAMS_HEALTH,
     NIDDK_DIABETES,
+    NIDDK_DIABETES_SYMPTOMS,
+    NIDDK_GDM_CHAPTER,
+    NIDDK_INSULIN_TREATMENTS,
     NIDDK_KIDNEY,
+    NIDDK_LOW_BLOOD_GLUCOSE,
+    NIDDK_SEXUAL_BLADDER,
+    NIDDK_TYPE_1,
+    NIDDK_TYPE_2,
     NINDS_HEALTH,
     NLM_MEDLINEPLUS,
-    NIAMS_HEALTH,
     OSHA_BBP,
     OSHA_BBP_GENERAL,
     OSHA_BBP_HAZARDS,
@@ -148,9 +166,9 @@ from classquiz.seed.sources import (
     OSHA_HEALTHCARE,
     OSHA_NEEDLESTICK,
     OSHA_PPE,
+    RED_CROSS_CPR,
     RED_CROSS_FIRST_AID,
     RED_CROSS_FIRST_AID_STEPS,
-    RED_CROSS_CPR,
     USPSTF,
     USPSTF_TOPICS,
     WHO_HAND_HYGIENE,
@@ -1292,157 +1310,814 @@ STUDY_BY_TOPIC: dict[str, list[dict]] = {
         ),
     ],
     "ccma-diabetes": [
+        # ------------------------------------------------------------------
+        # Types, prediabetes, and A1C
+        # ------------------------------------------------------------------
         _b(
-            "Types of diabetes",
-            "Type 1 diabetes is autoimmune destruction of pancreatic beta cells "
-            "with absolute insulin deficiency. Type 2 diabetes combines insulin "
-            "resistance with a progressive decline in insulin secretion. "
-            "Gestational diabetes is first recognized in pregnancy, and prediabetes "
-            "is a warning range on A1C, fasting plasma glucose, or oral glucose "
-            "tolerance testing that falls short of the diabetes thresholds.",
-            CDC_DIABETES,
+            "Type 1 (T1DM) and type 2 (T2DM) diabetes",
+            "Type 1 diabetes (T1DM) is an autoimmune disease in which the immune system destroys the insulin-producing "
+            "beta cells of the pancreas, so the body makes little or no insulin and daily insulin is required. It "
+            "usually appears quickly, most often in children and young adults, though it can start at any age. Type 2 "
+            "diabetes (T2DM) develops over years as the body stops using insulin well and the pancreas cannot keep up. "
+            "It accounts for about 90 to 95 percent of diagnosed cases and is often found on routine screening.",
+            CDC_TYPE_2,
             [
-                "Type 1 usually presents with rapid onset and marked weight loss.",
-                "Type 2 is often asymptomatic for years and is found on routine screening.",
-                "Gestational diabetes resolves after delivery but signals a high lifetime risk of type 2 diabetes.",
+                "T1DM: autoimmune loss of beta cells; insulin is required to survive.",
+                "T2DM: insulin resistance plus a gradual decline in insulin production; lifestyle changes can prevent "
+                "it.",
+                "Gestational diabetes begins in pregnancy and usually resolves after delivery, but it raises later "
+                "risk.",
             ],
         ),
         _b(
-            "Signs, symptoms, and pathophysiology",
-            "Hyperglycemia causes polyuria, polydipsia, polyphagia, fatigue, "
-            "blurred vision, and slow-healing wounds. Insulin deficiency or "
-            "resistance keeps blood glucose elevated, and chronic hyperglycemia "
-            "damages microvascular tissue (retina, kidneys, nerves) and "
-            "accelerates macrovascular disease (coronary artery disease, "
-            "stroke, peripheral arterial disease).",
-            ML_DIABETES,
+            "What is prediabetes",
+            "Prediabetes means blood glucose is higher than normal but not high enough for a diabetes diagnosis. The "
+            "ranges are a fasting plasma glucose of 100 to 125 mg/dL, a 2-hour oral glucose tolerance test of 140 to "
+            "199 mg/dL, or an A1C of 5.7 to 6.4 percent. More than 2 in 5 U.S. adults have prediabetes, and about 8 in "
+            "10 "
+            "of them do not know it. It raises the risk of type 2 diabetes, heart disease, and stroke. Weight loss, "
+            "healthy eating, and regular physical activity can prevent or delay type 2 diabetes.",
+            CDC_PREDIABETES,
             [
-                "Classic symptoms are polyuria, polydipsia, polyphagia, weight change, fatigue.",
-                "The '3 Ps' plus unexplained weight loss in type 1 diabetes suggest hyperglycemic crisis.",
-                "Infection, stress, and missed medication commonly precipitate decompensation.",
+                "FPG 100–125 mg/dL, 2-hour OGTT 140–199 mg/dL, A1C 5.7–6.4%.",
+                "Most people with prediabetes do not know it, so screening is how it is found.",
+                "Lifestyle change is the main prevention strategy named by CDC.",
             ],
         ),
         _b(
-            "Hypoglycemia and hyperglycemic emergencies",
-            "Treat hypoglycemia — typically blood glucose below 70 mg/dL in a "
-            "patient on insulin or a sulfonylurea — with 15 grams of fast-acting "
-            "carbohydrate, recheck in 15 minutes, and repeat if still low. "
-            "Diabetic ketoacidosis combines hyperglycemia, ketosis, and acidosis; "
-            "hyperosmolar hyperglycemic state features extreme hyperglycemia and "
-            "dehydration with little ketosis. Both are medical emergencies.",
+            "What is an A1C and its levels",
+            "A1C measures the percentage of hemoglobin in red blood cells that has glucose attached. Red blood cells "
+            "live about 3 months, so the test reflects average glucose over roughly the past 2 to 3 months, not a "
+            "single "
+            "reading. Normal is below 5.7 percent, prediabetes is 5.7 to 6.4 percent, and diabetes is 6.5 percent or "
+            "higher. CDC's table gives the estimated average glucose: 6 percent is about 126 mg/dL, 7 percent about "
+            "154, "
+            "8 percent about 183, 9 percent about 212, and 10 percent about 240.",
+            CDC_A1C,
+            [
+                "Normal below 5.7%; prediabetes 5.7–6.4%; diabetes 6.5% or higher.",
+                "The estimated average glucose may miss spikes and lows, so it does not replace home glucose checks.",
+                "Anemia, kidney failure, liver disease, transfusion, and pregnancy can make A1C read falsely high or "
+                "low.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Complications
+        # ------------------------------------------------------------------
+        _b(
+            "Diabetes complications: heart disease and stroke",
+            "Over time, high blood glucose damages blood vessels throughout the body, which raises the risk of heart "
+            "disease and stroke. Diabetes is one of the leading risk factors for these conditions, so blood pressure, "
+            "cholesterol, and weight are managed alongside glucose. Clinics track these numbers because the "
+            "cardiovascular "
+            "damage develops silently for years.",
+            CDC_DIABETES_HEART,
+            [
+                "Heart disease and stroke are among the complications CDC names for diabetes.",
+                "Managing blood pressure and cholesterol lowers the cardiovascular risk of diabetes.",
+            ],
+        ),
+        _b(
+            "Diabetes complications: eyes and vision loss",
+            "Diabetic retinopathy damages the blood vessels of the retina, the light-sensing nerve tissue at the back "
+            "of "
+            "the eye. Weakened vessels leak fluid that swells the macula and distorts central vision; this macular "
+            "edema "
+            "is the most common cause of blindness in people with retinopathy. In advanced disease the retina grows "
+            "fragile "
+            "new vessels that can bleed heavily and block vision. CDC reports that diabetes is a leading cause of "
+            "adult "
+            "blindness in the United States.",
+            CDC_VISION_LOSS,
+            [
+                "Blurred or distorted central vision is a warning sign that needs an eye exam.",
+                "Regular dilated eye exams find retinopathy before the patient notices vision loss.",
+                "Macular edema is the most common cause of blindness in retinopathy.",
+            ],
+        ),
+        _b(
+            "Diabetes complications: kidneys",
+            "Diabetes is a leading cause of kidney failure in the United States. High glucose damages the tiny "
+            "filtering "
+            "vessels of the kidneys, and the damage can progress to kidney failure that requires dialysis or a "
+            "transplant. "
+            "Kidney damage can develop without obvious symptoms, which is why routine kidney testing is part of "
+            "diabetes care.",
+            CDC_KIDNEY_DISEASE,
+            [
+                "Diabetes is one of the leading causes of kidney failure, according to CDC.",
+                "Kidney failure can require dialysis or a transplant; early damage often has no symptoms.",
+            ],
+        ),
+        _b(
+            "Diabetes complications: nerves, feet, and skin",
+            "Diabetic nerve damage (neuropathy) reduces feeling in the feet, so small cuts, blisters, and pressure "
+            "sores go "
+            "unnoticed. Poor circulation and infection then turn them into ulcers, and diabetes is a leading cause of "
+            "lower-limb amputation. NIDDK lists sores that do not heal and frequent infections among the symptoms of "
+            "diabetes, and both should be reported the same day.",
+            ML_DIABETIC_FOOT,
+            [
+                "Daily foot inspection and well-fitted shoes reduce the risk of ulcers and amputation.",
+                "Sores that do not heal and frequent infections are warning signs of diabetes.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Gestational diabetes
+        # ------------------------------------------------------------------
+        _b(
+            "Gestational diabetes and risk factors",
+            "Gestational diabetes develops during pregnancy in a woman who did not have diabetes before. About 5 to 9 "
+            "percent of U.S. pregnancies are affected each year. Higher-risk women include those with a previous "
+            "pregnancy "
+            "with gestational diabetes, a previous baby weighing over 9 pounds, overweight, a family history of type 2 "
+            "diabetes, polycystic ovary syndrome (PCOS), and African American, Hispanic or Latino, American Indian, "
+            "Alaska "
+            "Native, Native Hawaiian, or Pacific Islander background. It usually resolves after birth but raises the "
+            "mother's lifetime risk of type 2 diabetes.",
+            CDC_GESTATIONAL,
+            [
+                "Risk factors: prior gestational diabetes, prior baby over 9 lb, overweight, family history, PCOS.",
+                "Certain racial and ethnic groups are at higher risk, as listed above.",
+                "About half of women with gestational diabetes later develop type 2 diabetes, according to CDC.",
+            ],
+        ),
+        _b(
+            "The test for gestational diabetes",
+            "Gestational diabetes is screened for in pregnancy, usually between 24 and 28 weeks, and earlier for "
+            "people at "
+            "higher risk. The ADA describes two approaches: a one-step 75-gram, 2-hour oral glucose tolerance test, or "
+            "a "
+            "two-step process that starts with a 50-gram glucose challenge and a 1-hour blood draw, followed by a "
+            "100-gram, "
+            "3-hour test if the first result is high. The clinician orders the protocol. If glucose is high early in "
+            "pregnancy, the patient may have type 1 or type 2 diabetes instead.",
             ADA_STANDARDS,
             [
-                "15-15 rule: 15 g of fast carbohydrate, recheck in 15 minutes, repeat as needed.",
-                "Once the patient is awake and able to swallow, follow with a longer-acting carbohydrate or snack.",
-                "Never give food or drink to an unconscious patient — treat with glucagon and call for help.",
+                "Screening window is 24 to 28 weeks, earlier when risk is high (CDC).",
+                "One-step test: 75 g glucose load with a 2-hour sample.",
+                "Two-step test: 50 g challenge, then a 100 g test if the first result is high; record vomiting, since "
+                "it can invalidate the result.",
             ],
         ),
         _b(
-            "Laboratory diagnosis",
-            "Diabetes is diagnosed by fasting plasma glucose of 126 mg/dL or "
-            "higher, a 2-hour oral glucose tolerance test of 200 mg/dL or higher, "
-            "or an A1C of 6.5% or higher on a standardized assay. Prediabetes "
-            "ranges are FPG 100–125 mg/dL, 2-hour OGTT 140–199 mg/dL, and A1C "
-            "5.7–6.4%. Abnormal results generally need confirmation unless "
-            "classic symptoms with hyperglycemia are present.",
-            ADA_DIAGNOSIS,
+            "How gestational diabetes affects the fetus",
+            "Extra glucose crosses the placenta, and the baby responds by making extra insulin, which drives excess "
+            "growth. "
+            "Babies born large (macrosomia, 4,000 g or more) face a higher risk of shoulder dystocia, when a shoulder "
+            "gets "
+            "stuck during birth, and related injuries such as clavicle fracture and brachial plexus injury. Newborns "
+            "can also "
+            "have low blood sugar and breathing problems after birth. In two trials, treating gestational diabetes "
+            "lowered "
+            "macrosomia from 21 and 14 percent to 10 and 6 percent.",
+            NIDDK_GDM_CHAPTER,
             [
-                "Random plasma glucose of 200 mg/dL or higher with classic symptoms is diagnostic.",
-                "A1C reflects average glucose over roughly 2–3 months.",
-                "The 2-hour OGTT uses 75 g of anhydrous glucose.",
+                "Macrosomia: birth weight of 4,000 g (about 8.8 lb) or more.",
+                "Shoulder dystocia is about 13% in macrosomic infants and about 1% under 4,000 g.",
+                "Newborn risks include low blood sugar after birth and breathing problems.",
             ],
         ),
         _b(
-            "Point-of-care glucose testing",
-            "Point-of-care glucose meters in the outpatient setting are typically "
-            "CLIA-waived when staff follow the manufacturer's instructions, run "
-            "control solution on schedule and after any suspect result, and "
-            "document the results. Hand hygiene, gloves, and site preparation are "
-            "still required, and critical values must be reported per policy.",
-            FDA_CLIA_WAIVED,
+            "Symptoms of gestational diabetes",
+            "Gestational diabetes often has no symptoms, so it is found by screening rather than by how the patient "
+            "feels. "
+            "When symptoms occur they are usually mild, such as increased thirst or needing to urinate more often. "
+            "Testing "
+            "is the only way to confirm the diagnosis.",
+            CDC_GESTATIONAL,
             [
-                "Run liquid controls on each new lot of strips, when results are unexpected, and on the schedule the "
-                "manufacturer requires.",
-                "Use the single-use lancet; never reuse a lancet between patients.",
+                "Often no symptoms at all.",
+                "Mild symptoms: increased thirst and more frequent urination.",
+                "Do not diagnose from symptoms alone; route results to the clinician.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Hyper- and hypoglycemia
+        # ------------------------------------------------------------------
+        _b(
+            "Difference between hyperglycemia and hypoglycemia",
+            "Hypoglycemia is low blood glucose, generally below 70 mg/dL for people on insulin or certain diabetes "
+            "medicines, "
+            "and it can become an emergency. Hyperglycemia is blood glucose above the patient's target; the diagnostic "
+            "thresholds are a fasting plasma glucose of 126 mg/dL or higher and an A1C of 6.5 percent or higher. "
+            "Hypoglycemia "
+            "can develop quickly and needs treatment now. Hyperglycemia develops gradually in type 2 and can become "
+            "rapid in type 1.",
+            NIDDK_LOW_BLOOD_GLUCOSE,
+            [
+                "Hypo: below 70 mg/dL; shakiness, hunger, sweating, confusion, irritability.",
+                "Hyper: thirst, frequent urination, hunger, blurred vision, fatigue, slow-healing sores, frequent "
+                "infections.",
+                "The clinician sets which number counts as low for each patient.",
+            ],
+        ),
+        _b(
+            "Treatment for hypoglycemia",
+            "Treat a conscious person with low blood glucose right away with 15 to 20 grams of fast-acting "
+            "carbohydrate, such "
+            "as four glucose tablets, one tube of glucose gel, 4 ounces of regular juice or soda, or 1 tablespoon of "
+            "sugar "
+            "or honey. Recheck blood glucose after 15 minutes and repeat if it is still low. Once it is corrected, eat "
+            "a "
+            "snack if the next meal is more than an hour away. When a person is too severely low to swallow safely, "
+            "glucagon "
+            "by injection or nasal spray is the treatment, and 911 should be called.",
+            NIDDK_LOW_BLOOD_GLUCOSE,
+            [
+                "15-15 rule: 15 to 20 g of carbohydrate, recheck in 15 minutes, repeat if still low.",
+                "Glucose tablets or gel work fastest for patients taking medicines that slow digestion.",
+                "Never give food or drink to an unconscious person; give glucagon and call 911.",
+            ],
+        ),
+        _b(
+            "Treatment for hyperglycemia",
+            "High blood glucose is treated under the clinician's orders. Typical measures include correction insulin "
+            "or "
+            "medication changes, fluids, and activity as prescribed, with repeat glucose checks. Medical assistants do "
+            "not "
+            "change insulin doses or medicines on their own. They record the reading, symptoms, food, and insulin "
+            "given, and "
+            "report them to the clinician the same day. Very high glucose with vomiting, abdominal pain, fruity "
+            "breath, "
+            "trouble breathing, confusion, or fainting is an emergency.",
+            NIDDK_DIABETES_SYMPTOMS,
+            [
+                "Document the time, symptoms, food eaten, and insulin given before the reading.",
                 "Report critical values immediately and document the callback.",
+                "Vomiting, abdominal pain, trouble breathing, or fainting means urgent care or 911.",
             ],
         ),
         _b(
-            "Insulin types and safe handling",
-            "Rapid-acting analogs begin working in about 15 minutes with a peak "
-            "at 1–2 hours; regular insulin peaks around 2–3 hours; NPH is "
-            "intermediate and cloudy until mixed; glargine and detemir provide "
-            "basal coverage. Store insulin per the label — refrigerated when "
-            "required — and never use insulin that is expired, has been frozen, or "
-            "looks wrong: clear insulin that has turned cloudy, or any insulin "
-            "with clumps or crystals.",
+            "Tests used to detect high and low blood glucose",
+            "High glucose is detected with an A1C, a fasting plasma glucose, a 2-hour oral glucose tolerance test, or "
+            "a random "
+            "plasma glucose of 200 mg/dL or higher with classic symptoms. Low glucose is detected with a blood glucose "
+            "reading, "
+            "usually a fingerstick on a meter or a continuous glucose monitor. A low reading is confirmed with a "
+            "laboratory "
+            "glucose when the result is unclear or the patient is symptomatic. Point-of-care meters need quality "
+            "control "
+            "with each new lot and whenever a result is unexpected.",
+            CDC_DIABETES_TESTING,
+            [
+                "A1C 6.5% or higher, fasting glucose 126 mg/dL or higher, or 2-hour OGTT 200 mg/dL or higher, indicate "
+                "diabetes.",
+                "Hypoglycemia is a glucose reading below 70 mg/dL with symptoms.",
+                "Run liquid controls with each new lot of strips and whenever a result is unexpected.",
+            ],
+        ),
+        _b(
+            "When hypoglycemia symptoms occur",
+            "Symptoms of low blood glucose appear when glucose falls below the patient's low threshold, usually under "
+            "70 mg/dL. "
+            "They are most likely when insulin or a sulfonylurea is taken without enough food, when a meal is skipped "
+            "or "
+            "delayed, or after extra physical activity. Low glucose can also occur during sleep, with crying out, "
+            "nightmares, "
+            "sweating that soaks the sheets, or waking confused and tired.",
+            NIDDK_LOW_BLOOD_GLUCOSE,
+            [
+                "Mild to moderate: shakiness, hunger, tiredness, dizziness, confusion, irritability, racing heartbeat, "
+                "headache.",
+                "Very low: loss of consciousness or seizure.",
+                "Trouble seeing or speaking clearly is also listed as a symptom of low glucose.",
+            ],
+        ),
+        _b(
+            "When hyperglycemia symptoms occur",
+            "Symptoms of high blood glucose depend on the type. Type 1 symptoms usually develop quickly, over a few "
+            "days or "
+            "weeks, often with unexplained weight loss. Type 2 symptoms can develop slowly over several years, and "
+            "many people "
+            "have no symptoms or only mild ones. Symptoms appear once glucose stays high enough to exceed the body's "
+            "ability to "
+            "handle it, and illness, stress, infection, or missed medication can push it higher.",
+            NIDDK_DIABETES_SYMPTOMS,
+            [
+                "Common symptoms: increased urination, thirst, hunger even after eating, blurred vision, fatigue.",
+                "Also listed: sores that do not heal and frequent infections.",
+                "Infection, stress, and missed medication commonly trigger high glucose.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Pathophysiology
+        # ------------------------------------------------------------------
+        _b(
+            "What is an insulin autoantibody",
+            "Autoantibodies are proteins made by the immune system that attack healthy tissue by mistake. In type 1 "
+            "diabetes "
+            "the immune system makes autoantibodies against the insulin-producing cells, and certain autoantibodies in "
+            "the "
+            "blood can indicate type 1 diabetes. An insulin autoantibody is an antibody directed at insulin itself; it "
+            "is one "
+            "of the islet autoantibodies that screening programs measure. The NIDDK page does not name specific "
+            "autoantibodies, "
+            "so confirm the terminology against the program's materials.",
+            NIDDK_TYPE_1,
+            [
+                "Autoantibodies are immune proteins that attack the body's own cells.",
+                "Testing is offered to people with symptoms and to some relatives of people with type 1 diabetes.",
+                "Autoantibody testing can find type 1 diabetes before symptoms appear.",
+            ],
+        ),
+        _b(
+            "Pancreatic beta cell function",
+            "Beta cells are the insulin-producing cells in the pancreatic islets, clusters of cells within the "
+            "pancreas. They "
+            "sense blood glucose and release insulin, which signals muscle, fat, and liver cells to take up glucose "
+            "from the "
+            "blood. In type 1 diabetes the immune system destroys these cells, so insulin production stops. In type 2 "
+            "diabetes "
+            "the beta cells cannot keep up with the demand for insulin over time.",
+            NIDDK_TYPE_1,
+            [
+                "Function: sense glucose and secrete insulin.",
+                "Type 1: immune destruction of beta cells.",
+                "Type 2: progressive decline in insulin output.",
+            ],
+        ),
+        _b(
+            "What is hepatic glucose overproduction",
+            "The liver stores glucose as glycogen and makes new glucose when the body needs it, especially between "
+            "meals and "
+            "overnight. Normally insulin tells the liver to stop releasing glucose. In type 2 diabetes the liver keeps "
+            "releasing "
+            "glucose even when blood glucose is already high. This hepatic glucose overproduction drives fasting "
+            "hyperglycemia. "
+            "Metformin lowers liver glucose output and is first-line for most patients with type 2 diabetes.",
+            ADA_STANDARDS,
+            [
+                "Insulin normally suppresses hepatic glucose output.",
+                "Metformin reduces hepatic glucose production.",
+                "Liver output is a major reason fasting glucose is high in type 2 diabetes.",
+            ],
+        ),
+        _b(
+            "How sugar affects the body",
+            "Glucose is the body's main fuel, and insulin moves it into cells. When insulin is missing or does not "
+            "work well, "
+            "glucose stays in the blood and cells are short of fuel. Chronically high glucose damages small blood "
+            "vessels in the "
+            "eyes, kidneys, and nerves and speeds up damage to large vessels in the heart, brain, and legs. Those "
+            "long-term "
+            "changes are the complications of diabetes.",
+            CDC_DIABETES,
+            [
+                "Short term: thirst and frequent urination as the body tries to clear excess glucose.",
+                "Long term: damage to eyes, kidneys, nerves, and blood vessels.",
+            ],
+        ),
+        _b(
+            "How sugar affects the brain",
+            "The brain depends on a steady supply of glucose and stores very little, so it is sensitive to low blood "
+            "glucose. "
+            "Hypoglycemia first causes shakiness, hunger, and irritability, then confusion, trouble speaking, poor "
+            "coordination, "
+            "seizure, or loss of consciousness. Repeated or severe lows are dangerous. Very high glucose causes "
+            "fatigue, one "
+            "of the symptoms NIDDK lists for diabetes.",
+            NIDDK_LOW_BLOOD_GLUCOSE,
+            [
+                "Low glucose can cause confusion, seizure, and loss of consciousness.",
+                "Severe lows need glucagon and a call to 911.",
+            ],
+        ),
+        _b(
+            "What is the disease for sugar in the body",
+            "The disease in which blood glucose stays too high is diabetes mellitus. Diabetes is a group of metabolic "
+            "diseases, "
+            "including type 1, type 2, and gestational diabetes, in which glucose stays elevated because insulin is "
+            "absent, "
+            "insufficient, or ineffective. The type depends on the cause.",
+            CDC_DIABETES,
+            [
+                "Diabetes mellitus is the name of the disease of high blood sugar.",
+                "Type 1: autoimmune loss of insulin. Type 2: insulin resistance with declining secretion. Gestational: "
+                "pregnancy-related.",
+            ],
+        ),
+        _b(
+            "What is the disease for insulin in the heart and blood",
+            "The notes ask about the disease of insulin in the heart and blood. Two answers apply. Insulin resistance "
+            "is a "
+            "blood-level problem in which the body does not respond well to insulin and needs more of it to move "
+            "glucose; "
+            "blood insulin levels are often high. Cardiovascular disease is the heart and blood-vessel damage that "
+            "diabetes "
+            "causes, including heart attack and stroke. Confirm which answer your instructor expects.",
+            CDC_INSULIN_RESISTANCE,
+            [
+                "Insulin resistance: the body does not respond well to insulin.",
+                "Cardiovascular disease: heart attack and stroke risk raised by diabetes.",
+            ],
+        ),
+        _b(
+            "The organ that produces insulin",
+            "The organ that produces insulin is the pancreas. Insulin is made by beta cells in the islets of "
+            "Langerhans, "
+            "clusters of cells within the pancreas, and is released into the blood. Damage to these islet cells is "
+            "what "
+            "causes type 1 diabetes.",
+            NIDDK_TYPE_1,
+            [
+                "Organ: pancreas.",
+                "Cells: beta cells within the pancreatic islets.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Insulin products and cure
+        # ------------------------------------------------------------------
+        _b(
+            "Review insulin formulas and problems",
+            "Insulin products differ in onset, peak, and duration. Rapid-acting analogs begin working in about 15 "
+            "minutes and "
+            "peak at 1 to 2 hours; regular insulin peaks around 2 to 3 hours; NPH is intermediate and cloudy until "
+            "mixed; "
+            "glargine and detemir provide long-acting basal coverage. Common problems include hypoglycemia from too "
+            "much "
+            "insulin for the food eaten, hardening of tissue from repeated injection in one spot, and loss of potency "
+            "from heat, "
+            "freezing, or an expired vial.",
             ADA_STANDARDS,
             [
                 "Never mix insulin types in the same syringe without a specific order.",
                 "Insulin is high-alert: two-person verification is commonly required by policy.",
-                "Write 'insulin' with the dose on the order — never abbreviate it as 'U' alone.",
+                "Rotate injection sites; repeated injection in one spot hardens the tissue.",
             ],
         ),
         _b(
-            "Oral and injectable non-insulin agents",
-            "Metformin reduces hepatic glucose production and is first-line for "
-            "most patients with type 2 diabetes. Sulfonylureas stimulate insulin "
-            "release and can cause hypoglycemia. SGLT2 inhibitors increase "
-            "urinary glucose loss and carry risks of genital infection and "
-            "volume depletion. DPP-4 inhibitors prolong incretin activity, and "
-            "GLP-1 receptor agonists slow gastric emptying and enhance "
-            "glucose-dependent insulin secretion.",
+            "Is type 1 diabetes curable",
+            "There is no cure for type 1 diabetes. NIDDK notes that islet and pancreas transplants can help but do not "
+            "cure it. "
+            "Teplizumab can delay symptoms and the need for insulin in people with two or more autoantibodies and "
+            "rising blood "
+            "glucose, but it is not a cure. Insulin and glucose monitoring are required for life.",
+            NIDDK_TYPE_1,
+            [
+                "Answer on exams: type 1 diabetes is not curable; insulin is lifelong.",
+                "Transplants help but do not cure type 1 diabetes.",
+            ],
+        ),
+        _b(
+            "Is type 2 diabetes curable",
+            "NIDDK does not describe a cure for type 2 diabetes. It recommends losing 5 to 7 percent of body weight to "
+            "prevent "
+            "or delay diabetes, and healthy eating and physical activity are the core of prevention. Some people with "
+            "type 2 "
+            "diabetes, after weight-loss surgery, may no longer need diabetes medicines. For exam purposes, type 2 is "
+            "managed and "
+            "can be prevented or delayed; the NIDDK page does not describe a cure.",
+            NIDDK_TYPE_2,
+            [
+                "Prevention target: 5–7% weight loss, according to NIDDK.",
+                "Lifestyle change can prevent or delay type 2 diabetes, according to CDC.",
+            ],
+        ),
+        _b(
+            "Weight-loss surgery and type 2 diabetes",
+            "Some people with type 2 diabetes may no longer need diabetes medicines after weight-loss surgery, "
+            "according to NIDDK. "
+            "NIDDK also notes that researchers are still studying weight-loss surgery for type 1 diabetes in people "
+            "with obesity. "
+            "Surgery is a medical decision made with a surgeon and the patient's care team, not a standard step for "
+            "every patient.",
+            NIDDK_INSULIN_TREATMENTS,
+            [
+                "Some people with type 2 no longer need diabetes medicines after surgery.",
+                "Type 1 with obesity is still under study.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Who is affected
+        # ------------------------------------------------------------------
+        _b(
+            "Race and ethnicity most affected by diabetes",
+            "Diabetes burden is highest among American Indian and Alaska Native, Black, and Pacific Islander adults. "
+            "CDC's "
+            "analysis of Behavioral Risk Factor Surveillance System data from 2013 to 2021 found an overall prevalence "
+            "of 10.9 "
+            "percent, rising to about 16 to 17 percent among American Indian and Alaska Native, Black, and Pacific "
+            "Islander "
+            "adults, compared with 9.1 percent among White adults. Asian subgroups vary widely.",
+            CDC_MMWR_CARDIOMETABOLIC,
+            [
+                "American Indian and Alaska Native, Black, and Pacific Islander adults: about 16–17%.",
+                "White adults: 9.1%.",
+                "Asian subgroups range from 6.3% (Vietnamese adults) to 15.2% (Filipino adults).",
+            ],
+        ),
+        _b(
+            "Sex most affected by diabetes",
+            "In NHANES 2013 to 2016, men had a higher prevalence of total diabetes, counting diagnosed and undiagnosed "
+            "cases, "
+            "than women among adults age 20 and older. The sex difference varies by race and ethnicity and by survey "
+            "year, so "
+            "the answer depends on the data set named in the question.",
+            CDC_NCHS_DB319,
+            [
+                "Total diabetes: men 15.9%, women 12.2% (NHANES 2013–2016).",
+                "Sex-specific rates vary by race and ethnicity.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Insulin syringes, units, and injection
+        # ------------------------------------------------------------------
+        _b(
+            "Insulin syringe sizes",
+            "Insulin syringes come in three common volumes: 0.3 mL, which holds 30 units; 0.5 mL, which holds 50 "
+            "units; and "
+            "1 mL, which holds 100 units. U-100 is the standard U.S. insulin strength, and the scale on a U-100 "
+            "syringe is "
+            "marked in units and labeled for U-100 insulin. Markings differ by manufacturer, so read the scale on the "
+            "package "
+            "before drawing a dose.",
+            FDA_INSULIN_SYRINGE_510K,
+            [
+                "0.3 mL = 30 units; 0.5 mL = 50 units; 1 mL = 100 units.",
+                "Use only syringes labeled for U-100 insulin with standard U-100 insulin.",
+            ],
+        ),
+        _b(
+            "Insulin syringe increments",
+            "Increments differ by syringe. A BD 510(k) clearance describes a 0.3 mL syringe with 1-unit marks, some "
+            "with "
+            "half-unit marks, and a 1 mL syringe with 2-unit marks. Other manufacturers' syringes use different "
+            "spacing. Never "
+            "estimate between marks; if the dose falls between two marks on the syringe in hand, clarify the dose with "
+            "the "
+            "clinician before drawing it.",
+            FDA_INSULIN_SYRINGE_510K,
+            [
+                "0.3 mL on this clearance: 1-unit marks (some with half-unit marks).",
+                "1 mL on this clearance: 2-unit marks.",
+                "Confirm the scale on the box you are using before measuring.",
+            ],
+        ),
+        _b(
+            "Insulin units to mL conversion",
+            "For U-100 insulin, 1 unit equals 0.01 mL, so milliliters equal units divided by 100, and units equal "
+            "milliliters "
+            "multiplied by 100. The common doses convert as follows: 10 units is 0.10 mL, 25 units is 0.25 mL, 50 "
+            "units is 0.50 "
+            "mL, and 100 units is 1.00 mL. Confirm the vial's strength on its label before any conversion.",
+            FDA_HUMULIN_R_LABEL,
+            [
+                "mL = units ÷ 100.   units = mL × 100.",
+                "10 units = 0.10 mL; 25 units = 0.25 mL; 50 units = 0.50 mL; 100 units = 1.00 mL.",
+            ],
+        ),
+        _b(
+            "Choosing the syringe by dosage size",
+            "Choose the smallest syringe that holds the full dose. A smaller syringe has finer marks and fewer "
+            "measuring errors. "
+            "A 0.3 mL syringe fits doses up to 30 units, a 0.5 mL syringe fits up to 50 units, and a 1 mL syringe fits "
+            "up to "
+            "100 units. A dose that needs two syringes should be clarified with the clinician.",
+            FDA_INSULIN_SYRINGE_510K,
+            [
+                "18 units: use a 0.3 mL syringe.",
+                "42 units: use a 0.5 mL syringe.",
+                "80 units: use a 1 mL syringe.",
+            ],
+        ),
+        _b(
+            "Five injection sites for insulin",
+            "NIDDK lists four common injection sites: the abdomen, where insulin acts fastest; the thigh; the "
+            "buttocks; and the "
+            "upper arm, which may act more slowly. The fifth site taught in many programs is the hip; confirm the five "
+            "sites "
+            "your program uses. Rotate sites within each area, because repeated injection in one spot hardens the "
+            "tissue.",
+            NIDDK_INSULIN_TREATMENTS,
+            [
+                "Abdomen: fastest absorption, according to NIDDK.",
+                "Thigh, buttocks, and upper arm: may take longer to act.",
+                "Rotate sites; repeated injection in one spot hardens the tissue.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Symptoms in patients
+        # ------------------------------------------------------------------
+        _b(
+            "Polyuria and polydipsia",
+            "Polyuria means excessive urination and polydipsia means excessive thirst. Both are classic early signs of "
+            "high blood "
+            "glucose. When glucose rises above what the kidneys can reabsorb, it spills into the urine and pulls water "
+            "with it, "
+            "so the patient urinates more and becomes thirsty.",
+            NIDDK_DIABETES_SYMPTOMS,
+            [
+                "Polyuria: frequent urination, including at night.",
+                "Polydipsia: thirst that does not go away after drinking.",
+                "Classic signs with them: hunger even after eating, and weight loss.",
+            ],
+        ),
+        _b(
+            "Symptoms of diabetes in children",
+            "In children, the common early symptoms of diabetes are increased thirst, frequent urination, bedwetting "
+            "in a child "
+            "who was previously dry at night, unexplained weight loss, extreme hunger, and fatigue. Type 1 usually "
+            "develops "
+            "quickly, over days or weeks. A child with these symptoms needs same-day evaluation.",
+            NIDDK_DIABETES_SYMPTOMS,
+            [
+                "Type 1 in children: sudden onset, often with weight loss.",
+                "Any child with thirst, frequent urination, or weight loss needs same-day evaluation.",
+            ],
+        ),
+        _b(
+            "Fruity-smelling breath and ketones",
+            "Fruity-smelling breath is a sign of ketones, which build up when the body lacks enough insulin and burns "
+            "fat for "
+            "energy. Ketones with high glucose indicate diabetic ketoacidosis (DKA), a medical emergency. So a patient "
+            "with "
+            "fruity breath has a build-up of ketones and needs urgent evaluation. DKA usually affects type 1 diabetes "
+            "but can "
+            "occur in type 2 when the body does not produce enough insulin.",
+            NIDDK_DIABETES_SYMPTOMS,
+            [
+                "Answer: a build-up of ketones.",
+                "Other DKA signs: very tired, trouble breathing, fainting from dehydration, abdominal pain, nausea, "
+                "vomiting.",
+            ],
+        ),
+        _b(
+            "Erectile dysfunction (ED) and men with diabetes",
+            "Erectile dysfunction is the inability to get or keep an erection firm enough for sex. High blood glucose "
+            "damages the "
+            "blood vessels and nerves that control erection, so men with diabetes develop ED more often, and often "
+            "roughly a "
+            "decade or more earlier than men without diabetes. Keeping glucose in the target range, and controlling "
+            "blood "
+            "pressure, cholesterol, weight, and smoking, reduces the risk.",
+            NIDDK_SEXUAL_BLADDER,
+            [
+                "ED can start about a decade or more earlier in men with diabetes, according to NIDDK.",
+                "Other risk factors: high blood pressure, high cholesterol, obesity, inactivity, smoking, heavy "
+                "drinking.",
+                "ED can signal vascular or nerve damage, so refer the patient to the clinician.",
+            ],
+        ),
+        _b(
+            "Blurred vision and the eye nerve affected by diabetes",
+            "When blood sugar is high, vision can become blurred, and that blur is usually temporary once glucose "
+            "returns to "
+            "target. The tissue damaged by diabetes in the eye is the retina, the light-sensing layer at the back of "
+            "the eye, "
+            "and the condition is diabetic retinopathy. Retinopathy causes blindness when leaking vessels swell the "
+            "macula and "
+            "when fragile new vessels bleed into the eye.",
+            CDC_VISION_LOSS,
+            [
+                "Blurred vision from high glucose is usually temporary.",
+                "The affected tissue is the retina; the optic nerve is involved in other eye diseases such as "
+                "glaucoma.",
+                "Macular edema from leaking vessels is the most common cause of blindness in retinopathy.",
+            ],
+        ),
+        _b(
+            "How diabetes affects the skin",
+            "Diabetes affects the skin mainly by slowing healing and making infection more likely. NIDDK lists sores "
+            "that do not "
+            "heal and frequent infections among the symptoms of diabetes. High glucose impairs circulation to the "
+            "skin, which "
+            "slows wound repair. Feet are the most common site of serious skin injury, so daily skin checks are part "
+            "of care.",
+            NIDDK_DIABETES_SYMPTOMS,
+            [
+                "Sores that do not heal and frequent infections are listed by NIDDK.",
+                "Check skin daily, especially the feet.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Insulin calculation and conversion formulas
+        # ------------------------------------------------------------------
+        _b(
+            "Insulin math: total dose and syringe volume",
+            "Calculation formulas are for checking an order, not for setting a dose. The total insulin dose is the "
+            "meal dose plus "
+            "the correction dose, both set by the clinician. Convert the total to volume with mL = units ÷ 100. "
+            "Example: 4 units "
+            "for the meal plus 2 units for correction is 6 units, or 0.06 mL, which is drawn in a 0.3 mL syringe. "
+            "Medical "
+            "assistants verify the arithmetic against the order with a second person; they do not set the dose.",
             ADA_STANDARDS,
             [
-                "Sulfonylureas carry hypoglycemia risk; check whether the patient takes them before a procedure.",
-                "SGLT2 inhibitors increase the risk of euglycemic ketoacidosis — hold them around surgery per policy.",
-                "Injection teaching includes storage, rotation of sites, and what to do with a missed dose.",
+                "Total units = meal units + correction units.",
+                "mL = total units ÷ 100.",
+                "Verify the order and the arithmetic with a second person before administration.",
             ],
         ),
         _b(
-            "Complications, foot care, and patient education",
-            "Screen for retinopathy, neuropathy, and nephropathy on the recommended "
-            "schedule. Daily foot inspection, proper footwear, and prompt reporting "
-            "of wounds prevent the most common diabetic complication from "
-            "becoming an amputation. Education should cover carbohydrate "
-            "awareness, sick-day rules (when to hold certain medications and when "
-            "to call), medical identification, and when to call the clinic or 911.",
-            ML_DIABETIC_FOOT,
+            "Insulin math: meal dose from the carbohydrate ratio",
+            "Meal insulin is often calculated with an insulin-to-carbohydrate ratio: units = grams of carbohydrate ÷ "
+            "grams covered "
+            "per unit. A ratio of 1 unit per 15 grams with a 60-gram meal gives 60 ÷ 15 = 4 units. The ratio is set by "
+            "the "
+            "prescriber for each patient and is never chosen by the medical assistant.",
+            ADA_STANDARDS,
             [
-                "Daily foot checks are the single most effective intervention against diabetic foot ulcers.",
-                "Sick-day rules: extra insulin may be needed during illness, and certain medications are held under "
-                "direction.",
-                "Every patient should wear medical identification and know their emergency contacts.",
+                "Example: 45 g ÷ 15 g per unit = 3 units.",
+                "Example: 90 g at 1 unit per 10 g = 9 units.",
+                "The ratio must come from the order, not from a chart or memory.",
             ],
         ),
+        _b(
+            "Insulin math: correction dose for high glucose",
+            "A correction dose lowers a high reading toward the target: units = (current glucose − target glucose) ÷ "
+            "correction "
+            "factor. A reading of 250 mg/dL with a target of 150 mg/dL and a factor of 1 unit per 50 mg/dL gives (250 "
+            "− 150) ÷ 50 "
+            "= 2 units. The target and factor come from the prescriber, and the answer is rounded only as the order "
+            "specifies.",
+            ADA_STANDARDS,
+            [
+                "Example: 310 mg/dL, target 150, factor 1 unit per 40 mg/dL: (310 − 150) ÷ 40 = 4 units.",
+                "Do not round a dose unless the order says how.",
+            ],
+        ),
+        _b(
+            "Glucose unit conversion: mg/dL and mmol/L",
+            "Some labs report glucose in mmol/L, while U.S. clinics usually use mg/dL. Divide mg/dL by 18 to get "
+            "mmol/L, or "
+            "multiply mmol/L by 18 to get mg/dL. Example: 126 mg/dL ÷ 18 = 7.0 mmol/L, and 70 mg/dL ÷ 18 = 3.9 mmol/L. "
+            "The "
+            "factor of 18 is the standard laboratory conversion, not a figure taken from the cited page.",
+            ADA_DIAGNOSIS,
+            [
+                "mmol/L = mg/dL ÷ 18.   mg/dL = mmol/L × 18.",
+                "Example: 126 mg/dL = 7.0 mmol/L; 70 mg/dL = 3.9 mmol/L.",
+            ],
+        ),
+        _b(
+            "A1C to estimated average glucose formula",
+            "Estimated average glucose (eAG) can be calculated from A1C with eAG (mg/dL) = 28.7 × A1C − 46.7. Example: "
+            "an A1C "
+            "of 7 percent gives 28.7 × 7 − 46.7 = 154 mg/dL, which matches CDC's table value. An A1C of 8 percent "
+            "gives 183 mg/dL. "
+            "CDC's table is the reference for these values, and the estimate can miss spikes and lows.",
+            CDC_A1C,
+            [
+                "eAG (mg/dL) = 28.7 × A1C − 46.7.",
+                "A1C 7%: 154 mg/dL.   A1C 8%: 183 mg/dL.",
+            ],
+        ),
+        _b(
+            "Practice questions: insulin math",
+            "Work each problem on paper before checking the answers in the next section. Use the formulas above, and "
+            "show the "
+            "units and the mL result for every dose.",
+            FDA_HUMULIN_R_LABEL,
+            [
+                "1. How many mL is 30 units of U-100 insulin?",
+                "2. How many units are in 0.15 mL of U-100 insulin?",
+                "3. Which syringe holds a 37-unit dose?",
+                "4. Convert 10, 25, 50, and 100 units to mL.",
+                "5. A meal of 45 g carbohydrate at 1 unit per 15 g, plus 2 units correction: total units and mL?",
+                "6. Glucose 310 mg/dL, target 150, factor 1 unit per 40 mg/dL: correction units?",
+                "7. A1C of 8 percent: estimated average glucose?",
+                "8. Convert 70 mg/dL to mmol/L.",
+                "9. A conscious patient has glucose 62 mg/dL. What is the first treatment?",
+                "10. Why is a 0.3 mL syringe more precise than a 1 mL syringe for a 12-unit dose?",
+            ],
+        ),
+        _b(
+            "Answers: insulin math",
+            "Check each answer against your working. The formulas and examples are in the sections above.",
+            FDA_HUMULIN_R_LABEL,
+            [
+                "1. 0.30 mL (30 ÷ 100).",
+                "2. 15 units (0.15 × 100).",
+                "3. 0.5 mL, which holds 50 units. The 0.3 mL syringe holds only 30 units.",
+                "4. 10 units = 0.10 mL; 25 units = 0.25 mL; 50 units = 0.50 mL; 100 units = 1.00 mL.",
+                "5. Meal: 45 ÷ 15 = 3 units. Total: 3 + 2 = 5 units, which is 0.05 mL.",
+                "6. (310 − 150) ÷ 40 = 4 units.",
+                "7. 28.7 × 8 − 46.7 = 182.9, about 183 mg/dL.",
+                "8. 70 ÷ 18 = 3.9 mmol/L.",
+                "9. 15 to 20 g of fast carbohydrate, such as four glucose tablets; recheck in 15 minutes and repeat if "
+                "still low.",
+                "10. On the BD clearance, the 0.3 mL syringe has 1-unit marks and the 1 mL syringe has 2-unit marks, "
+                "so 12 units is easier to measure exactly.",
+            ],
+        ),
+        # ------------------------------------------------------------------
+        # Scope
+        # ------------------------------------------------------------------
         _b(
             "Medical assistant scope and documentation",
-            "Perform point-of-care testing, vital signs, patient teaching, and "
-            "injections only within state law, licensure, and delegation. Document "
-            "glucose values with the time, the symptoms present, the treatment "
-            "given, and the patient's response. Do not adjust insulin doses without "
-            "an order or explicit delegation, and route abnormal results to the "
+            "Perform point-of-care testing, vital signs, patient teaching, and injections only within state law, "
+            "licensure, and "
+            "delegation. Document glucose values with the time, the symptoms present, the treatment given, and the "
+            "patient's "
+            "response. Do not adjust insulin doses without an order or explicit delegation, and route abnormal results "
+            "to the "
             "clinician the same day.",
             NHA_CCMA,
             [
-                "Never independently change an insulin dose — that requires a new order.",
+                "Never independently change an insulin dose; that requires a new order.",
                 "Document the patient's own words about symptoms rather than interpreting them.",
-                "Have a hypoglycemia protocol and know where glucagon is kept.",
-            ],
-        ),
-        _b(
-            "Eating and nutrition with diabetes",
-            "Nutrition therapy for diabetes emphasizes consistent carbohydrate "
-            "amount and timing rather than a single restrictive diet. The ADA "
-            "recommends individualized eating patterns that take into account "
-            "preferences, culture, nutrition access, and comorbidities, with "
-            "adequate fiber, adequate protein, and attention to sodium and "
-            "saturated fat.",
-            ADA_NUTRITION,
-            [
-                "Plate method: about half non-starchy vegetables, one quarter protein, one quarter carbohydrate.",
-                "Consistency of carbohydrate intake often matters more than total restriction.",
-                "Coordinate with a registered dietitian when the plan is complex.",
+                "Know where the hypoglycemia protocol and glucagon are kept.",
             ],
         ),
     ],
