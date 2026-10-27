@@ -236,6 +236,16 @@ async def resolve_team_round(game_pin: str, question_index: int) -> None:
         await redis.expire(_team_answers_key(game_pin), TTL)
 
 
+async def team_standings(game_pin: str) -> list[dict]:
+    """Scoreboard rows for team games: one row per team, labeled "Team N". No player names."""
+    from classquiz.helpers.live_scoring import build_standings
+
+    game = await PlayGame.get_from_redis(game_pin)
+    count = int((game.team_mode or {}).get("count", 0))
+    totals = await redis.hgetall(_team_scores_key(game_pin))
+    return build_standings({f"Team {t + 1}": int(totals.get(str(t), 0)) for t in range(count)})
+
+
 async def team_results_summary(game_pin: str, question_index: int) -> dict | None:
     """Per-team block for the question_results payload."""
     game = await PlayGame.get_from_redis(game_pin)

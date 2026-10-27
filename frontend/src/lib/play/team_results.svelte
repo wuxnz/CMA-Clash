@@ -58,7 +58,7 @@ SPDX-License-Identifier: MPL-2.0
 							+{team.points}{team.streak > 1 ? ` · streak ${team.streak}` : ''}
 						</p>
 					{/if}
-					<p class="text-xs text-ink-muted mt-3 truncate">{team.members.join(', ')}</p>
+
 				</div>
 			{/each}
 		</div>

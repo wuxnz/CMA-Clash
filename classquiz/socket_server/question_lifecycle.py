@@ -92,9 +92,12 @@ async def build_question_results_payload(game_pin: str, question_index: int) -> 
         "correct_answer": correct_answer,
     }
     if game_data.team_mode:
-        from classquiz.socket_server.team_live import team_results_summary
+        from classquiz.helpers.live_scoring import standings_top_n
+        from classquiz.socket_server.team_live import team_results_summary, team_standings
 
         payload["teams"] = await team_results_summary(game_pin, question_index)
+        # Team games: the scoreboard shows teams only, never individual player names.
+        payload["standings_top"] = standings_top_n(await team_standings(game_pin), 5)
     return payload, answer_data_list
 
 
