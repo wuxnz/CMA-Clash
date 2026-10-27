@@ -14,6 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 	import PlayerChip from '$lib/ui/PlayerChip.svelte';
 	import Card from '$lib/ui/Card.svelte';
 	import { SocketGameControls } from '$lib/play/admin/socket_game_controls.ts';
+	import TeamPanel from '$lib/play/team_panel.svelte';
 	import type { GameState } from '$lib/play/admin/game_state';
 
 	interface Props {
@@ -53,6 +54,7 @@ SPDX-License-Identifier: MPL-2.0
 				<PinDisplay pin={game_pin} />
 			</div>
 		</div>
+		<TeamPanel mode="host" />
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
 			<!--mt-12 -->
 			<div class="flex justify-center">

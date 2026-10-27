@@ -21,6 +21,7 @@ SPDX-License-Identifier: MPL-2.0
 	import AnswerTiles from '$lib/play/arena/AnswerTiles.svelte';
 	import RevealPhase from '$lib/play/arena/RevealPhase.svelte';
 	import RankingsBoard from '$lib/play/arena/RankingsBoard.svelte';
+	import TeamResults from '$lib/play/team_results.svelte';
 	import HostProgress from '$lib/play/admin/host-progress.svelte';
 	import HostLiveShell from '$lib/play/admin/host-live-shell.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
@@ -109,6 +110,7 @@ SPDX-License-Identifier: MPL-2.0
 		}
 		game_state.timer_res = '0';
 		game_state.question_results = null;
+		game_state.team_results = null;
 		standingsTop = [];
 		game_state.shown_question_now = data.question_index;
 		game_state.timer_res = game_state.quiz_data.questions[data.question_index].time;
@@ -169,6 +171,7 @@ SPDX-License-Identifier: MPL-2.0
 			return;
 		}
 		game_state.question_results = rows;
+		game_state.team_results = (data as { teams?: unknown })?.teams ?? null;
 		game_state.timer_res = '0';
 		clearInterval(timer_interval);
 		const scoreIndex =
@@ -322,6 +325,9 @@ SPDX-License-Identifier: MPL-2.0
 		{/if}
 	{/if}
 	{#if game_state.timer_res === '0' && JSON.stringify(game_state.final_results) === JSON.stringify( [null] ) && game_state.quiz_data.questions[game_state.selected_question].type !== QuizQuestionType.SLIDE && game_state.question_results !== null && game_state.quiz_data.questions[game_state.selected_question]?.hide_results !== true}
+		{#if game_state.team_results}
+			<TeamResults teams={game_state.team_results} />
+		{/if}
 		{#if game_state.question_results === undefined}
 			{#if !final_results_clicked}
 				<div class="w-full flex justify-center">

@@ -258,6 +258,8 @@ class PlayGame(BaseModel):
     background_image: str | None = None
     custom_field: str | None = None
     question_show: bool = False
+    # Team mode for match games: {"count": int, "assign": "random" | "choose"} or None
+    team_mode: dict | None = None
 
     @classmethod
     async def get_from_redis(self, game_pin: str) -> Self:
@@ -329,6 +331,8 @@ class AnswerData(BaseModel):
     score: int
     base_score: int = 0
     speed_bonus: int = 0
+    streak: int = 0  # consecutive correct answers, including this one (0 if wrong)
+    streak_bonus: int = 0  # extra points from the streak multiplier
     speed_rank: int | None = None
     overall_rank: int | None = None
     points_behind_above: int | None = None

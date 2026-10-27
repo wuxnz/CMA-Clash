@@ -14,6 +14,9 @@ export type StartGameOptions = {
 	custom_field?: string;
 	cqcs_enabled?: boolean;
 	randomize_answers?: boolean;
+	/** Teams for match games: 0 = off, otherwise 2-8. */
+	team_count?: number;
+	team_assign?: 'random' | 'choose';
 };
 
 /** Start a live game from a public quiz (guest or signed-in). */
@@ -26,7 +29,9 @@ export async function startHostGame(
 		game_mode: options.game_mode ?? 'kahoot',
 		custom_field: options.custom_field ?? '',
 		cqcs_enabled: options.cqcs_enabled ? 'True' : 'False',
-		randomize_answers: options.randomize_answers ? 'True' : 'False'
+		randomize_answers: options.randomize_answers ? 'True' : 'False',
+		team_count: String(options.team_count ?? 0),
+		team_assign: options.team_assign ?? 'random'
 	});
 	const res = await fetch(`/api/v1/quiz/start/${quizId}?${params}`, {
 		method: 'POST',

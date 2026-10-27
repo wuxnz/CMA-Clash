@@ -45,6 +45,7 @@ from classquiz.socket_server.game_sync import (
     start_live_game,
     sync_player_to_live_game,
 )
+from classquiz.helpers.team_mode import score_with_streak
 from classquiz.socket_server.timing import server_now_ms
 from classquiz.socket_server.session import detach_socket_from_prior_game, get_session, save_session
 
@@ -236,6 +237,11 @@ async def join_game(sid: str, data: dict):
     await _emit_clock_sync(sid)
     # --- Time-Sync ---
     await sio.enter_room(sid, data.game_pin)
+    if game_data.team_mode:
+        from classquiz.socket_server.team_live import emit_team_roster, place_unassigned
+
+        await place_unassigned(game_pin, game_data)
+        await emit_team_roster(sio, game_pin)
     if game_data.game_mode == "battle":
         from classquiz.socket_server.battle_sync import battle_player_joined_socket
 
@@ -250,7 +256,66 @@ async def start_game(sid: str, _data: dict):
     if not session["admin"]:
         return
     game_pin = session["game_pin"]
+    from classquiz.socket_server.team_live import emit_team_roster, place_unassigned, reshuffle_random_teams
+
+    game = await PlayGame.get_from_redis(game_pin)
+    if game.team_mode:
+        if game.team_mode["assign"] == "random":
+            await reshuffle_random_teams(game_pin, game)
+        else:
+            await place_unassigned(game_pin, game, at_start=True)
+        await emit_team_roster(sio, game_pin)
     await start_live_game(sio, game_pin, show_first_question=True)
+
+
+@sio.event
+async def set_team_mode(sid: str, data: dict):
+    """Host sets team count and assignment (match games only, before start)."""
+    from classquiz.socket_server.team_live import emit_team_roster, set_team_mode as save_team_mode
+
+    session = await get_session(sid, sio)
+    if not session["admin"]:
+        return
+    game_pin = session["game_pin"]
+    try:
+        await save_team_mode(game_pin, int(data.get("count", 2)), str(data.get("assign", "random")))
+    except ValueError as e:
+        await sio.emit("team_error", {"code": str(e)}, room=sid)
+        return
+    await emit_team_roster(sio, game_pin)
+
+
+@sio.event
+async def get_team_roster(sid: str, _data: dict):
+    """Send the current team roster to the asking socket (for screens that open after joins)."""
+    from classquiz.socket_server.team_live import roster_payload
+
+    session = await get_session(sid, sio)
+    game_pin = session.get("game_pin")
+    if not game_pin:
+        return
+    game = await PlayGame.get_from_redis(game_pin)
+    if not game.team_mode:
+        return
+    await sio.emit("team_roster", await roster_payload(game_pin), room=sid)
+
+
+@sio.event
+async def choose_team(sid: str, data: dict):
+    """Player picks a team in the lobby (choose mode, before start)."""
+    from classquiz.socket_server.team_live import choose_team as pick_team, emit_team_roster
+
+    session = await get_session(sid, sio)
+    game_pin = session.get("game_pin")
+    username = session.get("username")
+    if not game_pin or not username:
+        return
+    try:
+        await pick_team(game_pin, username, int(data.get("team", -1)))
+    except (ValueError, TypeError) as e:
+        await sio.emit("team_error", {"code": str(e)}, room=sid)
+        return
+    await emit_team_roster(sio, game_pin)
 
 
 @sio.event
@@ -355,6 +420,21 @@ async def set_question_number(sid: str, data: str):
     await emit_show_question(sio, game_pin, game_data, question_index)
 
 
+async def advance_player_streak(game_pin: str, username: str, question_index: int, correct: bool) -> int:
+    """Read the player's streak, advance it for this answer, store it, and return the new value."""
+    from classquiz.helpers.team_mode import advance_streak
+
+    key = f"game_session:{game_pin}:streak:{username}"
+    prev_streak, prev_question = 0, None
+    raw = await redis.get(key)
+    if raw:
+        stored = json.loads(raw)
+        prev_streak, prev_question = int(stored["n"]), int(stored["q"])
+    streak = advance_streak(prev_streak, prev_question, question_index, correct)
+    await redis.set(key, json.dumps({"n": streak, "q": question_index}), ex=7200)
+    return streak
+
+
 async def _score_live_answer(
     game_pin: str,
     question_index: int,
@@ -420,10 +500,23 @@ async def submit_answer(sid: str, data: dict):
     answer_right, answer = check_answer(game_data, data)
     latency = int(float(session.get("ping", 0)))
     q_time = int(float(game_data.questions[question_index].time))
-    base_score, speed_bonus, score, time_taken = await _score_live_answer(
+    base_score, speed_bonus, _unused_total, time_taken = await _score_live_answer(
         game_pin, question_index, q_time, answer_right, latency
     )
-    await redis.hincrby(f"game_session:{game_pin}:player_scores", session["username"], score)
+    # Streaks apply to every game type (battle, standard and on-device matches) because they
+    # all come through this handler.
+    if game_data.team_mode:
+        # Team games: keep the vote only. Points and streaks are settled for the whole team
+        # when the question closes (team_live.resolve_team_round).
+        streak, streak_bonus, score = 0, 0, 0
+    else:
+        streak = await advance_player_streak(game_pin, session["username"], question_index, answer_right)
+        if answer_right:
+            score = score_with_streak(base_score, speed_bonus, streak)
+        else:
+            score = 0
+        streak_bonus = score - (base_score + speed_bonus) if answer_right else 0
+        await redis.hincrby(f"game_session:{game_pin}:player_scores", session["username"], score)
     answer_data = AnswerData(
         username=session["username"],
         answer=answer,
@@ -432,6 +525,8 @@ async def submit_answer(sid: str, data: dict):
         score=score,
         base_score=base_score,
         speed_bonus=speed_bonus,
+        streak=streak,
+        streak_bonus=streak_bonus,
     )
     game_pin = session["game_pin"]
     answer_count = await set_answer(game_pin=game_pin, q_index=question_index, data=answer_data)

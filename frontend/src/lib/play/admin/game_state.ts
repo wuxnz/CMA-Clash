@@ -16,6 +16,7 @@ export interface IGameState {
 	selected_question: number;
 	timer_res: string;
 	question_results: any;
+	team_results: any;
 	answer_count: number;
 	shown_question_now: number;
 	final_results: Array<null> | Array<Array<PlayerAnswer>>;

@@ -89,6 +89,8 @@ async def start_quiz(
     custom_field: str | None = None,
     cqcs_enabled: bool = False,
     randomize_answers: bool = False,
+    team_count: int = 0,
+    team_assign: str = "random",
     user: User | None = Depends(get_current_user_optional),
 ):
     try:
@@ -154,6 +156,10 @@ async def start_quiz(
         custom_field=custom_field,
         background_image=quiz.background_image,
     )
+    if team_count >= 2 and game_mode != "battle" and team_assign in ("random", "choose"):
+        from classquiz.helpers.team_mode import clamp_team_count
+
+        game.team_mode = {"count": clamp_team_count(team_count, 8), "assign": team_assign}
     code = None
     if cqcs_enabled:
         code = generate_code(6)

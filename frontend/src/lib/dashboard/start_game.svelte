@@ -19,6 +19,8 @@ SPDX-License-Identifier: MPL-2.0
 
 	let captcha_selected = $state(false);
 	let selected_game_mode = $state<'kahoot' | 'normal'>('kahoot');
+	let team_count = $state(0);
+	let team_assign = $state<'random' | 'choose'>('random');
 	let loading = $state(false);
 	let custom_field = $state('');
 	let cqcs_enabled = $state(false);
@@ -78,6 +80,8 @@ SPDX-License-Identifier: MPL-2.0
 		const result = await startHostGame(quiz_id, {
 			captcha_enabled: captcha_enabled && captcha_selected,
 			game_mode: selected_game_mode,
+			team_count,
+			team_assign,
 			custom_field,
 			cqcs_enabled,
 			randomize_answers: randomized_answers
@@ -154,6 +158,48 @@ SPDX-License-Identifier: MPL-2.0
 						</span>
 					</button>
 				</div>
+			</div>
+
+			<div class="mt-6" role="radiogroup" aria-label="Teams">
+				<p class="text-sm font-medium text-ink mb-2">Teams</p>
+				<div class="flex flex-wrap gap-2">
+					{#each [0, 2, 3, 4] as n (n)}
+						<button
+							type="button"
+							role="radio"
+							aria-checked={team_count === n}
+							class="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.14em] border border-line {team_count === n
+								? 'bg-primary text-white border-primary'
+								: 'text-ink-muted hover:text-ink'}"
+							onclick={() => (team_count = n)}>{n === 0 ? 'Off' : `${n} teams`}</button
+						>
+					{/each}
+				</div>
+				{#if team_count > 0}
+					<p class="text-sm font-medium text-ink mt-4 mb-2">How players get a team</p>
+					<div class="flex flex-col gap-2" role="radiogroup" aria-label="Team assignment">
+						<button
+							type="button"
+							role="radio"
+							aria-checked={team_assign === 'random'}
+							class="mode-option"
+							onclick={() => (team_assign = 'random')}
+						>
+							<span class="text-sm font-medium text-ink">Random</span>
+							<span class="block text-xs text-ink-muted mt-0.5">Teams are filled automatically when the game starts.</span>
+						</button>
+						<button
+							type="button"
+							role="radio"
+							aria-checked={team_assign === 'choose'}
+							class="mode-option"
+							onclick={() => (team_assign = 'choose')}
+						>
+							<span class="text-sm font-medium text-ink">Players choose</span>
+							<span class="block text-xs text-ink-muted mt-0.5">Players pick a team in the lobby. Unpicked players are placed at start.</span>
+						</button>
+					</div>
+				{/if}
 			</div>
 
 			<div class="mt-5">

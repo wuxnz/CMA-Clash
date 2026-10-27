@@ -8,6 +8,8 @@ SPDX-License-Identifier: MPL-2.0
 <script lang="ts">
 	import { socket } from '$lib/socket';
 	import JoinGame from '$lib/play/join.svelte';
+	import TeamPanel from '$lib/play/team_panel.svelte';
+	import TeamResults, { type TeamResultsPayload } from '$lib/play/team_results.svelte';
 	import type { Question as QuestionType } from '$lib/quiz_types';
 	import ShowTitle from '$lib/play/title.svelte';
 	import Question from '$lib/play/question.svelte';
@@ -161,6 +163,7 @@ SPDX-License-Identifier: MPL-2.0
 	let username = $state('');
 	let scores = $state({});
 	let game_mode = $state();
+	let teamResults = $state<TeamResultsPayload | null>(null);
 	ensurePlaySocketSession({
 		getGamePin: () => game_pin,
 		onReconnected: async () => {
@@ -389,6 +392,7 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function handleQuestionResults(data: unknown) {
+		teamResults = (data as { teams?: TeamResultsPayload | null })?.teams ?? null;
 		const {
 			questionIndex: resultsIndex,
 			rows,
@@ -657,6 +661,9 @@ SPDX-License-Identifier: MPL-2.0
 				description={gameData.description}
 				cover_image={gameData.cover_image}
 			/>
+			{#if gameData.team_mode && !gameMeta.started}
+				<TeamPanel mode="player" {username} />
+			{/if}
 		{:else if gameMeta.started && gameData !== undefined && hasActiveQuestion(question_index) && answer_results === undefined}
 			{#if livePhase === 'intro' && question && !isKahootStyleMode(game_mode)}
 				<QuestionIntro
@@ -727,6 +734,9 @@ SPDX-License-Identifier: MPL-2.0
 						{question}
 					/>
 				{/key}
+			{/if}
+			{#if teamResults}
+				<TeamResults teams={teamResults} {username} />
 			{/if}
 			{#if question?.explanation}
 				<div class="max-w-3xl mx-auto w-full px-4 pb-8">
