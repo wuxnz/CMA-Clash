@@ -329,6 +329,8 @@ class AnswerData(BaseModel):
     score: int
     base_score: int = 0
     speed_bonus: int = 0
+    streak: int = 0  # consecutive correct answers, including this one (0 if wrong)
+    streak_bonus: int = 0  # extra points from the streak multiplier
     speed_rank: int | None = None
     overall_rank: int | None = None
     points_behind_above: int | None = None

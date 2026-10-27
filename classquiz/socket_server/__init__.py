@@ -45,6 +45,7 @@ from classquiz.socket_server.game_sync import (
     start_live_game,
     sync_player_to_live_game,
 )
+from classquiz.helpers.team_mode import score_with_streak
 from classquiz.socket_server.timing import server_now_ms
 from classquiz.socket_server.session import detach_socket_from_prior_game, get_session, save_session
 
@@ -355,6 +356,21 @@ async def set_question_number(sid: str, data: str):
     await emit_show_question(sio, game_pin, game_data, question_index)
 
 
+async def advance_player_streak(game_pin: str, username: str, question_index: int, correct: bool) -> int:
+    """Read the player's streak, advance it for this answer, store it, and return the new value."""
+    from classquiz.helpers.team_mode import advance_streak
+
+    key = f"game_session:{game_pin}:streak:{username}"
+    prev_streak, prev_question = 0, None
+    raw = await redis.get(key)
+    if raw:
+        stored = json.loads(raw)
+        prev_streak, prev_question = int(stored["n"]), int(stored["q"])
+    streak = advance_streak(prev_streak, prev_question, question_index, correct)
+    await redis.set(key, json.dumps({"n": streak, "q": question_index}), ex=7200)
+    return streak
+
+
 async def _score_live_answer(
     game_pin: str,
     question_index: int,
@@ -420,9 +436,17 @@ async def submit_answer(sid: str, data: dict):
     answer_right, answer = check_answer(game_data, data)
     latency = int(float(session.get("ping", 0)))
     q_time = int(float(game_data.questions[question_index].time))
-    base_score, speed_bonus, score, time_taken = await _score_live_answer(
+    base_score, speed_bonus, _unused_total, time_taken = await _score_live_answer(
         game_pin, question_index, q_time, answer_right, latency
     )
+    # Streaks apply to every game type (battle, standard and on-device matches) because they
+    # all come through this handler.
+    streak = await advance_player_streak(game_pin, session["username"], question_index, answer_right)
+    if answer_right:
+        score = score_with_streak(base_score, speed_bonus, streak)
+    else:
+        score = 0
+    streak_bonus = score - (base_score + speed_bonus) if answer_right else 0
     await redis.hincrby(f"game_session:{game_pin}:player_scores", session["username"], score)
     answer_data = AnswerData(
         username=session["username"],
@@ -432,6 +456,8 @@ async def submit_answer(sid: str, data: dict):
         score=score,
         base_score=base_score,
         speed_bonus=speed_bonus,
+        streak=streak,
+        streak_bonus=streak_bonus,
     )
     game_pin = session["game_pin"]
     answer_count = await set_answer(game_pin=game_pin, q_index=question_index, data=answer_data)

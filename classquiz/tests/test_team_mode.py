@@ -9,7 +9,7 @@ from classquiz.helpers.team_mode import (
     TeamVote,
     assign_teams_randomly,
     clamp_team_count,
-    next_streak,
+    advance_streak,
     resolve_team_answer,
     score_with_streak,
     streak_multiplier,
@@ -75,6 +75,10 @@ def test_higher_streak_gives_more_points():
 
 
 def test_streak_resets_on_wrong_answer():
-    assert next_streak(0, True) == 1
-    assert next_streak(4, True) == 5
-    assert next_streak(5, False) == 0
+    assert advance_streak(4, 3, 4, True) == 5
+    assert advance_streak(5, 4, 5, False) == 0
+
+
+def test_streak_breaks_on_skipped_question():
+    assert advance_streak(4, 2, 4, True) == 1
+    assert advance_streak(0, None, 0, True) == 1

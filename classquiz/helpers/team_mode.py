@@ -77,6 +77,18 @@ def score_with_streak(base_points: int, speed_bonus: int, streak: int) -> int:
     return int(round((base_points + speed_bonus) * streak_multiplier(streak)))
 
 
-def next_streak(current: int, answered_correctly: bool) -> int:
-    """Streak after one answer: extended on a correct answer, reset on a wrong one."""
-    return current + 1 if answered_correctly else 0
+def advance_streak(
+    prev_streak: int,
+    prev_question: int | None,
+    question_index: int,
+    correct: bool,
+) -> int:
+    """New streak after answering question_index.
+
+    A correct answer extends the streak only if the player's previous recorded answer was on the
+    question right before this one. A wrong answer, or a skipped question, starts over.
+    """
+    if not correct:
+        return 0
+    consecutive = prev_question is not None and prev_question == question_index - 1
+    return (prev_streak if consecutive else 0) + 1
