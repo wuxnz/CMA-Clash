@@ -531,7 +531,10 @@ SPDX-License-Identifier: MPL-2.0
 				bindPlaySocketForJoin(game_pin);
 				final_results = data;
 				const fromFinal = aggregateScoresFromFinalResults(data);
-				if (Object.keys(fromFinal).length > 0) {
+				if (gameData?.team_mode && teamResults?.teams?.length) {
+					// Team games: the end scoreboard shows team names and totals only.
+					scores = Object.fromEntries(teamResults.teams.map((t) => [t.name, t.total]));
+				} else if (Object.keys(fromFinal).length > 0) {
 					scores = fromFinal;
 				}
 				Cookies.remove('joined_game');
