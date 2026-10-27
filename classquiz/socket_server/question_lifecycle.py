@@ -91,6 +91,10 @@ async def build_question_results_payload(game_pin: str, question_index: int) -> 
         "explanation": explanation,
         "correct_answer": correct_answer,
     }
+    if game_data.team_mode:
+        from classquiz.socket_server.team_live import team_results_summary
+
+        payload["teams"] = await team_results_summary(game_pin, question_index)
     return payload, answer_data_list
 
 
@@ -171,6 +175,9 @@ async def close_question_now(sio, game_pin: str, question_index: int) -> bool:
     if not game_data.question_show:
         return False
     cancel_question_lifecycle(game_pin)
+    from classquiz.socket_server.team_live import resolve_team_round
+
+    await resolve_team_round(game_pin, question_index)
     await record_non_answers_as_wrong(game_pin, question_index)
     _, payload = await broadcast_question_results(sio, game_pin, question_index)
     _schedule_advance(
