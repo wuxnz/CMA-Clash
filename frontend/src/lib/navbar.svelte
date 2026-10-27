@@ -99,7 +99,8 @@ SPDX-License-Identifier: MPL-2.0
 		{ href: '/host', label: 'Host' },
 		{ href: '/leaderboard', label: 'Leaderboard' },
 		{ href: '/battle', label: 'Battle' },
-		{ href: '/study', label: 'Study' }
+		{ href: '/study', label: 'Study' },
+		{ href: '/flashcards', label: 'Flashcards' }
 	] as const;
 
 	/** Collapsed into the "More" menu below xl, inline at xl and above. */
