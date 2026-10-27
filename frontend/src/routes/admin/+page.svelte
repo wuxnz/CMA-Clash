@@ -41,6 +41,7 @@ SPDX-License-Identifier: MPL-2.0
 		public selected_question: number;
 		public timer_res: string;
 		public question_results: any;
+		public team_results: any;
 		public answer_count: number;
 		public shown_question_now: number;
 		public final_results: Array<null> | Array<Array<PlayerAnswer>>;
@@ -60,6 +61,7 @@ SPDX-License-Identifier: MPL-2.0
 			this.final_results = $state([null]);
 			this.game_started = $state(false);
 			this.question_results = $state(null);
+			this.team_results = $state(null);
 			this.answer_count = $state(0);
 		}
 
