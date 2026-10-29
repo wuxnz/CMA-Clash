@@ -361,8 +361,7 @@ SPDX-License-Identifier: MPL-2.0
 				{/snippet}
 			</FinalResults>
 		</div>
-	{/if}
-	{#if !success}
+	{:else if !success}
 		<div class="flex min-h-screen w-full items-center justify-center p-6">
 			<div
 				class="w-full max-w-md border border-line bg-paper p-8 text-center"
