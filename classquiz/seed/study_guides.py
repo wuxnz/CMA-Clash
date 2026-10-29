@@ -5274,3 +5274,6 @@ STUDY_BY_TOPIC: dict[str, list[dict]] = {
 }
 # The Diabetes Study Guide quiz shares this guide with the CCMA diabetes topic.
 STUDY_BY_TOPIC["diabetes-study-guide"] = STUDY_BY_TOPIC["ccma-diabetes"]
+# The flashcard quizzes cover the same material as these guides.
+STUDY_BY_TOPIC["diabetes-flashcards-quiz"] = STUDY_BY_TOPIC["ccma-diabetes"]
+STUDY_BY_TOPIC["phlebotomy-flashcards-quiz"] = STUDY_BY_TOPIC["phleb-who"]

@@ -180,6 +180,10 @@ SPDX-License-Identifier: MPL-2.0
 			{/each}
 		</div>
 
+		<p class="mt-3 text-sm">
+			<a href={`/practice-test/flashcards/${deckId}`} class="link-hover text-ink">Take the {deckDef.label.toLowerCase()} practice test</a>
+		</p>
+
 		<!-- Category filter -->
 		<div class="flex flex-wrap gap-2 mt-3" role="group" aria-label="Filter by category">
 			<button
