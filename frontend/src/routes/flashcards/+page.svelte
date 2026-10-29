@@ -8,6 +8,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Footer from '$lib/footer.svelte';
 	import { navbarVisible } from '$lib/stores.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import { fitText } from '$lib/ui/fit-text';
 	import Card from '$lib/ui/Card.svelte';
 	import PageHeader from '$lib/ui/PageHeader.svelte';
 	import {
@@ -221,20 +222,26 @@ SPDX-License-Identifier: MPL-2.0
 		{#if current}
 			<button
 				type="button"
-				class="flip-stage mt-6 block w-full min-h-[18rem] sm:min-h-[20rem] text-left"
+				class="flip-stage mt-6 block w-full h-[18rem] sm:h-[20rem] text-left"
 				aria-pressed={flipped}
 				aria-label={flipped ? `Definition of ${current.t}. Press to flip back.` : `${current.t}. Press to see the definition.`}
 				onclick={flip}
 			>
-				<span class="flip-inner {flipped ? 'is-flipped' : ''} block relative w-full h-full min-h-[18rem] sm:min-h-[20rem]">
+				<span class="flip-inner {flipped ? 'is-flipped' : ''} block relative w-full h-full">
 					<span class="flip-face border border-line glass-panel p-8 sm:p-12 flex flex-col justify-between">
 						<span class="eyebrow">{categories[current.c]}</span>
-						<span class="font-display text-[clamp(2rem,6vw,3.25rem)] leading-[1.02] tracking-[-0.035em] text-balance">{current.t}</span>
+						<span
+							class="block font-display leading-[1.02] tracking-[-0.035em] text-balance wrap-break-word"
+							use:fitText={{ min: 18, max: 60 }}>{current.t}</span
+						>
 						<span class="eyebrow">Tap to flip</span>
 					</span>
 					<span class="flip-face flip-back border border-primary/60 bg-elevated p-8 sm:p-12 flex flex-col justify-between">
 						<span class="eyebrow text-primary">Definition</span>
-						<span class="text-lg sm:text-2xl leading-snug text-balance">{current.d}</span>
+						<span
+						class="block leading-snug text-balance wrap-break-word"
+						use:fitText={{ min: 14, max: 36 }}>{current.d}</span
+					>
 						<span class="eyebrow">{current.t}</span>
 					</span>
 				</span>

@@ -10,6 +10,7 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import Card from '$lib/ui/Card.svelte';
 	import PageHeader from '$lib/ui/PageHeader.svelte';
+	import { fitText } from '$lib/ui/fit-text';
 	import { QUESTIONS, SECTIONS } from '$lib/study/diabetes-practice';
 
 	navbarVisible.visible = true;
@@ -118,7 +119,7 @@ SPDX-License-Identifier: MPL-2.0
 								type="button"
 								role="radio"
 								aria-checked={picks[i] === j}
-								class="bg-paper text-left min-h-[5.5rem] px-4 py-3 flex flex-col justify-between gap-3 text-ink press-scale transition-colors duration-200 {picks[i] === j
+								class="bg-paper text-left h-[7.5rem] sm:h-[8rem] px-4 py-3 flex flex-col justify-between gap-3 text-ink press-scale transition-colors duration-200 {picks[i] === j
 									? 'bg-primary-soft shadow-[inset_3px_0_0_0_var(--color-primary)]'
 									: 'hover:bg-elevated'}"
 								onclick={() => pick(i, j)}
@@ -128,7 +129,10 @@ SPDX-License-Identifier: MPL-2.0
 										? 'text-primary'
 										: 'text-ink-subtle'}">{LETTERS[j]}</span
 								>
-								<span class="text-sm sm:text-base font-medium leading-snug">{option}</span>
+								<span
+								class="block text-sm sm:text-base font-medium leading-snug wrap-break-word"
+								use:fitText={{ min: 11, max: 18 }}>{option}</span
+							>
 							</button>
 						{/each}
 					</div>
