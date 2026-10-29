@@ -3,11 +3,10 @@
 # SPDX-License-Identifier: MPL-2.0
 """Quiz questions built from the flashcard decks in classquiz/seed/flashcards.
 
-Each flashcard becomes one multiple-choice question in the forward direction: the
-front is the prompt and the back is the correct answer. Distractors are backs from
-the same category at a similar length, so the correct answer is not the obvious
-pick. The site's practice tests ask the reverse direction, so the quiz and practice
-questions never share the same prompt and answer pair.
+Each flashcard becomes one multiple-choice question: the front is the prompt and the back,
+unchanged, is the correct answer. Distractors are backs from the same category that echo
+the prompt's words where possible, so the right answer is not the only option that
+repeats the question.
 """
 
 from __future__ import annotations
@@ -85,26 +84,6 @@ def _distractors(cards: list[dict], index: int, prompt: str, rng: random.Random)
     return picked
 
 
-_COMMON_WORDS = frozenset(
-    """
-    about their there these those which where while would could should being through between
-    thought cause causes people group groups what does mean have with from this that into other
-    after before many much more most some such when your they them will just only also
-    """.split()
-)
-
-
-def _key_words(prompt: str) -> set[str]:
-    return {w for w in _words(prompt) if w not in _COMMON_WORDS}
-
-
-def _mask(text: str, key: set[str]) -> str:
-    """Blank out the prompt's key words so an option cannot echo the question."""
-    for word in sorted(key, key=len, reverse=True):
-        text = re.sub(rf"\b{re.escape(word)}\b", "____", text, flags=re.IGNORECASE)
-    return text
-
-
 def _deck_facts(deck_def: dict) -> list[dict]:
     deck = _load_deck(deck_def["file"])
     cards = deck["cards"]
@@ -112,20 +91,17 @@ def _deck_facts(deck_def: dict) -> list[dict]:
     for i, card in enumerate(cards):
         rng = _rng(f"{deck_def['topic']}:{i}")
         prompt = deck_def["stem"](card)
-        key = _key_words(prompt)
-        distractors = [_mask(text, key) for text in _distractors(cards, i, prompt, rng)]
         facts.append(
             fact(
                 deck_def["topic"],
                 prompt,
-                _mask(card["d"], key),
-                distractors,
+                card["d"],
+                _distractors(cards, i, prompt, rng),
                 f"{card['t']}: {card['d']}",
                 deck_def["references"],
                 _DIFFICULTY_CYCLE[i % len(_DIFFICULTY_CYCLE)],
             )
         )
     return facts
-
 
 FACTS: list[dict] = [fact_ for deck_def in _DECKS for fact_ in _deck_facts(deck_def)]

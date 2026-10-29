@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-// Practice tests built from the flashcard decks. Each card becomes one question, asked in the
-// reverse direction from the quiz: the card's back is shown and the options are the fronts.
-// Options come from the same category at a similar length, and the prompt's key words are
-// blanked out so the right option is not given away by echoed wording. The order is seeded
-// from the card text, so a test is the same on every visit.
+// Multiple-choice practice tests built from the flashcard decks. Each card becomes one question:
+// the prompt is the card's front, reworded, and the correct option is the card's back. Wrong
+// options are backs from the same category at a similar length, drawn with a different seed from
+// the quiz, so the practice test does not repeat the quiz's answer sets. Order is seeded from the card
+// text, so a test is the same on every visit.
 
 import { FLASHCARDS, FLASHCARD_CATEGORIES, type Flashcard } from './phlebotomy-flashcards';
 import { DIABETES_FLASHCARDS, DIABETES_FLASHCARD_CATEGORIES } from './diabetes-flashcards';
@@ -27,14 +27,6 @@ export interface PracticeDeck {
 	categories: string[];
 	questions: PracticeQuestion[];
 }
-
-const COMMON_WORDS = new Set(
-	(
-		'about their there these those which where while would could should being through between ' +
-		'thought cause causes people group groups what does mean have with from this that into other ' +
-		'after before many much more most some such when your they them will just only also'
-	).split(' ')
-);
 
 function hash(text: string): number {
 	let h = 2166136261;
@@ -57,35 +49,25 @@ function seeded(seed: number): () => number {
 	};
 }
 
-function keyWords(text: string): string[] {
-	const words = text.toLowerCase().match(/[a-z]{5,}/g) ?? [];
-	return [...new Set(words.filter((w) => !COMMON_WORDS.has(w)))];
-}
-
-function mask(text: string, keys: string[]): string {
-	let out = text;
-	for (const word of [...keys].sort((a, b) => b.length - a.length)) {
-		out = out.replace(new RegExp(`\\b${word}\\b`, 'gi'), '____');
-	}
-	return out;
-}
-
-function pickDistractors(deck: Flashcard[], index: number, rng: () => number): string[] {
+/** Three wrong answers (other cards' backs) from the same category, close in length to the right one. */
+function pickWrongAnswers(deck: Flashcard[], index: number, rng: () => number): string[] {
 	const card = deck[index];
 	const sameCategory = deck
 		.map((c, j) => ({ c, j }))
-		.filter(({ c, j }) => j !== index && c.c === card.c && c.t !== card.t);
-	const pool = sameCategory.length >= 3 ? sameCategory : deck.map((c, j) => ({ c, j })).filter(({ j, c }) => j !== index && c.t !== card.t);
+		.filter(({ c, j }) => j !== index && c.c === card.c && c.d !== card.d);
+	const pool =
+		sameCategory.length >= 3
+			? sameCategory
+			: deck.map((c, j) => ({ c, j })).filter(({ c, j }) => j !== index && c.d !== card.d);
 	const ranked = [...pool].sort(
-		(x, y) =>
-			Math.abs(x.c.t.length - card.t.length) - Math.abs(y.c.t.length - card.t.length) || x.j - y.j
+		(x, y) => Math.abs(x.c.d.length - card.d.length) - Math.abs(y.c.d.length - card.d.length) || x.j - y.j
 	);
-	const candidates = ranked.slice(0, 6);
+	const candidates = ranked.slice(0, 8);
 	const picked: string[] = [];
 	while (picked.length < 3 && candidates.length) {
 		const k = Math.floor(rng() * candidates.length);
 		const [chosen] = candidates.splice(k, 1);
-		if (!picked.includes(chosen.c.t)) picked.push(chosen.c.t);
+		if (!picked.includes(chosen.c.d)) picked.push(chosen.c.d);
 	}
 	return picked;
 }
@@ -95,15 +77,12 @@ function buildDeck(
 	title: string,
 	cards: Flashcard[],
 	categories: string[],
-	stem: (masked: string) => string,
-	describe: (card: Flashcard) => string,
-	explain: (card: Flashcard) => string,
-	keysFor: (card: Flashcard) => string[]
+	stemFor: (card: Flashcard) => string,
+	explain: (card: Flashcard) => string
 ): PracticeDeck {
 	const questions: PracticeQuestion[] = cards.map((card, index) => {
-		const rng = seeded(hash(`${id}:${card.t}`));
-		const keys = keysFor(card);
-		const options = [card.t, ...pickDistractors(cards, index, rng)];
+		const rng = seeded(hash(`${id}-practice:${card.t}`));
+		const options = [card.d, ...pickWrongAnswers(cards, index, rng)];
 		// Fisher–Yates with the seeded rng, then find where the right answer landed.
 		for (let i = options.length - 1; i > 0; i--) {
 			const j = Math.floor(rng() * (i + 1));
@@ -111,9 +90,9 @@ function buildDeck(
 		}
 		return {
 			s: card.c,
-			q: stem(mask(describe(card), keys)),
+			q: stemFor(card),
 			o: options,
-			a: options.indexOf(card.t),
+			a: options.indexOf(card.d),
 			e: explain(card)
 		};
 	});
@@ -125,10 +104,8 @@ const PHLEBOTOMY = buildDeck(
 	'Phlebotomy flashcards practice test',
 	FLASHCARDS,
 	FLASHCARD_CATEGORIES,
-	(masked) => `Which term matches this description?\n\n${masked}`,
-	(card) => card.d,
-	(card) => `${card.t}: ${card.d}`,
-	(card) => keyWords(card.t)
+	(card) => `Which description fits "${card.t}"?`,
+	(card) => `${card.t}: ${card.d}`
 );
 
 const DIABETES = buildDeck(
@@ -136,10 +113,8 @@ const DIABETES = buildDeck(
 	'Diabetes flashcards practice test',
 	DIABETES_FLASHCARDS,
 	DIABETES_FLASHCARD_CATEGORIES,
-	(masked) => `Which question does this answer belong to?\n\n${masked}`,
-	(card) => card.d,
-	(card) => card.d,
-	(card) => keyWords(card.t)
+	(card) => `Choose the best answer: ${card.t}`,
+	(card) => card.d
 );
 
 const DECKS: Record<string, PracticeDeck> = {

@@ -31,6 +31,7 @@ async def create_battle_lobby(
     quiz_id: uuid.UUID,
     max_players: int = 4,
     certification_slug: str | None = None,
+    question_count: int | None = None,
 ) -> BattleLobbyState:
     code = _generate_battle_code()
     while await redis.get(_lobby_key(code)) is not None:
@@ -48,6 +49,7 @@ async def create_battle_lobby(
             }
         ],
         certification_slug=certification_slug,
+        question_count=question_count,
     )
     await redis.set(_lobby_key(code), lobby.model_dump_json(), ex=LOBBY_TTL)
     return lobby
@@ -57,6 +59,7 @@ async def create_battle_lobby_guest(
     quiz_id: uuid.UUID,
     max_players: int = 4,
     certification_slug: str | None = None,
+    question_count: int | None = None,
 ) -> BattleLobbyState:
     """Guest host opens an empty lobby; they join once with a nickname on the lobby page."""
     guest_id = str(uuid.uuid4())
@@ -73,6 +76,7 @@ async def create_battle_lobby_guest(
         certification_slug=certification_slug,
         host_secret=host_secret,
         host_is_guest=True,
+        question_count=question_count,
     )
     await redis.set(_lobby_key(code), lobby.model_dump_json(), ex=LOBBY_TTL)
     return lobby
@@ -158,7 +162,7 @@ async def start_battle_game(
     game_id = uuid.uuid4()
     game_questions = select_questions_for_game(
         quiz.questions,
-        getattr(quiz, "questions_per_game", None),
+        lobby.question_count if lobby.question_count is not None else getattr(quiz, "questions_per_game", None),
     )
     shuffle_abcd_answer_positions(game_questions)
     game = PlayGame(

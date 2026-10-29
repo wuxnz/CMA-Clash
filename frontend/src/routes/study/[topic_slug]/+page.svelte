@@ -16,6 +16,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { createBattle } from '$lib/cma/client';
 	import { setBattleHostSecret } from '$lib/cma/battle-guest';
 	import StartGamePopup from '$lib/dashboard/start_game.svelte';
+	import QuestionCountPicker from '$lib/quiz/QuestionCountPicker.svelte';
 
 	navbarVisible.visible = true;
 
@@ -41,13 +42,20 @@ SPDX-License-Identifier: MPL-2.0
 	const gameQuiz = $derived(slug === GAME_TOPIC ? (quizzes[0] ?? null) : null);
 	let startGame = $state<string | null>(null);
 	let battleStarting = $state(false);
+	// Fewest questions a battle can use; the server enforces the same minimum.
+	const MIN_QUESTIONS = 8;
+	let battleQuestionCount = $state(MIN_QUESTIONS);
+
+	$effect(() => {
+		if (gameQuiz) battleQuestionCount = Math.max(MIN_QUESTIONS, Math.min(gameQuiz.question_count, gameQuiz.questions_per_game ?? 10));
+	});
 	let battleError = $state('');
 
 	async function startBattle(quizId: string) {
 		if (battleStarting) return;
 		battleStarting = true;
 		battleError = '';
-		const result = await createBattle(quizId, 4);
+		const result = await createBattle(quizId, 4, undefined, battleQuestionCount);
 		battleStarting = false;
 		if (!result.ok) {
 			const detail = 'detail' in result ? result.detail : undefined;
@@ -177,6 +185,11 @@ SPDX-License-Identifier: MPL-2.0
 				<section class="mt-12">
 					<h2 class="text-sm font-semibold text-ink">Play the quiz</h2>
 					<p class="text-sm text-ink-muted mt-2">{gameQuiz.title}: battle another player, or host a match for a room.</p>
+					{#if gameQuiz.question_count >= MIN_QUESTIONS}
+						<div class="mt-4">
+							<QuestionCountPicker min={MIN_QUESTIONS} max={gameQuiz.question_count} bind:value={battleQuestionCount} disabled={battleStarting} />
+						</div>
+					{/if}
 					<div class="mt-4 flex flex-wrap gap-3">
 						<Button onclick={() => startBattle(gameQuiz.id)} disabled={battleStarting}>
 							{battleStarting ? 'Starting battle…' : 'Battle'}

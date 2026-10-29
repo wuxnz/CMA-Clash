@@ -17,6 +17,8 @@ export type StartGameOptions = {
 	/** Teams for match games: 0 = off, otherwise 2-8. */
 	team_count?: number;
 	team_assign?: 'random' | 'choose';
+	/** Questions drawn for the game. Omit to use the quiz default. */
+	question_count?: number;
 };
 
 /** Start a live game from a public quiz (guest or signed-in). */
@@ -33,6 +35,7 @@ export async function startHostGame(
 		team_count: String(options.team_count ?? 0),
 		team_assign: options.team_assign ?? 'random'
 	});
+	if (options.question_count) params.set('question_count', String(options.question_count));
 	const res = await fetch(`/api/v1/quiz/start/${quizId}?${params}`, {
 		method: 'POST',
 		credentials: 'include'

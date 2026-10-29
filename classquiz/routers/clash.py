@@ -20,6 +20,7 @@ from classquiz.battle.service import (
     join_battle_lobby_guest,
     start_battle_game,
 )
+from classquiz.helpers.game_questions import validate_question_count
 from classquiz.rate_limit import rate_limit_request
 from classquiz.db.cma_models import Certification, Topic, UserTopicStat
 from classquiz.db.models import Quiz, User
@@ -96,6 +97,7 @@ class CreateBattleBody(BaseModel):
     max_players: int = Field(default=4, ge=2, le=8)
     certification_slug: str | None = None
     display_name: str | None = Field(default=None, max_length=32)
+    question_count: int | None = Field(default=None, ge=1, le=500)
 
 
 class JoinBattleBody(BaseModel):
@@ -314,14 +316,22 @@ async def api_create_battle(
         quiz = await Quiz.objects.get_or_none(id=body.quiz_id, user_id=user.id)
     if quiz is None:
         raise HTTPException(status_code=404, detail="quiz not found")
+    try:
+        question_count = validate_question_count(len(quiz.questions), body.question_count)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     if user is None:
         await rate_limit_request(request, "battle_create_anon", limit=20, window_sec=3600)
         try:
-            lobby = await create_battle_lobby_guest(quiz.id, body.max_players, body.certification_slug)
+            lobby = await create_battle_lobby_guest(
+                quiz.id, body.max_players, body.certification_slug, question_count
+            )
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
         return _lobby_out(lobby, include_host_secret=True)
-    lobby = await create_battle_lobby(user, quiz.id, body.max_players, body.certification_slug)
+    lobby = await create_battle_lobby(
+        user, quiz.id, body.max_players, body.certification_slug, question_count
+    )
     return _lobby_out(lobby)
 
 

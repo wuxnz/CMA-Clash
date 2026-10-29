@@ -25,6 +25,18 @@ def resolve_questions_per_game(bank_size: int, configured: int | None) -> int:
     return min(draw, bank_size)
 
 
+def validate_question_count(bank_size: int, requested: int | None) -> int | None:
+    """Return the requested question count if a game can use it, else raise ValueError.
+
+    A host may pick any count from MIN_QUESTIONS_PER_GAME up to the size of the quiz bank.
+    """
+    if requested is None:
+        return None
+    if requested < MIN_QUESTIONS_PER_GAME or requested > bank_size:
+        raise ValueError(f"question_count must be between {MIN_QUESTIONS_PER_GAME} and {bank_size}")
+    return requested
+
+
 def select_questions_for_game(
     questions: Sequence[Any],
     questions_per_game: int | None = None,
