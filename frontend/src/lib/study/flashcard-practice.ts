@@ -113,7 +113,7 @@ const DIABETES = buildDeck(
 	'Diabetes flashcards practice test',
 	DIABETES_FLASHCARDS,
 	DIABETES_FLASHCARD_CATEGORIES,
-	(card) => `Choose the best answer: ${card.t}`,
+	(card) => card.t,
 	(card) => card.d
 );
 
