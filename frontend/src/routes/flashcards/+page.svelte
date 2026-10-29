@@ -15,23 +15,71 @@ SPDX-License-Identifier: MPL-2.0
 		FLASHCARD_CATEGORIES,
 		type Flashcard
 	} from '$lib/study/phlebotomy-flashcards';
+	import {
+		DIABETES_FLASHCARDS,
+		DIABETES_FLASHCARD_CATEGORIES
+	} from '$lib/study/diabetes-flashcards';
 
 	navbarVisible.visible = true;
 
-	// Category filter: -1 = all terms.
+	const DECKS = [
+		{
+			id: 'phlebotomy',
+			label: 'Phlebotomy',
+			title: 'Phlebotomy terms',
+			lede: 'Flip a card to check the definition. Use the arrow keys to move, Space to flip, and mark a term known when you have it.',
+			cards: FLASHCARDS,
+			categories: FLASHCARD_CATEGORIES
+		},
+		{
+			id: 'diabetes',
+			label: 'Diabetes',
+			title: 'Diabetes facts',
+			lede: 'Facts from the CDC diabetes pages. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
+			cards: DIABETES_FLASHCARDS,
+			categories: DIABETES_FLASHCARD_CATEGORIES
+		}
+	];
+
+	let deckId = $state(DECKS[0].id);
+	const deckDef = $derived(DECKS.find((d) => d.id === deckId) ?? DECKS[0]);
+	const cards = $derived<Flashcard[]>(deckDef.cards);
+	const categories = $derived<string[]>(deckDef.categories);
+
+	// Category filter: -1 = all cards in the deck.
 	let category = $state(-1);
 	let order = $state<number[]>(FLASHCARDS.map((_, i) => i));
 	let index = $state(0);
 	let flipped = $state(false);
-	let known = $state<Set<number>>(new Set());
+	// Known cards are keyed by deck, so two decks never share progress.
+	let known = $state<Set<string>>(new Set());
 	let shuffled = $state(false);
 
 	const deck = $derived<Flashcard[]>(
-		order.map((i) => FLASHCARDS[i]).filter((c) => category < 0 || c.c === category)
+		order.map((i) => cards[i]).filter((c) => c && (category < 0 || c.c === category))
 	);
 	const current = $derived(deck[index]);
 	const total = $derived(deck.length);
-	const knownInDeck = $derived(deck.filter((c) => known.has(FLASHCARDS.indexOf(c))).length);
+
+	function knownKey(card: Flashcard) {
+		return `${deckId}:${cards.indexOf(card)}`;
+	}
+
+	const knownInDeck = $derived(deck.filter((c) => known.has(knownKey(c))).length);
+	const isKnown = $derived(current ? known.has(knownKey(current)) : false);
+
+	function resetDeckOrder() {
+		order = cards.map((_, i) => i);
+		shuffled = false;
+		index = 0;
+		flipped = false;
+	}
+
+	function setDeck(id: string) {
+		deckId = id;
+		category = -1;
+		resetDeckOrder();
+	}
 
 	function setCategory(c: number) {
 		category = c;
@@ -68,22 +116,17 @@ SPDX-License-Identifier: MPL-2.0
 	}
 
 	function resetOrder() {
-		order = FLASHCARDS.map((_, i) => i);
-		shuffled = false;
-		index = 0;
-		flipped = false;
+		resetDeckOrder();
 	}
 
 	function markKnown() {
 		if (!current) return;
-		const i = FLASHCARDS.indexOf(current);
+		const key = knownKey(current);
 		const s = new Set(known);
-		if (s.has(i)) s.delete(i);
-		else s.add(i);
+		if (s.has(key)) s.delete(key);
+		else s.add(key);
 		known = s;
 	}
-
-	const isKnown = $derived(current ? known.has(FLASHCARDS.indexOf(current)) : false);
 
 	function onKey(e: KeyboardEvent) {
 		const target = e.target as HTMLElement | null;
@@ -103,7 +146,7 @@ SPDX-License-Identifier: MPL-2.0
 <svelte:window onkeydown={onKey} />
 
 <svelte:head>
-	<title>CMA Clash: Phlebotomy flashcards</title>
+	<title>CMA Clash: Flashcards</title>
 </svelte:head>
 
 <div class="min-h-screen flex flex-col overflow-x-hidden">
@@ -113,16 +156,32 @@ SPDX-License-Identifier: MPL-2.0
 		</p>
 
 		<div class="mt-4">
-			<PageHeader
-				eyebrow="Flashcards"
-				title="Phlebotomy terms"
-				lede="Flip a card to check the definition. Use the arrow keys to move, Space to flip, and mark a term known when you have it."
-				meta={`${FLASHCARDS.length} terms`}
-			/>
+			{#key deckId}
+				<PageHeader
+					eyebrow="Flashcards"
+					title={deckDef.title}
+					lede={deckDef.lede}
+					meta={`${cards.length} cards`}
+				/>
+			{/key}
+		</div>
+
+		<!-- Deck picker -->
+		<div class="flex flex-wrap gap-2" role="group" aria-label="Choose a deck">
+			{#each DECKS as d (d.id)}
+				<button
+					type="button"
+					class="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.14em] border border-line press-scale {deckId === d.id
+						? 'bg-primary text-white border-primary'
+						: 'text-ink-muted hover:text-ink'}"
+					aria-pressed={deckId === d.id}
+					onclick={() => setDeck(d.id)}>{d.label}</button
+				>
+			{/each}
 		</div>
 
 		<!-- Category filter -->
-		<div class="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+		<div class="flex flex-wrap gap-2 mt-3" role="group" aria-label="Filter by category">
 			<button
 				type="button"
 				class="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.14em] border border-line press-scale {category < 0
@@ -131,7 +190,7 @@ SPDX-License-Identifier: MPL-2.0
 				aria-pressed={category < 0}
 				onclick={() => setCategory(-1)}>All</button
 			>
-			{#each FLASHCARD_CATEGORIES as name, c (c)}
+			{#each categories as name, c (c)}
 				<button
 					type="button"
 					class="px-3 py-1.5 text-xs font-mono uppercase tracking-[0.14em] border border-line press-scale {category === c
@@ -165,7 +224,7 @@ SPDX-License-Identifier: MPL-2.0
 			>
 				<span class="flip-inner {flipped ? 'is-flipped' : ''} block relative w-full h-full min-h-[18rem] sm:min-h-[20rem]">
 					<span class="flip-face border border-line glass-panel p-8 sm:p-12 flex flex-col justify-between">
-						<span class="eyebrow">{FLASHCARD_CATEGORIES[current.c]}</span>
+						<span class="eyebrow">{categories[current.c]}</span>
 						<span class="font-display text-[clamp(2rem,6vw,3.25rem)] leading-[1.02] tracking-[-0.035em] text-balance">{current.t}</span>
 						<span class="eyebrow">Tap to flip</span>
 					</span>
@@ -199,7 +258,7 @@ SPDX-License-Identifier: MPL-2.0
 			</div>
 		{:else}
 			<Card class="mt-6" padding="lg">
-				<p class="text-ink-muted">No terms in this category.</p>
+				<p class="text-ink-muted">No cards in this category.</p>
 			</Card>
 		{/if}
 	</div>
