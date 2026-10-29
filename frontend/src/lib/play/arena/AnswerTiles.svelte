@@ -1,6 +1,7 @@
 <script lang="ts">
 	import TimerBar from '$lib/ui/TimerBar.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
+	import { fitText } from '$lib/ui/fit-text';
 	export type ArenaAnswer = { answer: string; color?: string; right?: boolean };
 
 	interface Props {
@@ -102,7 +103,7 @@
 				{#if interactive}
 					<button
 						type="button"
-						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 min-h-[6rem] max-h-[11rem] text-ink text-left press-scale border-0 transition-colors duration-200 {selected ===
+						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 h-[8rem] sm:h-[9rem] text-ink text-left press-scale border-0 transition-colors duration-200 {selected ===
 						ans.answer
 							? 'bg-primary-soft shadow-[inset_3px_0_0_0_var(--color-primary)]'
 							: 'hover:bg-elevated'} {disabled ? 'opacity-60' : ''}"
@@ -121,20 +122,22 @@
 							{String.fromCharCode(65 + i)}
 						</span>
 						<span
-							class="text-sm sm:text-base leading-snug line-clamp-4 font-medium [&_*]:!text-ink"
+							class="block text-sm sm:text-base leading-snug wrap-break-word font-medium [&_*]:!text-ink"
+			use:fitText={{ min: 11, max: 18 }}
 						>
 							{@html normalizeQuizText(ans.answer)}
 						</span>
 					</button>
 				{:else}
 					<div
-						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 min-h-[6rem] max-h-[11rem] text-ink"
+						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 h-[8rem] sm:h-[9rem] text-ink"
 					>
 						<span class="font-mono text-[0.7rem] tracking-[0.2em] text-ink-subtle">
 							{String.fromCharCode(65 + i)}
 						</span>
 						<span
-							class="text-sm sm:text-base leading-snug line-clamp-4 font-medium [&_*]:!text-ink"
+							class="block text-sm sm:text-base leading-snug wrap-break-word font-medium [&_*]:!text-ink"
+			use:fitText={{ min: 11, max: 18 }}
 						>
 							{@html normalizeQuizText(ans.answer)}
 						</span>
