@@ -3,10 +3,10 @@
 // SPDX-License-Identifier: MPL-2.0
 
 // Multiple-choice practice tests built from the flashcard decks. Each card becomes one question:
-// the prompt is the card's front, reworded, and the correct option is the card's back. Wrong
-// options are backs from the same category at a similar length, drawn with a different seed from
-// the quiz, so the practice test does not repeat the quiz's answer sets. Order is seeded from the card
-// text, so a test is the same on every visit.
+// the question is the card's front (or, for phlebotomy terms, the description that fits the term),
+// and the correct option is the card's back. The three wrong options are picked from the card's four
+// written wrong answers, using a different seed from the quiz, and the right answer is never the only
+// longest option. Order is seeded from the card text, so a test is the same on every visit.
 
 import { FLASHCARDS, FLASHCARD_CATEGORIES, type Flashcard } from './phlebotomy-flashcards';
 import { DIABETES_FLASHCARDS, DIABETES_FLASHCARD_CATEGORIES } from './diabetes-flashcards';
@@ -49,27 +49,17 @@ function seeded(seed: number): () => number {
 	};
 }
 
-/** Three wrong answers (other cards' backs) from the same category, close in length to the right one. */
-function pickWrongAnswers(deck: Flashcard[], index: number, rng: () => number): string[] {
-	const card = deck[index];
-	const sameCategory = deck
-		.map((c, j) => ({ c, j }))
-		.filter(({ c, j }) => j !== index && c.c === card.c && c.d !== card.d);
-	const pool =
-		sameCategory.length >= 3
-			? sameCategory
-			: deck.map((c, j) => ({ c, j })).filter(({ c, j }) => j !== index && c.d !== card.d);
-	const ranked = [...pool].sort(
-		(x, y) => Math.abs(x.c.d.length - card.d.length) - Math.abs(y.c.d.length - card.d.length) || x.j - y.j
-	);
-	const candidates = ranked.slice(0, 8);
-	const picked: string[] = [];
-	while (picked.length < 3 && candidates.length) {
-		const k = Math.floor(rng() * candidates.length);
-		const [chosen] = candidates.splice(k, 1);
-		if (!picked.includes(chosen.c.d)) picked.push(chosen.c.d);
+/** Three of the card's written wrong answers, preferring sets that keep the right answer from being the longest. */
+function pickWrongAnswers(card: Flashcard, rng: () => number): string[] {
+	const wrong = card.w;
+	const combos: string[][] = [];
+	for (let skip = 0; skip < wrong.length; skip++) {
+		combos.push(wrong.filter((_, i) => i !== skip));
 	}
-	return picked;
+	const rightLength = card.d.length;
+	const balanced = combos.filter((combo) => Math.max(...combo.map((text) => text.length)) >= rightLength);
+	const pool = balanced.length ? balanced : combos;
+	return pool[Math.floor(rng() * pool.length)];
 }
 
 function buildDeck(
@@ -80,9 +70,9 @@ function buildDeck(
 	stemFor: (card: Flashcard) => string,
 	explain: (card: Flashcard) => string
 ): PracticeDeck {
-	const questions: PracticeQuestion[] = cards.map((card, index) => {
+	const questions: PracticeQuestion[] = cards.map((card) => {
 		const rng = seeded(hash(`${id}-practice:${card.t}`));
-		const options = [card.d, ...pickWrongAnswers(cards, index, rng)];
+		const options = [card.d, ...pickWrongAnswers(card, rng)];
 		// Fisher–Yates with the seeded rng, then find where the right answer landed.
 		for (let i = options.length - 1; i > 0; i--) {
 			const j = Math.floor(rng() * (i + 1));
