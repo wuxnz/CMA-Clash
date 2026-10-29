@@ -18,7 +18,7 @@ def test_question_bank_coverage():
     counts = Counter(f["topic"] for f in facts)
     catalog_slugs = {slug for cert in CERTIFICATIONS for slug, _, _ in cert["topics"]}
     assert catalog_slugs.issubset(set(counts.keys()))
-    assert len(counts) == 46
+    assert len(counts) == 48
     assert min(counts.values()) >= 28
     for fact in facts:
         refs = fact.get("references") or []

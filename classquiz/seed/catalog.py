@@ -23,6 +23,7 @@ CERTIFICATIONS = [
             ("ccma-transmission", "Transmission-Based Precautions", 10),
             ("ccma-diabetes", "Diabetes", 11),  # 112 facts → four 28-question quiz sets
             ("diabetes-study-guide", "Diabetes Study Guide", 12),
+            ("diabetes-flashcards-quiz", "Diabetes Flashcards Quiz", 13),
         ],
     },
     {
@@ -53,6 +54,7 @@ CERTIFICATIONS = [
             ("phleb-safety", "Safety & Infection Control", 6),
             ("phleb-who", "WHO Phlebotomy Safety", 7),
             ("phleb-glucose", "Blood Glucose & POC Testing", 8),
+            ("phlebotomy-flashcards-quiz", "Phlebotomy Flashcards Quiz", 9),
         ],
     },
     {
