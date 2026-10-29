@@ -20,6 +20,7 @@ export type PlayPageSocketHandlers = {
 	onUsernameAlreadyExists: () => void;
 	onKick: () => void;
 	onFinalResults: (_data: unknown) => void;
+	onTeamFinal: (_data: unknown) => void;
 	onSolutions: (_data: unknown) => void;
 };
 
@@ -48,6 +49,7 @@ const onQuestionResults = guard((data: unknown) => activeHandlers?.onQuestionRes
 const onUsernameAlreadyExists = () => activeHandlers?.onUsernameAlreadyExists();
 const onKick = () => activeHandlers?.onKick();
 const onFinalResults = (data: unknown) => activeHandlers?.onFinalResults(data);
+const onTeamFinal = (data: unknown) => activeHandlers?.onTeamFinal(data);
 const onSolutions = guard((data: unknown) => activeHandlers?.onSolutions(data));
 
 function installOnce(): void {
@@ -66,6 +68,7 @@ function installOnce(): void {
 	socket.on('username_already_exists', onUsernameAlreadyExists);
 	socket.on('kick', onKick);
 	socket.on('final_results', onFinalResults);
+	socket.on('team_final', onTeamFinal);
 	socket.on('solutions', onSolutions);
 }
 

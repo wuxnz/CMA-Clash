@@ -273,3 +273,35 @@ async def team_results_summary(game_pin: str, question_index: int) -> dict | Non
             }
         )
     return {"count": game.team_mode["count"], "assign": game.team_mode["assign"], "teams": out}
+
+
+async def team_final_summary(game_pin: str) -> dict | None:
+    """Each team's name, members and final total, for the end-of-game screen. None if the game has no teams."""
+    game = await PlayGame.get_from_redis(game_pin)
+    count = int((game.team_mode or {}).get("count", 0))
+    if not count:
+        return None
+    teams = await get_team_map(game_pin)
+    names = await roster_usernames(game_pin)
+    totals = await redis.hgetall(_team_scores_key(game_pin))
+    return {
+        "count": count,
+        "teams": [
+            {
+                "index": team,
+                "name": f"Team {team + 1}",
+                "members": sorted(u for u in names if teams.get(u) == team),
+                "total": int(totals.get(str(team), 0)),
+            }
+            for team in range(count)
+        ],
+    }
+
+
+async def emit_team_final(sio, game_pin: str) -> None:
+    """Send the team rosters right after final_results. Does nothing for games without teams."""
+    payload = await team_final_summary(game_pin)
+    if payload is None:
+        return
+    await sio.emit("team_final", payload, room=game_pin)
+    await sio.emit("team_final", payload, room=f"admin:{game_pin}")

@@ -97,7 +97,12 @@ SPDX-License-Identifier: MPL-2.0
 			{#if player_names.length === 0}
 				<p class="text-center text-lg text-ink-muted">{$t('admin_page.no_answers')}</p>
 			{:else}
-				<div class="shrink-0">
+				<!-- Host with three or fewer players: centre the podium in the space above the footer. -->
+				<div
+					class={hostLayout && player_names.length <= 3
+						? 'flex-1 min-h-0 flex flex-col justify-center'
+						: 'shrink-0'}
+				>
 					<Podium
 						entries={podiumEntries}
 						staged={!hostLayout}

@@ -72,7 +72,7 @@
 			</p>
 			{#if correct && (baseScore > 0 || speedBonus > 0)}
 				<p class="text-sm text-ink-muted mt-2 tabular-nums">
-					{baseScore} base{#if speedBonus > 0}, {speedBonus} speed bonus{/if}
+					{baseScore} base{#if speedBonus > 0}, {speedBonus} speed bonus{/if}{#if points > baseScore + speedBonus}, {points - baseScore - speedBonus} streak bonus{/if}
 				</p>
 			{/if}
 			{#if placeText}

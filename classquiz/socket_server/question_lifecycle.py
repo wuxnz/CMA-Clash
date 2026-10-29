@@ -132,6 +132,9 @@ async def _advance_after_reveal(
 
                 results = await generate_final_results(game_data, game_pin)
                 await sio.emit("final_results", results, room=game_pin)
+                from classquiz.socket_server.team_live import emit_team_final
+
+                await emit_team_final(sio, game_pin)
                 await sio.emit("battle_finished", room=game_pin)
                 await finalize_battle(game_pin, game_data)
                 return
@@ -146,6 +149,9 @@ async def _advance_after_reveal(
 
             results = await generate_final_results(game_data, game_pin)
             await sio.emit("final_results", results, room=game_pin)
+            from classquiz.socket_server.team_live import emit_team_final
+
+            await emit_team_final(sio, game_pin)
             return
         from classquiz.socket_server.game_sync import emit_show_question
 

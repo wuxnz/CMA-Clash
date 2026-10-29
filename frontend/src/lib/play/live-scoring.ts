@@ -45,12 +45,12 @@ export function scoreDeltaForUser(
 	if (!Array.isArray(rows) || !username) return 0;
 	const mine = rows.find((r) => r.username === username);
 	if (!mine) return 0;
-	const base = Number(mine.base_score ?? 0);
-	const bonus = Number(mine.speed_bonus ?? 0);
-	if (base > 0 || bonus > 0) {
-		return base + bonus;
+	// The server's score already includes the streak multiplier, and it is what the scoreboard adds.
+	// Using base + speed here would drop the streak points from the reveal.
+	if (mine.score != null) {
+		return Number(mine.score) || 0;
 	}
-	return Number(mine.score ?? 0);
+	return Number(mine.base_score ?? 0) + Number(mine.speed_bonus ?? 0);
 }
 
 export type LiveScoresState = {
