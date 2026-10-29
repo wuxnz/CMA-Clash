@@ -11,307 +11,673 @@
     {
       "t": "What is type 1 diabetes?",
       "d": "A condition in which the pancreas makes little or no insulin, so people with it need insulin every day.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "A condition in which the liver stores too much glucose, so people with it need a low-sugar diet every day.",
+        "A condition in which the kidneys filter out insulin, so people with it need dialysis every week.",
+        "A condition in which the pancreas makes extra insulin, so people with it need a meal plan at each visit.",
+        "A condition in which fat cells block insulin, so people with it take pills before each meal."
+      ]
     },
     {
       "t": "What is thought to cause type 1 diabetes?",
       "d": "An autoimmune reaction that destroys the insulin-producing beta cells in the pancreas. Diet and lifestyle do not cause it.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Eating too many refined carbohydrates over many years, which slowly wears out the pancreas. Lack of exercise is a major trigger.",
+        "A bacterial infection of the liver that blocks insulin release from the stomach. Stress during adolescence is the main trigger.",
+        "A genetic mutation that makes muscle cells absorb too much glucose. Excess body weight is the main cause in children.",
+        "Overproduction of growth hormone in the pituitary gland, which overloads the islets. Vitamin D deficiency is the main trigger."
+      ]
     },
     {
       "t": "What share of people with diabetes have type 1?",
       "d": "About 5 to 10 percent.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "About 25 to 30 percent.",
+        "About 45 to 50 percent.",
+        "About 60 to 70 percent.",
+        "About 1 to 2 percent."
+      ]
     },
     {
       "t": "What share of people with diabetes have type 2?",
       "d": "About 90 to 95 percent.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "About 40 to 50 percent.",
+        "About 10 to 15 percent.",
+        "About 65 to 70 percent.",
+        "About 98 to 99 percent."
+      ]
     },
     {
       "t": "What is type 2 diabetes?",
       "d": "A condition in which cells do not respond normally to insulin, so blood sugar stays too high.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "A condition in which the pancreas stops making insulin in early childhood, so blood sugar stays too low.",
+        "A condition in which the kidneys make too much insulin, so blood sugar drops after every meal.",
+        "A condition in which the thyroid gland produces excess hormones, so blood sugar stays too high.",
+        "A condition in which the stomach empties too quickly, so blood sugar rises during fasting periods."
+      ]
     },
     {
       "t": "What is insulin?",
       "d": "A hormone made by the pancreas that acts like a key to let blood sugar into cells for use as energy.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "A hormone made by the liver that acts like a filter to remove blood sugar from cells for storage as fat.",
+        "A digestive enzyme made by the stomach that acts like a key to break down protein for use as energy.",
+        "A hormone made by the adrenal glands that acts like a pump to raise blood sugar during sleep.",
+        "A vitamin made by the intestines that acts like a sponge to store blood sugar in the bones."
+      ]
     },
     {
       "t": "What is insulin resistance?",
       "d": "Cells respond poorly to insulin, so the pancreas releases more of it to keep blood sugar in check.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "The pancreas stops responding to blood sugar, so cells release extra glucose to keep insulin in check.",
+        "Cells absorb insulin too quickly, so the pancreas releases less of it to keep blood sugar high.",
+        "The liver stops storing glucose, so the kidneys release more insulin to keep cells in balance.",
+        "Insulin breaks down in the bloodstream, so cells make extra glucose to keep the pancreas in balance."
+      ]
     },
     {
       "t": "How is insulin resistance different from type 1 diabetes?",
       "d": "People with insulin resistance do not respond well to insulin. People with type 1 do not make enough insulin to survive.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "People with insulin resistance make too little insulin, which is why blood sugar rises after meals. People with type 1 respond too strongly to insulin, which is why blood sugar drops after meals.",
+        "People with insulin resistance have no pancreas. People with type 1 have a pancreas that works normally.",
+        "Both conditions cause the same insulin problem. Type 1 starts in older adults, while resistance starts in infants.",
+        "People with insulin resistance take insulin injections daily. People with type 1 take insulin pills with meals."
+      ]
     },
     {
       "t": "Why can insulin not be taken as a pill?",
       "d": "Stomach acid would destroy it before it reached the bloodstream.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "The pill form would clog the liver before the insulin reached the muscles.",
+        "Swallowing insulin raises the pH of the blood, which stops insulin from working.",
+        "Insulin molecules are too small to pass through the kidneys and are lost in urine.",
+        "The intestines would convert the insulin into fat before it reached the cells."
+      ]
     },
     {
       "t": "How can type 2 diabetes be prevented or delayed?",
       "d": "Losing weight if you have overweight, eating a healthy diet, and getting regular physical activity.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Taking a daily vitamin supplement, skipping meals, and avoiding sunlight in the afternoon.",
+        "Eating large meals at night, sleeping in late, and limiting time spent walking outdoors.",
+        "Cutting out all dairy, taking antibiotics, and avoiding routine blood tests that can detect prediabetes early.",
+        "Fasting for three days each week, drinking sugary sports drinks, and resting for most of the day."
+      ]
     },
     {
       "t": "Who is at higher risk for type 2 diabetes?",
       "d": "People with prediabetes or overweight, people 45 or older, people with a parent, brother, or sister who has type 2, and people who are active less than 3 times a week.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "People with a healthy weight under 30, people under 25, people who swim at least 5 times a week, and people with no family history.",
+        "Children under age 10 with normal blood pressure, people who eat fish twice a week, and people who sleep 8 hours nightly.",
+        "People who take vitamin C daily, people with blue eyes, people who live above 2000 feet, and people who drink herbal tea.",
+        "People who wear glasses, people who have a tall stature, people who walk to work each day, people who sleep more than eight hours, and people with a family history of asthma or allergies."
+      ]
     },
     {
       "t": "Which groups are at higher risk for type 2 diabetes?",
       "d": "African American, Hispanic or Latino, American Indian, and Alaska Native people. Some Pacific Islander and Asian American people are also at higher risk.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Scandinavian, Irish, and Icelandic people, along with people from northern Europe and their descendants in the United States. Some Canadian and Australian people are also at higher risk.",
+        "Adults under 18, left-handed people, and people who live in mountain regions. Some college students are also at higher risk.",
+        "Adults who are taller than six feet and people who wear contact lenses. Some people who ride bicycles are also at higher risk.",
+        "Adults with blue eyes, people who play tennis, and people who eat dairy daily. Some people with red hair are also at higher risk."
+      ]
     },
     {
       "t": "What is acanthosis nigricans?",
       "d": "Dark, velvety patches of skin in body creases such as the neck, armpits, or groin. It is a sign of insulin resistance.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Bright red, raised rashes on the palms and soles that itch after exercise. It is a sign of vitamin D deficiency and usually clears within a few days of treatment.",
+        "Small white bumps on the eyelids and lips that appear after eating. It is a sign of thyroid overactivity.",
+        "Thick, scaly patches on the elbows and knees that flare in cold weather. It is a sign of a fungal infection.",
+        "Yellow fatty lumps on the hands and feet that form after fasting. It is a sign of high blood pressure."
+      ]
     },
     {
       "t": "What does an A1C test measure?",
       "d": "Average blood sugar over the past 3 months.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Blood sugar at the single moment the sample is drawn in the morning.",
+        "Average blood sugar over the past 24 hours, measured from a urine sample.",
+        "Average blood sugar over the past 3 years, measured from the liver.",
+        "The amount of cholesterol attached to red blood cells over the past week."
+      ]
     },
     {
       "t": "What A1C result is considered normal?",
       "d": "Below 5.7 percent.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Below 8.0 percent.",
+        "Below 3.5 percent.",
+        "Between 6.5 and 7.2 percent.",
+        "Above 9.0 percent."
+      ]
     },
     {
       "t": "What A1C range indicates prediabetes?",
       "d": "5.7 to 6.4 percent.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "6.5 to 7.4 percent.",
+        "4.0 to 5.6 percent.",
+        "7.5 to 8.9 percent.",
+        "9.0 to 10.4 percent."
+      ]
     },
     {
       "t": "What A1C result indicates diabetes?",
       "d": "6.5 percent or above.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "3.0 percent or above.",
+        "6.0 percent or below.",
+        "5.2 percent or above.",
+        "4.0 percent or above."
+      ]
     },
     {
       "t": "What blood sugar reading is considered low?",
       "d": "Below 70 mg/dL.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Above 140 mg/dL.",
+        "Above 180 mg/dL.",
+        "Above 250 mg/dL.",
+        "Between 100 and 125 mg/dL."
+      ]
     },
     {
       "t": "What reading is considered severe low blood sugar?",
       "d": "Below 54 mg/dL. It can make you faint, so someone may need to help treat it.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Above 250 mg/dL. It can cause dehydration, so someone may need to help treat it.",
+        "Between 150 and 180 mg/dL. It can cause dehydration, so someone may need to help treat it.",
+        "Above 300 mg/dL. It can cause a rash, so you should check the skin.",
+        "Between 110 and 130 mg/dL. It can cause ringing in the ears, so you should rest."
+      ]
     },
     {
       "t": "What are common symptoms of low blood sugar?",
       "d": "Fast heartbeat, shaking, sweating, nervousness or anxiety, irritability or confusion, dizziness, and hunger.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Slow heartbeat, dry skin, yellow eyes, weight gain, and a metallic taste in the mouth.",
+        "Itchy rash, swollen ankles, frequent hiccups, pale fingernails, and a fever above 101 degrees.",
+        "Frequent urination, dry mouth, deep sleep, a runny nose, and a stuffy nose that gets worse when you lie down at night.",
+        "Ringing in the ears, joint pain, bruising, cold hands, and loss of smell."
+      ]
     },
     {
       "t": "What can cause nighttime low blood sugar?",
       "d": "An active day, being active close to bedtime, taking too much insulin, or drinking alcohol at night.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Eating a large breakfast, sleeping in a cold room, drinking water before bed, or reading late at night.",
+        "Taking vitamin D in the morning, using a heating pad, watching television, or sleeping on the left side.",
+        "Skipping lunch on weekends, wearing a sleep mask, drinking herbal tea, or standing for long periods.",
+        "Having a cool shower, taking antibiotics, using a fan while sleeping, or listening to music at night."
+      ]
     },
     {
       "t": "What is hypoglycemia unawareness?",
       "d": "Having no symptoms when blood sugar is low. It makes severe lows more likely, and it is more likely after more than 5 to 10 years of diabetes or with frequent lows.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Being aware of every low before it happens, which lets people stop insulin on their own. It is more likely in people with type 2 who take pills.",
+        "Feeling strong symptoms at every normal reading, so people check their sugar several times a day. It is common in people who have had diabetes for less than one year.",
+        "A temporary loss of hearing that happens after exercise and clears within an hour, unrelated to blood sugar levels. It is more likely in children who play sports.",
+        "Having a low blood sugar reading without eating for several days, which causes weight loss in older adults. It is more likely with a high-fiber diet."
+      ]
     },
     {
       "t": "What is a continuous glucose monitor (CGM)?",
       "d": "A wearable device that tracks blood sugar in real time by measuring glucose in the fluid between cells just below the skin.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "A handheld device that measures blood pressure through the wrist, reporting results once a day to a doctor.",
+        "A small pump implanted in the abdomen that measures cholesterol from the bloodstream every few hours.",
+        "A wearable device that measures body temperature in real time by reading heat from the inner ear.",
+        "A kitchen scale that calculates carbohydrate grams from food labels, sends alerts to a phone, and stores a week of meal history for each family member."
+      ]
     },
     {
       "t": "Why do you still need fingersticks with a CGM?",
       "d": "Glucose in the fluid between cells can differ from blood glucose, so an occasional fingerstick checks that the CGM is accurate.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Fingersticks are needed to calibrate the CGM battery, which cannot be charged without a blood sample.",
+        "Blood drawn from a fingerstick is needed to store CGM readings on a secure server every hour.",
+        "Fingersticks show the exact insulin dose, which the CGM cannot display on its screen.",
+        "The fluid between cells reads higher than blood glucose during meals, so fingersticks are needed to subtract the difference and to adjust the insulin dose at each meal."
+      ]
     },
     {
       "t": "How often are CGM sensors replaced?",
       "d": "Every 7 to 14 days.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Every 1 to 2 days.",
+        "Every 30 to 45 days.",
+        "Every 3 to 4 months.",
+        "Once every 2 years."
+      ]
     },
     {
       "t": "What is carb counting?",
       "d": "Tracking the grams of carbohydrates in the foods and drinks you eat. People who take mealtime insulin match their dose to the carbs they eat.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Counting the calories in each meal to keep total energy intake under 1500 per day, with no attention to carbohydrates.",
+        "Recording the number of minutes spent exercising each day to match the amount of insulin taken in the morning.",
+        "Measuring the sodium content of packaged foods, so the body stores less water during the night and blood pressure stays low throughout the day.",
+        "Tracking the number of servings of vegetables eaten each day, so fats can be matched to protein."
+      ]
     },
     {
       "t": "Which foods raise blood sugar?",
       "d": "Sugars and starches. Fiber does not raise blood sugar.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Fats and oils. Water does not raise blood sugar.",
+        "Salt and spices. Dairy products do not raise blood sugar.",
+        "Vitamins and minerals. Whole grains do not raise blood sugar.",
+        "Caffeine and vinegar. Leafy greens do not raise blood sugar."
+      ]
     },
     {
       "t": "How does diabetes affect heart disease risk?",
       "d": "People with diabetes have twice the risk of heart disease, and the risk rises the longer they have diabetes.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "People with diabetes have half the risk of heart disease, and the risk falls the longer they have diabetes.",
+        "People with diabetes have the same risk of heart disease as anyone else, and the risk does not change with time.",
+        "People with diabetes have four times the risk of heart disease, but the risk falls after age 60.",
+        "People with diabetes have a risk of heart disease that starts after one year of treatment."
+      ]
     },
     {
       "t": "How can plaque cause a heart attack or stroke?",
       "d": "Plaque buildup can block blood flow to the heart, causing a heart attack, or to the brain, causing a stroke.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Plaque buildup can block blood flow to the lungs, causing a heart attack, or to the kidneys, causing a stroke.",
+        "Plaque buildup can raise blood flow to the heart, causing a heart attack, or to the brain, causing a stroke.",
+        "Plaque buildup can block blood flow to the stomach, causing a heart attack, or to the skin, causing a stroke.",
+        "Plaque buildup can block blood flow to the eyes, causing a heart attack, or to the liver, causing a stroke."
+      ]
     },
     {
       "t": "What is diabetic neuropathy?",
       "d": "Nerve damage caused by high blood sugar. Peripheral nerve damage is the most common type, and it usually starts in the feet.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Kidney damage caused by low blood sugar. Central nervous system damage is the most common type, and it usually starts in the hands.",
+        "Eye damage caused by high blood pressure. Retinal bleeding is the most common type, and it usually starts in the lungs.",
+        "Skin infection caused by high blood sugar. Fungal rash is the most common type, and it usually starts in the elbows.",
+        "Bone weakening caused by high blood sugar. Fracture is the most common type, and it usually starts in the spine."
+      ]
     },
     {
       "t": "What are the four main types of nerve damage?",
       "d": "Peripheral, autonomic, proximal, and focal. It is possible to have more than one type.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Arterial, venous, capillary, and lymphatic. It is possible to have more than one type.",
+        "Sensory, motor, cranial, and spinal. It is possible to have more than one type.",
+        "Acute, chronic, mild, and severe. It is possible to have more than one type.",
+        "Cortical, thalamic, cerebellar, and brainstem. It is possible to have more than one type."
+      ]
     },
     {
       "t": "Why is nerve damage in the feet dangerous?",
       "d": "Numbness can hide cuts, blisters, or sores, which can lead to infections and serious foot problems.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Tingling can increase sensation, which makes cuts and blisters heal faster and prevents infections.",
+        "Numbness can raise body temperature, which makes sores close quickly and prevents swelling of the feet.",
+        "Warmth in the feet can speed up circulation, which hides bruises and keeps shoes from fitting.",
+        "Stronger pain signals can clean wounds, which helps infections heal without treatment."
+      ]
     },
     {
       "t": "How often should you check your feet?",
       "d": "Every day, even if they feel fine. Use a mirror if you cannot see the bottoms of your feet, or ask a family member to help.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Once a year at your yearly checkup, if they feel painful. Use a magnifying glass if you cannot see your toes, or ask a pharmacist to help.",
+        "Every month, and not after exercise. Use a bathroom scale if you cannot bend down, or ask a neighbor to help.",
+        "Every week, but skip the check if the feet are dry. Use a mirror if you cannot see the bottoms of your feet, or ask a dentist to help.",
+        "Every six months, when your shoes are changed. Use a flashlight if you cannot see the bottoms of your feet, or ask a barber to help."
+      ]
     },
     {
       "t": "What share of adults with diabetes has chronic kidney disease?",
       "d": "About 1 in 3.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "About 1 in 10.",
+        "About 1 in 5.",
+        "About 2 in 3.",
+        "About 1 in 50."
+      ]
     },
     {
       "t": "How can kidney disease from diabetes be found early?",
       "d": "With regular blood and urine tests, because it often develops slowly with few symptoms.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "With a chest X-ray each year, because it often causes sudden fever and cough.",
+        "With a skin test on the forearm, because it often causes visible rashes on the back.",
+        "With a hearing test each year, because it often causes ringing and dizziness.",
+        "With a stool test each month, because it often causes bleeding in the stool and changes in bowel habits over time."
+      ]
     },
     {
       "t": "How does hearing loss compare for people with diabetes?",
       "d": "It is about twice as common as in people the same age who do not have diabetes.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "It is about half as common as in people the same age who do not have diabetes.",
+        "It is about the same as in people the same age who do not have diabetes.",
+        "It is about five times as common as in people the same age who do not have diabetes.",
+        "It is about one-tenth as common as in people in their twenties who do not have diabetes."
+      ]
     },
     {
       "t": "How does diabetes affect gum health?",
       "d": "Gum disease can be more severe and take longer to heal in people with diabetes.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Gum disease is less severe and heals faster in people with diabetes.",
+        "Gum disease does not affect people with diabetes, but it increases the risk of cavities.",
+        "Gum disease heals at the same speed in people with diabetes, though teeth may become sweeter.",
+        "Gum disease causes teeth to grow back faster in people with diabetes, so fewer dental visits are needed."
+      ]
     },
     {
       "t": "What do skin changes often signal?",
       "d": "Skin changes are one of the most common signs of diabetes.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Skin changes are one of the least common signs of diabetes.",
+        "Skin changes are a sign of a broken bone in most people.",
+        "Skin changes are mainly a sign of normal aging and rarely of diabetes.",
+        "Skin changes are mainly a sign of too much sunlight exposure."
+      ]
     },
     {
       "t": "What is gestational diabetes?",
       "d": "Diabetes that develops during pregnancy in a woman who did not already have diabetes.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Diabetes that develops after menopause in a woman who had type 1 diabetes since childhood.",
+        "Diabetes that develops in a baby during delivery in a family with a history of high blood pressure.",
+        "Diabetes that develops after surgery in a man who had prediabetes for many years.",
+        "Diabetes that develops in the first month after birth in a child who had a low birth weight."
+      ]
     },
     {
       "t": "When is gestational diabetes usually tested for?",
       "d": "Between weeks 24 and 28 of pregnancy, because it often has no symptoms.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Between weeks 6 and 10 of pregnancy, because it often causes severe nausea.",
+        "Between weeks 36 and 40 of pregnancy, because it often causes early labor.",
+        "During the first three weeks after delivery, because it often causes a fever.",
+        "Between months 12 and 18 after the baby is born, because it often causes weight loss."
+      ]
     },
     {
       "t": "What are risk factors for gestational diabetes?",
       "d": "A previous gestational diabetes diagnosis, a previous baby over 9 pounds, being overweight, a family history of type 2 diabetes, PCOS, and being African American, Hispanic or Latino, American Indian, Alaska Native, Native Hawaiian, or Pacific Islander.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Being under 20 years old, having a low body weight, eating fish twice a week, and having a history of asthma. Living at high altitude is also a risk factor. Regular exercise, a diet rich in vegetables, and a daily multivitamin are also risk factors that raise blood sugar during pregnancy.",
+        "Having blue eyes, a height over six feet, a history of migraines, and drinking herbal tea. Working night shifts is also a risk factor.",
+        "Having a low body weight, sleeping eight hours a night, and eating two servings of fish each week.",
+        "Having a family history of high cholesterol, a previous baby under 5 pounds, and being underweight. Living near the coast is also a risk factor."
+      ]
     },
     {
       "t": "What happens to women after gestational diabetes?",
       "d": "About half later develop type 2 diabetes, so regular blood sugar checks after pregnancy are recommended.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Almost none later develop type 2 diabetes, so blood sugar checks after pregnancy are not needed.",
+        "About half later develop type 1 diabetes, so insulin is needed after pregnancy and most women stop all checks once the baby is born.",
+        "About one in ten later develops high blood pressure, so a yearly eye exam is recommended.",
+        "About all later develop type 2 diabetes within a year, so weekly insulin shots are recommended."
+      ]
     },
     {
       "t": "Who should be offered type 1 screening?",
       "d": "People with a family member who has type 1 diabetes, who are about 15 times more likely to develop it. Screening can begin at age 2.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "People with a close friend who has type 2 diabetes, who are about 3 times more likely to develop it. Screening can begin at age 40.",
+        "People with a family member who has asthma, who are about 15 times more likely to develop it. Screening can begin at age 40.",
+        "Adults over 65 who have no family history, who are about 4 times more likely to develop it. Screening can begin at age 30.",
+        "People who have a family member with a thyroid disorder, who are about 6 times more likely to develop it. Screening can begin at age 10."
+      ]
     },
     {
       "t": "What are four ways to take insulin?",
       "d": "Syringe, insulin pen, insulin pump, and insulin inhaler.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "Nasal spray, tablet, skin patch, and oral lozenge.",
+        "Eye drops, ear drops, mouth rinse, and throat spray.",
+        "Injection by jet, capsule, rectal gel, and sublingual strip.",
+        "Intravenous drip, subcutaneous implant, oral syrup, and topical cream."
+      ]
     },
     {
       "t": "What is an insulin pump?",
       "d": "A device about the size of a small cell phone that gives short- or rapid-acting insulin through a thin tube placed under the skin.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "A device about the size of a large book that gives long-acting insulin through a thick needle placed in the muscle.",
+        "A device about the size of a wristwatch that gives glucose through a thin tube placed in the vein, and it must be refilled every hour with a new sugar solution.",
+        "A device about the size of a shoebox that gives insulin through a catheter placed in the bladder.",
+        "A device about the size of a small cell phone that gives steroid medicine through a thin tube placed in the lung."
+      ]
     },
     {
       "t": "Why do some people prefer an insulin pen?",
       "d": "You dial the dose on the pen, and many people find it more comfortable than a syringe.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "You fill the pen with a vial of glucose, and most people find it harder to use than a syringe.",
+        "You press the dose into a sealed cartridge, and most people find it less accurate than a syringe.",
+        "You measure the dose by weight on the pen, and many people find it heavier than a syringe.",
+        "You count the clicks on the pen to set the carb count, and many people find it more painful than a syringe."
+      ]
     },
     {
       "t": "What does a primary care provider handle?",
       "d": "Routine care such as yearly checkups, physical exams, lab tests, and prescriptions.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "Emergency surgery such as appendix removal, trauma care, and intensive care unit monitoring.",
+        "Radiation treatment such as cancer scans, radiation dosing, and bone marrow transplants.",
+        "Dental cleaning such as fillings, tooth extraction, and root canal treatment.",
+        "Eyeglass fitting such as lens grinding, frame repair, and contact lens prescriptions."
+      ]
     },
     {
       "t": "What does an endocrinologist treat?",
       "d": "Hormone problems. Diabetes affects how the body produces and uses insulin, so an endocrinologist may help manage it.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "Skin problems. Diabetes affects how the body produces and uses sweat, so a dermatologist may help manage it.",
+        "Heart rhythm problems. Diabetes affects how the body produces and uses blood cells, so a cardiologist may help manage it.",
+        "Joint problems. Diabetes affects how the body produces and uses cartilage, so a rheumatologist may help manage it.",
+        "Stomach problems. Diabetes affects how the body produces and uses bile, so a gastroenterologist may help manage it."
+      ]
     },
     {
       "t": "Who treats the feet and lower legs?",
       "d": "A podiatrist. If you notice sores on your feet or legs, see a foot doctor right away.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "An orthodontist. If you notice sores on your feet or legs, see a dentist right away.",
+        "A dermatologist. If you notice sores on your feet or legs, see a skin doctor at your next yearly visit.",
+        "A neurologist. If you notice sores on your feet or legs, see a brain specialist at your next yearly visit.",
+        "A pulmonologist. If you notice sores on your feet or legs, see a lung doctor right away."
+      ]
     },
     {
       "t": "When should you have an eye exam after a diabetes diagnosis?",
       "d": "As soon as you are diagnosed, because diabetes can damage the blood vessels in the eyes.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "After vision becomes blurry for several months, because diabetes can damage the lens of the eye.",
+        "Five years after diagnosis, because diabetes can damage the bones around the eyes.",
+        "Once a decade after diagnosis, because diabetes can damage the tear ducts.",
+        "At age 65 or older, because diabetes can damage the eyelids."
+      ]
     },
     {
       "t": "When should your hearing be tested after a diabetes diagnosis?",
       "d": "When you first find out you have diabetes.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "After you have had diabetes for 20 years, when hearing loss has become severe.",
+        "When a family member notices a problem, after hearing loss has become severe.",
+        "Once a decade, starting at age 70, regardless of diabetes.",
+        "Two years after your diagnosis, when a hearing aid is needed."
+      ]
     },
     {
       "t": "Why ask a pharmacist about your medicines?",
       "d": "They can tell you which medicines, including over-the-counter ones, may affect your blood sugar.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "They can tell you which medicines will lower your cholesterol, including over-the-counter ones, so you can stop insulin.",
+        "They can tell you which medicines must be taken with food, including sleeping pills, but they cannot change your dose.",
+        "They can tell you which medicines are safe to share with family, including vitamins, but they cannot check blood sugar.",
+        "They can tell you which medicines to stop taking before a dental visit, including over-the-counter ones, to prevent infection."
+      ]
     },
     {
       "t": "How often should you check blood sugar when you are sick?",
       "d": "Every 4 hours, keeping track of the results. Keep drinking fluids.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Once a week, keeping track of the results. Skip fluids until you feel better.",
+        "Every 12 hours, keeping track of the results. Reduce fluids to limit urination.",
+        "Every 2 hours, keeping track of the results. Drink coffee to stay alert.",
+        "Every 24 hours, keeping track of the results. Avoid fluids to prevent swelling."
+      ]
     },
     {
       "t": "What should you do if urine tests positive for ketones?",
       "d": "Call your doctor right away. You will probably need hospital treatment.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Wait until the next morning. You will probably need a new glucose meter.",
+        "Take an extra antacid. You will probably need a dental cleaning.",
+        "Drink a large glass of cola. You will probably need a chest X-ray.",
+        "Skip the next insulin dose. You will probably need a blood pressure check."
+      ]
     },
     {
       "t": "When should you go to the emergency room during an illness?",
       "d": "Examples include being unable to keep liquids down for more than 4 hours, blood sugar below 60 mg/dL, or trouble breathing.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Examples include a runny nose for two days, blood sugar above 90 mg/dL, or a mild headache that started yesterday morning.",
+        "Examples include a fever for one day, blood sugar above 120 mg/dL, or a mild stomach ache after a large holiday meal and a short nap.",
+        "Examples include feeling tired after lunch, blood sugar of 85 mg/dL, or a sore throat.",
+        "Examples include sneezing for one hour, blood sugar of 100 mg/dL, or a scratch on the arm."
+      ]
     },
     {
       "t": "What is diabetic ketoacidosis (DKA)?",
       "d": "A serious, life-threatening complication that develops when the body does not have enough insulin. The liver breaks down fat for fuel and makes ketones, which can build up to dangerous levels.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "A mild condition that develops when the body has too much insulin. The muscles break down sugar for fuel and make acids that cause constipation.",
+        "A chronic condition that develops when the body has too much glucose in the urine. The kidneys break down protein for fuel and make acids that cause dry eyes.",
+        "A short-term skin rash that develops after taking antibiotics. The skin produces too much oil, which causes itching and redness, and the rash usually fades on its own within two weeks without medicine.",
+        "A heart rhythm problem that develops when the body has too little potassium. The heart builds up fluid, which causes a faster pulse."
+      ]
     },
     {
       "t": "What are early signs of DKA?",
       "d": "Being very thirsty and urinating much more than usual.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Having a runny nose and urinating less than usual.",
+        "Feeling very cold, gaining weight quickly, and sleeping more during the day than usual.",
+        "Having a sore throat, a mild cough, and sleeping more than usual during the day.",
+        "Having dry hair and a slow heart rate."
+      ]
     },
     {
       "t": "What are severe signs of DKA?",
       "d": "Fast, deep breathing, fruity-smelling breath, nausea and vomiting, and stomach pain, among others.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Slow, shallow breathing, minty-smelling breath, constipation, back pain, and cold feet that stay pale even after warming, among others.",
+        "Cold skin, pale lips, weight gain, and swollen eyelids, among others.",
+        "Itchy skin, hair loss, earache, sneezing, and ringing in the ears, among others.",
+        "Numb hands, a cough with white mucus, bloodshot eyes, and a rash on the chest, among others."
+      ]
     },
     {
       "t": "What most often causes DKA?",
       "d": "Illness, missed insulin shots, a clogged insulin pump, or the wrong insulin dose.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Eating a snack late at night, drinking water, a short walk, or a cool bath.",
+        "Wearing tight shoes, sleeping near a window, reading a book, or using a laptop.",
+        "Taking vitamin D, eating oatmeal, having a dental cleaning, or getting a haircut.",
+        "Getting a flu shot, washing hands often, using sunscreen, or wearing a hat."
+      ]
     },
     {
       "t": "What should you do if your blood sugar stays at 300 mg/dL or above?",
       "d": "Go to the emergency room or call 911 right away.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Wait one day and recheck the reading in the morning.",
+        "Drink a large glass of water and lie down for an hour.",
+        "Take an extra dose of cough medicine and rest.",
+        "Skip your meal and go for a long walk."
+      ]
     },
     {
       "t": "How should you care for your teeth and gums with diabetes?",
       "d": "Brush your teeth at least twice a day with fluoride toothpaste, floss at least once a day, and tell your dentist you have diabetes.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Brush your teeth once a month with baking soda, skip flossing, and wait to tell your dentist about diabetes until after a cleaning.",
+        "Rinse with sugar water after each meal, skip brushing at night, and visit the dentist when a tooth hurts.",
+        "Brush your teeth twice a day with whitening gel, floss once a week, and tell your dentist after a problem appears.",
+        "Chew sugar-free gum after meals, floss at least once a day, and avoid telling your dentist about diabetes to keep costs low."
+      ]
     }
   ]
 }

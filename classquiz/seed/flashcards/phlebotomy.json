@@ -13,442 +13,970 @@
     {
       "t": "Phlebotomy",
       "d": "The process of drawing blood from a patient for laboratory testing.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "The process of measuring blood pressure from a patient for cardiac monitoring.",
+        "The process of injecting medication into a patient for intravenous therapy.",
+        "The process of removing fluid from the joints of a patient for laboratory testing.",
+        "The process of sterilizing surgical instruments for use in the operating room."
+      ]
     },
     {
       "t": "Venipuncture",
       "d": "Puncturing a vein to obtain a blood sample, typically using a needle and collection tube.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Puncturing an artery to measure oxygen levels, typically using a syringe and gauze.",
+        "Inserting a catheter into the bladder to collect urine, typically using a sterile drape.",
+        "Puncturing a vein to measure blood pressure directly, typically using a cuff, a needle, and a sterile drape over the entire arm.",
+        "Scraping the skin surface to collect a culture sample, typically using a cotton swab."
+      ]
     },
     {
       "t": "Capillary puncture",
       "d": "Fingerstick or heelstick used for small blood samples.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Lumbar puncture used to collect spinal fluid for large laboratory panels.",
+        "Arterial stick used to collect blood for oxygen measurement in critical patients.",
+        "Bone marrow aspiration used to collect large volumes of cells from the hip.",
+        "Thoracentesis used to drain fluid from the chest for pathology testing."
+      ]
     },
     {
       "t": "Syringe method",
       "d": "Blood draw using a syringe instead of a vacuum tube.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Blood draw using a vacuum tube instead of a syringe, with the plunger pulled by the phlebotomist.",
+        "Blood draw using a catheter inserted into the artery, with no needle required.",
+        "Blood draw using a pump that filters plasma through a sealed bag.",
+        "Blood draw using a sterile lancet and a glass slide placed on the fingertip."
+      ]
     },
     {
       "t": "Hemostasis",
       "d": "The body's process of stopping bleeding.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "The process of producing new red blood cells in the bone marrow.",
+        "The process of moving blood from the heart into the lungs for oxygen uptake.",
+        "The process of breaking down old platelets in the liver and spleen.",
+        "The process of filtering waste products from blood through the kidneys."
+      ]
     },
     {
       "t": "Hemoconcentration",
       "d": "Increased analyte concentration from prolonged tourniquet use.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Decreased analyte concentration from prolonged fasting before a blood draw.",
+        "Increased analyte concentration from drinking water before a blood draw.",
+        "Decreased analyte concentration from a short tourniquet time during venipuncture.",
+        "Increased platelet count from repeated fingerstick samples taken in one session."
+      ]
     },
     {
       "t": "Hematology",
       "d": "Study of blood cells.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Study of the heart's electrical rhythm and conduction pathways.",
+        "Study of bone density and fracture healing in older adults.",
+        "Study of urine composition and kidney filtration rates.",
+        "Study of skin disorders caused by bacterial and fungal infections."
+      ]
     },
     {
       "t": "Coagulation",
       "d": "Study of clotting processes.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Study of the lungs gas exchange and breathing patterns.",
+        "Study of the stomach acid output after eating.",
+        "Study of hormone levels in the thyroid and adrenal glands.",
+        "Study of nerve signals traveling from the spinal cord to the muscles."
+      ]
     },
     {
       "t": "Erythrocyte",
       "d": "Red blood cell.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "White blood cell that engulfs bacteria.",
+        "Platelet fragment that helps seal small vessel injuries.",
+        "Plasma protein that carries iron to the liver.",
+        "Large immune cell found mainly in lymph nodes."
+      ]
     },
     {
       "t": "Leukocyte",
       "d": "White blood cell; involved in immune response.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Red blood cell that carries oxygen to the lungs.",
+        "Clotting protein that forms a mesh over wounds.",
+        "Liquid portion of blood that carries glucose to cells.",
+        "Platelet-like cell that transports fats through the intestine."
+      ]
     },
     {
       "t": "Thrombocyte",
       "d": "Platelet; involved in clotting.",
-      "c": 0
+      "c": 0,
+      "w": [
+        "Red blood cell that delivers oxygen to the brain.",
+        "White blood cell that produces antibodies in lymph nodes.",
+        "Hormone that stimulates bone marrow to produce red cells.",
+        "Plasma protein that carries cholesterol through the arteries."
+      ]
     },
     {
       "t": "Vein",
       "d": "A blood vessel carrying deoxygenated blood back to the heart; primary target for venipuncture.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "A blood vessel carrying oxygenated blood away from the lungs; a common site for routine arterial sampling.",
+        "A nerve fiber carrying signals from the brain to the muscles; avoided during venipuncture.",
+        "A lymph vessel carrying clear fluid away from the tissues; rarely used for blood draws.",
+        "A capillary network carrying oxygenated blood to the skin; the main target for fingerstick samples."
+      ]
     },
     {
       "t": "Artery",
       "d": "A blood vessel carrying oxygenated blood away from the heart; should be avoided during venipuncture.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "A blood vessel carrying deoxygenated blood back to the heart; the preferred site for routine venipuncture.",
+        "A lymph vessel carrying fat away from the intestine; avoided during routine blood draws.",
+        "A nerve bundle carrying motor signals away from the spinal cord; the preferred site for routine venipuncture.",
+        "A vein in the thigh carrying oxygenated blood to the heart; the preferred site for routine venipuncture."
+      ]
     },
     {
       "t": "Capillary",
       "d": "The smallest blood vessels; used for capillary puncture when small blood volumes are needed.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "The largest blood vessels; used for venipuncture when large blood volumes are needed.",
+        "The thickest nerves; used for nerve conduction when small volumes of electricity are needed.",
+        "The valves that open the heart; used for pacemaker placement in large volumes.",
+        "The muscular tubes of the bladder; used for urine collection in small volumes."
+      ]
     },
     {
       "t": "Antecubital fossa",
       "d": "Inner elbow area containing major veins used for venipuncture.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Outer knee area containing major arteries used for arterial sampling.",
+        "Back of the hand containing small nerves used for injection therapy.",
+        "Inner wrist area containing small capillaries used for fingerstick samples.",
+        "Outer shoulder area containing large lymph nodes used for biopsy."
+      ]
     },
     {
       "t": "Median cubital vein",
       "d": "Most commonly used vein due to size and stability. Preferred vein for venipuncture.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Rarely used vein due to frequent collapse. Avoided for venipuncture in most adults.",
+        "Small vein on the back of the hand, used for capillary testing in infants.",
+        "Deep artery in the thigh, used for blood gas testing in critical care.",
+        "Lymphatic channel in the armpit, used for culture collection in surgical patients."
+      ]
     },
     {
       "t": "Cephalic vein",
       "d": "Located on the thumb side (lateral side of the arm); second-choice site.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Located on the pinky side (medial side of the arm); first-choice site.",
+        "Located on the back of the knee; used for arterial blood gas samples.",
+        "Located in the neck; avoided because of its proximity to the spinal cord.",
+        "Located on the palm; used for capillary samples in older patients."
+      ]
     },
     {
       "t": "Basilic vein",
       "d": "Located on the pinky side; third-choice vein, used cautiously due to proximity to nerves and arteries.",
-      "c": 1
+      "c": 1,
+      "w": [
+        "Located on the thumb side; first-choice vein, used routinely for most adults.",
+        "Located in the calf; used for venipuncture in patients with long-term catheters.",
+        "Located on the forehead above the eyebrow; used for arterial sampling in newborns, with the needle placed at a shallow angle and held for several minutes.",
+        "Located in the groin; used for intravenous therapy in adolescents."
+      ]
     },
     {
       "t": "Tourniquet",
       "d": "Device applied to the upper arm to make veins more prominent. Limit to under 60 seconds.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Device applied to the forearm to slow capillary refill. Keep it on for at least five minutes.",
+        "Device applied to the ankle to stop bleeding after a draw. Keep it on for at least five minutes.",
+        "Device applied to the thigh to cool the veins before a draw. Keep it on for at least ten minutes.",
+        "Device applied to the neck to make arteries more prominent. Keep it on for at least two minutes."
+      ]
     },
     {
       "t": "Needle gauge",
       "d": "Size of the needle bore; higher gauge = thinner needle (e.g., 23G).",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Length of the needle shaft; higher length = longer needle (e.g., 1 inch).",
+        "Color of the needle hub; higher color code = darker hub (e.g., blue).",
+        "Weight of the needle tip; higher weight = thicker needle (e.g., 10 grams).",
+        "Number of bevels on the needle; higher number = sharper needle (e.g., 3 bevels)."
+      ]
     },
     {
       "t": "Bevel",
       "d": "Slanted tip of a needle; should face upward during venipuncture.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Flat base of a needle; should face downward during venipuncture.",
+        "Round collar of a needle; should face sideways during venipuncture.",
+        "Sealed end of a syringe; should face toward the tube during venipuncture.",
+        "Rubber cap of a tube; should face the patient during venipuncture."
+      ]
     },
     {
       "t": "Vacutainer",
       "d": "Vacuum-sealed tube system for collecting blood.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Electronic device for measuring blood glucose at the bedside.",
+        "Manual pump for inflating a blood pressure cuff.",
+        "Glass slide used for preparing blood smears under a microscope.",
+        "Plastic bag used for collecting urine samples from catheters."
+      ]
     },
     {
       "t": "Butterfly needle",
       "d": "Winged infusion set used for small or fragile veins.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Long steel needle used for deep muscle injections in adults.",
+        "Thick needle used for bone marrow aspiration in children.",
+        "Blunt needle used for drawing samples from central lines.",
+        "Flexible catheter used for placing urinary drains in women."
+      ]
     },
     {
       "t": "Centrifuge",
       "d": "Machine that spins blood to separate its components.",
-      "c": 2
+      "c": 2,
+      "w": [
+        "Machine that heats blood to kill bacteria before culture.",
+        "Machine that freezes blood samples to preserve glucose levels.",
+        "Machine that weighs blood tubes to measure hematocrit.",
+        "Machine that filters blood through a membrane to remove viruses."
+      ]
     },
     {
       "t": "Additive",
       "d": "Substance in collection tubes (e.g., anticoagulants, clot activators).",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Substance in collection tubes that warms the sample (e.g., heating pads, warming gel).",
+        "Substance in collection tubes that dyes the plasma for microscopy (e.g., eosin, methylene blue).",
+        "Substance in collection tubes that thickens the sample (e.g., gelatin, starch).",
+        "Substance in collection tubes that cools the sample (e.g., ice packs, dry ice)."
+      ]
     },
     {
       "t": "Anticoagulant",
       "d": "Prevents blood clotting (e.g., EDTA, citrate, heparin).",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Promotes blood clotting (e.g., thrombin, calcium chloride).",
+        "Dissolves existing clots (e.g., streptokinase, alteplase).",
+        "Lowers blood pressure during draws (e.g., nitroglycerin, amlodipine).",
+        "Stains white cells for counting (e.g., Wright stain, Giemsa)."
+      ]
     },
     {
       "t": "EDTA",
       "d": "Anticoagulant that binds calcium; found in lavender tubes; used for CBC.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Clot activator that releases calcium; found in red tubes; used for serum chemistry.",
+        "Glycolysis inhibitor that preserves glucose; found in gray tubes; used for glucose testing.",
+        "Anticoagulant that binds potassium; found in green tubes; used for blood gases.",
+        "Stain that colors red cells; found in blue tubes; used for coagulation panels."
+      ]
     },
     {
       "t": "Sodium citrate",
       "d": "Light blue tube; coagulation studies.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Gray tube; glucose testing with a fluoride preservative.",
+        "Lavender tube; complete blood count with EDTA.",
+        "Red tube; serum chemistry with a clot activator.",
+        "Green tube; plasma chemistry with heparin."
+      ]
     },
     {
       "t": "Heparin",
       "d": "Green tube; chemistry tests.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Lavender tube; hematology tests with EDTA.",
+        "Light blue tube; coagulation tests with citrate.",
+        "Gray tube; glucose tests with sodium fluoride.",
+        "Yellow tube; blood cultures with SPS."
+      ]
     },
     {
       "t": "Serum separator tube (SST)",
       "d": "Gold or tiger-top tube; contains a gel separator. Clot activator plus gel; yields serum.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Gray tube with a sodium fluoride preservative that stops glycolysis. Glycolysis inhibitor plus clot activator; yields plasma for glucose testing.",
+        "Lavender tube with EDTA. Anticoagulant plus gel; yields plasma for blood counts.",
+        "Red tube with no additive. Thrombin plus gel; yields whole blood for culture.",
+        "Blue tube with citrate. Anticoagulant plus gel; yields serum for coagulation."
+      ]
     },
     {
       "t": "Plasma",
       "d": "Liquid portion of anticoagulated blood containing clotting factors.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Solid portion of blood made of red and white cells and platelets, which lacks clotting factors.",
+        "Liquid portion of clotted blood with no clotting factors, left after the clot forms.",
+        "Cell-free fluid from urine containing glucose and proteins.",
+        "Layer of fat that forms on top of centrifuged blood after a meal."
+      ]
     },
     {
       "t": "Serum",
       "d": "Liquid portion after clotting; lacks clotting factors.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Liquid portion before clotting that contains all clotting factors.",
+        "Layer of white cells that forms between plasma and red cells.",
+        "Fluid from the spinal canal that contains glucose and protein.",
+        "Liquid portion of anticoagulated blood with added citrate and heparin."
+      ]
     },
     {
       "t": "Plasma separator tube (PST)",
       "d": "Mint green tube; lithium heparin plus gel; yields plasma.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Lavender tube; EDTA plus gel; yields serum for chemistry.",
+        "Gray tube; sodium fluoride plus gel; yields serum for glucose.",
+        "Red tube; clot activator plus gel; yields plasma for coagulation.",
+        "Light blue tube; sodium citrate plus gel; yields whole blood for culture."
+      ]
     },
     {
       "t": "ETS (Evacuated Tube System)",
       "d": "Closed-system collection (e.g., BD Vacutainer).",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Open-system collection in which blood is poured into a beaker (e.g., glass flasks).",
+        "Gravity-fed drip system for collecting urine (e.g., catheter bags).",
+        "Hand-held lancet system for collecting capillary blood (e.g., spring-loaded lancets).",
+        "Ventilator circuit for collecting arterial gases (e.g., breathing tubing)."
+      ]
     },
     {
       "t": "SPS (Sodium Polyanethol Sulfonate)",
       "d": "Yellow blood culture tube additive.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Red tube clot activator used for serum chemistry panels.",
+        "Light blue tube citrate used for coagulation testing.",
+        "Gray tube fluoride used for alcohol testing.",
+        "Green tube heparin used for ammonia testing."
+      ]
     },
     {
       "t": "ACD (Acid Citrate Dextrose)",
       "d": "Yellow top for HLA typing and DNA studies. Also an anticoagulant in the tube list.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Purple top for hemoglobin electrophoresis. Also a clot activator in the tube list.",
+        "Blue top for coagulation screening. Also a fluoride preservative in the tube list.",
+        "Red top for serum chemistry. Also a glycolysis inhibitor in the tube list.",
+        "Green top for ammonia testing. Also a stain used in the tube list."
+      ]
     },
     {
       "t": "NaF (Sodium Fluoride)",
       "d": "Gray tube; glycolytic inhibitor.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Lavender tube; anticoagulant that binds calcium.",
+        "Green tube; anticoagulant that binds potassium.",
+        "Gold tube; clot activator with gel separator.",
+        "Blue tube; anticoagulant used for coagulation."
+      ]
     },
     {
       "t": "KOx (Potassium Oxalate)",
       "d": "Gray tube anticoagulant.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Red tube with no additive.",
+        "Yellow tube used for blood culture.",
+        "Light blue tube used for coagulation.",
+        "Lavender tube used for hemoglobin tests."
+      ]
     },
     {
       "t": "Na citrate (Sodium Citrate)",
       "d": "Light blue tube for coagulation; black for ESR.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Gray tube for coagulation with a sodium fluoride preservative; lavender for ESR.",
+        "Green tube for coagulation; red for ESR.",
+        "Light blue tube for chemistry; yellow for ESR.",
+        "Red tube for coagulation; gold for ESR."
+      ]
     },
     {
       "t": "Li Hep (Lithium Heparin)",
       "d": "Green tubes; anticoagulant.",
-      "c": 3
+      "c": 3,
+      "w": [
+        "Lavender tubes; anticoagulant that binds calcium.",
+        "Gray tubes; glycolysis inhibitor.",
+        "Yellow tubes; clot activator.",
+        "Light blue tubes; plasma citrate for coagulation."
+      ]
     },
     {
       "t": "Order of draw",
       "d": "Sequence to prevent additive contamination.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "Sequence to prevent tube breakage during transport.",
+        "Sequence for filling tubes by volume from smallest to largest.",
+        "Sequence for labeling tubes after the patient leaves the room.",
+        "Sequence for sterilizing the needle between each tube."
+      ]
     },
     {
       "t": "Basal state",
       "d": "Resting metabolic state after a 12-hour fast; ideal for many tests and accurate labs.",
-      "c": 4
+      "c": 4,
+      "w": [
+        "Active metabolic state after a heavy meal; ideal for measuring insulin response.",
+        "Resting state after a 2-hour walk; ideal for measuring blood pressure during exercise.",
+        "Fasting state after 24 hours without water, which increases blood glucose.",
+        "Sleeping state after 4 hours of rest; ideal for measuring lactate after exercise."
+      ]
     },
     {
       "t": "CBC (Complete Blood Count)",
       "d": "Test evaluating RBCs, WBCs, and platelets.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Test evaluating liver enzymes, bilirubin, and albumin.",
+        "Test evaluating thyroid hormones, cortisol, and insulin.",
+        "Test evaluating kidney filtration, creatinine, and urea.",
+        "Test evaluating cholesterol, triglycerides, and HDL."
+      ]
     },
     {
       "t": "Blood culture",
       "d": "Test to detect bacteria or fungi in the bloodstream.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Test to measure oxygen levels in arterial blood during surgery.",
+        "Test to detect antibodies in saliva.",
+        "Test to measure blood alcohol concentration after a meal.",
+        "Test to count platelets in a fingerstick sample."
+      ]
     },
     {
       "t": "Anemia",
       "d": "Low RBC or hemoglobin levels causing fatigue and pallor.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "High RBC count causing redness and warmth in the face.",
+        "Low white cell count causing fever and rash in the skin.",
+        "High platelet count causing bruising on the arms and legs.",
+        "Low blood sugar causing sweating and a racing pulse in the morning."
+      ]
     },
     {
       "t": "Cyanotic",
       "d": "Bluish skin or discoloration due to lack of oxygen.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Yellowish skin or discoloration due to excess bilirubin.",
+        "Reddish skin or flushing due to high blood pressure.",
+        "Pale skin or discoloration due to excess iron.",
+        "Greenish skin or discoloration due to too much bile."
+      ]
     },
     {
       "t": "Edema",
       "d": "Fluid accumulation causing swelling; avoid venipuncture in these areas.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Loss of skin elasticity causing wrinkles; ideal for venipuncture in these areas.",
+        "Dryness of the skin causing flaking; ideal for venipuncture in these areas.",
+        "Hair growth causing itching; ideal for venipuncture in these areas.",
+        "Bruising of the skin causing discoloration; ideal for venipuncture in these areas."
+      ]
     },
     {
       "t": "Anaphylaxis",
       "d": "Severe allergic reaction; life-threatening.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Mild allergic reaction; causes itching that clears without treatment.",
+        "Slow infection of the blood; causes fever that clears after a week.",
+        "Mild skin irritation; causes redness that clears with a cool cloth.",
+        "Chronic inflammation of the joints; causes stiffness that improves with rest."
+      ]
     },
     {
       "t": "ABO",
       "d": "Blood group system.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Hemoglobin test panel.",
+        "Clotting factor test panel.",
+        "Platelet count method.",
+        "Urine glucose test."
+      ]
     },
     {
       "t": "AIDS",
       "d": "Acquired Immunodeficiency Syndrome.",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Advanced Immune Deficiency Symptom.",
+        "Acute Infectious Disease Syndrome.",
+        "Acquired Infection Detection Set.",
+        "Anemia Induced Disease Syndrome."
+      ]
     },
     {
       "t": "Aerobic / Anaerobic",
       "d": "With oxygen / without oxygen (culture conditions).",
-      "c": 5
+      "c": 5,
+      "w": [
+        "Without oxygen / with oxygen (culture conditions).",
+        "Warm / cold (culture temperatures).",
+        "Acidic / basic (culture pH levels).",
+        "Dry / moist (culture surface conditions)."
+      ]
     },
     {
       "t": "TID",
       "d": "Three times daily.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Three times weekly.",
+        "Twice a day at noon.",
+        "Taken as needed for pain.",
+        "Taken once before bed."
+      ]
     },
     {
       "t": "QID",
       "d": "Four times daily.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Four times weekly.",
+        "Taken with each breakfast.",
+        "Every four hours during sleep.",
+        "Taken twice on Sundays."
+      ]
     },
     {
       "t": "Q4H / Q6H",
       "d": "Every 4 / 6 hours (and so on).",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Every 4 / 6 days, given at the same time each morning.",
+        "Every 4 / 6 weeks, given once with each meal and at bedtime.",
+        "Every 4 / 6 minutes.",
+        "Every 4 / 6 months."
+      ]
     },
     {
       "t": "AC / PC",
       "d": "Before meals / after meals.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "After sleep / before exercise.",
+        "During meals / before bed.",
+        "Before bed / after waking.",
+        "Before exercise / after surgery."
+      ]
     },
     {
       "t": "NPO",
       "d": "Nothing by mouth.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Nothing by needle.",
+        "Nutrition provided orally.",
+        "Notify provider overnight.",
+        "No pain observed."
+      ]
     },
     {
       "t": "Pt",
       "d": "Patient.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Procedure.",
+        "Physician.",
+        "Pathology.",
+        "Pulse."
+      ]
     },
     {
       "t": "Dx",
       "d": "Diagnosis.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Dosage.",
+        "Discharge.",
+        "Doctor exam.",
+        "Disease extent."
+      ]
     },
     {
       "t": "Hx / PMH",
       "d": "History / past medical history.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Hemoglobin / plasma hematocrit.",
+        "Hormone / protein level.",
+        "Heart rate / pulse history.",
+        "Hepatitis / pathogen history."
+      ]
     },
     {
       "t": "CC",
       "d": "Chief complaint.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Complete count.",
+        "Central catheter.",
+        "Calcium concentration.",
+        "Clinical course."
+      ]
     },
     {
       "t": "HPI",
       "d": "History of present illness.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Hemoglobin profile index.",
+        "Hospital placement inventory.",
+        "Hepatic panel interpretation.",
+        "Health plan information."
+      ]
     },
     {
       "t": "BP",
       "d": "Blood pressure.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Blood platelets.",
+        "Breathing pattern.",
+        "Bone profile.",
+        "Blood plasma."
+      ]
     },
     {
       "t": "HR",
       "d": "Heart rate.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Hemoglobin ratio.",
+        "Hospital record.",
+        "Hormone release.",
+        "Hemorrhage risk."
+      ]
     },
     {
       "t": "RR",
       "d": "Respiratory rate.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Red cell ratio of blood volume per minute.",
+        "Renal review of kidney function and urine output.",
+        "Reflex response.",
+        "Rhythm report."
+      ]
     },
     {
       "t": "SpO2",
       "d": "Peripheral oxygen saturation.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Serum potassium level.",
+        "Spinal oxygen pressure.",
+        "Serum protein outcome measured in the lab at day seven.",
+        "Systolic pressure reading taken from the upper arm."
+      ]
     },
     {
       "t": "BMI",
       "d": "Body mass index.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Blood marker index.",
+        "Bone mineral index.",
+        "Basal metabolic interval.",
+        "Blood monitoring instrument."
+      ]
     },
     {
       "t": "ACD",
       "d": "Acid-citrate-dextrose anticoagulant.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Acute care delivery system used in emergency departments.",
+        "Antibody cell detection.",
+        "Acid-base clinical diagnosis.",
+        "Adult cardiac dosage given intravenously over thirty minutes."
+      ]
     },
     {
       "t": "CBC",
       "d": "Complete blood count.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Chemistry basic check.",
+        "Central blood circulation.",
+        "Clinical bacteria count.",
+        "Cholesterol blood calculation."
+      ]
     },
     {
       "t": "BMP",
       "d": "Basic metabolic panel.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Blood marker profile.",
+        "Bone marrow pathway.",
+        "Basic muscle protein.",
+        "Biopsy microscopic panel."
+      ]
     },
     {
       "t": "CMP",
       "d": "Comprehensive metabolic panel.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Complete muscle profile.",
+        "Clinical marker panel used to monitor hormone levels.",
+        "Cellular metabolism product made in the liver and kidneys.",
+        "Coronary monitoring program."
+      ]
     },
     {
       "t": "LFT",
       "d": "Liver function tests.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Lung function tests.",
+        "Lymph flow tests.",
+        "Lipid fraction tests.",
+        "Limb function tests."
+      ]
     },
     {
       "t": "PT",
       "d": "Prothrombin time.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Platelet time.",
+        "Plasma transfusion.",
+        "Protein turnover.",
+        "Pulse time."
+      ]
     },
     {
       "t": "PTT / aPTT",
       "d": "Partial thromboplastin time.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Partial thyroid test that measures hormone levels in saliva.",
+        "Platelet transfusion time needed before surgery.",
+        "Plasma tissue test.",
+        "Protein thrombosis time."
+      ]
     },
     {
       "t": "INR",
       "d": "International normalized ratio.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Inflammatory nerve reading that tracks nerve damage over time.",
+        "Insulin normal range.",
+        "Index of nutritional risk.",
+        "Internal normal rate of blood flow through the heart."
+      ]
     },
     {
       "t": "TSH",
       "d": "Thyroid-stimulating hormone.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Total serum hemoglobin.",
+        "Tissue specific histamine.",
+        "Thrombin sensitivity handler.",
+        "Tumor screening hormone."
+      ]
     },
     {
       "t": "HbA1c",
       "d": "Glycated hemoglobin A1c.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Hemoglobin abnormality type 1 count.",
+        "Heart-beat amplitude index.",
+        "Hematocrit alpha one concentration.",
+        "Hemolytic anemia type C."
+      ]
     },
     {
       "t": "PSA",
       "d": "Prostate-specific antigen.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Pancreatic specific amylase.",
+        "Plasma sodium acid.",
+        "Peripheral sensory action.",
+        "Pulmonary surfactant analysis."
+      ]
     },
     {
       "t": "UA",
       "d": "Urinalysis.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Ultrasound angiography.",
+        "Upper abdominal exam.",
+        "Ulcer assessment.",
+        "Ultrasonic analysis."
+      ]
     },
     {
       "t": "ABG",
       "d": "Arterial blood gas.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Abdominal bowel gram.",
+        "Acute blood glucose.",
+        "Anemia bone growth.",
+        "Antibody binding global."
+      ]
     },
     {
       "t": "STAT",
       "d": "Immediately.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Once per week.",
+        "At the next scheduled visit.",
+        "If the patient requests it.",
+        "After discharge."
+      ]
     },
     {
       "t": "ASAP",
       "d": "As soon as possible.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "As soon as the patient is discharged.",
+        "At the end of the shift.",
+        "When the lab is closed.",
+        "Before the next scheduled meal."
+      ]
     },
     {
       "t": "PRN",
       "d": "As needed.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Three times a day.",
+        "Before the procedure.",
+        "Once per month.",
+        "At the end of the day."
+      ]
     },
     {
       "t": "QD",
       "d": "Daily.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Every other day.",
+        "Weekly.",
+        "Twice a day.",
+        "Monthly."
+      ]
     },
     {
       "t": "BID",
       "d": "Twice daily.",
-      "c": 6
+      "c": 6,
+      "w": [
+        "Once daily.",
+        "Three times daily.",
+        "Every other week.",
+        "Twice weekly."
+      ]
     },
     {
       "t": "Prefix",
       "d": "Beginning of a word that modifies its meaning (e.g., hypo- = low).",
-      "c": 7
+      "c": 7,
+      "w": [
+        "Ending of a word that names a procedure (e.g., -tomy = cutting).",
+        "Middle part of a word that carries the main meaning (e.g., hemat- = blood).",
+        "Added word that joins two root words (e.g., and, with).",
+        "Punctuation mark placed before a medical term (e.g., colon)."
+      ]
     },
     {
       "t": "Root word",
       "d": "Core meaning (e.g., hem- / hemat- = blood).",
-      "c": 7
+      "c": 7,
+      "w": [
+        "Beginning of a word that modifies its meaning (e.g., hypo- = low).",
+        "Ending that indicates a procedure (e.g., -tomy = cutting).",
+        "Added syllable that softens a word for pronunciation.",
+        "Abbreviation written with a period after each letter."
+      ]
     },
     {
       "t": "Suffix",
       "d": "Ending that indicates a procedure or condition (e.g., -itis = inflammation).",
-      "c": 7
+      "c": 7,
+      "w": [
+        "Beginning of a word that modifies its meaning (e.g., hypo- = low).",
+        "Core meaning of a word (e.g., hem- = blood).",
+        "Ending that indicates a measurement of time, used in the names of most lab tests (e.g., -hour = hour).",
+        "Letter inserted between two word parts for ease of reading."
+      ]
     },
     {
       "t": "Phlebotomy (word parts)",
       "d": "phlebo- (vein) + -tomy (cutting) = incision into a vein.",
-      "c": 7
+      "c": 7,
+      "w": [
+        "phlebo- (artery) + -graphy (recording) = recording of an artery.",
+        "hemo- (blood) + -lysis (breaking) = breaking of blood cells.",
+        "cardio- (heart) + -gram (record) = record of the heart.",
+        "nephro- (kidney) + -ectomy (removal) = removal of a kidney."
+      ]
     }
   ]
 }
