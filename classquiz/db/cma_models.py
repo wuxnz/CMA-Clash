@@ -162,3 +162,4 @@ class BattleLobbyState(BaseModel):
     certification_slug: str | None = None
     host_secret: str | None = None
     host_is_guest: bool = False
+    question_count: int | None = None

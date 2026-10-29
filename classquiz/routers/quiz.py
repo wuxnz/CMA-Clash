@@ -22,7 +22,7 @@ from classquiz.rate_limit import rate_limit_request
 from classquiz.config import redis, settings, storage, meilisearch
 from classquiz.db.models import Quiz, User, PlayGame, GameInLobby, QuizQuestion, QuizQuestionType
 from classquiz.helpers.box_controller import generate_code
-from classquiz.helpers.game_questions import select_questions_for_game
+from classquiz.helpers.game_questions import select_questions_for_game, validate_question_count
 from classquiz.kahoot_importer.import_quiz import import_quiz
 import urllib.parse
 
@@ -91,6 +91,7 @@ async def start_quiz(
     randomize_answers: bool = False,
     team_count: int = 0,
     team_assign: str = "random",
+    question_count: int | None = None,
     user: User | None = Depends(get_current_user_optional),
 ):
     try:
@@ -124,9 +125,13 @@ async def start_quiz(
         game_pin = randint(100000, 999999)
         game = await redis.get(f"game:{game_pin}")
 
+    try:
+        chosen_count = validate_question_count(len(quiz.questions), question_count)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     game_questions = select_questions_for_game(
         quiz.questions,
-        getattr(quiz, "questions_per_game", None),
+        chosen_count if chosen_count is not None else getattr(quiz, "questions_per_game", None),
     )
 
     from classquiz.helpers.game_questions import shuffle_abcd_answer_positions

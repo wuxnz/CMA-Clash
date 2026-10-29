@@ -19,6 +19,7 @@ SPDX-License-Identifier: MPL-2.0
 	import BrowseFilters from '$lib/quiz/BrowseFilters.svelte';
 	import QuizBrowseList from '$lib/quiz/QuizBrowseList.svelte';
 	import QuizBrowseSkeleton from '$lib/quiz/QuizBrowseSkeleton.svelte';
+	import QuestionCountPicker from '$lib/quiz/QuestionCountPicker.svelte';
 	import {
 		fetchCerts,
 		fetchClashQuizzes,
@@ -41,6 +42,11 @@ SPDX-License-Identifier: MPL-2.0
 	let joinCode = $state('');
 	let starting = $state(false);
 	let battleError = $state('');
+	// Fewest questions a battle can use; the server enforces the same minimum.
+	const MIN_QUESTIONS = 8;
+	// The quiz the host is about to battle with, and the count they picked.
+	let pendingBattle = $state<{ id: string; bank: number } | null>(null);
+	let battleQuestionCount = $state(MIN_QUESTIONS);
 
 	let cert = $state(data.cert);
 	let difficulty = $state(data.difficulty);
@@ -109,11 +115,27 @@ SPDX-License-Identifier: MPL-2.0
 		void loadPage(1, true);
 	});
 
-	async function startBattle(quizId: string) {
+	function chooseBattle(quizId: string) {
+		battleError = '';
+		const bank = rows.find((row) => row.id === quizId)?.question_count ?? 0;
+		if (bank < MIN_QUESTIONS) {
+			void startBattle(quizId);
+			return;
+		}
+		battleQuestionCount = Math.max(MIN_QUESTIONS, Math.min(bank, 10));
+		pendingBattle = { id: quizId, bank };
+	}
+
+	async function confirmBattle() {
+		if (!pendingBattle) return;
+		await startBattle(pendingBattle.id, battleQuestionCount);
+	}
+
+	async function startBattle(quizId: string, questionCount?: number) {
 		if (starting) return;
 		starting = true;
 		battleError = '';
-		const result = await createBattle(quizId, 4);
+		const result = await createBattle(quizId, 4, undefined, questionCount);
 		starting = false;
 		if (!result.ok) {
 			const detail = 'detail' in result ? result.detail : undefined;
@@ -210,7 +232,41 @@ SPDX-License-Identifier: MPL-2.0
 						</p>
 					</div>
 				{:else}
-					<QuizBrowseList items={rows} onHost={(id) => startBattle(id)} />
+					<QuizBrowseList items={rows} onHost={(id) => chooseBattle(id)} />
+					{#if pendingBattle}
+						<div
+							class="dialog-backdrop"
+							role="presentation"
+							onclick={(e) => {
+								if (e.target === e.currentTarget && !starting) pendingBattle = null;
+							}}
+						>
+							<div class="dialog-panel dialog-panel-in" role="dialog" aria-modal="true" aria-label="Start a battle">
+								<div class="dialog-body px-5 pt-5 pb-4 min-w-0">
+									<p class="text-lg font-semibold text-ink">Start a battle</p>
+									<div class="mt-5">
+										<QuestionCountPicker
+											min={MIN_QUESTIONS}
+											max={pendingBattle.bank}
+											bind:value={battleQuestionCount}
+											disabled={starting}
+										/>
+									</div>
+									{#if battleError}
+										<p class="text-sm text-ink mt-3" role="alert">{battleError}</p>
+									{/if}
+									<div class="mt-6 flex gap-3">
+										<Button class="flex-1" onclick={confirmBattle} disabled={starting}>
+											{starting ? 'Starting battle' : 'Start battle'}
+										</Button>
+										<Button variant="secondary" onclick={() => (pendingBattle = null)} disabled={starting}>
+											Cancel
+										</Button>
+									</div>
+								</div>
+							</div>
+						</div>
+					{/if}
 					{#if hasMore}
 						<div class="mt-8">
 							<Button

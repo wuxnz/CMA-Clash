@@ -82,6 +82,7 @@ export type QuizBrowseItem = {
 	topic_id: string | null;
 	certification_id: string | null;
 	question_count: number;
+	questions_per_game?: number | null;
 	plays: number;
 };
 
@@ -209,14 +210,16 @@ export function formatQuestionTopicTag(
 export async function createBattle(
 	quizId: string,
 	maxPlayers = 4,
-	displayName?: string
+	displayName?: string,
+	questionCount?: number
 ): Promise<ClashFetchResult<BattleLobby>> {
 	return clashFetchResult<BattleLobby>('/battles', {
 		method: 'POST',
 		body: JSON.stringify({
 			quiz_id: quizId,
 			max_players: maxPlayers,
-			display_name: displayName
+			display_name: displayName,
+			question_count: questionCount
 		})
 	});
 }

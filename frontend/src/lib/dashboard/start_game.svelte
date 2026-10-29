@@ -10,6 +10,7 @@ SPDX-License-Identifier: MPL-2.0
 	import { onMount } from 'svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import Toggle from '$lib/ui/Toggle.svelte';
+	import QuestionCountPicker from '$lib/quiz/QuestionCountPicker.svelte';
 	import { focusTrap } from '$lib/ui/focusTrap';
 	import { adminLobbyUrl, startHostGame } from '$lib/cma/host-game';
 	import { normalizeQuizText } from '$lib/cma/text';
@@ -20,6 +21,10 @@ SPDX-License-Identifier: MPL-2.0
 	let captcha_selected = $state(false);
 	let selected_game_mode = $state<'kahoot' | 'normal'>('kahoot');
 	let team_count = $state(0);
+	// Fewest questions a game can use; the server enforces the same minimum.
+	const MIN_QUESTIONS = 8;
+	let bankSize = $state(0);
+	let questionCount = $state(0);
 	let team_assign = $state<'random' | 'choose'>('random');
 	let loading = $state(false);
 	let custom_field = $state('');
@@ -46,6 +51,8 @@ SPDX-License-Identifier: MPL-2.0
 				if (cancelled) return;
 				quizTitle = normalizeQuizText(quiz.title) || 'Host a Clash';
 				const count = Array.isArray(quiz.questions) ? quiz.questions.length : 0;
+				bankSize = count;
+				questionCount = Math.max(MIN_QUESTIONS, Math.min(count, quiz.questions_per_game ?? 10));
 				quizMeta = count ? `${count} questions · public set` : 'Public set';
 			})
 			.catch(() => {});
@@ -81,6 +88,7 @@ SPDX-License-Identifier: MPL-2.0
 			captcha_enabled: captcha_enabled && captcha_selected,
 			game_mode: selected_game_mode,
 			team_count,
+			question_count: bankSize >= MIN_QUESTIONS ? questionCount : undefined,
 			team_assign,
 			custom_field,
 			cqcs_enabled,
@@ -201,6 +209,12 @@ SPDX-License-Identifier: MPL-2.0
 					</div>
 				{/if}
 			</div>
+
+			{#if bankSize >= MIN_QUESTIONS}
+				<div class="mt-5">
+					<QuestionCountPicker min={MIN_QUESTIONS} max={bankSize} bind:value={questionCount} />
+				</div>
+			{/if}
 
 			<div class="mt-5">
 				<label class="text-sm font-medium text-ink" for="host-custom-field">Custom field</label>
