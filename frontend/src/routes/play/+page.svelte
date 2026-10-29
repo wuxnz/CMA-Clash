@@ -10,6 +10,7 @@ SPDX-License-Identifier: MPL-2.0
 	import JoinGame from '$lib/play/join.svelte';
 	import TeamPanel from '$lib/play/team_panel.svelte';
 	import TeamResults, { type TeamResultsPayload } from '$lib/play/team_results.svelte';
+	import TeamRosters, { type TeamFinalPayload } from '$lib/play/team_rosters.svelte';
 	import type { Question as QuestionType } from '$lib/quiz_types';
 	import ShowTitle from '$lib/play/title.svelte';
 	import Question from '$lib/play/question.svelte';
@@ -164,6 +165,7 @@ SPDX-License-Identifier: MPL-2.0
 	let scores = $state({});
 	let game_mode = $state();
 	let teamResults = $state<TeamResultsPayload | null>(null);
+	let teamFinal = $state<TeamFinalPayload | null>(null);
 	ensurePlaySocketSession({
 		getGamePin: () => game_pin,
 		onReconnected: async () => {
@@ -539,6 +541,9 @@ SPDX-License-Identifier: MPL-2.0
 				}
 				Cookies.remove('joined_game');
 			},
+			onTeamFinal: (data) => {
+				teamFinal = (data as TeamFinalPayload | null) ?? null;
+			},
 			onSolutions: (data) => {
 				solution = data;
 			}
@@ -652,6 +657,7 @@ SPDX-License-Identifier: MPL-2.0
 		{#if !gameMeta.started && gameData === undefined}
 			<JoinGame bind:game_pin bind:game_mode bind:username />
 		{:else if JSON.stringify(final_results) !== JSON.stringify([null])}
+			<TeamRosters teams={teamFinal} {username} />
 			<ShowEndScreen
 				bind:data={scores}
 				show_final_results={true}

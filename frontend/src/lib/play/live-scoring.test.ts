@@ -59,8 +59,18 @@ describe('scoreDeltaForUser', () => {
 		expect(scoreDeltaForUser(rows, 'Ada')).toBe(512);
 	});
 
-	it('prefers base_score + speed_bonus when present', () => {
-		const rows = [{ username: 'Ada', score: 425, base_score: 500, speed_bonus: 383 }];
+	it('includes the streak multiplier in the server score', () => {
+		const rows = [{ username: 'Ada', score: 1100, base_score: 500, speed_bonus: 383 }];
+		expect(scoreDeltaForUser(rows, 'Ada')).toBe(1100);
+	});
+
+	it('is zero for a wrong answer even when base and speed are recorded', () => {
+		const rows = [{ username: 'Ada', score: 0, base_score: 500, speed_bonus: 383 }];
+		expect(scoreDeltaForUser(rows, 'Ada')).toBe(0);
+	});
+
+	it('falls back to base + speed when the row has no score', () => {
+		const rows = [{ username: 'Ada', base_score: 500, speed_bonus: 383 }];
 		expect(scoreDeltaForUser(rows, 'Ada')).toBe(883);
 	});
 });
