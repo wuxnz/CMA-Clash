@@ -5,7 +5,7 @@ SPDX-License-Identifier: MPL-2.0
 -->
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { PRACTICE_TEST_PATH, isPracticeTestQuiz } from '$lib/study/practice-test';
+	import { practiceTestPath } from '$lib/study/practice-test';
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import type { QuizData } from '$lib/quiz_types';
@@ -37,8 +37,9 @@ SPDX-License-Identifier: MPL-2.0
 			throw res.status;
 		}
 		quiz = await res.json();
-		if (isPracticeTestQuiz(quiz)) {
-			await goto(PRACTICE_TEST_PATH, { replaceState: true });
+		const testPath = practiceTestPath(quiz);
+		if (testPath) {
+			await goto(testPath, { replaceState: true });
 		}
 		return quiz;
 	};

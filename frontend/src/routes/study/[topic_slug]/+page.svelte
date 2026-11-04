@@ -29,17 +29,20 @@ SPDX-License-Identifier: MPL-2.0
 
 	const blocks = $derived((topic?.study_content ?? []) as StudyBlock[]);
 
-	// Practice tests served from static/ that belong to a study guide.
-	const PRACTICE_TEST = {
-		href: '/practice-test/diabetes',
-		label: 'Diabetes and insulin practice test'
+	// Practice tests that belong to a study guide, keyed by topic slug.
+	const PRACTICE_TESTS: Record<string, { href: string; label: string }> = {
+		'ccma-diabetes': { href: '/practice-test/diabetes', label: 'Diabetes and insulin practice test' },
+		'diabetes-study-guide': { href: '/practice-test/diabetes', label: 'Diabetes and insulin practice test' },
+		'diabetes-test-2nd-half': {
+			href: '/practice-test/diabetes-test-2nd-half',
+			label: 'Diabetes Test 2nd Half practice test'
+		}
 	};
-	const PRACTICE_TEST_TOPICS = ['ccma-diabetes', 'diabetes-study-guide'];
-	const practiceTest = $derived(PRACTICE_TEST_TOPICS.includes(slug) ? PRACTICE_TEST : null);
+	const practiceTest = $derived(PRACTICE_TESTS[slug] ?? null);
 
-	// The Diabetes Study Guide quiz can be played as a battle or a match.
-	const GAME_TOPIC = 'diabetes-study-guide';
-	const gameQuiz = $derived(slug === GAME_TOPIC ? (quizzes[0] ?? null) : null);
+	// These study guide quizzes can be played as a battle or a match.
+	const GAME_TOPICS = ['diabetes-study-guide', 'diabetes-test-2nd-half'];
+	const gameQuiz = $derived(GAME_TOPICS.includes(slug) ? (quizzes[0] ?? null) : null);
 	let startGame = $state<string | null>(null);
 	let battleStarting = $state(false);
 	// Fewest questions a battle can use; the server enforces the same minimum.

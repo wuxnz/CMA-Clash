@@ -5,14 +5,26 @@
 /** The untimed diabetes practice test. */
 export const PRACTICE_TEST_PATH = '/practice-test/diabetes';
 
-/** Seed slugs of the diabetes quizzes that practice should open the practice test for. */
-const PRACTICE_TEST_QUIZ_SLUGS = new Set(['quiz:ccma-diabetes', 'quiz:diabetes-study-guide']);
+/** The untimed Diabetes Test 2nd Half practice test. Its questions are shuffled on every visit. */
+export const TEST_2ND_HALF_PRACTICE_PATH = '/practice-test/diabetes-test-2nd-half';
 
-export function isPracticeTestQuiz(quiz: { seed_slug?: string | null }): boolean {
-	return !!quiz.seed_slug && PRACTICE_TEST_QUIZ_SLUGS.has(quiz.seed_slug);
+/** Practice test path for each seed quiz that has one. */
+const PRACTICE_TEST_PATHS: Record<string, string> = {
+	'quiz:ccma-diabetes': PRACTICE_TEST_PATH,
+	'quiz:diabetes-study-guide': PRACTICE_TEST_PATH,
+	'quiz:diabetes-test-2nd-half': TEST_2ND_HALF_PRACTICE_PATH
+};
+
+/** The practice test path for a quiz, or null when the quiz has no practice test. */
+export function practiceTestPath(quiz: { seed_slug?: string | null }): string | null {
+	return quiz.seed_slug ? (PRACTICE_TEST_PATHS[quiz.seed_slug] ?? null) : null;
 }
 
-/** Practice link for a quiz: the untimed practice test for diabetes quizzes, timed practice otherwise. */
+export function isPracticeTestQuiz(quiz: { seed_slug?: string | null }): boolean {
+	return practiceTestPath(quiz) !== null;
+}
+
+/** Practice link for a quiz: the untimed practice test where one exists, timed practice otherwise. */
 export function practiceHref(quiz: { id: string; seed_slug?: string | null }): string {
-	return isPracticeTestQuiz(quiz) ? PRACTICE_TEST_PATH : `/practice?quiz_id=${quiz.id}`;
+	return practiceTestPath(quiz) ?? `/practice?quiz_id=${quiz.id}`;
 }

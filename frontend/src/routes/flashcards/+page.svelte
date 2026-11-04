@@ -20,6 +20,10 @@ SPDX-License-Identifier: MPL-2.0
 		DIABETES_FLASHCARDS,
 		DIABETES_FLASHCARD_CATEGORIES
 	} from '$lib/study/diabetes-flashcards';
+	import {
+		TEST_2ND_HALF_CARDS,
+		TEST_2ND_HALF_CATEGORIES
+	} from '$lib/study/diabetes-test-2nd-half';
 
 	navbarVisible.visible = true;
 
@@ -39,6 +43,14 @@ SPDX-License-Identifier: MPL-2.0
 			lede: 'Facts from the CDC diabetes pages. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
 			cards: DIABETES_FLASHCARDS,
 			categories: DIABETES_FLASHCARD_CATEGORIES
+		},
+		{
+			id: 'diabetes-test-2nd-half',
+			label: 'Diabetes Test 2nd Half',
+			title: 'Diabetes Test 2nd Half questions',
+			lede: 'Questions from the second half of the diabetes test, in worksheet order. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
+			cards: TEST_2ND_HALF_CARDS,
+			categories: TEST_2ND_HALF_CATEGORIES
 		}
 	];
 
