@@ -24,6 +24,7 @@ CERTIFICATIONS = [
             ("ccma-diabetes", "Diabetes", 11),  # 112 facts → four 28-question quiz sets
             ("diabetes-study-guide", "Diabetes Study Guide", 12),
             ("diabetes-flashcards-quiz", "Diabetes Flashcards Quiz", 13),
+            ("diabetes-test-2nd-half", "Diabetes Test 2nd Half", 14),  # 154 questions, source-sheet order
         ],
     },
     {
@@ -104,6 +105,7 @@ TOPIC_QUESTIONS_PER_QUIZ: dict[str, int] = {
 # The Diabetes Study Guide draws its whole bank so every question is played.
 TOPIC_QUESTIONS_PER_GAME: dict[str, int] = {
     "diabetes-study-guide": 30,
+    "diabetes-test-2nd-half": 20,
 }
 
 

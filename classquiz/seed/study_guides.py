@@ -5277,3 +5277,17 @@ STUDY_BY_TOPIC["diabetes-study-guide"] = STUDY_BY_TOPIC["ccma-diabetes"]
 # The flashcard quizzes cover the same material as these guides.
 STUDY_BY_TOPIC["diabetes-flashcards-quiz"] = STUDY_BY_TOPIC["ccma-diabetes"]
 STUDY_BY_TOPIC["phlebotomy-flashcards-quiz"] = STUDY_BY_TOPIC["phleb-who"]
+
+# Diabetes Test 2nd Half: one block per question, in the order of the source worksheets.
+# Each block is generated from the deck, so the study guide, quiz, and flashcards share one source.
+from classquiz.seed.banks.diabetes_test_2nd_half import load_deck as _load_test_2nd_half_deck  # noqa: E402
+
+STUDY_BY_TOPIC["diabetes-test-2nd-half"] = [
+    {
+        "title": card["t"],
+        "summary": f"{card['d']}. {card['e']}",
+        "url": card["u"],
+        "source": card["s"],
+    }
+    for card in _load_test_2nd_half_deck()["cards"]
+]
