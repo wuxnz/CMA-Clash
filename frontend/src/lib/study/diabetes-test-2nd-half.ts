@@ -1541,7 +1541,7 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "s": "MedlinePlus: Heartbeat"
  },
  {
-  "t": "Which blood vessels carry blood away from the heart on the chapter 9 worksheet?",
+  "t": "Which blood vessels carry blood away from the heart in the heart worksheet?",
   "d": "Arteries",
   "c": 9,
   "w": [
