@@ -28,7 +28,7 @@ SPDX-License-Identifier: MPL-2.0
 
 	navbarVisible.visible = true;
 
-	const DECKS = [
+	const DECKS: { id: string; label: string; title: string; lede: string; cards: Flashcard[]; categories: string[]; practiceHref?: string }[] = [
 		{
 			id: 'phlebotomy',
 			label: 'Phlebotomy',
@@ -51,7 +51,8 @@ SPDX-License-Identifier: MPL-2.0
 			title: 'Diabetes Test 2nd Half questions',
 			lede: 'Questions from the second half of the diabetes test, in worksheet order. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
 			cards: TEST_2ND_HALF_CARDS,
-			categories: TEST_2ND_HALF_CATEGORIES
+			categories: TEST_2ND_HALF_CATEGORIES,
+					practiceHref: '/practice-test/diabetes-test-2nd-half'
 		},
 		{
 			id: 'diabetes-test-1st-half',
@@ -59,7 +60,8 @@ SPDX-License-Identifier: MPL-2.0
 			title: 'Diabetes Test 1st Half questions',
 			lede: 'Questions from the first half of the diabetes test, in the order of the notes. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
 			cards: TEST_1ST_HALF_CARDS,
-			categories: TEST_1ST_HALF_CATEGORIES
+			categories: TEST_1ST_HALF_CATEGORIES,
+					practiceHref: '/practice-test/diabetes-test-1st-half'
 		}
 	];
 
@@ -203,7 +205,7 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 
 		<p class="mt-3 text-sm">
-			<a href={`/practice-test/flashcards/${deckId}`} class="link-hover text-ink">Take the {deckDef.label.toLowerCase()} practice test</a>
+			<a href={deckDef.practiceHref ?? `/practice-test/flashcards/${deckId}`} class="link-hover text-ink">Take the {deckDef.label.toLowerCase()} practice test</a>
 		</p>
 
 		<!-- Category filter -->
