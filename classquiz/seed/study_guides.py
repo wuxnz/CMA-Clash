@@ -5291,3 +5291,16 @@ STUDY_BY_TOPIC["diabetes-test-2nd-half"] = [
     }
     for card in _load_test_2nd_half_deck()["cards"]
 ]
+
+# Diabetes Test 1st Half: one block per distinct question, in the order of the handwritten notes.
+from classquiz.seed.banks.diabetes_test_1st_half import load_deck as _load_test_1st_half_deck  # noqa: E402
+
+STUDY_BY_TOPIC["diabetes-test-1st-half"] = [
+    {
+        "title": card["t"],
+        "summary": f"{card['d']}. {card['e']}",
+        "url": card["u"],
+        "source": card["s"],
+    }
+    for card in _load_test_1st_half_deck()["cards"]
+]
