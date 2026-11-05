@@ -108,7 +108,7 @@ SPDX-License-Identifier: MPL-2.0
 					<p class="font-display text-lg sm:text-xl leading-snug mt-2 text-balance">{question.q}</p>
 
 					<div
-						class="grid gap-px bg-line border border-line mt-4 {longestOption(i) > 60
+						class="grid gap-px bg-line border border-line mt-4 auto-rows-fr {longestOption(i) > 60
 							? 'grid-cols-1'
 							: 'grid-cols-1 sm:grid-cols-2'}"
 						role="radiogroup"
@@ -119,7 +119,7 @@ SPDX-License-Identifier: MPL-2.0
 								type="button"
 								role="radio"
 								aria-checked={picks[i] === j}
-								class="bg-paper text-left h-[7.5rem] sm:h-[8rem] px-4 py-3 flex flex-col justify-between gap-3 text-ink press-scale transition-colors duration-200 {picks[i] === j
+								class="bg-paper text-left min-h-[7.5rem] sm:min-h-[8rem] px-4 py-3 flex flex-col justify-between gap-3 text-ink press-scale transition-colors duration-200 {picks[i] === j
 									? 'bg-primary-soft shadow-[inset_3px_0_0_0_var(--color-primary)]'
 									: 'hover:bg-elevated'}"
 								onclick={() => pick(i, j)}

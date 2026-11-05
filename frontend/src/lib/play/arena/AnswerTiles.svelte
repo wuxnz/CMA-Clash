@@ -103,7 +103,7 @@
 				{#if interactive}
 					<button
 						type="button"
-						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 h-[8rem] sm:h-[9rem] text-ink text-left press-scale border-0 transition-colors duration-200 {selected ===
+						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 min-h-[8rem] sm:min-h-[9rem] text-ink text-left press-scale border-0 transition-colors duration-200 {selected ===
 						ans.answer
 							? 'bg-primary-soft shadow-[inset_3px_0_0_0_var(--color-primary)]'
 							: 'hover:bg-elevated'} {disabled ? 'opacity-60' : ''}"
@@ -130,7 +130,7 @@
 					</button>
 				{:else}
 					<div
-						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 h-[8rem] sm:h-[9rem] text-ink"
+						class="bg-paper flex flex-col items-start justify-between gap-3 px-4 py-4 sm:px-5 sm:py-5 min-h-[8rem] sm:min-h-[9rem] text-ink"
 					>
 						<span class="font-mono text-[0.7rem] tracking-[0.2em] text-ink-subtle">
 							{String.fromCharCode(65 + i)}
