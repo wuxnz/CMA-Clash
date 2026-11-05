@@ -24,6 +24,7 @@ SPDX-License-Identifier: MPL-2.0
 		TEST_2ND_HALF_CARDS,
 		TEST_2ND_HALF_CATEGORIES
 	} from '$lib/study/diabetes-test-2nd-half';
+	import { TEST_1ST_HALF_CARDS, TEST_1ST_HALF_CATEGORIES } from '$lib/study/diabetes-test-1st-half';
 
 	navbarVisible.visible = true;
 
@@ -51,6 +52,14 @@ SPDX-License-Identifier: MPL-2.0
 			lede: 'Questions from the second half of the diabetes test, in worksheet order. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
 			cards: TEST_2ND_HALF_CARDS,
 			categories: TEST_2ND_HALF_CATEGORIES
+		},
+		{
+			id: 'diabetes-test-1st-half',
+			label: 'Diabetes Test 1st Half',
+			title: 'Diabetes Test 1st Half questions',
+			lede: 'Questions from the first half of the diabetes test, in the order of the notes. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
+			cards: TEST_1ST_HALF_CARDS,
+			categories: TEST_1ST_HALF_CATEGORIES
 		}
 	];
 
