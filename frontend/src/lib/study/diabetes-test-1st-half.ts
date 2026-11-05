@@ -400,8 +400,8 @@ export const TEST_1ST_HALF_CARDS: TestCard[] = [
   "s": "FDA: Insulin Syringe 510(k)"
  },
  {
-  "t": "What are the three places you can administer insulin?",
-  "d": "The arms, the thighs, and the abdomen. Rotate sites within the same area to avoid lumps or thick skin.",
+  "t": "What are the five places you can administer insulin?",
+  "d": "The abdomen, the front and outer thighs, the upper arms, the buttocks, and the hips or lower back area. Rotate sites within the same area to avoid lumps or thick skin.",
   "c": 5,
   "w": [
    "The palms, the soles of the feet, the scalp, the tongue, and the eyelids.",
