@@ -10,7 +10,6 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import Card from '$lib/ui/Card.svelte';
 	import PageHeader from '$lib/ui/PageHeader.svelte';
-	import { fitText } from '$lib/ui/fit-text';
 	import { QUESTIONS, SECTIONS } from '$lib/study/diabetes-practice';
 
 	navbarVisible.visible = true;
@@ -130,8 +129,7 @@ SPDX-License-Identifier: MPL-2.0
 										: 'text-ink-subtle'}">{LETTERS[j]}</span
 								>
 								<span
-								class="block text-sm sm:text-base font-medium leading-snug wrap-break-word"
-								use:fitText={{ min: 11, max: 18 }}>{option}</span
+								class="block text-sm sm:text-base font-medium leading-snug wrap-break-word">{option}</span
 							>
 							</button>
 						{/each}

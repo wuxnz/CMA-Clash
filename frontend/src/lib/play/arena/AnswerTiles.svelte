@@ -1,7 +1,6 @@
 <script lang="ts">
 	import TimerBar from '$lib/ui/TimerBar.svelte';
 	import { normalizeQuizText } from '$lib/cma/text';
-	import { fitText } from '$lib/ui/fit-text';
 	export type ArenaAnswer = { answer: string; color?: string; right?: boolean };
 
 	interface Props {
@@ -123,7 +122,6 @@
 						</span>
 						<span
 							class="block text-sm sm:text-base leading-snug wrap-break-word font-medium [&_*]:!text-ink"
-			use:fitText={{ min: 11, max: 18 }}
 						>
 							{@html normalizeQuizText(ans.answer)}
 						</span>
@@ -137,7 +135,6 @@
 						</span>
 						<span
 							class="block text-sm sm:text-base leading-snug wrap-break-word font-medium [&_*]:!text-ink"
-			use:fitText={{ min: 11, max: 18 }}
 						>
 							{@html normalizeQuizText(ans.answer)}
 						</span>

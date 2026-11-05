@@ -6,12 +6,15 @@
 // the same source the seed uses for the study guide, quiz, and flashcards. Do not edit by hand:
 // change the JSON and regenerate. Cards stay in source-sheet order.
 //
-// t = question, d = answer, c = category index, w = three wrong answers,
+// t = question, d = flashcard answer, c = category index, w = flashcard wrong answers,
+// qd = quiz and practice answer, qw = quiz and practice wrong answers,
 // e = explanation, u = official reference URL, s = reference name.
 
 import type { Flashcard } from './phlebotomy-flashcards';
 
 export interface TestCard extends Flashcard {
+	qd: string;
+	qw: string[];
 	e: string;
 	u: string;
 	s: string;
@@ -41,6 +44,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Patient reports feelings of anxiety",
    "Patient says the pain is sharp and comes and goes"
   ],
+  "qd": "Patient's heart rate is elevated and irregular",
+  "qw": [
+   "Patient reports dizziness that started after lunch",
+   "Patient reports feelings of anxiety about the test",
+   "Patient describes a sharp pain that comes and goes"
+  ],
   "e": "A sign is objective and can be observed or measured by someone else, such as a heart rate on a monitor. Dizziness and anxiety are symptoms the patient reports. Looks tired is also observable, but a measured heart rate is the clearest sign.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
   "s": "MedlinePlus: Definitions of Health Terms"
@@ -50,6 +59,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Homeostasis",
   "c": 0,
   "w": [
+   "Homogeneity",
+   "Hemogenesis",
+   "Homeodynamism"
+  ],
+  "qd": "Homeostasis",
+  "qw": [
    "Homogeneity",
    "Hemogenesis",
    "Homeodynamism"
@@ -67,6 +82,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Subcutaneous tissue",
    "Sebaceous glands"
   ],
+  "qd": "Dermis",
+  "qw": [
+   "Hypodermis",
+   "Epidermis",
+   "Stratum corneum"
+  ],
   "e": "The dermis holds blood vessels, nerve receptors, hair follicles, and oil glands. The epidermis is the outer layer.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
   "s": "MedlinePlus: Components of skin"
@@ -79,6 +100,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Supply oxygen and nutrients to the body",
    "Rid the body of wastes",
    "Carry sensory messages to the brain"
+  ],
+  "qd": "Direct and coordinate the movements of the body",
+  "qw": [
+   "Supply oxygen and nutrients to the blood",
+   "Rid the body of wastes and extra fluid",
+   "Carry sensory messages up to the brain"
   ],
   "e": "On the sheet, the key is 'direct and coordinate the movements of the body'. Muscles also produce heat, which is a real muscle function, but it was not the keyed answer.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000016.htm",
@@ -93,6 +120,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Through a network of special vessels carrying neuron-filled fluid",
    "From the right hemisphere of the cerebrum to the left hemisphere"
   ],
+  "qd": "Through neurons, from receptors throughout the body, then through the spinal cord",
+  "qw": [
+   "Through the blood that flows from the heart to the head, then back down through the veins to the body.",
+   "Through special vessels that carry neuron-filled fluid up the spine and across to the brain stem.",
+   "From the right cerebral hemisphere across to the left hemisphere, then down through the cerebellum."
+  ],
   "e": "Sensory neurons carry signals from receptors to the spinal cord, which relays them up to the brain.",
   "u": "https://medlineplus.gov/ency/article/007456.htm",
   "s": "MedlinePlus: Neurosciences"
@@ -105,6 +138,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The brainstem",
    "The spinal cord",
    "The cerebral cortex"
+  ],
+  "qd": "The eyes, along with the nerves that serve them",
+  "qw": [
+   "The brainstem, which controls breathing",
+   "The spinal cord, which runs down the back",
+   "The cerebral cortex, the outer layer of the brain"
   ],
   "e": "The brainstem, spinal cord, and cerebral cortex make up the central nervous system. The peripheral nervous system is everything outside the brain and spinal cord.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000089.htm",
@@ -119,6 +158,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The process that causes blood to clot",
    "The process that secretes hormones that regulate body processes"
   ],
+  "qd": "The process that moves food through the gastrointestinal system",
+  "qw": [
+   "The process that moves information from the sense organs to the brain",
+   "The process that causes blood to clot after an injury",
+   "The process that secretes hormones to regulate body processes"
+  ],
   "e": "Peristalsis is rhythmic muscle contraction that moves food along the digestive tract.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000097.htm",
   "s": "MedlinePlus: Peristalsis"
@@ -131,6 +176,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The parathyroid gland",
    "The adrenal gland",
    "The pancreas"
+  ],
+  "qd": "The pituitary gland",
+  "qw": [
+   "The parathyroid gland",
+   "The adrenal gland",
+   "The thyroid gland"
   ],
   "e": "The pituitary gland controls other endocrine glands through its hormones, which is why it is called the master gland.",
   "u": "https://medlineplus.gov/ency/imagepages/9971.htm",
@@ -145,6 +196,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Regulation of calcium levels in the blood",
    "Movement of glucose from the blood into the cells of the body"
   ],
+  "qd": "The female reproductive system",
+  "qw": [
+   "The male reproductive system",
+   "Regulation of calcium levels in the blood",
+   "Movement of glucose from the blood into the cells"
+  ],
   "e": "Progesterone prepares and maintains the uterus during the menstrual cycle and pregnancy.",
   "u": "https://medlineplus.gov/hormones.html",
   "s": "MedlinePlus: Hormones"
@@ -154,6 +211,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "A person is exposed to influenza but does not become ill because he had received an influenza vaccine three weeks before",
   "c": 8,
   "w": [
+   "A person is exposed to influenza but does not become ill because he is always very careful about washing hands",
+   "An infant does not become sick with influenza, despite being too young to receive the vaccine, because everyone around him has received it",
+   "A person is exposed to influenza but does not become ill because he was wearing a mask at the time"
+  ],
+  "qd": "A person is exposed to influenza but does not become ill because he had received an influenza vaccine three weeks before",
+  "qw": [
    "A person is exposed to influenza but does not become ill because he is always very careful about washing hands",
    "An infant does not become sick with influenza, despite being too young to receive the vaccine, because everyone around him has received it",
    "A person is exposed to influenza but does not become ill because he was wearing a mask at the time"
@@ -171,6 +234,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The spinal column",
    "Only in times of strong immune system response"
   ],
+  "qd": "Muscle activity, massage, and breathing",
+  "qw": [
+   "The pumping of the heart and the arteries",
+   "The spinal column and the nerves that run through it",
+   "Only during a strong immune response to infection"
+  ],
   "e": "Lymph has no pump of its own. Skeletal muscle movement, breathing, and massage push it through one-way lymph vessels.",
   "u": "https://medlineplus.gov/ency/article/002247.htm",
   "s": "MedlinePlus: Lymph system"
@@ -180,6 +249,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Homeostasis",
   "c": 0,
   "w": [
+   "Metabolism",
+   "Hemostasis",
+   "Pathology"
+  ],
+  "qd": "Homeostasis",
+  "qw": [
    "Metabolism",
    "Hemostasis",
    "Pathology"
@@ -197,6 +272,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Symptom",
    "Organ"
   ],
+  "qd": "Metabolism",
+  "qw": [
+   "Homeostasis",
+   "Hematology",
+   "Pathophysiology"
+  ],
   "e": "Metabolism covers all the chemical reactions that turn food and other substances into energy and useful products.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
   "s": "MedlinePlus: Definitions of Health Terms"
@@ -206,6 +287,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Signs",
   "c": 0,
   "w": [
+   "Symptoms",
+   "Organs",
+   "Tissues"
+  ],
+  "qd": "Signs",
+  "qw": [
    "Symptoms",
    "Organs",
    "Tissues"
@@ -223,6 +310,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Cells",
    "Metabolism"
   ],
+  "qd": "Symptoms",
+  "qw": [
+   "Diagnoses",
+   "Findings",
+   "Metabolism"
+  ],
   "e": "Symptoms are subjective. Only the patient can feel them, such as pain, dizziness, or nausea.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
   "s": "MedlinePlus: Definitions of Health Terms"
@@ -235,6 +328,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Cell",
    "Tissue",
    "Metabolism"
+  ],
+  "qd": "Organ",
+  "qw": [
+   "System",
+   "Organelle",
+   "Gland"
   ],
   "e": "An organ is made of several tissues working together to perform a specific function, such as the heart.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
@@ -249,6 +348,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Cell",
    "System"
   ],
+  "qd": "Tissue",
+  "qw": [
+   "Organism",
+   "Organ",
+   "Membrane"
+  ],
   "e": "Tissue is a group of similar cells that work together, such as muscle or nerve tissue.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
   "s": "MedlinePlus: Definitions of Health Terms"
@@ -261,6 +366,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Tissue",
    "Organ",
    "Lymph node"
+  ],
+  "qd": "Cell",
+  "qw": [
+   "Molecule",
+   "Tissue",
+   "Atom"
   ],
   "e": "The cell is the smallest living unit of the body, and all tissues and organs are built from cells.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
@@ -275,6 +386,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Lateral",
    "Superior"
   ],
+  "qd": "Anterior (ventral)",
+  "qw": [
+   "Proximal (closer to the trunk)",
+   "Lateral (away from the midline)",
+   "Superior (toward the head)"
+  ],
   "e": "Anterior, or ventral, means toward the front of the body.",
   "u": "https://medlineplus.gov/ency/article/002346.htm",
   "s": "MedlinePlus: Distal"
@@ -284,6 +401,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Distal",
   "c": 0,
   "w": [
+   "Proximal",
+   "Medial",
+   "Inferior"
+  ],
+  "qd": "Distal",
+  "qw": [
    "Proximal",
    "Medial",
    "Inferior"
@@ -301,6 +424,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Distal",
    "Superior"
   ],
+  "qd": "Medial",
+  "qw": [
+   "Lateral",
+   "Distal",
+   "Superior"
+  ],
   "e": "Medial means toward the midline. The chest is medial to the arm.",
   "u": "https://medlineplus.gov/ency/article/002255.htm",
   "s": "MedlinePlus: Medial"
@@ -310,6 +439,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Inferior",
   "c": 0,
   "w": [
+   "Superior",
+   "Anterior",
+   "Medial"
+  ],
+  "qd": "Inferior",
+  "qw": [
    "Superior",
    "Anterior",
    "Medial"
@@ -327,6 +462,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Medial",
    "Proximal"
   ],
+  "qd": "Posterior (dorsal)",
+  "qw": [
+   "Superior (toward the head)",
+   "Lateral (to the side)",
+   "Anterior (ventral)"
+  ],
   "e": "Posterior, or dorsal, means toward the back of the body.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
   "s": "MedlinePlus: Definitions of Health Terms"
@@ -336,6 +477,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Lateral",
   "c": 0,
   "w": [
+   "Medial",
+   "Proximal",
+   "Anterior"
+  ],
+  "qd": "Lateral",
+  "qw": [
    "Medial",
    "Proximal",
    "Anterior"
@@ -353,6 +500,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Distal",
    "Posterior"
   ],
+  "qd": "Superior",
+  "qw": [
+   "Inferior",
+   "Distal",
+   "Posterior"
+  ],
   "e": "Superior means higher, toward the head. The nose is superior to the mouth.",
   "u": "https://medlineplus.gov/healthdefinitions/generalhealthdefinitions.html",
   "s": "MedlinePlus: Definitions of Health Terms"
@@ -362,6 +515,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Proximal",
   "c": 0,
   "w": [
+   "Distal",
+   "Lateral",
+   "Dorsal"
+  ],
+  "qd": "Proximal",
+  "qw": [
    "Distal",
    "Lateral",
    "Dorsal"
@@ -379,6 +538,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The lungs",
    "The intestines"
   ],
+  "qd": "The skin (integumentary system)",
+  "qw": [
+   "The liver and its bile system",
+   "The lungs and airway system",
+   "The intestines and digestive tract"
+  ],
   "e": "The integumentary system is the skin with its hair, nails, and glands. It is the largest organ system.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
   "s": "MedlinePlus: Components of skin"
@@ -391,6 +556,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Oxygen and nutrients",
    "Blood cells",
    "Hormones"
+  ],
+  "qd": "Microorganisms and other harmful substances",
+  "qw": [
+   "Oxygen, nutrients, and the body's own blood cells",
+   "Blood cells and other body fluids",
+   "Hormones and the chemicals they carry"
   ],
   "e": "Intact skin is a physical barrier that keeps germs and harmful substances out of the body.",
   "u": "https://medlineplus.gov/immunesystemanddisorders.html",
@@ -405,6 +576,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Nutrients",
    "Hormones"
   ],
+  "qd": "Water and moisture from the body",
+  "qw": [
+   "Blood and plasma from the vessels",
+   "Nutrients and minerals from food",
+   "Hormones and enzymes from glands"
+  ],
   "e": "The skin's outer layer slows water loss, and keeping enough water in the body is essential to life.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
   "s": "MedlinePlus: Components of skin"
@@ -417,6 +594,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Gland",
    "Muscle",
    "Bone"
+  ],
+  "qd": "Receptor (sensory organ)",
+  "qw": [
+   "Sensory gland (secretory organ)",
+   "Muscle fiber (contractile unit)",
+   "Bone marrow (blood-forming tissue)"
   ],
   "e": "Nerve receptors in the skin detect heat, cold, pain, touch, and pressure.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
@@ -431,6 +614,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Harden",
    "Disappear"
   ],
+  "qd": "Widen (dilate)",
+  "qw": [
+   "Harden and stiffen",
+   "Shrink and collapse",
+   "Stop carrying blood"
+  ],
   "e": "Widening lets more blood reach the skin, so heat can leave the body.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
   "s": "MedlinePlus: Components of skin"
@@ -443,6 +632,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Widen (dilate)",
    "Freeze",
    "Stop carrying blood"
+  ],
+  "qd": "Narrow (constrict)",
+  "qw": [
+   "Widen and stretch",
+   "Swell and harden",
+   "Fill with air"
   ],
   "e": "Narrowing reduces blood flow to the skin and keeps heat in the body's core.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
@@ -457,6 +652,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Lymph nodes",
    "Glands"
   ],
+  "qd": "Blood vessels (in the dermis)",
+  "qw": [
+   "Nerve fibers (in the dermis)",
+   "Lymph nodes (in the dermis)",
+   "Sweat glands (in the dermis)"
+  ],
   "e": "Capillaries are the smallest blood vessels, and they sit in the dermis, the inner layer of skin.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
   "s": "MedlinePlus: Components of skin"
@@ -470,6 +671,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Hypodermis (subcutaneous)",
    "Stratum corneum"
   ],
+  "qd": "Dermis",
+  "qw": [
+   "Epidermis",
+   "Hypodermis (subcutaneous layer)",
+   "Stratum corneum (outer layer)"
+  ],
   "e": "The dermis is the inner, middle layer of skin, containing blood vessels, nerves, and hair follicles.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000029.htm",
   "s": "MedlinePlus: Components of skin"
@@ -481,6 +688,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "w": [
    "Dermis",
    "Hypodermis",
+   "Subcutaneous layer"
+  ],
+  "qd": "Epidermis",
+  "qw": [
+   "Hypodermis",
+   "Stratum basale (inner layer)",
    "Subcutaneous layer"
   ],
   "e": "The epidermis is the outer layer. It has no blood vessels and receives nutrients from the dermis below.",
@@ -496,6 +709,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Enzyme",
    "Platelet"
   ],
+  "qd": "Antibody (immune protein)",
+  "qw": [
+   "Hormone (chemical messenger)",
+   "Enzyme (protein catalyst)",
+   "Platelet (clotting cell fragment)"
+  ],
   "e": "IgE is an antibody the immune system makes during allergic reactions.",
   "u": "https://medlineplus.gov/ency/article/000821.htm",
   "s": "MedlinePlus: Immune response"
@@ -508,6 +727,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Erythrocytes (red blood cells)",
    "Thrombocytes (platelets)",
    "Lymphocytes that make hormones"
+  ],
+  "qd": "Eosinophils (a type of white blood cell)",
+  "qw": [
+   "Neutrophils (a type of white blood cell)",
+   "Platelets (cell fragments that clot)",
+   "Erythrocytes (red blood cells)"
   ],
   "e": "Allergies can raise the eosinophil count, a type of white blood cell, so a CBC can show it.",
   "u": "https://medlineplus.gov/bloodcounttests.html",
@@ -522,6 +747,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Only the heart and lungs",
    "Blood vessels and nerves"
   ],
+  "qd": "Muscles, bones, ligaments, tendons, and cartilage",
+  "qw": [
+   "Skin, fat, and the connective tissue beneath it",
+   "The heart, lungs, and the digestive organs",
+   "Blood vessels, nerves, and the glands they serve"
+  ],
   "e": "The body's shape comes from the musculoskeletal structures: muscles, bones, ligaments, tendons, and cartilage.",
   "u": "https://medlineplus.gov/ency/imagepages/19399.htm",
   "s": "MedlinePlus: The structure of a joint"
@@ -531,6 +762,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "206",
   "c": 2,
   "w": [
+   "215",
+   "240",
+   "300"
+  ],
+  "qd": "206",
+  "qw": [
    "215",
    "240",
    "300"
@@ -548,6 +785,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Digest them",
    "Filter them"
   ],
+  "qd": "Protect them from injury and shield them from blows",
+  "qw": [
+   "Pump blood through them and out to the lungs",
+   "Digest the food stored in them each day",
+   "Filter the blood through tiny vessels inside them"
+  ],
   "e": "Bones form a hard shell that shields the organs inside, such as the skull around the brain.",
   "u": "https://medlineplus.gov/ency/imagepages/19399.htm",
   "s": "MedlinePlus: The structure of a joint"
@@ -557,6 +800,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "A joint",
   "c": 2,
   "w": [
+   "A tendon",
+   "A ligament",
+   "A muscle"
+  ],
+  "qd": "A joint",
+  "qw": [
    "A tendon",
    "A ligament",
    "A muscle"
@@ -574,6 +823,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Cartilage",
    "Blood vessels"
   ],
+  "qd": "Muscles",
+  "qw": [
+   "Nerve impulses",
+   "Cartilage pads",
+   "Blood pressure"
+  ],
   "e": "Muscles contract and pull on bones through tendons, which produces movement.",
   "u": "https://medlineplus.gov/ency/imagepages/19089.htm",
   "s": "MedlinePlus: Tendon vs. ligament"
@@ -586,6 +841,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "All muscles move only when a person wants them to",
    "Only heart muscle is voluntary",
    "Muscles cannot be controlled by the nervous system"
+  ],
+  "qd": "Not all muscles are voluntary; heart and smooth muscle work without conscious control",
+  "qw": [
+   "All muscles move only when a person consciously chooses to move them",
+   "Only heart muscle is voluntary, and skeletal muscle moves on its own",
+   "Muscles cannot be controlled by the nervous system, so they move on their own"
   ],
   "e": "Skeletal muscle is voluntary. Cardiac and smooth muscle are involuntary.",
   "u": "https://medlineplus.gov/ency/imagepages/19089.htm",
@@ -600,6 +861,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Blood cells",
    "Cartilage"
   ],
+  "qd": "Heat, through contraction and shivering",
+  "qw": [
+   "Hormones and other chemical messengers",
+   "Blood cells and platelets for clotting",
+   "Cartilage and connective tissue"
+  ],
   "e": "Muscle activity produces heat, which helps keep the body warm.",
   "u": "https://medlineplus.gov/ency/imagepages/19089.htm",
   "s": "MedlinePlus: Tendon vs. ligament"
@@ -612,6 +879,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "In all directions",
    "Only in a circle around its center",
    "It does not move"
+  ],
+  "qd": "In one plane, like the elbow or knee",
+  "qw": [
+   "In all directions, like a ball and socket",
+   "Only in a circle around its center",
+   "It does not move, to keep the joint stable"
   ],
   "e": "A hinge joint bends and straightens in one plane. The elbow and knee are hinge joints.",
   "u": "https://medlineplus.gov/ency/imagepages/19399.htm",
@@ -626,6 +899,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Only the marrow needs oxygen",
    "Only the joints need oxygen"
   ],
+  "qd": "Yes, bone tissue is living and needs oxygen and nutrients",
+  "qw": [
+   "No, bones are hard and do not need oxygen or nutrients",
+   "Only the outer covering needs oxygen",
+   "Only the joints need oxygen and nutrients"
+  ],
   "e": "Bone is living tissue with its own blood supply. The statement that bones need no oxygen is false.",
   "u": "https://medlineplus.gov/ency/imagepages/19399.htm",
   "s": "MedlinePlus: The structure of a joint"
@@ -635,6 +914,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Tendons",
   "c": 2,
   "w": [
+   "Ligaments",
+   "Cartilage",
+   "Nerves"
+  ],
+  "qd": "Tendons",
+  "qw": [
    "Ligaments",
    "Cartilage",
    "Nerves"
@@ -652,6 +937,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "A stool test",
    "A sweat test"
   ],
+  "qd": "Blood tests for certain antibodies",
+  "qw": [
+   "A urine test for certain proteins",
+   "A stool sample for bacteria",
+   "A sweat test for salt levels"
+  ],
   "e": "Blood tests for specific antibodies, such as rheumatoid factor, can help diagnose arthritis.",
   "u": "https://medlineplus.gov/arthritis.html",
   "s": "MedlinePlus: Arthritis"
@@ -664,6 +955,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Gives the body shape and structure",
    "Is the largest organ in the body",
    "Pumps blood through the blood vessels to the cells"
+  ],
+  "qd": "Controls and coordinates body functions",
+  "qw": [
+   "Pumps blood through vessels to every cell",
+   "Gives the skeleton its shape and strength",
+   "Stores fat and regulates body heat"
   ],
   "e": "The nervous system controls and coordinates body functions through electrical and chemical signals.",
   "u": "https://medlineplus.gov/ency/article/007456.htm",
@@ -678,6 +975,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Neurons and receptors",
    "The body and the brain"
   ],
+  "qd": "The central nervous system and peripheral nervous system",
+  "qw": [
+   "The cardiovascular system and integumentary system",
+   "The sensory system and the endocrine system",
+   "The neurons and receptors of the body"
+  ],
   "e": "The central nervous system is the brain and spinal cord. The peripheral nervous system is the nerves outside them.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000016.htm",
   "s": "MedlinePlus: Brain components"
@@ -691,6 +994,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Receptor",
    "Ossicle"
   ],
+  "qd": "Neuron (the nerve cell)",
+  "qw": [
+   "Synapse (the junction between nerves)",
+   "Receptor (sensory structure)",
+   "Ossicle (tiny bone in the ear)"
+  ],
   "e": "A neuron is the nerve cell. It receives and sends electrical signals.",
   "u": "https://medlineplus.gov/ency/article/007456.htm",
   "s": "MedlinePlus: Neurosciences"
@@ -701,6 +1010,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "c": 3,
   "w": [
    "Brain",
+   "Cerebrum",
+   "Right hemisphere"
+  ],
+  "qd": "Nerves",
+  "qw": [
+   "Spinal cord",
    "Cerebrum",
    "Right hemisphere"
   ],
@@ -717,6 +1032,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The brainstem",
    "The cerebellum"
   ],
+  "qd": "Cerebrospinal fluid",
+  "qw": [
+   "Synovial fluid from the joints",
+   "The nerve sheath called myelin",
+   "Lymph fluid from the lymph nodes"
+  ],
   "e": "Cerebrospinal fluid surrounds and cushions the brain and spinal cord.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000016.htm",
   "s": "MedlinePlus: Brain components"
@@ -729,6 +1050,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Brainstem",
    "Cerebellum",
    "Right hemisphere"
+  ],
+  "qd": "Cerebral cortex",
+  "qw": [
+   "Brainstem",
+   "Cerebellum",
+   "Medulla oblongata"
   ],
   "e": "The cerebral cortex is the outer layer of the cerebrum and controls thinking, speech, and voluntary movement.",
   "u": "https://medlineplus.gov/ency/article/007456.htm",
@@ -743,6 +1070,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Both sides of the body",
    "Memory"
   ],
+  "qd": "The right side of the body",
+  "qw": [
+   "The left side of the body",
+   "Both sides of the body",
+   "Only the eyes and ears"
+  ],
   "e": "Each hemisphere controls the opposite side of the body.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000016.htm",
   "s": "MedlinePlus: Brain components"
@@ -756,6 +1089,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Jerky movements",
    "Emotions and speech"
   ],
+  "qd": "Breathing and swallowing",
+  "qw": [
+   "Balance and fine motor coordination",
+   "Memory and learning of new skills",
+   "Emotions and speech"
+  ],
   "e": "The brainstem controls automatic functions such as breathing, heart rate, and swallowing.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000016.htm",
   "s": "MedlinePlus: Brain components"
@@ -765,6 +1104,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "The brain and the body",
   "c": 3,
   "w": [
+   "The heart and the blood",
+   "The cerebrum and cerebellum",
+   "The muscles and the bones"
+  ],
+  "qd": "The brain and the body",
+  "qw": [
    "The heart and the blood",
    "The cerebrum and cerebellum",
    "The muscles and the bones"
@@ -782,6 +1127,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Neurons and receptors",
    "The heart and lungs"
   ],
+  "qd": "The brain and spinal cord",
+  "qw": [
+   "The skull and the vertebral column",
+   "The muscles and the joints",
+   "The heart and lungs"
+  ],
   "e": "The brain and spinal cord together make up the central nervous system.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000089.htm",
   "s": "MedlinePlus: Nerve conduction"
@@ -791,6 +1142,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Eyes, ears, nose, tongue, and skin",
   "c": 3,
   "w": [
+   "Heart, lungs, liver, kidneys, and skin",
+   "Brain, spinal cord, nerves, eyes, and ears",
+   "Stomach, intestines, bladder, skin, and nose"
+  ],
+  "qd": "Eyes, ears, nose, tongue, and skin",
+  "qw": [
    "Heart, lungs, liver, kidneys, and skin",
    "Brain, spinal cord, nerves, eyes, and ears",
    "Stomach, intestines, bladder, skin, and nose"
@@ -808,6 +1165,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Lens",
    "Sclera"
   ],
+  "qd": "Retina (light-sensing layer)",
+  "qw": [
+   "Cornea (clear front layer)",
+   "Lens (focusing structure)",
+   "Sclera (white outer wall)"
+  ],
   "e": "The retina contains light-sensitive cells that send signals through the optic nerve to the brain.",
   "u": "https://medlineplus.gov/ency/article/002291.htm",
   "s": "MedlinePlus: Retina"
@@ -820,6 +1183,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Pinna, cochlea, and retina",
    "Cornea, lens, and iris",
    "Brain, nerve, and eardrum"
+  ],
+  "qd": "Outer ear, middle ear, and inner ear",
+  "qw": [
+   "Pinna, cochlea, and eardrum, each with its own fluid",
+   "Cornea, lens, and the iris, with the retina behind",
+   "Brain, nerve, and eardrum, linked by the ossicles"
   ],
   "e": "The outer ear collects sound, the middle ear carries it through the ossicles, and the inner ear holds the hearing and balance organs.",
   "u": "https://www.nidcd.nih.gov/health",
@@ -834,6 +1203,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "To confirm Parkinson's disease by itself",
    "To check the strength of the spinal nerves"
   ],
+  "qd": "To look for infection, blood sugar problems, or clotting problems, and rule out other causes",
+  "qw": [
+   "To measure the size of the brain and the blood flow inside it",
+   "To confirm Parkinson's disease by itself, since no other tests are needed for the diagnosis",
+   "To check how strong the spinal nerves are when the patient moves"
+  ],
   "e": "No single blood test diagnoses stroke or Parkinson's. Tests help find causes and rule out others that can look similar.",
   "u": "https://medlineplus.gov/lab-tests/",
   "s": "MedlinePlus: Medical Tests"
@@ -843,6 +1218,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "In the lungs",
   "c": 4,
   "w": [
+   "In the heart",
+   "In the stomach",
+   "In the kidneys"
+  ],
+  "qd": "In the lungs",
+  "qw": [
    "In the heart",
    "In the stomach",
    "In the kidneys"
@@ -860,6 +1241,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Coughing",
    "Swallowing"
   ],
+  "qd": "Breathing out",
+  "qw": [
+   "Holding the breath",
+   "Breathing in",
+   "Swallowing"
+  ],
   "e": "Expiration is breathing out. Inspiration is breathing in.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000018.htm",
   "s": "MedlinePlus: Breathing"
@@ -873,6 +1260,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Digests food and absorbs nutrients",
    "Filters waste from the blood"
   ],
+  "qd": "Brings oxygen into the body and eliminates carbon dioxide",
+  "qw": [
+   "Pumps blood to every cell and then returns it to the heart",
+   "Digests food and absorbs nutrients into the bloodstream",
+   "Filters waste from the blood and stores it in the bladder"
+  ],
   "e": "The respiratory system takes in oxygen and removes carbon dioxide.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000059.htm",
   "s": "MedlinePlus: Gas exchange"
@@ -882,6 +1275,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "The trachea",
   "c": 4,
   "w": [
+   "The larynx",
+   "The pharynx",
+   "The bronchus"
+  ],
+  "qd": "The trachea",
+  "qw": [
    "The larynx",
    "The pharynx",
    "The bronchus"
@@ -899,6 +1298,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Between the pleura and the trachea",
    "Between the veins and the arteries"
   ],
+  "qd": "Between the alveoli and the capillaries",
+  "qw": [
+   "Between the bronchi and the larynx",
+   "Between the pleura and the trachea",
+   "Between the veins and the arteries"
+  ],
   "e": "Gas exchange happens across the thin walls shared by the alveoli and the capillaries.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000059.htm",
   "s": "MedlinePlus: Gas exchange"
@@ -908,6 +1313,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Covers the lungs",
   "c": 4,
   "w": [
+   "Lines the stomach",
+   "Covers the brain",
+   "Forms the heart valves"
+  ],
+  "qd": "Covers the lungs",
+  "qw": [
    "Lines the stomach",
    "Covers the brain",
    "Forms the heart valves"
@@ -925,6 +1336,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The larynx",
    "The alveoli"
   ],
+  "qd": "The trachea",
+  "qw": [
+   "The pharynx",
+   "The larynx",
+   "The alveoli"
+  ],
   "e": "The trachea divides into the right and left main bronchi. The pharynx is the throat, above the trachea.",
   "u": "https://medlineplus.gov/ency/imagepages/19379.htm",
   "s": "MedlinePlus: Lower respiratory tract"
@@ -937,6 +1354,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The pulmonary artery",
    "The vena cava",
    "The aorta"
+  ],
+  "qd": "The pulmonary vein",
+  "qw": [
+   "The pulmonary artery",
+   "The superior vena cava",
+   "The coronary sinus"
   ],
   "e": "The pulmonary veins carry oxygen-rich blood from the lungs to the left atrium.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
@@ -951,6 +1374,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The pulmonary veins",
    "Special tissue that protects the respiratory system from pathogens"
   ],
+  "qd": "Lubricating fluid",
+  "qw": [
+   "Protective mucus from the trachea",
+   "Air trapped between the two layers",
+   "Blood from the pulmonary veins"
+  ],
   "e": "A thin layer of pleural fluid lets the two pleural layers glide during breathing.",
   "u": "https://medlineplus.gov/pleuraldisorders.html",
   "s": "MedlinePlus: Pleural disorders"
@@ -963,6 +1392,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Capillaries",
    "Venules",
    "Veins"
+  ],
+  "qd": "Arteries (arterial blood)",
+  "qw": [
+   "Capillaries (fingertip blood)",
+   "Venules (small venous vessels)",
+   "Veins (venous blood)"
   ],
   "e": "Arterial blood gas tests use arterial blood, which shows how well the lungs are moving oxygen and carbon dioxide.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -977,6 +1412,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Breaking down food into nutrients",
    "Carrying air to the alveoli"
   ],
+  "qd": "Filtering wastes and excess water from the blood",
+  "qw": [
+   "Pumping blood through the heart and lungs",
+   "Breaking down food into nutrients for cells",
+   "Carrying air to the alveoli in the lungs"
+  ],
   "e": "The urinary system filters blood, removes wastes, and balances water and salts. It also helps control blood pressure.",
   "u": "https://medlineplus.gov/urineandurination.html",
   "s": "MedlinePlus: Urine and Urination"
@@ -986,6 +1427,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Kidneys, ureters, urinary bladder, and urethra",
   "c": 5,
   "w": [
+   "Lungs, trachea, bronchi, and alveoli",
+   "Stomach, liver, pancreas, and intestines",
+   "Brain, spinal cord, nerves, and retina"
+  ],
+  "qd": "Kidneys, ureters, urinary bladder, and urethra",
+  "qw": [
    "Lungs, trachea, bronchi, and alveoli",
    "Stomach, liver, pancreas, and intestines",
    "Brain, spinal cord, nerves, and retina"
@@ -1003,6 +1450,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The ureters",
    "The urethra"
   ],
+  "qd": "The kidneys",
+  "qw": [
+   "The bladder",
+   "The ureters",
+   "The urethra"
+  ],
   "e": "The kidneys filter the blood and make urine from wastes and excess water.",
   "u": "https://medlineplus.gov/kidneydiseases.html",
   "s": "MedlinePlus: Kidney Diseases"
@@ -1012,6 +1465,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Kidneys, ureters, bladder, urethra",
   "c": 5,
   "w": [
+   "Kidneys, bladder, ureters, urethra",
+   "Kidneys, urethra, bladder, ureters",
+   "Bladder, kidneys, ureters, urethra"
+  ],
+  "qd": "Kidneys, ureters, bladder, urethra",
+  "qw": [
    "Kidneys, bladder, ureters, urethra",
    "Kidneys, urethra, bladder, ureters",
    "Bladder, kidneys, ureters, urethra"
@@ -1029,6 +1488,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Lipid panel",
    "Arterial blood gas"
   ],
+  "qd": "Renal function panel (kidney function panel)",
+  "qw": [
+   "Liver function panel (hepatic panel) with bilirubin",
+   "Lipid panel (cholesterol and triglyceride profile)",
+   "Arterial blood gas (ABG) panel for pH and oxygen"
+  ],
   "e": "A renal function panel measures waste products such as creatinine and BUN to check how well the kidneys work.",
   "u": "https://medlineplus.gov/lab-tests/creatinine-test/",
   "s": "MedlinePlus: Creatinine test"
@@ -1041,6 +1506,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Reading the urine culture under a microscope",
    "Prescribing antibiotics",
    "Ordering a kidney ultrasound"
+  ],
+  "qd": "Collecting a urine specimen",
+  "qw": [
+   "Ordering a urine culture for the lab",
+   "Prescribing antibiotics for the patient",
+   "Reading the ultrasound of the kidney"
   ],
   "e": "Collecting a clean urine specimen for testing is a task that can be assigned to a phlebotomy technician.",
   "u": "https://medlineplus.gov/ency/article/000521.htm",
@@ -1055,6 +1526,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Absorption",
    "Peristalsis"
   ],
+  "qd": "Defecation (elimination)",
+  "qw": [
+   "Digestion (breakdown of food)",
+   "Absorption (uptake of nutrients)",
+   "Peristalsis (wave-like muscle movement)"
+  ],
   "e": "Defecation expels the undigested and unabsorbed waste from the rectum.",
   "u": "https://medlineplus.gov/ency/imagepages/8735.htm",
   "s": "MedlinePlus: Lower digestive anatomy"
@@ -1067,6 +1544,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Digestion",
    "Absorption",
    "Defecation"
+  ],
+  "qd": "Peristalsis (wave-like muscle movement)",
+  "qw": [
+   "Digestion (breakdown of food into smaller pieces)",
+   "Absorption (uptake of nutrients into the blood)",
+   "Defecation (elimination of undigested waste)"
   ],
   "e": "Peristalsis is the wave-like muscle movement that pushes food down the digestive tract.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000097.htm",
@@ -1081,6 +1564,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Peristalsis",
    "Excretion"
   ],
+  "qd": "Absorption (uptake of nutrients)",
+  "qw": [
+   "Digestion (breakdown of food)",
+   "Excretion (removal of urine)",
+   "Peristalsis (wave-like movement)"
+  ],
   "e": "Absorption moves nutrients across the intestinal wall into the blood and lymph.",
   "u": "https://medlineplus.gov/ency/imagepages/19221.htm",
   "s": "MedlinePlus: Small intestine"
@@ -1093,6 +1582,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Chyme",
    "Bile",
    "Urine"
+  ],
+  "qd": "Feces (stool)",
+  "qw": [
+   "Chyme (semiliquid food mixture)",
+   "Bile (digestive fluid from the liver)",
+   "Urine (filtered waste from the kidneys)"
   ],
   "e": "Feces are the solid waste the large intestine forms and eliminates.",
   "u": "https://medlineplus.gov/ency/imagepages/8735.htm",
@@ -1107,6 +1602,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Defecation",
    "Peristalsis"
   ],
+  "qd": "Digestion (breaking food down)",
+  "qw": [
+   "Absorption (moving nutrients into cells)",
+   "Defecation (expelling waste)",
+   "Peristalsis (wave-like movement)"
+  ],
   "e": "Digestion breaks food down mechanically and chemically into nutrients the cells can absorb.",
   "u": "https://medlineplus.gov/ency/imagepages/19221.htm",
   "s": "MedlinePlus: Small intestine"
@@ -1120,6 +1621,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Feces",
    "Mucus"
   ],
+  "qd": "Chyme (partly digested food mixture)",
+  "qw": [
+   "Bile (digestive fluid from the liver)",
+   "Feces (solid waste from the colon)",
+   "Mucus (protective lining secretion)"
+  ],
   "e": "Chyme is the partly digested food mixture that leaves the stomach for the small intestine.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000097.htm",
   "s": "MedlinePlus: Peristalsis"
@@ -1131,6 +1638,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "w": [
    "The gallbladder",
    "The liver",
+   "The pancreas"
+  ],
+  "qd": "The stomach",
+  "qw": [
+   "The gallbladder",
+   "The small intestine",
    "The pancreas"
   ],
   "e": "The stomach is a muscular pouch in the upper left abdomen where food is churned and mixed.",
@@ -1146,6 +1659,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Brain, spinal cord, and nerves",
    "Skin, hair, and nails"
   ],
+  "qd": "Teeth, tongue, salivary glands, liver, and pancreas",
+  "qw": [
+   "Lungs, heart, kidneys, spleen, bladder, and the uterus",
+   "Brain, spinal cord, nerves, eyes, ears, and the nose",
+   "Skin, hair, nails, sweat glands, the thyroid, and the spleen"
+  ],
   "e": "The accessory organs help digestion without being part of the digestive tube itself.",
   "u": "https://medlineplus.gov/ency/imagepages/9790.htm",
   "s": "MedlinePlus: Gastrointestinal tract"
@@ -1158,6 +1677,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Liver biopsy",
    "Colonoscopy",
    "Urine culture"
+  ],
+  "qd": "Fecal occult blood test",
+  "qw": [
+   "Liver biopsy of the portal tissue",
+   "Colonoscopy with sedation and imaging",
+   "Urine culture for bacterial growth"
   ],
   "e": "The fecal occult blood test checks stool for hidden blood and is CLIA-waived.",
   "u": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfClia/testswaived.cfm",
@@ -1172,6 +1697,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The lungs",
    "The thyroid"
   ],
+  "qd": "The liver and bile ducts",
+  "qw": [
+   "The kidneys and urinary tract",
+   "The lungs and airway tissue",
+   "The thyroid and parathyroid glands"
+  ],
   "e": "A hepatic (liver) function panel measures enzymes and bilirubin that show how the liver is working.",
   "u": "https://medlineplus.gov/lab-tests/liver-function-tests/",
   "s": "MedlinePlus: Liver function tests"
@@ -1184,6 +1715,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Nerves",
    "Muscles",
    "Vessels"
+  ],
+  "qd": "Glands that release hormones",
+  "qw": [
+   "Nerve cells and their branches",
+   "Muscle fibers and tendons",
+   "Blood vessels and lymph channels"
   ],
   "e": "Endocrine glands release hormones directly into the blood, and they are spread across the body.",
   "u": "https://medlineplus.gov/ency/article/002351.htm",
@@ -1198,6 +1735,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Nerves",
    "Platelets"
   ],
+  "qd": "Hormones (chemical messengers)",
+  "qw": [
+   "Antibodies (immune proteins)",
+   "Nerve impulses",
+   "Platelets (clotting cell fragments)"
+  ],
   "e": "Hormones are chemical messengers that control many body functions.",
   "u": "https://medlineplus.gov/hormones.html",
   "s": "MedlinePlus: Hormones"
@@ -1210,6 +1753,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Insulin, glucagon, and thyroxine",
    "Adrenaline, estrogen, and testosterone",
    "Melatonin, cortisol, and aldosterone"
+  ],
+  "qd": "Growth hormone, prolactin, and adrenocorticotropic hormone (ACTH)",
+  "qw": [
+   "Insulin, glucagon, and thyroxine from the pancreas",
+   "Adrenaline, estrogen, and testosterone from the gonads",
+   "Melatonin, cortisol, and aldosterone from the adrenal glands"
   ],
   "e": "The pituitary releases growth hormone, prolactin, and ACTH, among others. The wrong options come from other glands.",
   "u": "https://medlineplus.gov/ency/imagepages/9971.htm",
@@ -1224,6 +1773,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "In the chest; heart rate",
    "In the pelvis; reproduction"
   ],
+  "qd": "In the neck; the body's metabolic rate",
+  "qw": [
+   "In the neck; blood calcium levels",
+   "In the abdomen; the body's metabolic rate",
+   "In the chest; the body's heart rate"
+  ],
   "e": "The thyroid sits in the neck and its hormones set the rate of metabolism.",
   "u": "https://medlineplus.gov/ency/imagepages/9971.htm",
   "s": "MedlinePlus: Pituitary and TSH"
@@ -1237,6 +1792,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Sodium",
    "Iron"
   ],
+  "qd": "Calcium in the blood and bones",
+  "qw": [
+   "Glucose in the blood and cells",
+   "Sodium and potassium in body fluids",
+   "Iron stored in the liver"
+  ],
   "e": "Parathyroid hormone raises blood calcium levels when they are low.",
   "u": "https://medlineplus.gov/ency/article/002351.htm",
   "s": "MedlinePlus: Endocrine glands"
@@ -1247,6 +1808,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "c": 7,
   "w": [
    "The thyroid",
+   "The adrenal glands",
+   "The pituitary gland"
+  ],
+  "qd": "The pancreas",
+  "qw": [
+   "The thyroid gland",
    "The adrenal glands",
    "The pituitary gland"
   ],
@@ -1263,6 +1830,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Eating a meal",
    "Routine daily tasks"
   ],
+  "qd": "Stressful or emergency situations",
+  "qw": [
+   "Deep sleep and quiet rest periods during the night",
+   "Eating a large meal slowly with family members",
+   "Routine daily tasks and paperwork at the office"
+  ],
   "e": "Adrenaline prepares the body for fight or flight during stress or emergencies.",
   "u": "https://medlineplus.gov/ency/article/002219.htm",
   "s": "MedlinePlus: Adrenal glands"
@@ -1275,6 +1848,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Insulin",
    "Calcium",
    "Hemoglobin"
+  ],
+  "qd": "Glucose (blood sugar)",
+  "qw": [
+   "Insulin levels in the plasma",
+   "Calcium and phosphate levels",
+   "Hemoglobin and red cell count"
   ],
   "e": "Blood glucose monitoring shows how much sugar is in the blood so treatment can be adjusted.",
   "u": "https://www.cdc.gov/diabetes/diabetes-testing/index.html",
@@ -1289,6 +1868,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Recovery from surgery",
    "Menopause"
   ],
+  "qd": "Pregnancy",
+  "qw": [
+   "Childhood growth spurts and puberty",
+   "Recovery from major surgery",
+   "Menopause and the years after"
+  ],
   "e": "CDC describes gestational diabetes screening during pregnancy, usually between 24 and 28 weeks.",
   "u": "https://www.cdc.gov/diabetes/about/gestational-diabetes.html",
   "s": "CDC: Gestational Diabetes"
@@ -1298,6 +1883,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Gonads",
   "c": 7,
   "w": [
+   "Adrenals",
+   "Ureters",
+   "Urethras"
+  ],
+  "qd": "Gonads",
+  "qw": [
    "Adrenals",
    "Ureters",
    "Urethras"
@@ -1315,6 +1906,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Adrenaline",
    "Estrogen"
   ],
+  "qd": "Testosterone (the main male sex hormone)",
+  "qw": [
+   "Sperm cells (male reproductive cells)",
+   "Adrenaline (the fight-or-flight hormone)",
+   "Estrogen (the main female sex hormone)"
+  ],
   "e": "Testosterone is the main male sex hormone that supports the male reproductive organs.",
   "u": "https://medlineplus.gov/hormones.html",
   "s": "MedlinePlus: Hormones"
@@ -1328,6 +1925,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Testicles",
    "Sex cells"
   ],
+  "qd": "Ovaries (female gonads)",
+  "qw": [
+   "Eggs (female reproductive cells)",
+   "Testicles (male gonads)",
+   "Sex cells (germ cells)"
+  ],
   "e": "The ovaries are the female gonads. They produce eggs and make estrogen and progesterone.",
   "u": "https://medlineplus.gov/hormones.html",
   "s": "MedlinePlus: Hormones"
@@ -1337,6 +1940,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Estrogen and progesterone",
   "c": 7,
   "w": [
+   "Adrenaline and progesterone",
+   "Testosterone and ADH",
+   "Insulin and testosterone"
+  ],
+  "qd": "Estrogen and progesterone",
+  "qw": [
    "Adrenaline and progesterone",
    "Testosterone and ADH",
    "Insulin and testosterone"
@@ -1354,6 +1963,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Prolactin",
    "Insulin"
   ],
+  "qd": "hCG (human chorionic gonadotropin)",
+  "qw": [
+   "Oxytocin (labor and milk-release hormone)",
+   "Prolactin (milk-production hormone)",
+   "Insulin (blood sugar hormone)"
+  ],
   "e": "hCG is made by the placenta after implantation and shows up in urine and blood.",
   "u": "https://medlineplus.gov/pregnancy.html",
   "s": "MedlinePlus: Pregnancy"
@@ -1366,6 +1981,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Move and speak",
    "Think logically",
    "Fight disease"
+  ],
+  "qd": "Create human life through reproduction",
+  "qw": [
+   "Coordinate movement of the limbs and the spine",
+   "Process and store long-term memories in the brain",
+   "Fight infections in the blood and lymph system"
   ],
   "e": "The reproductive system makes it possible to create new human life.",
   "u": "https://medlineplus.gov/pregnancy.html",
@@ -1380,6 +2001,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Hormones",
    "Enzymes"
   ],
+  "qd": "Microorganisms",
+  "qw": [
+   "Toxins and minerals from food",
+   "Hormones and other chemical messengers",
+   "Enzymes and digestive proteins"
+  ],
   "e": "The immune system defends against bacteria, viruses, and other microorganisms that cause disease.",
   "u": "https://medlineplus.gov/immunesystemanddisorders.html",
   "s": "MedlinePlus: Immune System and Disorders"
@@ -1392,6 +2019,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Acquired (adaptive) immunity",
    "Passive immunity",
    "Artificial immunity"
+  ],
+  "qd": "Innate (nonspecific) immunity",
+  "qw": [
+   "Passive immunity from maternal antibodies",
+   "Artificial immunity from vaccines",
+   "Acquired (adaptive) immunity"
   ],
   "e": "Innate immunity is the protection a person is born with, such as skin and white blood cells.",
   "u": "https://medlineplus.gov/ency/article/000821.htm",
@@ -1406,6 +2039,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Physical barrier immunity",
    "Nonspecific immunity"
   ],
+  "qd": "Acquired (adaptive, specific) immunity",
+  "qw": [
+   "Innate immunity (inherited defense)",
+   "Physical barrier immunity (skin)",
+   "Nonspecific immunity (general defense)"
+  ],
   "e": "Acquired immunity targets a specific germ and builds memory after infection or vaccination.",
   "u": "https://medlineplus.gov/ency/article/000821.htm",
   "s": "MedlinePlus: Immune response"
@@ -1418,6 +2057,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Blood",
    "Air",
    "Bile"
+  ],
+  "qd": "Excess tissue fluid",
+  "qw": [
+   "Carbon dioxide gas",
+   "Digestive bile salts",
+   "Circulating red blood cells"
   ],
   "e": "The lymphatic system drains excess tissue fluid and returns it to the blood.",
   "u": "https://medlineplus.gov/ency/article/002247.htm",
@@ -1432,6 +2077,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Bile",
    "Synovial fluid"
   ],
+  "qd": "Lymph (immune-carrying fluid)",
+  "qw": [
+   "Serum (plasma without clotting factors)",
+   "Bile (digestive fluid from the liver)",
+   "Synovial fluid (joint lubricant)"
+  ],
   "e": "Lymph is the fluid of the lymphatic system and carries white blood cells.",
   "u": "https://medlineplus.gov/ency/article/002247.htm",
   "s": "MedlinePlus: Lymph system"
@@ -1444,6 +2095,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Erythrocytes",
    "Thrombocytes",
    "Neurons"
+  ],
+  "qd": "Lymphocytes (white blood cells)",
+  "qw": [
+   "Erythrocytes (red blood cells)",
+   "Thrombocytes (platelets)",
+   "Neurons (nerve cells)"
   ],
   "e": "Lymphocytes are white blood cells that carry out immune responses.",
   "u": "https://medlineplus.gov/ency/article/002247.htm",
@@ -1458,6 +2115,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Avoiding all contact with germs",
    "Making more red blood cells"
   ],
+  "qd": "Skin and mucous membranes as barriers, inflammation and fever, and white blood cells",
+  "qw": [
+   "Taking antibiotics daily, avoiding all crowds, and drinking extra water every single day",
+   "Avoiding all contact with germs and staying indoors all week during cold and flu season",
+   "Making more red blood cells and platelets in the marrow every day to fight infection"
+  ],
   "e": "Physical barriers, chemical barriers, inflammation, and white blood cells all defend the body.",
   "u": "https://medlineplus.gov/immunesystemanddisorders.html",
   "s": "MedlinePlus: Immune System and Disorders"
@@ -1470,6 +2133,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Eating a balanced diet and sleeping well",
    "Exercise and fresh air",
    "Inheriting it from parents only"
+  ],
+  "qd": "By having the disease (natural infection) and by vaccination (artificial)",
+  "qw": [
+   "Eating a balanced diet and getting enough sleep every single night of the week",
+   "Exercise, fresh air, and a daily walk outside in the neighborhood each morning",
+   "Inheriting it from parents, with no other way to gain it at any point in life"
   ],
   "e": "Natural acquired immunity comes from infection; artificial acquired immunity comes from vaccines.",
   "u": "https://www.cdc.gov/flu/",
@@ -1484,6 +2153,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "It pumps lymph into the arteries",
    "It keeps lymph from clotting"
   ],
+  "qd": "Lymph has no pump, so muscle movement and breathing squeeze lymph toward the heart",
+  "qw": [
+   "It makes lymph nodes produce more antibodies each hour during an active infection",
+   "It pumps lymph directly into the arteries of the legs to speed circulation",
+   "It keeps lymph from clotting inside the vessels and drains the blood in the body"
+  ],
   "e": "Lymph vessels have one-way valves, so muscle and breathing movement moves lymph toward the heart.",
   "u": "https://medlineplus.gov/ency/imagepages/19079.htm",
   "s": "MedlinePlus: Circulation of lymph"
@@ -1496,6 +2171,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Atrium",
    "Valve",
    "Ventricle"
+  ],
+  "qd": "Septum (wall between the sides)",
+  "qw": [
+   "Atrium (upper heart chamber)",
+   "Valve (one-way flap)",
+   "Ventricle (lower heart chamber)"
   ],
   "e": "The septum is the muscular wall between the heart's left and right sides.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
@@ -1510,6 +2191,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Arteries",
    "Septa"
   ],
+  "qd": "Atria (upper chambers)",
+  "qw": [
+   "Ventricles (lower chambers)",
+   "Arteries that carry blood away",
+   "Septa (walls between chambers)"
+  ],
   "e": "The atria are the upper chambers that receive blood coming into the heart.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
   "s": "MedlinePlus: Heart chambers"
@@ -1522,6 +2209,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Relating to the veins that return blood",
    "Relating to the lungs",
    "Relating to the skin"
+  ],
+  "qd": "Relating to the ventricles, the lower chambers that pump blood out",
+  "qw": [
+   "Relating to the atria, the upper chambers that receive blood",
+   "Relating to the veins that return blood to the heart",
+   "Relating to the blood cells made in the bone marrow"
   ],
   "e": "Ventricular means of the ventricles, which pump blood into the arteries.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
@@ -1536,6 +2229,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Purkinje fibers",
    "Semilunar valve"
   ],
+  "qd": "Sinoatrial (SA) node",
+  "qw": [
+   "Atrioventricular (AV) node",
+   "Bundle of His (conduction bundle)",
+   "Semilunar valve (aortic valve)"
+  ],
   "e": "The SA node in the right atrium starts each electrical impulse, so it sets the heart rate.",
   "u": "https://medlineplus.gov/ency/anatomyvideos/000067.htm",
   "s": "MedlinePlus: Heartbeat"
@@ -1548,6 +2247,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Veins",
    "Capillaries",
    "Venules"
+  ],
+  "qd": "Arteries (blood leaving the heart)",
+  "qw": [
+   "Veins (blood returning to the heart)",
+   "Capillaries (exchange vessels)",
+   "Venules (small venous vessels)"
   ],
   "e": "Arteries carry blood away from the heart. Veins carry blood back toward it.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
@@ -1562,6 +2267,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Cells that make platelets",
    "Valves that stop backflow of blood"
   ],
+  "qd": "Specialized fibers in the ventricle walls that conduct electrical impulses",
+  "qw": [
+   "Fibers that carry oxygen from the lungs to the brain and muscles of the arm",
+   "Cells in the bone marrow that make red blood cells for the body",
+   "Valves that stop backflow of blood into the atria during each beat"
+  ],
   "e": "Purkinje fibers spread the heart's electrical impulses through the ventricles.",
   "u": "https://medlineplus.gov/ency/article/000161.htm",
   "s": "MedlinePlus: Sick sinus syndrome"
@@ -1571,6 +2282,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "To examine it by touch with the fingers",
   "c": 9,
   "w": [
+   "To look at it with a magnifying light",
+   "To measure its diameter with a ruler",
+   "To listen to it with a stethoscope"
+  ],
+  "qd": "To examine it by touch with the fingers",
+  "qw": [
    "To look at it with a magnifying light",
    "To measure its diameter with a ruler",
    "To listen to it with a stethoscope"
@@ -1588,6 +2305,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Buffy coat",
    "Hemoglobin"
   ],
+  "qd": "Plasma (straw-colored fluid part of blood)",
+  "qw": [
+   "Serum (plasma without clotting factors)",
+   "Buffy coat (white cells and platelets)",
+   "Hemoglobin (oxygen-carrying protein)"
+  ],
   "e": "Plasma is the straw-colored liquid that carries cells and proteins.",
   "u": "https://medlineplus.gov/blood.html",
   "s": "MedlinePlus: Blood"
@@ -1600,6 +2323,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "White blood cells that fight infection",
    "Cell fragments that help clotting",
    "Antibody-producing cells"
+  ],
+  "qd": "Red blood cells that carry oxygen",
+  "qw": [
+   "White blood cells that fight infection",
+   "Cell fragments that help clotting",
+   "Antibody-producing cells in the lymph"
   ],
   "e": "Erythrocytes are red blood cells. Hemoglobin inside them carries oxygen.",
   "u": "https://medlineplus.gov/ency/imagepages/19510.htm",
@@ -1614,6 +2343,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Platelets that form clots",
    "Plasma proteins"
   ],
+  "qd": "White blood cells that defend the body",
+  "qw": [
+   "Red blood cells that carry oxygen",
+   "Platelets that seal small wounds",
+   "Plasma proteins that carry hormones"
+  ],
   "e": "Leukocytes are white blood cells, and they defend the body against infection.",
   "u": "https://medlineplus.gov/bloodcounttests.html",
   "s": "MedlinePlus: Blood Count Tests"
@@ -1626,6 +2361,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Red blood cells",
    "White blood cells that make antibodies",
    "Plasma proteins"
+  ],
+  "qd": "Platelets, cell fragments that help blood clot",
+  "qw": [
+   "Red blood cells that carry oxygen to the tissues",
+   "White blood cells that make antibodies",
+   "Plasma proteins that carry hormones and nutrients"
   ],
   "e": "Thrombocytes are platelets. They gather at an injury and start the clot.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
@@ -1640,6 +2381,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Platelets",
    "Plasma proteins"
   ],
+  "qd": "A type of white blood cell that drives immune responses (B and T cells)",
+  "qw": [
+   "Red blood cells that carry oxygen to the body's tissues and organs",
+   "Platelets that help the blood clot after an injury to a vessel",
+   "Plasma proteins that carry hormones, nutrients, and waste products"
+  ],
   "e": "Lymphocytes include B and T cells, which produce targeted immune responses.",
   "u": "https://medlineplus.gov/ency/article/000821.htm",
   "s": "MedlinePlus: Immune response"
@@ -1652,6 +2399,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Antibodies made by plasma cells",
    "Enzymes that break down clots",
    "Hormones that regulate blood pressure"
+  ],
+  "qd": "Substances, such as red cell proteins, that the immune system recognizes as foreign",
+  "qw": [
+   "Antibodies made by plasma cells to fight infection and recognize germs in the blood",
+   "Enzymes that break down clots after the healing of a wound and restore normal flow",
+   "Hormones that regulate blood pressure, heart rate, and fluid balance in the body"
   ],
   "e": "Antigens trigger antibody production. Blood types depend on red cell antigens.",
   "u": "https://medlineplus.gov/ency/article/003345.htm",
@@ -1666,6 +2419,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Blood has no antibodies",
    "Blood cannot be transfused"
   ],
+  "qd": "Red blood cells have the Rh (D) antigen",
+  "qw": [
+   "Red blood cells lack the Rh (D) antigen entirely",
+   "Blood has no antibodies against any red cells",
+   "Blood cannot be safely transfused to any patient"
+  ],
   "e": "Rh-positive blood has the Rh antigen on its red cells.",
   "u": "https://medlineplus.gov/rhincompatibility.html",
   "s": "MedlinePlus: Erythroblastosis Fetalis"
@@ -1678,6 +2437,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Bleeding that will not stop",
    "Breakdown of a clot",
    "A low platelet count"
+  ],
+  "qd": "Formation of a blood clot inside a blood vessel that can block blood flow",
+  "qw": [
+   "Bleeding that will not stop after a cut or minor injury to the skin",
+   "Breakdown of a clot by the body's own enzymes over several days",
+   "A low platelet count caused by a disorder of the bone marrow"
   ],
   "e": "Thrombosis is an abnormal clot inside a vessel, which can cause heart attack, stroke, or DVT.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
@@ -1692,6 +2457,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Low blood sugar",
    "Normal blood pressure"
   ],
+  "qd": "The process that stops bleeding after an injury",
+  "qw": [
+   "Breakdown of clots after the wound has healed",
+   "A drop in blood sugar after a meal",
+   "The normal range of blood pressure at rest"
+  ],
   "e": "Hemostasis stops bleeding through vessel constriction, platelet plugs, and clotting.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
   "s": "MedlinePlus: Bleeding Disorders"
@@ -1704,6 +2475,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "A plasma protein that carries oxygen",
    "A type of platelet",
    "A hormone that narrows blood vessels"
+  ],
+  "qd": "An enzyme that converts fibrinogen into fibrin to form a clot",
+  "qw": [
+   "A plasma protein that carries oxygen to the tissues of the body",
+   "A type of platelet that releases clotting signals at a wound",
+   "A hormone that narrows blood vessels after an injury to the body"
   ],
   "e": "Thrombin is the clotting enzyme that makes fibrin from fibrinogen.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
@@ -1718,6 +2495,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "A type of white blood cell",
    "A hormone made by the pancreas"
   ],
+  "qd": "A plasma protein that is converted into fibrin during clotting",
+  "qw": [
+   "A red blood cell pigment that carries oxygen to the tissues",
+   "A type of white blood cell that fights germs in the blood",
+   "A hormone made by the pancreas to lower blood sugar"
+  ],
   "e": "Fibrinogen is a plasma protein. Thrombin turns it into fibrin, the clot's mesh.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
   "s": "MedlinePlus: Bleeding Disorders"
@@ -1730,6 +2513,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "An infection of the blood vessels",
    "A form of blood cancer",
    "A blood type that lacks Rh factor"
+  ],
+  "qd": "An inherited bleeding disorder caused by a shortage of a clotting factor",
+  "qw": [
+   "An infection of the blood vessels that causes bleeding and bruising",
+   "A form of blood cancer that causes the blood to clot too easily",
+   "A blood type that lacks the Rh factor and cannot be transfused"
   ],
   "e": "Hemophilia is inherited. It causes bleeding because a clotting factor is missing or does not work.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
@@ -1744,6 +2533,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "A deposit of fat in the arteries",
    "A type of antibody"
   ],
+  "qd": "A blood clot that stays attached to a vessel wall",
+  "qw": [
+   "A clot that travels through the blood to the lungs",
+   "A deposit of fat that builds up inside the arteries",
+   "A type of antibody made in the bone marrow"
+  ],
   "e": "A thrombus forms and stays in place. A clot that travels is an embolus.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
   "s": "MedlinePlus: Bleeding Disorders"
@@ -1756,6 +2551,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "A clot in a vein of the arm",
    "A collapse of the alveoli",
    "Inflammation of the pleura"
+  ],
+  "qd": "A blockage in the lung's arteries, usually from a clot that traveled from the body",
+  "qw": [
+   "A clot in a vein of the arm that stays in place and grows slowly over many weeks",
+   "A collapse of the alveoli from a lack of surfactant in the lung tissue",
+   "Inflammation of the pleura after a chest infection or a blunt injury to the chest"
   ],
   "e": "A pulmonary embolism blocks blood flow to the lungs. The clot often starts in a leg vein.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
@@ -1770,6 +2571,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Oxygen exchange system",
    "Arterial system"
   ],
+  "qd": "Cardiovascular system",
+  "qw": [
+   "Vein system (venous network)",
+   "Oxygen exchange system (lungs)",
+   "Arterial system (arteries only)"
+  ],
   "e": "The circulatory system and the cardiovascular system are the same system.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
   "s": "MedlinePlus: Heart chambers"
@@ -1783,6 +2590,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The extremities and heart muscle only",
    "The lungs and entire body"
   ],
+  "qd": "The entire body through the aorta",
+  "qw": [
+   "The limbs and the brain only",
+   "The extremities and the heart muscle",
+   "The lungs and the kidneys"
+  ],
   "e": "The right heart sends deoxygenated blood to the lungs. The left heart sends oxygenated blood to the entire body.",
   "u": "https://medlineplus.gov/ency/presentations/100161_1.htm",
   "s": "MedlinePlus: Heart valve anatomy"
@@ -1792,6 +2605,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Keep blood flowing in the correct direction through the heart",
   "c": 10,
   "w": [
+   "Protect the arteries from extreme pressure",
+   "Send electrical signals that cause the heart to contract",
+   "Measure the amount of blood flowing through the heart"
+  ],
+  "qd": "Keep blood flowing in the correct direction through the heart",
+  "qw": [
    "Protect the arteries from extreme pressure",
    "Send electrical signals that cause the heart to contract",
    "Measure the amount of blood flowing through the heart"
@@ -1809,6 +2628,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The semilunar valve",
    "The atrioventricular node"
   ],
+  "qd": "The sinoatrial node",
+  "qw": [
+   "The bundle of His",
+   "The semilunar valve",
+   "The atrioventricular node"
+  ],
   "e": "The sinoatrial node is the heart's main pacemaker.",
   "u": "https://medlineplus.gov/ency/article/000161.htm",
   "s": "MedlinePlus: Sick sinus syndrome"
@@ -1818,6 +2643,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Capillaries",
   "c": 10,
   "w": [
+   "Venules",
+   "Arterioles",
+   "Erythrocytes"
+  ],
+  "qd": "Capillaries",
+  "qw": [
    "Venules",
    "Arterioles",
    "Erythrocytes"
@@ -1835,6 +2666,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Pulmonary arteries",
    "Venules"
   ],
+  "qd": "Arteries (blood leaving the heart)",
+  "qw": [
+   "Veins (blood returning to the heart)",
+   "Pulmonary arteries (lung blood supply)",
+   "Venules (small venous vessels)"
+  ],
   "e": "Arteries carry oxygenated blood from the heart. The pulmonary arteries are an exception.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
   "s": "MedlinePlus: Heart chambers"
@@ -1844,6 +2681,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Tunica media",
   "c": 10,
   "w": [
+   "Tunica intima",
+   "Tunica adventitia",
+   "Tunica variegata"
+  ],
+  "qd": "Tunica media",
+  "qw": [
    "Tunica intima",
    "Tunica adventitia",
    "Tunica variegata"
@@ -1861,6 +2704,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The chambers of the heart",
    "The capillaries"
   ],
+  "qd": "The veins, which hold most of the blood at rest",
+  "qw": [
+   "The arteries, which carry blood under high pressure",
+   "The chambers of the heart, which pump all blood",
+   "The capillaries, which exchange gases with tissue"
+  ],
   "e": "Veins hold most of the blood volume at rest.",
   "u": "https://medlineplus.gov/ency/imagepages/19612.htm",
   "s": "MedlinePlus: Heart chambers"
@@ -1870,6 +2719,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Springy, bouncy",
   "c": 10,
   "w": [
+   "Firm, rope-like",
+   "Dense, tight",
+   "Soft, spongy"
+  ],
+  "qd": "Springy, bouncy",
+  "qw": [
    "Firm, rope-like",
    "Dense, tight",
    "Soft, spongy"
@@ -1887,6 +2742,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "A bit more than one-half",
    "About two-thirds"
   ],
+  "qd": "A bit less than one-half of the blood volume",
+  "qw": [
+   "About one-third of the blood volume",
+   "A bit more than one-half of the blood volume",
+   "About two-thirds of the blood volume"
+  ],
   "e": "Formed elements, mainly red cells, make up about 45 percent of blood volume.",
   "u": "https://medlineplus.gov/blood.html",
   "s": "MedlinePlus: Blood"
@@ -1899,6 +2760,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Entirely made of water",
    "Entirely made of oxygen in oxygenated blood and carbon dioxide in deoxygenated blood",
    "What gives blood its red color"
+  ],
+  "qd": "A combination of water and dissolved substances",
+  "qw": [
+   "Mostly made of red blood cells in suspension",
+   "Entirely made of oxygen and carbon dioxide gas",
+   "The pigment that gives blood its red color"
   ],
   "e": "Plasma is mostly water with dissolved proteins, electrolytes, and nutrients.",
   "u": "https://medlineplus.gov/blood.html",
@@ -1913,6 +2780,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Lymphocytes",
    "Monocytes"
   ],
+  "qd": "Erythrocytes (red blood cells)",
+  "qw": [
+   "Granulocytes (granular white cells)",
+   "Lymphocytes (lymph-borne white cells)",
+   "Monocytes (large white cells)"
+  ],
   "e": "Hemoglobin is the oxygen-carrying protein inside red blood cells.",
   "u": "https://medlineplus.gov/ency/imagepages/19510.htm",
   "s": "MedlinePlus: Hemoglobin"
@@ -1925,6 +2798,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The heart",
    "The kidneys",
    "The tendons"
+  ],
+  "qd": "The bone marrow",
+  "qw": [
+   "The spleen and lymph nodes",
+   "The liver and gallbladder",
+   "The thymus and tonsils"
   ],
   "e": "Blood cells are made in the red bone marrow.",
   "u": "https://medlineplus.gov/bloodcounttests.html",
@@ -1939,6 +2818,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "They have type A antigens, anti-B antibodies, and Rh factor",
    "They will naturally possess anti-Rh antibodies"
   ],
+  "qd": "They have type A antigens, anti-B antibodies, and no Rh factor",
+  "qw": [
+   "They have type B antigens, anti-A antibodies, and no Rh factor",
+   "They have type A antigens, anti-B antibodies, and Rh factor",
+   "They will naturally possess anti-Rh antibodies, which can cause a reaction"
+  ],
   "e": "Type A has A antigens and anti-B antibodies. Negative means no Rh (D) antigen.",
   "u": "https://medlineplus.gov/ency/article/003345.htm",
   "s": "MedlinePlus: Blood typing"
@@ -1948,6 +2833,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "Someone with O negative blood",
   "c": 10,
   "w": [
+   "Someone with AB positive blood",
+   "Someone with A positive blood",
+   "Someone with B positive blood"
+  ],
+  "qd": "Someone with O negative blood",
+  "qw": [
    "Someone with AB positive blood",
    "Someone with A positive blood",
    "Someone with B positive blood"
@@ -1965,6 +2856,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Bright red",
    "Bluish purple"
   ],
+  "qd": "Deep, dark red",
+  "qw": [
+   "Blue-green, like a bruise",
+   "Bright red, like arterial blood",
+   "Bluish purple with a faint shine"
+  ],
   "e": "Venous blood is darker than arterial blood because it carries less oxygen.",
   "u": "https://medlineplus.gov/ency/article/003642.htm",
   "s": "MedlinePlus: CBC blood test"
@@ -1974,6 +2871,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
   "d": "The blood vessel constricts to reduce blood loss",
   "c": 10,
   "w": [
+   "The heart rate slows to reduce blood loss",
+   "Platelets and fibrin form a plug at the site of the injury",
+   "The blood vessel expands to allow clotting materials to flow out"
+  ],
+  "qd": "The blood vessel constricts to reduce blood loss",
+  "qw": [
    "The heart rate slows to reduce blood loss",
    "Platelets and fibrin form a plug at the site of the injury",
    "The blood vessel expands to allow clotting materials to flow out"
@@ -1991,6 +2894,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "The clotting stream",
    "The antibody response"
   ],
+  "qd": "The coagulation cascade",
+  "qw": [
+   "The anticoagulant factor pathway",
+   "The clotting stream of platelets",
+   "The antibody response to infection"
+  ],
   "e": "The coagulation cascade is a chain of clotting factor reactions that forms a clot.",
   "u": "https://medlineplus.gov/bleedingdisorders.html",
   "s": "MedlinePlus: Bleeding Disorders"
@@ -2003,6 +2912,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Red blood cells",
    "Water",
    "White blood cells"
+  ],
+  "qd": "Fibrinogen (a clotting protein)",
+  "qw": [
+   "Red blood cells and their hemoglobin",
+   "Water and dissolved minerals",
+   "White blood cells and platelets"
   ],
   "e": "Serum is plasma without clotting proteins, so fibrinogen is found only in plasma.",
   "u": "https://clsi.org/media/1372/gp41ed7_sample.pdf",
@@ -2017,6 +2932,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Undifferentiated",
    "Routine"
   ],
+  "qd": "Whole blood (unspun, with all components)",
+  "qw": [
+   "Representative (a sample that matches)",
+   "Undifferentiated (not yet classified)",
+   "Routine (standard collection)"
+  ],
   "e": "A whole blood specimen keeps all blood components because the anticoagulant stops clotting.",
   "u": "https://clsi.org/media/1372/gp41ed7_sample.pdf",
   "s": "CLSI: GP41 sample"
@@ -2029,6 +2950,12 @@ export const TEST_2ND_HALF_CARDS: TestCard[] = [
    "Red and white blood cells",
    "Fibrinogen and platelets",
    "White blood cells and fibrinogen"
+  ],
+  "qd": "White blood cells and platelets",
+  "qw": [
+   "Red blood cells and platelets",
+   "Fibrinogen and red blood cells",
+   "White blood cells and plasma proteins"
   ],
   "e": "After centrifugation, the thin middle buffy coat holds white blood cells and platelets.",
   "u": "https://clsi.org/media/1372/gp41ed7_sample.pdf",

@@ -34,8 +34,8 @@ def _facts() -> list[dict]:
         fact(
             TOPIC,
             card["t"],
-            card["d"],
-            card["w"],
+            card.get("qd", card["d"]),
+            card.get("qw", card["w"]),
             card["e"],
             [card["u"]],
             _DIFFICULTY_CYCLE[i % len(_DIFFICULTY_CYCLE)],

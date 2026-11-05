@@ -10,7 +10,6 @@ SPDX-License-Identifier: MPL-2.0
 	import Button from '$lib/ui/Button.svelte';
 	import Card from '$lib/ui/Card.svelte';
 	import PageHeader from '$lib/ui/PageHeader.svelte';
-	import { fitText } from '$lib/ui/fit-text';
 	import type { TestCard } from '$lib/study/diabetes-test-2nd-half';
 
 	interface Props {
@@ -42,8 +41,8 @@ SPDX-License-Identifier: MPL-2.0
 
 	function buildTest(): PracticeQuestion[] {
 		return shuffle(cards).map((card) => {
-			const options = shuffle([card.d, ...card.w]);
-			return { s: card.c, q: card.t, o: options, a: options.indexOf(card.d), e: card.e, u: card.u, src: card.s };
+			const options = shuffle([card.qd, ...card.qw]);
+			return { s: card.c, q: card.t, o: options, a: options.indexOf(card.qd), e: card.e, u: card.u, src: card.s };
 		});
 	}
 
@@ -146,7 +145,7 @@ SPDX-License-Identifier: MPL-2.0
 								onclick={() => pick(i, j)}
 							>
 								<span class="font-mono text-[0.7rem] tracking-[0.2em] {picks[i] === j ? 'text-primary' : 'text-ink-subtle'}">{LETTERS[j]}</span>
-								<span class="block text-sm sm:text-base font-medium leading-snug wrap-break-word" use:fitText={{ min: 11, max: 18 }}>{option}</span>
+								<span class="block text-sm sm:text-base font-medium leading-snug wrap-break-word">{option}</span>
 							</button>
 						{/each}
 					</div>
