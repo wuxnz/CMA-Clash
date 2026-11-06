@@ -5304,3 +5304,16 @@ STUDY_BY_TOPIC["diabetes-test-1st-half"] = [
     }
     for card in _load_test_1st_half_deck()["cards"]
 ]
+
+# Phlebotomy Test Study Guide: one block per question, generated from the deck.
+from classquiz.seed.banks.phlebotomy_test_study import load_deck as _load_phleb_test_deck  # noqa: E402
+
+STUDY_BY_TOPIC["phlebotomy-test-study"] = [
+    {
+        "title": card["t"],
+        "summary": f"{card['d']}. {card['e']}",
+        "url": card["u"],
+        "source": card["s"],
+    }
+    for card in _load_phleb_test_deck()["cards"]
+]

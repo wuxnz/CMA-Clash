@@ -25,6 +25,7 @@ SPDX-License-Identifier: MPL-2.0
 		TEST_2ND_HALF_CATEGORIES
 	} from '$lib/study/diabetes-test-2nd-half';
 	import { TEST_1ST_HALF_CARDS, TEST_1ST_HALF_CATEGORIES } from '$lib/study/diabetes-test-1st-half';
+	import { PHLEB_TEST_CARDS, PHLEB_TEST_CATEGORIES } from '$lib/study/phlebotomy-test-study';
 
 	navbarVisible.visible = true;
 
@@ -62,6 +63,15 @@ SPDX-License-Identifier: MPL-2.0
 			cards: TEST_1ST_HALF_CARDS,
 			categories: TEST_1ST_HALF_CATEGORIES,
 					practiceHref: '/practice-test/diabetes-test-1st-half'
+		},
+		{
+			id: 'phlebotomy-test-study',
+			label: 'Phlebotomy Test Study Guide',
+			title: 'Phlebotomy Test Study Guide questions',
+			lede: 'Questions from the phlebotomy test study guide, in worksheet order. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
+			cards: PHLEB_TEST_CARDS,
+			categories: PHLEB_TEST_CATEGORIES,
+			practiceHref: '/practice-test/phlebotomy-test-study'
 		}
 	];
 

@@ -57,6 +57,7 @@ CERTIFICATIONS = [
             ("phleb-who", "WHO Phlebotomy Safety", 7),
             ("phleb-glucose", "Blood Glucose & POC Testing", 8),
             ("phlebotomy-flashcards-quiz", "Phlebotomy Flashcards Quiz", 9),
+            ("phlebotomy-test-study", "Phlebotomy Test Study Guide", 10),  # 77 questions, source-sheet order
         ],
     },
     {
@@ -108,6 +109,7 @@ TOPIC_QUESTIONS_PER_GAME: dict[str, int] = {
     "diabetes-study-guide": 30,
     "diabetes-test-2nd-half": 20,
     "diabetes-test-1st-half": 20,
+    "phlebotomy-test-study": 20,
 }
 
 
