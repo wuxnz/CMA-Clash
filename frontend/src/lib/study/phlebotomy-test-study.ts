@@ -34,9 +34,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Engineering controls such as safety-engineered needles and tube holders, which the employer must supply.",
   "qw": [
-   "Written warnings posted in the lab, along with a reminder to take extra care during every draw.",
-   "Gloves and gowns only, with the same needles and holders that were used before the rule.",
-   "A yearly training video, with no requirement to supply any new safety-engineered devices."
+   "Administrative controls such as written exposure plans and sharps-disposal schedules, which the employer must supply to staff.",
+   "Work practice controls such as a ban on recapping, with safety devices left for each employee to purchase as needed.",
+   "Hepatitis B vaccination offered to staff, which the employer must supply in place of safety-engineered needles."
   ],
   "e": "OSHA requires employers to evaluate and control exposure, which includes safer devices. Tube holders and safety devices are part of that control.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -53,9 +53,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Activate the safety device and discard it into a sharps container without recapping.",
   "qw": [
-   "Recap it carefully with one hand so the next patient is protected from accidental contact.",
-   "Set it on the tray until the draw is finished, then activate the safety device at the desk.",
-   "Place it in a biohazard bag with the used gauze and tubes for later disposal."
+   "Activate the safety device and place it in a puncture-resistant container at the end of the draw, after labeling the tubes.",
+   "Recap it with the one-handed scoop technique and place it in the sharps container at the end of the draw.",
+   "Leave the safety device open until the patient has been cleared, then activate it and discard it in the sharps container."
   ],
   "e": "Used needles must never be recapped. The safety device should be activated the moment the needle leaves the patient, because the window for a needlestick is open until it is concealed.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -72,9 +72,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "No more than 75 percent full.",
   "qw": [
-   "Completely full, so that no space is wasted and fewer containers are used each week.",
-   "Half full, so the container is light enough to lift and carry to the disposal area.",
-   "Up to the top, as long as the lid closes without needing extra force from the user."
+   "No more than 90 percent full, unless the container lid can still be closed without force.",
+   "No more than 50 percent full, so the container can be moved safely to the disposal area.",
+   "No more than 75 percent by weight, measured on the facility's scale before each disposal."
   ],
   "e": "Overfilled containers require force to close, which can cause a needlestick. Sharps containers should not be filled above 75 percent.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -91,9 +91,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Removing the holder exposes the phlebotomist to the back end of a contaminated needle.",
   "qw": [
-   "It keeps the needle from bending while the used assembly is carried to the disposal area.",
-   "It keeps the needle cool so that the blood left in the hub does not clot before disposal.",
-   "It keeps the needle sterile until the next tube is ready to be filled from the same site."
+   "Removing the holder lets blood drain from the back of the needle, which can contaminate the sample tubes.",
+   "Removing the holder breaks the seal of the safety device, which must then be replaced before disposal.",
+   "Removing the holder causes the needle to retract, which can injure the patient during the disposal step."
   ],
   "e": "OSHA regulations require the tube holder to remain on the entire assembly, with the safety device activated, until it is disposed of as one unit.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -110,9 +110,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Pull the skin firmly downward below the site with the thumb.",
   "qw": [
-   "Place the index and middle fingers in front of the needle to hold the vein in place.",
-   "Spread two fingers on either side of the site to keep the vein from rolling away.",
-   "Press the flat of the palm directly over the site to stop the vein from moving."
+   "Press firmly upward above the site with the index finger to stop the vein from rolling away.",
+   "Pull the skin sideways across the site with two fingers to keep the vein from moving during entry.",
+   "Press the thumb directly over the site to flatten the vein against the tissue below it."
   ],
   "e": "Anchoring from below with the thumb keeps fingers out of the path of the needle. A two-finger spread puts the worker at risk if the patient jumps or someone bumps the worker.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -129,9 +129,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "It moves blood from the syringe into the tube, keeping the fingers out of the way of the needle.",
   "qw": [
-   "It holds the syringe plunger steady so that the pressure in the vein stays constant during the draw.",
-   "It attaches the tourniquet to the syringe so the vein stays filled during the transfer step.",
-   "It cools the blood sample to slow hemolysis while it moves from the syringe to the tube."
+   "It moves blood from the syringe into the tube through a valve that keeps the vacuum constant during the fill.",
+   "It moves blood from the syringe into the tube while keeping the plunger from being pulled back too far.",
+   "It moves blood from the syringe into the tube and locks the needle so it cannot be withdrawn accidentally."
   ],
   "e": "A needle inside the transfer device protects the user. The tube fills from the syringe through the device, which is why OSHA requires one in place of the venipuncture needle.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -148,9 +148,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Hand hygiene, gloves, and other PPE matched to the task, treating all blood as potentially infectious.",
   "qw": [
-   "Gloves only for patients with a known infection listed on the chart before the draw begins.",
-   "Hand washing only after the procedure is finished and the patient has left the room.",
-   "A surgical mask only, since the main risk from blood during a draw is through the air."
+   "Hand hygiene and gloves, with the level of PPE chosen according to the patient's known infection status.",
+   "Gloves and a gown, changed between patients, with eye protection required only for procedures with splash risk.",
+   "Hand hygiene and a mask, with gloves required only when the blood is visibly on the skin of the patient."
   ],
   "e": "Standard precautions apply to every patient, because infection status is not always known. PPE and hand hygiene reduce exposure to blood and body fluids.",
   "u": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/index.html",
@@ -167,9 +167,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Before putting on gloves, and again after removing them, following the CDC hand hygiene steps.",
   "qw": [
-   "Only at the end of the shift, after the last patient has been drawn and the tubes are sent out.",
-   "Only if the gloves tear or become visibly soiled during the venipuncture procedure itself.",
-   "Only after touching the tubes, since the patient's skin is not considered a source of germs."
+   "Before putting on gloves only, since hands are cleaned again automatically when gloves are removed at the sink.",
+   "After removing gloves and before touching the tubes, but not before gloving if the hands look clean.",
+   "Before each tube is filled and after the bandage is applied, following the facility's sanitizer schedule."
   ],
   "e": "CDC hand hygiene guidance calls for cleaning hands at key moments of care, including before and after glove use, to prevent spread of germs.",
   "u": "https://www.cdc.gov/infection-control/hcp/hand-hygiene/index.html",
@@ -186,9 +186,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Wash the area and report the exposure right away, so a post-exposure evaluation can begin as soon as possible.",
   "qw": [
-   "Wait until the end of the shift to report it, so that the incident can be documented with the day's other notes.",
-   "Apply an antiseptic and return to work, since minor exposures rarely need a medical evaluation.",
-   "Ask the patient to reveal their test history first, before any report is made to a supervisor."
+   "Wash the area and document the exposure in the chart, so the treating physician can review it at the next visit.",
+   "Wash the area and report the exposure after the shift, once the tubes have been delivered to the lab safely.",
+   "Wash the area and report the exposure only if the source patient's test results are positive for a bloodborne pathogen."
   ],
   "e": "OSHA requires a documented post-exposure evaluation and follow-up. Prompt reporting allows the evaluation and any prophylaxis to be started in time.",
   "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
@@ -205,9 +205,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Provide PPE such as gloves, gowns, and eye protection at no cost, and make sure it is used correctly.",
   "qw": [
-   "Require employees to buy their own gloves, with the employer posting only a reminder notice.",
-   "Provide PPE only to supervisors, who then decide which employees need it for each shift.",
-   "Provide PPE only for surgery, since phlebotomy is classified as a low-exposure procedure."
+   "Provide PPE such as gloves and gowns, with eye protection left to the employee's discretion for routine draws.",
+   "Provide PPE at no cost, but only to employees who have completed the annual training and signed the form.",
+   "Provide PPE such as gloves and gowns for a fee deducted from pay, with eye protection provided at no cost."
   ],
   "e": "OSHA's bloodborne pathogens standard requires employers to provide appropriate PPE at no cost to employees and to ensure its use.",
   "u": "https://www.osha.gov/bloodborne-pathogens/standards",
@@ -224,9 +224,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "At least two, such as the full name and date of birth, compared with the request form and wristband.",
   "qw": [
-   "One, the patient's full name, confirmed by the collector before the draw begins at the bedside.",
-   "Three, including the room number, medical record number, and the ordering physician's name.",
-   "Two, the room number and the name of the nurse who admitted the patient to the unit."
+   "At least two, such as the full name and medical record number, compared with the request form and wristband.",
+   "At least two, such as the full name and the room number, confirmed with the ordering provider by phone.",
+   "At least two, such as the date of birth and the insurance number, compared with the lab's accession list."
   ],
   "e": "CLSI asks the patient to state their full name and birth date, and the collector compares them with the request form. Room numbers can change and are not patient identifiers.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -243,9 +243,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Ask the patient to state their full name and birth date, rather than asking 'Are you John Doe?'",
   "qw": [
-   "Read the name aloud from the chart and ask the patient to nod if it is correct.",
-   "Ask whether the patient is the person whose name is on the wristband in the room.",
-   "Ask a family member standing nearby to confirm the patient's name and address aloud."
+   "Ask the patient to spell their last name aloud and then state the date of birth, rather than reading the name.",
+   "Ask the patient to state the name on the wristband, then compare the room number with the chart.",
+   "Ask the patient to confirm the name on the requisition, then state the date of birth for the record."
   ],
   "e": "A yes-or-no question invites a polite yes. Asking the patient to state their own name and birth date gives the collector information to compare.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -262,9 +262,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Only when it is attached to the patient and matches what the patient states.",
   "qw": [
-   "Whenever it is taped to the foot of the bed, since it is still in the same room as the patient.",
-   "Whenever it hangs from the bedrail and is visible to the phlebotomist from the doorway.",
-   "Whenever a nurse has said the name aloud at the station that morning before the draw."
+   "Only when it is attached to the patient and the patient has not been moved to a different room since admission.",
+   "Only when it is attached to the patient and the bedside label was printed the same day as the draw.",
+   "Only when it is attached to the patient, and the patient's family has confirmed the name in writing."
   ],
   "e": "Bracelets attached to the bedrail, the bedside table, or the foot of the bed do not identify the patient. Assuming otherwise can treat the wrong person with someone else's results.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -281,9 +281,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "A family member or caregiver, with the verifier's name documented in case the patient is misidentified.",
   "qw": [
-   "The phlebotomist, who should use the room number and bed location to identify the patient.",
-   "The nearest patient on the ward, who can confirm the name of the person in the next bed.",
-   "The physician on call, who should sign the requisition as the only verifier of identity."
+   "A family member or caregiver, with the verifier's signature recorded only if the patient later disputes the result.",
+   "The patient's attending nurse, with the verifier's name documented on the requisition after the draw is complete.",
+   "A family member or caregiver, who may verbally confirm the name without the verifier's identity being recorded."
   ],
   "e": "When a patient cannot give identifying information, a family member or caregiver must provide it. Documenting the verifier allows the error to be traced if one occurs.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -300,9 +300,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Do not draw the patient until the discrepancy is resolved and corrected.",
   "qw": [
-   "Draw the patient and note the mismatch on the tube label so the lab can sort it out later.",
-   "Draw the patient using the name on the requisition, since the requisition is the legal order.",
-   "Ask the patient to choose which name is correct, then draw them under the name they choose."
+   "Do not draw the patient until the discrepancy is noted on the requisition and the ordering provider is informed.",
+   "Draw the patient after the discrepancy is reported to the charge nurse and the shift supervisor on duty.",
+   "Do not draw the patient until the discrepancy is corrected on the wristband by a clerk at the registration desk."
   ],
   "e": "CLSI requires that discrepancies be resolved before the draw. A specimen with the wrong identity is a serious error, not a labeling detail.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -317,11 +317,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Fewer than one percent of all samples collected at the facility in a given calendar month.",
    "Up to five per week, when the lab is very busy and the collector is working alone."
   ],
-  "qd": "Zero.",
+  "qd": "Zero, for each patient and for the facility as a whole in any month.",
   "qw": [
-   "One per month, if the error is reported in writing to the supervisor within one business day.",
-   "Fewer than one percent of all samples collected at the facility in a given calendar month.",
-   "Up to five per week, when the lab is very busy and the collector is working alone."
+   "Zero per person, but up to two per month for the facility as a whole, if each one is documented in writing.",
+   "One per person per month, if the error is reported in writing to the supervisor within one business day.",
+   "Zero per month for the facility, but one per person is allowed when the collector is working alone in a unit."
   ],
   "e": "The course handout states that the acceptable number of mislabeled samples is zero, and that every error should trigger a root-cause review.",
   "u": "https://www.ahrq.gov/patient-safety/index.html",
@@ -336,11 +336,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "It is only required for outpatients, while inpatients are identified by the wristband alone.",
    "It may upset the patient, and privacy law forbids using a patient's name in any question."
   ],
-  "qd": "The patient may answer yes just to be polite, or may misunderstand the name.",
+  "qd": "A patient may answer yes just to be polite, or may misunderstand the name.",
   "qw": [
-   "It takes too long, and the lab will not accept samples collected after a short conversation.",
-   "It is only required for outpatients, while inpatients are identified by the wristband alone.",
-   "It may upset the patient, and privacy law forbids using a patient's name in any question."
+   "A patient may answer yes without hearing the name clearly, but the answer is still counted as a valid identifier.",
+   "A patient may answer yes because the question is leading, which means the answer is recorded as confirmed by default.",
+   "A patient may answer yes if they are hard of hearing, so the question is replaced with a written form at the desk."
   ],
   "e": "Relying on a verbal yes can lead to misidentification. The patient should state their own name in response to an open request.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -357,9 +357,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The procedure to be performed, what the patient may feel, and the patient's consent to the draw.",
   "qw": [
-   "The price of each test and the insurance billing code, since that affects how the lab charges.",
-   "The name of the technician who will process the tubes after collection in the lab.",
-   "The time the results will post, since the ordering physician handles all of the explanation."
+   "The procedure to be performed, how long the draw will take, and the facility's policy on billing disputes.",
+   "The procedure to be performed, what the lab will test, and the patient's right to a copy of the requisition.",
+   "The procedure to be performed, what the patient may feel, and the physician's consent to the draw on the patient's behalf."
   ],
   "e": "Explaining the procedure and obtaining consent is part of patient preparation. Patients should understand what will happen before the needle is inserted.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -376,9 +376,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The arm with a fistula or graft, or the same side as a mastectomy.",
   "qw": [
-   "The non-dominant arm, because its veins are usually smaller and harder to anchor during a draw.",
-   "The arm with the most visible vein, because the vein may collapse once the tourniquet is applied.",
-   "The arm the patient writes with, since the veins on the dominant side are often thinner."
+   "The arm with a fistula or graft only if it is actively in use for dialysis, or the arm with a recent IV infusion.",
+   "The arm on the same side as a mastectomy only when the lymph nodes were removed, or an arm with a cast.",
+   "The arm with a fistula or graft, or any arm with a bruise that is larger than a coin in size."
   ],
   "e": "Draws in a fistula, a graft, or on the mastectomy side are avoided. The arm the patient uses most is not a restriction on its own.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -395,9 +395,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Above an IV line, or in an area with edema, hematoma, scars, or burns.",
   "qw": [
-   "Below the wrist on the back of the hand, which holds the veins closest to the skin surface.",
-   "On the hand of the dominant arm, since the veins there are usually the easiest to reach.",
-   "Over a flat, firm area of the forearm, which keeps the vein stable during the draw."
+   "Below an IV line on the same arm, or in an area with mild bruising, freckles, or a healed surgical scar.",
+   "In an area with edema that is limited to the ankle, or above an IV line that is saline-locked.",
+   "Above an IV line only when the IV is saline-locked, or in an area with superficial varicose veins."
   ],
   "e": "Edema, hematoma, scars, burns, and areas that feel hard or pulsate are unsafe or unreliable sites. A draw above an IV can contaminate the sample.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -414,9 +414,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "With the index finger, never the thumb, because the thumb has its own pulse.",
   "qw": [
-   "With the thumb, which is more sensitive to small changes in the texture of the vein wall.",
-   "With the little finger, which avoids pressing too hard on the surface of the skin.",
-   "With the flat palm, held on the arm for a few seconds at the proposed site before the draw."
+   "With the index finger and middle finger together, which gives a wider reading of the vein's depth.",
+   "With the ring finger, which is more sensitive than the index finger to changes in vein texture.",
+   "With the thumb after the index finger has checked the site, because the thumb reads depth more accurately."
   ],
   "e": "The thumb's own pulse can be mistaken for a vein. The index finger is the recommended palpation finger.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -433,9 +433,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The median cubital vein, then the cephalic, with the basilic vein last.",
   "qw": [
-   "The basilic vein first, because it is the largest and lies near the brachial artery and nerve.",
-   "The cephalic vein first, because it is the most visible vein on the forearm of most adults.",
-   "A dorsal hand vein first, because it is the easiest vein to anchor during a draw."
+   "The cephalic vein, then the median cubital, with the basilic vein used only if the others are unavailable.",
+   "The median basilic vein, then the cephalic, with the median cubital vein last to avoid the brachial artery.",
+   "The median cubital vein, then the basilic, with the cephalic vein last because it lies closest to the skin."
   ],
   "e": "The basilic vein lies close to the brachial artery and median nerve, so it is used last. The median cubital vein is the usual first choice.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -452,9 +452,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "No longer than one minute. If it stays on longer, release it and wait two minutes before reapplying.",
   "qw": [
-   "Up to three minutes, to let the veins fill fully before the needle goes into the skin.",
-   "Until the patient has made a fist at least five times in a row without stopping for breath.",
-   "Until the first tube is filled, and then it stays on until the last tube has been labeled."
+   "No longer than two minutes. If it stays on longer, release it and wait one minute before reapplying.",
+   "No longer than one minute. If it stays on longer, release it immediately and reapply after the patient has rested.",
+   "No longer than one minute per arm. If it stays on longer, release it and wait five minutes before reapplying."
   ],
   "e": "A tourniquet left on too long can change test results. Releasing it and waiting two minutes lets the blood return to normal before another application.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -471,9 +471,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Three to four inches (7.5 to 10 cm) above the site.",
   "qw": [
-   "Directly over the site, so the vein stays closed until the needle is in place for the draw.",
-   "One inch (2.5 cm) below the site, pressed against the bone for a firm seal on the vein.",
-   "At the wrist, far from the site, so that the hand stays warm during the entire draw."
+   "Three to four centimeters (1.5 inches) above the site, snug enough to stop arterial flow.",
+   "Five to six inches (12.5 to 15 cm) above the site, to restrict venous return fully during the draw.",
+   "Three to four inches (7.5 to 10 cm) below the site, so the vein is compressed before the needle enters."
   ],
   "e": "The tourniquet is placed above the site to restrict venous flow and make the vein more prominent. It is not placed directly over the puncture.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -490,9 +490,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Make a fist without pumping it, since pumping can change some test results.",
   "qw": [
-   "Open and close the hand rapidly for fifteen seconds to bring the blood close to the surface.",
-   "Hold the arm straight out with the fingers spread apart as far as they will go comfortably.",
-   "Rest the hand flat on the table, palm up, with the fingers relaxed and open the whole time."
+   "Make a fist and release it once every five seconds to keep the vein filled without pumping it.",
+   "Make a loose fist, pumping gently only if the vein is hard to see at the start of the draw.",
+   "Make a fist and hold it for the whole draw, since pumping is only needed for capillary samples."
   ],
   "e": "Fist pumping raises the potassium level and changes other results. A relaxed fist without pumping keeps the vein full without altering the sample.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -509,9 +509,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "15 to 30 degrees, bevel up.",
   "qw": [
-   "45 to 60 degrees, bevel down, so the needle slides into the vein without catching the wall.",
-   "5 to 10 degrees, bevel down, so the needle stays flat against the vein wall during entry.",
-   "90 degrees, bevel up, pushed straight into the center of the vein in one firm motion."
+   "15 to 30 degrees, bevel down, so the needle enters the vein wall before the bevel flattens.",
+   "30 to 45 degrees, bevel up, so the needle passes through the vein wall at a shallow angle.",
+   "15 to 30 degrees, bevel up, with the tube holder angled at the same degree as the needle."
   ],
   "e": "A shallow angle with the bevel up enters the vein smoothly. A steep angle or a bevel down increases the risk of passing through the vein.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -528,9 +528,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "As soon as blood flow is established in the tube.",
   "qw": [
-   "After the last tube has been filled, so the vein stays dilated throughout the entire draw.",
-   "Before the needle enters the skin, so the vein is not compressed during insertion.",
-   "When the patient reports feeling dizzy, regardless of how far the draw has progressed so far."
+   "Once the first tube is halfway filled, so the flow stays steady for the remaining tubes.",
+   "After the needle is removed from the patient, so the vein stays dilated while the site is covered.",
+   "Once the needle is seated in the vein, before any blood enters the first tube."
   ],
   "e": "Keeping the tourniquet on after flow starts can affect results. Releasing it as flow begins limits the time the tourniquet is in place.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -547,9 +547,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "To mix the additive with the blood immediately, which prevents clotting.",
   "qw": [
-   "To warm the blood so it flows more easily through the needle during the draw.",
-   "To separate the serum from the cells before the sample is sent to the lab.",
-   "To release air bubbles that formed in the tube during the vacuum draw."
+   "To distribute the heat of the blood evenly so the additive does not settle during the transfer.",
+   "To wet the inside wall of the tube so that the additive does not stick to the stopper.",
+   "To prevent the blood from separating into layers before the tube reaches the centrifuge in the lab."
   ],
   "e": "Additive tubes contain anticoagulant or clot activator that must mix with the blood as soon as it enters the tube.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -566,9 +566,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Gently inverted the number of times the tube requires, and never shaken.",
   "qw": [
-   "Shaken vigorously for ten seconds to mix the additive completely with the blood sample.",
-   "Rolled rapidly across the table to spread the additive over the inside wall of the tube.",
-   "Tapped sharply against the palm several times to remove the air bubbles from the blood."
+   "Gently inverted in the same direction each time, then rotated slowly to coat the stopper with additive.",
+   "Gently inverted five to ten times, then shaken lightly to break up any small clots in the tube.",
+   "Inverted once after the tube is full, then left to stand until the additive has settled to the bottom."
   ],
   "e": "Shaking can hemolyze red cells. The course handout says to invert gently and never shake.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -583,11 +583,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Five times, as a gold serum tube does, to start the clotting process in the sample.",
    "Twenty times, rapidly, to make certain the citrate is evenly distributed through the plasma."
   ],
-  "qd": "Three to four times, gently.",
+  "qd": "Three to four gentle inversions, so the citrate mixes without foaming.",
   "qw": [
-   "Eight to ten times, as a lavender EDTA tube does, to mix the anticoagulant fully into the blood.",
-   "Five times, as a gold serum tube does, to start the clotting process in the sample.",
-   "Twenty times, rapidly, to make certain the citrate is evenly distributed through the plasma."
+   "Three to four gentle inversions with the tube held at the fill line, so the citrate does not overflow.",
+   "Five to six gentle inversions, so the citrate mixes at the same rate as the gold serum tube.",
+   "Eight to ten gentle inversions, since light blue citrate needs the same mixing as lavender EDTA."
   ],
   "e": "Light blue citrate tubes are inverted three to four times. Each tube type has its own number, so the handout's chart should be used.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -604,9 +604,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Apply pressure until bleeding stops, bandage the site, and label every tube in the patient's presence.",
   "qw": [
-   "Leave the bandage off so the site can be checked later, then label the tubes at the lab desk.",
-   "Elevate the arm above the head and send the patient to the waiting room to rest alone.",
-   "Remove the gloves and wash the hands, then place the unlabeled tubes in the rack for transport."
+   "Apply pressure for thirty seconds, check the site, and label the tubes after the patient has left the room.",
+   "Apply pressure until bleeding stops, then leave the bandage off for 15 minutes so the site can be inspected.",
+   "Apply pressure until bleeding stops, bandage the site, and label the tubes at the desk before the next patient."
   ],
   "e": "Pressure and a bandage prevent bleeding and hematoma. Labeling in front of the patient confirms identity at the point of collection.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -623,9 +623,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "When only a small sample is needed or when venous access is difficult.",
   "qw": [
-   "When a large volume of blood is needed for a complete panel of chemistry and hematology tests.",
-   "Whenever the patient has a fistula in the arm, since veins there cannot be used for any draw.",
-   "When the patient takes anticoagulants, because capillary blood flows more slowly than venous blood."
+   "When a single small sample is needed for a test that is stable at room temperature for several hours.",
+   "When a large volume is needed, but the veins are too small for the standard winged butterfly needle.",
+   "When only a small sample is needed, but only in patients who are taking anticoagulant therapy."
   ],
   "e": "A capillary puncture uses a lancet on the fingertip or the infant's heel. It is used for small volumes or when veins are hard to access.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -642,9 +642,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The side of the fingertip, rather than the center of the pad.",
   "qw": [
-   "The center of the palm, which has the most blood flow of any site on the hand.",
-   "The big toe, which is easy to reach and rarely causes bruising or pain afterward.",
-   "The inside of the wrist, over the radial artery, where the pulse is strongest."
+   "The center of the fingertip pad, where the capillary beds are largest and most reliably perfused.",
+   "The side of the ring finger, which has fewer nerves than the index or middle finger.",
+   "The heel of the hand, which has the largest capillary beds and is least likely to cause pain."
   ],
   "e": "The lateral side of the finger avoids the nerve-rich pad and reduces pain. The center of the palm and the wrist are not recommended sites.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -661,9 +661,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Blood cultures, light blue citrate, serum (gold or red), green heparin, lavender EDTA, then gray glycolytic inhibitor.",
   "qw": [
-   "Lavender EDTA, green heparin, light blue citrate, gold serum, blood cultures, and then gray.",
-   "Gray glycolytic, lavender EDTA, green heparin, gold serum, light blue citrate, and then cultures.",
-   "Light blue citrate, blood cultures, lavender EDTA, green heparin, gold serum, and then gray."
+   "Blood cultures, light blue citrate, green heparin, gold serum, lavender EDTA, then gray glycolytic inhibitor.",
+   "Light blue citrate, blood cultures, gold serum, lavender EDTA, green heparin, then gray glycolytic inhibitor.",
+   "Blood cultures, light blue citrate, serum (gold or red), lavender EDTA, green heparin, then gray glycolytic inhibitor."
   ],
   "e": "The order runs from the tube least likely to contaminate the next to the most sensitive additives, so that carryover does not change results.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -680,9 +680,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The order of draw: blood cultures, coagulation (citrate), serum, heparin, EDTA, and glycolytic inhibitor (gray).",
   "qw": [
-   "The names of the six tube colors in the order a phlebotomist sees them on the rack.",
-   "The steps of venipuncture, from tourniquet placement to bandaging the site afterward.",
-   "The sizes of needles used for adult, pediatric, and infant blood collection in the clinic."
+   "The order of draw: blood cultures, coagulation (citrate), serum, EDTA, heparin, and glycolytic inhibitor (gray).",
+   "The order of draw: blood cultures, coagulation (citrate), heparin, serum, EDTA, and glycolytic inhibitor (gray).",
+   "The order of draw: blood cultures, coagulation (citrate), serum, heparin, EDTA, and fluoride inhibitor (gray)."
   ],
   "e": "Each word in the mnemonic maps to one tube type in the standard order. The order is the same for glass and plastic tubes.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -699,9 +699,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The tubing holds air, so a discard tube keeps the citrate tube filled to its line and maintains the 9:1 ratio.",
   "qw": [
-   "The discard tube warms the needle so that the light blue citrate tube does not clot inside the holder.",
-   "The discard tube removes the anticoagulant from the tubing so the citrate tube fills more quickly.",
-   "The discard tube collects the first blood, which contains the most white cells for later testing."
+   "The tubing holds saline from the catheter, so a discard tube keeps the citrate tube filled to its line and maintains the 9:1 ratio.",
+   "The tubing holds air, so a discard tube removes clot fragments before the citrate tube is filled to its line.",
+   "The tubing holds anticoagulant residue, so a discard tube keeps the citrate tube from diluting at its line."
   ],
   "e": "Citrate must be drawn to its fill line for the correct blood-to-additive ratio. The first tube after a butterfly fills with air from the tubing.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -718,9 +718,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Transfer of a small amount of blood and additive from one tube into the next tube filled, through the needle.",
   "qw": [
-   "Spilling of the additive out of an overfilled tube when the stopper is removed at the bench.",
-   "Leakage through the tube seal during transport, which dries out the sample before it reaches the lab.",
-   "Mixing of two patients' samples when the labels are printed in the same room at the same time."
+   "Transfer of a small amount of blood and additive from one tube into the next tube filled, through the holder's rubber sleeve.",
+   "Transfer of a small amount of blood and additive from the tube stopper onto the outside of the needle hub.",
+   "Transfer of a small amount of blood from the patient's arm into the tube before the vacuum begins to pull."
   ],
   "e": "Carryover happens when the needle that fills a tube touches the blood and additive already in it. Filling in the recommended order limits its effect.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -737,9 +737,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Potassium is falsely elevated, which can lead to a dangerous wrong result.",
   "qw": [
-   "Potassium is falsely lowered, which is the usual cause of false low sodium values on the report.",
-   "Calcium is falsely raised, while potassium stays the same because EDTA binds only sodium.",
-   "Glucose is falsely lowered, because EDTA stops glycolysis in the serum tube during spinning."
+   "Potassium is falsely lowered, which can mask a true hyperkalemia and delay treatment for the patient.",
+   "Potassium is falsely elevated only in the plasma, while the serum potassium stays within the normal range.",
+   "Calcium is falsely elevated, which can make the serum look hemolyzed when the lab checks the sample."
   ],
   "e": "EDTA is rich in potassium. Carryover into a chemistry tube raises potassium and can lower calcium, which is why EDTA is filled after serum.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -757,8 +757,8 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   "qd": "PT and aPTT can be falsely shortened.",
   "qw": [
    "PT and aPTT can be falsely lengthened, which mimics a clotting disorder in the patient.",
-   "Hemoglobin is falsely lowered, which mimics anemia on the complete blood count report.",
-   "Lactate is falsely raised, which mimics a lack of oxygen in the tissues of the patient."
+   "PT can be falsely shortened, while aPTT stays the same because only the intrinsic pathway is affected.",
+   "Fibrinogen can be falsely raised, which mimics an acute inflammatory response in the patient."
   ],
   "e": "Clot activator in a citrate tube speeds clotting and shortens coagulation times. This is why serum tubes are now filled after coagulation tubes.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -775,9 +775,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Bacteria from the non-sterile stoppers of other tubes can contaminate the culture bottles.",
   "qw": [
-   "Culture bottles must be warmed before other tubes, or the bacteria will not grow in the lab incubator.",
-   "Culture bottles hold the most blood, so they must be filled first before other tubes can be used.",
-   "The lab reads culture bottles first, so the other tubes can wait until the next shift begins."
+   "Bacteria from the patient's skin can enter the other tubes first and then travel into the culture bottles.",
+   "Bacteria from the tube holder's needle can be pushed into the culture bottles when the holder is removed.",
+   "Bacteria from the non-sterile gloves of the collector can contaminate culture bottles only after the tubes are capped."
   ],
   "e": "Culture bottles must stay sterile. Filling them first prevents organisms from other tubes' stoppers from reaching the culture medium.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -792,11 +792,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Hemoglobin A1c and type and screen, which must be kept cold before the blood bank can test them.",
    "Potassium and sodium, which break down if the sample is not spun in a centrifuge within an hour."
   ],
-  "qd": "Ammonia and lactate.",
+  "qd": "Ammonia and lactate, both of which change quickly at room temperature.",
   "qw": [
-   "Glucose and bilirubin, both of which degrade within minutes at room temperature if not spun quickly.",
-   "Hemoglobin A1c and type and screen, which must be kept cold before the blood bank can test them.",
-   "Potassium and sodium, which break down if the sample is not spun in a centrifuge within an hour."
+   "Ammonia and glucose, both of which change quickly at room temperature.",
+   "Lactate and potassium, both of which change quickly at room temperature.",
+   "Glucose and bilirubin, both of which change quickly at room temperature."
   ],
   "e": "Ammonia and lactate change quickly in the tube. Ammonia is placed on ice and spun within about 15 minutes; lactate uses a pre-chilled gray tube.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -813,9 +813,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "K2EDTA, which binds calcium to prevent clotting, used for whole-blood hematology tests.",
   "qw": [
-   "Sodium citrate, which binds calcium to keep plasma liquid for coagulation studies in the lab.",
-   "Lithium heparin, which blocks thrombin so the plasma can be spun right away after the draw.",
-   "Silica clot activator, which speeds clotting so serum separates from the cells in the tube."
+   "K3EDTA, which binds calcium to prevent clotting, used for whole-blood hematology tests.",
+   "Sodium citrate, which binds calcium to prevent clotting, used for whole-blood hematology tests.",
+   "Potassium oxalate, which binds calcium to prevent clotting, used for whole-blood hematology tests."
   ],
   "e": "EDTA stops clotting by binding calcium. Lavender tubes are inverted 8 to 10 times and are used for CBC, hemoglobin A1c, and type and screen.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -832,9 +832,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Lithium heparin, with or without gel, for plasma used in many STAT chemistry tests.",
   "qw": [
-   "Sodium fluoride, which stops glycolysis so that glucose can be measured hours after the draw.",
-   "Potassium oxalate, which binds calcium for coagulation tests such as PT and aPTT in the lab.",
-   "Silica particles, which activate clotting so that serum separates cleanly from the blood cells."
+   "Sodium heparin, with or without gel, for plasma used in many STAT chemistry tests.",
+   "Lithium citrate, with or without gel, for plasma used in many STAT chemistry tests.",
+   "Lithium heparin, with or without gel, for serum used in many STAT chemistry tests."
   ],
   "e": "Heparin is an anticoagulant that lets plasma be spun right away. Green tubes are inverted 8 to 10 times.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -851,9 +851,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Sodium fluoride and potassium oxalate, which preserve glucose and other analytes in the sample.",
   "qw": [
-   "Sodium citrate, which keeps platelets intact so that the lab can count them accurately later.",
-   "EDTA, which prevents clotting so that whole blood can be tested for hemoglobin and hematocrit.",
-   "Heparin, which blocks thrombin so that the plasma stays liquid during transport to the lab."
+   "Sodium fluoride and sodium citrate, which preserve glucose and other analytes in the sample.",
+   "Potassium fluoride and potassium oxalate, which preserve glucose and other analytes in the sample.",
+   "Sodium fluoride and potassium EDTA, which preserve glucose and other analytes in the sample."
   ],
   "e": "Fluoride stops glycolysis, which is why gray tubes are used for glucose, lactate, and blood alcohol. Gray tubes are drawn last.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -870,9 +870,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The glass red-top plain tube, which clots naturally.",
   "qw": [
-   "The light blue citrate tube, which is filled to the line and then held still during transport.",
-   "The gray glycolytic tube, which is inverted once after it has been filled to the top completely.",
-   "The gold serum tube, which is inverted only after it has been spun in the laboratory centrifuge."
+   "The plastic red-top plain tube, which clots naturally.",
+   "The glass red-top tube with a silica activator, which clots within five minutes.",
+   "The glass red-top tube with a gel barrier, which clots naturally and separates on spinning."
   ],
   "e": "Plain red tubes rely on the glass surface to clot. The course handout notes that glass red tubes have no additive and need no inversions.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -889,9 +889,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Clot activator carryover into a citrate tube can shorten PT and aPTT, so serum tubes were moved after coagulation tubes.",
   "qw": [
-   "Serum tubes hold the most blood and must be filled last so that the other tubes are not overfilled.",
-   "Serum tubes are filled after the gray tube so that glucose can be measured before a clot forms.",
-   "Gold tubes are always filled last because the gel must cool before the sample can be poured out."
+   "Clot activator carryover into a lavender tube can shorten CBC counts, so serum tubes were moved after EDTA tubes.",
+   "Heparin carryover into a gold tube can lengthen PT and aPTT, so serum tubes were moved before coagulation tubes.",
+   "Clot activator carryover into a citrate tube can lengthen PT and aPTT, so serum tubes were moved before coagulation tubes."
   ],
   "e": "The order changed in 2003, when plastic tubes replaced glass. Plastic does not activate clotting, so serum carryover into a citrate tube became a risk.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -908,9 +908,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "About 8 to 10 mL per bottle, with the aerobic bottle filled first.",
   "qw": [
-   "About 2 mL per bottle, with the anaerobic bottle filled first to protect oxygen-sensitive germs.",
-   "About 20 mL per bottle, split evenly so that each bottle receives half of the total volume.",
-   "About 15 mL in the aerobic bottle only, with the anaerobic bottle left empty for the lab."
+   "About 8 to 10 mL per bottle, with the anaerobic bottle filled first to protect oxygen-sensitive organisms.",
+   "About 4 to 5 mL per bottle, with the aerobic bottle filled first to maximize growth in the lab.",
+   "About 8 to 10 mL per bottle, with the aerobic and anaerobic bottles filled at the same time."
   ],
   "e": "The course handout gives 8 to 10 mL per bottle for adults. When less than 20 mL is obtained, the handout directs filling the aerobic bottle rather than dividing the sample.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -927,9 +927,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "1 mL of blood for every year of the child's life.",
   "qw": [
-   "1 mL of blood for every ten pounds of body weight, up to a maximum of 5 mL per bottle.",
-   "5 mL for every child under age 12, regardless of the child's weight or exact age in years.",
-   "0.5 mL per kilogram of body weight, with a maximum of 1 mL for any child under age six."
+   "1 mL of blood for every two years of the child's life, up to a maximum of 5 mL per bottle.",
+   "1 mL of blood for every 10 pounds of body weight, up to a maximum of 5 mL per bottle.",
+   "1 mL of blood for every year of the child's life, split equally between the aerobic and anaerobic bottles."
   ],
   "e": "The handout describes this as the recommended pediatric blood culture volume. Underfilled bottles can miss the organism causing a bloodstream infection.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -946,9 +946,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Low-concentration organisms can go undetected or take longer to find, which delays antibiotic therapy.",
   "qw": [
-   "Underfilled bottles let air in, which kills all bacteria before the culture has a chance to grow.",
-   "Underfilled bottles cause the lab to discard the sample without reading it at all, to be safe.",
-   "Underfilled bottles build up pressure during incubation, which can burst the seal on the bottle."
+   "Low-concentration organisms can be killed by the extra air in the bottle, which delays antibiotic therapy.",
+   "Low-concentration organisms can grow faster in underfilled bottles, which produces false positives in the lab.",
+   "Low-concentration organisms can settle to the bottom of the bottle, which delays antibiotic therapy in the lab."
   ],
   "e": "Septicemia can be present at very low concentrations. The handout notes that about 16 percent of unacceptable specimens are underfilled.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -965,9 +965,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "With two identifiers, the date, time, and collector's initials, in the patient's presence, immediately after collection.",
   "qw": [
-   "At the lab desk after the tubes are sent, using the requisition to fill in the details later.",
-   "Once at the start of the shift with the patient's name, then reused for every draw that day.",
-   "By the nurse before the draw, so the phlebotomist can focus on the venipuncture itself."
+   "With two identifiers, the date, time, and collector's initials, in the patient's presence, before the tubes are rack-sorted.",
+   "With two identifiers and the ordering provider's initials, in the patient's presence, immediately after collection.",
+   "With two identifiers, the date, time, and the lab accession number, in the patient's presence, immediately after collection."
   ],
   "e": "The handout says to label every tube in the presence of the patient before leaving. Labels made away from the patient increase the risk of misidentification.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -984,9 +984,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "To separate serum or plasma from the cells so the sample is ready for testing.",
   "qw": [
-   "To mix the additive with the blood so that clotting is prevented inside the tube.",
-   "To warm the sample to body temperature so that the enzymes in it work more accurately.",
-   "To remove air bubbles and sterilize the sample before it is sent to the laboratory."
+   "To separate serum or plasma from the clot so the sample is ready for testing.",
+   "To separate serum or plasma from the gel so the sample can be stored at room temperature.",
+   "To separate plasma from the platelets so the sample can be sent for CBC testing."
   ],
   "e": "Centrifugation separates the liquid part of blood from the cells. Its speed and time must be right, because inadequate spinning leaves platelets in the serum.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -1003,9 +1003,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Placed on ice at once and spun within about 15 minutes.",
   "qw": [
-   "Kept at room temperature for up to two hours before it is spun in the laboratory centrifuge.",
-   "Refrigerated overnight in the same tube that was used for the complete blood count.",
-   "Warmed to body temperature, then spun in a centrifuge for a full hour before testing."
+   "Placed on ice within about 15 minutes and spun within an hour of collection.",
+   "Kept at room temperature and spun within about 15 minutes, with no ice required.",
+   "Placed on ice at once and spun within about 45 minutes, after the tube is inverted eight times."
   ],
   "e": "Ammonia rises quickly in the tube, so it is kept on ice and separated promptly.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1022,9 +1022,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "A documented, unbroken record of handling a specimen, used for forensic, blood alcohol, and drug screen samples.",
   "qw": [
-   "A list of the tubes drawn from each patient, used to match the lab's inventory count at the end of the day.",
-   "A schedule that shows which technician will pick up the specimens from each unit every morning.",
-   "A form that records the patient's insurance and billing codes for each draw in the clinic."
+   "A documented record of handling a specimen, used for forensic and blood alcohol samples, but not for drug screens.",
+   "A documented, unbroken record of handling a specimen, used only for forensic samples sent to outside labs.",
+   "A documented record of the tubes drawn from each patient, used for drug screens and blood alcohol samples."
   ],
   "e": "Chain of custody documents each person who handles a specimen, so that the sample's integrity and identity can be shown in a legal or forensic setting.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1041,9 +1041,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Sodium fluoride stops glycolysis, so the glucose level stays accurate until the sample is spun.",
   "qw": [
-   "Heparin stops clotting, so the glucose can be read directly from whole blood in the tube.",
-   "Potassium oxalate speeds clotting so that glucose separates into the serum layer quickly.",
-   "Citrate binds glucose directly, so its level is preserved for a full day in storage."
+   "Sodium fluoride slows clotting, so the glucose level stays accurate until the sample is spun.",
+   "Sodium fluoride stops glycolysis, so the glucose level stays accurate until the sample is refrigerated.",
+   "Sodium fluoride stops glycolysis only in whole blood, so the glucose level is checked after spinning."
   ],
   "e": "Blood cells keep using glucose after the draw. Fluoride slows that process, which is why gray tubes are used for glucose.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1060,9 +1060,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "A lavender EDTA tube, inverted 8 to 10 times, which prevents clotting.",
   "qw": [
-   "A gold serum tube, inverted five times, which allows the sample to clot before it is tested.",
-   "A light blue citrate tube, filled to the line and inverted three to four times before testing.",
-   "A green heparin tube, centrifuged within 15 minutes to separate the plasma from the cells."
+   "A lavender EDTA tube, inverted 3 to 4 times, which prevents clotting.",
+   "A pink EDTA tube, inverted 8 to 10 times, which prevents clotting in the blood bank.",
+   "A lavender sodium citrate tube, inverted 8 to 10 times, which prevents clotting."
   ],
   "e": "CBC counts cells, so the sample must stay whole blood. EDTA keeps the cells intact for counting.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1079,9 +1079,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "A lavender (or pink) EDTA tube, labeled at the bedside for the blood bank.",
   "qw": [
-   "A gold serum tube, inverted five times, and sent to the lab without a bedside label.",
-   "A light blue citrate tube, filled to the line so the blood bank can clot-test the sample.",
-   "A gray tube, inverted eight times, and held on ice until the blood bank opens each morning."
+   "A light blue citrate tube, labeled at the bedside for the blood bank.",
+   "A lavender (or pink) EDTA tube, labeled at the lab desk for the blood bank.",
+   "A gold serum tube, labeled at the bedside for the blood bank."
   ],
   "e": "The handout lists type and screen in the lavender or pink tube. Blood bank tubes are labeled at the bedside to prevent a transfusion error.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1098,9 +1098,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Rupture of red blood cells, which releases their contents into the serum or plasma.",
   "qw": [
-   "Clumping of white blood cells that forms clots and blocks the needle during the draw.",
-   "Separation of the serum from the cells when a tube is left standing too long before spinning.",
-   "Drying of the blood inside the tube, which thickens the sample and changes its color."
+   "Rupture of white blood cells, which releases their contents into the serum or plasma.",
+   "Rupture of platelets, which releases their contents into the serum or plasma.",
+   "Rupture of red blood cells, which releases their contents into the anticoagulant solution in the tube."
   ],
   "e": "Hemolysis releases hemoglobin and intracellular contents into the sample. It can falsely change many test results and often requires a redraw.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1115,11 +1115,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Sodium and chloride, which become more concentrated when the plasma is spun too quickly.",
    "Calcium and albumin, which bind to the free hemoglobin that is released by the cells."
   ],
-  "qd": "Potassium and magnesium.",
+  "qd": "Potassium and magnesium, which red cells contain in high concentration.",
   "qw": [
-   "Glucose and creatinine, which are lowered when the red cells rupture in the sample.",
-   "Sodium and chloride, which become more concentrated when the plasma is spun too quickly.",
-   "Calcium and albumin, which bind to the free hemoglobin that is released by the cells."
+   "Calcium and chloride, which red cells contain in high concentration.",
+   "Sodium and bicarbonate, which red cells contain in high concentration.",
+   "Glucose and magnesium, which red cells contain in high concentration."
   ],
   "e": "Red cells contain much more potassium and magnesium than plasma. Hemolysis releases these into the sample and raises the reported values.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1136,9 +1136,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Drawing through a needle that is too small, or pulling too hard on a syringe plunger.",
   "qw": [
-   "Letting the tube sit at room temperature for thirty minutes before it is spun in the centrifuge.",
-   "Inverting an additive tube the correct number of times after it has been filled completely.",
-   "Keeping the tourniquet on for less than one minute during the entire draw and release."
+   "Drawing through a needle that is too large for the vein, or letting the tube stand for twenty minutes before inverting.",
+   "Drawing through a needle of the correct gauge, but pulling the plunger slowly to avoid any suction at all.",
+   "Drawing through a 21-gauge needle in a patient with normal veins, or inverting the tube too gently for the additive."
   ],
   "e": "Excessive suction and narrow needles damage red cells. The handout lists rough handling and vigorous mixing among the causes.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1155,9 +1155,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Hemolysis is more likely, and IV fluid can dilute the sample and change the results.",
   "qw": [
-   "IV lines are not sterile enough for culture collection, so the lab cannot use any sample taken from them.",
-   "IV lines are too slow to fill a tube, so the sample starts to clot before the draw is complete.",
-   "IV lines use a needle gauge that the lab cannot read from the requisition, so results are delayed."
+   "Hemolysis is less likely, but IV fluid can clot the sample and change the results.",
+   "Hemolysis is more likely, but IV fluid only affects results for patients taking heparin.",
+   "Hemolysis is more likely, and IV fluid can raise the pH of the sample, changing the results."
   ],
   "e": "The handout notes that IV devices are notorious for hemolyzing red cells. A venipuncture is preferred unless a specific device is in use.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1174,9 +1174,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Forcing clot into the tube removes fibrin and ruptures red cells, which hemolyzes the sample.",
   "qw": [
-   "Clots left in the tube are read by the lab as platelet counts, which must be recorded separately.",
-   "Rimmed clots absorb the additive, so the tube has too little anticoagulant to prevent clotting.",
-   "Rimmed clots raise the temperature of the tube, which changes glucose results during testing."
+   "Forcing clot into the tube adds fibrin, which thickens the sample and raises the reported hematocrit.",
+   "Forcing clot into the tube removes platelets, which prevents the sample from being used for coagulation.",
+   "Forcing clot into the tube removes fibrin, which only affects the glucose result and not the hemolysis index."
   ],
   "e": "Rimming removes fibrin and tears red cells. Clotted specimens are rejected or redrawn, so the clot should not be pushed into the tube.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1193,9 +1193,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Potassium can increase by about 135 percent.",
   "qw": [
-   "Potassium falls by about half, because gas escapes and reduces the volume of the sample.",
-   "Potassium is unchanged, since the stopper only affects the glucose and calcium levels.",
-   "Potassium rises only slightly, by about five percent, which is within the normal range."
+   "Potassium can increase by about 35 percent.",
+   "Potassium can increase by about 13.5 percent.",
+   "Potassium can decrease by about 135 percent."
   ],
   "e": "The handout cites Young's Effects of Preanalytical Variables on Clinical Laboratory Tests. Keep tubes capped during centrifugation.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1212,9 +1212,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Only after the serum or plasma has been separated from contact with the cells.",
   "qw": [
-   "Immediately after the draw, because cold slows all potassium movement out of the red cells.",
-   "Any time before centrifugation, since chilling stops the red cells from leaking potassium.",
-   "Only if the tube is kept upright, with the stopper removed to release any built-up gas pressure."
+   "Only after the sample has been spun for a full five minutes with the stopper removed.",
+   "Only after the tube has been inverted and held upright at room temperature for ten minutes.",
+   "Only after the cells have been discarded and the remaining serum has been transferred to a new tube."
   ],
   "e": "Refrigeration slows potassium leakage only once the cells are separated from the serum or plasma. Unseparated blood should not be chilled for potassium.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1231,9 +1231,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Potassium can increase by about 47 percent.",
   "qw": [
-   "Potassium drops, because the gel absorbs most of the potassium before the second spin begins.",
-   "Glucose rises by about 47 percent, because the gel releases sugar stored inside the cells.",
-   "Sodium rises by about 47 percent, but potassium is not affected by a second spin of the tube."
+   "Potassium can increase by about 74 percent.",
+   "Potassium can increase by about 4.7 percent.",
+   "Potassium can decrease by about 47 percent."
   ],
   "e": "A second spin can release potassium from cells that remain in contact with the serum. This is one of the handout's six preanalytical causes of false potassium.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1250,9 +1250,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Red cells keep leaking potassium into the serum, so potassium reads falsely high within two hours.",
   "qw": [
-   "The serum separates too well, so the sample is rejected as having too little plasma for the test.",
-   "Glucose rises because the gel dissolves and releases sugar into the sample during the delay.",
-   "Platelets clot in the tube, so the sample is rejected for coagulation testing by the laboratory."
+   "Red cells keep leaking glucose into the serum, so glucose reads falsely high within two hours.",
+   "Red cells keep leaking potassium into the serum, so potassium reads falsely high only after twelve hours.",
+   "Red cells keep absorbing potassium from the serum, so potassium reads falsely low within two hours."
   ],
   "e": "Potassium continues to move out of the cells while the sample stands. Prompt separation prevents this shift.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1269,9 +1269,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "It can raise the potassium level by up to 20 percent.",
   "qw": [
-   "It lowers potassium by about 20 percent, since muscle activity uses up the mineral in the blood.",
-   "It has no effect on potassium, but it can change the chloride level slightly in the sample.",
-   "It raises potassium only in patients who are already taking potassium supplements or diuretics."
+   "It can raise the potassium level by up to 2 percent.",
+   "It can lower the potassium level by up to 20 percent.",
+   "It can raise the sodium level by up to 20 percent."
   ],
   "e": "Fist pumping pushes potassium out of muscle into the blood at the site of the draw. The handout cites this as a cause of false potassium elevation.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -1288,9 +1288,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "It can rupture red cells, which hemolyzes the specimen.",
   "qw": [
-   "It makes the blood clot faster by pulling platelets in from the wall of the vein during the draw.",
-   "It makes the serum look clearer, which can hide lipemia from the lab on the final report.",
-   "It increases the hematocrit, which the lab corrects automatically during the testing process."
+   "It can rupture platelets, which prevents the specimen from being used for coagulation.",
+   "It can rupture white cells, which releases enzymes that falsely raise the lipase result.",
+   "It can rupture red cells, which only affects glucose and not the hemolysis index."
   ],
   "e": "Hard pulling on a syringe creates suction that damages red cells. Gentle, steady pressure keeps the sample intact.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1307,9 +1307,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Too much anticoagulant for the blood volume damages red cell membranes and can give erroneous results.",
   "qw": [
-   "Full tubes spin faster in the centrifuge, which helps platelets separate more cleanly from the plasma.",
-   "Full tubes hold more air, which keeps the sample from freezing during transport to the lab.",
-   "Full tubes are easier to label, since the barcode sits on the fullest part of the tube body."
+   "Too little anticoagulant for the blood volume allows clot formation and can give erroneous results.",
+   "Too much anticoagulant for the blood volume thickens the plasma and slows the analyzer's sampling.",
+   "Too much blood volume for the anticoagulant damages white cell membranes and can give erroneous results."
   ],
   "e": "The handout notes that an excessive concentration of anticoagulant in an underfilled tube is hard on fragile red cell membranes. Fill each tube to its line.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1326,9 +1326,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Stop the draw, remove the needle with the safety device activated, and lower the patient to a safe position.",
   "qw": [
-   "Keep the needle in place and continue drawing, since the vein refills before the next tube is needed.",
-   "Give the patient a glass of water and ask them to stand up to reset their circulation quickly.",
-   "Call the lab and ask whether the tubes already filled can still be processed before the patient wakes."
+   "Stop the draw, leave the needle in place, and raise the patient's legs above the heart to restore circulation.",
+   "Stop the draw, remove the needle, and have the patient sit upright with the head between the knees immediately.",
+   "Stop the draw, remove the needle without activating the device, and call the lab for instructions on the tubes."
   ],
   "e": "Syncope is a vasovagal response triggered by emotional or physical stress. Immediate patient care takes priority over any tubes already drawn.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1345,9 +1345,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Remove the needle, apply firm pressure, and do not reattempt a draw in the same vein.",
   "qw": [
-   "Massage the area firmly to spread the blood out, then draw from the same vein right away.",
-   "Apply a warm compress and draw from the other arm, but leave the first site uncovered.",
-   "Wait ten minutes for the swelling to settle, then reinsert the needle at the same site."
+   "Remove the needle, apply a cold pack, and reattempt the draw in the same vein after ten minutes of rest.",
+   "Remove the needle, apply firm pressure, and reattempt in the same vein only if the bleeding has stopped.",
+   "Leave the needle in, apply firm pressure, and reattempt in the same vein after the bleeding slows."
   ],
   "e": "A hematoma is a collection of blood under the skin from a leaking vein. It requires stopping the draw and pressure, and a new site should be chosen.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1364,9 +1364,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Stop immediately and remove the needle, since nerve injury can be permanent.",
   "qw": [
-   "Push the needle a little deeper to reach the vein, since pain usually means a vein is close by.",
-   "Keep drawing quickly to finish before the pain increases in intensity during the procedure.",
-   "Ask the patient to hold still while you adjust the needle angle slightly and continue the draw."
+   "Stop immediately and reposition the needle slightly, since nerve contact can resolve without further treatment.",
+   "Stop only if the pain continues after one minute, then remove the needle and apply a cold pack.",
+   "Stop immediately and leave the needle in while the patient is evaluated, since removal can injure the nerve."
   ],
   "e": "Shooting pain suggests the needle is touching a nerve. Continuing risks complex regional pain syndrome, so the needle must be removed.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1383,9 +1383,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The blood is bright red, pulses or spurts, and flows faster than venous blood.",
   "qw": [
-   "The blood is dark red, flows slowly, and fills the tube evenly without any pulsing at all.",
-   "The blood is pale pink with bubbles, and the tube fills only halfway before the flow stops.",
-   "The blood is brown and thick, and the needle clogs as soon as the tube is attached to the holder."
+   "The blood is bright red, but flows steadily without pulsing and fills the tube more slowly than venous blood.",
+   "The blood is dark red and pulses, but flows slowly and fills the tube with visible air bubbles.",
+   "The blood is bright red and pulses, but flows only when the tourniquet is released, not during the draw."
   ],
   "e": "Arterial blood is bright red and pulsates. If an artery is punctured, pressure must be applied for several minutes and the draw should be reported.",
   "u": "https://medlineplus.gov/ency/article/003423.htm",
@@ -1402,9 +1402,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The HIPAA Privacy Rule, which limits how protected health information is used and shared.",
   "qw": [
-   "The Clean Air Act, which governs air exchange and filtration in patient rooms and laboratories.",
-   "The Food, Drug, and Cosmetic Act, which regulates the labeling of medicines and medical devices.",
-   "The Medicare Conditions of Participation, which set staffing limits for nurses and phlebotomists."
+   "The HIPAA Security Rule, which limits how protected health information is stored and transmitted electronically.",
+   "The HIPAA Breach Notification Rule, which requires reporting of lost or stolen protected health information.",
+   "The HIPAA Transactions Rule, which standardizes electronic billing and claim formats for healthcare providers."
   ],
   "e": "The HIPAA Privacy Rule protects identifiable patient information. Collectors handle this information during identification, labeling, and requisitions.",
   "u": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html",
@@ -1421,9 +1421,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Mislabeling or drawing the wrong patient, since the lab tests whatever sample it receives.",
   "qw": [
-   "Using a room that is too warm, which causes the sample to spoil before it reaches the laboratory.",
-   "Pausing too long between tubes, which lets the first tube clot inside the holder before it fills.",
-   "Using the wrong color of tourniquet, which can change how the veins look during the draw."
+   "Hemolysis during the draw, since the lab cannot detect a damaged sample once it is labeled correctly.",
+   "Underfilling of tubes, since the lab cannot detect a low volume once the tube is labeled correctly.",
+   "Delayed transport to the lab, since the lab cannot detect elapsed time once the sample is labeled correctly."
   ],
   "e": "The lab can detect some problems, but it cannot know whether a sample came from the right patient. Identification at collection prevents these errors.",
   "u": "https://www.ahrq.gov/patient-safety/index.html",
@@ -1440,9 +1440,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Report the error, document it, and cooperate with a root-cause review.",
   "qw": [
-   "Discard the sample quietly and redraw, so the error does not appear on any record kept by the facility.",
-   "Tell the patient the error was a lab problem, so that the phlebotomist is not held responsible.",
-   "Wait until the next shift and mention the error only if the patient asks about it later."
+   "Report the error to the supervisor verbally, and document it only if a patient complains about the result.",
+   "Report the error, correct the record, and cooperate with a review that is limited to the individual's own errors.",
+   "Report the error after the patient has been discharged, and cooperate with a review limited to the lab's records."
   ],
   "e": "The handout describes root-cause analysis and facility-wide training after errors. Honest reporting protects patients and the collector.",
   "u": "https://www.ahrq.gov/patient-safety/index.html",
@@ -1459,9 +1459,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "The NHA code of ethics for certified phlebotomy technicians.",
   "qw": [
-   "The AMA code of medical ethics, which governs all physicians in outpatient and hospital settings.",
-   "The hospital visitor policy, which sets the rules for family members in patient rooms.",
-   "The state nursing practice act, which governs all clinical staff who draw blood on the unit."
+   "The NHA code of ethics for certified medical assistants, which covers phlebotomy as one of many duties.",
+   "The NHA code of conduct for certified phlebotomy technicians, which covers only the lab's billing practices.",
+   "The AMA code of ethics for certified phlebotomy technicians, which governs all healthcare employees."
   ],
   "e": "The handout lists the NHA code of ethics as the standard applicable to phlebotomy practice. The NHA certifies phlebotomy technicians.",
   "u": "https://www.nhanow.com/certifications/ccma",
@@ -1478,9 +1478,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Review the requisition for tests, timing, fasting, and special handling, then assemble the supplies.",
   "qw": [
-   "Lay out the tubes in the rack by color, then ask the patient to choose the arm for the draw.",
-   "Put on gloves and apply the tourniquet, then check the requisition after the first tube is filled.",
-   "Clean the site with alcohol, then check the patient's name against the wristband and the chart."
+   "Review the requisition for the ordering physician's name, then confirm the patient's insurance before assembling the supplies.",
+   "Assemble the supplies, then review the requisition for tests, timing, fasting, and special handling.",
+   "Review the requisition for the test priority only, then assemble the supplies and greet the patient."
   ],
   "e": "The first step in the venipuncture checklist is reviewing the requisition and assembling supplies before the patient is approached.",
   "u": "https://clsi.org/shop/standards/pre02/",
