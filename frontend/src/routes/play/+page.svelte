@@ -84,6 +84,8 @@ SPDX-License-Identifier: MPL-2.0
 		unbindPlayPageSocketHandlers
 	} from '$lib/play/play-page-socket';
 	import { browser } from '$app/environment';
+	import { replaceState } from '$app/navigation';
+	import { page } from '$app/state';
 	import { onDestroy } from 'svelte';
 	const { t } = getLocalization();
 
@@ -100,6 +102,15 @@ SPDX-License-Identifier: MPL-2.0
 		const payloadPin = normalizePlayPin(payload?.game_pin);
 		const active = normalizePlayPin(game_pin);
 		return payloadPin.length >= 6 && active.length >= 6 && payloadPin === active;
+	}
+
+	/** Keep the match code in the URL so a refresh (or the same link) can rejoin without typing it. */
+	function syncPinToUrl(pin: string) {
+		if (!browser) return;
+		const normalized = normalizePlayPin(pin);
+		if (normalized.length < 6) return;
+		if (normalizePlayPin(page.url.searchParams.get('pin')) === normalized) return;
+		replaceState(`/play?pin=${normalized}`, page.state);
 	}
 
 	function resetPlayStateForPin(pin: string) {
@@ -475,6 +486,7 @@ SPDX-License-Identifier: MPL-2.0
 				// eslint-disable-next-line no-undef
 				plausible('Joined Game', { props: { game_id: gameData?.game_id } });
 				persistJoinedGameCookie(username, game_pin);
+				syncPinToUrl(game_pin);
 			},
 			onRejoinedGame: (data) => {
 				if (!playPayloadMatchesActivePin(data)) return;
@@ -495,6 +507,7 @@ SPDX-License-Identifier: MPL-2.0
 				bindPlaySocketForJoin(game_pin);
 				if (username && game_pin) {
 					persistJoinedGameCookie(username, game_pin);
+					syncPinToUrl(game_pin);
 				}
 			},
 			onGameNotFound: () => {
