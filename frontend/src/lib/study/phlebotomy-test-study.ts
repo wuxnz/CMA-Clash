@@ -1533,7 +1533,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "All patients who have blood drawn at the facility, offered before their first venipuncture each year.",
    "Only supervisors and charge staff, offered at the employee's own expense before starting work."
   ],
-  "qd": "Employees with occupational risk, offered at no cost within 10 days of assignment, unless exceptions apply.",
+  "qd": "Employees with occupational risk, offered at no cost within 10 days of assignment.",
   "qw": [
    "Employees who request it in writing, offered after one year of employment at the facility.",
    "All patients who have blood drawn at the facility, offered before their first draw each year.",
@@ -1611,9 +1611,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   ],
   "qd": "Alert others, restrict access, and clean with an EPA-registered disinfectant while wearing gloves.",
   "qw": [
-   "Wipe the spill with a dry paper towel and reuse the area once the floor looks dry.",
-   "Cover the spill with sterile gauze and wait until the end of the shift for cleanup.",
-   "Dilute the spill with water and mop it with the same cloth across every surface."
+   "Wipe it with a dry paper towel and reuse the area once the floor looks dry again.",
+   "Cover it with sterile gauze and wait until the end of the shift for the cleanup crew.",
+   "Dilute it with water and mop it using one cloth across every surface in the room."
   ],
   "e": "Blood spills must be contained and disinfected using approved products, with protective equipment used during cleanup.",
   "u": "https://www.cdc.gov/infection-control/hcp/index.html",
@@ -1932,7 +1932,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "A leading question, such as asking whether the patient is worried about needles today.",
    "A closed question, such as asking the patient to confirm their date of birth only."
   ],
-  "qd": "An open-ended question, such as asking the patient to describe any past problems with blood draws.",
+  "qd": "An open-ended question, such as asking the patient to describe past problems with blood draws.",
   "qw": [
    "A yes-or-no question, such as asking whether the patient has ever fainted during a draw.",
    "A leading question, such as asking whether the patient is worried about needles today.",
@@ -1989,7 +1989,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "That the patient has paid the copayment in full, so the lab can accept the order.",
    "That the insurance company has approved the phlebotomist, not the patient's coverage."
   ],
-  "qd": "That the coverage is current and covers the tests ordered, with the orders and requisitions reviewed.",
+  "qd": "That coverage is current and includes the tests ordered, with the orders reviewed.",
   "qw": [
    "That the patient's employer pays for all tests, so no insurance card needs to be shown.",
    "That the patient has paid the copayment in full, so the lab can accept the order.",
@@ -2084,7 +2084,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "The maximum volume is always the full capacity of the largest tube in the set.",
    "The minimum volume applies only to capillary samples, while venous samples have no limits."
   ],
-  "qd": "Each test has a minimum and maximum blood volume that gives an adequate sample without excess draw.",
+  "qd": "Each test has a minimum and maximum blood volume, giving an adequate sample without excess draw.",
   "qw": [
    "Each test requires exactly one tube, and blood volume is not tracked for any test type.",
    "The maximum volume is always the full capacity of the largest tube in the set.",
@@ -2103,7 +2103,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "First morning urine poured into a glass vial, with no instructions given to the patient.",
    "Urine collected from the catheter bag after it has been emptied at the nurses' station."
   ],
-  "qd": "Clean-catch midstream urine, collected in a sterile container and labeled as the instructions describe.",
+  "qd": "Clean-catch midstream urine, collected in a sterile container as the instructions describe.",
   "qw": [
    "Random urine collected from the bathroom trash, placed in a plastic bag without a container.",
    "First morning urine poured into a glass vial, with no instructions given to the patient.",
@@ -2236,7 +2236,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Remove the tourniquet and try the same site immediately after the patient makes a fist.",
    "Ask the patient to stand and swing the arm to fill the veins before the draw begins."
   ],
-  "qd": "Try warming the arm, lower the arm below heart level, or choose another site, following facility guidance.",
+  "qd": "Warm the arm, lower it below heart level, or choose another site, per facility guidance.",
   "qw": [
    "Press harder on the skin with the thumb until a vein rises, then insert the needle right away.",
    "Remove the tourniquet and try the same site immediately after the patient makes a fist.",
@@ -2445,7 +2445,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "A signed waiver from the family, with no screening required for healthy adult donors.",
    "A urine sample from the donor to confirm hydration before any blood is drawn."
   ],
-  "qd": "Screening for hemoglobin, hematocrit, weight, and a complete patient screening before collection.",
+  "qd": "Screening for hemoglobin, hematocrit, weight, and a complete patient screening.",
   "qw": [
    "Only a finger-stick glucose check, since donors are screened by the lab after collection.",
    "A signed waiver from the family, with no screening required for healthy adult donors.",
@@ -2483,11 +2483,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "To check the patient's cholesterol level before a planned surgery is performed.",
    "To identify the blood type of a patient before a transfusion is given on the ward."
   ],
-  "qd": "To detect bacteria or fungi circulating in the bloodstream of a patient with suspected sepsis.",
+  "qd": "To detect bacteria or fungi in the bloodstream of a patient with suspected sepsis.",
   "qw": [
-   "To measure the oxygen carried by red blood cells in a patient with anemia.",
-   "To check the patient's cholesterol level before a planned surgery is performed.",
-   "To identify the blood type of a patient before a transfusion is given on the ward."
+   "To measure oxygen carried by red blood cells in a patient being evaluated for anemia.",
+   "To check cholesterol levels before a planned surgery is performed in the operating room.",
+   "To identify the blood type of a patient before a transfusion is started on the ward."
   ],
   "e": "Blood cultures are collected before antibiotics when possible, with two or more sets drawn from separate sites.",
   "u": "https://www.cdc.gov/lab-quality/php/preventing-adult-blood-culture-contamination/collect.html",
@@ -2502,11 +2502,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Urine is always substituted for blood, so chain of custody does not apply to blood tests.",
    "The sample is collected after the patient has been medicated, so results show the treatment level."
   ],
-  "qd": "Chain of custody is used when required, with the specimen and its documentation tracked at every handling step.",
+  "qd": "Chain of custody when required, with the specimen tracked at every handling step.",
   "qw": [
-   "Any tube may be used, since drug screens are not affected by the additive or the handling.",
+   "Any tube may be used, since drug screens are not affected by the additive or handling.",
    "Urine is always substituted for blood, so chain of custody does not apply to blood tests.",
-   "The sample is collected after the patient has been medicated, so results show the treatment level."
+   "The sample is collected after the patient has been medicated, so results show the level."
   ],
   "e": "The test plan lists adhering to chain of custody guidelines for forensic studies, blood alcohol, and drug screens.",
   "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
@@ -2540,10 +2540,10 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Mixing two patients' samples together to save time when the lab is busy.",
    "Removing platelets from a whole blood sample before the sample is labeled and counted."
   ],
-  "qd": "Dividing a processed specimen into smaller labeled portions for testing, storage, or transport.",
+  "qd": "Dividing a processed specimen into smaller labeled portions for testing or storage.",
   "qw": [
    "Adding a preservative to a whole blood sample so that it can be stored at room temperature.",
-   "Mixing two patients' samples together to save time when the lab is busy.",
+   "Mixing two patients' samples together to save time when the lab is busy during a shift.",
    "Removing platelets from a whole blood sample before the sample is labeled and counted."
   ],
   "e": "Aliquoting procedures and techniques are a knowledge item in the test plan for specimen processing.",
@@ -2673,11 +2673,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Clumping of white blood cells that forms visible threads in the tube after centrifugation.",
    "Clear serum produced when the sample is spun too quickly in the centrifuge."
   ],
-  "qd": "Milky or turbid serum or plasma caused by excess lipids, which can interfere with laboratory tests.",
+  "qd": "Milky or turbid serum or plasma from excess lipids, which can interfere with some tests.",
   "qw": [
    "Yellow discoloration of serum caused by bile pigments released from damaged red cells.",
-   "Clumping of white blood cells that forms visible threads in the tube after centrifugation.",
-   "Clear serum produced when the sample is spun too quickly in the centrifuge."
+   "Clumping of white blood cells that forms visible threads in the tube after spinning.",
+   "Clear serum produced when the sample is spun too quickly in the centrifuge at high speed."
   ],
   "e": "Lipemia is a common specimen interference that the handout describes alongside hemolysis.",
   "u": "https://medlineplus.gov/lab-tests/",
@@ -2711,11 +2711,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "A sample that is perfectly liquid but darker than normal because of the anticoagulant used.",
    "A sample in which the serum has turned pink from a small amount of free hemoglobin."
   ],
-  "qd": "A sample in which a clot has formed in the tube, usually from underfilling, poor mixing, or delayed inversion.",
+  "qd": "A clot has formed in the tube, usually from underfilling, poor mixing, or delayed inversion.",
   "qw": [
-   "A sample that has separated into layers because it was left upright for too long at room temperature.",
-   "A sample that is perfectly liquid but darker than normal because of the anticoagulant used.",
-   "A sample in which the serum has turned pink from a small amount of free hemoglobin."
+   "Separation into layers because the tube stood upright too long at room temperature before spinning.",
+   "Perfectly liquid blood that is darker than normal because of the anticoagulant in the tube.",
+   "Serum that turned pink from a small amount of free hemoglobin released into the sample."
   ],
   "e": "Clotted samples are unsuitable for many tests. The handout and CLSI PRE02 describe proper mixing and filling.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -2730,11 +2730,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "A specimen that was collected correctly but was sent to the wrong department for testing.",
    "A specimen that is held for two extra days in case the physician changes the order."
   ],
-  "qd": "A specimen the lab will not test because it is mislabeled or compromised, so it must be redrawn.",
+  "qd": "Rejected as mislabeled or compromised, so the specimen must be redrawn for testing.",
   "qw": [
-   "A specimen the lab tests with a note that the result may be reported late to the provider.",
-   "A specimen collected correctly but sent to the wrong department for testing by mistake.",
-   "A specimen held for two extra days in case the physician changes the order."
+   "Tested by the lab with a note that the result may be reported late to the provider.",
+   "Collected correctly but sent to the wrong department for testing by mistake.",
+   "Held for two extra days in case the physician changes the order for the test."
   ],
   "e": "Rejected specimens require recollection, which is why proper identification and collection technique matter.",
   "u": "https://clsi.org/shop/standards/pre02/",
@@ -2825,9 +2825,9 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "A clotting factor made in the liver that is required for normal wound healing after a draw.",
    "A plasma hormone that controls the body's response to dehydration and thirst."
   ],
-  "qd": "The D antigen on red blood cells. Blood with it is Rh-positive, and blood without it is Rh-negative.",
+  "qd": "The D antigen on red cells; blood with it is Rh-positive, without it Rh-negative.",
   "qw": [
-   "A white cell protein that rises during infection and is used to diagnose bacterial pneumonia.",
+   "A white cell protein that rises during infection and is used to diagnose pneumonia.",
    "A clotting factor made in the liver that is required for normal wound healing after a draw.",
    "A plasma hormone that controls the body's response to dehydration and thirst."
   ],
@@ -2882,11 +2882,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "The process that digests food in the stomach and small intestine into absorbable nutrients.",
    "The process that filters waste from the blood in the kidneys and passes it into the bladder."
   ],
-  "qd": "The process that stops bleeding after an injury, through vessel constriction, platelet plugs, and clotting.",
+  "qd": "Stopping bleeding after injury through vessel constriction, platelet plugs, and clotting.",
   "qw": [
-   "The process that transports oxygen from the lungs to the body's tissues through the arteries.",
-   "The process that digests food in the stomach and small intestine into absorbable nutrients.",
-   "The process that filters waste from the blood in the kidneys and passes it into the bladder."
+   "Carrying oxygen from the lungs to the tissues through the arteries of the body.",
+   "Digesting food in the stomach and small intestine into nutrients the body can absorb.",
+   "Filtering waste from the blood in the kidneys before it passes into the bladder."
   ],
   "e": "Hemostasis describes the body's stop-bleeding response, which the handout and the lab coagulation tests reflect.",
   "u": "https://medlineplus.gov/blood.html",
@@ -2958,11 +2958,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Speaking loudly to all patients who appear to be from another country to make sure they hear you.",
    "Asking every patient to explain their religion before the draw to confirm the correct protocol."
   ],
-  "qd": "Showing respect for diversity, using clear language, and adjusting to the patient's cultural and language needs.",
+  "qd": "Showing respect for diversity, using clear language, and adapting to cultural needs.",
   "qw": [
-   "Using medical jargon consistently with all patients, so that each conversation is precise and brief.",
-   "Speaking loudly to all patients who appear to be from another country to make sure they hear you.",
-   "Asking every patient to explain their religion before the draw to confirm the correct protocol."
+   "Using medical jargon consistently with all patients, so each conversation is precise.",
+   "Speaking loudly to patients who appear to be from another country to make sure they hear.",
+   "Asking every patient to explain their religion before the draw to confirm the protocol."
   ],
   "e": "The test plan lists demonstrating respect for diversity and cultural sensitivity as a patient preparation task.",
   "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
@@ -2996,10 +2996,10 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Nothing, if the patient recovers before the end of the shift, to protect the facility's reputation.",
    "The incident in a personal notebook kept at home, to avoid review by coworkers."
   ],
-  "qd": "What happened, the time, the interventions and their timing, the patient's response, and the completed incident report.",
+  "qd": "What happened, the time, the interventions and their timing, and the patient's response.",
   "qw": [
    "Only the patient's name and the test ordered, since the incident is handled by the nurse.",
-   "Nothing, if the patient recovers before the end of the shift, to protect the facility's reputation.",
+   "Nothing, if the patient recovers before the shift ends, to protect the facility's reputation.",
    "The incident in a personal notebook kept at home, to avoid review by coworkers."
   ],
   "e": "The test plan lists documentation and reporting requirements, including patient-related incidents and charting guidelines.",
@@ -3015,11 +3015,11 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "A type of centrifuge that separates blood cells by size instead of density.",
    "A patient-facing app that lets patients choose their own tubes before the draw."
   ],
-  "qd": "Software used for scheduling, billing, records, and related office tasks in a medical practice.",
+  "qd": "Software for scheduling, billing, records, and related office tasks in a practice.",
   "qw": [
-   "A set of rules for cleaning the lab bench at the end of each shift, posted on the wall.",
-   "A type of centrifuge that separates blood cells by size instead of density.",
-   "A patient-facing app that lets patients choose their own tubes before the draw."
+   "Rules for cleaning the lab bench at the end of each shift, posted on the wall.",
+   "A centrifuge that separates blood cells by size instead of density in the lab.",
+   "A patient app that lets patients choose their own tubes before the draw."
   ],
   "e": "The test plan lists practice management systems, EMR and EHR software, and paper logs as tools for the role.",
   "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
@@ -3053,7 +3053,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "Request that the lab send results only to the patient's employer, who must then approve them.",
    "Request access only to records created by a physician, with no access to lab results allowed."
   ],
-  "qd": "Copies of health records, which the provider must supply within 30 days, with one extension of 30 more days.",
+  "qd": "Copies of health records, which the provider must supply within 30 days, with one extension.",
   "qw": [
    "Destruction of records within seven days of any test, with no copies provided to the patient.",
    "Results sent only to the patient's employer, who must approve them before release.",
@@ -3072,7 +3072,7 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
    "To tell the patient which staff members are allowed to see their records without consent.",
    "To provide a list of tube colors the patient may choose during the venipuncture."
   ],
-  "qd": "How a provider may use and disclose protected health information, and the patient's privacy rights.",
+  "qd": "How a provider may use and disclose protected health information, and the patient's rights.",
   "qw": [
    "The prices of all lab tests, so the patient can compare costs before the draw is done.",
    "Which staff members may see records without consent, so the patient knows who has access.",
@@ -3081,5 +3081,537 @@ export const PHLEB_TEST_CARDS: TestCard[] = [
   "e": "HHS publishes a model Notice of Privacy Practices that providers use to explain patient privacy rights.",
   "u": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/privacy-practices-health-care-provider/index.html",
   "s": "HHS: Model Notice of Privacy Practices"
+ },
+ {
+  "t": "What do the Greek word parts in phlebotomy mean?",
+  "d": "Phlebo means vein, and -tomy means cutting or incision.",
+  "c": 7,
+  "w": [
+   "Phlebo means blood, and -tomy means to dissolve or break down the tissue.",
+   "Phlebo means artery, and -tomy means to record or write down the result.",
+   "Phlebo means lymph, and -tomy means to stitch a wound closed after the draw."
+  ],
+  "qd": "Phlebo means vein, and -tomy means cutting or incision.",
+  "qw": [
+   "Phlebo means blood, and -tomy means to dissolve or break down the tissue.",
+   "Phlebo means artery, and -tomy means to record or write down the result.",
+   "Phlebo means lymph, and -tomy means to stitch a wound closed after the draw."
+  ],
+  "e": "The course notes give this etymology. Phlebotomy is the incision of a vein to collect blood for diagnostic or therapeutic purposes.",
+  "u": "https://medlineplus.gov/ency/article/003423.htm",
+  "s": "MedlinePlus: Venipuncture"
+ },
+ {
+  "t": "Which term is a synonym for phlebotomy?",
+  "d": "Venesection, also written as veinsection.",
+  "c": 7,
+  "w": [
+   "Lymphadenopathy, meaning enlargement of the lymph nodes in the neck or armpit.",
+   "Hematemesis, meaning vomiting of blood that originates in the upper digestive tract.",
+   "Arteriography, meaning imaging of arteries after injection of a contrast dye."
+  ],
+  "qd": "Venesection, also written as veinsection.",
+  "qw": [
+   "Lymphadenopathy, meaning enlargement of the lymph nodes in the neck or armpit.",
+   "Hematemesis, meaning vomiting of blood that originates in the upper digestive tract.",
+   "Arteriography, meaning imaging of arteries after injection of a contrast dye."
+  ],
+  "e": "The course notes list venesection as the synonym. Each distractor is a real medical term with a different meaning.",
+  "u": "https://medlineplus.gov/ency/article/003423.htm",
+  "s": "MedlinePlus: Venipuncture"
+ },
+ {
+  "t": "What is a skin puncture in blood collection?",
+  "d": "Puncturing a finger or heel with a special safety device to draw a smaller sample.",
+  "c": 7,
+  "w": [
+   "Puncturing a large vein with a winged needle to collect a full set of tubes at once.",
+   "Puncturing an artery at the wrist to measure the oxygen and carbon dioxide levels.",
+   "Inserting a catheter into a vein of the arm to give fluids and medicines over time."
+  ],
+  "qd": "Puncturing a finger or heel with a special safety device to draw a smaller sample.",
+  "qw": [
+   "Puncturing a large vein with a winged needle to collect a full set of tubes at once.",
+   "Puncturing an artery at the wrist to measure the oxygen and carbon dioxide levels.",
+   "Inserting a catheter into a vein of the arm to give fluids and medicines over time."
+  ],
+  "e": "A skin puncture is a capillary collection. Venipuncture uses a needle in a vein and an evacuated tube system.",
+  "u": "https://medlineplus.gov/lab-tests/",
+  "s": "MedlinePlus: Medical Tests"
+ },
+ {
+  "t": "Which three clinical purposes are listed for laboratory analysis of specimens?",
+  "d": "Diagnostic and screening, therapeutic assessment, and monitoring.",
+  "c": 7,
+  "w": [
+   "Billing the insurance company, scheduling appointments, and storing the patient records.",
+   "Recording the patient's height, weight, and blood pressure at each clinic visit.",
+   "Choosing the tube color, the needle gauge, and the draw site for the patient."
+  ],
+  "qd": "Diagnostic and screening, therapeutic assessment, and monitoring.",
+  "qw": [
+   "Billing the insurance company, scheduling appointments, and storing the patient records.",
+   "Recording the patient's height, weight, and blood pressure at each clinic visit.",
+   "Choosing the tube color, the needle gauge, and the draw site for the patient."
+  ],
+  "e": "The course notes list these three purposes of laboratory analysis. The other options describe administrative tasks.",
+  "u": "https://medlineplus.gov/lab-tests/",
+  "s": "MedlinePlus: Medical Tests"
+ },
+ {
+  "t": "What is the goal of diagnostic and screening tests?",
+  "d": "To find out what is wrong with the patient, which may lead to extensive follow-up tests.",
+  "c": 7,
+  "w": [
+   "To confirm that a treatment the physician already started is working as planned.",
+   "To track how a known condition changes over time after treatment has begun.",
+   "To decide which insurance code applies to the visit before the draw is performed."
+  ],
+  "qd": "To find out what is wrong with the patient, which may lead to extensive follow-up tests.",
+  "qw": [
+   "To confirm that a treatment the physician already started is working as planned.",
+   "To track how a known condition changes over time after treatment has begun.",
+   "To decide which insurance code applies to the visit before the draw is performed."
+  ],
+  "e": "Diagnostic and screening tests identify possible problems, so follow-up testing is often needed. Monitoring is different: it tracks a known condition.",
+  "u": "https://medlineplus.gov/lab-tests/",
+  "s": "MedlinePlus: Medical Tests"
+ },
+ {
+  "t": "What is therapeutic assessment?",
+  "d": "Using test results to develop the appropriate therapy or treatment for a condition.",
+  "c": 7,
+  "w": [
+   "Measuring how a patient responds to a drug that the lab has already confirmed is effective.",
+   "Screening a healthy population for early signs of disease before any symptoms appear.",
+   "Recording test results in the EHR so that insurance claims can be processed for payment."
+  ],
+  "qd": "Using test results to develop the appropriate therapy or treatment for a condition.",
+  "qw": [
+   "Measuring how a patient responds to a drug that the lab has already confirmed is effective.",
+   "Screening a healthy population for early signs of disease before any symptoms appear.",
+   "Recording test results in the EHR so that insurance claims can be processed for payment."
+  ],
+  "e": "Therapeutic assessment guides treatment decisions. Monitoring follows a treatment that has already been chosen.",
+  "u": "https://medlineplus.gov/lab-tests/",
+  "s": "MedlinePlus: Medical Tests"
+ },
+ {
+  "t": "What is monitoring in laboratory testing?",
+  "d": "Repeated testing to track how a known condition or treatment changes over time.",
+  "c": 7,
+  "w": [
+   "A single test ordered once to decide whether the patient needs any treatment at all.",
+   "A test run on every patient admitted to the hospital, regardless of the diagnosis.",
+   "A test used to clear the patient for surgery after the anesthesia team approves the plan."
+  ],
+  "qd": "Repeated testing to track how a known condition or treatment changes over time.",
+  "qw": [
+   "A single test ordered once to decide whether the patient needs any treatment at all.",
+   "A test run on every patient admitted to the hospital, regardless of the diagnosis.",
+   "A test used to clear the patient for surgery after the anesthesia team approves the plan."
+  ],
+  "e": "Monitoring uses serial results. The course notes describe it as one of three clinical purposes of laboratory analysis.",
+  "u": "https://medlineplus.gov/lab-tests/",
+  "s": "MedlinePlus: Medical Tests"
+ },
+ {
+  "t": "What does POC stand for, and where is point-of-care testing done?",
+  "d": "Point of care, performed at the patient's bedside, outside the central laboratory.",
+  "c": 7,
+  "w": [
+   "Point of collection, performed only in the central lab after the specimen is transported.",
+   "Patient observation check, performed by the nurse at the start of each shift.",
+   "Pathology outpatient care, performed in a separate building for clinic patients only."
+  ],
+  "qd": "Point of care, performed at the patient's bedside, outside the central laboratory.",
+  "qw": [
+   "Point of collection, performed only in the central lab after the specimen is transported.",
+   "Patient observation check, performed by the nurse at the start of each shift.",
+   "Pathology outpatient care, performed in a separate building for clinic patients only."
+  ],
+  "e": "Point-of-care tests are performed near the patient. Under CLIA many of them are waived or have quality control requirements.",
+  "u": "https://www.cms.gov/",
+  "s": "CMS: CLIA Laboratory Quick Start Guide"
+ },
+ {
+  "t": "How does an inpatient differ from an outpatient?",
+  "d": "An inpatient is admitted to the hospital for care, often with more critical conditions; an outpatient is seen without an overnight admission.",
+  "c": 7,
+  "w": [
+   "An inpatient is seen only in a clinic, while an outpatient is always admitted to a hospital bed.",
+   "An inpatient is seen only in an emergency room, while an outpatient is always in long-term care.",
+   "An inpatient has an appointment booked months ahead, while an outpatient is always a walk-in visit."
+  ],
+  "qd": "An inpatient is admitted for hospital care, usually with more critical conditions.",
+  "qw": [
+   "An inpatient is seen only in a clinic, while an outpatient is always admitted to a bed.",
+   "An inpatient is seen only in an emergency room, while an outpatient is in long-term care.",
+   "An inpatient has an appointment booked months ahead, while an outpatient is a walk-in."
+  ],
+  "e": "The course notes describe inpatient long-term hospital care and outpatient ambulatory care, with outpatient conditions usually less critical.",
+  "u": "https://www.cms.gov/",
+  "s": "CMS: Centers for Medicare and Medicaid Services"
+ },
+ {
+  "t": "What is acute care?",
+  "d": "Short-term treatment for an urgent injury or medical condition.",
+  "c": 7,
+  "w": [
+   "Long-term rehabilitation after surgery, lasting several months in a skilled nursing unit.",
+   "Routine preventive visits with no active injury or medical condition to treat.",
+   "Home health visits for patients with chronic conditions who are stable at home."
+  ],
+  "qd": "Short-term treatment for an urgent injury or medical condition.",
+  "qw": [
+   "Long-term rehabilitation after surgery, lasting several months in a skilled nursing unit.",
+   "Routine preventive visits with no active injury or medical condition to treat.",
+   "Home health visits for patients with chronic conditions who are stable at home."
+  ],
+  "e": "Acute care treats urgent conditions for a short time. Long-term and chronic care address ongoing needs.",
+  "u": "https://www.cms.gov/",
+  "s": "CMS: Centers for Medicare and Medicaid Services"
+ },
+ {
+  "t": "What is a chronic illness?",
+  "d": "A long-term condition that needs ongoing or repeated treatment.",
+  "c": 7,
+  "w": [
+   "A short illness that clears up on its own within a week without any medical treatment.",
+   "A condition that appears only during pregnancy and resolves after delivery of the baby.",
+   "An injury that heals completely after one emergency visit to the hospital."
+  ],
+  "qd": "A long-term condition that needs ongoing or repeated treatment.",
+  "qw": [
+   "A short illness that clears up on its own within a week without any medical treatment.",
+   "A condition that appears only during pregnancy and resolves after delivery of the baby.",
+   "An injury that heals completely after one emergency visit to the hospital."
+  ],
+  "e": "Chronic illness requires continued care, which is why long-term care facilities treat patients with ongoing needs.",
+  "u": "https://www.cms.gov/",
+  "s": "CMS: Centers for Medicare and Medicaid Services"
+ },
+ {
+  "t": "Which needle gauge is the standard for many routine draws from healthy adult veins?",
+  "d": "21 gauge, which balances flow rate and vein compatibility.",
+  "c": 2,
+  "w": [
+   "25 gauge, which balances flow rate and vein compatibility for healthy adults.",
+   "18 gauge, which balances flow rate and vein compatibility for trauma patients.",
+   "14 gauge, which balances flow rate and vein compatibility for elderly patients."
+  ],
+  "qd": "21 gauge, which balances flow rate and vein compatibility.",
+  "qw": [
+   "25 gauge, which balances flow rate and vein compatibility for healthy adults.",
+   "18 gauge, which balances flow rate and vein compatibility for trauma patients.",
+   "14 gauge, which balances flow rate and vein compatibility for elderly patients."
+  ],
+  "e": "The NHA test plan lists needle gauge sizes and lengths. The 21-gauge size is the common adult choice reported in the course notes and in secondary literature.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Which needle gauge is best for small, fragile veins in children, infants, and the elderly?",
+  "d": "23 gauge.",
+  "c": 2,
+  "w": [
+   "18 gauge, which gives the highest flow rate for fragile veins in children and infants.",
+   "21 gauge, which is the standard size and works for every fragile vein without exception.",
+   "14 gauge, which protects fragile veins by reducing the pressure on the vein wall."
+  ],
+  "qd": "23 gauge.",
+  "qw": [
+   "18 gauge, which gives the highest flow rate for fragile veins in children and infants.",
+   "21 gauge, which is the standard size and works for every fragile vein without exception.",
+   "14 gauge, which protects fragile veins by reducing the pressure on the vein wall."
+  ],
+  "e": "The course notes recommend 23 gauge for small, fragile veins and difficult venous access.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Why is a 25-gauge needle used for some patients?",
+  "d": "For patients with severely limited venous access, including some newborns.",
+  "c": 2,
+  "w": [
+   "For a faster blood flow, because it is the widest needle the lab's analyzers can accept.",
+   "For blood donation, because it is the only size approved for donor safety screening.",
+   "For routine adult draws, because it is the most common size used in hospitals today."
+  ],
+  "qd": "For patients with severely limited venous access, including some newborns.",
+  "qw": [
+   "For a faster blood flow, because it is the widest needle the lab's analyzers can accept.",
+   "For blood donation, because it is the only size approved for donor safety screening.",
+   "For routine adult draws, because it is the most common size used in hospitals today."
+  ],
+  "e": "Smaller gauges suit severely limited access. The course notes also warn about damage to samples when needle selection is poor.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Which factors guide needle and device selection?",
+  "d": "Patient age and vein condition, vein size and stability, and the type of procedure.",
+  "c": 2,
+  "w": [
+   "Patient height and weight, the color of the tubes, and the time of day of the draw.",
+   "Patient insurance type, the laboratory's operating hours, and the color of the tourniquet.",
+   "Patient blood type, the room temperature, and the number of tubes the physician ordered."
+  ],
+  "qd": "Patient age and vein condition, vein size and stability, and the type of procedure.",
+  "qw": [
+   "Patient height and weight, the color of the tubes, and the time of day of the draw.",
+   "Patient insurance type, the laboratory's operating hours, and the color of the tourniquet.",
+   "Patient blood type, the room temperature, and the number of tubes the physician ordered."
+  ],
+  "e": "The NHA test plan lists considerations for device selection, including vein size, health status, and requisition requirements.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Which device is used to puncture the skin for a capillary sample?",
+  "d": "A sterile lancet, which is a single-use safety device.",
+  "c": 2,
+  "w": [
+   "A winged steel needle attached to an evacuated tube holder for a venous draw.",
+   "A syringe with a 25-gauge needle, used to draw blood from the forearm.",
+   "A scalpel blade, sterilized in an autoclave before each capillary draw."
+  ],
+  "qd": "A sterile lancet, which is a single-use safety device.",
+  "qw": [
+   "A winged steel needle attached to an evacuated tube holder for a venous draw.",
+   "A syringe with a 25-gauge needle, used to draw blood from the forearm.",
+   "A scalpel blade, sterilized in an autoclave before each capillary draw."
+  ],
+  "e": "Capillary collection uses a lancet. CLSI GP42 covers capillary collection devices, which this topic follows.",
+  "u": "https://medlineplus.gov/lab-tests/",
+  "s": "MedlinePlus: Medical Tests"
+ },
+ {
+  "t": "Why is a warming pad used before a capillary collection?",
+  "d": "To increase blood flow to the puncture site, which helps the sample flow more easily.",
+  "c": 2,
+  "w": [
+   "To keep the patient calm by making the fingertip feel more comfortable during the lancet puncture.",
+   "To sterilize the skin before the alcohol pad is applied, which reduces the risk of infection.",
+   "To make the fingertip swell so the lancet cuts a deeper and more uniform incision."
+  ],
+  "qd": "To increase blood flow to the puncture site, which helps the sample flow more easily.",
+  "qw": [
+   "To keep the patient calm by making the fingertip feel more comfortable during the lancet puncture.",
+   "To sterilize the skin before the alcohol pad is applied, which reduces the risk of infection.",
+   "To make the fingertip swell so the lancet cuts a deeper and more uniform incision."
+  ],
+  "e": "Warming increases local blood flow. The size of the effect is reported in secondary sources, so confirm the practice with the CLSI GP42 text and your facility protocol.",
+  "u": "https://repository.niddk.nih.gov/media/studies/search/MOPs/SEARCH%201-3%20MOP/SEARCH(13).pdf",
+  "s": "NIDDK: Central Laboratory Manual of Procedures"
+ },
+ {
+  "t": "What should be done with the first drop of blood in a capillary collection?",
+  "d": "Wipe it away with a dry gauze pad, then collect the next drop.",
+  "c": 2,
+  "w": [
+   "Collect it first, since the first drop is the most concentrated sample for testing.",
+   "Mix it into the diluting fluid before the second drop is collected for the sample.",
+   "Apply it to the glass slide for a peripheral blood smear, then collect the rest."
+  ],
+  "qd": "Wipe it away with a dry gauze pad, then collect the next drop.",
+  "qw": [
+   "Collect it first, since the first drop is the most concentrated sample for testing.",
+   "Mix it into the diluting fluid before the second drop is collected for the sample.",
+   "Apply it to the glass slide for a peripheral blood smear, then collect the rest."
+  ],
+  "e": "Wiping the first drop removes tissue fluid contamination. This is described in the NIDDK manual and in the Croatian national capillary recommendations.",
+  "u": "https://repository.niddk.nih.gov/media/studies/search/MOPs/SEARCH%201-3%20MOP/SEARCH(13).pdf",
+  "s": "NIDDK: Central Laboratory Manual of Procedures"
+ },
+ {
+  "t": "What is the recommended lancet tip length for a capillary puncture?",
+  "d": "No greater than 2.4 mm.",
+  "c": 2,
+  "w": [
+   "No greater than 5 mm, so the puncture is deep enough for a complete flow of blood.",
+   "No greater than 1 mm, which is the same depth as a standard tuberculin skin test.",
+   "At least 10 mm, so the lancet reaches the capillary bed under the dermis."
+  ],
+  "qd": "No greater than 2.4 mm.",
+  "qw": [
+   "No greater than 5 mm, so the puncture is deep enough for a complete flow of blood.",
+   "No greater than 1 mm, which is the same depth as a standard tuberculin skin test.",
+   "At least 10 mm, so the lancet reaches the capillary bed under the dermis."
+  ],
+  "e": "The NIDDK manual specifies a lancet tip length of no greater than 2.4 mm, placed into the finger pulp, and a puncture deep enough for good blood return.",
+  "u": "https://repository.niddk.nih.gov/media/studies/search/MOPs/SEARCH%201-3%20MOP/SEARCH(13).pdf",
+  "s": "NIDDK: Central Laboratory Manual of Procedures"
+ },
+ {
+  "t": "Where should the lancet be placed on the fingertip?",
+  "d": "On the side of the fingertip, avoiding the calloused center of the pad.",
+  "c": 2,
+  "w": [
+   "In the center of the pad, where blood flow is strongest and most consistent.",
+   "On the nail bed, which has the largest number of capillaries for collection.",
+   "On the knuckle joint, which is easiest for the patient to keep still during the puncture."
+  ],
+  "qd": "On the side of the fingertip, avoiding the calloused center of the pad.",
+  "qw": [
+   "In the center of the pad, where blood flow is strongest and most consistent.",
+   "On the nail bed, which has the largest number of capillaries for collection.",
+   "On the knuckle joint, which is easiest for the patient to keep still during the puncture."
+  ],
+  "e": "The Croatian national recommendations for capillary blood sampling describe the fingertip site and puncture placement.",
+  "u": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4622200/",
+  "s": "Croatian Society of Medical Biochemistry: Capillary Blood Sampling"
+ },
+ {
+  "t": "Why is alcohol applied to a capillary site and allowed to dry before the puncture?",
+  "d": "To disinfect the skin, and drying keeps the alcohol from mixing with the sample.",
+  "c": 2,
+  "w": [
+   "To numb the skin, so the patient feels no pain at the moment of the lancet puncture.",
+   "To dilute the blood, so that the sample flows evenly into the microcollection tube.",
+   "To soften the skin, so the lancet penetrates to the capillary bed more easily."
+  ],
+  "qd": "To disinfect the skin, and drying keeps the alcohol from mixing with the sample.",
+  "qw": [
+   "To numb the skin, so the patient feels no pain at the moment of the lancet puncture.",
+   "To dilute the blood, so that the sample flows evenly into the microcollection tube.",
+   "To soften the skin, so the lancet penetrates to the capillary bed more easily."
+  ],
+  "e": "Skin antisepsis before puncture reduces contamination. The course handout specifies 70 percent isopropyl alcohol with complete air drying.",
+  "u": "https://www.cdc.gov/injection-safety/hcp/clinical-safety/",
+  "s": "CDC: Injection Safety, Clinical Safety"
+ },
+ {
+  "t": "What should be done with a used lancet after a capillary collection?",
+  "d": "Activate the safety feature and dispose of it in a biohazard sharps container without recapping.",
+  "c": 2,
+  "w": [
+   "Place it in the marking pen cap to keep it from rolling off the counter during cleanup.",
+   "Wipe it with alcohol and return it to the sterile package for the next patient.",
+   "Place it in the regular trash, since lancets are not considered sharps under OSHA."
+  ],
+  "qd": "Activate the safety feature and discard it in a biohazard sharps container, unrecapped.",
+  "qw": [
+   "Place it in the marking pen cap to keep it from rolling off the counter during cleanup.",
+   "Wipe it with alcohol and return it to the sterile package for the next patient.",
+   "Place it in the regular trash, since lancets are not considered sharps under OSHA."
+  ],
+  "e": "OSHA requires that used sharps be disposed of in puncture-resistant containers, without recapping.",
+  "u": "https://www.osha.gov/bloodborne-pathogens/evaluating-controlling-exposure",
+  "s": "OSHA: Evaluating and Controlling Exposure"
+ },
+ {
+  "t": "How should a capillary tube be labeled?",
+  "d": "With two identifiers, written with a marking pen in the patient's presence.",
+  "c": 2,
+  "w": [
+   "With a grease pencil, which is wiped on the tube after the sample is centrifuged.",
+   "With a printed barcode from the front desk, applied after the sample has left the room.",
+   "With a permanent highlighter, used to color-code the tube by the patient's test priority."
+  ],
+  "qd": "With two identifiers, written with a marking pen in the patient's presence.",
+  "qw": [
+   "With a grease pencil, which is wiped on the tube after the sample is centrifuged.",
+   "With a printed barcode from the front desk, applied after the sample has left the room.",
+   "With a permanent highlighter, used to color-code the tube by the patient's test priority."
+  ],
+  "e": "Labeling in the patient's presence with two identifiers is a CLSI PRE02 venipuncture requirement that applies to all tubes.",
+  "u": "https://clsi.org/shop/standards/pre02/",
+  "s": "CLSI PRE02: Venipuncture (replaces GP41)"
+ },
+ {
+  "t": "Which soft skill shows patients that you are skilled, competent, and trustworthy?",
+  "d": "Professionalism.",
+  "c": 6,
+  "w": [
+   "Dependability, which shows employers that you will be present and on time when needed.",
+   "Verbal communication, which lets you clearly explain procedures and address concerns.",
+   "Punctuality, which means arriving at the lab before the first patient of the day."
+  ],
+  "qd": "Professionalism.",
+  "qw": [
+   "Dependability, which shows employers that you will be present and on time when needed.",
+   "Verbal communication, which lets you clearly explain procedures and address concerns.",
+   "Punctuality, which means arriving at the lab before the first patient of the day."
+  ],
+  "e": "The test plan lists professionalism, including integrity, punctuality, etiquette, respect, and professional presentation.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Which soft skill do employers rely on most when they need you present and on time?",
+  "d": "Dependability, including accuracy and precision in your work.",
+  "c": 6,
+  "w": [
+   "Professionalism, which means wearing a clean uniform and keeping a neat appearance.",
+   "Verbal communication, which means explaining each procedure in simple terms.",
+   "Patience, which means waiting calmly while a patient decides whether to stay."
+  ],
+  "qd": "Dependability, including accuracy and precision in your work.",
+  "qw": [
+   "Professionalism, which means wearing a clean uniform and keeping a neat appearance.",
+   "Verbal communication, which means explaining each procedure in simple terms.",
+   "Patience, which means waiting calmly while a patient decides whether to stay."
+  ],
+  "e": "Dependability is linked in the course notes to timeliness, presence, and accuracy. The test plan lists punctuality under professionalism.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Why is verbal communication important for a phlebotomy technician?",
+  "d": "It lets you clearly explain procedures, answer questions, and help anxious patients feel at ease.",
+  "c": 6,
+  "w": [
+   "It lets you read the physician's notes aloud so the patient hears the diagnosis directly.",
+   "It lets you record the patient's answers faster than typing them into the EHR.",
+   "It lets you avoid questions from patients about test results or charges."
+  ],
+  "qd": "It lets you explain procedures, answer questions, and help anxious patients feel at ease.",
+  "qw": [
+   "It lets you read the physician's notes aloud so the patient hears the diagnosis directly.",
+   "It lets you record the patient's answers faster than typing them into the EHR.",
+   "It lets you avoid questions from patients about test results or charges."
+  ],
+  "e": "The test plan lists verbal and nonverbal communication, including active listening, pace, tone, and use of jargon.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Can soft skills be learned?",
+  "d": "Yes, through knowledge and practice, the same way as other job skills.",
+  "c": 6,
+  "w": [
+   "No, soft skills are personality traits that cannot be changed after childhood.",
+   "Only in a classroom setting, with no practice required on the job.",
+   "Only if the employer pays for a certificate program in professional communication."
+  ],
+  "qd": "Yes, through knowledge and practice, the same way as other job skills.",
+  "qw": [
+   "No, soft skills are personality traits that cannot be changed after childhood.",
+   "Only in a classroom setting, with no practice required on the job.",
+   "Only if the employer pays for a certificate program in professional communication."
+  ],
+  "e": "The course notes state that soft skills can be learned with knowledge and practice.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
+ },
+ {
+  "t": "Why do soft skills matter for patient satisfaction?",
+  "d": "One bad interaction can outweigh many good ones, and patient satisfaction is often a top priority for healthcare organizations.",
+  "c": 6,
+  "w": [
+   "Patient satisfaction matters only for billing, since satisfied patients pay their balances faster.",
+   "Patient satisfaction is measured only in the lab's internal audits, not by patients themselves.",
+   "Patient satisfaction matters only for outpatient clinics, not for hospitals or long-term care."
+  ],
+  "qd": "One bad interaction can outweigh many good ones, and satisfaction is a top priority.",
+  "qw": [
+   "Patient satisfaction matters only for billing, since satisfied patients pay balances faster.",
+   "Patient satisfaction is measured only in the lab's internal audits, not by patients.",
+   "Patient satisfaction matters only for outpatient clinics, not for hospitals or long-term care."
+  ],
+  "e": "The course notes describe patient satisfaction, measured in surveys and reviews, as a major priority, which professionalism and communication affect.",
+  "u": "https://info.nhanow.com/hubfs/Test%20Plans/nha-2025-cpt-test-plan.pdf",
+  "s": "NHA: CPT Test Plan (2025)"
  }
 ];
