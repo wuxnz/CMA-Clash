@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 import { socket } from '$lib/socket';
 import { attachPlaySocketDebug } from '$lib/play/play-socket-debug';
 import { bindPlaySocketForJoin, resetPlaySocketBinding } from '$lib/play/play-socket-pin';
+import { setBattlePlayUsername } from '$lib/cma/battle-guest';
 
 export interface JoinedGameCookie {
 	sid: string;
@@ -109,6 +110,9 @@ export function persistJoinedGameCookie(username: string, game_pin: string): voi
 		JSON.stringify({ sid: socket.id, username, game_pin }),
 		{ expires: 3600 }
 	);
+	// Remember the nickname for this PIN in every game mode, so a refreshed player comes back
+	// under the same name instead of typing a new one (the server rejects new names once a match starts).
+	setBattlePlayUsername(game_pin, username);
 }
 
 /** Re-attach socket to game_pin room after transport reconnect (new sid). */
