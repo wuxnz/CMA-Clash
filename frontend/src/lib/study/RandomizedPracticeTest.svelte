@@ -11,6 +11,8 @@ SPDX-License-Identifier: MPL-2.0
 	import Card from '$lib/ui/Card.svelte';
 	import PageHeader from '$lib/ui/PageHeader.svelte';
 	import type { TestCard } from '$lib/study/diabetes-test-2nd-half';
+	import QuestionCountPicker from '$lib/quiz/QuestionCountPicker.svelte';
+	import { untrack } from 'svelte';
 
 	interface Props {
 		title: string;
@@ -25,7 +27,9 @@ SPDX-License-Identifier: MPL-2.0
 	navbarVisible.visible = true;
 
 	const LETTERS = ['A', 'B', 'C', 'D'];
-	const total = cards.length;
+	// Number of questions in each practice test. The user chooses it; a new test is drawn when it changes.
+	const DEFAULT_COUNT = Math.min(20, cards.length);
+	let count = $state(DEFAULT_COUNT);
 
 	type PracticeQuestion = { s: number; q: string; o: string[]; a: number; e: string; u: string; src: string };
 
@@ -39,15 +43,26 @@ SPDX-License-Identifier: MPL-2.0
 		return out;
 	}
 
-	function buildTest(): PracticeQuestion[] {
-		return shuffle(cards).map((card) => {
+	function buildTest(n = count): PracticeQuestion[] {
+		return shuffle(cards).slice(0, n).map((card) => {
 			const options = shuffle([card.qd, ...card.qw]);
 			return { s: card.c, q: card.t, o: options, a: options.indexOf(card.qd), e: card.e, u: card.u, src: card.s };
 		});
 	}
 
-	let questions = $state<PracticeQuestion[]>(buildTest());
-	let picks = $state<(number | null)[]>(cards.map(() => null));
+	let questions = $state<PracticeQuestion[]>(buildTest(DEFAULT_COUNT));
+	const total = $derived(questions.length);
+	let picks = $state<(number | null)[]>(Array.from({ length: DEFAULT_COUNT }, () => null));
+
+	$effect(() => {
+		const n = count;
+		untrack(() => {
+			if (n !== questions.length) {
+				questions = buildTest(n);
+				picks = questions.map(() => null);
+			}
+		});
+	});
 	let submitted = $state(false);
 	let confirmUnanswered = $state(false);
 
@@ -115,7 +130,11 @@ SPDX-License-Identifier: MPL-2.0
 		</div>
 
 		{#if !submitted}
-			<div class="sticky top-0 z-10 bg-paper py-3 border-b border-line">
+			<div class="mt-6">
+			<QuestionCountPicker min={Math.min(5, cards.length)} max={cards.length} bind:value={count} disabled={submitted} />
+		</div>
+
+		<div class="sticky top-0 z-10 bg-paper py-3 border-b border-line">
 				<div class="h-1 bg-line">
 					<div class="h-full bg-primary transition-[width] duration-200" style="width: {(answered / total) * 100}%"></div>
 				</div>
