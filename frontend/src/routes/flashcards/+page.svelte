@@ -26,6 +26,7 @@ SPDX-License-Identifier: MPL-2.0
 	} from '$lib/study/diabetes-test-2nd-half';
 	import { TEST_1ST_HALF_CARDS, TEST_1ST_HALF_CATEGORIES } from '$lib/study/diabetes-test-1st-half';
 	import { PHLEB_TEST_CARDS, PHLEB_TEST_CATEGORIES } from '$lib/study/phlebotomy-test-study';
+	import { TEAS_TEST_CARDS, TEAS_TEST_CATEGORIES } from '$lib/study/teas-test-study';
 
 	navbarVisible.visible = true;
 
@@ -72,6 +73,15 @@ SPDX-License-Identifier: MPL-2.0
 			cards: PHLEB_TEST_CARDS,
 			categories: PHLEB_TEST_CATEGORIES,
 			practiceHref: '/practice-test/phlebotomy-test-study'
+		},
+		{
+			id: 'teas-test-study',
+			label: 'TEAS Test Study Guide',
+			title: 'TEAS Test Study Guide questions',
+			lede: 'Questions from the TEAS Test Study Guide, grouped by the four TEAS sections. Flip a card to check the answer. Use the arrow keys to move, Space to flip, and mark a card known when you have it.',
+			cards: TEAS_TEST_CARDS,
+			categories: TEAS_TEST_CATEGORIES,
+			practiceHref: '/practice-test/teas-test-study'
 		}
 	];
 

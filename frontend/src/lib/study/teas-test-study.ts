@@ -1,0 +1,1550 @@
+// SPDX-FileCopyrightText: 2026 CMA Clash contributors
+//
+// SPDX-License-Identifier: MPL-2.0
+
+// TEAS Test Study Guide. Generated from classquiz/seed/flashcards/teas-test-study.json,
+// the same source the seed uses for the study guide, quiz, flashcards, and practice test.
+// Do not edit by hand: change the JSON and regenerate.
+//
+// t = question, d = answer, c = category index, w = three wrong answers,
+// qd and qw = quiz and practice answers, e = explanation, u = official reference URL, s = reference name.
+
+import type { TestCard } from './diabetes-test-2nd-half';
+
+export const TEAS_TEST_CATEGORIES: string[] = [
+  "Reading: key ideas and details",
+  "Reading: craft and structure",
+  "Reading: integration of knowledge and ideas",
+  "Math: numbers and algebra",
+  "Math: measurement and data",
+  "Science: human anatomy and physiology",
+  "Science: life and physical sciences",
+  "Science: chemistry",
+  "Science: scientific reasoning",
+  "English: conventions of standard English",
+  "English: knowledge of language",
+  "English: vocabulary and writing"
+];
+
+export const TEAS_TEST_CARDS: TestCard[] = [
+{
+ "t": "A paragraph says that sleep affects memory. It gives three details: sleep helps the brain store new facts, people remember more after a full night's rest, and students who cram all night recall less the next day. Which sentence best summarizes the paragraph?",
+ "d": "Good sleep helps the brain store new information, so well-rested people remember more.",
+ "c": 0,
+ "w": [
+  "Students should avoid studying late, because night hours hurt memory.",
+  "Memory is the most important skill for students, tested on a daily basis.",
+  "Cramming all night is the best way to recall facts the next day."
+ ],
+ "qd": "Sleep helps the brain store new facts, so well-rested people remember more.",
+ "qw": [
+  "Students recall more when they study in short bursts across several days.",
+  "Daily tests are the best way to show how much a student has learned.",
+  "Late-night studying helps the brain store facts that are needed for exams."
+ ],
+ "e": "The main idea is that sleep supports memory, and the three details all support that point. A good summary keeps the main idea and the key support, and it leaves out extra advice the paragraph never gave.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A note says: 'The clinic waiting room was full at 8 a.m., and by 8:30 the receptionist had already started a second sign-in sheet.' What can you infer?",
+ "d": "Many patients arrived early, so the clinic needed extra sign-in help by 8:30.",
+ "c": 0,
+ "w": [
+  "The clinic closes its waiting room at 8:30 each day to finish sign-in forms.",
+  "The receptionist was unhappy with the first sheet and asked to switch it.",
+  "The clinic had no patients at 8 a.m. and filled the room only after lunch."
+ ],
+ "qd": "A large group arrived in the morning, so the front desk needed a second sheet.",
+ "qw": [
+  "The staffing problem started only after the second sheet was made.",
+  "Patients prefer to arrive at 8:30, which is why the room is full before 8.",
+  "The sign-in sheet was the only way patients could check in that morning."
+ ],
+ "e": "An inference is a conclusion the text supports even though it does not state it outright. The room was full early and a second sheet was started, so many patients arrived quickly. Look for clues in the details rather than guessing past them.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A lab sign says: 'Label each tube with the patient's full name and date of birth before you leave the room. Then place the tube in the rack marked Pending.' What is the next step after the label is written?",
+ "d": "Place the tube in the rack marked Pending.",
+ "c": 0,
+ "w": [
+  "Record the tube in the log book before doing anything else.",
+  "Take the tube to the front desk so the patient can check it.",
+  "Put the tube in the rack marked Complete and mark it as done."
+ ],
+ "qd": "Set the tube in the Pending rack, which the directions name as the next step.",
+ "qw": [
+  "Write the result in the log book, which comes before placing the tube anywhere.",
+  "Hand the tube to the front desk so the receptionist can check the label.",
+  "Place the tube in the Complete rack once the label has been written and checked."
+ ],
+ "e": "Written directions are followed in order, so each step depends on the one before it. The sign lists the label first and the rack second, so the rack is the step that comes next. Reading the steps in sequence keeps you from skipping one.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A schedule lists: Monday 9 to 11 a.m., blood drive in Room B; Wednesday 1 to 3 p.m., CPR class in Room A; Friday 9 to 10 a.m., staff meeting in Room C. In which room, and when, is the CPR class?",
+ "d": "Room A, on Wednesday from 1 to 3 p.m.",
+ "c": 0,
+ "w": [
+  "Room B, on Wednesday from 1 to 3 p.m.",
+  "Room A, on Friday from 9 to 10 a.m.",
+  "Room C, on Wednesday from 1 to 3 p.m."
+ ],
+ "qd": "Room A, Wednesday afternoon from 1 to 3 p.m.",
+ "qw": [
+  "Room B, Monday from 9 to 11 a.m.",
+  "Room A, Friday from 9 to 10 a.m.",
+  "Room C, Wednesday from 1 to 3 p.m."
+ ],
+ "e": "Locating information means scanning for the key words in the question, here CPR class, and then reading only that line. The CPR line gives Wednesday, 1 to 3 p.m., and Room A. The other rooms and times belong to different events, which is why they are wrong.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A bar chart shows visits per month: January 40, February 60, March 45, April 90. In which month did visits rise the most from the month before?",
+ "d": "April, with an increase of 45 visits over March.",
+ "c": 0,
+ "w": [
+  "February, with an increase of 20 visits over January.",
+  "March, with a drop of 15 visits from February.",
+  "April, with an increase of 90 visits over March."
+ ],
+ "qd": "April, which rose by 45 visits from March to April.",
+ "qw": [
+  "February, which rose by 20 visits from January to February.",
+  "March, which fell by 15 visits from February to March.",
+  "April, which rose by 90 visits from March to April."
+ ],
+ "e": "To compare changes, subtract each month from the one before it: February minus January is 20, March minus February is minus 15, and April minus March is 45. The largest increase is 45, in April, even though April is not the only month with a high total. Reading the change, not the tallest bar, is the key step.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A patient's care steps are: (1) check identity, (2) collect the sample, (3) label the tube, (4) send it to the lab. Which step comes third?",
+ "d": "Labeling the tube.",
+ "c": 0,
+ "w": [
+  "Collecting the sample from the patient.",
+  "Sending the tube to the lab for testing.",
+  "Checking the patient's identity band."
+ ],
+ "qd": "Labeling the tube, which follows the sample collection.",
+ "qw": [
+  "Collecting the sample from the patient after confirming who they are.",
+  "Sending the tube to the laboratory at the end of the workflow.",
+  "Checking the patient's identity band before the draw begins."
+ ],
+ "e": "Events in a sequence are numbered in the order they happen. Counting the list gives step 1 as identity, step 2 as collecting, and step 3 as labeling. Step 4, sending, comes last, so it cannot be the third step.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which statement is an opinion rather than a fact?",
+ "d": "The new scheduling system is the best one the clinic has ever tried.",
+ "c": 1,
+ "w": [
+  "The clinic moved to a new scheduling system in March.",
+  "The scheduling system has an online calendar that patients can view.",
+  "The system sends a reminder text one day before each visit."
+ ],
+ "qd": "The new system is the finest scheduling tool that the clinic has ever used.",
+ "qw": [
+  "The clinic adopted its scheduling system in the spring of this year.",
+  "The system includes an online calendar that patients can open.",
+  "A text reminder is sent to patients one day before each visit."
+ ],
+ "e": "A fact can be checked with evidence such as dates, counts, or records. An opinion is a judgment, usually shown by words like best, better, or should. The phrase 'the best one the clinic has ever tried' is a judgment, while the other choices could be verified in the clinic's records.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A nurse wrote that the patient was 'lethargic,' meaning the patient seemed unusually tired and slow to respond. What does 'lethargic' mean in this sentence?",
+ "d": "Unusually tired, drowsy, and slow to respond.",
+ "c": 1,
+ "w": [
+  "Very angry and quick to argue with the staff.",
+  "Calm and fully alert, with clear and steady speech.",
+  "Hungry and eager to eat as soon as food arrives."
+ ],
+ "qd": "Drowsy and slow, with little energy and few responses.",
+ "qw": [
+  "Angry and quick to argue with the staff about care.",
+  "Calm and wide awake, with clear and steady speech.",
+  "Hungry and eager to eat as soon as the meal arrives."
+ ],
+ "e": "Context clues are words or phrases near an unfamiliar word that help explain it. The sentence says the patient was tired and slow to respond, which restates 'lethargic' in plain words. The word 'meaning' also signals that a definition follows.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "The report said the procedure was 'uneventful,' so the staff expected no problems. What does 'uneventful' mean?",
+ "d": "Without any problems or unexpected events.",
+ "c": 1,
+ "w": [
+  "Full of surprises that required quick decisions by the team.",
+  "Complicated, with many steps that had to be repeated.",
+  "Delayed by a long wait for the equipment to arrive."
+ ],
+ "qd": "Went smoothly, with no problems or unexpected events.",
+ "qw": [
+  "Full of surprises that the team had to handle quickly.",
+  "Complicated, with many steps that had to be repeated carefully.",
+  "Delayed by a long wait for equipment that arrived late."
+ ],
+ "e": "The word 'so' shows the result: the staff expected no problems. The prefix un- means not, and eventful means full of events, so uneventful means without notable events. Breaking a word into its parts is a strong way to find its meaning.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A brochure lists the steps to prepare for a blood test, from fasting to arriving early. What is the author's most likely purpose?",
+ "d": "To inform patients about what to do before a blood test.",
+ "c": 1,
+ "w": [
+  "To persuade readers to stop getting blood tests altogether.",
+  "To entertain readers with a story about a patient's surgery.",
+  "To criticize the lab for taking too long to report results."
+ ],
+ "qd": "To give patients clear directions for getting ready for a blood test.",
+ "qw": [
+  "To convince readers to avoid all blood tests from now on.",
+  "To tell a funny story about a patient's visit to the lab.",
+  "To complain about delays in the lab's results reporting."
+ ],
+ "e": "Authors write to inform, persuade, entertain, or criticize, and the content shows which one. A list of steps for preparing for a test is written to inform, because it tells the reader what to do. The other purposes would call for opinions, stories, or complaints, which this brochure does not contain.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A writer describes a new clinic policy as 'a welcome change that finally treats patients with respect.' What is the writer's point of view?",
+ "d": "Approving of the policy, because it improves how patients are treated.",
+ "c": 1,
+ "w": [
+  "Neutral, reporting the policy without offering any opinion at all.",
+  "Opposed to the policy, since it adds extra steps to every visit.",
+  "Confused about the policy, because its details were never explained."
+ ],
+ "qd": "Supportive of the policy, because it treats patients with respect.",
+ "qw": [
+  "Neutral, simply reporting the policy and offering no judgment.",
+  "Opposed to the policy, because it adds extra steps to each visit.",
+  "Uncertain about the policy, since its details were never explained."
+ ],
+ "e": "Point of view is the writer's attitude toward the subject, shown through word choice. Phrases like 'a welcome change' and 'treats patients with respect' are positive, so the writer approves. Neutral wording would describe the policy without praise or criticism.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A text says that hand washing before each patient visit lowers infection rates. It cites a study where infections dropped after the clinic began washing hands before visits. Which conclusion does the evidence best support?",
+ "d": "Washing hands before visits is linked to fewer infections in the clinic.",
+ "c": 2,
+ "w": [
+  "Patients are safer only in large hospitals, not in small clinics like this one.",
+  "Hand washing takes too long, so clinics should skip it during busy hours.",
+  "Infections are caused mainly by poor lighting in the waiting room areas."
+ ],
+ "qd": "Hand washing before visits is connected to a drop in clinic infections.",
+ "qw": [
+  "Patients are safer only in large hospitals, not in small clinics.",
+  "Hand washing takes too long, so clinics should skip it on busy days.",
+  "Infections are caused mainly by poor lighting in the waiting area."
+ ],
+ "e": "A conclusion must be supported by the evidence and should not claim more than the evidence shows. The study showed infections fell after hand washing began, which supports a link, not proof that washing alone caused every drop. The best answer states a link that the study actually supports.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Two passages both describe the importance of patient privacy. One focuses on legal rules and the other on personal trust. What do the passages have in common?",
+ "d": "Both treat privacy as essential to the patient's trust and safety.",
+ "c": 2,
+ "w": [
+  "Both argue that patient records should be shared freely with all staff.",
+  "Both describe privacy as a legal rule that matters only to lawyers.",
+  "Both claim that privacy is unimportant once a patient signs a form."
+ ],
+ "qd": "Both treat privacy as central to protecting patients and earning their trust.",
+ "qw": [
+  "Both argue that patient records should be shared openly with all staff.",
+  "Both describe privacy as a legal detail that matters only to lawyers.",
+  "Both state that privacy is unimportant once a patient signs a form."
+ ],
+ "e": "Comparing themes means finding a shared idea even when the passages use different reasons. Here the legal passage and the trust passage both treat privacy as important, though they explain why in different ways. The wrong choices either contradict both passages or match only one of them.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "An argument states: 'The clinic should add weekend hours, because a survey found that most patients work weekdays.' Which fact would most weaken this argument?",
+ "d": "Most patients said they can easily take weekday time off from work.",
+ "c": 2,
+ "w": [
+  "The clinic already has a full staff of nurses who work on weekends.",
+  "Many patients said they would welcome longer weekday evening hours.",
+  "The clinic's parking lot was resurfaced last year and is in good shape."
+ ],
+ "qd": "Most patients said they can take weekday time off work without trouble.",
+ "qw": [
+  "The clinic already has a full staff of nurses who work on weekends.",
+  "Many patients said they would welcome longer weekday evening hours.",
+  "The clinic's parking lot was resurfaced last year and is in good shape."
+ ],
+ "e": "To weaken an argument, find a fact that breaks its reason. The argument depends on patients being unable to come on weekdays, so evidence that they can come on weekdays cuts against that reason. Facts that merely support the clinic or are unrelated do not weaken it.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Table A shows a clinic had 300 visits in March. Table B shows that flu shots were given at 12 percent of those visits. About how many flu shots were given in March?",
+ "d": "About 36 flu shots.",
+ "c": 2,
+ "w": [
+  "About 12 flu shots, since 12 is the percent of visits.",
+  "About 250 flu shots, since most visits included a shot.",
+  "About 360 flu shots, which is 300 visits plus 60 extra."
+ ],
+ "qd": "Roughly 36 flu shots, which is 12 percent of 300 visits.",
+ "qw": [
+  "Roughly 12 flu shots, because 12 is the percent of visits.",
+  "Roughly 250 flu shots, since most visits included a shot.",
+  "Roughly 360 flu shots, which is 300 visits plus 60 extra."
+ ],
+ "e": "Integrating data means combining numbers from two sources. Change 12 percent to 0.12, then multiply: 0.12 times 300 equals 36. Using the percent number directly (12) or assuming most visits included a shot gives an answer the data does not support.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "What is the decimal value of 3/8?",
+ "d": "0.375, which equals 37.5 percent.",
+ "c": 3,
+ "w": [
+  "0.24, which equals 24 percent.",
+  "0.625, which equals 62.5 percent.",
+  "0.38, which equals 38 percent."
+ ],
+ "qd": "0.375, which is the same as 37.5 percent.",
+ "qw": [
+  "0.24, which is the same as 24 percent.",
+  "0.625, which is the same as 62.5 percent.",
+  "0.38, which is the same as 38 percent."
+ ],
+ "e": "To change a fraction to a decimal, divide the top number by the bottom number: 3 divided by 8 equals 0.375. To change a decimal to a percent, multiply by 100, so 0.375 becomes 37.5 percent. Rounding to 0.38 looks close but is not exact, which is why it is a trap answer.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which fraction equals 0.6 written in lowest terms?",
+ "d": "3/5",
+ "c": 3,
+ "w": [
+  "6/10",
+  "3/6",
+  "6/100"
+ ],
+ "qd": "3/5, which is 0.6 reduced to lowest terms.",
+ "qw": [
+  "3/6, which keeps the same value as 0.6.",
+  "6/10, which equals 0.6 but is not reduced.",
+  "6/100, which equals 0.6 written with two places."
+ ],
+ "e": "A decimal with one digit after the point has tenths as its denominator, so 0.6 is 6/10. Divide the top and bottom by their greatest common factor, 2, to get 3/5. A fraction is in lowest terms when no whole number greater than 1 divides both the top and bottom evenly.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "What is the value of -4 + 9 - (-3)?",
+ "d": "8",
+ "c": 3,
+ "w": [
+  "2",
+  "-8",
+  "16"
+ ],
+ "qd": "8, after -4 + 9 = 5 and then 5 - (-3) = 8.",
+ "qw": [
+  "2, from treating the last term as -3 instead of a subtraction of a negative.",
+  "-8, from subtracting 9 from negative 4 and then subtracting 3.",
+  "16, from adding every number in the expression together."
+ ],
+ "e": "Work from left to right: -4 + 9 equals 5. Subtracting a negative number is the same as adding its positive, so 5 - (-3) becomes 5 + 3, which equals 8. Forgetting that subtracting a negative turns into addition is a common mistake on this kind of question.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "What is the value of (-6) x (-2) divided by 3?",
+ "d": "4",
+ "c": 3,
+ "w": [
+  "-4",
+  "-36",
+  "36"
+ ],
+ "qd": "4, since two negatives make a positive and 12 divided by 3 is 4.",
+ "qw": [
+  "-4, since multiplying two negatives gives a negative answer.",
+  "-36, from multiplying all three numbers and keeping the sign.",
+  "36, from multiplying 6 and 2 and then multiplying by 3 instead."
+ ],
+ "e": "Multiply the first two numbers: a negative times a negative is positive, so (-6) x (-2) = 12. Then divide 12 by 3 to get 4. For multiplication and division, matching signs give a positive result and different signs give a negative result.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which list puts these values in order from least to greatest: -1/2, -0.3, 0, 1/4?",
+ "d": "-1/2, -0.3, 0, 1/4",
+ "c": 3,
+ "w": [
+  "-0.3, -1/2, 0, 1/4",
+  "-1/2, 0, -0.3, 1/4",
+  "1/4, 0, -0.3, -1/2"
+ ],
+ "qd": "-1/2, then -0.3, then 0, then 1/4.",
+ "qw": [
+  "-0.3, then -1/2, then 0, then 1/4.",
+  "-1/2, then 0, then -0.3, then 1/4.",
+  "1/4, then 0, then -0.3, then -1/2."
+ ],
+ "e": "Convert everything to decimals to compare: -1/2 is -0.5, -0.3 stays the same, 0 stays the same, and 1/4 is 0.25. On a number line, more negative numbers sit further left, so -0.5 is the least and 0.25 is the greatest. A common error is treating -0.5 as larger than -0.3 because 5 is bigger than 3.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Solve for x: 3x - 7 = 20.",
+ "d": "x = 9",
+ "c": 3,
+ "w": [
+  "x = 27",
+  "x = 13",
+  "x = 3"
+ ],
+ "qd": "x = 9, because 3x = 27 and 27 divided by 3 is 9.",
+ "qw": [
+  "x = 27, found by adding 7 to 20 and forgetting to divide by 3.",
+  "x = 13, found by subtracting 7 from 20 and then adding 3.",
+  "x = 3, found by dividing 20 by 7 and rounding down."
+ ],
+ "e": "Undo the operations in reverse order. First add 7 to both sides to get 3x = 27, then divide both sides by 3 to get x = 9. Check the answer by substituting: 3(9) - 7 = 20, which is true.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Solve for x: x/4 + 5 = 11.",
+ "d": "x = 24",
+ "c": 3,
+ "w": [
+  "x = 16",
+  "x = 6",
+  "x = 44"
+ ],
+ "qd": "x = 24, since x/4 = 6 and 6 times 4 is 24.",
+ "qw": [
+  "x = 16, since 11 minus 5 is 6 and 6 plus 4 is 10.",
+  "x = 6, since 11 minus 5 gives the answer directly.",
+  "x = 44, since 11 times 4 gives the value of x."
+ ],
+ "e": "Start by subtracting 5 from both sides to isolate the fraction: x/4 = 6. Then multiply both sides by 4 to get x = 24. Substituting 24 back in gives 24/4 + 5 = 11, so the answer checks out.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A patient takes 2 tablets every 6 hours for 3 days. How many tablets are needed for the full course?",
+ "d": "24 tablets",
+ "c": 3,
+ "w": [
+  "6 tablets",
+  "12 tablets",
+  "36 tablets"
+ ],
+ "qd": "24 tablets: 4 doses a day, 2 tablets each, for 3 days.",
+ "qw": [
+  "6 tablets, from 2 tablets times 3 days.",
+  "12 tablets, from 2 tablets times 6 hours.",
+  "36 tablets, from 3 doses a day times 4 tablets."
+ ],
+ "e": "Step one: find the doses per day. 24 hours divided by 6 hours is 4 doses. Step two: multiply by the tablets per dose, 4 times 2 equals 8 tablets a day. Step three: multiply by 3 days, 8 times 3 equals 24 tablets total.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A clinic saw 80 patients on Monday. On Tuesday it saw 20 percent more patients than on Monday. How many patients did it see on Tuesday?",
+ "d": "96 patients",
+ "c": 3,
+ "w": [
+  "84 patients",
+  "100 patients",
+  "16 patients"
+ ],
+ "qd": "96 patients, since 20 percent of 80 is 16 and 80 plus 16 is 96.",
+ "qw": [
+  "84 patients, since 80 plus 4 equals the 20 percent difference.",
+  "100 patients, since 20 percent more than 80 is 100 patients.",
+  "16 patients, which is 20 percent of the Monday total."
+ ],
+ "e": "The question asks for the new total after an increase, not only the increase itself. Find 20 percent of 80, which is 16, then add it to 80 to get 96. Stopping at 16 is the most common error on percent questions.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A supply that costs $50 is marked down by 30 percent. What is the sale price?",
+ "d": "$35",
+ "c": 3,
+ "w": [
+  "$20",
+  "$65",
+  "$15"
+ ],
+ "qd": "$35, since 30 percent of $50 is $15 and $50 minus $15 is $35.",
+ "qw": [
+  "$20, since $50 minus 30 leaves the answer directly.",
+  "$65, since 30 percent more than $50 is the sale price.",
+  "$15, which is 30 percent of $50 and is the amount saved."
+ ],
+ "e": "A discount reduces the price by a percent of the original. 30 percent of $50 is $15, which is the amount saved. Subtract it from $50 to get the sale price of $35.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which is the best estimate of 48.7 x 3.9?",
+ "d": "About 200",
+ "c": 3,
+ "w": [
+  "About 20",
+  "About 2,000",
+  "About 60"
+ ],
+ "qd": "About 200, since 50 times 4 is 200.",
+ "qw": [
+  "About 20, since 50 times 4 has one fewer zero.",
+  "About 2,000, since 50 times 40 is 2,000.",
+  "About 60, since 50 plus 4 plus 6 gives the answer."
+ ],
+ "e": "Round each number to an easy value: 48.7 becomes 50 and 3.9 becomes 4. Then 50 times 4 equals 200, which is close to the exact answer of about 190. Estimates are useful for checking that a calculated answer falls in a reasonable range.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "If 3 tablets cost $7.50, what would 8 tablets cost at the same rate?",
+ "d": "$20.00",
+ "c": 3,
+ "w": [
+  "$18.00",
+  "$24.50",
+  "$15.00"
+ ],
+ "qd": "$20.00, since each tablet costs $2.50 and 8 times $2.50 is $20.00.",
+ "qw": [
+  "$18.00, since 8 tablets cost $2.25 more than 3 tablets.",
+  "$24.50, since 8 tablets cost $7.50 plus $17.00.",
+  "$15.00, since 8 tablets cost twice the price of 3 tablets."
+ ],
+ "e": "Set up a proportion: 3 tablets over $7.50 equals 8 tablets over x. Find the price per tablet first: $7.50 divided by 3 is $2.50. Then multiply by 8 to get $20.00.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A nurse gives 15 mL of fluid over 3 minutes. At this rate, how many mL are given in 10 minutes?",
+ "d": "50 mL",
+ "c": 3,
+ "w": [
+  "30 mL",
+  "45 mL",
+  "150 mL"
+ ],
+ "qd": "50 mL, since the rate is 5 mL per minute and 5 times 10 is 50.",
+ "qw": [
+  "30 mL, since 10 minutes is twice the 3 minutes given.",
+  "45 mL, since 15 mL plus 30 mL gives the total for 10 minutes.",
+  "150 mL, since 15 mL times 10 minutes is the total."
+ ],
+ "e": "A rate compares two quantities with different units, here mL per minute. Divide 15 by 3 to get 5 mL per minute, then multiply by 10 minutes for 50 mL. Multiplying 15 by 10 mixes up the rate with the total.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which inequality matches the sentence 'a number n, increased by 5, is at most 12'?",
+ "d": "n + 5 ≤ 12",
+ "c": 3,
+ "w": [
+  "n + 5 ≥ 12",
+  "5n ≤ 12",
+  "n - 5 < 12"
+ ],
+ "qd": "n + 5 ≤ 12, meaning n plus 5 is less than or equal to 12.",
+ "qw": [
+  "n + 5 ≥ 12, meaning n plus 5 is at least 12.",
+  "5n ≤ 12, meaning 5 times n is at most 12.",
+  "n - 5 < 12, meaning n minus 5 is less than 12."
+ ],
+ "e": "Increased by 5 means add 5 to n, giving n + 5. At most means less than or equal to, which is the symbol ≤. Phrases like at least use ≥ and less than uses <, so the symbol must match the wording exactly.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A table lists weights: Patient A 150 lb, Patient B 162 lb, Patient C 139 lb. What is the range of these weights?",
+ "d": "23 lb",
+ "c": 4,
+ "w": [
+  "11 lb",
+  "12 lb",
+  "33 lb"
+ ],
+ "qd": "23 lb, found by subtracting 139 lb from 162 lb.",
+ "qw": [
+  "12 lb, found by subtracting Patient A from Patient B.",
+  "11 lb, found by subtracting Patient A from Patient C.",
+  "33 lb, found by adding the lightest weight to the middle weight."
+ ],
+ "e": "The range is the largest value minus the smallest value. The heaviest is Patient B at 162 lb and the lightest is Patient C at 139 lb, so 162 minus 139 equals 23. Patient A is in the middle, so it does not set the range.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A nurse records heart rates of 70, 72, 80, 68, and 90 beats per minute. What is the mean (average) heart rate?",
+ "d": "76 beats per minute",
+ "c": 4,
+ "w": [
+  "72 beats per minute, which is the median.",
+  "80 beats per minute, which is the third reading.",
+  "90 beats per minute, which is the highest reading."
+ ],
+ "qd": "76 beats per minute: 380 total divided by 5 readings.",
+ "qw": [
+  "72 beats per minute, which is the median of these five readings.",
+  "80 beats per minute, which is the third reading in the list.",
+  "90 beats per minute, which is the highest of the five readings."
+ ],
+ "e": "The mean is the sum of all values divided by how many values there are. Here 70 + 72 + 80 + 68 + 90 = 380, and 380 divided by 5 is 76. The median, 72, is the middle value after sorting, which is a different measure.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which statement about the data set 4, 7, 7, 9, 12 is correct?",
+ "d": "The mode is 7 and the range is 8.",
+ "c": 4,
+ "w": [
+  "The mean is 7 and the median is 12.",
+  "The median is 9 and the mode is 4.",
+  "The range is 12 and there is no mode."
+ ],
+ "qd": "The mode is 7 and the range is 8, from 12 minus 4.",
+ "qw": [
+  "The mean is 7 and the median is 12, the largest value.",
+  "The median is 9 and the mode is 4, the smallest value.",
+  "The range is 12 and there is no mode in this list."
+ ],
+ "e": "Sort the data first: 4, 7, 7, 9, 12. The mode is the value that appears most often, which is 7. The range is the largest value minus the smallest, 12 minus 4, which equals 8.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A study found that as weekly hours of exercise rose, resting heart rate tended to fall. What type of relationship does this describe?",
+ "d": "A negative relationship, because one variable goes up as the other goes down.",
+ "c": 4,
+ "w": [
+  "A positive relationship, because both variables rise together over time.",
+  "No relationship, because the two variables are measured in different units.",
+  "A proven cause, since this single study connects exercise to heart rate."
+ ],
+ "qd": "A negative relationship, since one goes up while the other goes down.",
+ "qw": [
+  "A positive relationship, since both values rise together over time.",
+  "No relationship, since the two values are measured in different units.",
+  "A proven cause, since this single study connects exercise to heart rate."
+ ],
+ "e": "A negative relationship means two variables move in opposite directions. Here more exercise goes with a lower resting heart rate. A relationship in data does not by itself prove cause, which is why the proven cause choice is wrong.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A rectangular exam room is 12 feet long and 10 feet wide. What is its area?",
+ "d": "120 square feet",
+ "c": 4,
+ "w": [
+  "44 square feet",
+  "22 square feet",
+  "1,200 square feet"
+ ],
+ "qd": "120 square feet, from 12 feet times 10 feet.",
+ "qw": [
+  "44 square feet, which is the perimeter of the room.",
+  "22 square feet, from adding 12 and 10 together.",
+  "1,200 square feet, from multiplying 12 by 100 instead of 10."
+ ],
+ "e": "Area measures the surface inside a shape, and for a rectangle it is length times width. 12 times 10 equals 120 square feet. The perimeter, 44 feet, measures the distance around the edge, which is a different quantity with different units.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A cylindrical container has a radius of 2 cm and a height of 5 cm. Which expression gives its volume? (Use V = pi x r squared x h.)",
+ "d": "V = pi x 2 squared x 5 = 20 pi cubic cm",
+ "c": 4,
+ "w": [
+  "V = pi x 2 x 5 = 10 pi cubic cm",
+  "V = pi x 2 squared = 4 pi cubic cm",
+  "V = pi x 5 squared x 2 = 50 pi cubic cm"
+ ],
+ "qd": "20 pi cubic cm, from pi times 2 squared times 5.",
+ "qw": [
+  "10 pi cubic cm, from pi times 2 times 5 without squaring the radius.",
+  "4 pi cubic cm, from pi times 2 squared and forgetting the height.",
+  "50 pi cubic cm, from pi times 5 squared times 2, mixing up radius and height."
+ ],
+ "e": "The radius is squared, so 2 squared is 4, then multiply by the height 5 to get 20. Multiply by pi to finish: 20 pi cubic cm. Squaring the height instead of the radius is a common mix-up and gives 50 pi.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "How many milliliters are in 2.5 liters?",
+ "d": "2,500 mL",
+ "c": 4,
+ "w": [
+  "250 mL",
+  "25,000 mL",
+  "2.5 mL"
+ ],
+ "qd": "2,500 mL, since 1 liter equals 1,000 mL and 2.5 times 1,000 is 2,500.",
+ "qw": [
+  "250 mL, since 2.5 liters equals 2.5 times 100 mL.",
+  "25,000 mL, since 2.5 liters equals 2.5 times 10,000 mL.",
+  "2.5 mL, since the number of liters is the same as milliliters."
+ ],
+ "e": "The metric prefix milli means one thousandth, so 1 liter equals 1,000 milliliters. Multiply 2.5 by 1,000 to get 2,500 mL. Moving the decimal point three places to the right does the same thing.",
+ "u": "https://www.nist.gov/pml/special-publication-811",
+ "s": "NIST: Guide for the Use of the International System of Units (SP 811)"
+},
+{
+ "t": "A patient weighs 154 pounds. About how many kilograms is this? (One kilogram is about 2.2 pounds.)",
+ "d": "About 70 kg",
+ "c": 4,
+ "w": [
+  "About 340 kg",
+  "About 7 kg",
+  "About 150 kg"
+ ],
+ "qd": "About 70 kilograms, since 154 divided by 2.2 is 70.",
+ "qw": [
+  "About 340 kilograms, since 154 times 2.2 is about 339.",
+  "About 7 kilograms, since 154 divided by 22 is 7.",
+  "About 150 kilograms, since a kilogram is about one pound."
+ ],
+ "e": "To convert pounds to kilograms, divide by 2.2, because one kilogram is about 2.2 pounds. 154 divided by 2.2 is 70, so the patient weighs about 70 kg. Multiplying instead of dividing gives a number far too large, which is a quick way to spot the error.",
+ "u": "https://www.nist.gov/pml/special-publication-811",
+ "s": "NIST: Guide for the Use of the International System of Units (SP 811)"
+},
+{
+ "t": "In anatomical position, where are the palms of the hands facing?",
+ "d": "Forward, with the arms at the sides.",
+ "c": 5,
+ "w": [
+  "Backward, toward the back of the body.",
+  "Upward, with the fingers pointed toward the ceiling.",
+  "Inward, toward the midline of the body."
+ ],
+ "qd": "Facing forward, with the arms hanging at the sides.",
+ "qw": [
+  "Facing backward, toward the back of the body.",
+  "Facing upward, with the fingers pointed toward the ceiling.",
+  "Facing inward, toward the midline of the body."
+ ],
+ "e": "Anatomical position is the standard reference: the body stands upright, feet flat, palms facing forward, and arms at the sides. Doctors describe where structures are relative to this position, so the same terms mean the same thing every time. For example, the thumb is lateral to the index finger in this position.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Where does gas exchange between the air and the blood occur in the lungs?",
+ "d": "In the alveoli, tiny air sacs surrounded by capillaries.",
+ "c": 5,
+ "w": [
+  "In the trachea, the tube that carries air down the neck.",
+  "In the bronchi, which carry blood away from the heart.",
+  "In the diaphragm, which pulls air into the lungs directly."
+ ],
+ "qd": "In the alveoli, the tiny air sacs wrapped in capillaries.",
+ "qw": [
+  "In the trachea, the windpipe that runs down the front of the neck.",
+  "In the bronchi, which carry blood away from the heart to the body.",
+  "In the diaphragm, the muscle that moves air into the lungs directly."
+ ],
+ "e": "Oxygen passes from the alveoli into the capillary blood, and carbon dioxide passes the other way. The alveoli have very thin walls and a large surface area, which makes the exchange efficient. The trachea and bronchi carry air, but they do not exchange gases.",
+ "u": "https://medlineplus.gov/lungdiseases.html",
+ "s": "MedlinePlus: Lung Diseases"
+},
+{
+ "t": "During inhalation, what happens to the diaphragm and the chest cavity?",
+ "d": "The diaphragm contracts and moves down, so the chest cavity gets larger and air rushes in.",
+ "c": 5,
+ "w": [
+  "The diaphragm relaxes and moves up, so the chest cavity gets larger.",
+  "The diaphragm contracts and moves up, pushing air out of the lungs.",
+  "The diaphragm relaxes and moves down, so air is forced out of the lungs."
+ ],
+ "qd": "The diaphragm contracts and flattens downward, enlarging the chest so air enters.",
+ "qw": [
+  "The diaphragm relaxes and rises upward, enlarging the chest so air enters.",
+  "The diaphragm contracts and rises upward, pushing air out of the lungs.",
+  "The diaphragm relaxes and drops downward, forcing air out of the lungs."
+ ],
+ "e": "Inhalation is active: the diaphragm contracts and moves down, and the ribs lift outward. This increases chest volume and lowers the pressure inside the lungs, so air flows in. Exhalation is usually passive, because the diaphragm relaxes and the lungs recoil.",
+ "u": "https://medlineplus.gov/lungdiseases.html",
+ "s": "MedlinePlus: Lung Diseases"
+},
+{
+ "t": "Which chamber of the heart pumps oxygen-rich blood to the rest of the body?",
+ "d": "The left ventricle.",
+ "c": 5,
+ "w": [
+  "The right atrium, which receives blood from the body.",
+  "The right ventricle, which pumps blood to the lungs.",
+  "The left atrium, which pumps blood directly into the aorta."
+ ],
+ "qd": "The left ventricle, which sends blood through the aorta to the body's tissues.",
+ "qw": [
+  "The right atrium, which receives blood returning from the body.",
+  "The right ventricle, which pumps blood out to the lungs.",
+  "The left atrium, which pushes blood directly into the aorta."
+ ],
+ "e": "Oxygen-rich blood returns from the lungs to the left atrium, then moves to the left ventricle. The left ventricle has the thickest muscle wall because it pumps blood through the whole body. The right side handles the shorter, lower-pressure trip to the lungs.",
+ "u": "https://medlineplus.gov/heartdiseases.html",
+ "s": "MedlinePlus: Heart Diseases"
+},
+{
+ "t": "Which type of blood vessel carries blood away from the heart and has thick, elastic walls?",
+ "d": "An artery.",
+ "c": 5,
+ "w": [
+  "A vein, which carries blood back to the heart with thin walls.",
+  "A capillary, which has walls one cell thick and sits in tissues.",
+  "A venule, which collects blood from capillaries near the skin."
+ ],
+ "qd": "An artery, which carries blood away from the heart under high pressure.",
+ "qw": [
+  "A vein, which carries blood back to the heart through thin walls.",
+  "A capillary, whose walls are a single cell layer thick in tissues.",
+  "A venule, which gathers blood from capillaries near the skin surface."
+ ],
+ "e": "Arteries carry blood away from the heart and must withstand high pressure, so their walls are thick and elastic. Veins return blood to the heart at lower pressure, so their walls are thinner and many have valves. Capillaries are the tiny vessels where exchange with tissues happens.",
+ "u": "https://medlineplus.gov/heartdiseases.html",
+ "s": "MedlinePlus: Heart Diseases"
+},
+{
+ "t": "Where does most chemical digestion and absorption of nutrients take place?",
+ "d": "In the small intestine.",
+ "c": 5,
+ "w": [
+  "In the stomach, where most nutrients are absorbed into the blood.",
+  "In the mouth, where all protein is broken down before swallowing.",
+  "In the large intestine, where most nutrients enter the bloodstream."
+ ],
+ "qd": "In the small intestine, where most nutrients are digested and absorbed.",
+ "qw": [
+  "In the stomach, where most nutrients enter the bloodstream directly.",
+  "In the mouth, where all proteins are broken down before swallowing.",
+  "In the large intestine, where most nutrients are taken into the blood."
+ ],
+ "e": "Digestion breaks food into small molecules, and most of it finishes in the small intestine, which is long and lined with villi that absorb nutrients. The stomach starts protein digestion, and the large intestine mainly absorbs water. Knowing which organ does which job is the key to these questions.",
+ "u": "https://medlineplus.gov/digestivediseases.html",
+ "s": "MedlinePlus: Digestive Diseases"
+},
+{
+ "t": "Which part of the nervous system is made of the brain and spinal cord?",
+ "d": "The central nervous system.",
+ "c": 5,
+ "w": [
+  "The peripheral nervous system, which connects to limbs and organs.",
+  "The autonomic nervous system, which controls the heartbeat automatically.",
+  "The somatic nervous system, which carries signals to skeletal muscle."
+ ],
+ "qd": "The central nervous system, made of the brain and spinal cord.",
+ "qw": [
+  "The peripheral nervous system, which links the body to the limbs and organs.",
+  "The autonomic nervous system, which controls the heartbeat without thought.",
+  "The somatic nervous system, which carries signals to skeletal muscles."
+ ],
+ "e": "The central nervous system, or CNS, is the brain and spinal cord, and it processes information. The peripheral nervous system is every nerve outside the CNS, and it carries signals to and from the body. Autonomic and somatic are two divisions of the peripheral system.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which gland makes insulin and releases it into the blood to lower blood glucose?",
+ "d": "The pancreas, through its beta cells.",
+ "c": 5,
+ "w": [
+  "The thyroid, which releases hormones that set the body's metabolic rate.",
+  "The adrenal glands, which release cortisol during long-term stress.",
+  "The pituitary gland, which releases growth hormone from the brain base."
+ ],
+ "qd": "The pancreas, specifically its beta cells, which release insulin into the blood.",
+ "qw": [
+  "The thyroid, which releases hormones that set the body's metabolic rate.",
+  "The adrenal glands, which release cortisol during long-term stress.",
+  "The pituitary gland, which releases growth hormone from the base of the brain."
+ ],
+ "e": "Insulin is made by beta cells in the pancreas and released into the blood when glucose rises after a meal. It helps cells take up glucose, which lowers blood glucose. Insulin does not come from the thyroid or the adrenal glands.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "What is the main job of the kidneys?",
+ "d": "Filter the blood to remove wastes and balance water and salts.",
+ "c": 5,
+ "w": [
+  "Pump blood through the body by contracting like a muscle.",
+  "Make red blood cells in the bone marrow for oxygen transport.",
+  "Break down food into nutrients in the digestive tract."
+ ],
+ "qd": "Filter the blood to remove wastes and keep water and salts in balance.",
+ "qw": [
+  "Pump blood through the body by contracting in a steady rhythm.",
+  "Produce red blood cells in the marrow for carrying oxygen.",
+  "Break down food into nutrients before it enters the bloodstream."
+ ],
+ "e": "Each kidney contains about a million filtering units called nephrons, which remove wastes like urea and adjust how much water and salt the body keeps. Urine carries those wastes out of the body. Pumping blood is the heart's job, and making red blood cells happens in bone marrow.",
+ "u": "https://medlineplus.gov/kidneydiseases.html",
+ "s": "MedlinePlus: Kidney Diseases"
+},
+{
+ "t": "What do B cells do in the immune system?",
+ "d": "Make antibodies that bind to specific antigens.",
+ "c": 5,
+ "w": [
+  "Attack and destroy infected cells directly with toxic granules.",
+  "Engulf and digest bacteria, but do not make any antibodies.",
+  "Regulate blood pressure by releasing hormones into the bloodstream."
+ ],
+ "qd": "Produce antibodies that target specific antigens on invaders.",
+ "qw": [
+  "Attack and destroy infected body cells directly with toxic granules.",
+  "Engulf and digest bacteria without making any antibodies.",
+  "Regulate blood pressure by releasing hormones into the blood."
+ ],
+ "e": "B cells mature into plasma cells that secrete antibodies, which are proteins that recognize specific antigens. Antibodies can tag pathogens so the immune system can destroy them. Killing infected cells is the job of cytotoxic T cells, which is a different branch of the immune system.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which tissue joins bone to bone at a joint, and which joins muscle to bone?",
+ "d": "Ligaments join bone to bone, and tendons join muscle to bone.",
+ "c": 5,
+ "w": [
+  "Tendons join bone to bone, and ligaments join muscle to bone.",
+  "Cartilage joins bone to bone, and ligaments join muscle to bone.",
+  "Ligaments join muscle to bone, and tendons join bone to bone."
+ ],
+ "qd": "Ligaments connect bone to bone, and tendons connect muscle to bone.",
+ "qw": [
+  "Tendons connect bone to bone, and ligaments connect muscle to bone.",
+  "Cartilage connects bone to bone, and ligaments connect muscle to bone.",
+  "Ligaments connect muscle to bone, and tendons connect bone to bone."
+ ],
+ "e": "Ligaments are tough bands that hold bones together at joints. Tendons are cords of connective tissue that attach muscle to bone and transmit force to move the skeleton. A memory trick: a ligament links bone to bone, and a tendon tethers muscle to bone.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which organelle is the site of cellular respiration, where most ATP is produced?",
+ "d": "The mitochondrion.",
+ "c": 6,
+ "w": [
+  "The ribosome, which assembles proteins from amino acids.",
+  "The nucleus, which stores the cell's genetic material.",
+  "The lysosome, which breaks down worn-out cell parts."
+ ],
+ "qd": "The mitochondrion, the organelle that makes most of the cell's ATP.",
+ "qw": [
+  "The ribosome, which assembles proteins from amino acids in the cytoplasm.",
+  "The nucleus, which holds the cell's genetic material in its center.",
+  "The lysosome, which digests worn-out cell parts using enzymes."
+ ],
+ "e": "Mitochondria carry out cellular respiration, which turns glucose and oxygen into ATP, the cell's energy currency. Ribosomes build proteins, the nucleus stores DNA, and lysosomes digest waste. Each organelle has one main job, so match the job to the organelle.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which structure is found in plant cells but not in typical animal cells?",
+ "d": "A rigid cell wall made of cellulose.",
+ "c": 6,
+ "w": [
+  "A cell membrane that controls what enters and leaves the cell.",
+  "A nucleus that holds the cell's DNA inside a membrane.",
+  "Mitochondria that release energy from food through respiration."
+ ],
+ "qd": "A rigid cell wall made of cellulose, outside the cell membrane.",
+ "qw": [
+  "A cell membrane that controls what passes into and out of the cell.",
+  "A nucleus that holds the cell's DNA inside a membrane.",
+  "Mitochondria that release energy from food through respiration."
+ ],
+ "e": "Plant cells have a cell wall made of cellulose, which gives them rigid support. Typical animal cells have only a flexible outer membrane. Plant and animal cells both have a membrane, a nucleus, and mitochondria, so those are not the difference.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "What is the basic building block of DNA?",
+ "d": "A nucleotide, made of a sugar, a phosphate group, and a nitrogen base.",
+ "c": 6,
+ "w": [
+  "An amino acid, which links together to form a protein chain.",
+  "A fatty acid, which forms the core of the cell membrane.",
+  "A glucose molecule, which is stored as glycogen in the liver."
+ ],
+ "qd": "A nucleotide, made of a sugar, a phosphate group, and a nitrogen base.",
+ "qw": [
+  "An amino acid, which links together to form a protein chain.",
+  "A fatty acid, which forms the core of a cell membrane.",
+  "A glucose molecule, which is stored as glycogen in the liver."
+ ],
+ "e": "DNA is a long chain of nucleotides, and each one has a sugar, a phosphate group, and one of four bases: A, T, C, or G. Amino acids are the building blocks of proteins, not DNA. The order of the bases carries the genetic code.",
+ "u": "https://medlineplus.gov/genetics/understanding/basics/dna/",
+ "s": "MedlinePlus: DNA basics"
+},
+{
+ "t": "A sequence of DNA bases is read in groups of three to make a protein. What is each group of three bases called?",
+ "d": "A codon.",
+ "c": 6,
+ "w": [
+  "An allele, which is a version of a gene found in a person.",
+  "A chromosome, which is a long structure made of DNA and protein.",
+  "An enzyme, which speeds up chemical reactions in the cell."
+ ],
+ "qd": "A codon, a group of three bases that specifies one amino acid.",
+ "qw": [
+  "An allele, a version of a gene that a person can carry.",
+  "A chromosome, a long coiled structure of DNA and protein.",
+  "An enzyme, a protein that speeds up reactions in the cell."
+ ],
+ "e": "Each codon of three bases calls for one amino acid, and the chain of amino acids folds into a protein. Alleles are versions of a gene, and chromosomes are the packages that carry DNA. Enzymes are proteins that speed up reactions, so they are a product of the code rather than its unit.",
+ "u": "https://medlineplus.gov/genetics/understanding/basics/dna/",
+ "s": "MedlinePlus: DNA basics"
+},
+{
+ "t": "Two parents who are both heterozygous (Aa) have children. What is the chance a child has the recessive genotype (aa)?",
+ "d": "1 in 4, or 25 percent.",
+ "c": 6,
+ "w": [
+  "1 in 2, or 50 percent",
+  "3 in 4, or 75 percent",
+  "1 in 8, or 12.5 percent"
+ ],
+ "qd": "1 in 4, or 25 percent, from the Punnett square with one aa box out of four.",
+ "qw": [
+  "1 in 2, or 50 percent, since each parent passes on one allele.",
+  "3 in 4, or 75 percent, since three of four boxes show the recessive trait.",
+  "1 in 8, or 12.5 percent, since there are eight possible combinations."
+ ],
+ "e": "A Punnett square crosses the parents' alleles: each parent gives A or a, so the four boxes are AA, Aa, Aa, and aa. Only one of the four boxes is aa, so the chance is 1 in 4. The recessive trait shows only when both alleles are recessive.",
+ "u": "https://medlineplus.gov/genetics/",
+ "s": "MedlinePlus: Genetics"
+},
+{
+ "t": "Brown eyes (B) are dominant over blue eyes (b). A child with blue eyes has which genotype?",
+ "d": "bb",
+ "c": 6,
+ "w": [
+  "Bb",
+  "BB",
+  "Bb or BB"
+ ],
+ "qd": "bb, since blue eyes show only when both alleles are recessive.",
+ "qw": [
+  "Bb, since one dominant allele is enough to hide the recessive one.",
+  "BB, since two dominant alleles are needed to show blue eyes.",
+  "Bb or BB, since either pattern can produce a child with blue eyes."
+ ],
+ "e": "A child shows a recessive trait only with two copies of the recessive allele, so blue eyes must be bb. A genotype of Bb or BB has at least one dominant B, which produces brown eyes. Dominant means the trait shows with just one copy.",
+ "u": "https://medlineplus.gov/genetics/",
+ "s": "MedlinePlus: Genetics"
+},
+{
+ "t": "Which type of microorganism causes most common colds?",
+ "d": "Viruses, such as rhinoviruses.",
+ "c": 6,
+ "w": [
+  "Bacteria, such as Streptococcus, which are the main cause of colds.",
+  "Fungi, such as yeast, which grow in the nose and throat.",
+  "Protozoa, such as Giardia, which live in the blood during a cold."
+ ],
+ "qd": "Viruses, with rhinoviruses being a common example.",
+ "qw": [
+  "Bacteria, such as Streptococcus, which is the main cause of colds.",
+  "Fungi, such as yeast, which grow inside the nose and throat.",
+  "Protozoa, such as Giardia, which infect the blood during a cold."
+ ],
+ "e": "Most colds are caused by viruses, and antibiotics do not work against them because antibiotics target bacteria. Strep throat is a bacterial infection, which is a different illness. Knowing the type of pathogen guides which treatment is appropriate.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which macromolecule is the main form of stored energy in the body's fat tissue?",
+ "d": "Lipids, stored as triglycerides in fat cells.",
+ "c": 6,
+ "w": [
+  "Proteins, which are stored in fat cells as muscle fibers.",
+  "Nucleic acids, which are stored as energy in the liver.",
+  "Carbohydrates, which store most energy in fat cells as triglycerides."
+ ],
+ "qd": "Lipids, stored as triglycerides in fat cells.",
+ "qw": [
+  "Proteins, stored in fat cells as muscle fibers.",
+  "Nucleic acids, stored as energy in the liver.",
+  "Carbohydrates, which store most energy in fat cells as triglycerides."
+ ],
+ "e": "Fat tissue stores energy as triglycerides, which are lipids, and lipids release more energy per gram than carbohydrates. Proteins build and repair tissue, and nucleic acids carry genetic information. Carbohydrates are mostly stored as glycogen in muscle and the liver.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which atomic particles make a neutral atom, and how do their numbers compare?",
+ "d": "Protons and electrons are equal in number, so their charges cancel out.",
+ "c": 7,
+ "w": [
+  "Protons outnumber electrons by one in every neutral atom.",
+  "Electrons outnumber protons, which gives the atom a positive charge.",
+  "Neutrons equal the electrons, so the protons are fewer in number."
+ ],
+ "qd": "They are equal, so the positive and negative charges cancel out.",
+ "qw": [
+  "Protons outnumber electrons by one in every neutral atom.",
+  "Electrons outnumber protons, which gives the atom a positive charge.",
+  "Neutrons equal the electrons, so the protons are fewer in number."
+ ],
+ "e": "Protons carry a positive charge and electrons carry a negative one, and a neutral atom has the same number of each. Neutrons have no charge and are not part of this balance. An atom with extra electrons would be negatively charged, which makes it an ion rather than a neutral atom.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which change is a chemical change?",
+ "d": "Iron rusting when it reacts with oxygen and water.",
+ "c": 7,
+ "w": [
+  "Ice melting into liquid water at room temperature.",
+  "Sugar dissolving into a glass of warm tea.",
+  "Paper being torn into smaller pieces by hand."
+ ],
+ "qd": "Iron rusting after it reacts with oxygen and moisture.",
+ "qw": [
+  "Ice melting into liquid water on a warm day.",
+  "Sugar dissolving into a glass of warm tea.",
+  "Paper being torn into smaller pieces by hand."
+ ],
+ "e": "A chemical change forms new substances with different properties, and rust is iron oxide, a new compound. Melting, dissolving, and tearing change only the form or state of the matter, so they are physical changes. Looking for a new substance is the key clue.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "In the balanced equation 2H2 + O2 -> 2H2O, how many molecules of water form from 2 molecules of hydrogen gas?",
+ "d": "2 molecules of water.",
+ "c": 7,
+ "w": [
+  "1 molecule of water.",
+  "4 molecules of water.",
+  "3 molecules of water."
+ ],
+ "qd": "2 molecules of water, because the balanced equation has a 2 in front of H2O.",
+ "qw": [
+  "1 molecule of water, since oxygen is the limiting reactant here.",
+  "4 molecules of water, since each hydrogen molecule makes two water molecules.",
+  "3 molecules of water, from adding the 2 hydrogen and 1 oxygen molecules."
+ ],
+ "e": "A balanced equation has the same number of each kind of atom on both sides: 4 H and 2 O on each side. The coefficient 2 in front of H2O means 2 water molecules form. Coefficients count molecules, while subscripts count atoms within one molecule.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A solution is made by dissolving 10 grams of salt in 90 grams of water. What is the concentration of salt, as a percent by mass?",
+ "d": "10 percent by mass.",
+ "c": 7,
+ "w": [
+  "9 percent by mass.",
+  "11 percent by mass.",
+  "90 percent by mass."
+ ],
+ "qd": "10 percent by mass, since 10 grams of salt is out of 100 grams total.",
+ "qw": [
+  "9 percent by mass, from dividing 9 by 100 for the water.",
+  "11 percent by mass, from adding 1 gram of extra salt to the total.",
+  "90 percent by mass, since the water makes up most of the solution."
+ ],
+ "e": "Percent by mass is the mass of the solute divided by the total mass of the solution, times 100. The solution's total mass is 10 g plus 90 g, which is 100 g. So 10 divided by 100, times 100, is 10 percent.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "What is the pH of a solution that is neutral at room temperature?",
+ "d": "7",
+ "c": 7,
+ "w": [
+  "0",
+  "14",
+  "5"
+ ],
+ "qd": "7, which is the midpoint of the pH scale.",
+ "qw": [
+  "0, which is the most basic value on the pH scale.",
+  "14, which is the most acidic value on the pH scale.",
+  "5, which is the midpoint of the pH scale."
+ ],
+ "e": "The pH scale runs from 0 to 14. Values below 7 are acidic, values above 7 are basic, and 7 is neutral, like pure water at 25 degrees Celsius. Each whole-number drop in pH means ten times more acid.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A solution with a pH of 3 is how many times more acidic than a solution with a pH of 6?",
+ "d": "1,000 times more acidic.",
+ "c": 7,
+ "w": [
+  "3 times more acidic.",
+  "10 times more acidic.",
+  "2 times more acidic."
+ ],
+ "qd": "1,000 times more acidic, since each pH step is ten times and three steps is 10 cubed.",
+ "qw": [
+  "3 times more acidic, since the pH difference is three.",
+  "10 times more acidic, since each step is ten times the one before.",
+  "2 times more acidic, since 6 minus 3 gives the ratio."
+ ],
+ "e": "Each one-unit change on the pH scale is a tenfold change in hydrogen ion concentration. The difference between pH 3 and pH 6 is three units, and 10 multiplied by itself three times equals 1,000. So the pH 3 solution is 1,000 times more acidic.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which tool would most precisely measure 0.5 milliliters of liquid?",
+ "d": "A 1 mL syringe marked in 0.01 mL increments.",
+ "c": 8,
+ "w": [
+  "A 500 mL beaker marked in 50 mL increments.",
+  "A 100 mL graduated cylinder marked in 1 mL increments.",
+  "A large kitchen measuring cup marked in quarter-cup increments."
+ ],
+ "qd": "A 1 mL syringe marked in 0.01 mL steps, since its scale is the finest.",
+ "qw": [
+  "A 500 mL beaker marked in 50 mL steps, which is very rough.",
+  "A 100 mL graduated cylinder marked in 1 mL steps.",
+  "A kitchen measuring cup marked in quarter-cup steps."
+ ],
+ "e": "Precision depends on the smallest mark on a tool. A 1 mL syringe marked every 0.01 mL can read 0.50 mL clearly, while a beaker with 50 mL steps cannot. Choose the tool whose smallest division is close to the amount you need to measure.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A randomized trial of 500 patients found that those given a new drug improved more than those given a placebo. Which conclusion is best supported?",
+ "d": "The drug probably caused the gain, because a placebo group was used for comparison.",
+ "c": 8,
+ "w": [
+  "The drug works for everyone, since every group showed some improvement.",
+  "The placebo group improved more, so the drug must have harmed patients.",
+  "The result is meaningless, since 500 patients is too few for any trial."
+ ],
+ "qd": "The drug probably caused the gain, because a placebo group was used for comparison.",
+ "qw": [
+  "The drug works for everyone, since every group showed some improvement.",
+  "The placebo group improved more, so the drug must have harmed patients.",
+  "The result is meaningless, since 500 patients is too few for any trial."
+ ],
+ "e": "A randomized trial assigns people to groups by chance, so the groups are comparable. Because the drug group improved more than the placebo group, the evidence supports a drug effect. Claims that go beyond the evidence, like works for everyone, are not supported.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "In the scientific method, what is a hypothesis?",
+ "d": "A testable prediction that data can support or refute.",
+ "c": 8,
+ "w": [
+  "A final conclusion that is proven true after one experiment.",
+  "A list of all materials used in the experiment and their costs.",
+  "A summary of the data showing the average result of the study."
+ ],
+ "qd": "A testable prediction that data can support or refute.",
+ "qw": [
+  "A final conclusion that is proven true after a single experiment.",
+  "A list of all materials used in an experiment, with their costs.",
+  "A summary of the data showing the average result of a study."
+ ],
+ "e": "A hypothesis is a testable statement, often written as if-then, that predicts an outcome. An experiment is designed to test it, and the data can support or refute it. A hypothesis is not a proven conclusion, and it is not a list of materials.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "In an experiment testing whether fertilizer affects plant height, what is the independent variable?",
+ "d": "The amount of fertilizer each plant receives.",
+ "c": 8,
+ "w": [
+  "The height of each plant at the end of the study.",
+  "The type of soil and the pot size used for each plant.",
+  "The number of days the plants were watered each week."
+ ],
+ "qd": "The amount of fertilizer each plant receives, which the scientist changes.",
+ "qw": [
+  "The final height of each plant measured at the end of the study.",
+  "The soil type and pot size, which are kept the same for all plants.",
+  "The number of days each plant is watered, which is set in advance."
+ ],
+ "e": "The independent variable is the factor the scientist deliberately changes, here the fertilizer amount. The dependent variable is what gets measured, here plant height. Keeping soil and pot size the same is a control, which makes the comparison fair.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "A table shows that each extra hour of study led to a higher test score. What is the best prediction for 3 more hours of study, if the pattern continues?",
+ "d": "Scores would likely rise, if the same pattern continues.",
+ "c": 8,
+ "w": [
+  "Scores would drop sharply, since study time lowers test results.",
+  "Scores would stay exactly the same, since study time has no effect.",
+  "Scores would double, since three extra hours is exactly twice as much."
+ ],
+ "qd": "Scores would likely rise, if the same pattern continues.",
+ "qw": [
+  "Scores would drop sharply, since more study time lowers test results.",
+  "Scores would stay exactly the same, since study time has no effect.",
+  "Scores would double, since three extra hours is twice as much study."
+ ],
+ "e": "Predicting means extending a pattern in the data while noting its limits. The table shows that scores go up with each extra hour, so the best prediction is that scores keep rising. Certainty is not possible, which is why the answer says likely.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence is a complete sentence?",
+ "d": "The nurse checked the patient's blood pressure before lunch.",
+ "c": 9,
+ "w": [
+  "Checking the patient's blood pressure before lunch every day.",
+  "Because the nurse checked the chart carefully and quickly.",
+  "The nurse who checked the patient's blood pressure before lunch."
+ ],
+ "qd": "The nurse checked the patient's blood pressure before lunch.",
+ "qw": [
+  "Checking the patient's blood pressure before lunch every single day.",
+  "Because the nurse checked the chart carefully and then quickly.",
+  "The nurse who checked the patient's blood pressure before lunch."
+ ],
+ "e": "A complete sentence needs a subject and a finite verb, and it must express a full thought. Phrases that start with -ing or with because, and relative clauses that start with who, are fragments when they stand alone. Test each option by asking whether it could stand on its own.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence correctly fixes this run-on: 'The lab opened late the staff was ready.'?",
+ "d": "The lab opened late, but the staff was ready.",
+ "c": 9,
+ "w": [
+  "The lab opened late the staff was ready and calm.",
+  "The lab opened late, the staff was ready.",
+  "The lab opened late and, the staff was ready."
+ ],
+ "qd": "The lab opened late, yet the staff was ready.",
+ "qw": [
+  "The lab opened late the staff was ready and calm.",
+  "The lab opened late, the staff was ready.",
+  "The lab opened late and, the staff was ready."
+ ],
+ "e": "A run-on joins two complete sentences with no punctuation or conjunction. You can fix it with a period, a semicolon, or a comma plus a coordinating conjunction like but. A comma alone creates a comma splice, which is also an error.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence uses commas correctly?",
+ "d": "After the meeting, the nurse wrote the notes, and then she went home.",
+ "c": 9,
+ "w": [
+  "After the meeting the nurse, wrote the notes and then, she went home.",
+  "After the meeting, the nurse wrote, the notes and went home.",
+  "After the meeting, the nurse, wrote the notes, and then went home."
+ ],
+ "qd": "After the meeting, the nurse wrote the notes, and then she went home.",
+ "qw": [
+  "After the meeting the nurse, wrote the notes and then, she went home.",
+  "After the meeting, the nurse wrote, the notes and went home.",
+  "After the meeting, the nurse, wrote the notes, and then went home."
+ ],
+ "e": "Use a comma after an introductory phrase such as After the meeting. Use a comma before a coordinating conjunction such as and when it joins two complete sentences. Commas should not separate a subject from its verb or a verb from its object.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence uses a semicolon correctly?",
+ "d": "The clinic opened early; patients began arriving before seven.",
+ "c": 9,
+ "w": [
+  "The clinic opened early; and patients began arriving before seven.",
+  "The clinic opened; early, patients began arriving before seven.",
+  "The clinic opened early; patients, began arriving before seven."
+ ],
+ "qd": "The clinic opened early; patients began arriving before seven.",
+ "qw": [
+  "The clinic opened early, patients began arriving before seven.",
+  "The clinic opened; early, patients began arriving before seven.",
+  "The clinic opened early; patients, began arriving before seven."
+ ],
+ "e": "A semicolon joins two closely related complete sentences without a conjunction. It should not be followed by and or but in the same join. The first wrong choice places and after the semicolon, which is an error, and the second splits the sentence in the wrong place.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which word is spelled correctly?",
+ "d": "Necessary",
+ "c": 9,
+ "w": [
+  "Neccessary",
+  "Necesary",
+  "Neccesary"
+ ],
+ "qd": "Necessary, with one c and two s's.",
+ "qw": [
+  "Neccessary, with two c's and two s's.",
+  "Necesary, with one s and one c.",
+  "Neccesary, with two c's and one s."
+ ],
+ "e": "Necessary is spelled with one c and two s's. A memory trick is one collar, two sleeves, which matches one c and two s's. The most common error is adding a second c, which does not belong in this word.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which spelling of the verb meaning to get something sent to you is correct?",
+ "d": "Receive",
+ "c": 9,
+ "w": [
+  "Recieve",
+  "Receeve",
+  "Reciave"
+ ],
+ "qd": "Receive, which follows the i before e rule for the ei pattern after c.",
+ "qw": [
+  "Recieve, which follows the i before e rule.",
+  "Receeve, with an extra e to show the long vowel.",
+  "Reciave, with the a and i switched in the middle."
+ ],
+ "e": "The rule i before e, except after c, covers this word: the ei pattern comes after c, so it is spelled ei. Spelling errors like recieve are among the most common on writing tests. Read the word aloud and check each vowel pair.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence has subject-verb agreement that is correct?",
+ "d": "The results from the tests are ready for review.",
+ "c": 10,
+ "w": [
+  "The results from the tests is ready for review.",
+  "The result from the tests are ready for review.",
+  "The results from the test is ready for review."
+ ],
+ "qd": "The results from the tests are ready for review.",
+ "qw": [
+  "The results from the tests was ready for review.",
+  "The result from the tests are ready for review.",
+  "The result from the test is ready for review."
+ ],
+ "e": "The subject of the verb is results, which is plural, so it takes are. The phrase from the tests is a prepositional phrase that does not change the subject. Mismatching a singular or plural verb with its subject is a common agreement error.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence uses the correct pronoun?",
+ "d": "Between you and me, the schedule is too full.",
+ "c": 10,
+ "w": [
+  "Between you and I, the schedule is too full.",
+  "Between you and myself, the schedule is too full.",
+  "Between you and me, the schedule are too full."
+ ],
+ "qd": "Between you and me, the schedule is too full.",
+ "qw": [
+  "Between you and I, the schedule is too full.",
+  "Between you and myself, the schedule is too full.",
+  "Between you and me, the schedules is too full."
+ ],
+ "e": "After a preposition like between, use the object pronoun me, not I. A quick check is to drop the other person and see whether the sentence still sounds right: between I is wrong, and between me is right. Myself works only as a reflexive pronoun, not as a stand-in for me.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence places the modifier carefully so it describes the right action?",
+ "d": "The nurse carefully labeled each tube before sending it to the lab.",
+ "c": 10,
+ "w": [
+  "The nurse labeled each tube carefully sent to the lab.",
+  "Carefully, the nurse labeled before each tube sent to the lab.",
+  "The nurse labeled each carefully tube before sending it to the lab."
+ ],
+ "qd": "The nurse carefully labeled each tube before sending it to the lab.",
+ "qw": [
+  "The nurse labeled each tube before sending it carefully to the lab in a rush.",
+  "The nurse carefully to label each tube before sending it to the lab.",
+  "The carefully nurse labeled each tube before sending it to the lab."
+ ],
+ "e": "A modifier should sit next to the word it describes. Carefully describes how the nurse labeled the tubes, so it belongs next to labeled. Placing it far from its verb can make the sentence say something unintended.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which sentence uses parallel structure?",
+ "d": "The job requires checking charts, drawing blood, and answering phones.",
+ "c": 10,
+ "w": [
+  "The job requires checking charts, drawing blood, and to answer phones.",
+  "The job requires to check charts, drawing blood, and answering phones.",
+  "The job requires checking charts, blood drawing, and answering the phones."
+ ],
+ "qd": "The job requires checking charts, drawing blood, and answering phones.",
+ "qw": [
+  "The job requires charting, to draw blood, and answering phones.",
+  "The job requires chart checking, drawing blood, and to answer phones.",
+  "The job requires checking charts, blood drawing, and phone answering."
+ ],
+ "e": "Parallel structure means the items in a list share the same grammatical form. Here all three items are -ing phrases: checking, drawing, and answering. Switching to to answer breaks the pattern and reads awkwardly.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "In the word hypotension, what does the prefix hypo- mean?",
+ "d": "Below or under normal, as in low blood pressure.",
+ "c": 11,
+ "w": [
+  "Above or over normal, as in high blood pressure.",
+  "Around or within, as in a surrounding structure.",
+  "Against or opposite, as in a counteracting effect."
+ ],
+ "qd": "Below or under normal, as in low blood pressure.",
+ "qw": [
+  "Above or over normal, as in high blood pressure.",
+  "Around or within, as in a surrounding structure.",
+  "Against or opposite, as in a counteracting effect."
+ ],
+ "e": "The prefix hypo- means under or below, and tension refers to pressure, so hypotension means low blood pressure. Its opposite, hypertension, uses the prefix hyper-, meaning over. Learning common prefixes lets you decode many unfamiliar medical words.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "The root cardi- means heart. What does cardiology mean?",
+ "d": "The study of the heart.",
+ "c": 11,
+ "w": [
+  "The study of the lungs and breathing.",
+  "The study of the skin and its layers.",
+  "The study of the bones and their growth."
+ ],
+ "qd": "The study of the heart, from cardi (heart) plus -ology (the study of).",
+ "qw": [
+  "The study of the lungs and breathing, from pulmo meaning lung.",
+  "The study of the skin, from derm meaning skin.",
+  "The study of the bones, from osteo meaning bone."
+ ],
+ "e": "Word parts combine to build meaning: cardi- means heart and -ology means the study of. Putting them together gives the study of the heart. Each wrong choice uses a different root that does not match the word.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+},
+{
+ "t": "Which step of the writing process comes right after drafting?",
+ "d": "Revising, to improve the content, organization, and clarity.",
+ "c": 11,
+ "w": [
+  "Publishing, to share the final work with the audience.",
+  "Prewriting, to brainstorm ideas before the first draft.",
+  "Proofreading, to check spelling and punctuation errors."
+ ],
+ "qd": "Revising, to improve the content, organization, and clarity of the draft.",
+ "qw": [
+  "Publishing, to share the final work with its audience.",
+  "Prewriting, to brainstorm ideas before writing the first draft.",
+  "Proofreading, to check spelling and punctuation in the draft."
+ ],
+ "e": "The writing process runs prewriting, drafting, revising, editing, and publishing. Drafting is followed by revising, which changes the big picture such as ideas and order. Proofreading comes later, once the content is settled.",
+ "u": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+ "s": "ATI: TEAS Version 7 content areas and question counts"
+}
+];

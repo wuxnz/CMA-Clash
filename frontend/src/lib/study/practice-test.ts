@@ -14,13 +14,17 @@ export const TEST_1ST_HALF_PRACTICE_PATH = '/practice-test/diabetes-test-1st-hal
 /** The untimed Phlebotomy Test Study Guide practice test. Its questions are shuffled on every visit. */
 export const PHLEB_TEST_STUDY_PRACTICE_PATH = '/practice-test/phlebotomy-test-study';
 
+/** The untimed TEAS Test Study Guide practice test. Its questions are shuffled on every visit. */
+export const TEAS_TEST_STUDY_PRACTICE_PATH = '/practice-test/teas-test-study';
+
 /** Practice test path for each seed quiz that has one. */
 const PRACTICE_TEST_PATHS: Record<string, string> = {
 	'quiz:ccma-diabetes': PRACTICE_TEST_PATH,
 	'quiz:diabetes-study-guide': PRACTICE_TEST_PATH,
 	'quiz:diabetes-test-2nd-half': TEST_2ND_HALF_PRACTICE_PATH,
 	'quiz:diabetes-test-1st-half': TEST_1ST_HALF_PRACTICE_PATH,
-	'quiz:phlebotomy-test-study': PHLEB_TEST_STUDY_PRACTICE_PATH
+	'quiz:phlebotomy-test-study': PHLEB_TEST_STUDY_PRACTICE_PATH,
+	'quiz:teas-test-study': TEAS_TEST_STUDY_PRACTICE_PATH
 };
 
 /** The practice test path for a quiz, or null when the quiz has no practice test. */
