@@ -5317,3 +5317,81 @@ STUDY_BY_TOPIC["phlebotomy-test-study"] = [
     }
     for card in _load_phleb_test_deck()["cards"]
 ]
+
+# TEAS Test Study Guide: five overview blocks first, then one block per question in the deck.
+from classquiz.seed.banks.teas_test_study import load_deck as _load_teas_test_deck  # noqa: E402
+
+_TEAS_OVERVIEW_BLOCKS: list[dict] = [
+    {
+        "title": "How the TEAS is structured",
+        "summary": "The ATI TEAS Version 7 has four timed sections: Reading, Math, Science, and English and Language Usage. Each section is scored separately and adds to one overall result. A few questions are unscored pretest items that look like the rest but do not count toward your score.",
+        "bullets": [
+            "170 questions in total: 150 scored and 20 unscored pretest items, with 209 minutes of testing time.",
+            "Reading: 39 scored questions (45 total), 55 minutes.",
+            "Math: 34 scored questions (38 total), 57 minutes.",
+            "Science: 44 scored questions (50 total), 60 minutes.",
+            "English and Language Usage: 33 scored questions (37 total), 37 minutes.",
+        ],
+        "url": "https://help.atitesting.com/what-is-the-time-limit-for-the-ati-teas-version-7/",
+        "source": "ATI: TEAS Version 7 time limit and question counts",
+    },
+    {
+        "title": "Timing, breaks, and moving between questions",
+        "summary": "Each section has its own clock, so time you save in one section does not carry over to the next. There is a short break after the math section. Inside a section you can move between questions, but once you finish a section you cannot go back to it.",
+        "bullets": [
+            "Sections run in this order: Reading, Math, Science, then English and Language Usage.",
+            "You may move between questions inside a section before you finish that section.",
+            "Once a section is finished, you cannot return to it.",
+            "Pace yourself so the last questions of each section get the same care as the first.",
+        ],
+        "url": "https://help.atitesting.com/what-is-the-ati-teas-exam-and-other-faqs/",
+        "source": "ATI: TEAS FAQs",
+    },
+    {
+        "title": "Question types to expect",
+        "summary": "Most TEAS questions are multiple choice with one best answer. About one question in five uses an alternate format, such as multiple select, fill in the blank, ordered response, or hot spot. Read the directions on each question, because they tell you how many answers to choose and what form they should take.",
+        "bullets": [
+            "Multiple choice: choose the single best answer.",
+            "Multiple select: choose every answer that applies, as many as the directions say.",
+            "Fill in the blank: type the number or word that completes the answer.",
+            "Ordered response: place the steps or items in the correct order.",
+            "Hot spot: click the correct place on a graphic or passage.",
+        ],
+        "url": "https://help.atitesting.com/what-type-of-questions-are-on-the-ati-teas-version-7/",
+        "source": "ATI: TEAS Version 7 question types",
+    },
+    {
+        "title": "Official ATI study resources",
+        "summary": "ATI publishes the official TEAS study manual, which covers all four content areas with a unit quiz for each and one full-length practice test. ATI also offers a free online practice test to show which subjects need the most work, plus two full-length 150-question practice exams with score reports. Use the official material first, then use the cards in this guide to practice the same skills.",
+        "bullets": [
+            "Start with the free ATI TEAS online practice test to see which subjects need the most work.",
+            "Use the ATI TEAS Study Manual: read each content area, then complete its unit quiz.",
+            "Take a full-length practice test under timed conditions a week or two before the exam.",
+            "SmartPrep is ATI's adaptive tutorial, with lessons and a rationale for each answer.",
+        ],
+        "url": "https://www.atitesting.com/teas/study-manual",
+        "source": "ATI: TEAS Study Manual",
+    },
+    {
+        "title": "How to use this study guide",
+        "summary": "The questions below are grouped into the four TEAS sections and then by ATI's content areas, such as key ideas and details, numbers and algebra, or conventions of standard English. Each explanation shows the method, not only the answer, so read it and work the example yourself before you move on. Your missed questions are the best guide to what to review next.",
+        "bullets": [
+            "Study one section at a time, then take that section's quiz.",
+            "Work each example with pencil before reading the explanation.",
+            "Review every missed question, and write down the method it tested.",
+            "Use the flashcards for quick recall and the practice test for timing and mixed review.",
+        ],
+        "url": "https://help.atitesting.com/what-are-the-specific-content-and-sub-content-areas-of-the-ati-teas-version-7-exam/",
+        "source": "ATI: TEAS Version 7 content areas and question counts",
+    },
+]
+
+STUDY_BY_TOPIC["teas-test-study"] = _TEAS_OVERVIEW_BLOCKS + [
+    {
+        "title": card["t"],
+        "summary": f"{card['d'].rstrip('.')}. {card['e']}",
+        "url": card["u"],
+        "source": card["s"],
+    }
+    for card in _load_teas_test_deck()["cards"]
+]

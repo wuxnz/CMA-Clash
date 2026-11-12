@@ -96,6 +96,15 @@ CERTIFICATIONS = [
             ("skill-emergency-aid", "Emergency & First Aid Basics", 13),
         ],
     },
+    {
+        "slug": "teas",
+        "name": "ATI TEAS",
+        "description": "Test of Essential Academic Skills (ATI TEAS Version 7) preparation: reading, math, science, and English, by ATI content area.",
+        "sort_order": 6,
+        "topics": [
+            ("teas-test-study", "TEAS Test Study Guide", 1),  # 77 questions, grouped by TEAS section
+        ],
+    },
 ]
 
 # Questions per public quiz for topics that need more than the default chunk size.
@@ -110,6 +119,7 @@ TOPIC_QUESTIONS_PER_GAME: dict[str, int] = {
     "diabetes-test-2nd-half": 20,
     "diabetes-test-1st-half": 20,
     "phlebotomy-test-study": 20,
+    "teas-test-study": 20,
 }
 
 

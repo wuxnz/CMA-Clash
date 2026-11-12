@@ -44,12 +44,16 @@ SPDX-License-Identifier: MPL-2.0
 		'phlebotomy-test-study': {
 			href: '/practice-test/phlebotomy-test-study',
 			label: 'Phlebotomy Test Study Guide practice test'
+		},
+		'teas-test-study': {
+			href: '/practice-test/teas-test-study',
+			label: 'TEAS Test Study Guide practice test'
 		}
 	};
 	const practiceTest = $derived(PRACTICE_TESTS[slug] ?? null);
 
 	// These study guide quizzes can be played as a battle or a match.
-	const GAME_TOPICS = ['diabetes-study-guide', 'diabetes-test-2nd-half', 'diabetes-test-1st-half', 'phlebotomy-test-study'];
+	const GAME_TOPICS = ['diabetes-study-guide', 'diabetes-test-2nd-half', 'diabetes-test-1st-half', 'phlebotomy-test-study', 'teas-test-study'];
 	const gameQuiz = $derived(GAME_TOPICS.includes(slug) ? (quizzes[0] ?? null) : null);
 	let startGame = $state<string | null>(null);
 	let battleStarting = $state(false);

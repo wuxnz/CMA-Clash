@@ -11,6 +11,7 @@ from .ccma import FACTS as CCMA_FACTS
 from .diabetes_study import FACTS as DIABETES_STUDY_FACTS
 from .diabetes_test_1st_half import FACTS as DIABETES_TEST_1ST_HALF_FACTS
 from .phlebotomy_test_study import FACTS as PHLEBOTOMY_TEST_STUDY_FACTS
+from .teas_test_study import FACTS as TEAS_TEST_STUDY_FACTS
 from .diabetes_test_2nd_half import FACTS as DIABETES_TEST_2ND_HALF_FACTS
 from .flashcard_quizzes import FACTS as FLASHCARD_QUIZ_FACTS
 from .clinical_skills import FACTS as CLINICAL_SKILLS_FACTS
@@ -27,6 +28,7 @@ _ALL_MODULES = (
     DIABETES_STUDY_FACTS,
     DIABETES_TEST_1ST_HALF_FACTS,
     PHLEBOTOMY_TEST_STUDY_FACTS,
+    TEAS_TEST_STUDY_FACTS,
     DIABETES_TEST_2ND_HALF_FACTS,
     FLASHCARD_QUIZ_FACTS,
     CLINICAL_SKILLS_FACTS,

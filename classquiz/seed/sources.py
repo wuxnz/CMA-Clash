@@ -956,6 +956,8 @@ OFFICIAL_SOURCE_DOMAINS: frozenset[str] = frozenset(
         "dietaryguidelines.gov",
         "professional.heart.org",
         "cancer.gov",
+        "atitesting.com",
+        "nist.gov",
         "accessdata.fda.gov",
     }
 )
